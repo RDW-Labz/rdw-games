@@ -1,0 +1,562 @@
+-- The C compiler identification is Clang 23.1.3
+-- The CXX compiler identification is Clang 23.1.3
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/sbin/clang - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/sbin/clang++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test HAVE_ATOMICS_WITHOUT_LIB
+-- Performing Test HAVE_ATOMICS_WITHOUT_LIB - Success
+-- Looking for __i386
+-- Looking for __i386 - not found
+-- Performing Test FLAG_SUPPORTED_Werror_unused_command_line_argument
+-- Performing Test FLAG_SUPPORTED_Werror_unused_command_line_argument - Success
+-- Performing Test FLAG_SUPPORTED_fdiagnostics_color_always
+-- Performing Test FLAG_SUPPORTED_fdiagnostics_color_always - Success
+-- Performing Test FLAG_SUPPORTED_fcolor_diagnostics
+-- Performing Test FLAG_SUPPORTED_fcolor_diagnostics - Success
+-- Performing Test FLAG_SUPPORTED_fuse_ld_mold
+-- Performing Test FLAG_SUPPORTED_fuse_ld_mold - Failed
+-- Performing Test FLAG_SUPPORTED_fuse_ld_lld
+-- Performing Test FLAG_SUPPORTED_fuse_ld_lld - Success
+-- Using lld linker
+-- Performing Test FLAG_SUPPORTED_fstack_protector_strong
+-- Performing Test FLAG_SUPPORTED_fstack_protector_strong - Success
+-- Performing Test FLAG_SUPPORTED_fstack_clash_protection
+-- Performing Test FLAG_SUPPORTED_fstack_clash_protection - Success
+-- Performing Test FLAG_SUPPORTED_fcf_protection_full
+-- Performing Test FLAG_SUPPORTED_fcf_protection_full - Success
+-- Performing Test FLAG_SUPPORTED_mbranch_protection_standard
+-- Performing Test FLAG_SUPPORTED_mbranch_protection_standard - Failed
+-- Performing Test FLAG_SUPPORTED_Wl__z_relro
+-- Performing Test FLAG_SUPPORTED_Wl__z_relro - Success
+-- Performing Test FLAG_SUPPORTED_Wl__z_now
+-- Performing Test FLAG_SUPPORTED_Wl__z_now - Success
+-- Performing Test FLAG_SUPPORTED_fno_exceptions
+-- Performing Test FLAG_SUPPORTED_fno_exceptions - Success
+-- Performing Test FLAG_SUPPORTED_fsigned_char
+-- Performing Test FLAG_SUPPORTED_fsigned_char - Success
+-- Performing Test FLAG_SUPPORTED_Wa__mbig_obj
+-- Performing Test FLAG_SUPPORTED_Wa__mbig_obj - Failed
+-- Performing Test FLAG_SUPPORTED_ffile_prefix_map__home_cluer_crg_games_ddnet__DDNet
+-- Performing Test FLAG_SUPPORTED_ffile_prefix_map__home_cluer_crg_games_ddnet__DDNet - Success
+-- Performing Test FLAG_SUPPORTED_ffile_prefix_map__home_cluer_crg_games_ddnet_build__DDNet
+-- Performing Test FLAG_SUPPORTED_ffile_prefix_map__home_cluer_crg_games_ddnet_build__DDNet - Success
+-- Performing Test FLAG_SUPPORTED_fno_ident
+-- Performing Test FLAG_SUPPORTED_fno_ident - Success
+-- Performing Test FLAG_SUPPORTED_Wall
+-- Performing Test FLAG_SUPPORTED_Wall - Success
+-- Performing Test FLAG_SUPPORTED_Wextra
+-- Performing Test FLAG_SUPPORTED_Wextra - Success
+-- Performing Test FLAG_SUPPORTED_Wno_format
+-- Performing Test FLAG_SUPPORTED_Wno_format - Success
+-- Performing Test FLAG_SUPPORTED_Wno_implicit_function_declaration
+-- Performing Test FLAG_SUPPORTED_Wno_implicit_function_declaration - Success
+-- Performing Test FLAG_SUPPORTED_Wclass_memaccess
+-- Performing Test FLAG_SUPPORTED_Wclass_memaccess - Failed
+-- Performing Test FLAG_SUPPORTED_Wduplicated_branches
+-- Performing Test FLAG_SUPPORTED_Wduplicated_branches - Failed
+-- Performing Test FLAG_SUPPORTED_Wduplicated_cond
+-- Performing Test FLAG_SUPPORTED_Wduplicated_cond - Failed
+-- Performing Test FLAG_SUPPORTED_Wdynamic_class_memaccess
+-- Performing Test FLAG_SUPPORTED_Wdynamic_class_memaccess - Success
+-- Performing Test FLAG_SUPPORTED_Wlogical_op
+-- Performing Test FLAG_SUPPORTED_Wlogical_op - Failed
+-- Performing Test FLAG_SUPPORTED_Wno_missing_field_initializers
+-- Performing Test FLAG_SUPPORTED_Wno_missing_field_initializers - Success
+-- Performing Test FLAG_SUPPORTED_Wno_nullability_completeness
+-- Performing Test FLAG_SUPPORTED_Wno_nullability_completeness - Success
+-- Performing Test FLAG_SUPPORTED_Wno_psabi
+-- Performing Test FLAG_SUPPORTED_Wno_psabi - Success
+-- Performing Test FLAG_SUPPORTED_Wno_unused_parameter
+-- Performing Test FLAG_SUPPORTED_Wno_unused_parameter - Success
+-- Performing Test FLAG_SUPPORTED_Wrestrict
+-- Performing Test FLAG_SUPPORTED_Wrestrict - Failed
+-- Performing Test FLAG_SUPPORTED_Wshadow_all
+-- Performing Test FLAG_SUPPORTED_Wshadow_all - Success
+-- Performing Test FLAG_SUPPORTED_Wshadow_global
+-- Performing Test FLAG_SUPPORTED_Wshadow_global - Failed
+-- Performing Test FLAG_SUPPORTED_Wsuggest_override
+-- Performing Test FLAG_SUPPORTED_Wsuggest_override - Success
+-- Performing Test FLAG_SUPPORTED_Wthread_safety
+-- Performing Test FLAG_SUPPORTED_Wthread_safety - Success
+-- Performing Test FLAG_SUPPORTED_Wthread_safety_negative
+-- Performing Test FLAG_SUPPORTED_Wthread_safety_negative - Success
+-- Performing Test FLAG_SUPPORTED_Wno_alloc_size_larger_than
+-- Performing Test FLAG_SUPPORTED_Wno_alloc_size_larger_than - Success
+-- Performing Test FLAG_SUPPORTED_Wno_stringop_overflow
+-- Performing Test FLAG_SUPPORTED_Wno_stringop_overflow - Success
+-- Performing Test DEFINE_FORTIFY_SOURCE_3
+-- Performing Test DEFINE_FORTIFY_SOURCE_3 - Success
+-- Performing Test DEFINE_FORTIFY_SOURCE
+-- Performing Test DEFINE_FORTIFY_SOURCE - Success
+-- Found PkgConfig: /usr/sbin/pkg-config (found version "3.0.10")
+-- Found ZLIB: /usr/lib/libz.so (found version "1.3.1")
+-- Found OpenSSL: /usr/lib/libcrypto.so (found version "3.6.5")
+-- Found Crypto: /usr/lib/libcrypto.so
+-- Checking for module 'libcurl'
+--   Found libcurl, version 8.23.0
+-- Found Curl: /usr/lib/libcurl.so
+-- Checking for module 'libavcodec'
+--   Found libavcodec, version 63.1.102
+-- Checking for module 'libavformat'
+--   Found libavformat, version 63.1.102
+-- Checking for module 'libavutil'
+--   Found libavutil, version 61.1.102
+-- Checking for module 'libswscale'
+--   Found libswscale, version 10.1.102
+-- Checking for module 'libswresample'
+--   Found libswresample, version 7.1.102
+-- Checking for one of the modules 'libx264;x264'
+-- Found FFMPEG: /usr/lib/libavcodec.so
+-- Checking for module 'freetype2'
+--   Found freetype2, version 26.7.20
+-- Found Freetype: /usr/lib/libfreetype.so
+-- Found GLEW: /usr/include (found version "2.3.1")
+-- Found GTest: /usr/lib/cmake/GTest/GTestConfig.cmake (found version "1.18.0")
+-- Checking for module 'ogg'
+--   Found ogg, version 1.3.6
+-- Found Ogg: /usr/include
+-- Checking for module 'opus'
+--   Found opus, version 1.6.1
+-- Found Opus: /usr/include/opus
+-- Checking for module 'opusfile'
+--   Found opusfile, version 0.12
+-- Found Opusfile: /usr/lib/libopusfile.so
+-- Checking for module 'libpng'
+--   Found libpng, version 1.6.59
+-- Found PNG: /usr/lib/libpng.so (found version "1.6.59")
+-- Found Python3: /home/cluer/.local/share/z13/releases/hermes-stock-l9m64A/profile/installs/24caf120b16b8c07/environments/16211b4d0d2c40a589eb7dd19ec5bbe0/venv/bin/python3.14 (found version "3.14.7") found components: Interpreter
+-- Found Rust: /home/cluer/.cargo/bin/rustc
+-- Checking for module 'sdl2'
+--   Found sdl2, version 2.32.74
+-- Found SDL2: /usr/lib/libSDL2.so
+-- Found SQLite3: /usr/lib/libsqlite3.so (found version "3.54.0")
+-- Checking for module 'sqlite3'
+--   Found sqlite3, version 3.54.0
+-- Found SQLite3: /usr/include
+-- Found Threads: TRUE
+-- Checking for module 'wavpack'
+--   Found wavpack, version 5.9.0
+-- Found Wavpack: /usr/lib/libwavpack.so
+-- Checking for module 'vulkan'
+--   Found vulkan, version 1.4.363
+-- ******** DDNet ********
+-- Target OS: linux x86_64
+-- Compiler: /usr/sbin/clang++
+-- Rust version: rustc 1.99.1 (58cf8f9c3 2026-10-13)
+-- Build type: Release
+-- Dependencies:
+--  * Curl found
+--  * FFmpeg found
+--  * Freetype found
+--  * Glew found
+--  * GTest found
+--  * Ogg found
+--  * OpenSSL Crypto found
+--  * Opus found
+--  * Opusfile found
+--  * PNG found
+--  * Python3 found
+--  * SDL2 found
+--  * SQLite3 found
+--  * Wavpack found
+--  * Zlib found
+--  * Vulkan found
+-- Found Notify: notify;gdk_pixbuf-2.0;gio-2.0;gobject-2.0;glib-2.0
+-- Found OpenGL: /usr/lib/libGL.so
+--  * EGL found
+-- Configuring done (14.2s)
+-- Generating done (0.2s)
+CMake Warning (unused-cli):
+  Manually-specified variables were not used by the project:
+
+    BUNDLED_LIBS
+    DOWNLOAD_GAMES
+
+
+-- Build files have been written to: /home/cluer/crg/games/ddnet/build
+ninja: Entering directory `build'
+[1/442] Building CXX object CMakeFiles/steam_api.dir/src/steam/steam_api_stub.cpp.o
+[2/442] Generating src/generated/protocolglue.h
+[3/442] Generating src/generated/protocol7.h
+[4/442] Generating src/generated/data_types.h
+[5/442] Linking CXX static library libsteam_api.a
+[6/442] Generating src/generated/protocol.h
+[7/442] Compiling Vulkan shader prim.frag.spv
+[8/442] Building C object CMakeFiles/json.dir/src/engine/external/json-parser/json.c.o
+[9/442] Generating src/generated/protocol.cpp
+[10/442] Generating src/generated/protocol7.cpp
+[11/442] Generating src/generated/git_revision.cpp
+[12/442] Generating src/generated/protocolglue_generated.cpp
+[13/442] Compiling Vulkan shader prim3d.vert.spv
+[14/442] Compiling Vulkan shader prim3d.frag.spv
+[15/442] Compiling Vulkan shader prim3d_textured.frag.spv
+[16/442] Compiling Vulkan shader prim.vert.spv
+[17/442] Building CXX object CMakeFiles/engine-gfx.dir/src/engine/gfx/image.cpp.o
+[18/442] Compiling Vulkan shader prim_textured.frag.spv
+[19/442] Compiling Vulkan shader prim3d_textured.vert.spv
+[20/442] Compiling Vulkan shader prim_textured.vert.spv
+[21/442] Compiling Vulkan shader primex.frag.spv
+[22/442] Building CXX object CMakeFiles/engine-gfx.dir/src/engine/gfx/image_loader.cpp.o
+[23/442] Building CXX object CMakeFiles/rust-bridge-shared.dir/src/rust-bridge/engine/shared/rust_version.cpp.o
+[24/442] Compiling Vulkan shader primex_rotationless.frag.spv
+[25/442] Compiling Vulkan shader primex.vert.spv
+[26/442] Building CXX object CMakeFiles/engine-gfx.dir/src/engine/gfx/image_manipulation.cpp.o
+[27/442] Compiling Vulkan shader primex_rotationless.vert.spv
+[28/442] Compiling Vulkan shader primex_tex.frag.spv
+[29/442] Compiling Vulkan shader primex_tex.vert.spv
+[30/442] Compiling Vulkan shader primex_tex_rotationless.vert.spv
+[31/442] Compiling Vulkan shader primex_tex_rotationless.frag.spv
+[32/442] Building CXX object CMakeFiles/rust-bridge-shared.dir/src/rust-bridge/cpp/console.cpp.o
+[33/442] Compiling Vulkan shader quad.vert.spv
+[34/442] Compiling Vulkan shader quad.frag.spv
+[35/442] Compiling Vulkan shader quad_grouped.frag.spv
+[36/442] Compiling Vulkan shader quad_grouped.vert.spv
+[37/442] Compiling Vulkan shader quad_grouped_textured.frag.spv
+[38/442] Compiling Vulkan shader quad_grouped_textured.vert.spv
+[39/442] Compiling Vulkan shader quad_textured.frag.spv
+[40/442] Compiling Vulkan shader quad_textured.vert.spv
+[41/442] Compiling Vulkan shader spritemulti.vert.spv
+[42/442] Compiling Vulkan shader spritemulti.frag.spv
+[43/442] Compiling Vulkan shader spritemulti_push.frag.spv
+[44/442] Compiling Vulkan shader text.frag.spv
+[45/442] Compiling Vulkan shader spritemulti_push.vert.spv
+[45/442] Generating release/libddnet_engine_shared.a
+    Updating crates.io index
+ Downloading crates ...
+  Downloaded cxxbridge-macro v1.0.194
+  Downloaded cxxbridge-flags v1.0.194
+  Downloaded link-cplusplus v1.0.12
+  Downloaded shlex v1.3.0
+  Downloaded quote v1.0.41
+  Downloaded unicode-ident v1.0.1
+  Downloaded proc-macro2 v1.0.103
+  Downloaded indexmap v2.14.0
+  Downloaded cc v1.2.29
+  Downloaded cxx v1.0.194
+  Downloaded syn v2.0.106
+  Downloaded libc v0.2.183
+   Compiling shlex v1.3.0
+   Compiling proc-macro2 v1.0.103
+   Compiling quote v1.0.41
+   Compiling unicode-ident v1.0.1
+   Compiling cxxbridge-flags v1.0.194
+   Compiling hashbrown v0.17.1
+   Compiling equivalent v1.0.2
+   Compiling libc v0.2.183
+   Compiling foldhash v0.2.0
+   Compiling ddnet-engine-shared v0.0.1 (/home/cluer/crg/games/ddnet/src/engine/shared)
+   Compiling ddnet-test v0.0.1 (/home/cluer/crg/games/ddnet/src/rust-bridge/test)
+   Compiling cc v1.2.29
+   Compiling indexmap v2.14.0
+   Compiling syn v2.0.106
+   Compiling link-cplusplus v1.0.12
+   Compiling cxx v1.0.194
+   Compiling cxxbridge-macro v1.0.194
+   Compiling ddnet-base v0.0.1 (/home/cluer/crg/games/ddnet/src/base)
+   Compiling ddnet-engine v0.0.1 (/home/cluer/crg/games/ddnet/src/engine)
+    Finished `release` profile [optimized] target(s) in 8.60s
+[144/442] Building CXX object CMakeFiles/game-shared.dir/src/game/localization.cpp.o
+[146/442] Generating src/generated/client_data7.cpp
+[147/442] Generating src/generated/wordlist.h
+[148/442] Generating src/generated/client_data7.h
+[149/442] Generating src/generated/client_data.h
+[150/442] Generating src/generated/server_data.h
+[151/442] Generating src/generated/server_data.cpp
+[152/442] Generating src/generated/checksum.cpp
+[153/442] Generating src/generated/client_data.cpp
+[154/442] Building CXX object CMakeFiles/dilate.dir/src/tools/dilate.cpp.o
+[155/442] Building CXX object CMakeFiles/config_retrieve.dir/src/tools/config_retrieve.cpp.o
+[156/442] Building CXX object CMakeFiles/dummy_map.dir/src/tools/dummy_map.cpp.o
+[157/442] Building CXX object CMakeFiles/config_store.dir/src/tools/config_store.cpp.o
+[158/442] Building CXX object CMakeFiles/map_extract.dir/src/tools/map_extract.cpp.o
+[159/442] Building CXX object CMakeFiles/map_convert_07.dir/src/tools/map_convert_07.cpp.o
+[160/442] Building CXX object CMakeFiles/map_diff.dir/src/tools/map_diff.cpp.o
+[161/442] Building CXX object CMakeFiles/crapnet.dir/src/tools/crapnet.cpp.o
+[162/442] Building CXX object CMakeFiles/demo_extract_chat.dir/src/tools/demo_extract_chat.cpp.o
+[163/442] Building CXX object CMakeFiles/map_find_env.dir/src/tools/map_find_env.cpp.o
+[164/442] Building CXX object CMakeFiles/game-server.dir/src/engine/server/main.cpp.o
+[165/442] Building CXX object CMakeFiles/game-server-without-main.dir/cmake_pch.hxx.pch
+[166/442] Building CXX object CMakeFiles/game-client.dir/cmake_pch.hxx.pch
+[167/442] Building CXX object CMakeFiles/map_optimize.dir/src/tools/map_optimize.cpp.o
+[168/442] Building CXX object CMakeFiles/map_render.dir/src/engine/client/backend/opengl/opengl_sl_program.cpp.o
+[169/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/engine/server/antibot.cpp.o
+[170/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/backend/backend_base.cpp.o
+[171/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/backend/glsl_shader_compiler.cpp.o
+[172/442] Building CXX object CMakeFiles/map_render.dir/src/engine/client/backend_egl.cpp.o
+[173/442] Building CXX object CMakeFiles/map_render.dir/src/engine/client/backend/opengl/opengl_sl.cpp.o
+[174/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/backend/null/backend_null.cpp.o
+[175/442] Building CXX object CMakeFiles/map_render.dir/src/engine/client/backend/glsl_shader_compiler.cpp.o
+[176/442] Building CXX object CMakeFiles/map_render.dir/src/engine/client/backend/opengl/backend_opengl3.cpp.o
+[177/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/backend/opengl/opengl_sl_program.cpp.o
+[178/442] Building CXX object CMakeFiles/map_render.dir/src/engine/client/backend/opengl/backend_opengl.cpp.o
+[179/442] Building CXX object CMakeFiles/map_render.dir/src/tools/map_render.cpp.o
+[180/442] Building CXX object CMakeFiles/map_render.dir/src/engine/client/backend/backend_base.cpp.o
+[181/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/backend_egl.cpp.o
+[182/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/backend/opengles/opengles_sl_program.cpp.o
+[183/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/backend/opengl/opengl_sl.cpp.o
+[184/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/blocklist_driver.cpp.o
+[185/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/backend/opengles/backend_opengles.cpp.o
+[186/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/backend/opengles/opengles_sl.cpp.o
+[187/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/demoedit.cpp.o
+[188/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/backend/opengl/backend_opengl.cpp.o
+[189/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/backend/opengl/backend_opengl3.cpp.o
+[190/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/discord.cpp.o
+[191/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/backend_threaded.cpp.o
+[192/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/backend/opengles/backend_opengles3.cpp.o
+[193/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/friends.cpp.o
+[194/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/graph.cpp.o
+[195/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/favorites.cpp.o
+[196/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/keyboard.cpp.o
+[197/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/ghost.cpp.o
+[198/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/keynames.cpp.o
+[199/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/graphics_threaded_sprites.cpp.o
+[200/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/smooth_time.cpp.o
+[201/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/notifications.cpp.o
+[202/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/serverbrowser_ping_cache.cpp.o
+[203/442] Building CXX object CMakeFiles/map_render.dir/src/engine/client/graphics_threaded.cpp.o
+[204/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/backend_sdl.cpp.o
+[205/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/sqlite.cpp.o
+[206/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/sixup_translate_system.cpp.o
+[207/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/steam.cpp.o
+[208/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/input.cpp.o
+[209/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/serverbrowser_http.cpp.o
+[210/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/warning.cpp.o
+[211/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/animstate.cpp.o
+[212/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/sound.cpp.o
+[213/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/updater.cpp.o
+[214/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/video.cpp.o
+[215/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/graphics_threaded.cpp.o
+[216/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/component.cpp.o
+[217/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/censor.cpp.o
+[218/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/assets.cpp.o
+[219/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/text.cpp.o
+[220/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/background.cpp.o
+[221/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/broadcast.cpp.o
+[222/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/client.cpp.o
+[223/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/countryflags.cpp.o
+[224/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/binds.cpp.o
+[225/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/community_icons.cpp.o
+[226/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/camera.cpp.o
+[227/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/flow.cpp.o
+[228/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/controls.cpp.o
+[229/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/damageind.cpp.o
+[230/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/serverbrowser.cpp.o
+[231/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/debughud.cpp.o
+[232/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/emoticon.cpp.o
+[233/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/effects.cpp.o
+[234/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/envelope_state.cpp.o
+[235/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/chat.cpp.o
+[236/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/freezebars.cpp.o
+[237/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/console.cpp.o
+[238/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/ghost.cpp.o
+[239/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/important_alert.cpp.o
+[240/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/hud.cpp.o
+[241/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/items.cpp.o
+[242/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/key_binder.cpp.o
+[243/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/local_server.cpp.o
+[244/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/mapimages.cpp.o
+[245/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/maplayers.cpp.o
+[246/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/infomessages.cpp.o
+[247/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/mapsounds.cpp.o
+[248/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/menu_background.cpp.o
+[249/442] Building CXX object CMakeFiles/game-client.dir/src/engine/client/backend/vulkan/backend_vulkan.cpp.o
+[250/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/menus_settings_credits.cpp.o
+[251/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/menus_settings.cpp.o
+[252/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/menus.cpp.o
+[253/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/menus_settings_appearance.cpp.o
+[254/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/menus_demo.cpp.o
+[255/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/menus_ingame.cpp.o
+[256/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/menus_browser.cpp.o
+[257/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/menus_settings_controls.cpp.o
+[258/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/menus_settings_general.cpp.o
+[259/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/menus_settings_ddnet.cpp.o
+[260/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/menus_settings_sound.cpp.o
+[261/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/menus_settings_assets.cpp.o
+[262/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/menus_settings_graphics.cpp.o
+[263/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/menus_settings_language.cpp.o
+[264/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/menus_ingame_touch_controls.cpp.o
+[265/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/menus_settings_player.cpp.o
+[266/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/menus_settings_tee.cpp.o
+[267/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/menus_start.cpp.o
+[268/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/menus_settings_tee7.cpp.o
+[269/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/motd.cpp.o
+[270/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/particles.cpp.o
+[271/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/race_demo.cpp.o
+[272/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/nameplates.cpp.o
+[273/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/laser_data.cpp.o
+[274/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/players.cpp.o
+[275/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/scoreboard.cpp.o
+[276/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/sounds.cpp.o
+[277/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/spectator.cpp.o
+[278/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/skins7.cpp.o
+[279/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/pickup_data.cpp.o
+[280/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/statboard.cpp.o
+[281/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/lineinput.cpp.o
+[282/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/skins.cpp.o
+[283/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/prediction/entities/door.cpp.o
+[284/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/prediction/entities/dragger.cpp.o
+[285/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/voting.cpp.o
+[286/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/prediction/entities/laser.cpp.o
+[287/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/prediction/entities/pickup.cpp.o
+[288/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/prediction/entities/character.cpp.o
+[289/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/prediction/entities/plasma.cpp.o
+[290/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/prediction/entity.cpp.o
+[291/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/projectile_data.cpp.o
+[292/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/prediction/entities/projectile.cpp.o
+[293/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/render.cpp.o
+[294/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/skin.cpp.o
+[295/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/multiview.cpp.o
+[296/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/tooltips.cpp.o
+[297/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/ui_listbox.cpp.o
+[298/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/ui_rect.cpp.o
+[299/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/prediction/gameworld.cpp.o
+[300/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/component.cpp.o
+[301/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/ui_popups.cpp.o
+[302/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/race.cpp.o
+[303/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/ui_scrollregion.cpp.o
+[304/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/sixup_translate_connless.cpp.o
+[305/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/sixup_translate_game.cpp.o
+[306/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/sixup_translate_snapshot.cpp.o
+[307/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/ui.cpp.o
+[308/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/auto_map.cpp.o
+[309/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/explanations.cpp.o
+[310/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/components/touch_controls.cpp.o
+[311/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/editor_object.cpp.o
+[312/442] Building CXX object CMakeFiles/game-client.dir/src/game/client/gameclient.cpp.o
+[313/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/editor_history.cpp.o
+[314/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/editor_ui.cpp.o
+[315/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/editor_props.cpp.o
+[316/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/mapitems/envelope.cpp.o
+[317/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/editor_trackers.cpp.o
+[318/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/envelope_editor.cpp.o
+[319/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/file_browser.cpp.o
+[320/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/mapitems/image.cpp.o
+[321/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/map_grid.cpp.o
+[322/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/font_typer.cpp.o
+[323/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/map_object.cpp.o
+[324/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/layer_selector.cpp.o
+[325/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/mapitems/layer.cpp.o
+[326/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/editor_server_settings.cpp.o
+[327/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/editor_actions.cpp.o
+[328/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/mapitems/envelope_evaluator.cpp.o
+[329/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/map_view.cpp.o
+[330/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/mapitems/layer_front.cpp.o
+[331/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/mapitems/layer_game.cpp.o
+[332/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/mapitems/layer_sounds.cpp.o
+[333/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/mapitems/layer_group.cpp.o
+[334/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/mapitems/sound.cpp.o
+[335/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/mapitems/layer_quads.cpp.o
+[336/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/mapitems/layer_switch.cpp.o
+[337/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/mapitems/layer_speedup.cpp.o
+[338/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/mapitems/layer_tele.cpp.o
+[339/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/mapitems/layer_tune.cpp.o
+[340/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/references.cpp.o
+[341/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/smooth_value.cpp.o
+[342/442] Building CXX object CMakeFiles/game-client.dir/src/game/map/envelope_extrema.cpp.o
+[343/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/mapitems/layer_tiles.cpp.o
+[344/442] Building CXX object CMakeFiles/game-client.dir/src/game/map/render_component.cpp.o
+[345/442] Building CXX object CMakeFiles/game-client.dir/src/game/map/map_renderer.cpp.o
+[346/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/prompt.cpp.o
+[347/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/mapitems/map.cpp.o
+[348/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/quad_art.cpp.o
+[349/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/editor.cpp.o
+[350/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/quad_knife.cpp.o
+[351/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/proof_mode.cpp.o
+[352/442] Building CXX object CMakeFiles/game-client.dir/src/generated/client_data.cpp.o
+[353/442] Building CXX object CMakeFiles/game-client.dir/src/generated/client_data7.cpp.o
+[354/442] Building CXX object CMakeFiles/game-client.dir/src/generated/checksum.cpp.o
+[355/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/engine/server/databases/connection.cpp.o
+[356/442] Building CXX object CMakeFiles/game-client.dir/src/game/map/render_map.cpp.o
+[357/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/engine/server/databases/mysql.cpp.o
+[358/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/engine/server/databases/sqlite.cpp.o
+[359/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/engine/server/authmanager.cpp.o
+[360/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/engine/server/databases/connection_pool.cpp.o
+[361/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/engine/server/name_ban.cpp.o
+[362/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/engine/server/snap_id_pool.cpp.o
+[363/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/engine/server/sql_string_helpers.cpp.o
+[364/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/engine/server/upnp.cpp.o
+[365/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/engine/server/server_logger.cpp.o
+[366/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/engine/server/register.cpp.o
+[367/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/mapitems/map_io.cpp.o
+[368/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/tile_art.cpp.o
+[369/442] Building CXX object CMakeFiles/game-client.dir/src/game/map/render_layer.cpp.o
+[370/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/quick_actions.cpp.o
+[371/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/game/server/entities/door.cpp.o
+[372/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/game/server/entities/dragger_beam.cpp.o
+[373/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/game/server/ddracecommands.cpp.o
+[374/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/game/server/entities/dragger.cpp.o
+[375/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/game/server/ddracechat.cpp.o
+[376/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/game/server/entities/gun.cpp.o
+[377/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/game/server/entities/light.cpp.o
+[378/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/game/server/entities/laser.cpp.o
+[379/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/game/server/entities/pickup.cpp.o
+[380/442] Building CXX object CMakeFiles/game-client.dir/src/game/editor/popups.cpp.o
+[381/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/game/server/entities/plasma.cpp.o
+[382/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/game/server/entity.cpp.o
+[383/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/game/server/eventhandler.cpp.o
+[384/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/game/server/entities/character.cpp.o
+[385/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/game/server/entities/projectile.cpp.o
+[386/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/game/server/gamemodes/mod.cpp.o
+[387/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/game/server/interactions.cpp.o
+[388/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/game/server/gamemodes/ddnet.cpp.o
+[389/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/engine/server/server.cpp.o
+[390/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/game/server/gamecontroller.cpp.o
+[391/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/game/server/gameworld.cpp.o
+[392/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/game/server/mutes.cpp.o
+[393/442] Building CXX object CMakeFiles/map_render.dir/src/engine/client/blocklist_driver.cpp.o
+[394/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/generated/server_data.cpp.o
+[395/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/game/server/teeinfo.cpp.o
+[396/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/game/server/playermapping.cpp.o
+[397/442] Building CXX object CMakeFiles/map_render.dir/src/engine/client/warning.cpp.o
+[398/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/game/server/save.cpp.o
+[399/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/game/server/player.cpp.o
+[400/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/game/server/scoreworker.cpp.o
+[401/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/game/server/teehistorian.cpp.o
+[402/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/game/server/teams.cpp.o
+[403/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/game/server/score.cpp.o
+[404/442] Building CXX object CMakeFiles/map_render.dir/src/engine/client/backend_threaded.cpp.o
+[405/442] Building CXX object CMakeFiles/map_resave.dir/src/tools/map_resave.cpp.o
+[406/442] Building CXX object CMakeFiles/map_test.dir/src/tools/map_test.cpp.o
+[407/442] Building CXX object CMakeFiles/map_replace_image.dir/src/tools/map_replace_image.cpp.o
+[408/442] Building CXX object CMakeFiles/map_replace_area.dir/src/tools/map_replace_area.cpp.o
+[409/442] Building CXX object CMakeFiles/map_render.dir/src/game/map/render_component.cpp.o
+[410/442] Linking CXX executable DDNet
+[411/442] Linking CXX executable config_retrieve
+[412/442] Linking CXX executable config_store
+[413/442] Building CXX object CMakeFiles/game-server-without-main.dir/src/game/server/gamecontext.cpp.o
+[414/442] Linking CXX executable crapnet
+[415/442] Building CXX object CMakeFiles/map_render.dir/src/game/map/envelope_extrema.cpp.o
+[416/442] Linking CXX executable demo_extract_chat
+[417/442] Linking CXX executable dilate
+[418/442] Linking CXX executable DDNet-Server
+[419/442] Linking CXX executable dummy_map
+[420/442] Building CXX object CMakeFiles/map_render.dir/src/game/map/map_renderer.cpp.o
+[421/442] Linking CXX executable map_convert_07
+[422/442] Linking CXX executable map_extract
+[423/442] Linking CXX executable map_diff
+[424/442] Building CXX object CMakeFiles/packetgen.dir/src/tools/packetgen.cpp.o
+[425/442] Linking CXX executable map_find_env
+[426/442] Linking CXX executable map_optimize
+[427/442] Linking CXX executable map_replace_area
+[428/442] Linking CXX executable map_replace_image
+[429/442] Linking CXX executable map_resave
+[430/442] Linking CXX executable map_test
+[431/442] Linking CXX executable packetgen
+[432/442] Building CXX object CMakeFiles/map_render.dir/src/game/map/render_map.cpp.o
+[433/442] Building CXX object CMakeFiles/unicode_confusables.dir/src/tools/unicode_confusables.cpp.o
+[434/442] Building CXX object CMakeFiles/uuid.dir/src/tools/uuid.cpp.o
+[435/442] Linking CXX executable unicode_confusables
+[436/442] Linking CXX executable uuid
+[437/442] Building CXX object CMakeFiles/stun.dir/src/tools/stun.cpp.o
+[438/442] Linking CXX executable stun
+[439/442] Building CXX object CMakeFiles/twping.dir/src/tools/twping.cpp.o
+[440/442] Linking CXX executable twping
+[441/442] Building CXX object CMakeFiles/map_render.dir/src/game/map/render_layer.cpp.o
+[442/442] Linking CXX executable map_render

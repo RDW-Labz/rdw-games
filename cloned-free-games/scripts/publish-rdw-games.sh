@@ -70,7 +70,9 @@ echo "mirrored ${#FILES[@]} tracked files -> $PREFIX/"
 
 # --- commit ---
 cd "$WORK" || die "cannot cd $WORK"
-git add -A -- "$PREFIX" >/dev/null || die "git add failed"
+# -f is required: the mirrored set is defined by the source repo's index, so files the source
+# tracks but its own .gitignore would exclude (build-*.log) must still be published.
+git add -Af -- "$PREFIX" >/dev/null || die "git add failed"
 
 if git diff --cached --quiet -- "$PREFIX"; then
   SHA=$(git rev-parse HEAD)

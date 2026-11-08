@@ -1,0 +1,212 @@
+[2;37m[verbose  ] main: Error messages and other text output will be logged to /home/cluer/.config/supertuxkart/config-0.10/stdout.log.
+[0;;m[0m[info   ] [FileManager]: Data files will be fetched from: '../../data/'
+[0;;m[0m[info   ] [FileManager]: Data files will be fetched from: '../../data/../../stk-assets/'
+[0;;m[0m[info   ] [FileManager]: User directory is '/home/cluer/.config/supertuxkart/config-0.10/'.
+[0;;m[0m[info   ] [FileManager]: Addons files will be stored in '/home/cluer/.local/share/supertuxkart/addons/'.
+[0;;m[0m[info   ] [FileManager]: Screenshots will be stored in '/home/cluer/.local/share/supertuxkart/screenshots/'.
+[0;;m[0m[info   ] [FileManager]: User-defined grand prix will be stored in '/home/cluer/.local/share/supertuxkart/grandprix/'.
+[0;;m[0m[info   ] [FileManager]: Asset 0 will be loaded from '../../data/challenges/'.
+[0;;m[0m[info   ] [FileManager]: Asset 1 will be loaded from '../../data/gfx/'.
+[0;;m[0m[info   ] [FileManager]: Asset 2 will be loaded from '../../data/grandprix/'.
+[0;;m[0m[info   ] [FileManager]: Asset 3 will be loaded from '../../data/gui/icons/'.
+[0;;m[0m[info   ] [FileManager]: Asset 4 will be loaded from '../../data/gui/screens/'.
+[0;;m[0m[info   ] [FileManager]: Asset 5 will be loaded from '../../data/gui/dialogs/'.
+[0;;m[0m[info   ] [FileManager]: Asset 6 will be loaded from '../../data/replay/'.
+[0;;m[0m[info   ] [FileManager]: Asset 7 will be loaded from '../../data/shaders/'.
+[0;;m[0m[info   ] [FileManager]: Asset 8 will be loaded from '../../data/skins/'.
+[0;;m[0m[info   ] [FileManager]: Asset 9 will be loaded from '../../data/ttf/'.
+[0;;m[0m[info   ] [FileManager]: Asset 10 will be loaded from '../../data/po/'.
+[0;;m[0m[info   ] [FileManager]: Asset 11 will be loaded from '../../data/../../stk-assets/library/'.
+[0;;m[0m[info   ] [FileManager]: Asset 12 will be loaded from '../../data/../../stk-assets/models/'.
+[0;;m[0m[info   ] [FileManager]: Asset 13 will be loaded from '../../data/../../stk-assets/music/'.
+[0;;m[0m[info   ] [FileManager]: Asset 14 will be loaded from '../../data/../../stk-assets/sfx/'.
+[0;;m[0m[info   ] [FileManager]: Asset 15 will be loaded from '../../data/../../stk-assets/textures/'.
+[0;;m[0m[info   ] [FileManager]: Asset 16 will be loaded from '../../data/../../stk-assets/tracks/'.
+[0;;m[2;37m[verbose  ] translation: Env var LANGUAGE = 'en_US.UTF-8'.
+[0;;m[2;37m[verbose  ] translation: Language 'English (United States)'.
+[0;;m..:: Antarctica Rendering Engine 2.0 ::..
+[0m[info   ] [IrrDriver Logger]: ..:: Antarctica Rendering Engine 2.0 ::..
+[0;;m[0m[info   ] [IrrDriver Logger]: Compiled SDL Version 2.32.74
+[0;;m[0m[info   ] [IrrDriver Logger]: Current SDL Version 2.32.74
+[0;;m[0m[info   ] [IrrDriver Logger]: Using renderer: OpenGL 4.6
+[0;;m[0m[info   ] [IrrDriver Logger]: llvmpipe (LLVM 23.1.1, 256 bits): Mesa
+[0;;m[0m[info   ] [IrrDriver Logger]: OpenGL driver version is 1.2 or better.
+[0;;m[0m[info   ] [IrrDriver Logger]: GLSL version: 4.6
+[0;;m[0m[info   ] IrrDriver: OpenGL version: 4.6
+[0;;m[0m[info   ] IrrDriver: OpenGL vendor: Mesa
+[0;;m[0m[info   ] IrrDriver: OpenGL renderer: llvmpipe (LLVM 23.1.1, 256 bits)
+[0;;m[0m[info   ] IrrDriver: OpenGL version string: 4.6 (Core Profile) Mesa 26.2.4-arch3.1
+[0;;m[0m[info   ] GLDriver: ARB Buffer Storage Present
+[0;;m[0m[info   ] GLDriver: ARB Compute Shader Present
+[0;;m[0m[info   ] GLDriver: ARB Arrays of Arrays Present
+[0;;m[0m[info   ] GLDriver: ARB Texture Storage Present
+[0;;m[0m[info   ] GLDriver: ARB Texture View Present
+[0;;m[0m[info   ] GLDriver: ARB Image Load Store Present
+[0;;m[0m[info   ] GLDriver: ARB Shader Atomic Counters Present
+[0;;m[0m[info   ] GLDriver: ARB Shader Storage Buffer Object Present
+[0;;m[0m[info   ] GLDriver: EXT Texture Compression S3TC Present
+[0;;m[0m[info   ] GLDriver: ARB Uniform Buffer Object Present
+[0;;m[0m[info   ] GLDriver: ARB Explicit Attrib Location Present
+[0;;m[0m[info   ] GLDriver: EXT Texture Filter Anisotropic Present
+[0;;m[0m[info   ] GLDriver: Geometry Shaders Present
+[0;;m[0m[info   ] GLDriver: ARB Texture Buffer Object Present
+[0;;m[0m[info   ] GLDriver: ARB Texture Swizzle Present
+[0;;m[0m[info   ] GLDriver: ARB Pixel Buffer Object Present
+[0;;m[0m[info   ] GLDriver: ARB Sampler Objects Present
+[0;;m[0m[info   ] GLDriver: ARB Vertex Type 2_10_10_10_rev Present
+[0;;m[0m[info   ] GLDriver: ARB Instanced Arrays Present
+[0;;m[0m[info   ] SharedGPUObjects: Hardware Skinning enabled, method: TBO, max bones: 2048
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/screenquad.vert
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/motion_blur.frag
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/lightning.frag
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/primitive2dlist.vert
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/transparent.frag
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/texturedquad.vert
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/uniformcolortexturedquad.frag
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/texturedquad.frag
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/coloredquad.vert
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/coloredquad.frag
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/colortexturedquad.vert
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/colortexturedquad.frag
+[0;;m[0m[info   ] irr_driver: GLSL supported.
+[0;;m[0m[info   ] GUI: Loading skin data from file: ../../data/skins/classic/stkskin.xml
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/sp_pass.vert
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/sp_solid.frag
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/sp_shadow.vert
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/white.frag
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/sp_skinning.vert
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/sp_skinning_shadow.vert
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/sp_normal_map.frag
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/sp_alpha_test.frag
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/sp_shadow_alpha_test.frag
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/sp_decal.frag
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/sp_grass_pass.vert
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/sp_grass.frag
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/sp_grass_shadow.vert
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/sp_unlit.frag
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/sp_transparent.frag
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/sp_ghost.frag
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/sp_dynamic_night_bloom.frag
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/sp_tilling_mitigation.frag
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/sp_vertical_mapping.frag
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/sp_road_blending.frag
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/sp_displace_ssr.frag
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/sp_displace.frag
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/colorize.frag
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/sp_normal_visualizer.vert
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/sp_normal_visualizer.geom
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/sp_normal_visualizer.frag
+[0;;m[1;31m[error  ] SFXBuffer: Positional audio is not supported with stereo files, but ../../data/../../stk-assets/sfx/WilhelmScream.ogg is stereo
+[0;;m[1;31m[error  ] SFXBuffer: Positional audio is not supported with stereo files, but ../../data/../../stk-assets/sfx/car_revup.ogg is stereo
+[0;;m[0m[info   ] GrandPrixManager: Loading Grand Prix files from ../../data/grandprix/
+[0;;m[0m[info   ] GrandPrixManager: Loading Grand Prix files from /home/cluer/.local/share/supertuxkart/grandprix/
+[0;;m[2;31m[warn   ] KartProperties: Can't find kart type 'medium-h' for kart 'Dashie (Cyber Bunny)', defaulting to 'light'.
+[0;;m[2;31m[warn   ] SPMeshBuffer: solid_pbr shader is missing, fallback to solid
+[0;;m[2;31m[warn   ] SPMeshBuffer: solid_pbr shader is missing, fallback to solid
+[0;;m[2;31m[warn   ] SPMeshBuffer: solid_pbr shader is missing, fallback to solid
+[0;;m[2;31m[warn   ] SPMeshBuffer: solid_pbr shader is missing, fallback to solid
+[0;;m[2;31m[warn   ] SPMeshBuffer: solid_pbr shader is missing, fallback to solid
+[0;;m[2;31m[warn   ] Material: Cannot determine texture full path: genericshadow.png
+[0;;m[2;31m[warn   ] Material: Missing container id for gnu_accessories.png, no texture compression for it will be done.
+[0;;m[2;31m[warn   ] SPMeshBuffer: kartDirt shader is missing, fallback to solid
+[0;;m[2;31m[warn   ] SPMeshBuffer: kartDirt shader is missing, fallback to solid
+[0;;m[2;31m[warn   ] SPMeshBuffer: kartDirt shader is missing, fallback to solid
+[0;;m[2;31m[warn   ] SPMeshBuffer: kartDirt shader is missing, fallback to solid
+[0;;m[2;31m[warn   ] SPMeshBuffer: kartDirt shader is missing, fallback to solid
+[0;;m[2;31m[warn   ] Material: Missing container id for Pepper_lamp_diff.png, no texture compression for it will be done.
+[0;;m[2;37m[verbose  ] main: You chose to start in track 'moonshine_gee'.
+[0;;m[2;31m[warn   ] main: Can't find track named 'moonshine_gee'.
+[0;;m[2;37m[verbose  ] main: Benchmark mode requested from command-line
+[0;;m[1;31m[error  ] CommandLine: Invalid parameter: -x.
+[0;;m[1;31m[error  ] CommandLine: Invalid parameter: 1280x720.
+[0;;m[1;31m[error  ] CommandLine: Invalid parameter: -y.
+[0;;m[1;31m[error  ] CommandLine: Invalid parameter: 720.
+[0;;m[1;31m[error  ] CommandLine: Invalid parameter: --no-fps-cap.
+[0;;m[0m[info   ] PlayerManager: Enforcing current player 'cluer'.
+[0;;m[2;37m[verbose  ] RaceManager: 1 ghost kart(s) for watching replay only
+
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/simple_particle.vert
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/simple_particle.frag
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/alphatest_particle.vert
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/alphatest_particle.frag
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/degraded_ibl.frag
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/sunlight.frag
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/pointlight.vert
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/pointlight.frag
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/combine_diffuse_color.frag
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/tonemap.frag
+[0;;m[0m[info   ] [FileManager]: Creating directory(ies) '/home/cluer/.cache/supertuxkart/cached-textures/hd/tracks/black_forest'
+[0;;m[0m[info   ] FileManager: Creating directory '/home/cluer/.cache/supertuxkart/cached-textures/hd/tracks/'.
+[0;;m[0m[info   ] FileManager: Creating directory '/home/cluer/.cache/supertuxkart/cached-textures/hd/tracks/black_forest/'.
+[0;;m[2;31m[warn   ] SFXManager: Throttling sfx - queue size 42
+[0;;m[2;31m[warn   ] SFXManager: Throttling sfx - queue size 42
+[0;;m[2;31m[warn   ] SFXManager: Throttling sfx - queue size 45
+[0;;m[2;31m[warn   ] SFXManager: Throttling sfx - queue size 45
+[0;;m[2;31m[warn   ] SFXManager: Throttling sfx - queue size 48
+[0;;m[0m[info   ] [FileManager]: Creating directory(ies) '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_autumnBirch_a'
+[0;;m[0m[info   ] FileManager: Creating directory '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/'.
+[0;;m[0m[info   ] FileManager: Creating directory '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_autumnBirch_a/'.
+[0;;m[0m[info   ] [FileManager]: Creating directory(ies) '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_autumnTree_b'
+[0;;m[0m[info   ] FileManager: Creating directory '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_autumnTree_b/'.
+[0;;m[0m[info   ] [FileManager]: Creating directory(ies) '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_autumnTree_c'
+[0;;m[0m[info   ] FileManager: Creating directory '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_autumnTree_c/'.
+[0;;m[0m[info   ] [FileManager]: Creating directory(ies) '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_autumnTree_d'
+[0;;m[0m[info   ] FileManager: Creating directory '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_autumnTree_d/'.
+[0;;m[0m[info   ] [FileManager]: Creating directory(ies) '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_autumnWillow_a'
+[0;;m[0m[info   ] FileManager: Creating directory '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_autumnWillow_a/'.
+[0;;m[0m[info   ] [FileManager]: Creating directory(ies) '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_bird_a'
+[0;;m[0m[info   ] FileManager: Creating directory '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_bird_a/'.
+[0;;m[0m[info   ] [FileManager]: Creating directory(ies) '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_deadBranch_a'
+[0;;m[0m[info   ] FileManager: Creating directory '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_deadBranch_a/'.
+[0;;m[0m[info   ] [FileManager]: Creating directory(ies) '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_fern_a'
+[0;;m[0m[info   ] FileManager: Creating directory '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_fern_a/'.
+[0;;m[0m[info   ] [FileManager]: Creating directory(ies) '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_gramophone_a'
+[0;;m[0m[info   ] FileManager: Creating directory '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_gramophone_a/'.
+[0;;m[0m[info   ] [FileManager]: Creating directory(ies) '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_hayBall_a'
+[0;;m[0m[info   ] FileManager: Creating directory '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_hayBall_a/'.
+[0;;m[0m[info   ] [FileManager]: Creating directory(ies) '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_old_house_a'
+[0;;m[0m[info   ] FileManager: Creating directory '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_old_house_a/'.
+[0;;m[0m[info   ] [FileManager]: Creating directory(ies) '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_oldLantern_a'
+[0;;m[0m[info   ] FileManager: Creating directory '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_oldLantern_a/'.
+[0;;m[0m[info   ] [FileManager]: Creating directory(ies) '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_pinetree_b'
+[0;;m[0m[info   ] FileManager: Creating directory '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_pinetree_b/'.
+[0;;m[0m[info   ] [FileManager]: Creating directory(ies) '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_redFlowerBush_a'
+[0;;m[0m[info   ] FileManager: Creating directory '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_redFlowerBush_a/'.
+[0;;m[0m[info   ] [FileManager]: Creating directory(ies) '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_sagebrush_a'
+[0;;m[0m[info   ] FileManager: Creating directory '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_sagebrush_a/'.
+[0;;m[0m[info   ] [FileManager]: Creating directory(ies) '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_treeStump_a'
+[0;;m[0m[info   ] FileManager: Creating directory '/home/cluer/.cache/supertuxkart/cached-textures/hd/library/stklib_treeStump_a/'.
+[0;;m[0m[info   ] Track: Overall scene complexity estimated at 4483, Auto-LoD multiplier is 1.000000
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/importance_sampling_specular.frag
+[0;;m[0m[info   ] Replay: Reading replay file '../../data/replay/benchmark_black_forest.replay'.
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/sky.vert
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/sky.frag
+[0;;m[0m[info   ] ShaderFilesManager: Compiling shader: /home/cluer/cloned-free-games/games/stk-code/data/shaders/passthrough.frag
+[0;;m[0m[info   ] Profiler: Frame count '782', Time (ms) '43402', Steady FPS '12', Mostly stable FPS '14', Typical FPS '17'
+[0;;m[0m[info   ] Singleton: Destroyed singleton.
+[0;;m[0m[info   ] Singleton: Destroyed singleton.
+[0;;m[2;37m[verbose  ] Thread: Start waiting 1841401.661000
+[0;;m[2;37m[verbose  ] Thread: Waited 0.011000 seconds for thread to become deleteable.
+[0;;m[2;37m[verbose  ] Thread: Stop waiting 1841401.672000
+[0;;m[0m[info   ] Singleton: Destroyed singleton.
+[0;;m[0m[info   ] Singleton: Destroyed singleton.
+[0;;m[0m[info   ] Singleton: Destroyed singleton.
+[0;;m[0m[info   ] Singleton: Destroyed singleton.
+[0;;m[0m[info   ] Singleton: Destroyed singleton.
+[0;;m[0m[info   ] Singleton: Destroyed singleton.
+[0;;m[0m[info   ] Singleton: Destroyed singleton.
+[0;;m[0m[info   ] Singleton: Destroyed singleton.
+[0;;m[0m[info   ] Singleton: Destroyed singleton.
+[0;;m[0m[info   ] Singleton: Destroyed singleton.
+[0;;m[0m[info   ] Singleton: Destroyed singleton.
+[0;;m[0m[info   ] Singleton: Destroyed singleton.
+[0;;m[0m[info   ] Singleton: Destroyed singleton.
+[0;;m[0m[info   ] Singleton: Destroyed singleton.
+[0;;m[0m[info   ] Singleton: Destroyed singleton.
+[0;;m[0m[info   ] Singleton: Destroyed singleton.
+[0;;m[0m[info   ] Singleton: Destroyed singleton.
+[0;;m[0m[info   ] Singleton: Destroyed singleton.
+[0;;m[0m[info   ] Singleton: Destroyed singleton.
+[0;;m[0m[info   ] Singleton: Destroyed singleton.
+[0;;m[0m[info   ] Singleton: Destroyed singleton.
+[0;;m
