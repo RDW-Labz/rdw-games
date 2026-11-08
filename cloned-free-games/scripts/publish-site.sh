@@ -22,7 +22,8 @@ SITE_REPO=${SITE_REPO:-$HOME/kaos/work/site}
 PROJECT=${PROJECT:-internal-hybrid-builds}
 ACCOUNT=${CLOUDFLARE_ACCOUNT_ID:-1ed454d65f1c74ae9cd7089c2460deef}
 WORK=${WORK:-$HOME/.cache/rdw-games-publish/site}
-SITE_PATH=${SITE_PATH:-catalog}          # URL path the catalog lands on
+SITE_PATH=${SITE_PATH:-}                # URL path the catalog lands on ("" = site root)
+SHELF_PATH=${SHELF_PATH:-shelf}         # where the shelf moves to when the catalog takes root
 DRY_RUN=${DRY_RUN:-}
 
 die() { echo "FAIL: $*" >&2; exit 1; }
@@ -57,10 +58,32 @@ grep -q "STAGE_ONLY=1: nothing uploaded" "$WORK/stage.log" || die "stager did no
 echo "SHELF $(find "$SHELF_STAGE/public" -type f | wc -l) files staged"
 
 # 3. Inject the catalog and sanity-check the gate function is in the bundle.
-mkdir -p "$SHELF_STAGE/public/$SITE_PATH" || die "cannot create catalog dir in stage"
-cp "$WORK/catalog/index.html" "$WORK/catalog/games.json" "$SHELF_STAGE/public/$SITE_PATH/" || die "copy failed"
+#    The catalog takes the site root (that is the page people actually open); the shelf
+#    moves to /$SHELF_PATH/ with a <base href="/"> so its relative links to /games/ and
+#    /assets/ keep resolving. /catalog/ is kept as an alias so old links still work.
+if [ -n "$SITE_PATH" ]; then
+  mkdir -p "$SHELF_STAGE/public/$SITE_PATH" || die "cannot create catalog dir in stage"
+  cp "$WORK/catalog/index.html" "$WORK/catalog/games.json" "$SHELF_STAGE/public/$SITE_PATH/" || die "copy failed"
+  echo "INJECT /$SITE_PATH/ <- $(ls "$WORK/catalog" | tr '\n' ' ')"
+else
+  mkdir -p "$SHELF_STAGE/public/$SHELF_PATH" || die "cannot create shelf dir in stage"
+  python3 - "$SHELF_STAGE/public/index.html" "$SHELF_STAGE/public/$SHELF_PATH/index.html" <<'PY' || die "shelf move failed"
+import re, sys
+src, dst = sys.argv[1], sys.argv[2]
+html = open(src, encoding="utf-8").read()
+# Every href in the shelf is site-relative (games/…, assets/…), so a base tag keeps the
+# whole page working one directory down instead of rewriting each link.
+html = re.sub(r"(<head[^>]*>)", r'\1\n<base href="/">', html, count=1, flags=re.I)
+open(dst, "w", encoding="utf-8").write(html)
+PY
+  cp "$WORK/catalog/index.html" "$SHELF_STAGE/public/index.html" || die "copy failed"
+  cp "$WORK/catalog/games.json" "$SHELF_STAGE/public/games.json" || die "copy failed"
+  mkdir -p "$SHELF_STAGE/public/catalog"
+  cp "$WORK/catalog/index.html" "$SHELF_STAGE/public/catalog/index.html"
+  cp "$WORK/catalog/games.json" "$SHELF_STAGE/public/catalog/games.json"
+  echo "INJECT / <- $(ls "$WORK/catalog" | tr '\n' ' ') ; shelf moved to /$SHELF_PATH/ (+ /catalog/ alias)"
+fi
 [ -f "$SHELF_STAGE/functions/_middleware.js" ] || die "no _middleware.js in stage — refusing to deploy a site without its gate"
-echo "INJECT /$SITE_PATH/ <- $(ls "$WORK/catalog" | tr '\n' ' ')"
 
 if [ -n "$DRY_RUN" ]; then
   echo "DRY_RUN: staged at $SHELF_STAGE (nothing uploaded)"

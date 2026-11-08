@@ -20,6 +20,9 @@ import html
 import json
 import re
 import sys
+import urllib.error
+import urllib.request
+from concurrent import futures
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -198,7 +201,95 @@ def read_catalog(src: Path) -> list[dict]:
     return out
 
 
-def merge(queue: list[dict], catalog: list[dict], dirs: dict[str, Path]) -> list[dict]:
+def icon_map(src: Path) -> dict[str, str]:
+    """Map many spellings of a game to its F-Droid icon URL.
+
+    F-Droid icons are the actual game art, so they win over avatars. Judged rows in
+    CATALOG.md are keyed by display name alone, so register the repo slug, the F-Droid
+    display name and the package id under the same loose key.
+    """
+    out: dict[str, str] = {}
+    p = src / ".queue" / "fdroid-games.json"
+    if p.exists():
+        try:
+            for slug, v in json.loads(p.read_text(encoding="utf-8")).items():
+                pid = (v or {}).get("pid")
+                if not pid:
+                    continue
+                url = f"https://f-droid.org/repo/{pid}/en-US/icon.png"
+                for k in (slug, (v or {}).get("name", ""), pid):
+                    if k:
+                        out.setdefault(norm(k), url)
+        except (ValueError, OSError):
+            pass
+    return out
+
+
+def repo_key(url: str) -> str:
+    m = re.match(r"https?://(?:www\.)?[^/]+/([A-Za-z0-9._-]+)/([A-Za-z0-9._-]+?)(?:\.git)?/?$", url or "")
+    return norm(f"{m.group(1)}/{m.group(2)}") if m else ""
+
+
+def avatar(url: str) -> str:
+    m = re.match(r"https?://(?:www\.)?github\.com/([A-Za-z0-9._-]+)/", url or "")
+    return f"https://github.com/{m.group(1)}.png?size=160" if m else ""
+
+
+def pick_icon(icons: dict[str, str], *keys: str) -> str:
+    for k in keys:
+        if k and (ic := icons.get(norm(k))):
+            return ic
+    return ""
+
+
+def verify_icons(entries: list[dict], workers: int = 16) -> dict[str, int]:
+    """Drop F-Droid icon URLs that 404 so the card falls back to an avatar or letter tile.
+
+    About a fifth of F-Droid package ids no longer serve `en-US/icon.png` (archived or
+    never had artwork); an unverified `<img>` there renders as a broken-image glyph in the
+    browser, which is exactly what we are getting rid of. Only hard 404/410 downgrades —
+    a network error leaves the URL alone so a flaky run doesn't blank the page.
+    """
+    def head(url: str) -> int:
+        req = urllib.request.Request(url, method="HEAD", headers={"User-Agent": "rdw-games-site/1"})
+        try:
+            with urllib.request.urlopen(req, timeout=15) as r:
+                return r.status
+        except urllib.error.HTTPError as e:
+            return e.code
+        except (urllib.error.URLError, TimeoutError, OSError):
+            return 0
+
+    todo = sorted({e["icon"] for e in entries if "f-droid.org" in (e["icon"] or "")})
+    if not todo:
+        return {"checked": 0, "dropped": 0}
+    dead: set[str] = set()
+    with futures.ThreadPoolExecutor(max_workers=workers) as ex:
+        for url, code in zip(todo, ex.map(head, todo)):
+            if code in (404, 410):
+                dead.add(url)
+    dropped = 0
+    for e in entries:
+        if e["icon"] in dead:
+            e["icon"] = avatar(e["url"])
+            dropped += 1
+    return {"checked": len(todo), "dropped": dropped}
+
+
+def merge(queue: list[dict], catalog: list[dict], dirs: dict[str, Path], icons: dict[str, str]) -> tuple[list[dict], int]:
+    # CATALOG.md can carry two rows for one game (OpenTTD has both a curated row and a
+    # queue-derived row). One game is one card, so keep the best-rated row per slug and
+    # let the header count report what was folded.
+    best_row: dict[str, dict] = {}
+    for c in catalog:
+        key = norm(c["slug"] or c["display"])
+        prev = best_row.get(key)
+        if prev is None or (c["score"] or -1) > (prev["score"] or -1):
+            best_row[key] = c
+    merged_catalog = list(best_row.values())
+    superseded = len(catalog) - len(merged_catalog)
+    catalog = merged_catalog
+
     by_key: dict[str, dict] = {}
     for q in queue:
         by_key.setdefault(norm(q["slug"]), q)
@@ -216,11 +307,13 @@ def merge(queue: list[dict], catalog: list[dict], dirs: dict[str, Path]) -> list
         url = q["url"] if q else ""
         if not url and clone:
             url = git_remote(dirs[clone])
+        slug = c["slug"] or (q["slug"] if q else (clone or ""))
         entries.append(
             {
                 "name": c["display"],
-                "slug": c["slug"] or (q["slug"] if q else (clone or "")),
+                "slug": slug,
                 "url": url,
+                "icon": pick_icon(icons, slug, c["display"], repo_key(url)) or avatar(url),
                 "stars": q["stars"] if q else 0,
                 "license": q["license"] if q else "",
                 "size_kb": q["size_kb"] if q else 0,
@@ -228,6 +321,7 @@ def merge(queue: list[dict], catalog: list[dict], dirs: dict[str, Path]) -> list
                 "summary": q["summary"] if q else "",
                 "judged": True,
                 "score": c["score"],
+                "score_raw": c["score_raw"],
                 "type": c["type"],
                 "platforms": c["platforms"],
                 "status": c["status"],
@@ -243,6 +337,7 @@ def merge(queue: list[dict], catalog: list[dict], dirs: dict[str, Path]) -> list
                 "name": q["slug"],
                 "slug": q["slug"],
                 "url": q["url"],
+                "icon": pick_icon(icons, q["slug"], repo_key(q["url"])) or avatar(q["url"]),
                 "stars": q["stars"],
                 "license": q["license"],
                 "size_kb": q["size_kb"],
@@ -250,6 +345,7 @@ def merge(queue: list[dict], catalog: list[dict], dirs: dict[str, Path]) -> list
                 "summary": q["summary"],
                 "judged": False,
                 "score": None,
+                "score_raw": "",
                 "type": "",
                 "platforms": "",
                 "status": "",
@@ -261,7 +357,7 @@ def merge(queue: list[dict], catalog: list[dict], dirs: dict[str, Path]) -> list
     entries.sort(
         key=lambda e: (0 if e["judged"] else 1, -(e["score"] or 0), -e["stars"], e["name"].lower())
     )
-    return entries
+    return entries, superseded
 
 
 PAGE = """<!doctype html>
@@ -288,20 +384,27 @@ input[type=search]:focus{outline:2px solid rgba(124,245,208,.35);border-color:va
 select,button{background:#0f1520;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:9px 11px;font:inherit;cursor:pointer}
 button.on{border-color:var(--accent);color:var(--accent)}
 main{padding:14px 18px 60px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:11px 12px;display:flex;flex-direction:column;gap:6px}
-.card h3{margin:0;font-size:15px;line-height:1.25;display:flex;gap:8px;align-items:baseline}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px}
+.card{background:linear-gradient(180deg,#161d29,#121821);border:1px solid var(--line);border-radius:14px;padding:12px;display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:start;transition:border-color .15s}
+.card:hover{border-color:#3a5a80}
+.thumb-wrap{position:relative;width:64px;height:64px;border-radius:14px;overflow:hidden;background:#0d1219;border:1px solid var(--line);flex:0 0 auto}
+.thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.thumb.letter{display:flex;align-items:center;justify-content:center;font-weight:800;font-size:19px;letter-spacing:.4px;color:#08121a;background:linear-gradient(145deg,hsl(var(--h,265) 72% 70%),hsl(var(--h,265) 62% 50%))}
+.body{min-width:0;display:flex;flex-direction:column;gap:5px}
+.card h3{margin:0;font-size:15px;line-height:1.25;display:flex;gap:8px;align-items:baseline;justify-content:space-between}
+.card h3 .n{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .card h3 a{color:inherit;text-decoration:none}
 .card h3 a:hover{color:var(--accent)}
-.score{font-size:13px;font-weight:700;color:var(--gold);white-space:nowrap}
-.meta{color:var(--dim);font-size:12px;display:flex;gap:8px;flex-wrap:wrap}
-.pill{border:1px solid var(--line);border-radius:999px;padding:1px 7px;font-size:11px;color:var(--dim)}
+.score{font-size:13px;font-weight:700;color:var(--gold);white-space:nowrap;border:1px solid rgba(255,212,121,.35);background:rgba(255,212,121,.12);border-radius:8px;padding:1px 7px}
+.score.norate{font-size:11px;font-weight:600;color:var(--dim);border-color:var(--line);background:none}
+.meta{color:var(--dim);font-size:12px;display:flex;gap:6px;flex-wrap:wrap}
+.pill{border:1px solid var(--line);border-radius:999px;padding:0 7px;font-size:11px;color:var(--dim);line-height:17px}
 .pill.j{color:var(--accent);border-color:rgba(124,245,208,.4)}
-.sum{color:#b9c7dc;font-size:13px;margin:0}
-.type{color:#c9d7ea;font-size:12.5px;margin:0}
-.more{background:none;border:0;color:var(--dim);padding:0;font-size:12px;text-align:left}
+.sum{color:#b9c7dc;font-size:13px;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.type{color:#c3d2e6;font-size:12.5px;margin:0;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+.more{background:none;border:0;color:var(--dim);padding:0;font-size:11.5px;text-align:left;cursor:pointer}
 .more:hover{color:var(--accent)}
-.status{display:none;color:#a9b8cd;font-size:12.5px;border-top:1px dashed var(--line);padding-top:6px;white-space:pre-wrap}
+.status{display:none;color:#a9b8cd;font-size:12px;border-top:1px dashed var(--line);padding-top:6px;white-space:pre-wrap;max-height:200px;overflow:auto}
 .status.open{display:block}
 .empty{color:var(--dim);padding:40px 0;text-align:center}
 footer{color:var(--dim);font-size:12px;padding:0 18px 40px}
@@ -381,13 +484,24 @@ function render(){
       e.license ? `<span class="pill">${esc(e.license)}</span>` : '',
       e.size_kb ? `<span class="pill">${fmtSize(e.size_kb)}</span>` : ''
     ].join('');
-    const score = e.score != null ? `<span class="score">${e.score}${e.desk_only ? '<span class="pill">desk</span>' : ''}</span>` : '';
-    return `<article class="card">
-      <h3>${title}${score}</h3>
-      <div class="meta">${pills}</div>
-      ${e.type ? `<p class="type">${esc(e.type)}</p>` : ''}
-      ${e.summary ? `<p class="sum">${esc(e.summary.slice(0, 220))}${e.summary.length > 220 ? '…' : ''}</p>` : ''}
-      ${e.status ? `<button class="more" data-i="${i}">evidence</button><div class="status" id="s${i}">${esc(e.status)}</div>` : ''}
+    const score = e.score != null ? `<span class="score">${e.score}</span>`
+      : (e.judged && e.score_raw ? `<span class="score norate">${esc(e.score_raw.replace(/[*_]/g,''))}</span>` : '');
+    // Thumbnail: real F-Droid art or the forge owner's avatar, with a letter tile underneath
+    // so a dead image URL still shows something on-brand instead of a broken-image glyph.
+    const initials = (e.name.replace(/[^A-Za-z0-9 ]/g,'').trim().split(' ').filter(Boolean).slice(0,2).map(w=>w[0]).join('') || e.name.slice(0,2)).toUpperCase();
+    let hue = 0; for (const ch of e.name) hue = (hue*31 + ch.charCodeAt(0)) % 360;
+    const thumb = `<div class="thumb-wrap"><span class="thumb letter" style="--h:${hue}">${esc(initials)}</span>`
+      + (e.icon ? `<img class="thumb" src="${esc(e.icon)}" alt="" loading="lazy" decoding="async" onerror="this.remove()">` : '')
+      + `</div>`;
+    const desk = e.desk_only ? '<span class="pill">desk</span>' : '';
+    return `<article class="card">${thumb}
+      <div class="body">
+        <h3><span class="n">${title}</span>${score}</h3>
+        <div class="meta">${pills}${desk}</div>
+        ${e.type ? `<p class="type">${esc(e.type)}</p>` : ''}
+        ${e.summary ? `<p class="sum">${esc(e.summary.slice(0, 220))}${e.summary.length > 220 ? '…' : ''}</p>` : ''}
+        ${e.status ? `<button class="more" data-i="${i}">evidence</button><div class="status" id="s${i}">${esc(e.status)}</div>` : ''}
+      </div>
     </article>`;
   }).join('');
   if (r.length > 600) grid.insertAdjacentHTML('beforeend', `<p class="sum">…and ${r.length - 600} more — narrow the search.</p>`);
@@ -414,6 +528,8 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default="site-out", help="output directory")
     ap.add_argument("--src", default=".", help="repo root holding GAMES.queue + CATALOG.md")
+    ap.add_argument("--no-verify-icons", dest="verify_icons", action="store_false",
+                    help="skip the F-Droid icon HEAD check (offline builds keep whatever the map says)")
     args = ap.parse_args()
 
     src = Path(args.src).resolve()
@@ -421,8 +537,10 @@ def main() -> None:
     queue = read_queue(src)
     catalog = read_catalog(src)
     dirs = clone_dirs(src)
-    entries = merge(queue, catalog, dirs)
+    entries, superseded = merge(queue, catalog, dirs, icon_map(src))
+    icons_checked = verify_icons(entries) if args.verify_icons else {"checked": 0, "dropped": 0}
 
+    judged = [e for e in entries if e["judged"]]
     by_source: dict[str, int] = {}
     for q in queue:
         by_source[q["source"]] = by_source.get(q["source"], 0) + 1
@@ -430,8 +548,12 @@ def main() -> None:
     payload = {
         "built": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
         "total": len(queue),
-        "judged": len(catalog),
+        "judged": len(judged),
+        "unrated": sum(1 for e in judged if e["score"] is None),
+        "supersededRows": superseded,
+        "catalogRows": len(catalog),
         "bySource": by_source,
+        "icons": icons_checked,
         "entries": entries,
     }
     out.mkdir(parents=True, exist_ok=True)
@@ -440,7 +562,8 @@ def main() -> None:
     # that would close it early.
     blob = json.dumps(payload, ensure_ascii=False).replace("</", "<\\/")
     (out / "index.html").write_text(PAGE.replace("__DATA__", blob), encoding="utf-8")
-    print(f"wrote {out/'index.html'} + games.json — {len(queue)} queued, {len(catalog)} judged, {len(entries)} entries")
+    print(f"wrote {out/'index.html'} + games.json — {len(queue)} queued, {len(judged)} judged"
+          f"{f' ({superseded} duplicate catalog row(s) folded)' if superseded else ''}, {len(entries)} entries")
 
 
 if __name__ == "__main__":
