@@ -639,8 +639,12 @@ function render(){
   grid.innerHTML = r.slice(0, 600).map((e,i) => {
     // The card opens the GAME, not the repo: `play` is the project site, the F-Droid install
     // page, or its release downloads, resolved by collect-play-links.py. The repo is demoted to
-    // a small "source" link so it stays reachable without being the main action.
-    const target = e.play || e.url || '';
+    // a small "source" link so it stays reachable without being the main action. A row with no
+    // resolved play target and nothing but a forge URL stays unclickable — a card that dumps the
+    // reader on GitHub is the bug this replaced, so don't reintroduce it as a fallback.
+    const FORGES = ['github.com','gitlab.com','codeberg.org','git.sr.ht','bitbucket.org','sourceforge.net'];
+    const onForge = !!e.url && FORGES.some(h => e.url.includes(h));
+    const target = e.play || (e.url && !onForge ? e.url : '');
     const title = esc(e.name);
     const pills = [
       e.judged ? '<span class="pill j">judged</span>' : '<span class="pill">queued</span>',
