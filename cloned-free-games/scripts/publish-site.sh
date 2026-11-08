@@ -34,7 +34,11 @@ command -v python3 >/dev/null || die "python3 missing"
 
 rm -rf "$WORK"; mkdir -p "$WORK" || die "cannot create $WORK"
 
-# 1. Render the catalog from the repo's own artifacts.
+# 1. Resolve where each card should send people (game site / store page / releases). Offline,
+#    from the .queue cache; a missing cache just means fewer play buttons, never a broken card.
+python3 "$SRC/scripts/collect-play-links.py" --src "$SRC" || echo "WARN: play links not resolved" >&2
+
+# 2. Render the catalog from the repo's own artifacts.
 python3 "$SRC/scripts/make-catalog-site.py" --src "$SRC" --out "$WORK/catalog" \
   --icon-cache "$HOME/.cache/rdw-games-publish/icons" || die "catalog render failed"
 [ -s "$WORK/catalog/index.html" ] || die "catalog render produced no index.html"

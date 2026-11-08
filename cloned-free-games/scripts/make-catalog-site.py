@@ -24,6 +24,7 @@ import shutil
 import sys
 import urllib.error
 import urllib.request
+from urllib.parse import urlsplit
 from concurrent import futures
 from typing import Any
 from datetime import datetime, timezone
@@ -245,6 +246,66 @@ def pick_icon(icons: dict[str, str], *keys: str) -> str:
     return ""
 
 
+def load_play_links(src: Path) -> dict[str, Any]:
+    """`.queue/play-links.json` from collect-play-links.py, plus the hand-checked overrides.
+
+    Absent files simply mean no play CTA — the page still renders, just without the buttons.
+    """
+    out: dict[str, Any] = {"byUrl": {}, "byName": {}}
+    path = src / ".queue" / "play-links.json"
+    if path.exists():
+        try:
+            out.update(json.loads(path.read_text(encoding="utf-8")))
+        except (OSError, json.JSONDecodeError):
+            pass
+    overrides = src / "scripts" / "play-overrides.json"
+    if overrides.exists():
+        try:
+            extra = {k: v for k, v in json.loads(overrides.read_text(encoding="utf-8")).items()
+                     if not k.startswith("_")}
+            out["byName"].update({norm_game_name(k): v for k, v in extra.items()})
+        except (OSError, json.JSONDecodeError, AttributeError):
+            pass
+    return out
+
+
+def attach_play(entries: list[dict], links: dict[str, Any]) -> dict[str, int]:
+    """Give each entry its play destination. Nothing is invented — no match means no link.
+
+    Lookup order: the upstream URL, then the game's normalised *name* (which is how the judged
+    CATALOG.md rows — no URL, clone long gone — still get a real install page).
+    """
+    by_url = links.get("byUrl") or {}
+    by_name = links.get("byName") or {}
+    counts: dict[str, int] = {}
+    for e in entries:
+        hit = by_url.get(norm_url(e.get("url") or "")) or by_name.get(norm_game_name(e["name"]))
+        if hit:
+            e["play"] = hit["play"]
+            e["play_kind"] = hit.get("kind", "web")
+            e["play_label"] = hit.get("label", "Open")
+            counts[e["play_kind"]] = counts.get(e["play_kind"], 0) + 1
+    return counts
+
+
+def norm_game_name(name: str) -> str:
+    s = re.sub(r"\([^)]*\)", " ", name or "").split("—")[0]
+    return re.sub(r"[^a-z0-9]+", "", s.lower())
+
+
+def norm_url(url: str) -> str:
+    u = (url or "").strip().rstrip("/")
+    if u.endswith(".git"):
+        u = u[:-4]
+    p = urlsplit(u)
+    if not p.netloc:
+        return u.lower()
+    host = p.netloc.lower()
+    if host.startswith("www."):
+        host = host[4:]
+    return f"{host}{p.path.rstrip('/')}".lower()
+
+
 def materialize_icons(entries: list[dict], cache: Path, thumbs: Path) -> dict[str, int]:
     """Copy each remote thumbnail into the site as /thumbs/<hash>.<ext>.
 
@@ -458,6 +519,7 @@ html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-u
 header{position:sticky;top:0;z-index:5;background:linear-gradient(180deg,rgba(11,14,20,.98),rgba(11,14,20,.92));border-bottom:1px solid var(--line);padding:14px 18px}
 h1{margin:0;font-size:18px;letter-spacing:.2px}
 h1 b{color:var(--accent)}
+.tagline{margin:4px 0 0;color:#9fb0c8;font-size:12.5px;max-width:72ch}
 .stats{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;color:var(--dim);font-size:13px}
 .stats b{color:var(--ink)}
 .controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
@@ -466,25 +528,40 @@ input[type=search]:focus{outline:2px solid rgba(124,245,208,.35);border-color:va
 select,button{background:#0f1520;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:9px 11px;font:inherit;cursor:pointer}
 button.on{border-color:var(--accent);color:var(--accent)}
 main{padding:14px 18px 60px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px}
-.card{background:linear-gradient(180deg,#161d29,#121821);border:1px solid var(--line);border-radius:14px;padding:12px;display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:start;transition:border-color .15s}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(370px,1fr));gap:14px}
+.card{position:relative;background:linear-gradient(180deg,#161d29,#121821);border:1px solid var(--line);border-radius:16px;padding:14px;display:grid;grid-template-columns:76px 1fr;gap:13px;align-items:start;transition:border-color .15s,transform .12s,box-shadow .15s}
 .card:hover{border-color:#3a5a80}
-.thumb-wrap{position:relative;width:64px;height:64px;border-radius:14px;overflow:hidden;background:#0d1219;border:1px solid var(--line);flex:0 0 auto}
-.thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.thumb.letter{display:flex;align-items:center;justify-content:center;font-weight:800;font-size:19px;letter-spacing:.4px;color:#08121a;background:linear-gradient(145deg,hsl(var(--h,265) 72% 70%),hsl(var(--h,265) 62% 50%))}
+.card.clickable:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,0,0,.38);border-color:#3f648f}
+.card.clickable:hover h3 .n{color:var(--accent)}
+.card.clickable:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px rgba(124,245,208,.22)}
+.hit{position:absolute;inset:0;z-index:1;border-radius:16px}
+.acts{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:7px;position:relative;z-index:2}
+.cta{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;padding:6px 13px;border-radius:10px;text-decoration:none;border:1px solid transparent;letter-spacing:.2px;box-shadow:0 1px 0 rgba(255,255,255,.18) inset}
+.cta.web{background:linear-gradient(180deg,#8fffdc,#4fdcb4);color:#062019}
+.cta.store{background:linear-gradient(180deg,#8cc4ff,#5b9ff5);color:#06152b}
+.cta.releases{background:transparent;border-color:rgba(255,212,121,.5);color:var(--gold);box-shadow:none}
+.cta:hover{filter:brightness(1.08)}
+.src{color:var(--dim);font-size:11.5px;text-decoration:none;border-bottom:1px dotted var(--line)}
+.src:hover{color:var(--accent);border-color:var(--accent)}
+.thumb-wrap{position:relative;width:76px;height:76px;border-radius:17px;overflow:hidden;background:#0d1219;border:1px solid var(--line);flex:0 0 auto;box-shadow:0 2px 10px rgba(0,0,0,.35)}
+.thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .18s}
+.card.clickable:hover .thumb{transform:scale(1.06)}
+.thumb.letter{display:flex;align-items:center;justify-content:center;font-weight:800;font-size:23px;letter-spacing:.4px;color:#08121a;background:linear-gradient(145deg,hsl(var(--h,265) 72% 70%),hsl(var(--h,265) 62% 50%))}
 .body{min-width:0;display:flex;flex-direction:column;gap:5px}
-.card h3{margin:0;font-size:15px;line-height:1.25;display:flex;gap:8px;align-items:baseline;justify-content:space-between}
-.card h3 .n{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.card h3{margin:0;font-size:15.5px;line-height:1.25;display:flex;gap:8px;align-items:flex-start;justify-content:space-between}
+.card h3 .n{min-width:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;transition:color .15s}
 .card h3 a{color:inherit;text-decoration:none}
 .card h3 a:hover{color:var(--accent)}
-.score{font-size:13px;font-weight:700;color:var(--gold);white-space:nowrap;border:1px solid rgba(255,212,121,.35);background:rgba(255,212,121,.12);border-radius:8px;padding:1px 7px}
-.score.norate{font-size:11px;font-weight:600;color:var(--dim);border-color:var(--line);background:none}
+.score{flex:0 0 auto;font-size:13px;font-weight:800;color:var(--gold);white-space:nowrap;border:1px solid rgba(255,212,121,.35);background:rgba(255,212,121,.12);border-radius:9px;padding:1px 8px;font-variant-numeric:tabular-nums}
+.score.mid{color:var(--accent);border-color:rgba(124,245,208,.35);background:rgba(124,245,208,.1)}
+.score.lo{color:#a9b8cd;border-color:var(--line);background:none}
+.score.norate{font-size:11px;font-weight:600;color:var(--dim);border-color:var(--line);background:none;padding:1px 7px}
 .meta{color:var(--dim);font-size:12px;display:flex;gap:6px;flex-wrap:wrap}
-.pill{border:1px solid var(--line);border-radius:999px;padding:0 7px;font-size:11px;color:var(--dim);line-height:17px}
+.pill{border:1px solid var(--line);border-radius:999px;padding:0 8px;font-size:11px;color:#a3b2c9;line-height:18px}
 .pill.j{color:var(--accent);border-color:rgba(124,245,208,.4)}
 .sum{color:#b9c7dc;font-size:13px;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .type{color:#c3d2e6;font-size:12.5px;margin:0;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
-.more{background:none;border:0;color:var(--dim);padding:0;font-size:11.5px;text-align:left;cursor:pointer}
+.more{background:none;border:1px solid var(--line);color:var(--dim);padding:2px 9px;border-radius:9px;font-size:11.5px;text-align:left;cursor:pointer}
 .more:hover{color:var(--accent)}
 .status{display:none;color:#a9b8cd;font-size:12px;border-top:1px dashed var(--line);padding-top:6px;white-space:pre-wrap;max-height:200px;overflow:auto}
 .status.open{display:block}
@@ -499,6 +576,7 @@ footer{color:var(--dim);font-size:12px;padding:0 18px 40px}
 <body>
 <header>
   <h1>Free phone games <b>catalog</b></h1>
+  <p class="tagline">Every judged title below opens the game itself — its own site, the F-Droid install page, or its releases. No dead links, no broken tiles.</p>
   <div class="stats" id="stats"></div>
   <div class="controls">
     <input id="q" type="search" placeholder="Search name, type, summary, license…" autocomplete="off" autofocus>
@@ -535,6 +613,7 @@ stats.innerHTML = `<span><b>${DATA.total}</b> titles in the queue</span>
   <span><b>${DATA.bySource.fdroid || 0}</b> F-Droid</span>
   <span><b>${DATA.bySource.github || 0}</b> GitHub sweep</span>
   <span><b>${DATA.bySource.curated || 0}</b> curated</span>
+  <span>${DATA.playLinks && (DATA.playLinks.web||0)+(DATA.playLinks.store||0)+(DATA.playLinks.releases||0)} open the game</span>
   <span>built ${esc(DATA.built)}</span>`;
 
 function rows(){
@@ -558,7 +637,11 @@ function render(){
   // Every interpolated field below passes through esc() before it reaches the markup;
   // the only raw HTML here is this file's own template. 400+ cards is fine, but cap it anyway.
   grid.innerHTML = r.slice(0, 600).map((e,i) => {
-    const title = e.url ? `<a href="${esc(e.url)}" target="_blank" rel="noreferrer noopener">${esc(e.name)}</a>` : esc(e.name);
+    // The card opens the GAME, not the repo: `play` is the project site, the F-Droid install
+    // page, or its release downloads, resolved by collect-play-links.py. The repo is demoted to
+    // a small "source" link so it stays reachable without being the main action.
+    const target = e.play || e.url || '';
+    const title = esc(e.name);
     const pills = [
       e.judged ? '<span class="pill j">judged</span>' : '<span class="pill">queued</span>',
       e.source ? `<span class="pill">${esc(SRC[e.source] || e.source)}</span>` : '',
@@ -566,8 +649,10 @@ function render(){
       e.license ? `<span class="pill">${esc(e.license)}</span>` : '',
       e.size_kb ? `<span class="pill">${fmtSize(e.size_kb)}</span>` : ''
     ].join('');
-    const score = e.score != null ? `<span class="score">${e.score}</span>`
-      : (e.judged && e.score_raw ? `<span class="score norate">${esc(e.score_raw.replace(/[*_]/g,''))}</span>` : '');
+    const sval = e.score != null ? Number(e.score) : null;
+    const sclass = sval == null ? '' : sval >= 9 ? '' : sval >= 8 ? ' mid' : ' lo';
+    const score = e.score != null ? `<span class="score${sclass}">${e.score}</span>`
+      : (e.judged && e.score_raw ? `<span class="score norate">${esc(e.score_raw.replace(/[*_]/g,'').trim())}</span>` : '');
     // Thumbnail: real F-Droid art or the forge owner's avatar, with a letter tile underneath
     // so a dead image URL still shows something on-brand instead of a broken-image glyph.
     const initials = (e.name.replace(/[^A-Za-z0-9 ]/g,'').trim().split(' ').filter(Boolean).slice(0,2).map(w=>w[0]).join('') || e.name.slice(0,2)).toUpperCase();
@@ -576,13 +661,18 @@ function render(){
       + (e.icon ? `<img class="thumb" src="${esc(e.icon)}" alt="" loading="lazy" decoding="async" onerror="this.remove()">` : '')
       + `</div>`;
     const desk = e.desk_only ? '<span class="pill">desk</span>' : '';
-    return `<article class="card">${thumb}
+    const hit = target ? `<a class="hit" href="${esc(target)}" target="_blank" rel="noreferrer noopener" aria-label="${esc(e.name)}${e.play_label ? ' — ' + esc(e.play_label) : ''}"></a>` : '';
+    const icon = e.play_kind === 'web' ? '▶' : e.play_kind === 'store' ? '⤓' : '⤓';
+    const cta = e.play ? `<a class="cta ${esc(e.play_kind || 'web')}" href="${esc(e.play)}" target="_blank" rel="noreferrer noopener">${icon} ${esc(e.play_label || 'Open')}</a>` : '';
+    const srcLink = e.url && e.play ? `<a class="src" href="${esc(e.url)}" target="_blank" rel="noreferrer noopener">source</a>` : '';
+    return `<article class="card${target ? ' clickable' : ''}">${hit}${thumb}
       <div class="body">
         <h3><span class="n">${title}</span>${score}</h3>
         <div class="meta">${pills}${desk}</div>
         ${e.type ? `<p class="type">${esc(e.type)}</p>` : ''}
         ${e.summary ? `<p class="sum">${esc(e.summary.slice(0, 220))}${e.summary.length > 220 ? '…' : ''}</p>` : ''}
-        ${e.status ? `<button class="more" data-i="${i}">evidence</button><div class="status" id="s${i}">${esc(e.status)}</div>` : ''}
+        <div class="acts">${cta}${srcLink}${e.status ? `<button class="more" data-i="${i}">evidence</button>` : ''}</div>
+        ${e.status ? `<div class="status" id="s${i}">${esc(e.status)}</div>` : ''}
       </div>
     </article>`;
   }).join('');
@@ -598,7 +688,7 @@ qEl.oninput = render;
 srcEl.onchange = render;
 judgedBtn.onclick = () => { judgedOnly = !judgedOnly; judgedBtn.classList.toggle('on', judgedOnly); judgedBtn.textContent = judgedOnly ? 'Judged only' : 'Everything'; render(); };
 sortBtn.onclick = () => { sortMode = sortMode === 'score' ? 'stars' : sortMode === 'stars' ? 'name' : 'score'; sortBtn.textContent = 'Sort: ' + sortMode; render(); };
-document.getElementById('foot').textContent = 'Queue and scores come from the repo artifacts (GAMES.queue / CATALOG.md). Links open the upstream project.';
+document.getElementById('foot').textContent = 'Queue and scores come from the repo artifacts (GAMES.queue / CATALOG.md). A card opens the game itself — its own site, the F-Droid install page, or its release downloads; "source" is the repo.';
 render();
 </script>
 </body>
@@ -621,6 +711,7 @@ def main() -> None:
     catalog = read_catalog(src)
     dirs = clone_dirs(src)
     entries, superseded = merge(queue, catalog, dirs, icon_map(src))
+    play_counts = attach_play(entries, load_play_links(src))
     icons_checked: dict[str, Any] = verify_icons(entries) if args.verify_icons else {"checked": 0, "dropped": 0}
     if args.icon_cache:
         icons_checked["materialized"] = materialize_icons(
@@ -640,6 +731,7 @@ def main() -> None:
         "catalogRows": len(catalog),
         "bySource": by_source,
         "icons": icons_checked,
+        "playLinks": play_counts,
         "entries": entries,
     }
     out.mkdir(parents=True, exist_ok=True)
