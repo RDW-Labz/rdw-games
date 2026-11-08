@@ -1,6 +1,4 @@
 # name	url	stars	license	est_size_kb	source	summary
-server-survival	https://github.com/pshenok/server-survival	6482	MIT	15543	github	Tower defense game that teaches cloud architecture. Build infrastructure, survive traffic, learn scaling.
-osu	https://github.com/ppy/osu	19378	MIT	209531	github	rhythm is just a *click* away!
 lila	https://github.com/lichess-org/lila	18956	AGPL-3.0	732024	github	♞ lichess.org: the forever free, adless and open source chess server ♞
 whisky	https://github.com/Whisky-App/Whisky	15066	GPL-3.0	757194	github	A modern Wine wrapper for macOS built with SwiftUI
 nakama	https://github.com/heroiclabs/nakama	13687	Apache-2.0	162944	github	Scalable open-source game backend server: multiplayer, matchmaking, leaderboards, chat, and social features for games.
@@ -54,7 +52,7 @@ ludusavi	https://github.com/mtkennerly/ludusavi	6537	MIT	24948	github	Backup too
 dialogic	https://github.com/dialogic-godot/dialogic	6154	MIT	29769	github	💬 Create Dialogs, Visual Novels, RPGs, and manage Characters with Godot to create your Game!
 carp	https://github.com/carp-lang/Carp	6094	Apache-2.0	12233	github	A statically typed lisp, without a GC, for real-time applications.
 hilo	https://github.com/hiloteam/Hilo	5934	MIT	36594	github	A Cross-end HTML5 Game development solution
-totk-pc-recomp	https://github.com/valentderah/totk-pc-recomp	5889	MIT	4321	github	Static recompilation of The Legend of Zelda: Tears of the Kingdom to native Windows and Linux x86-64, with a Vulkan rend
+totk-pc-recomp	https://github.com/valentderah/totk-pc-recomp	5890	MIT	4321	github	Static recompilation of The Legend of Zelda: Tears of the Kingdom to native Windows and Linux x86-64, with a Vulkan rend
 android-dex	https://github.com/Shrey113/Android-Dex	3816	NOASSERTION	173432	github	Universal Samsung DeX alternative for all Android devices. Run Android apps on Windows, Linux & macOS with resizable win
 tmodloader	https://github.com/tModLoader/tModLoader	5771	MIT	850245	github	A mod to make and play Terraria mods. Supports Terraria 1.4 (and earlier) installations 
 partykit	https://github.com/partykit/partykit	5745	MIT	101489	github	PartyKit simplifies developing multiplayer applications
