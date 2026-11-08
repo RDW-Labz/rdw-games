@@ -665,9 +665,9 @@ function render(){
       + (e.icon ? `<img class="thumb" src="${esc(e.icon)}" alt="" loading="lazy" decoding="async" onerror="this.remove()">` : '')
       + `</div>`;
     const desk = e.desk_only ? '<span class="pill">desk</span>' : '';
-    const hit = target ? `<a class="hit" href="${esc(target)}" target="_blank" rel="noreferrer noopener" aria-label="${esc(e.name)}${e.play_label ? ' — ' + esc(e.play_label) : ''}"></a>` : '';
+    const hit = target ? `<a class="hit" href="${esc(target)}" rel="noreferrer" aria-label="${esc(e.name)}${e.play_label ? ' — ' + esc(e.play_label) : ''}"></a>` : '';
     const icon = e.play_kind === 'web' ? '▶' : e.play_kind === 'store' ? '⤓' : '⤓';
-    const cta = e.play ? `<a class="cta ${esc(e.play_kind || 'web')}" href="${esc(e.play)}" target="_blank" rel="noreferrer noopener">${icon} ${esc(e.play_label || 'Open')}</a>` : '';
+    const cta = e.play ? `<a class="cta ${esc(e.play_kind || 'web')}" href="${esc(e.play)}" rel="noreferrer">${icon} ${esc(e.play_label || 'Open')}</a>` : '';
     const srcLink = e.url && e.play ? `<a class="src" href="${esc(e.url)}" target="_blank" rel="noreferrer noopener">source</a>` : '';
     return `<article class="card${target ? ' clickable' : ''}">${hit}${thumb}
       <div class="body">
