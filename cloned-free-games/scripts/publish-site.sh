@@ -35,7 +35,8 @@ command -v python3 >/dev/null || die "python3 missing"
 rm -rf "$WORK"; mkdir -p "$WORK" || die "cannot create $WORK"
 
 # 1. Render the catalog from the repo's own artifacts.
-python3 "$SRC/scripts/make-catalog-site.py" --src "$SRC" --out "$WORK/catalog" || die "catalog render failed"
+python3 "$SRC/scripts/make-catalog-site.py" --src "$SRC" --out "$WORK/catalog" \
+  --icon-cache "$HOME/.cache/rdw-games-publish/icons" || die "catalog render failed"
 [ -s "$WORK/catalog/index.html" ] || die "catalog render produced no index.html"
 echo "CATALOG $(du -h "$WORK/catalog/index.html" | cut -f1) $(python3 -c "
 import json,sys
@@ -82,6 +83,14 @@ PY
   cp "$WORK/catalog/index.html" "$SHELF_STAGE/public/catalog/index.html"
   cp "$WORK/catalog/games.json" "$SHELF_STAGE/public/catalog/games.json"
   echo "INJECT / <- $(ls "$WORK/catalog" | tr '\n' ' ') ; shelf moved to /$SHELF_PATH/ (+ /catalog/ alias)"
+fi
+
+# Thumbnails are served from our own origin (/thumbs/) so no CSP img-src exception and no
+# hotlink dependency; the whole dir ships each deploy and wrangler only re-uploads changes.
+if [ -d "$WORK/catalog/thumbs" ]; then
+  mkdir -p "$SHELF_STAGE/public/thumbs"
+  cp -f "$WORK/catalog/thumbs"/* "$SHELF_STAGE/public/thumbs/" || die "thumb copy failed"
+  echo "THUMBS $(ls "$SHELF_STAGE/public/thumbs" | wc -l) files, $(du -sh "$SHELF_STAGE/public/thumbs" | cut -f1)"
 fi
 [ -f "$SHELF_STAGE/functions/_middleware.js" ] || die "no _middleware.js in stage — refusing to deploy a site without its gate"
 

@@ -16,13 +16,16 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import hashlib
 import html
 import json
 import re
+import shutil
 import sys
 import urllib.error
 import urllib.request
 from concurrent import futures
+from typing import Any
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -240,6 +243,85 @@ def pick_icon(icons: dict[str, str], *keys: str) -> str:
         if k and (ic := icons.get(norm(k))):
             return ic
     return ""
+
+
+def materialize_icons(entries: list[dict], cache: Path, thumbs: Path) -> dict[str, int]:
+    """Copy each remote thumbnail into the site as /thumbs/<hash>.<ext>.
+
+    Two reasons this beats hotlinking: the gate's Content-Security-Policy only allows
+    `img-src 'self'` (so a hotlinked icon is a CSP violation the day report mode becomes
+    enforce), and the page then renders at full speed with no dependency on f-droid.org or
+    github.com being reachable from whoever is looking. Downloads are cached by URL hash, so
+    a daily run only fetches what is new.
+    """
+    def sniff(b: bytes) -> str:
+        if b[:8] == b"\x89PNG\r\n\x1a\n":
+            return ".png"
+        if b[:3] == b"\xff\xd8\xff":
+            return ".jpg"
+        if b[:4] == b"RIFF" and b[8:12] == b"WEBP":
+            return ".webp"
+        if b[:6] in (b"GIF87a", b"GIF89a"):
+            return ".gif"
+        if b[:5] == b"<?xml" or b"<svg" in b[:400]:
+            return ".svg"
+        return ".png"
+
+    def fetch(url: str) -> tuple[str, bytes]:
+        req = urllib.request.Request(url, headers={"User-Agent": "rdw-games-site/1"})
+        try:
+            with urllib.request.urlopen(req, timeout=25) as r:
+                return url, r.read()
+        except (urllib.error.URLError, TimeoutError, OSError):
+            return url, b""
+
+    cache.mkdir(parents=True, exist_ok=True)
+    thumbs.mkdir(parents=True, exist_ok=True)
+    remote = sorted({e["icon"] for e in entries if (e["icon"] or "").startswith("http")})
+    name_of: dict[str, str] = {}
+    fetched = cached = failed = 0
+
+    def name_for(url: str) -> str:
+        return hashlib.sha256(url.encode()).hexdigest()[:16]
+
+    with futures.ThreadPoolExecutor(max_workers=16) as ex:
+        for url, blob in ex.map(fetch, remote):
+            if not blob:
+                failed += 1
+                continue
+            dest = cache / (name_for(url) + sniff(blob))
+            if dest.exists() and dest.stat().st_size == len(blob):
+                cached += 1
+            else:
+                dest.write_bytes(blob)
+                fetched += 1
+            name_of[url] = dest.name
+
+    for e in entries:
+        icon = e["icon"] or ""
+        if icon in name_of:
+            e["icon"] = "/thumbs/" + name_of[icon]
+    scaled = 0
+    for name in set(name_of.values()):
+        src = cache / name
+        dest = thumbs / name
+        if name.endswith((".png", ".jpg", ".webp")):
+            try:
+                from PIL import Image
+                with Image.open(src) as im:
+                    im.load()
+                    # 128px is 2x the 64px tile, so it stays crisp on a hidpi screen and the
+                    # whole set ships in a few MB instead of 40.
+                    im = im.convert("RGBA" if im.mode in ("RGBA", "LA", "P") else "RGB")
+                    im.thumbnail((128, 128), Image.LANCZOS)
+                    im.save(dest, optimize=True)
+                scaled += 1
+                continue
+            except Exception:  # noqa: BLE001 - any decode failure just ships the original
+                pass
+        shutil.copy2(src, dest)
+    return {"remote": len(remote), "fetched": fetched, "cached": cached, "failed": failed,
+            "scaled": scaled, "local": sum(1 for e in entries if (e["icon"] or "").startswith("/thumbs/"))}
 
 
 def verify_icons(entries: list[dict], workers: int = 16) -> dict[str, int]:
@@ -530,6 +612,7 @@ def main() -> None:
     ap.add_argument("--src", default=".", help="repo root holding GAMES.queue + CATALOG.md")
     ap.add_argument("--no-verify-icons", dest="verify_icons", action="store_false",
                     help="skip the F-Droid icon HEAD check (offline builds keep whatever the map says)")
+    ap.add_argument("--icon-cache", default="", help="directory caching downloaded thumbnails by URL hash")
     args = ap.parse_args()
 
     src = Path(args.src).resolve()
@@ -538,7 +621,10 @@ def main() -> None:
     catalog = read_catalog(src)
     dirs = clone_dirs(src)
     entries, superseded = merge(queue, catalog, dirs, icon_map(src))
-    icons_checked = verify_icons(entries) if args.verify_icons else {"checked": 0, "dropped": 0}
+    icons_checked: dict[str, Any] = verify_icons(entries) if args.verify_icons else {"checked": 0, "dropped": 0}
+    if args.icon_cache:
+        icons_checked["materialized"] = materialize_icons(
+            entries, Path(args.icon_cache).expanduser(), out / "thumbs")
 
     judged = [e for e in entries if e["judged"]]
     by_source: dict[str, int] = {}
