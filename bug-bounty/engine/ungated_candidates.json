@@ -1,0 +1,3418 @@
+{
+ "checked": {
+  "grab": 25,
+  "expediagroup": 25,
+  "hypr-corp": 4,
+  "mercadolibre": 25,
+  "fanduel": 7,
+  "vimeo": 4,
+  "epicgames": 20,
+  "xiaomi": 25,
+  "bookingcom": 25,
+  "amazonvrp": 25,
+  "playtika": 25,
+  "playstation": 25,
+  "goldmansachs": 25,
+  "deribit": 2,
+  "capital-one": 11,
+  "hilton": 15,
+  "klarna": 25,
+  "tinder": 25,
+  "paypal": 21,
+  "early_warning": 10,
+  "eternal": 6,
+  "roblox": 21,
+  "flutteruki": 7,
+  "tiktok": 21,
+  "elastic": 4,
+  "anduril_industries": 13,
+  "superhuman": 5,
+  "expediagroup_bbp": 21,
+  "stripe": 16,
+  "shopify": 7,
+  "x": 18,
+  "coinbase": 5,
+  "varonis": 12,
+  "gitlab": 1,
+  "spotify": 10,
+  "instacart": 18,
+  "moonpay": 3,
+  "github": 14,
+  "reddit": 3,
+  "airbnb": 3,
+  "superbet": 6,
+  "remitly": 1,
+  "logitech": 11,
+  "flickr": 2,
+  "ui": 1,
+  "acronis": 1,
+  "rockstargames": 5,
+  "deriv": 4,
+  "crowdstrike": 4,
+  "scopely": 13,
+  "payoneer": 5,
+  "kayak": 2,
+  "apnic": 11,
+  "crypto": 2,
+  "lyst": 4,
+  "grindr": 2,
+  "eero": 1,
+  "toolsforhumanity": 1,
+  "bybit_fintech": 1,
+  "khealth": 2,
+  "boozt": 1,
+  "trip_com": 4,
+  "krisp": 1,
+  "basecamp": 1,
+  "8x8-bounty": 1
+ },
+ "dead": {
+  "grab": [
+   {
+    "host": "03raqj2dp8z963lii.voice.grabtaxi.com",
+    "target": "_8657669ef04976c9e423c2c594f3e29a.tjxrvlrcqj.acm-validations.aws",
+    "status": "NOERROR"
+   },
+   {
+    "host": "108.id-vgdc.voice.grabtaxi.com",
+    "target": "_8657669ef04976c9e423c2c594f3e29a.tjxrvlrcqj.acm-validations.aws",
+    "status": "NOERROR"
+   },
+   {
+    "host": "10tpicollectiong.voice.grabtaxi.com",
+    "target": "_8657669ef04976c9e423c2c594f3e29a.tjxrvlrcqj.acm-validations.aws",
+    "status": "NOERROR"
+   },
+   {
+    "host": "16-clientc.voice.grabtaxi.com",
+    "target": "_8657669ef04976c9e423c2c594f3e29a.tjxrvlrcqj.acm-validations.aws",
+    "status": "NOERROR"
+   },
+   {
+    "host": "16-gmotiong.voice.grabtaxi.com",
+    "target": "_8657669ef04976c9e423c2c594f3e29a.tjxrvlrcqj.acm-validations.aws",
+    "status": "NOERROR"
+   },
+   {
+    "host": "16-id-vgdcm.voice.grabtaxi.com",
+    "target": "_8657669ef04976c9e423c2c594f3e29a.tjxrvlrcqj.acm-validations.aws",
+    "status": "NOERROR"
+   },
+   {
+    "host": "16-stgshuttleb.voice.grabtaxi.com",
+    "target": "_8657669ef04976c9e423c2c594f3e29a.tjxrvlrcqj.acm-validations.aws",
+    "status": "NOERROR"
+   },
+   {
+    "host": "16-stgshuttlegy.voice.grabtaxi.com",
+    "target": "_8657669ef04976c9e423c2c594f3e29a.tjxrvlrcqj.acm-validations.aws",
+    "status": "NOERROR"
+   },
+   {
+    "host": "16-t1.voice.grabtaxi.com",
+    "target": "_8657669ef04976c9e423c2c594f3e29a.tjxrvlrcqj.acm-validations.aws",
+    "status": "NOERROR"
+   },
+   {
+    "host": "16-tpicollectionm.voice.grabtaxi.com",
+    "target": "_8657669ef04976c9e423c2c594f3e29a.tjxrvlrcqj.acm-validations.aws",
+    "status": "NOERROR"
+   },
+   {
+    "host": "16-tst-stgshuttlew.voice.grabtaxi.com",
+    "target": "_8657669ef04976c9e423c2c594f3e29a.tjxrvlrcqj.acm-validations.aws",
+    "status": "NOERROR"
+   },
+   {
+    "host": "16plstgshuttle.voice.grabtaxi.com",
+    "target": "_8657669ef04976c9e423c2c594f3e29a.tjxrvlrcqj.acm-validations.aws",
+    "status": "NOERROR"
+   },
+   {
+    "host": "16tpicollectione.voice.grabtaxi.com",
+    "target": "_8657669ef04976c9e423c2c594f3e29a.tjxrvlrcqj.acm-validations.aws",
+    "status": "NOERROR"
+   },
+   {
+    "host": "17-api-docsk.voice.grabtaxi.com",
+    "target": "_8657669ef04976c9e423c2c594f3e29a.tjxrvlrcqj.acm-validations.aws",
+    "status": "NOERROR"
+   },
+   {
+    "host": "17-f-mme.voice.grabtaxi.com",
+    "target": "_8657669ef04976c9e423c2c594f3e29a.tjxrvlrcqj.acm-validations.aws",
+    "status": "NOERROR"
+   },
+   {
+    "host": "17-id-t2m.voice.grabtaxi.com",
+    "target": "_8657669ef04976c9e423c2c594f3e29a.tjxrvlrcqj.acm-validations.aws",
+    "status": "NOERROR"
+   },
+   {
+    "host": "17-mm-7q.voice.grabtaxi.com",
+    "target": "_8657669ef04976c9e423c2c594f3e29a.tjxrvlrcqj.acm-validations.aws",
+    "status": "NOERROR"
+   },
+   {
+    "host": "17-motionpoc.voice.grabtaxi.com",
+    "target": "_8657669ef04976c9e423c2c594f3e29a.tjxrvlrcqj.acm-validations.aws",
+    "status": "NOERROR"
+   },
+   {
+    "host": "17-stgmotionw.voice.grabtaxi.com",
+    "target": "_8657669ef04976c9e423c2c594f3e29a.tjxrvlrcqj.acm-validations.aws",
+    "status": "NOERROR"
+   },
+   {
+    "host": "17-stgshuttletwitch.voice.grabtaxi.com",
+    "target": "_8657669ef04976c9e423c2c594f3e29a.tjxrvlrcqj.acm-validations.aws",
+    "status": "NOERROR"
+   },
+   {
+    "host": "17forummmg.voice.grabtaxi.com",
+    "target": "_8657669ef04976c9e423c2c594f3e29a.tjxrvlrcqj.acm-validations.aws",
+    "status": "NOERROR"
+   },
+   {
+    "host": "17lax1-mma.voice.grabtaxi.com",
+    "target": "_8657669ef04976c9e423c2c594f3e29a.tjxrvlrcqj.acm-validations.aws",
+    "status": "NOERROR"
+   },
+   {
+    "host": "17stage1.voice.grabtaxi.com",
+    "target": "_8657669ef04976c9e423c2c594f3e29a.tjxrvlrcqj.acm-validations.aws",
+    "status": "NOERROR"
+   },
+   {
+    "host": "18-oceaniag.voice.grabtaxi.com",
+    "target": "_8657669ef04976c9e423c2c594f3e29a.tjxrvlrcqj.acm-validations.aws",
+    "status": "NOERROR"
+   },
+   {
+    "host": "18americamm9.voice.grabtaxi.com",
+    "target": "_8657669ef04976c9e423c2c594f3e29a.tjxrvlrcqj.acm-validations.aws",
+    "status": "NOERROR"
+   }
+  ],
+  "expediagroup": [
+   {
+    "host": "ac.cheaptickets.com",
+    "target": "ac.cheaptickets.com.cname.campaign.adobe.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "active-staging.orbitz.com",
+    "target": "staging.away.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "administration.wotif.com",
+    "target": "wworigin.wotif.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "affiliate-lookup.ean.com",
+    "target": "aonxaffiliate-lookup.prod.ean.to",
+    "status": "SERVFAIL"
+   },
+   {
+    "host": "affiliates.hotwire.com",
+    "target": "aff_hotwire.irwhitelabel.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "alberta.ca.hotels.com",
+    "target": "expedia-vb-634821915.eu-west-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "alberta.hotels.com",
+    "target": "expedia-vb-634821915.eu-west-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "alberta.jp.hotels.com",
+    "target": "expedia-vb-634821915.eu-west-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "alberta.kr.hotels.com",
+    "target": "expedia-vb-634821915.eu-west-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "alberta.nl.hotels.com",
+    "target": "expedia-vb-634821915.eu-west-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "apicdm.carrentals.com",
+    "target": "prodpci-tapirpub-1758896296.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "apicr.carrentals.com",
+    "target": "prodpci-tarsierpub-877336199.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "apim-useast1.prod-p.expedia.com",
+    "target": "apim-proxy.us-west-2.prod-p.expedia.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "asiapacific-dev.orbitz.com",
+    "target": "dev.away.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "asiapacific-staging.orbitz.com",
+    "target": "staging.away.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "asiapacific.orbitz.com",
+    "target": "origin-www.orbitz.com",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "hypr-corp": [
+   {
+    "host": "22202-cluster.gethypr.com",
+    "target": "firstcitrus.hypr.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "data.product.gethypr.com",
+    "target": "5737843209666560-data.customer.pendo.io",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "product.gethypr.com",
+    "target": "5737843209666560-txt.customer.pendo.io",
+    "status": "NOERROR"
+   },
+   {
+    "host": "report-portal.hypr.com",
+    "target": "report-portal.dvpn.hypr.com",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "mercadolibre": [
+   {
+    "host": "a-cms.prodeng.mercadolibre.com",
+    "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "a.disabled.prodeng.mercadolibre.com",
+    "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "a.prodeng.mercadolibre.com",
+    "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "a.repositoryproduction.prodeng.mercadolibre.com",
+    "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "a3.client.chef.prodeng.mercadolibre.com",
+    "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "a7.scm.prodeng.mercadolibre.com",
+    "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "accounta.production.prodeng.mercadolibre.com",
+    "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "admins-a.prodeng.mercadolibre.com",
+    "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "ak.gh.sgtest.prodeng.mercadolibre.com",
+    "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "alpha.data-o0.ptr8540.sg-file.metrics.a.prodeng.mercadolibre.com",
+    "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "amr-arba01.adminml.com",
+    "target": "internal-lb-sorter-prd-amr-arba01-1879541874.sa-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "artifacts-test.mercadolibre.com",
+    "target": "public-test.artifacts.furycloud.io",
+    "status": "NOERROR"
+   },
+   {
+    "host": "asm.mercadolibre.com",
+    "target": "list.mercadolibre.com",
+    "status": "SERVFAIL"
+   },
+   {
+    "host": "baloto-ptr3540i.sg.metrics.a.prodeng.mercadolibre.com",
+    "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "baloto-ptr8530.sg.metrics.a.prodeng.mercadolibre.com",
+    "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "blog.mercadopago.cl",
+    "target": "d1ze37y4dj9t31.cloudfront.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "blog.mercadopago.com.ar",
+    "target": "d2qxe2jtb47zsz.cloudfront.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "blog.mercadopago.com.co",
+    "target": "d2uausul6bujt0.cloudfront.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "blog.mercadopago.com.mx",
+    "target": "d19g81ac0yczz2.cloudfront.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "bulk-attributes.mercadolibre.com",
+    "target": "domssl.mercadolibre.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "catalogo.mercadolibre.com.uy",
+    "target": "list.mercadolibre.com",
+    "status": "SERVFAIL"
+   },
+   {
+    "host": "cgi9.payment.prodeng.mercadolibre.com",
+    "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "click1.mercadolibre.com",
+    "target": "domssl.mercadolibre.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "clicktocall.mercadolibre.com",
+    "target": "domssl.mercadolibre.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "clicktocalltest.mercadolibre.com",
+    "target": "domssl.mercadolibre.com",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "fanduel": [
+   {
+    "host": "abmail.racing.fanduel.com",
+    "target": "u13036686.wl187.sendgrid.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "affiliates.fanduel.com",
+    "target": "fanduelus1.iaoffers.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "connect.fanduel.com",
+    "target": "pulse-network-lb-2a84040ac4052935.elb.us-east-1.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "lobbymonitor.fanduel.com",
+    "target": "us-dev-elb-1oetfelyiqf1v-1975515516.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "mails.ab.fanduel.com",
+    "target": "u4921019.wl020.sendgrid.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "promos.fantasy.www.fanduel.com",
+    "target": "promohub.fanduel.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "super5.tvg.com",
+    "target": "tvg-pick-5-lb-1935104915.eu-west-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "vimeo": [
+   {
+    "host": "abmail.videofy.magisto.com",
+    "target": "u7517857.wl108.sendgrid.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "abmail.videofyapp.magisto.com",
+    "target": "u7517857.wl108.sendgrid.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "cf.magisto.com",
+    "target": "magisto.com.cdn.cloudflare.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "em291.app.magisto.com",
+    "target": "u7517857.wl108.sendgrid.net",
+    "status": "NOERROR"
+   }
+  ],
+  "epicgames": [
+   {
+    "host": "accounts.epicgames-stage.ol.epicgames.com",
+    "target": "accountportalv2-web-stg-a-2123378841.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "accounts.launcher-website-prod07.ol.epicgames.com",
+    "target": "accountportal-website-prod07-lc-339512713.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "approval-bot-3.eut.it.epicgames.com",
+    "target": "approval-bot.eut.it.epicgames.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "art-pipeline-s3.it.epicgames.com",
+    "target": "d3g5f91ciy9h8d.cloudfront.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "cloudflarestaging-prod.quixel.com",
+    "target": "cloudflarestaging-prod.quixel.com.cdn.cloudflare.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "cloudfront-epicgames.3lateral.com",
+    "target": "d2zid614rarveo.cloudfront.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "download2.epicgames.com",
+    "target": "d1a2x6ssnt7qga.cloudfront.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "download3.epicgames.com",
+    "target": "d220izf3z86rpt.cloudfront.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "download4.epicgames.com",
+    "target": "d19cwn5isdbxni.cloudfront.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "em8006.unrealengine.com",
+    "target": "u13699770.wl021.sendgrid.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "hello.default.knative.dead.dev.use1a.on.epicgames.com",
+    "target": "aff568ba8ebe64e3bb71bca0d6ffeb6d-649587788.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "jira.epicgames.com",
+    "target": "jira.it.epicgames.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "jira.ol.epicgames.com",
+    "target": "jira.it.epicgames.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "login-mediaspace.unrealengine.com",
+    "target": "azurewebsites.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "pf9app.default.knative.dead.dev.use1a.on.epicgames.com",
+    "target": "aff568ba8ebe64e3bb71bca0d6ffeb6d-649587788.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "pre1.jp.fortnite.com",
+    "target": "d3bb73660rohp6.cloudfront.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "securemail.epicgames.com",
+    "target": "pe-003d3601.gslb.pphosted.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "teambattles-staging.fortnite.com",
+    "target": "teambattles-staging.fortnite.com.cdn.cloudflare.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "telescopeai-dev.on.epicgames.com",
+    "target": "telescopeai.adff.dev.use1a.on.epicgames.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "telescopeai.on.epicgames.com",
+    "target": "telescopeai.edfc.live.use1a.on.epicgames.com",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "xiaomi": [
+   {
+    "host": "ad.mioffice.cn",
+    "target": "mife-evad-lan-pri-ksywq.alb.xiaomi.srv",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "admin.10046.mi.com",
+    "target": "admin.10046.mi.com.n.mi-dun.srv",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "admin.huangye.miui.com",
+    "target": "admin.huangye.miui.com.v.mi-dun.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "admin.miglass.mi.com",
+    "target": "admin.miglass.mi.com.v.mi-dun.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "admin.n.miui.com",
+    "target": "admin.n.miui.com.v.mi-dun.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "admin.pt.10046.mi.com",
+    "target": "admin.pt.10046.mi.com.v.mi-dun.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "admin.telecom.mihome.xiaomi.net",
+    "target": "admin.telecom.mihome.xiaomi.net.n.mi-dun.srv",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "admin.telecom.pt.mihome.xiaomi.net",
+    "target": "admin.telecom.pt.mihome.xiaomi.net.v.mi-dun.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "ads.mi.com",
+    "target": "mife-pub-alisgp.alb.xiaomi.srv",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "api-staging.ai.xiaomi.com",
+    "target": "intranet-staging-4798-cn-north.alb.xiaomi.srv",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "api-ubas.dev-api-whale.mioffice.cn",
+    "target": "api-ubas.dev-api-whale.mioffice.cn.v.mi-dun.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "api-ubas.staging-api-whale.mioffice.cn",
+    "target": "api-ubas.staging-api-whale.mioffice.cn.v.mi-dun.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "api-whale.mioffice.cn",
+    "target": "api-whale.mioffice.cn.v.mi-dun.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "api.10046.pt.mi.com",
+    "target": "intranet-pub-c3-c4.alb.xiaomi.srv",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "api.men.mi.com",
+    "target": "b2c-intranet-pri-c3-c4.alb.xiaomi.srv",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "api.miren.mi.com",
+    "target": "mife-pub-2-prod-all.alb.xiaomi.srv",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "app.men.test.mi.com",
+    "target": "4-ksywq.xmstore.neo.b2c.srv",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "b.mioffice.cn",
+    "target": "b.mioffice.cn.v.mi-dun.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "bi.mi.com",
+    "target": "bi.mi.com.v.mi-dun.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "bw.invoice.be.mi.com",
+    "target": "bw.invoice.be.mi.com.v.mi-dun.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "cardmanage.10046.pt.mi.com",
+    "target": "cardmanage.10046.pt.mi.com.v.mi-dun.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "ccms.be.xiaomi.com",
+    "target": "matrix-pri-c3-c4.alb.xiaomi.srv",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "cloud.mioffice.cn",
+    "target": "cloud.mioffice.cn.v.mi-dun.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "cms.duokan.com",
+    "target": "cms.duokan.com.n.mi-dun.srv",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "cms.mintbrs.intl.miui.com",
+    "target": "cms.mintbrs.intl.miui.com.v.mi-dun.com",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "bookingcom": [
+   {
+    "host": "adaudit.dng.rentalcars.com",
+    "target": "security-lhr.dng.rentalcars.com",
+    "status": "SERVFAIL"
+   },
+   {
+    "host": "adm.dng.rentalcars.com",
+    "target": "security-lhr.dng.rentalcars.com",
+    "status": "SERVFAIL"
+   },
+   {
+    "host": "bamboo-taxi.dng.rentalcars.com",
+    "target": "security-lhr.dng.rentalcars.com",
+    "status": "SERVFAIL"
+   },
+   {
+    "host": "bgo-vpn.dng.rentalcars.com",
+    "target": "security-lhr.dng.rentalcars.com",
+    "status": "SERVFAIL"
+   },
+   {
+    "host": "bookingcars-uat.dng.rentalcars.com",
+    "target": "security-lhr.dng.rentalcars.com",
+    "status": "SERVFAIL"
+   },
+   {
+    "host": "confluence.dng.rentalcars.com",
+    "target": "security-lhr.dng.rentalcars.com",
+    "status": "SERVFAIL"
+   },
+   {
+    "host": "controlroom.dng.rentalcars.com",
+    "target": "security-lhr.dng.rentalcars.com",
+    "status": "SERVFAIL"
+   },
+   {
+    "host": "cpasslab.booking.com",
+    "target": "cpasslab.voicedqs.booking.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "customer-service.transport.booking.com",
+    "target": "df4an27f48ome.cloudfront.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "darktrace.dng.rentalcars.com",
+    "target": "security-lhr.dng.rentalcars.com",
+    "status": "SERVFAIL"
+   },
+   {
+    "host": "dba-dashboard.dng.rentalcars.com",
+    "target": "security-lhr.dng.rentalcars.com",
+    "status": "SERVFAIL"
+   },
+   {
+    "host": "dqs-vcenter.dng.rentalcars.com",
+    "target": "security-lhr.dng.rentalcars.com",
+    "status": "SERVFAIL"
+   },
+   {
+    "host": "engineering-lhr-ssh.dng.rentalcars.com",
+    "target": "security-lhr.dng.rentalcars.com",
+    "status": "SERVFAIL"
+   },
+   {
+    "host": "git-ssh.dng.rentalcars.com",
+    "target": "security-lhr.dng.rentalcars.com",
+    "status": "SERVFAIL"
+   },
+   {
+    "host": "grafana-taxi.dng.rentalcars.com",
+    "target": "security-lhr.dng.rentalcars.com",
+    "status": "SERVFAIL"
+   },
+   {
+    "host": "graylog.dng.rentalcars.com",
+    "target": "security-lhr.dng.rentalcars.com",
+    "status": "SERVFAIL"
+   },
+   {
+    "host": "ignite.dng.rentalcars.com",
+    "target": "security-lhr.dng.rentalcars.com",
+    "status": "SERVFAIL"
+   },
+   {
+    "host": "intellij-lic.dng.rentalcars.com",
+    "target": "security-lhr.dng.rentalcars.com",
+    "status": "SERVFAIL"
+   },
+   {
+    "host": "intranet-rides.dng.rentalcars.com",
+    "target": "security-lhr.dng.rentalcars.com",
+    "status": "SERVFAIL"
+   },
+   {
+    "host": "intranet-taxi-qa.dng.rentalcars.com",
+    "target": "security-lhr.dng.rentalcars.com",
+    "status": "SERVFAIL"
+   },
+   {
+    "host": "intranet-taxi.dng.rentalcars.com",
+    "target": "security-lhr.dng.rentalcars.com",
+    "status": "SERVFAIL"
+   },
+   {
+    "host": "intranet.taxi.booking.com",
+    "target": "redirect-service-internal.booking.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "ipam.dng.rentalcars.com",
+    "target": "security-lhr.dng.rentalcars.com",
+    "status": "SERVFAIL"
+   },
+   {
+    "host": "itassets.dng.rentalcars.com",
+    "target": "security-lhr.dng.rentalcars.com",
+    "status": "SERVFAIL"
+   },
+   {
+    "host": "jira.dng.rentalcars.com",
+    "target": "security-lhr.dng.rentalcars.com",
+    "status": "SERVFAIL"
+   }
+  ],
+  "amazonvrp": [
+   {
+    "host": "aero-standard-testing79-exp2.amazon.ca",
+    "target": "tp.4e41482be-frontier.amazon.ca",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "alexa-setup.amazon.co.uk",
+    "target": "alexa-setup.amazon.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "alx-inbound.amazon.fr",
+    "target": "alx-inbound-eu.amazon.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "alx-inbound.amazon.in",
+    "target": "alx-inbound-eu.amazon.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "alx-inbound.amazon.it",
+    "target": "alx-inbound-eu.amazon.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "ara.amazon.ca",
+    "target": "ara-na.amazon.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "ara.amazon.cn",
+    "target": "ara-fe.amazon.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "ara.amazon.co.jp",
+    "target": "ara-fe.amazon.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "ara.amazon.co.uk",
+    "target": "ara-eu.amazon.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "ara.amazon.com.br",
+    "target": "ara-na.amazon.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "ara.amazon.com.mx",
+    "target": "ara-na.amazon.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "ara.amazon.com.tr",
+    "target": "ara-eu.amazon.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "ara.amazon.es",
+    "target": "ara-eu.amazon.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "ara.amazon.fr",
+    "target": "ara-eu.amazon.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "ara.amazon.in",
+    "target": "ara-in.amazon.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "ara.amazon.it",
+    "target": "ara-eu.amazon.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "ara.amazon.nl",
+    "target": "ara-eu.amazon.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "arap.amazon.cn",
+    "target": "ara-fe.amazon.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "arap.amazon.co.jp",
+    "target": "ara-fe.amazon.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "arap.amazon.co.uk",
+    "target": "ara-eu.amazon.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "arap.amazon.com.br",
+    "target": "ara-na.amazon.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "arap.amazon.com.mx",
+    "target": "ara-na.amazon.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "arap.amazon.com.tr",
+    "target": "ara-eu.amazon.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "arap.amazon.fr",
+    "target": "ara-eu.amazon.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "arap.amazon.it",
+    "target": "ara-eu.amazon.com",
+    "status": "NOERROR"
+   }
+  ],
+  "playtika": [
+   {
+    "host": "akamai-int-waf-poc.playticorp.com",
+    "target": "ves-io-2a34a155-cdc0-47bc-aa81-75cfe576e826.ac.vh.ves.io",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "akamai-waf-poc.playticorp.com",
+    "target": "ves-io-cdn-129ad282-1d25-4344-ae70-acd63ce76d2c.autocerts.ves.volterra.io",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "artifactory-sandbox.playticorp.com",
+    "target": "cicd-prod-tf-artifactory-sandbox-frontend-1.cicd.va2",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "artifactory.playticorp.com",
+    "target": "cicd-prod-artifactory-frontend-1.va2",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "backoffice-casino.playtika.com",
+    "target": "back-office.cc-prod.ca1",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "backoffice-playground.playticorp.com",
+    "target": "k8s-default-ingressb-ba6d6b2796-1840783037.eu-north-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "banners.playtika.com",
+    "target": "store.playtika.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "beta.samurai-preprod.playticorp.com",
+    "target": "samurai-preprod.playticorp.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "beta.samurai.playticorp.com",
+    "target": "samurai.playticorp.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "gd.koson-qa.wt.wooga.com",
+    "target": "d1vn7um4iy8qxk.cloudfront.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "lightspeed-docs.playticorp.com",
+    "target": "internal-gateway-itservices.psf.dub",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "oauth-ad.sbs.wooga.com",
+    "target": "production.vpn.eu-west-1.aws.sbs.wooga.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "pk-grafana.playtika.com",
+    "target": "pk-grafana.corp",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "pp-oauth-ad.sbs.wooga.com",
+    "target": "production.vpn.eu-west-1.aws.sbs.wooga.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "sbs-oauth-ad.sbs.wooga.com",
+    "target": "production.vpn.eu-west-1.aws.sbs.wooga.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "slots-jp-app-aws.aws.playtika.com",
+    "target": "sr-prod-app-vip-01-948202728.ap-northeast-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "spectro-ca1.playticorp.com",
+    "target": "spectro.cloudstack.ca1",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "spectro-dub.playticorp.com",
+    "target": "spectro.cloudstack.dub",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "spectro-sandbox.playticorp.com",
+    "target": "spectro-sandbox.va4",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "spectro-va2.playticorp.com",
+    "target": "spectro.cloudstack.va2",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "spectro-va4.playticorp.com",
+    "target": "spectro.va4",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "static.playtika.com",
+    "target": "store.playtika.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "story-editor.nct.wooga.com",
+    "target": "shared.vpn.eu-west-1.aws.sbs.wooga.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "t-staging.bit.wooga.com",
+    "target": "kinesis-rest-244362423.eu-west-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "test.caesarsgames.com",
+    "target": "cc-preprod-caeasarsvip-01-1161181133.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "playstation": [
+   {
+    "host": "akamai-logs.psn.tools.playstation.net",
+    "target": "a75a19536e3ee11e8afa2062fa8ef92f-2058581471.us-west-2.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "cdnauth.e1-pqa.scdn.dl.playstation.net",
+    "target": "elb001-gems-cdna01.gems.usw2.e1-pqa.etc.s0.playstation.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "cdnauth.e1-spint.scdn.dl.playstation.net",
+    "target": "elb001-gems-cdna01.gems.usw2.e1-spint.etc.s0.playstation.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "community.us.playstation.com",
+    "target": "pscom-communities-elb-1026986077.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "eugdev.playstation.com",
+    "target": "sonypdc-eu-dev65.adobecqms.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "ext.pcs-nonprod.nonprod.pcs.playstation.net",
+    "target": "pcs-nonprod-pub.nonprod.pcs.playstation.net",
+    "status": "SERVFAIL"
+   },
+   {
+    "host": "gems-metadata-dev.e1-np.tools.playstation.net",
+    "target": "h0001-gmm-core01-dev01-01-1304381415.ap-northeast-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "grafana.psn.tools.playstation.net",
+    "target": "kc4bbc42ab-grafana-grafana-fdb1-72582035.us-east-2.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "gvs.api.mgmt.playstation.net",
+    "target": "gvs-mgmt-usw2-01x-108777103.us-west-2.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "gvs.api.prod-qa.playstation.net",
+    "target": "gvs-pqa-usw2-01x-1959350293.us-west-2.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "gvs.api.q1-np.playstation.net",
+    "target": "gvs-q1-np-usw2-01x-217046782.us-west-2.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "gvs.api.sp-int.playstation.net",
+    "target": "gvs-sp-int-usw2-01x-619398091.us-west-2.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "int.pcs-nonprod.nonprod.pcs.playstation.net",
+    "target": "pcs-nonprod-pub.nonprod.pcs.playstation.net",
+    "status": "SERVFAIL"
+   },
+   {
+    "host": "origin-pdceu-community.playstation.com",
+    "target": "pdceu-alb-prod-community-1243334151.eu-west-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "origin-stage-community.playstation.com",
+    "target": "pdceu-alb-stage-community-432867084.eu-west-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "pcs-nonprod.nonprod.pcs.playstation.net",
+    "target": "pcs-nonprod-pub.nonprod.pcs.playstation.net",
+    "status": "SERVFAIL"
+   },
+   {
+    "host": "poseidon-privatelink.e1.dataocean.playstation.net",
+    "target": "poseidon-e1.internal.aws",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "poseidon-privatelink.pqa.dataocean.playstation.net",
+    "target": "poseidon-pqa.internal.aws",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "poseidon-privatelink.prod.dataocean.playstation.net",
+    "target": "poseidon.internal.aws",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "poseidon-privatelink.spint.dataocean.playstation.net",
+    "target": "poseidon-spint.internal.aws",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "sbahn-subscribe-privatelink.e1.dataocean.playstation.net",
+    "target": "sbahn-subscribe-e1.internal.aws",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "sbahn-subscribe-privatelink.spint.dataocean.playstation.net",
+    "target": "sbahn-subscribe-spint.internal.aws",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "tokenizer-privatelink.e1.dataocean.playstation.net",
+    "target": "tokenizer-e1.internal.aws",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "tokenizer-privatelink.mgmt.dataocean.playstation.net",
+    "target": "tokenizer-mgmt.internal.aws",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "tokenizer-privatelink.pqa.dataocean.playstation.net",
+    "target": "tokenizer-pqa.internal.aws",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "goldmansachs": [
+   {
+    "host": "amp.marcus.com",
+    "target": "amp.marcus.com.cdn.cloudflare.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "arcgis-nonprod.de.infra.marcus.com",
+    "target": "nonprod-arcgis-nlb-1923150342.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "arcgis-nonprod.infra.marcus.com",
+    "target": "nonprod-arcgis-alb-1310872242.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "assetmanagement-email.gs.com",
+    "target": "gsam-email-prod.gs.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "blueapi.marcus.com",
+    "target": "blueapi.marcus.com.cdn.cloudflare.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "dev.agent.cookie.infra.marcus.com",
+    "target": "ab14ab1c47ce22d68.awsglobalaccelerator.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "dev.alation.infra.marcus.com",
+    "target": "dev-mdw-alation-alb-302348157.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "dev.api.gspublishing.com",
+    "target": "dev.api.gspublishing.com.edgekey.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "dev.cards.marcus.com",
+    "target": "blue.dev.cards.marcus.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "dev2.cards.marcus.com",
+    "target": "green.dev2.cards.marcus.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "fidi.api.marcus.com",
+    "target": "fidi.api.marcus.com.cdn.cloudflare.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "fidib2b.api.marcus.com",
+    "target": "fidib2b.api.marcus.com.cdn.cloudflare.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "invest.api.marcus.co.uk",
+    "target": "invest.api.marcus.co.uk.cdn.cloudflare.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "invest.marcus.co.uk",
+    "target": "invest.marcus.co.uk.cdn.cloudflare.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "o.tw.marcus.com",
+    "target": "o.phmryp.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "p.tw.marcus.com",
+    "target": "p.phmryp.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "partners.marcus.com",
+    "target": "partners.marcus.com.cdn.cloudflare.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "perf.cards.marcus.com",
+    "target": "blue.perf.cards.marcus.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "prod.alation.infra.marcus.com",
+    "target": "prod-mdw-alation-alb-2078993555.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "prod.tableau.infra.marcus.com",
+    "target": "prod-mdw-tableau-perimeter-alb-761156450.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "sandbox.marcus.com",
+    "target": "sandbox.marcus.com.cdn.cloudflare.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "t.tw.marcus.com",
+    "target": "t.phmryp.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "u.tw.marcus.com",
+    "target": "u.phmryp.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "uat.cards.marcus.com",
+    "target": "blue.uat.cards.marcus.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "uat.tableau.infra.marcus.com",
+    "target": "uat-mdw-tableau-perimeter-alb-512779863.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "deribit": [
+   {
+    "host": "analyze.deribit.com",
+    "target": "_5e00ce681320bb8a8d1105d79bdd1752.ltfvzjuylp.acm-validations.aws",
+    "status": "NOERROR"
+   },
+   {
+    "host": "elk.deribit.com",
+    "target": "elk01.deribit.com",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "capital-one": [
+   {
+    "host": "applestore.capitalone.com",
+    "target": "applestore-capitalone.rmxrewardstore.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "coaf-cust-phone-vfcn-mfe.capitalone.com",
+    "target": "coaf-cust-phone-vfcn-mfe.103ec8fd38.capitalonegslbex.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "crossroot-sfmc-ease-custom-activity-ui-qa.capitalone.com",
+    "target": "crossroot-sfmc-ease-custom-activity-ui.aws-rb-dqa.capitalonegslbex.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "mycard-qa-test.capitalone.com",
+    "target": "qa-icce-waf-test.aws-cb-core-pcat1.capitalonegslbex.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "register.capitalone.com",
+    "target": "dcrp-ui.aws-stdt.capitalonegslbex.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "slingshot-docs-demo.capitalone.com",
+    "target": "slingshot-docs-demo.aws-app-cos-slingshot-prd-snowtoolscommercial.capitalonegslbex.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "wib-qa1.capitalone.com",
+    "target": "wib-qa1.aws-stsd-dqa.capitalonegslbex.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "wmt-api-partner-precde.capitalone.com",
+    "target": "wmt2cof-qa-pci.glb.us.walmart.net",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "hilton": [
+   {
+    "host": "api-cr-dev.hilton.com",
+    "target": "hiltondevapiecs-767211666.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "datacatalog.hilton.com",
+    "target": "internal-alaticate00uepc-1259229305.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "emea.hilton.com",
+    "target": "prod-lb-397030782.eu-west-2.elb.amazonaws.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "explorehotels.hilton.com",
+    "target": "d1fce1kr3wqnn9.cloudfront.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "isynergy.hilton.com",
+    "target": "hfwwbisyn01pv.hgvc.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "livenation.hilton.com",
+    "target": "hilton-explore-alb-elb-1033263997.eu-west-2.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "lyncdiscover.hilton.com",
+    "target": "webdir.online.lync.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "ohwbui-o.hilton.com",
+    "target": "oseprd-digitalui-410741591.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "revpar.hilton.com",
+    "target": "revpar.hhc.hilton.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "sct-cr-dev.hilton.com",
+    "target": "hiltondevsocketecs-1832020770.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "sip.hilton.com",
+    "target": "sipdir.online.lync.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "smi-cr-dev.hilton.com",
+    "target": "hiltondevsmiecs-2041318233.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "uat.hrccsequoia.hilton.com",
+    "target": "internal-cnnctseq00ueua-elb-1981827336.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "web-cr-dev.hilton.com",
+    "target": "hiltondevapecs-248856316.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "web-cr-stage.hilton.com",
+    "target": "hiltonstageapecs-1599559606.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "klarna": [
+   {
+    "host": "api-eu.performance.eu1.yaco.klarna.net",
+    "target": "merchant-api-routing-eu.performance.c2c.klarna.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "api-oc.playground.ap1.yaco.klarna.net",
+    "target": "api.playground.ap1.yaco.klarna.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "api.nonprod.ap1.kids.klarna.net",
+    "target": "kids-ap.staging.c2c.klarna.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "api.playground.eu1.eligibility-service.klarna.net",
+    "target": "eligibility-eu.playground.c2c.klarna.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "api.travel-booking-service.klarna.net",
+    "target": "api.production.eu1.travel-booking-service.klarna.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "bcio1.nonprod.us1.nft.klarna.net",
+    "target": "partner-bank-engine-us.staging.c2c.klarna.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "brenda-assets.playground.klarna.com",
+    "target": "brenda-assets.playground.eu2.mbs.klarna.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "checkout-eu.staging.eu1.yaco.klarna.net",
+    "target": "checkout.staging.eu1.yaco.klarna.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "comms-portal-internal-ap.staging.ap1.cgw.klarna.net",
+    "target": "comms-portal-ap.staging.c2c.klarna.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "creditcheck.midgard.eu.nonprod.eu1.lookup.klarna.net",
+    "target": "creditcheck-midgard-lookup-service-eu.staging.c2c.klarna.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "css-admin.nonprod.klarna.com",
+    "target": "css-admin.nonprod.us1.comparison-shopping-legacy-web.klarna.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "eu.portal.klarna.com",
+    "target": "merchant-portal.production.eu1.meta.klarna.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "eye-of-sauron.klarna.net",
+    "target": "bacon-sauron-eu2.production.c2c.klarna.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "il-eu.klarna.com",
+    "target": "api.production.eu1.integrationlayer.klarna.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "kep-formation-operational-api.klarna.net",
+    "target": "kep-formation-operational-api-eu.production.c2c.klarna.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "klarna-getsubdomain-redirect.production.us1.klarna-web.klarna.net",
+    "target": "d3nwfqnva17ck1.cloudfront.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "kpos.klarnacdn.net",
+    "target": "kpos-cdn.production.us1.seller-app-be.klarna.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "kww-bff.branch.nonprod.klarna.com",
+    "target": "cdn.branch.staging.us1.kww-bff.klarna.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "kww-bff.klarna.com",
+    "target": "cdn.production.us1.kww-bff.klarna.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "kww-bff.nonprod.klarna.com",
+    "target": "cdn.staging.us1.kww-bff.klarna.net",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "tinder": [
+   {
+    "host": "api-old-pxy.gotinder.com",
+    "target": "tinder-prod-pxy-1011891005.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "app-archive.prometheus.gotinder.com",
+    "target": "prod-prometheus-app-archive-ext-2112692697.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "archive.prometheus.tinderops.net",
+    "target": "prod-prometheus-app-archive-ext-2112692697.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "auth.prometheus.tinderops.net",
+    "target": "prod-prometheus-auth-ext-1110368052.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "auth.staging.k8s.tinderops.net",
+    "target": "a55ae6444c9a011e7a43702d6522eff7-353328157.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "build.gotinder.com",
+    "target": "build-service-37973377.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "content.prometheus.tinderops.net",
+    "target": "prod-prometheus-content-ext-342448589.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "crm.gotinder.com",
+    "target": "crm-ui-pxy-1005585136.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "dynamic-config.staging.k8s.tinderops.net",
+    "target": "dynamic-config-etcd-public-525880785.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "elasticsearch.prometheus.tinderops.net",
+    "target": "prod-prometheus-es-ext-193979125.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "grafanaelb.prodv2-b.k8s.tinderops.net",
+    "target": "grafana-prod-489166193.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "jenkins.gotinder.com",
+    "target": "tinder-ops-jenkins-49835751.us-west-2.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "jenkins.tinderops.net",
+    "target": "jenkins-external-197021769.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "kafka.prometheus.tinderops.net",
+    "target": "prod-prometheus-kafka-ext-1268698113.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "kibanatracing.prodv2.k8s.tinderops.net",
+    "target": "kibanatracing-prodv2-1078051793.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "login.staging.k8s.tinderops.net",
+    "target": "a97f73295cf3511e78bb80a342019b33-641842314.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "logs.staging.k8s.tinderops.net",
+    "target": "a69a24219682711e8b64512757891a3a-136235771.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "noncust-tools.ase1.tinderops.net",
+    "target": "noncust-tools-prd-ase1-3014701.ap-southeast-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "phoenixdashboard-staging.gotinder.com",
+    "target": "a4e7e08e50ddc11e893760a20cd470d9-861184760.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "polls.tinder.com",
+    "target": "polls.c.ue1az.gotinder.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "preview-global.gotinder.com",
+    "target": "deewiawl8hpay.cloudfront.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "preview-spain.gotinder.com",
+    "target": "deewiawl8hpay.cloudfront.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "previewmapping.ue1.stg1.tstaging.com",
+    "target": "d3hmxkcl8rk885.cloudfront.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "prodtest1-keepalive-alb.gotinder.com",
+    "target": "keepalive-websockets-prodtest1-813247791.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "paypal": [
+   {
+    "host": "cosmos-authy.sand.braintreepayments.com",
+    "target": "cosmos-authy-1713115863.us-west-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "dimensions.sandbox.cosmos.braintreepayments.com",
+    "target": "origin-dimension-finder-sand.sandbox.cosmos.braintreepayments.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "duo-test-itsm.paypalcorp.com",
+    "target": "duogw.paypalcorp.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "duo-test-myit.paypalcorp.com",
+    "target": "duogw.paypalcorp.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "lvs-int-hdx.paypalcorp.com",
+    "target": "lvs-int-hdx.na-int.paypalcorp.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "mysponsorportal.paypalcorp.com",
+    "target": "myguestportal.paypalcorp.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "na-int-ctx.paypalcorp.com",
+    "target": "na-int-ctx.na-int.paypalcorp.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "origin-atmosphere-sand.sandbox.cosmos.braintreepayments.com",
+    "target": "atmosphere-sand-us-east-2.sandbox.cosmos.braintreepayments.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "origin-lp.paypal.com",
+    "target": "lp.where.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "origin-merchant-panel-prod.production.braintree-api.com",
+    "target": "merchant-panel-prod-us-west-2.production.braintree-api.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "panel.braintreegateway.com",
+    "target": "merchant-panel-prod-us-west-2.production.braintree-api.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "panel.gateway.qa.braintreepayments.com",
+    "target": "merchant-panel-qa-us-west-2.dev.braintree-api.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "panel.qa.braintreegateway.com",
+    "target": "merchant-panel-qa-us-west-2.dev.braintree-api.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "panel.sandbox.braintreegateway.com",
+    "target": "merchant-panel-sand-us-west-2.sandbox.braintree-api.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "panel.sandbox.braintreepayments.com",
+    "target": "merchant-panel-sand-us-west-2.sandbox.braintree-api.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "phx-int-hdx.paypalcorp.com",
+    "target": "phx-int-hdx.na-int.paypalcorp.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "pix.paypalcorp.com",
+    "target": "docusign.paypalcorp.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "seg.paypalcorp.com",
+    "target": "seg.g.paypalcorp.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "tugboat.braintree.tools",
+    "target": "tugboat-prod-us-east-2.production.braintree-api.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "uat-247.paylution.com",
+    "target": "uat-247.paylution.net",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "early_warning": [
+   {
+    "host": "api.dev.zellepay.com",
+    "target": "env1-core-waf-us-west-2.dev.zellepay.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "api.zellepay.com",
+    "target": "api1.prod.zellepay.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "authdevice.zellepay.com",
+    "target": "devices.platform.earlywarning.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "authtrans.zellepay.com",
+    "target": "zelle.platform.earlywarning.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "ccpa.zellepay.com",
+    "target": "ccpa.prod.zellepay.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "developer-dp-acmcat.earlywarning.com",
+    "target": "developer-dp-acmcat.earlywarning.com.00d3h000001zlhyeay.live.siteforce.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "my-cpqa.earlywarning.com",
+    "target": "my-cpqa.earlywarning.com.00d41000000cykueae.live.siteforce.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "platformtest2.earlywarning.com",
+    "target": "prod-ue1-mesh-wp-nlb-1-07db7384c536f53d.elb.us-east-1.amazonaws.com",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "eternal": [
+   {
+    "host": "api.metadata.internal.zomans.com",
+    "target": "a574977c1f63a42a78e1c6b32e13aaaf-603b44d7753cba27.elb.ap-southeast-1.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "api.mission-control.internal.zomans.com",
+    "target": "a574977c1f63a42a78e1c6b32e13aaaf-603b44d7753cba27.elb.ap-southeast-1.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "api.satellite.internal.zomans.com",
+    "target": "a574977c1f63a42a78e1c6b32e13aaaf-603b44d7753cba27.elb.ap-southeast-1.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "api.scanner.internal.zomans.com",
+    "target": "a574977c1f63a42a78e1c6b32e13aaaf-603b44d7753cba27.elb.ap-southeast-1.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "mailers.zomato.com",
+    "target": "u2079796.wl.sendgrid.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "observatory.internal.zomans.com",
+    "target": "a574977c1f63a42a78e1c6b32e13aaaf-603b44d7753cba27.elb.ap-southeast-1.amazonaws.com",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "roblox": [
+   {
+    "host": "arize-otlp-prod.rbx.com",
+    "target": "internal-k8s-arize-arizeotl-d6587a4f70-679248253.us-west-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "aws-eu-west-2a-lms.rbx.com",
+    "target": "nfd-prod-a-931214499.eu-west-2.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "aws-us-east-1b-lms.rbx.com",
+    "target": "nfd-prod-b-542137491.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "aws-us-east-1c-lms.rbx.com",
+    "target": "nfd-prod-c-873282076.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "c030.argo.rbx.com",
+    "target": "internal-argocd-capi-c030-314557349.us-west-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "c035.argo.rbx.com",
+    "target": "internal-argocd-capi-c035-729397916.us-west-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "c042.argo.rbx.com",
+    "target": "internal-argocd-capi-c042-1994122146.us-east-2.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "c044.argo.rbx.com",
+    "target": "internal-argocd-capi-c044-1080450266.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "c055.argo.rbx.com",
+    "target": "internal-argocd-capi-c055-1787231601.us-west-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "c056.argo.rbx.com",
+    "target": "internal-argocd-capi-c056-157784427.us-west-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "grafanaa.astro-dev.di.rbx.com",
+    "target": "abdbc7e5691e1433384e0f1f26e97935-4e2025cd68f2f67a.elb.us-east-1.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "houstonc.astro-dev.di.rbx.com",
+    "target": "abdbc7e5691e1433384e0f1f26e97935-4e2025cd68f2f67a.elb.us-east-1.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "knomad-development-sitetest2-us-west-1a.rbx.com",
+    "target": "internal-knomad-lb-dev-st2-us-west-1a-1266021546.us-west-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "knomad-staging-sitetest2a-us-west-1.rbx.com",
+    "target": "internal-knomad-lb-stg-st2snc2-usw1-1032399362.us-west-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "n8n.ros.rbx.com",
+    "target": "n8n-alb-995151720.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "prod-trinodb-dc-1.di.rbx.com",
+    "target": "prod-trinodb-dc-1-di-rbx-com-368f34db80486520.elb.us-east-1.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "test.ee-temporal.rbx.com",
+    "target": "temporal-test-stage-lb-e3536b7f81304cf2.elb.us-west-1.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "trinodb-dc-airflow-prod-ash1.di.rbx.com",
+    "target": "internal-trinodb-dc-airflow-prod-ash1-1094365482.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "flutteruki": [
+   {
+    "host": "api.s6e.sbgservices.com",
+    "target": "d39ndrta5h8we1.cloudfront.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "dns-testing.platformservices.io",
+    "target": "conditional.platformservices.io",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "graphs.platformservices.io",
+    "target": "gueaplatgraf02.skybet.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "lyncdiscover.skybettingandgaming.com",
+    "target": "webdir.online.lync.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "platform-control.dev.platformservices.io",
+    "target": "gueaplatcontroltst06.skybet.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "sip.skybettingandgaming.com",
+    "target": "sipdir.online.lync.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "tools.ppb.com",
+    "target": "retailjiralb.corp.ppbplc.com",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "tiktok": [
+   {
+    "host": "api22-va.tiktokv.com",
+    "target": "quic-proxy-gcp.byteoversea.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "api23-normal-useast1a.tiktokv.com",
+    "target": "api23-va.gts.byteoversea.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "api23-normal-useast2a.tiktokv.com",
+    "target": "api23-i18n.gts.byteoversea.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "api23-normal.tiktokv.com",
+    "target": "api23-sg.gts.byteoversea.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "api53-core-c-useast1a.tiktokv.com",
+    "target": "bddynamic.edge.swiftserve.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "api53-normal-c-useast1a.tiktokv.com",
+    "target": "bddynamic.edge.swiftserve.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "api61-core-c-useast1a.tiktokv.com",
+    "target": "tiktokv-api-core-useast1a.mncdn.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "api61-normal-c-useast1a.tiktokv.com",
+    "target": "tiktokv-api-normal-useast1a.mncdn.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "lp77-gcp01.tiktokcdn.com",
+    "target": "1817637242.rsc.cdn77.org",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "lp77-sg01.tiktokcdn.com",
+    "target": "1352377783.rsc.cdn77.org",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "lp77-va01.tiktokcdn.com",
+    "target": "1910507495.rsc.cdn77.org",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "mssdk24-normal-useast1a.tiktokv.com",
+    "target": "mssdk24-normal-useast1a.tiktokv.com.cdn.cloudflare.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "p53-sg.tiktokcdn.com",
+    "target": "bdimg.edge.swiftserve.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "p53-va.tiktokcdn.com",
+    "target": "bdimg.edge.swiftserve.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "p77-webcast.tiktokcdn.com",
+    "target": "1479164835.rsc.cdn77.org",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "pull-cmaf-l77-gcp01.tiktokcdn.com",
+    "target": "1276298696.rsc.cdn77.org",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "pull-cmaf-l77-va01.tiktokcdn.com",
+    "target": "1276298696.rsc.cdn77.org",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "sf53-sg.tiktokcdn.com",
+    "target": "bdimg.edge.swiftserve.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "sf53-va.tiktokcdn.com",
+    "target": "bdimg.edge.swiftserve.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "v20.tiktokcdn.com",
+    "target": "cds.j6d7t6x3.hwcdn.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "v53.tiktokcdn.com",
+    "target": "edge.bytedance.swiftserve.com",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "elastic": [
+   {
+    "host": "app-search.privatelink.eastus2.azure.qa.cld.elstc.co",
+    "target": "privatelink.invalid",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "groups.elastic.co",
+    "target": "ghs.googlehosted.com.disabled",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "gsemail.elastic.co",
+    "target": "u14294514.wl015.sendgrid.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "profiling.privatelink.eastus2.azure.qa.cld.elstc.co",
+    "target": "privatelink.invalid",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "anduril_industries": [
+   {
+    "host": "app.circleci.anduril.dev",
+    "target": "a7c66fc4636ab4436ac256dcfd3e6800-c7440b1f61d2fc87.elb.us-gov-west-1.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "areai.anduril.com",
+    "target": "areai.andurildev.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "atlassian-ingest.toolbox-dev.security.anduril.dev",
+    "target": "k8s-atlassia-atlassia-f2adb4606d-05856a456ab77b0f.elb.us-gov-west-1.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "broker.security.anduril.dev",
+    "target": "internal-broker-alb-1184528183.us-gov-west-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "circleci.anduril.dev",
+    "target": "a7c66fc4636ab4436ac256dcfd3e6800-c7440b1f61d2fc87.elb.us-gov-west-1.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "codecov.anduril.dev",
+    "target": "k8s-codecov-codecovi-f9abf5cd20-1843683466.us-gov-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "dev.ahp.security.anduril.dev",
+    "target": "cdkdoc-ahplb-au7na6xyztkv-1326688569.us-gov-west-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "feature.anduril.com",
+    "target": "d5auy4wyl9r5w.cloudfront.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "fiftyone.anduril.dev",
+    "target": "internal-fiftyone-teams-secure-lb-1714989783.us-west-2.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "flyte.gov.pallas-3.anduril.dev",
+    "target": "internal-k8s-flyte-483e72329e-1278275728.us-gov-west-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "ghe-ingest.toolbox-dev.security.anduril.dev",
+    "target": "k8s-ghe-gheappse-bf3a2fd3d1-785ebea8b017fbcb.elb.us-gov-west-1.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "jira-external.anduril.au",
+    "target": "jira-loadb-1651xl2wirxa6-2043578615.ap-southeast-2.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "piv.sat.anduril.com",
+    "target": "sat.anduril.com",
+    "status": "NOERROR"
+   }
+  ],
+  "superhuman": [
+   {
+    "host": "argocd.ray.grammarly.io",
+    "target": "internal-prod-gitlab-runners-argocd-805436677.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "hello.coda.io",
+    "target": "a80ed7b6-4e95-41b1-90c4-f26733a8d271.outrch.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "ngrams.grammarly.com",
+    "target": "ngrams.core-prod.grammarlyaws.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "sandbox.spellcheck.grammarly.com",
+    "target": "sandbox.spellcheck.cpgr.io",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "welcome.superhuman.com",
+    "target": "3e2e6a77-55f9-417d-801d-3c6282bb1b71.outrch.com",
+    "status": "NOERROR"
+   }
+  ],
+  "expediagroup_bbp": [
+   {
+    "host": "artylab-test.labartifactory.alm.expedia.biz",
+    "target": "artylab-test.expedia.edgekey.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "backstage-backend.expedia.biz",
+    "target": "backstage-backend.rcp.us-west-2.buildtime.corp.exp-aws.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "backstage.devtest.expedia.biz",
+    "target": "backstage.rcp.us-west-2.buildtime.test.exp-aws.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "backstage.expedia.biz",
+    "target": "backstage.rcp.us-west-2.buildtime.corp.exp-aws.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "blog.corpwordpress.alm.expedia.biz",
+    "target": "blog.expedia.biz.edgekey.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "cdn-confluence.corpconfluence.alm.expedia.biz",
+    "target": "cdn-confluence.expedia.biz.edgekey.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "cdn-jiratest.corpjira.alm.expedia.biz",
+    "target": "cdn-jiratest.expedia.biz.edgekey.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "confluence.corpconfluence.alm.expedia.biz",
+    "target": "confluence.expedia.biz.edgekey.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "confluencedr.expedia.biz",
+    "target": "confluencedr.corpconfluence.alm.expedia.biz",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "confluencetest.corpconfluence.alm.expedia.biz",
+    "target": "confluencetest.expedia.biz-v1.edgekey-staging.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "confupgrade.corpconfluence.alm.expedia.biz",
+    "target": "confupgrade.expedia.biz.edgekey.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "jetbrains-fls.expedia.biz",
+    "target": "jetbrains-fls.corp.alm.expedia.biz",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "jiratest.corpjira.alm.expedia.biz",
+    "target": "jiratest.expedia.biz.edgekey.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "mdmcore.expedia.biz",
+    "target": "mdmcore-chc.expedia.biz",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "mydevices.expedia.biz",
+    "target": "ise.expedia.biz",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "spinnakerdev.expedia.biz",
+    "target": "spinnaker.scp-default.us-west-2.buildtime.test-cts.exp-aws.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "testrailtest.corptestrail.alm.expedia.biz",
+    "target": "testrail.expedia.biz.edgekey.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "vrbojiratest.expedia.biz",
+    "target": "vrbojiratest.corpjira.alm.expedia.biz",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "xray-test.expedia.biz",
+    "target": "xray-test.labartifactory.alm.expedia.biz",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "xray.expedia.biz",
+    "target": "xray.labartifactory.alm.expedia.biz",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "stripe": [
+   {
+    "host": "asterix-es.reckostaging.com",
+    "target": "internal-af3e96f1abaa04353b6704dfc37ee543-815252254.ap-south-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "asterix-kafka.reckostaging.com",
+    "target": "internal-aa71d32a23c66436fa4285f0b58f1fba-1180865085.ap-south-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "asterix-kc.reckostaging.com",
+    "target": "a695b019e759548ec9730ed366ee80a9-f9068fe70cc719ea.elb.ap-south-1.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "asterix-kibana.reckostaging.com",
+    "target": "a695b019e759548ec9730ed366ee80a9-f9068fe70cc719ea.elb.ap-south-1.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "consul.reckostaging.com",
+    "target": "a39dac88a112f438cbc8e467c89c8e67-516cccdad8fb410e.elb.ap-south-1.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "dev-es.reckostaging.com",
+    "target": "internal-a0c85918c79c5485c92962b54bcb6eff-27275002.ap-south-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "dev-kafka.reckostaging.com",
+    "target": "internal-a0698c4ff91aa402287da47ab8dba287-1340180420.ap-south-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "dev-kc.reckostaging.com",
+    "target": "a695b019e759548ec9730ed366ee80a9-f9068fe70cc719ea.elb.ap-south-1.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "dev-kibana.reckostaging.com",
+    "target": "a695b019e759548ec9730ed366ee80a9-f9068fe70cc719ea.elb.ap-south-1.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "fluentd-es.reckostaging.com",
+    "target": "a877f13ad94cf47adae2c7af2f78f575-22027faf9388e2db.elb.ap-south-1.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "hello63.bridge.xyz",
+    "target": "tf-lb-20250808010207890600000002-162618847.us-west-2.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "jaeger-kibana.reckostaging.com",
+    "target": "a695b019e759548ec9730ed366ee80a9-f9068fe70cc719ea.elb.ap-south-1.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "jenkins.reckostaging.com",
+    "target": "internal-jenkins-internal-alb-726704662.ap-south-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "loki.reckostaging.com",
+    "target": "ad78da45cad8c4b5782a64b30147db57-a719b4d2381b140f.elb.ap-south-1.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "sonarqube.reckostaging.com",
+    "target": "a695b019e759548ec9730ed366ee80a9-f9068fe70cc719ea.elb.ap-south-1.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "staging-elk.reckostaging.com",
+    "target": "a695b019e759548ec9730ed366ee80a9-f9068fe70cc719ea.elb.ap-south-1.amazonaws.com",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "shopify": [
+   {
+    "host": "atlantis-identity.shopify.io",
+    "target": "atlantis-identity.shopifycloud.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "brochure-ingress.shopifycloud.com",
+    "target": "brochure-ingress.shopifycloud.com.cdn.cloudflare.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "mesh.shopify.io",
+    "target": "mesh-shopify-io.shopifycloud.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "millionstrong.shopify.io",
+    "target": "million-strong-shopify.shopifycloud.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "notebooks.shopifycloud.com",
+    "target": "shopify-jupyterhub-production-jupyterhub-data-notebooks.shopifycloud.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "russbot-staging.shopify.io",
+    "target": "russbot-staging.shopifycloud.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "v-ca.shopify.com",
+    "target": "trekkie.tier2-na-ne1-1.shopifycloud.com",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "x": [
+   {
+    "host": "aurora-sglang.us-east-1.models.x.ai",
+    "target": "ab74714963781430da5c4d9a29a6ee3c-1355387950.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "aurora-upsampler-sglang.us-east-1.models.x.ai",
+    "target": "ab74714963781430da5c4d9a29a6ee3c-1355387950.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "em7846.x.ai",
+    "target": "u48456360.wl111.sendgrid.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "embedding-10m-0806-enterprise.us-east-1.models.x.ai",
+    "target": "ab74714963781430da5c4d9a29a6ee3c-1355387950.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "enterprise-api-grok-2-1212.us-east-1.models.x.ai",
+    "target": "ab74714963781430da5c4d9a29a6ee3c-1355387950.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "fte5-embedding-0806-api.us-east-1.models.x.ai",
+    "target": "ab74714963781430da5c4d9a29a6ee3c-1355387950.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "fte5-embedding-250707-api.us-east-1.models.x.ai",
+    "target": "ab74714963781430da5c4d9a29a6ee3c-1355387950.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "fte5-v2-fast-embedding-0806-api.us-east-1.models.x.ai",
+    "target": "ab74714963781430da5c4d9a29a6ee3c-1355387950.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "grok-3-5-code-0625.us-east-1.models.x.ai",
+    "target": "ab74714963781430da5c4d9a29a6ee3c-1355387950.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "grok-4-code-0630.us-east-1.models.x.ai",
+    "target": "ab74714963781430da5c4d9a29a6ee3c-1355387950.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "mobile-staging1.twimg.com",
+    "target": "d2bk1u1a5j7cf3.cloudfront.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "mobile-staging3.twimg.com",
+    "target": "d2bk1u1a5j7cf3.cloudfront.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "mobile-staging4.twimg.com",
+    "target": "d2bk1u1a5j7cf3.cloudfront.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "payments-dev.twitter.com",
+    "target": "payments-dev.x.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "video-t-5.twimg.com",
+    "target": "video-ddtest.twimg.com.edgekey-staging.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "www.enterprise-api-grok-2-1212.us-east-1.models.x.ai",
+    "target": "ab74714963781430da5c4d9a29a6ee3c-1355387950.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "coinbase": [
+   {
+    "host": "author-cms-dev.coinbase-corp.com",
+    "target": "coinbase-dev-1126889141.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "author-cms-production.coinbase-corp.com",
+    "target": "coinbase-prod-650618376.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "author-cms-staging.coinbase-corp.com",
+    "target": "coinbase-stage3-967637017.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "jss.cbhq.net",
+    "target": "jss-limited-access-it-jamf-pro-715717217.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "mulesoft-workday-greenhouse.coinbase-corp.com",
+    "target": "workday-greenhouse-1193515472.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "varonis": [
+   {
+    "host": "biz.varonis.com",
+    "target": "u24027679.wl180.sendgrid.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "eu2psg.messaging.api.varonis.io",
+    "target": "alert-khaki-buffalo.rmq4.cloudamqp.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "india-dc01.messaging.api.varonis.io",
+    "target": "heavy-blue-frog.rmq3.cloudamqp.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "mail.varonis.com",
+    "target": "u18980632.wl133.sendgrid.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "messaging.api.varonis.io",
+    "target": "myrtle-crimson-warthog.rmq3.cloudamqp.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "sendgrid.varonis.com",
+    "target": "u1798286.wl037.sendgrid.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "uks.messaging.api.varonis.io",
+    "target": "cheerful-grey-reindeer.rmq5.cloudamqp.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "us-dc06.messaging.api.varonis.io",
+    "target": "artistic-green-llama.rmq2.cloudamqp.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "us-dc07.deployment.api.varonis.io",
+    "target": "eastus2-prd07-distributed-deployment-ep.azureedge.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "us-dc07.messaging.api.varonis.io",
+    "target": "small-coral-tiger.rmq2.cloudamqp.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "us-dc09.messaging.api.varonis.io",
+    "target": "buzzing-grey-chamois.rmq3.cloudamqp.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "weuprd.messaging.api.varonis.io",
+    "target": "alert-plum-chameleon.rmq4.cloudamqp.com",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "gitlab": [
+   {
+    "host": "bouncer.sec.gitlab.net",
+    "target": "bouncer.trust-safety-live.sec.gitlab.net",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "spotify": [
+   {
+    "host": "brandsnews.spotify.com",
+    "target": "ssoproxy.gslb.spotify.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "ellen.withspotify.com",
+    "target": "ellen.withspotify.com.herokudns.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "em616.byspotify.com",
+    "target": "u8180477.wl228.sendgrid.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "experimentation.spotify.com",
+    "target": "edge-proxy-internal-gew.spotify.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "jira-aws.spotify.net",
+    "target": "jira-loadb-1v4v6jx3108c4-1709823953.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "sales.byspotify.com",
+    "target": "81003824-2e3e-428e-9c7e-1c774d28cd48.outrch.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "www.live.spotify.net",
+    "target": "d2zfyy1xf3qooc.cloudfront.net",
+    "status": "NOERROR"
+   }
+  ],
+  "instacart": [
+   {
+    "host": "bristol-farms.dev.instacart.tools",
+    "target": "bristolfarms-dev.pbis-cf-dev.instacart.tools",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "costcobusinesscenter-onecart.dev.instacart.tools",
+    "target": "costcobusinesscenter-onecart-dev.pbis-cf-dev.instacart.tools",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "costcoca-onecart.dev.instacart.tools",
+    "target": "costcoca-onecart.pbis-cf-dev.instacart.tools",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "costcous.dev.instacart.tools",
+    "target": "costcous.pbis-cf-dev.instacart.tools",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "covidresponseu.api.edge3.instacart.com",
+    "target": "edge3.fernet.io",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "covidresponseu.ns1.edge3.instacart.com",
+    "target": "edge3.fernet.io",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "foodbazar.dev.instacart.tools",
+    "target": "foodbazar.pbis-cf-dev.instacart.tools",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "gelsons-onecart.dev.instacart.tools",
+    "target": "gelsons-onecart-dev.pbis-cf-dev.instacart.tools",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "gfhlabscan.dev.instacart.tools",
+    "target": "gfh-lab-scan-dev.pbis-cf-dev.instacart.tools",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "lazy-acres-onecart.dev.instacart.tools",
+    "target": "lazy-acres-dev.pbis-cf-dev.instacart.tools",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "mailin2covidresponse.edge3.instacart.com",
+    "target": "edge3.fernet.io",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "metropolitanmarket-onecart.dev.instacart.tools",
+    "target": "metropolitan-market-dev.pbis-cf-dev.instacart.tools",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "new-leaf-onecart.dev.instacart.tools",
+    "target": "new-leaf-dev.pbis-cf-dev.instacart.tools",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "new-seasons-market.dev.instacart.tools",
+    "target": "new-seasons-market-dev.pbis-cf-dev.instacart.tools",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "plum-market.dev.instacart.tools",
+    "target": "plum-market.pbis-cf-dev.instacart.tools",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "stewleonards.dev.instacart.tools",
+    "target": "stewleonards.pbis-cf-dev.instacart.tools",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "test.customers.dev.instacart.tools",
+    "target": "cf.customers.dev.instacart.tools",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "thefreshmarket-onecart.dev.instacart.tools",
+    "target": "thefreshmarket-onecart.pbis-cf-dev.instacart.tools",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "moonpay": [
+   {
+    "host": "cdn.dflow.net",
+    "target": "cdn.dflow.net.cdn.cloudflare.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "exchange-lb.dflow.net",
+    "target": "exchange-alb-334765925.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "exchange.dflow.net",
+    "target": "d3oizon4bjvciq.cloudfront.net",
+    "status": "NOERROR"
+   }
+  ],
+  "github": [
+   {
+    "host": "deploy-api-va3.githubapp.com",
+    "target": "glb-internal.service.va3-iad.github.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "enterprise-chatops.githubapp.com",
+    "target": "glb-internal.service.cp1-iad.github.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "githubber-hq.githubapp.com",
+    "target": "dng.sfo.githubinc.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "nines.githubapp.com",
+    "target": "ninesapp-app-service.azurewebsites.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "provisioning.github.net",
+    "target": "provisioning.service.github.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "splunk-http-event-collector-01.githubapp.com",
+    "target": "splunkazure-logindexerlb-c003cdb.azure-eastus.github.net",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "reddit": [
+   {
+    "host": "click.redditmedia.com",
+    "target": "dualstack.engine4-262170933.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "gql-fed-cf.reddit.com",
+    "target": "gql-fed-cf.reddit.com.cdn.cloudflare.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "vault.meta.ue1.snooguts.net",
+    "target": "vault.meta.ue1.snooguts.net.cdn.cloudflare.net",
+    "status": "NOERROR"
+   }
+  ],
+  "airbnb": [
+   {
+    "host": "collabs.hoteltonight.com",
+    "target": "u641965.wl216.sendgrid.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "partners-bypass.hoteltonight.com",
+    "target": "production-hotelstonight-web-htx-1850823016.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "personalization.hoteltonight.com",
+    "target": "internal-production-p13n-fargate-516659964.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "superbet": [
+   {
+    "host": "content.stage.superbet.com",
+    "target": "directus.euw1.content.stage.in.happening.dev",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "em4852.luckydays.ca",
+    "target": "u9472106.wl107.sendgrid.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "eom.superbet.com",
+    "target": "eom.ef8195d751.chierchiae.eoidentity.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "fwdkim1.napoleongames.be",
+    "target": "spfmx1.domainkey.freshemail.io",
+    "status": "NOERROR"
+   },
+   {
+    "host": "landing.superbet.pl",
+    "target": "d2psbp4cf8uihr.cloudfront.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "video.superbet.ro",
+    "target": "play.seen.io",
+    "status": "NOERROR"
+   }
+  ],
+  "remitly": [
+   {
+    "host": "coral.int.remitly.com",
+    "target": "reefshark-prod.us-west-2.remitly.com",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "logitech": [
+   {
+    "host": "creative-landscape.np.logitech.io",
+    "target": "d26oscpmyi4kc8.cloudfront.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "jenkins.cto.logi.com",
+    "target": "aws13jenkins04.logitech.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "logiq-codecritic.logitech.io",
+    "target": "internal-prod-l-inter-irrznwlucbxo-1841420570.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "m.ecom1.logitech.com",
+    "target": "logitech-mkt-prod1-kugod-1808097057.eu-west-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "m.email.circle.logi.com",
+    "target": "logitech-mkt-prod1-kugod-1808097057.eu-west-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "sandbox-offersvc-blue.svc.logitech.io",
+    "target": "awseb--awseb-xklpv3hnol4g-1574929665.us-east-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "smartbreaks.logitech.io",
+    "target": "wellness.logitech.io",
+    "status": "NOERROR"
+   },
+   {
+    "host": "spaces.logitech.io",
+    "target": "spaces.devops.logitech.io",
+    "status": "NOERROR"
+   },
+   {
+    "host": "status-escalations.vc.logitech.com",
+    "target": "aws13testreporting02.logitech.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "t.ecom1.logitech.com",
+    "target": "logitech-mkt-prod1-kugod-1808097057.eu-west-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "t.email.circle.logi.com",
+    "target": "logitech-mkt-prod1-kugod-1808097057.eu-west-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "flickr": [
+   {
+    "host": "dev-image-proxy-cf.flickr.com",
+    "target": "d2hm76i5j8hh4a.cloudfront.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "login-dev.flickr.com",
+    "target": "d1zdo3xho0x0pj.cloudfront.net",
+    "status": "NOERROR"
+   }
+  ],
+  "ui": [
+   {
+    "host": "directory.corp.ubnt.com",
+    "target": "dev-ubnt-directory.com",
+    "status": "SERVFAIL"
+   }
+  ],
+  "acronis": [
+   {
+    "host": "dl7.acronis.com",
+    "target": "dl7.acronis.com.cdn.cloudflare.net",
+    "status": "NOERROR"
+   }
+  ],
+  "rockstargames": [
+   {
+    "host": "italian.rockstargames.com",
+    "target": "houser.rockstargames.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "vanity.employee.store.rockstargames.com",
+    "target": "d3nogw076chdmr.cloudfront.net",
+    "status": "NOERROR"
+   }
+  ],
+  "deriv": [
+   {
+    "host": "dx-dealer.deriv.cloud",
+    "target": "aws-deriv-prod-lb-f69b41020282069d.elb.us-east-1.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "dx-mobile.deriv.com",
+    "target": "aws-deriv-prod-lb-f69b41020282069d.elb.us-east-1.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "vault-loadtest.deriv.cloud",
+    "target": "a9a7d9f2566324a07a655f6160b87318-2090909739.ap-southeast-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "xanoproxytest.deriv.cloud",
+    "target": "d-ndkqvqx3fi.execute-api.us-east-1.amazonaws.com",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "crowdstrike": [
+   {
+    "host": "falconapi.eu-1.crowdstrike.com",
+    "target": "lion-lanner-dmz-p-falconapi-nlb-90d051ffdfb80a90.elb.eu-central-1.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "ops-3-es-internal.eu1.humio.com",
+    "target": "vpce-0f1c1d0e76386408a-6wkhsado.vpce-svc-07bb32e3070da42f8.eu-central-1.vpce.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "ops-3-internal.eu1.humio.com",
+    "target": "vpce-0b5743aeba397ca17-ynjei9k9.vpce-svc-0ea8f5b757fc46fab.eu-central-1.vpce.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "www.preemptsecurity.com",
+    "target": "preemptsecurity.com",
+    "status": "NOERROR"
+   }
+  ],
+  "scopely": [
+   {
+    "host": "forums.scopely.com",
+    "target": "scopely.hosted-by-discourse.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "locust.y.scopely.io",
+    "target": "locust-master-1575788995.us-west-2.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "preview-scrabble-api.withbuddies.com",
+    "target": "preview-scrabble-api-linux-719145594.us-west-2.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "scrabble-api.withbuddies.com",
+    "target": "production-server-api-1199388114.us-west-2.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "securemail.scopely.com",
+    "target": "pe-00218601.gslb.pphosted.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "segments.scopely.io",
+    "target": "epicycle.aprod.scopely.io",
+    "status": "NOERROR"
+   },
+   {
+    "host": "stage-scrabble-api.withbuddies.com",
+    "target": "stage-scrabble-api-linux-1663244548.us-west-2.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "wildcard.hyperion.scopely.io",
+    "target": "hyperion-default.aprod.scopely.io",
+    "status": "NOERROR"
+   },
+   {
+    "host": "www.hyperion.scopely.io",
+    "target": "hyperion-default.aprod.scopely.io",
+    "status": "NOERROR"
+   },
+   {
+    "host": "www.www.www.www.www.www.www.www.www.www.www.www.jira.hyperion.scopely.io",
+    "target": "hyperion-default.aprod.scopely.io",
+    "status": "NOERROR"
+   },
+   {
+    "host": "www.www.www.www.www.www.www.www.www.www.www.www.www.www.jira.hyperion.scopely.io",
+    "target": "hyperion-default.aprod.scopely.io",
+    "status": "NOERROR"
+   },
+   {
+    "host": "www.www.www.www.www.www.www.www.www.www.www.www.www.www.www.www.www.www.www.jira.hyperion.scopely.io",
+    "target": "hyperion-default.aprod.scopely.io",
+    "status": "NOERROR"
+   },
+   {
+    "host": "www.www.www.www.www.www.www.www.www.www.www.www.www.www.www.www.www.www.www.www.jira.hyperion.scopely.io",
+    "target": "hyperion-default.aprod.scopely.io",
+    "status": "NOERROR"
+   }
+  ],
+  "payoneer": [
+   {
+    "host": "gamest.payoneer.com",
+    "target": "payoneer.oberon-media.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "indiakyc.sandbox.payoneer.com",
+    "target": "d3feyr405v8k6r.cloudfront.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "indialink.sandbox.payoneer.com",
+    "target": "d12t8i5jz910k9.cloudfront.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "investorday.payoneer.com",
+    "target": "payoneerinvestorday.gcs-web.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "lyncdiscover.payoneer.com",
+    "target": "webdir.online.lync.com",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "kayak": [
+   {
+    "host": "hotels.tw.kayak.com",
+    "target": "no.where",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "message.kayak.com",
+    "target": "kayak.mail.e.sparkpost.com",
+    "status": "NOERROR"
+   }
+  ],
+  "apnic": [
+   {
+    "host": "idnic.rdap-worker.apnic.net",
+    "target": "idnic.rdap-worker.apnic.net.cdn.cloudflare.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "jpnic.rdap-worker.apnic.net",
+    "target": "jpnic.rdap-worker.apnic.net.cdn.cloudflare.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "keycloak.apnic.net",
+    "target": "auth.apnic.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "krnic.rdap-worker.apnic.net",
+    "target": "krnic.rdap-worker.apnic.net.cdn.cloudflare.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "kvwriter.apnic.net",
+    "target": "kvwriter.apnic.net.cdn.cloudflare.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "legacy-stats.apnic.net",
+    "target": "legacy-stats.apnic.net.cdn.cloudflare.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "rdap-test.apnic.net",
+    "target": "rdap-test.apnic.net.cdn.cloudflare.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "rpki-stats.apnic.net",
+    "target": "rpki-stats.apnic.net.cdn.cloudflare.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "stats.tst.xyz.apnic.net",
+    "target": "stats.tst.xyz.apnic.net.cdn.cloudflare.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "twnic.rdap-worker.apnic.net",
+    "target": "twnic.rdap-worker.apnic.net.cdn.cloudflare.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "win-digicert.sharedservices.xyz.apnic.net",
+    "target": "win-digicert.sharedservices.xyz.apnic.net.cdn.cloudflare.net",
+    "status": "NOERROR"
+   }
+  ],
+  "crypto": [
+   {
+    "host": "img.mail.travel.crypto.com",
+    "target": "mail-travel-crypto-com.img.brand.brevosend.com",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "r.mail.travel.crypto.com",
+    "target": "mail-travel-crypto-com.r.brand.brevosend.com",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "lyst": [
+   {
+    "host": "marketing.lyst.com",
+    "target": "eu.sparkpostmail.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "testing-web-paid.lystit.com",
+    "target": "testing-web-paid.lystit.com.cdn.cloudflare.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "testing-web-sitemaps.lystit.com",
+    "target": "testing-web-sitemaps.lystit.com.cdn.cloudflare.net",
+    "status": "NOERROR"
+   },
+   {
+    "host": "transactional.lyst.com",
+    "target": "eu.sparkpostmail.com",
+    "status": "NOERROR"
+   }
+  ],
+  "grindr": [
+   {
+    "host": "pda.grindr.mobi",
+    "target": "mobilemail-v01.prod.mesa1.secureserver.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "webmail.grindr.mobi",
+    "target": "webmail.secureserver.net",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "eero": [
+   {
+    "host": "portal.mte.e2ro.com",
+    "target": "_16241fd72c70f31711221fe2e1278695.jkddzztszm.acm-validations.aws",
+    "status": "NOERROR"
+   }
+  ],
+  "toolsforhumanity": [
+   {
+    "host": "production.hubble.worldcoin-distributors.com",
+    "target": "crypto-prod-us-east-1-55b723375c9a37ca.elb.us-east-1.amazonaws.com",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "bybit_fintech": [
+   {
+    "host": "proxy-testnet.bybit.com",
+    "target": "access-proxy-testnet-tokyo-nlb-342deac46810baa3.elb.ap-northeast-1.amazonaws.com",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "khealth": [
+   {
+    "host": "secure.hhc247.org",
+    "target": "secure.hhc247.org.00d1u000000tptxuay.live.siteforce.com",
+    "status": "NOERROR"
+   },
+   {
+    "host": "support.hhc247.org",
+    "target": "support.hhc247.org.00d1u000000tptxuay.live.siteforce.com",
+    "status": "NOERROR"
+   }
+  ],
+  "boozt": [
+   {
+    "host": "spk.boozt.com",
+    "target": "e-11364.adzerk.net",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "trip_com": [
+   {
+    "host": "ssc.flugladen.de",
+    "target": "flugladen.de.102.122.2o7.net",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "tickets.budgetair.com",
+    "target": "valentine-218.ingresso.co.uk",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "tickets.flugladen.de",
+    "target": "valentine-219.ingresso.co.uk",
+    "status": "NXDOMAIN"
+   },
+   {
+    "host": "tickets.vayama.com",
+    "target": "valentine-211.ingresso.co.uk",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "krisp": [
+   {
+    "host": "stage.account.private.krisp.ai",
+    "target": "stage-krisp-alb-453005147.eu-central-1.elb.amazonaws.com",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "basecamp": [
+   {
+    "host": "stats.world.hey.com",
+    "target": "custom.plausible.io",
+    "status": "NXDOMAIN"
+   }
+  ],
+  "8x8-bounty": [
+   {
+    "host": "www.tp-oci-cp-iad-01.prod.cloud.8x8.com",
+    "target": "tp-oci-cp-iad-01.prod.cloud.8x8.com",
+    "status": "NXDOMAIN"
+   }
+  ]
+ },
+ "gate": {
+  "grab": {
+   "blocked": true,
+   "no_trial_reports": false,
+   "signal_hint": true
+  },
+  "mercadolibre": {
+   "blocked": true,
+   "no_trial_reports": false,
+   "signal_hint": true
+  },
+  "xiaomi": {
+   "blocked": false,
+   "no_trial_reports": false,
+   "signal_hint": false
+  },
+  "bookingcom": {
+   "blocked": true,
+   "no_trial_reports": false,
+   "signal_hint": true
+  },
+  "amazonvrp": {
+   "blocked": false,
+   "no_trial_reports": false,
+   "signal_hint": false
+  },
+  "playtika": {
+   "blocked": true,
+   "no_trial_reports": false,
+   "signal_hint": true
+  },
+  "playstation": {
+   "blocked": true,
+   "no_trial_reports": false,
+   "signal_hint": true
+  },
+  "goldmansachs": {
+   "blocked": true,
+   "no_trial_reports": false,
+   "signal_hint": true
+  },
+  "tinder": {
+   "blocked": true,
+   "no_trial_reports": false,
+   "signal_hint": true
+  },
+  "tiktok": {
+   "blocked": true,
+   "no_trial_reports": false,
+   "signal_hint": true
+  },
+  "epicgames": {
+   "blocked": true,
+   "no_trial_reports": false,
+   "signal_hint": true
+  },
+  "klarna": {
+   "blocked": true,
+   "no_trial_reports": false,
+   "signal_hint": true
+  },
+  "paypal": {
+   "blocked": true,
+   "no_trial_reports": false,
+   "signal_hint": true
+  },
+  "expediagroup_bbp": {
+   "blocked": false,
+   "no_trial_reports": false,
+   "signal_hint": false
+  },
+  "roblox": {
+   "blocked": true,
+   "no_trial_reports": false,
+   "signal_hint": true
+  },
+  "instacart": {
+   "blocked": true,
+   "no_trial_reports": false,
+   "signal_hint": true
+  },
+  "expediagroup": {
+   "blocked": true,
+   "no_trial_reports": false,
+   "signal_hint": true
+  },
+  "stripe": {
+   "blocked": true,
+   "no_trial_reports": false,
+   "signal_hint": true
+  },
+  "x": {
+   "blocked": false,
+   "no_trial_reports": false,
+   "signal_hint": false
+  },
+  "hilton": {
+   "blocked": true,
+   "no_trial_reports": false,
+   "signal_hint": true
+  }
+ }
+}

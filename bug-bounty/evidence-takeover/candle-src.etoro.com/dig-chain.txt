@@ -1,0 +1,15 @@
+# captured 2026-11-07T20:59:55Z
+# $ dig-chain.txt
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 52223
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; ANSWER SECTION:
+candle-src.etoro.com.	7200	IN	CNAME	prod-candle.trafficmanager.net.
+
+;; AUTHORITY SECTION:
+trafficmanager.net.	30	IN	SOA	tm1.dns-tm.com. hostmaster.trafficmanager.net. 2003080800 900 300 2419200 30
+
+

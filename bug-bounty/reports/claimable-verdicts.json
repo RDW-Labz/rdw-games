@@ -1,0 +1,38 @@
+[
+ {
+  "host": "blog.luva.bet.br",
+  "target": "app-luvabet-blog-brc2e9axcjewcrcj.eastus-01.azurewebsites.net",
+  "provider": "azurewebsites.net",
+  "label": "app-luvabet-blog-brc2e9axcjewcrcj",
+  "kind": "azure-web",
+  "verdict": "available",
+  "why": "nameAvailable=true"
+ },
+ {
+  "host": "ind-dev.stewart.com",
+  "target": "ind-dev.trafficmanager.net",
+  "provider": "trafficmanager.net",
+  "label": "ind-dev",
+  "kind": "traffic-manager",
+  "verdict": "unavailable",
+  "why": "400 label refused by the provider (not available in trafficmanager.net)"
+ },
+ {
+  "host": "ind-uat.stewart.com",
+  "target": "ind-uat.trafficmanager.net",
+  "provider": "trafficmanager.net",
+  "label": "ind-uat",
+  "kind": "traffic-manager",
+  "verdict": "unavailable",
+  "why": "400 label refused by the provider (not available in trafficmanager.net)"
+ },
+ {
+  "host": "s-eu-tn1.unit4cloud.com",
+  "target": "s-eu-tn1-unit4cloud.trafficmanager.net",
+  "provider": "trafficmanager.net",
+  "label": "s-eu-tn1-unit4cloud",
+  "kind": "traffic-manager",
+  "verdict": "unavailable",
+  "why": "400 label refused by the provider (not available in trafficmanager.net)"
+ }
+]

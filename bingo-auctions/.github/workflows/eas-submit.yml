@@ -1,0 +1,202 @@
+name: EAS Submit
+
+# Registration touch 2026-07-07: forked-in workflow files aren't dispatchable
+# until modified on the default branch (same as eas-update.yml's 2026-07-01
+# touch) — needed to submit the staff/bidder preview builds to TestFlight.
+
+# Submit-ONLY companion to eas-build.yml. Submits the LATEST finished EAS build
+# for bidder-app / field-mobile to TestFlight (iOS) and/or the Play internal
+# track (Android), WITHOUT building. Use after eas-build.yml builds finish on
+# EAS to push them to testers — eas-build.yml's own submit step builds first
+# (--no-wait), which races `eas submit --latest`; this avoids the rebuild.
+#
+# Runs on ubuntu-latest because the repo owner's win32-arm64 machine can't run
+# eas-cli (hermesc is x86_64). Same secrets as eas-build.yml:
+#   EXPO_TOKEN                     — Expo access token (scopes incl. submit:create)
+#   ASC_API_KEY / _ID / _ISSUER_ID — App Store Connect API key (iOS submit)
+#   GOOGLE_PLAY_SERVICE_ACCOUNT_KEY — Play service-account JSON (Android submit)
+#
+# `eas submit --latest` selects the most recent FINISHED build for the
+# platform+profile. If the latest build is still compiling, the submit errors
+# (re-run once it finishes) rather than submitting a stale build.
+
+on:
+  workflow_dispatch:
+    inputs:
+      app:
+        description: 'Which app to submit'
+        required: true
+        type: choice
+        default: both
+        options:
+          - bidder
+          - staff
+          - both
+      platform:
+        description: 'Target platform'
+        required: true
+        type: choice
+        default: all
+        options:
+          - ios
+          - android
+          - all
+      profile:
+        description: 'EAS submit profile (maps to eas.json submit.<profile>)'
+        required: true
+        type: choice
+        default: production
+        options:
+          - preview
+          - production
+
+concurrency:
+  group: eas-submit
+  cancel-in-progress: false
+
+jobs:
+  submit-bidder:
+    name: EAS submit — bidder (${{ inputs.platform }})
+    if: ${{ inputs.app == 'bidder' || inputs.app == 'both' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install workspace dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Install EAS CLI
+        run: npm install -g eas-cli@13
+      - name: Authenticate with EAS
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: eas whoami
+
+      # ── iOS → TestFlight ───────────────────────────────────────────────────
+      - name: Materialize ASC API key on disk
+        if: ${{ inputs.platform == 'ios' || inputs.platform == 'all' }}
+        env:
+          ASC_API_KEY: ${{ secrets.ASC_API_KEY }}
+        run: |
+          mkdir -p /tmp/asc-key
+          echo "$ASC_API_KEY" > /tmp/asc-key/AuthKey.p8
+          chmod 600 /tmp/asc-key/AuthKey.p8
+      - name: Patch eas.json ascApiKeyPath for CI submit
+        if: ${{ inputs.platform == 'ios' || inputs.platform == 'all' }}
+        working-directory: apps/bidder-app
+        run: |
+          jq '.submit.${{ inputs.profile }}.ios.ascApiKeyPath = "/tmp/asc-key/AuthKey.p8"' eas.json > eas.json.tmp
+          mv eas.json.tmp eas.json
+      - name: Submit bidder iOS to TestFlight
+        if: ${{ inputs.platform == 'ios' || inputs.platform == 'all' }}
+        working-directory: apps/bidder-app
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+          EXPO_ASC_KEY_ID: ${{ secrets.ASC_API_KEY_ID }}
+          EXPO_ASC_ISSUER_ID: ${{ secrets.ASC_API_KEY_ISSUER_ID }}
+          EXPO_APPLE_TEAM_ID: '73554WL25P'
+          EXPO_APPLE_TEAM_TYPE: COMPANY_OR_ORGANIZATION
+        run: eas submit --platform ios --latest --profile ${{ inputs.profile }} --non-interactive
+
+      # ── Android → Play internal ────────────────────────────────────────────
+      - name: Materialize Google Play service account on disk
+        if: ${{ inputs.platform == 'android' || inputs.platform == 'all' }}
+        env:
+          GOOGLE_PLAY_KEY: ${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT_KEY }}
+        run: |
+          mkdir -p /tmp/play-key
+          echo "$GOOGLE_PLAY_KEY" > /tmp/play-key/service-account.json
+          chmod 600 /tmp/play-key/service-account.json
+          if ! jq -e '.client_email' /tmp/play-key/service-account.json > /dev/null; then
+            echo "::error::Google Play service account JSON is missing or malformed"
+            exit 1
+          fi
+      - name: Patch eas.json serviceAccountKeyPath for CI submit
+        if: ${{ inputs.platform == 'android' || inputs.platform == 'all' }}
+        working-directory: apps/bidder-app
+        run: |
+          jq '.submit.${{ inputs.profile }}.android.serviceAccountKeyPath = "/tmp/play-key/service-account.json"' eas.json > eas.json.tmp
+          mv eas.json.tmp eas.json
+      - name: Submit bidder Android to Play internal track
+        if: ${{ inputs.platform == 'android' || inputs.platform == 'all' }}
+        working-directory: apps/bidder-app
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: eas submit --platform android --latest --profile ${{ inputs.profile }} --non-interactive
+
+  submit-staff:
+    name: EAS submit — staff (${{ inputs.platform }})
+    if: ${{ inputs.app == 'staff' || inputs.app == 'both' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install workspace dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Install EAS CLI
+        run: npm install -g eas-cli@13
+      - name: Authenticate with EAS
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: eas whoami
+
+      - name: Materialize ASC API key on disk
+        if: ${{ inputs.platform == 'ios' || inputs.platform == 'all' }}
+        env:
+          ASC_API_KEY: ${{ secrets.ASC_API_KEY }}
+        run: |
+          mkdir -p /tmp/asc-key
+          echo "$ASC_API_KEY" > /tmp/asc-key/AuthKey.p8
+          chmod 600 /tmp/asc-key/AuthKey.p8
+      - name: Patch eas.json ascApiKeyPath for CI submit
+        if: ${{ inputs.platform == 'ios' || inputs.platform == 'all' }}
+        working-directory: apps/field-mobile
+        run: |
+          jq '.submit.${{ inputs.profile }}.ios.ascApiKeyPath = "/tmp/asc-key/AuthKey.p8"' eas.json > eas.json.tmp
+          mv eas.json.tmp eas.json
+      - name: Submit staff iOS to TestFlight
+        if: ${{ inputs.platform == 'ios' || inputs.platform == 'all' }}
+        working-directory: apps/field-mobile
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+          EXPO_ASC_KEY_ID: ${{ secrets.ASC_API_KEY_ID }}
+          EXPO_ASC_ISSUER_ID: ${{ secrets.ASC_API_KEY_ISSUER_ID }}
+          EXPO_APPLE_TEAM_ID: '73554WL25P'
+          EXPO_APPLE_TEAM_TYPE: COMPANY_OR_ORGANIZATION
+        run: eas submit --platform ios --latest --profile ${{ inputs.profile }} --non-interactive
+
+      - name: Materialize Google Play service account on disk
+        if: ${{ inputs.platform == 'android' || inputs.platform == 'all' }}
+        env:
+          GOOGLE_PLAY_KEY: ${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT_KEY }}
+        run: |
+          mkdir -p /tmp/play-key
+          echo "$GOOGLE_PLAY_KEY" > /tmp/play-key/service-account.json
+          chmod 600 /tmp/play-key/service-account.json
+          if ! jq -e '.client_email' /tmp/play-key/service-account.json > /dev/null; then
+            echo "::error::Google Play service account JSON is missing or malformed"
+            exit 1
+          fi
+      - name: Patch eas.json serviceAccountKeyPath for CI submit
+        if: ${{ inputs.platform == 'android' || inputs.platform == 'all' }}
+        working-directory: apps/field-mobile
+        run: |
+          jq '.submit.${{ inputs.profile }}.android.serviceAccountKeyPath = "/tmp/play-key/service-account.json"' eas.json > eas.json.tmp
+          mv eas.json.tmp eas.json
+      - name: Submit staff Android to Play track
+        if: ${{ inputs.platform == 'android' || inputs.platform == 'all' }}
+        working-directory: apps/field-mobile
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: eas submit --platform android --latest --profile ${{ inputs.profile }} --non-interactive

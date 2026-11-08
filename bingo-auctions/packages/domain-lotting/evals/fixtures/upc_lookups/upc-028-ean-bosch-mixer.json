@@ -1,0 +1,15 @@
+{
+  "id": "upc-028",
+  "code": "8212680000168",
+  "code_type": "ean",
+  "expected": {
+    "title": "Bosch Universal Plus Stand Mixer (MUM6N10UC, 800W)",
+    "brand": "Bosch",
+    "model": "MUM6N10UC",
+    "category_slug": "small-appliances",
+    "category_legacy": "Appliances",
+    "condition": "",
+    "msrp_cents": 49999
+  },
+  "notes": "13-digit EAN code (European GTIN). Tests EAN handling — same prompt branch as UPC."
+}

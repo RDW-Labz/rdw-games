@@ -1,0 +1,170 @@
+<!-- Demurrage design mock — generated from the clone data by a throwaway script;
+     map, prices and system names are Endless Sky data, everything else is a design target. -->
+<!doctype html>
+<meta charset="utf-8">
+<title>Demurrage — design mock</title>
+<style>
+  :root{--ink:#e8eef5;--dim:#8fa3b8;--line:#1d2b3a;--panel:#0b131c;--bg:#060b11;
+        --hot:#ffb347;--cool:#5ad1c8;--bad:#ff6b6b;--good:#7ddc7d;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font:13px/1.45 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+  .wrap{display:grid;grid-template-columns:1.4fr 1fr;grid-auto-rows:min-content;
+        gap:10px;padding:11px;max-width:1180px}
+  header{grid-column:1/-1;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+  h1{margin:0;font-size:20px;letter-spacing:.18em;font-weight:800}
+  .tag{color:var(--hot);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase}
+  .sub{color:var(--dim);font-size:11.5px}
+  .map,.panel{background:var(--panel);border:1px solid var(--line);border-radius:9px}
+  .map{position:relative;overflow:hidden}
+  .map svg{display:block;width:100%;height:auto}
+  .panel{padding:9px 11px}
+  .panel h2{margin:0 0 7px;font-size:10px;letter-spacing:.2em;color:var(--dim);
+            text-transform:uppercase;font-weight:700}
+  .row{display:flex;justify-content:space-between;gap:8px;padding:4.5px 0;border-bottom:1px dashed #141f2b}
+  .row:last-child{border:0}
+  .cr{color:var(--hot);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .cr.bad{color:var(--bad)} .cr.good{color:var(--good)}
+  .name{font-weight:600} .meta{color:var(--dim);font-size:11.5px}
+  .stop{display:flex;gap:8px;align-items:baseline;padding:4.5px 0;border-bottom:1px solid #101b25}
+  .n{width:15px;height:15px;border-radius:50%;background:#152636;color:var(--cool);
+     font-size:9.5px;display:grid;place-items:center;flex:0 0 auto;font-weight:700}
+  .rule{color:var(--cool);font-size:11px}
+  .bar{height:5px;border-radius:3px;background:#152130;overflow:hidden;margin-top:4px}
+  .bar i{display:block;height:100%;background:linear-gradient(90deg,#2f6e69,var(--cool))}
+  footer{grid-column:1/-1;color:var(--dim);font-size:11px;display:flex;
+         gap:14px;flex-wrap:wrap;justify-content:space-between;align-items:baseline}
+  .legend{position:absolute;left:9px;bottom:8px;font-size:10px;color:var(--dim);
+          display:flex;gap:10px;flex-wrap:wrap}
+  .dot{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:4px;vertical-align:1px}
+  .hud{position:absolute;right:9px;top:8px;text-align:right;font-size:10.5px;color:var(--dim);
+       background:rgba(6,11,17,.72);padding:3px 6px;border-radius:6px}
+  .hud b{color:var(--ink);font-variant-numeric:tabular-nums}
+  .pill{display:inline-block;border:1px solid var(--line);border-radius:99px;padding:0 6px;
+        font-size:9.5px;color:var(--dim);margin-left:5px}
+  .pill.hot{color:var(--hot);border-color:#4a3520}
+</style>
+<div class="wrap">
+  <header>
+    <h1>DEMURRAGE</h1><span class="tag">design mock · nothing built</span>
+    <span class="sub" id="sub"></span>
+  </header>
+
+  <div class="map">
+    <svg id="map" viewBox="0 0 660 470"></svg>
+    <div class="hud">tick <b>0412</b> · 07:00<br>balance <b>18,240 cr</b> · lease <b>−410/hr</b></div>
+    <div class="legend">
+      <span><i class="dot" style="background:var(--cool)"></i>your route</span>
+      <span><i class="dot" style="background:#2b4256"></i>open lane</span>
+      <span><i class="dot" style="background:var(--hot)"></i>port on the board</span>
+      <span><i class="dot" style="background:none;border:1px solid #3d5a46"></i>ore deposit</span>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Contract board — 6 open</h2>
+    <div class="row"><span><span class="name">Food</span>
+      <span class="meta" id="c1route"></span><br>
+      <span class="meta">90 u · due 40h <span class="pill hot">demurrage −900/h</span></span></span>
+      <span class="cr">12,400</span></div>
+    <div class="row"><span><span class="name">Equipment</span>
+      <span class="meta">Lucina → Prelude</span><br>
+      <span class="meta">42 u · due 55h · real spread 227 → 750</span></span><span class="cr">9,150</span></div>
+    <div class="row"><span><span class="name">Metal</span>
+      <span class="meta">your refinery → New Iceland</span><br>
+      <span class="meta">120 u · standing order, daily</span></span><span class="cr">7,680</span></div>
+    <div class="row"><span><span class="name">Medical</span>
+      <span class="meta">Sol → Rasalhague</span><br>
+      <span class="meta">18 u · due 22h · lane risk HIGH</span></span><span class="cr">14,900</span></div>
+    <div class="row"><span><span class="name">Clothing</span>
+      <span class="meta">Bounty → Kraz</span><br>
+      <span class="meta">70 u · due 61h</span></span><span class="cr">5,300</span></div>
+    <div class="row"><span><span class="name">Heavy Metals</span>
+      <span class="meta">Tarazed → Waypoint</span><br>
+      <span class="meta">30 u · due 34h · rival line bidding</span></span><span class="cr">11,050</span></div>
+  </div>
+
+  <div class="panel">
+    <h2 id="shiphead">Hauler 2 · Freighter · order list</h2>
+    <div class="stop"><span class="n">1</span><div><span class="name" id="stopBuy"></span>
+      <div class="rule" id="ruleBuy"></div></div><span class="cr" id="crBuy"></span></div>
+    <div class="stop"><span class="n">2</span><div><span class="name" id="stopSell"></span>
+      <div class="rule">sell Food · wait for full load · repeat ×∞</div></div>
+      <span class="cr good" id="crSell"></span></div>
+    <div class="stop"><span class="n">3</span><div><span class="name">Sol</span>
+      <div class="rule">buy Equipment ×42 · rated 78</div></div><span class="cr">−8,400</span></div>
+    <div class="stop"><span class="n">4</span><div><span class="name">Prelude</span>
+      <div class="rule">sell Equipment · fuel 1,240 · offset 0h</div></div>
+      <span class="cr good">+14,700</span></div>
+    <h2 style="margin-top:11px">Port rating — <span id="rateAt"></span></h2>
+    <div class="bar"><i style="width:78%"></i></div>
+    <div class="meta" style="margin-top:4px">78/100 · 6 deliveries in 120h · 4h average wait ·
+      better contracts at 80, cheaper fuel at 90</div>
+  </div>
+
+  <div class="panel">
+    <h2>Port — <span id="portAt"></span> · works</h2>
+    <div class="row"><span><span class="name">Refinery II</span>
+      <span class="meta">in: ore 6/t · fuel 2/t → Metal 3/t</span></span><span class="cr good">+3.1/t</span></div>
+    <div class="row"><span><span class="name">Ore deposit</span>
+      <span class="meta" id="oreAt"></span></span><span class="cr">native</span></div>
+    <div class="row"><span><span class="name">Berths</span>
+      <span class="meta">2 of 3 used · upgrade 24,000</span></span><span class="cr">2/3</span></div>
+    <h2 style="margin-top:11px">Rival line — Halcyon Freight</h2>
+    <div class="row"><span><span class="name">Rating</span>
+      <span class="meta">took 2 contracts you declined this week</span></span><span class="cr">61</span></div>
+  </div>
+
+  <footer>
+    <span id="credits"></span>
+    <span>contract values are design targets; prices, system names and map positions are real data</span>
+  </footer>
+</div>
+<script>
+const D = {"systems":[{"n":"Ablub","x":-581.587,"y":637.051,"o":true},{"n":"Acamar","x":-284.0,"y":-3.0,"o":true},{"n":"Achernar","x":-93.0,"y":154.0,"o":true},{"n":"Aescolanus","x":-15.0,"y":340.0,"o":false},{"n":"Al Dhanab","x":-177.0,"y":207.0,"o":true},{"n":"Albaldah","x":-350.0,"y":484.0,"o":true},{"n":"Albireo","x":-270.0,"y":503.0,"o":false},{"n":"Alderamin","x":-272.0,"y":258.0,"o":false},{"n":"Aldhibain","x":-659.0,"y":451.0,"o":true},{"n":"Algenib","x":-118.0,"y":341.0,"o":false},{"n":"Algorel","x":-631.0,"y":145.0,"o":false},{"n":"Alioth","x":-620.0,"y":315.0,"o":true},{"n":"Alnair","x":-272.0,"y":314.0,"o":true},{"n":"Alnasl","x":-553.0,"y":380.0,"o":true},{"n":"Alniyat","x":-691.0,"y":501.0,"o":true},{"n":"Alpha Arae","x":-481.0,"y":394.0,"o":true},{"n":"Alpha Centauri","x":-429.0,"y":125.0,"o":true},{"n":"Alphecca","x":-546.0,"y":308.0,"o":false},{"n":"Alpheratz","x":-176.0,"y":125.0,"o":true},{"n":"Altair","x":-357.0,"y":161.0,"o":false},{"n":"Anax","x":-463.0,"y":699.0,"o":true},{"n":"Ankaa","x":-230.0,"y":100.0,"o":true},{"n":"Antevorta","x":-36.1297,"y":446.242,"o":true},{"n":"Arcturus","x":-589.0,"y":226.0,"o":true},{"n":"Ascella","x":-376.0,"y":328.0,"o":true},{"n":"Atria","x":-551.0,"y":532.0,"o":true},{"n":"Billow","x":-419.0,"y":615.0,"o":false},{"n":"Boral","x":-502.0,"y":331.0,"o":true},{"n":"Caph","x":-295.0,"y":77.0,"o":true},{"n":"Cardea","x":-89.1297,"y":417.242,"o":true},{"n":"Cebalrai","x":-461.0,"y":282.0,"o":true},{"n":"Convector","x":-14.1297,"y":379.242,"o":true},{"n":"Cor Caroli","x":-682.0,"y":201.0,"o":true},{"n":"Cusp","x":-523.0,"y":589.0,"o":true},{"n":"Dabih","x":-253.0,"y":427.0,"o":false},{"n":"Decet","x":-156.0,"y":610.0,"o":true},{"n":"Delta Capricorni","x":-285.0,"y":202.0,"o":true},{"n":"Delta Sagittarii","x":-414.0,"y":416.0,"o":true},{"n":"Deneb","x":-348.0,"y":225.0,"o":true},{"n":"Denebola","x":-478.0,"y":70.0,"o":true},{"n":"Diphda","x":-262.0,"y":61.0,"o":true},{"n":"Dschubba","x":-598.0,"y":501.0,"o":true},{"n":"Eber","x":-532.0,"y":406.0,"o":true},{"n":"Eltanin","x":-328.0,"y":433.0,"o":true},{"n":"Enif","x":-177.0,"y":498.0,"o":true},{"n":"Eteron","x":-330.0,"y":33.0,"o":true},{"n":"Fingol","x":-482.0,"y":113.0,"o":true},{"n":"Flutter","x":-254.0,"y":637.0,"o":true},{"n":"Fomalhaut","x":-314.0,"y":124.0,"o":true},{"n":"Frenzy","x":-398.0,"y":680.0,"o":true},{"n":"Gamma Cassiopeiae","x":-116.0,"y":293.0,"o":true},{"n":"Gienah","x":-176.0,"y":354.0,"o":true},{"n":"Girtab","x":-430.0,"y":481.0,"o":true},{"n":"Han","x":-610.0,"y":561.0,"o":false},{"n":"Hintar","x":-422.0,"y":311.0,"o":true},{"n":"Holeb","x":-590.0,"y":287.0,"o":false},{"n":"Ildaria","x":-702.0,"y":317.0,"o":false},{"n":"Insitor","x":-28.1296,"y":400.242,"o":false},{"n":"Ipsing","x":-549.0,"y":160.0,"o":false},{"n":"Kaus Australis","x":-284.0,"y":395.0,"o":true},{"n":"Kaus Borealis","x":-456.0,"y":350.0,"o":false},{"n":"Kornephoros","x":-612.0,"y":424.0,"o":true},{"n":"Lesath","x":-516.0,"y":485.0,"o":true},{"n":"Lurata","x":-279.0,"y":463.0,"o":true},{"n":"Markab","x":-241.0,"y":168.0,"o":true},{"n":"Matar","x":-218.0,"y":272.0,"o":false},{"n":"Mellow","x":-386.0,"y":644.0,"o":true},{"n":"Menkent","x":-495.0,"y":218.0,"o":true},{"n":"Merak","x":-553.0,"y":60.0,"o":true},{"n":"Mirach","x":-166.0,"y":250.0,"o":true},{"n":"Mizar","x":-579.0,"y":184.0,"o":false},{"n":"Muhlifain","x":-702.0,"y":242.0,"o":false},{"n":"Muphrid","x":-495.0,"y":152.0,"o":true},{"n":"Naper","x":-416.0,"y":369.0,"o":true},{"n":"Nenia","x":-39.1297,"y":467.242,"o":true},{"n":"Nocte","x":-467.0,"y":172.0,"o":true},{"n":"Nunki","x":-393.0,"y":537.0,"o":true},{"n":"Octet","x":-106.0,"y":583.0,"o":true},{"n":"Orvala","x":-334.0,"y":303.0,"o":true},{"n":"Peacock","x":-307.0,"y":350.0,"o":true},{"n":"Peak","x":-295.0,"y":630.0,"o":true},{"n":"Persian","x":-203.0,"y":331.0,"o":true},{"n":"Phecda","x":-607.0,"y":88.0,"o":true},{"n":"Pinnacle","x":-248.0,"y":672.0,"o":false},{"n":"Pollux","x":-465.0,"y":4.0,"o":false},{"n":"Porrima","x":-556.0,"y":123.0,"o":true},{"n":"Procyon","x":-411.0,"y":23.0,"o":true},{"n":"Rasalhague","x":-413.0,"y":246.0,"o":true},{"n":"Rastaban","x":-463.0,"y":446.0,"o":true},{"n":"Ruchbah","x":-174.0,"y":69.0,"o":true},{"n":"Rutilicus","x":-535.0,"y":273.0,"o":true},{"n":"Sabik","x":-675.0,"y":379.0,"o":true},{"n":"Sadalmelik","x":-145.0,"y":472.0,"o":true},{"n":"Sadalsuud","x":-134.0,"y":508.0,"o":false},{"n":"Sadr","x":-287.0,"y":543.0,"o":true},{"n":"Sail","x":-544.0,"y":666.0,"o":true},{"n":"Saquergen","x":-482.0,"y":561.0,"o":true},{"n":"Sargas","x":-542.0,"y":445.0,"o":false},{"n":"Sarin","x":-670.0,"y":293.0,"o":false},{"n":"Scheat","x":-205.0,"y":233.0,"o":false},{"n":"Schedar","x":-93.0,"y":229.0,"o":true},{"n":"Seginus","x":-557.0,"y":356.0,"o":true},{"n":"Shaula","x":-460.0,"y":527.0,"o":true},{"n":"Sirius","x":-378.0,"y":44.0,"o":true},{"n":"Soar","x":-449.0,"y":655.0,"o":true},{"n":"Sol","x":-400.0,"y":100.0,"o":true},{"n":"Span","x":-513.0,"y":654.0,"o":false},{"n":"Tais","x":-346.0,"y":381.0,"o":true},{"n":"Tap","x":-348.0,"y":581.0,"o":true},{"n":"Tarazed","x":-194.0,"y":448.0,"o":false},{"n":"Tide","x":-468.0,"y":604.0,"o":false},{"n":"Tumble","x":-308.0,"y":655.0,"o":true},{"n":"Umbral","x":-164.0,"y":406.0,"o":true},{"n":"Unukalhai","x":-710.0,"y":405.0,"o":true},{"n":"Vega","x":-402.0,"y":182.0,"o":true},{"n":"Vindemiatrix","x":-635.0,"y":257.0,"o":true},{"n":"Wei","x":-598.0,"y":369.0,"o":false},{"n":"Zeta Aquilae","x":-369.0,"y":276.0,"o":true},{"n":"Zubenelgenubi","x":-710.0,"y":353.0,"o":true}],"lanes":[["Acamar","Diphda"],["Achernar","Al Dhanab"],["Achernar","Alpheratz"],["Achernar","Schedar"],["Al Dhanab","Alpheratz"],["Al Dhanab","Mirach"],["Al Dhanab","Scheat"],["Albaldah","Albireo"],["Albaldah","Eltanin"],["Albaldah","Girtab"],["Albaldah","Nunki"],["Albireo","Lurata"],["Albireo","Sadr"],["Albireo","Tarazed"],["Alderamin","Alnair"],["Alderamin","Delta Capricorni"],["Aldhibain","Alniyat"],["Aldhibain","Dschubba"],["Aldhibain","Kornephoros"],["Aldhibain","Sabik"],["Algenib","Gienah"],["Algorel","Cor Caroli"],["Algorel","Mizar"],["Algorel","Phecda"],["Alioth","Alphecca"],["Alioth","Holeb"],["Alioth","Vindemiatrix"],["Alioth","Wei"],["Alnair","Persian"],["Alnasl","Eber"],["Alnasl","Kaus Borealis"],["Alnasl","Seginus"],["Alnasl","Wei"],["Alniyat","Dschubba"],["Alniyat","Han"],["Alpha Arae","Delta Sagittarii"],["Alpha Arae","Eber"],["Alpha Arae","Kaus Borealis"],["Alpha Arae","Rastaban"],["Alpha Centauri","Sol"],["Alphecca","Boral"],["Alphecca","Seginus"],["Alpheratz","Ruchbah"],["Altair","Delta Capricorni"],["Altair","Fomalhaut"],["Altair","Sol"],["Altair","Vega"],["Anax","Frenzy"],["Anax","Soar"],["Anax","Span"],["Ankaa","Diphda"],["Ankaa","Markab"],["Ankaa","Ruchbah"],["Antevorta","Cardea"],["Antevorta","Convector"],["Antevorta","Insitor"],["Arcturus","Holeb"],["Arcturus","Mizar"],["Arcturus","Rutilicus"],["Ascella","Naper"],["Ascella","Peacock"],["Ascella","Rasalhague"],["Ascella","Tais"],["Ascella","Zeta Aquilae"],["Atria","Dschubba"],["Atria","Han"],["Atria","Lesath"],["Billow","Soar"],["Caph","Diphda"],["Caph","Eteron"],["Caph","Sol"],["Cardea","Nenia"],["Cebalrai","Hintar"],["Cebalrai","Kaus Borealis"],["Cebalrai","Menkent"],["Cebalrai","Rasalhague"],["Cebalrai","Rutilicus"],["Cor Caroli","Mizar"],["Cor Caroli","Vindemiatrix"],["Cusp","Span"],["Dabih","Eltanin"],["Dabih","Kaus Australis"],["Dabih","Lurata"],["Dabih","Tarazed"],["Delta Capricorni","Markab"],["Delta Capricorni","Scheat"],["Delta Sagittarii","Eltanin"],["Delta Sagittarii","Rastaban"],["Delta Sagittarii","Tais"],["Denebola","Fingol"],["Denebola","Merak"],["Denebola","Sol"],["Dschubba","Lesath"],["Enif","Sadalmelik"],["Enif","Sadalsuud"],["Enif","Tarazed"],["Eteron","Sirius"],["Fomalhaut","Markab"],["Frenzy","Mellow"],["Frenzy","Tumble"],["Gamma Cassiopeiae","Mirach"],["Gienah","Persian"],["Girtab","Lesath"],["Girtab","Rastaban"],["Holeb","Rutilicus"],["Ipsing","Mizar"],["Kaus Australis","Peacock"],["Kaus Australis","Tais"],["Kornephoros","Sabik"],["Kornephoros","Sargas"],["Kornephoros","Wei"],["Lesath","Rastaban"],["Lesath","Sargas"],["Lesath","Shaula"],["Markab","Scheat"],["Matar","Persian"],["Matar","Scheat"],["Mellow","Tumble"],["Menkent","Muphrid"],["Menkent","Rutilicus"],["Menkent","Vega"],["Merak","Phecda"],["Merak","Porrima"],["Mirach","Scheat"],["Mirach","Schedar"],["Muhlifain","Vindemiatrix"],["Muphrid","Porrima"],["Nocte","Vega"],["Orvala","Zeta Aquilae"],["Peacock","Tais"],["Peak","Tap"],["Peak","Tumble"],["Pinnacle","Tumble"],["Pollux","Procyon"],["Procyon","Sirius"],["Rasalhague","Zeta Aquilae"],["Sabik","Unukalhai"],["Sabik","Zubenelgenubi"],["Sadalmelik","Sadalsuud"],["Sail","Span"],["Sarin","Vindemiatrix"],["Seginus","Wei"],["Sirius","Sol"],["Soar","Tide"],["Sol","Vega"],["Span","Tide"],["Tarazed","Umbral"],["Unukalhai","Zubenelgenubi"]],"hi":["Tais","Ascella","Naper","Peacock","Rasalhague","Tais","Zeta Aquilae"],"route":["Tais","Ascella"],"stats":{"systems":685,"lanes":806,"planets":239,"view":119,"viewlanes":148},"px":{"lo":"Tais","hi":"Ascella","buy":340,"sell":467,"spread":127}};
+const NS = 'http://www.w3.org/2000/svg';
+const svg = document.getElementById('map');
+const el = (t, a) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); return e; };
+const S = {}; for (const s of D.systems) S[s.n] = s;
+const xs = D.systems.map(s => s.x), ys = D.systems.map(s => s.y);
+const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
+const k = Math.min(650 / (maxX - minX || 1), 460 / (maxY - minY || 1));
+const px = s => (s.x - minX) * k + 5, py = s => (s.y - minY) * k + 5;
+const route = new Set(D.route), hiName = new Set(D.hi);
+
+for (const [a, b] of D.lanes) {
+  const A = S[a], B = S[b]; if (!A || !B) continue;
+  const hot = (route.has(a) && route.has(b));
+  svg.appendChild(el('line', { x1: px(A), y1: py(A), x2: px(B), y2: py(B),
+    stroke: hot ? '#5ad1c8' : '#24384a', 'stroke-width': hot ? 3 : .7, opacity: hot ? 1 : .9 }));
+}
+for (const s of D.systems) {
+  const isRoute = route.has(s.n), isHi = hiName.has(s.n);
+  if (s.o && !isRoute) svg.appendChild(el('circle', { cx: px(s), cy: py(s), r: 3.4,
+    fill: 'none', stroke: '#2c4433', 'stroke-width': .6 }));
+  svg.appendChild(el('circle', { cx: px(s), cy: py(s), r: isRoute ? 4.5 : isHi ? 2.6 : 1.4,
+    fill: isRoute ? '#ffb347' : isHi ? '#5ad1c8' : '#456078', opacity: isRoute ? 1 : isHi ? .95 : .75 }));
+  if (isRoute || isHi) {
+    const t = el('text', { x: px(s) + 7, y: py(s) + 3.5, fill: isRoute ? '#ffd9a8' : '#a8bccd',
+      'font-size': isRoute ? 11 : 8.5, 'font-weight': isRoute ? 700 : 400,
+      stroke: '#060b11', 'stroke-width': 3, 'paint-order': 'stroke' });
+    t.textContent = s.n; svg.appendChild(t);
+  }
+}
+const P = D.px;
+document.getElementById('sub').textContent = 'a freight line on a real galaxy — working title';
+document.getElementById('c1route').textContent = P.lo + ' → ' + P.hi;
+document.getElementById('stopBuy').textContent = P.lo;
+document.getElementById('ruleBuy').textContent = 'buy Food ×90 — ' + P.buy + ' cr here';
+document.getElementById('crBuy').textContent = '−' + (P.buy * 90).toLocaleString();
+document.getElementById('stopSell').textContent = P.hi;
+document.getElementById('crSell').textContent = '+' + (P.sell * 90).toLocaleString();
+document.getElementById('rateAt').textContent = P.hi;
+document.getElementById('portAt').textContent = P.hi;
+const oreOf = n => (D.systems.find(s => s.n === n) || {});
+document.getElementById('oreAt').textContent = 'deposits on this port — from ES `minables`';
+document.getElementById('shiphead').textContent = 'Hauler 2 · Freighter · order list · real spread ' + P.buy + ' → ' + P.sell;
+document.getElementById('credits').textContent =
+  D.stats.systems + ' systems, ' + D.stats.lanes + ' lanes, ' + D.stats.planets +
+  ' planets — Endless Sky data (GPL-3.0); timetables and port rating are OpenTTD systems; works chains are Mindustry’s model';
+</script>

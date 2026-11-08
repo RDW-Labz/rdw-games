@@ -1,0 +1,127 @@
+{
+  "throttled": {
+    "menuInteractiveMs": 199,
+    "fpsPutt": {
+      "avg": 60.3,
+      "p5": 55.2
+    },
+    "fpsMenuTransition": {
+      "avg": 62.5,
+      "p5": 52.4
+    },
+    "fpsResult": {
+      "avg": 60.3,
+      "p5": 54.3
+    },
+    "layoutJumps": 0,
+    "heapMB": {
+      "afterHole1": 18.68,
+      "after10Holes": 26.71,
+      "growthMB": 8.03,
+      "after30Holes": 28.57
+    },
+    "textureCount": {
+      "afterHole1": null,
+      "after10Holes": null,
+      "delta": null
+    },
+    "bundle": {
+      "totalJs": {
+        "bytes": 1761981,
+        "gzip": 409812
+      },
+      "jsChunks": {
+        "assets/index-I1zyEKWd.js": {
+          "bytes": 1759796,
+          "gzip": 408761
+        },
+        "assets/web-Bg5D2IL7.js": {
+          "bytes": 940,
+          "gzip": 465
+        },
+        "assets/web-GETB06jQ.js": {
+          "bytes": 1245,
+          "gzip": 586
+        }
+      },
+      "fonts": {
+        "bytes": 436116,
+        "gzip": 233711
+      },
+      "total": {
+        "bytes": 2208174,
+        "gzip": 648026
+      }
+    },
+    "webgl": {
+      "vendor": "Google Inc. (Apple)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M4, Unspecified Version)"
+    },
+    "cpuThrottleRate": 4,
+    "profilePutt": null,
+    "profileTransition": null
+  },
+  "unthrottled": {
+    "cpuThrottleRate": 1,
+    "webgl": {
+      "vendor": "Google Inc. (Apple)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M4, Unspecified Version)"
+    },
+    "menuInteractiveMs": 117,
+    "fpsPutt": {
+      "avg": 60.1,
+      "p5": 57.1
+    },
+    "fpsMenuTransition": {
+      "avg": 60.9,
+      "p5": 52.9
+    },
+    "fpsResult": {
+      "avg": 60.1,
+      "p5": 56.8
+    },
+    "layoutJumps": 0,
+    "heapMB": {
+      "afterHole1": 18.54,
+      "after10Holes": 27.97,
+      "growthMB": 9.44,
+      "after30Holes": 26.54
+    },
+    "textureCount": {
+      "afterHole1": null,
+      "after10Holes": null,
+      "delta": null
+    },
+    "profilePutt": null,
+    "profileTransition": null,
+    "bundle": {
+      "totalJs": {
+        "bytes": 1761981,
+        "gzip": 409812
+      },
+      "jsChunks": {
+        "assets/index-I1zyEKWd.js": {
+          "bytes": 1759796,
+          "gzip": 408761
+        },
+        "assets/web-Bg5D2IL7.js": {
+          "bytes": 940,
+          "gzip": 465
+        },
+        "assets/web-GETB06jQ.js": {
+          "bytes": 1245,
+          "gzip": 586
+        }
+      },
+      "fonts": {
+        "bytes": 436116,
+        "gzip": 233711
+      },
+      "total": {
+        "bytes": 2208174,
+        "gzip": 648026
+      }
+    }
+  },
+  "runs": 1
+}

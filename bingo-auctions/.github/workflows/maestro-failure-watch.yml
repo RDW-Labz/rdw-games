@@ -1,0 +1,41 @@
+name: Maestro failure watch
+
+# #868: Maestro Smoke failed six or more times on master across two nights with
+# no alert. #519 tracks the underlying bug, but nothing surfaced the repeat
+# failures. This watcher counts failures and posts ONE reminder on #519 and ONE
+# line on #687 per failure streak.
+#
+# Trusted-code only: scheduled/workflow_dispatch, checking out the default
+# branch. No PR head code is ever executed, and a PR cannot trigger this job.
+# Its only writes are issue comments; it never labels, approves, merges or
+# changes a check.
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  # Read the Actions run list. Still read-only.
+  actions: read
+  issues: write
+
+concurrency:
+  group: maestro-failure-watch
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out trusted default-branch code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+      - name: Alert on a Maestro failure streak
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/maestro-failure-watch.mjs

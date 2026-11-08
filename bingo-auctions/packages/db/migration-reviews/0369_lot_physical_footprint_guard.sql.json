@@ -1,0 +1,9 @@
+{
+  "sql_sha256": "48d6e28d96d8ba5945b3a1c3cd405d67183d0300748dc86c974b203aeac1c47c",
+  "operation": "schema",
+  "reviewer": "Astra; independent SQL review by guard_review",
+  "scope": "Four admin-only evidence functions; no existing-row mutation or app trigger.",
+  "physical_impact": "Protect recorded stickers and location/claim history on destructive maintenance; no warehouse action changes upon function creation. Canonical/offline printing still needs human review.",
+  "active_work": "Creating unused functions does not run the locking assertion; future destructive callers need a short reviewed warehouse maintenance window.",
+  "rollback": "Revoke/drop the four functions only after removing migration callers; no lot data changed. Do not disable runner review gates to perform cleanup."
+}

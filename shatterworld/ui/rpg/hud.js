@@ -1,0 +1,65 @@
+// ---- HUD, plates, menu + dead-screen extras -------------------------------------------------------------------------------------------------------------------------
+const HC = {}; const rpgSet = (el, v, key) => { if (HC[key] !== v) { HC[key] = v; el.textContent = v; } }, rpgSty = (el, prop, v, key) => { if (HC[key] !== v) { HC[key] = v; el.style[prop] = v; } };
+(() => { for (const p of PLATES) p.d.innerHTML = '<span class="pn"></span><small class="ps"></small><span class="hb"><i class="hf"></i><i class="sh"></i></span>'; for (const p of PLATES) { p.pn = p.d.querySelector('.pn'); p.ps = p.d.querySelector('.ps'); p.hb = p.d.querySelector('.hb'); p.hf = p.d.querySelector('.hf'); p.sh = p.d.querySelector('.sh'); } })();
+const PX = new Float32Array(20), PY = new Float32Array(20); // plate de-overlap scratch
+const CAND = Array.from({ length: 90 }, () => ({ d: 0, x: 0, y: 0, z: 0, cls: '', name: '', sub: '', hp: -1, sh: 0, col: '' })); let candN = 0;
+function addCand(d, x, y, z, cls, name, sub, hp, sh, col) { if (candN >= CAND.length) return; const c = CAND[candN++]; c.d = d; c.x = x; c.y = y; c.z = z; c.cls = cls; c.name = name; c.sub = sub; c.hp = hp; c.sh = sh; c.col = col || ''; }
+function rpgPlatesTick() {
+  candN = 0;
+  for (const L of LOOT) if (L.kind === 'item') { const d = Math.hypot(L.x - P.x, L.z - P.z); if (d < (L.rar >= 2 ? 48 : L.rar === 1 ? 22 : 9)) addCand(d, L.x, L.y + 1.15, L.z, 'l' + L.rar, rpgItemName(L.item), 'ilvl ' + L.item.ilvl + ' ' + RPG_SLOT_LABEL[L.item.slot], -1, 0); }
+  for (const c of CHESTS) if (!c.open) { const d = Math.hypot(c.x - P.x, c.z - P.z); if (d < 30) addCand(d, c.x, c.y + 1.3, c.z, 'l2', c.act ? 'ACT CHEST' : 'CHEST', '', -1, 0); }
+  for (const e of ENEMIES) { if (!e.alive || e.state === 'dead' || e.state === 'squash' || !e.rpg) continue; const R = e.rpg, d = Math.hypot(e.x - P.x, e.z - P.z); if ((R.tier !== 'normal' && d < 46) || (R.showT > 0 && d < 28)) addCand(d, e.x, e.y + 1.35 * (e.mesh.scale.y || 1) + 0.35, e.z, 'en', R.name, 'Lv ' + R.lvl + (R.tier === 'normal' ? '' : ' ' + R.tier.toUpperCase()), R.hp / R.maxhp, R.shieldMax ? R.shield / R.shieldMax : 0, R.col); }
+  // nearest 16 win the plate pool
+  for (let i = 0; i < PLATES.length; i++) { let bi = -1, bd = 1e9; for (let j = i; j < candN; j++) if (CAND[j].d < bd) { bd = CAND[j].d; bi = j; } if (bi < 0) break; if (bi !== i) { const t = CAND[i]; CAND[i] = CAND[bi]; CAND[bi] = t; } }
+  const out = { x: 0, y: 0 }; let np = 0;
+  for (let i = 0; i < PLATES.length; i++) {
+    const pl = PLATES[i]; if (i >= candN || !rpgProject(CAND[i].x, CAND[i].y, CAND[i].z, out)) { if (pl.on) { pl.on = false; pl.d.style.display = 'none'; } continue; } const c = CAND[i];
+    if (!pl.on) { pl.on = true; pl.d.style.display = 'block'; } const key = c.cls + '|' + c.name + '|' + c.sub + '|' + c.col; if (pl.key !== key) { pl.key = key; pl.d.className = 'plate ' + c.cls; pl.pn.textContent = c.name; pl.ps.textContent = c.sub; pl.d.style.color = c.col && c.cls === 'en' ? c.col : ''; pl.d.style.borderColor = c.col && c.cls === 'en' ? c.col : ''; }
+    pl.hb.style.display = c.hp >= 0 ? 'block' : 'none'; if (c.hp >= 0) { pl.hf.style.width = Math.max(0, c.hp * 100).toFixed(0) + '%'; pl.sh.style.width = (c.sh * 100).toFixed(0) + '%'; pl.sh.style.display = c.sh > 0 ? 'block' : 'none'; }
+    let py = out.y; for (let pass = 0; pass < 4; pass++) { let moved = false; for (let j = 0; j < np; j++) if (Math.abs(out.x - PX[j]) < 150 && Math.abs(py - PY[j]) < 31) { py = PY[j] - 31; moved = true; } if (!moved) break; } PX[np] = out.x; PY[np] = py; np++;
+    pl.d.style.transform = `translate(${(out.x).toFixed(0)}px,${py.toFixed(0)}px) translate(-50%,-100%)`;
+  }
+}
+function rpgHud() {
+  const cap = RP.level >= RPG_TUNING.levelCap, xpn = cap ? 1 : rpgXpNext(RP.level); rpgSty($('rpgHPfill'), 'width', (sat(RT.hp / RT.max, 0, 1) * 100).toFixed(1) + '%', 'hpw'); rpgSet($('rpgHPtxt'), Math.ceil(RT.hp) + ' / ' + RT.max + (RT.shield > 0.5 ? '  +' + Math.round(RT.shield) : ''), 'hpt'); rpgSty($('rpgHPshield'), 'width', (sat(RT.shield / RT.max, 0, 1) * 100).toFixed(1) + '%', 'shw');
+  rpgSty($('rpgXPfill'), 'width', (cap ? 100 : sat(RP.xp / xpn, 0, 1) * 100).toFixed(1) + '%', 'xpw'); rpgSet($('rpgLv'), 'LV ' + RP.level + (cap ? ' MAX' : ''), 'lv');
+  const rw = $('rpgRW'), n = Math.ceil(RT.rwMax); if (HC.rwn !== n) { HC.rwn = n; rw.innerHTML = '<span>REWIND</span>' + '<i><b></b></i>'.repeat(n); HC.rwf = null; HC.pips = rw.querySelectorAll('i b'); } const pips = HC.pips, fk = pips.length + ':' + Math.floor(RT.rw * 10); if (HC.rwf !== fk) { HC.rwf = fk; pips.forEach((b, i) => b.style.transform = 'scaleX(' + sat(RT.rw - i, 0, 1).toFixed(2) + ')'); }
+  const buf = []; if (RT.chill > 0.05) buf.push('CHILLED'); if (RT.goldStack) buf.push('GOLD RUSH x' + RT.goldStack); if (RT.surgeT > 0) buf.push('STAR SURGE'); if (RT.S.fx.comboFiend && RT.combo > 1) buf.push('COMBO x' + Math.min(5, RT.combo)); if (RT.shield > 0.5) buf.push('SHIELD'); if (P.big) buf.push('SUPER'); fdBuffPills(buf); rpgSet($('rpgBuff'), buf.join('  ·  '), 'buf');
+  rpgSty($('rpgChill'), 'opacity', RT.chill > 0.02 ? Math.min(1, RT.chill * 2.4).toFixed(2) : '0', 'chl');
+  const rf = $('rpgRift'); if (RIFT) { rf.classList.add('on'); const left = Math.max(0, RIFT.limit - RIFT.t); rpgSet($('rpgRiftT'), fmtTime(left), 'rt'); $('rpgRiftT').classList.toggle('low', left < 30);
+    rpgSet($('rpgRiftS'), 'SHATTER RIFT · TIER ' + RIFT.tier + ' · SEED ' + hexSeed(RIFT.seed), 'rs'); const pr = RIFT.phase === 'fight' ? RIFT.prog / RIFT.need : 1; rpgSty($('rpgRiftBar'), 'width', (sat(pr, 0, 1) * 100).toFixed(1) + '%', 'rb');
+    rpgSet($('rpgRiftM'), (RIFT.phase === 'fight' ? Math.min(100, Math.floor(pr * 100)) + '%  ·  ' : RIFT.phase === 'guardian' ? 'DEFEAT THE GUARDIAN  ·  ' : '') + RIFT.mods.map(m => RPG_RIFT_MODS[m].name.toUpperCase()).concat(RIFT.fams.map(f => MOB_FAMILIES[f].name.toUpperCase())).join('  ·  '), 'rm'); }
+  else rf.classList.remove('on');
+  const bo = $('rpgBoss'); const g = rpgBossRef(); if (g) { bo.classList.add('on'); rpgSet($('rpgBossN'), g.rpg.name.toUpperCase(), 'bn'); rpgSty($('rpgBossBar'), 'width', (sat(g.rpg.hp / g.rpg.maxhp, 0, 1) * 100).toFixed(1) + '%', 'bb'); } else bo.classList.remove('on');
+}
+function rpgUiTick(rdt) {
+  uiRepeat(rdt); rpgFlush(false); const hide = $('hud').classList.contains('hidden') || RUI.open || PK.open || SUI.open || G.state === 'dead'; if (HC.hide !== hide) { HC.hide = hide; $('rpgRoot').classList.toggle('hidden', hide); } if (hide || VR.presenting) return; // VR: the wrist / strip panels and the 3D plates replace these DOM overlays
+  if (HC.php !== P.hp) { HC.php = P.hp; updateHUD(); } rpgHud(); rpgPlatesTick();
+}
+function rpgRunSummary() {
+  const sp = (cls, t) => `<span class="${cls}">${t}</span>`, L = RUN.loot, out = [sp('', `+${rfmt(RUN.xp)} XP` + (RUN.levels ? ` &middot; LV ${RUN.lvStart} &rarr; ${RP.level}` : ` &middot; LV ${RP.level}`)), sp('', `${RUN.kills} kills` + (RUN.elites ? ` (${RUN.elites} elite)` : ''))];
+  const loot = [L[3] ? sp('r3', L[3] + ' legendary') : '', L[2] ? sp('r2', L[2] + ' rare') : '', L[1] ? sp('r1', L[1] + ' magic') : '', L[0] ? sp('', L[0] + ' common') : ''].filter(Boolean); out.push(loot.length ? loot.join('') : sp('', 'no loot'));
+  out.push(sp('', `+${rfmt(RUN.gold)} gold &middot; +${rfmt(RUN.dust)} shards`)); if (RUN.legends.length) out.push(sp('r3', RUN.legends.map(id => RPG_LEG_BY_ID[id].name).join(', '))); out.push(sp('', 'best rift: ' + (RP.bestRift ? 'tier ' + RP.bestRift : 'none'))); return out.join('');
+}
+function rpgDeadExtras() {
+  let sum = $('rpgRunSum'); if (!sum) { sum = document.createElement('div'); sum.id = 'rpgRunSum'; $('deadS').after(sum); const b = document.createElement('div'); b.id = 'rpgDeadBtns'; $('cta2').after(b); const h = document.createElement('div'); h.id = 'rpgDeadHint'; b.after(h);
+    b.addEventListener('click', e => { const a = e.target.dataset && e.target.dataset.a; e.stopPropagation(); if (a === 'inv') openInv(); else if (a === 'menu') toMenu(); else if (a === 'seed') rpgRiftRestart(false, false); else if (a === 'rift') { rpgStartRift(RP.riftTier, RP.riftSeed || null); } else if (a === 'town') townEnter(); }); }
+  sum.innerHTML = rpgRunSummary(); const b = $('rpgDeadBtns'); b.innerHTML = '<button data-a="inv">INVENTORY<span class="pk"> (' + padTxt('Y') + ')</span></button><button data-a="town">HOME TOWN<span class="pk"> (' + padTxt('LB') + ')</span></button>' + (RIFT ? '<button data-a="seed">NEW SEED</button>' : G.won && RP.riftUnlocked ? '<button data-a="rift">SHATTER RIFT</button>' : '') + (RIFT || G.won ? '<button data-a="menu">MENU<span class="pk"> (' + padTxt('B') + ')</span></button>' : '<button data-a="menu">MENU</button>');
+  $('rpgDeadHint').textContent = padTxt((RP.pending ? 'PERK READY: press Y, then A on the PERKS tab  ·  ' : '') + (RIFT ? 'A: ' + (RIFT.won ? 'next tier' : 'retry same seed') + '  ·  Y: inventory  ·  B: menu' : G.won ? 'A: play again  ·  Y: inventory  ·  B: menu' : 'A: retry  ·  Y: inventory'));
+}
+function rpgRenderMenu() {
+  const m = $('rpgMenu'); if (!m) return; const D = RPG_TUNING.difficulty, ul = RP.riftUnlocked, mx = Math.min(RPG_TUNING.rift.maxTier, RP.bestRift + 1);
+  m.innerHTML = `<span class="lbl">DIFFICULTY</span>${D.map((d, i) => `<button data-diff="${i}" class="${RP.diff === i ? 'on' : ''}"${i > RP.diffUnlocked ? ' disabled title="finish the finale on the previous difficulty"' : ''}>${d.name}</button>`).join('')}<span class="lbl">RIFT</span>${ul ? `<button data-rt="-1">-</button><b>TIER ${RP.riftTier}</b><button data-rt="1">+</button><button class="go" data-go="rift">SHATTER RIFT</button>` : '<span style="opacity:.55">unlocks after the finale</span>'}<button data-go="cls">CHARACTER</button><button data-go="inv">INVENTORY</button><button data-go="town">HOME TOWN</button>
+  <div id="rpgMenuSub">${classDef(RP.cls).name.toUpperCase()} &middot; LEVEL ${RP.level}${RP.level >= RPG_TUNING.levelCap ? '' : ' · ' + rfmt(RP.xp) + ' / ' + rfmt(rpgXpNext(RP.level)) + ' XP'} · ${Object.keys(RP.codex).length}/${RPG_LEGENDARIES.length} LEGENDARIES · ${rfmt(RP.gold)} GOLD · BEST RIFT ${RP.bestRift ? 'T' + RP.bestRift : '-'}${RP.pending ? ' · <b style="color:#ffe27a">PERK READY (' + padTxt('Y') + ')</b>' : ''}<br><span class="padline">PAD: &larr; &rarr; difficulty &nbsp; &uarr; &darr; rift tier &nbsp; ${padTxt('X')} rift &nbsp; ${padTxt('Y')} inventory &nbsp; ${padTxt('B')} character &nbsp; ${padTxt('LB')} home town &nbsp; | &nbsp; </span>KEYS: I / Tab inventory &nbsp; T town &nbsp; F hide commons</div>`;
+}
+$('rpgMenu').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; e.stopPropagation(); if (b.dataset.diff != null) { RP.diff = +b.dataset.diff; RT.dirty = true; rsfx('ui'); rpgRenderMenu(); } else if (b.dataset.rt) { RP.riftTier = sat(RP.riftTier + +b.dataset.rt, 1, Math.min(RPG_TUNING.rift.maxTier, RP.bestRift + 1)); RP.riftSeed = 0; RT.dirty = true; rsfx('ui'); rpgRenderMenu(); } else if (b.dataset.go === 'rift') rpgStartRift(RP.riftTier, RP.riftSeed || null); else if (b.dataset.go === 'inv') openInv(); else if (b.dataset.go === 'cls') openChars(); else if (b.dataset.go === 'town') townEnter(); });
+function menuKey(k) {
+  if (k === 'arrowleft' || k === 'a') { RP.diff = sat(RP.diff - 1, 0, RP.diffUnlocked); rsfx('ui'); rpgRenderMenu(); } else if (k === 'arrowright' || k === 'd') { RP.diff = sat(RP.diff + 1, 0, RP.diffUnlocked); rsfx('ui'); rpgRenderMenu(); }
+  else if ((k === 'arrowup' || k === 'w') && RP.riftUnlocked) { RP.riftTier = sat(RP.riftTier + 1, 1, Math.min(RPG_TUNING.rift.maxTier, RP.bestRift + 1)); RP.riftSeed = 0; rsfx('ui'); rpgRenderMenu(); } else if ((k === 'arrowdown' || k === 's') && RP.riftUnlocked) { RP.riftTier = sat(RP.riftTier - 1, 1, 99); RP.riftSeed = 0; rsfx('ui'); rpgRenderMenu(); }
+  else if (k === 'j' && RP.riftUnlocked) rpgStartRift(RP.riftTier, RP.riftSeed || null); else if (k === 'e' || k === 'i' || k === 'tab') openInv(RP.pending ? 2 : null);
+}
+$('pauseBtns').insertAdjacentHTML('beforeend', '<small id="pauseInv"><span data-pad="Y">Y</span> / I / Tab: inventory &middot; <span data-pad="X">X</span> / C: character &middot; <span data-pad="LB">LB</span> / T: home town &middot; <span data-pad="B">B</span> resume &middot; VR: hold Y</small><button id="pauseInvBtn" style="font:inherit;letter-spacing:.2em;font-size:12px;color:#2a1400;background:linear-gradient(180deg,#fff2b0,#ffc54a 55%,#ff9c2b);border:0;border-radius:999px;padding:.4em 1.4em;cursor:pointer;font-weight:800">INVENTORY</button>');
+$('pauseInvBtn').addEventListener('mousedown', e => e.stopPropagation()); // the global mousedown handler resumes the game on any click in the pause overlay
+$('pauseInvBtn').addEventListener('click', e => { e.stopPropagation(); openInv(); });
+$('menu').querySelector('.cheat').insertAdjacentHTML('beforeend', '<div class="wide"><kbd>LOOT &amp; LEVELS</kbd> I / Tab / <span data-pad="Y">Y</span> inventory (pauses) &middot; walk over loot to pick up &middot; F hide commons &middot; RMB tap near enemies = Rewind Pulse (1 charge) &middot; Rifts unlock after the finale</div>');
+

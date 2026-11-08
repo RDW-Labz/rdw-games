@@ -1,0 +1,20 @@
+[
+ {
+  "host": "combomobile-1.acbpost.be",
+  "victim_cname": "combomobile-ac.trafficmanager.net.",
+  "victim_a": "combomobile-ac.trafficmanager.net.",
+  "profile_fqdn": "combomobile-ac.trafficmanager.net",
+  "profile_a": "",
+  "controlled": false,
+  "victim_a_after_wait": "combomobile-ac.trafficmanager.net."
+ },
+ {
+  "host": "combomobile-1.stbpost.be",
+  "victim_cname": "combomobile-st.trafficmanager.net.",
+  "victim_a": "combomobile-st.trafficmanager.net.",
+  "profile_fqdn": "combomobile-st.trafficmanager.net",
+  "profile_a": "",
+  "controlled": false,
+  "victim_a_after_wait": "combomobile-st.trafficmanager.net."
+ }
+]

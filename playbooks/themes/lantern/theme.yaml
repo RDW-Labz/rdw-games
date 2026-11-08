@@ -1,0 +1,68 @@
+name: Lantern
+light:
+  colors:
+    bg: "#f7f5f0"
+    surface: "#efece5"
+    surface-raised: "#fdfcfa"
+    border: "#7f786d"
+    hairline: "#dad5cb"
+    text: "#1f1d1a"
+    text-muted: "#5c5750"
+    accent: "#7c5010"
+    accent-text: "#fff9ee"
+    focus: "#1d6a63"
+    link: "#1d6a63"
+    ok: "#2e6b45"
+    needs-you: "#7c5010"
+    rim: "#a06a14"
+    lamp: "200 120 0"
+    glow-strength: 0.22
+    error: "#a33a2e"
+    paused: "#6a5087"
+    scrim: "#1f1d1a52"
+    shadow-1: "0 1px 2px #1f1d1a14"
+    shadow-2: "0 12px 32px -12px #1f1d1a40"
+dark:
+  colors:
+    bg: "#1a1918"
+    surface: "#211f1e"
+    surface-raised: "#292725"
+    border: "#827d76"
+    hairline: "#3a3734"
+    text: "#eeebe6"
+    text-muted: "#ada8a0"
+    accent: "#f4c261"
+    accent-text: "#251a06"
+    focus: "#7fd1c4"
+    link: "#7fd1c4"
+    ok: "#8fd19e"
+    needs-you: "#f4c261"
+    rim: "#e0a83e"
+    lamp: "255 201 92"
+    glow-strength: 0.16
+    error: "#ff9e8f"
+    paused: "#c9b3e6"
+    scrim: "#00000080"
+    shadow-1: "0 1px 2px #00000066"
+    shadow-2: "0 16px 40px -12px #00000099"
+type:
+  font: 'Figtree, system-ui, -apple-system, "Segoe UI", sans-serif'
+radius:
+  sm: 8
+  md: 12
+  lg: 16
+  pill: 999
+motion:
+  duration-instant: 80
+  duration-fast: 120
+  duration-base: 200
+  duration-slow: 320
+  duration-light: 480
+  breath: 2400
+  ease-out: "cubic-bezier(0, 0, 0.2, 1)"
+  ease-in: "cubic-bezier(0.4, 0, 1, 1)"
+  ease-standard: "cubic-bezier(0.2, 0, 0, 1)"
+sounds:
+  needs_you: default
+  done: default
+  problem: default

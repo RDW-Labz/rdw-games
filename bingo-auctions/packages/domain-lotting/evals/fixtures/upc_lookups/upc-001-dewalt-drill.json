@@ -1,0 +1,15 @@
+{
+  "id": "upc-001",
+  "code": "885911548632",
+  "code_type": "upc",
+  "expected": {
+    "title": "DeWalt DCD771C2 20V MAX 1/2-inch Compact Drill Driver Kit",
+    "brand": "DeWalt",
+    "model": "DCD771C2",
+    "category_slug": "power-tools",
+    "category_legacy": "Tools & Hardware",
+    "condition": "",
+    "msrp_cents": 19900
+  },
+  "notes": "Standard 12-digit UPC. Easy lookup — popular SKU."
+}

@@ -1,0 +1,1 @@
+{"id":"scout-1790471942148","status":"complete","model":"sonnet","actualModel":"claude-sonnet-5","modelMismatch":false,"costUsd":0.5437599999999999,"report":".swarm/scouts/scout-1790471942148/report.json","reportMarkdown":".swarm/scouts/scout-1790471942148/report.md","picks":4,"rejected":6,"moved":["tauri-plugin-power-monitor"]}

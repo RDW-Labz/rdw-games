@@ -1,0 +1,18 @@
+{
+  "id": "photo-015",
+  "image_path": "photo-015-laptop-clear.jpg",
+  "media_type": "image/jpeg",
+  "photo_quality_label": "clear",
+  "expected": {
+    "title": "HP 14-inch Laptop, Intel Celeron N4120, 4GB RAM, 64GB eMMC (14-dq0040nr)",
+    "brand": "HP",
+    "model": "14-dq0040nr",
+    "upc": "196188170847",
+    "category_slug": "computers",
+    "category_legacy": "Electronics",
+    "condition": "New/Sealed",
+    "msrp_cents": 27999,
+    "expected_confidence": "high"
+  },
+  "notes": "Standard product-on-white shot. Tests laptop SKU recognition."
+}

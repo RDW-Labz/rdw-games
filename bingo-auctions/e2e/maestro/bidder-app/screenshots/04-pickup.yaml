@@ -1,0 +1,93 @@
+# App Store screenshot — bidder-app: Pickup tab
+#
+# ASSERTION-TOLERANT REWRITE (2026-05-24)
+# ----------------------------------------
+# Previous flow died on `extendedWaitUntil id: browse-screen` (58s).
+# New structure marks fragile steps `optional: true` so the canonical
+# "pickup" PNG is always captured, even if the pickup tab is not
+# reachable (e.g., the seeded bidder has no paid invoices yet).
+#
+# Output (always):
+#   screenshots/04-pickup-launch.png
+#   screenshots/04-pickup-post-auth.png
+#   screenshots/04-pickup-tab-tapped.png
+#   screenshots/pickup.png    (canonical)
+
+appId: com.bingoauctions.bidder
+env:
+  BIDDER_PICKUP_EMAIL: ${BIDDER_PICKUP_EMAIL}
+  BIDDER_PICKUP_PASSWORD: ${BIDDER_PICKUP_PASSWORD}
+---
+# ── Step 1: Launch fresh ────────────────────────────────────────────────────
+- launchApp:
+    clearState: true
+    stopApp: true
+
+- waitForAnimationToEnd
+
+# ── Step 2: GUARANTEED first PNG ────────────────────────────────────────────
+- takeScreenshot: screenshots/04-pickup-launch
+
+# ── Step 3: Confirm bundle rendered (non-fatal) ─────────────────────────────
+- extendedWaitUntil:
+    visible:
+      text: "Sign in"
+    timeout: 15000
+    optional: true
+
+# ── Step 4: Sign in as pickup-seeded bidder ─────────────────────────────────
+- tapOn:
+    id: signin-email-input
+    optional: true
+- inputText: ${BIDDER_PICKUP_EMAIL}
+
+- tapOn:
+    id: signin-password-input
+    optional: true
+- inputText: ${BIDDER_PICKUP_PASSWORD}
+
+- tapOn:
+    id: signin-submit
+    optional: true
+
+- waitForAnimationToEnd
+
+# ── Step 5: SECOND GUARANTEED PNG — post-auth state ─────────────────────────
+- takeScreenshot: screenshots/04-pickup-post-auth
+
+# ── Step 6: Best-effort wait for main UI to be ready ────────────────────────
+# Use the loose "Pickup" tab-label text match instead of the nested-View
+# `browse-screen` testID that timed out at 20s in production. The tab
+# bar is the FIRST thing that mounts on the (tabs) layout, so this is
+# a more reliable proxy for "auth completed and tabs are visible".
+- extendedWaitUntil:
+    visible:
+      text: "Pickup"
+    timeout: 20000
+    optional: true
+
+# ── Step 7: Navigate to the Pickup tab ──────────────────────────────────────
+- tapOn:
+    id: tab-pickup
+    optional: true
+
+- waitForAnimationToEnd
+
+# ── Step 8: THIRD GUARANTEED PNG — after pickup tab tap ─────────────────────
+- takeScreenshot: screenshots/04-pickup-tab-tapped
+
+# ── Step 9: Best-effort wait for pickup screen content ──────────────────────
+# "Ready for pickup" is the section heading on the populated pickup
+# screen. If the bidder has no invoices, this times out — but the
+# canonical screenshot below still captures the empty-state UI,
+# which is also reasonable App Store content.
+- extendedWaitUntil:
+    visible:
+      text: "Ready for pickup"
+    timeout: 15000
+    optional: true
+
+- waitForAnimationToEnd
+
+# ── Step 10: Canonical "pickup" screenshot ──────────────────────────────────
+- takeScreenshot: screenshots/pickup

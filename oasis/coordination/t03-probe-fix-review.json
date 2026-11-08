@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "concurrency": 1,
+  "jobs": [{
+    "id": "google-request-review",
+    "agent": "claude",
+    "context": ["coordination/t03-probe-fix-review.md", "AGENTS.md", "repos/connectors/scripts/check_registration.py", "repos/connectors/tests/test_registration.py"],
+    "outputs": [],
+    "timeoutMs": 180000,
+    "prompt": "Follow the coordinator task contract in coordination/t03-probe-fix-review.md. Read-only review of the proposed fake Google authorization-code exchange. No shell/network/keychain/browser or edits. Identify concrete protocol/test/privacy risks. Do not ask for IDs or tokens. Return findings and precise tests; distinguish official findings supplied in contract from inference."
+  }]
+}

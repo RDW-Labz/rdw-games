@@ -1,0 +1,55 @@
+# ASC Crashes — read-only download of TestFlight crash reports.
+#
+# TestFlight's "<app> Crashed" dialog lets a tester share the crash; those
+# submissions and their crash logs live only in App Store Connect. This pulls
+# them for one app over the last N days and uploads them as a run artifact
+# (crashes.json + one crash-<id>.txt per report). GET requests only: nothing
+# in App Store Connect, the repo, the database or any app channel is changed.
+# Tester emails/names are dropped before anything is written.
+#
+# First use: BinGo Staff iPad crash dialog, 2026-10-10 11:08 CT.
+name: ASC Crashes
+on:
+  workflow_dispatch:
+    inputs:
+      app:
+        description: 'Which app'
+        required: true
+        type: choice
+        default: staff
+        options:
+          - staff
+          - bidder
+      days:
+        description: 'How many days back'
+        required: true
+        type: string
+        default: '7'
+permissions:
+  contents: read
+jobs:
+  crashes:
+    name: TestFlight crash reports
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install --quiet PyJWT cryptography
+      - name: Download crash reports
+        env:
+          ASC_API_KEY: ${{ secrets.ASC_API_KEY }}
+          ASC_API_KEY_ID: ${{ secrets.ASC_API_KEY_ID }}
+          ASC_API_KEY_ISSUER_ID: ${{ secrets.ASC_API_KEY_ISSUER_ID }}
+          DAYS: ${{ inputs.days }}
+        run: |
+          set -euo pipefail
+          case "$DAYS" in ''|*[!0-9]*) echo "::error::days must be a whole number"; exit 1;; esac
+          if [ "${{ inputs.app }}" = "bidder" ]; then DIR=apps/bidder-app; else DIR=apps/field-mobile; fi
+          ASC_ID=$(python3 -c "import json;print(json.load(open('$DIR/eas.json'))['submit']['production']['ios']['ascAppId'])")
+          python3 scripts/store-release/asc_crashes.py "$ASC_ID" "$DAYS" out
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: testflight-crashes-${{ inputs.app }}
+          path: out/
+          if-no-files-found: warn
+          retention-days: 14

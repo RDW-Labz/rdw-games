@@ -1,0 +1,140 @@
+KILLED t27h guard off
+KILLED t27h threshold 1
+KILLED t27h multi-question off
+KILLED t27h fires twice
+KILLED t27h nudge in system
+KILLED t27h fires with zero read tools
+KILLED t27h URLs counted
+KILLED t27h cap back to 6
+KILLED t27h cap unbounded
+KILLED t27h nudge log has text
+KILLED t27h no nudge log
+KILLED t27i offline detail back
+KILLED t27i status not logged
+KILLED t27i graph_code not logged
+KILLED t27i message text logged
+KILLED t27i failed read not counted
+KILLED t27i generic failure text
+KILLED t27i instruction sentence missing
+KILLED t27g warning missing
+KILLED t27g cc not checked
+KILLED t27g replying_to shows subject claim
+KILLED t27g replying_to missing received
+KILLED t27g replying_to reaches tool
+KILLED t27b cc dropped
+KILLED t27b self kept in To
+KILLED t27b self kept in Cc
+KILLED t27b cc keeps To dupes
+KILLED t27b self compare case-sensitive
+KILLED t27b no lists allowed
+KILLED t27b no cc list allowed
+KILLED t27b no account allowed
+KILLED t27b empty To allowed
+KILLED t27b to/cc not passed
+KILLED t27b cc not passed
+KILLED t27b to not passed
+KILLED t27b reply_all flag dropped
+KILLED t27b addresses in summary
+KILLED t27g warnings excluded from hash
+KILLED t27g plus not dropped
+KILLED t27g prefix off
+KILLED accept any token
+KILLED skip plan hash
+KILLED token reusable
+KILLED scope invalidation no-op
+KILLED confirm ignores thread
+KILLED extra step allowed
+KILLED double run allowed
+KILLED continue after fail
+KILLED report counts unlisted refusals
+KILLED sent mail no warning
+KILLED new user message keeps tokens
+KILLED delete keeps tokens
+KILLED undo after new message
+KILLED safe_link passthrough
+KILLED link logged
+KILLED report link from log not memory
+KILLED teams @thread dropped
+KILLED www.google.com any path
+KILLED http allowed
+KILLED tool text in system
+KILLED do runs during preview
+KILLED duplicate call runs
+KILLED invalid args run
+KILLED connector allowlist removed
+KILLED disconnected connector offered
+KILLED do classified as read
+KILLED read result logs content
+KILLED plan issued after new message
+DONE
+KILLED t27h guard off
+KILLED t27h threshold 1
+KILLED t27h multi-question off
+KILLED t27h fires twice
+KILLED t27h nudge in system
+KILLED t27h fires with zero read tools
+KILLED t27h URLs counted
+KILLED t27h cap back to 6
+KILLED t27h cap unbounded
+KILLED t27h nudge log has text
+KILLED t27h no nudge log
+KILLED t27i offline detail back
+KILLED t27i status not logged
+KILLED t27i graph_code not logged
+KILLED t27i message text logged
+KILLED t27i failed read not counted
+KILLED t27i generic failure text
+KILLED t27i instruction sentence missing
+KILLED t27g warning missing
+KILLED t27g cc not checked
+KILLED t27g replying_to shows subject claim
+KILLED t27g replying_to missing received
+KILLED t27g replying_to reaches tool
+KILLED t27b cc dropped
+KILLED t27b self kept in To
+KILLED t27b self kept in Cc
+KILLED t27b cc keeps To dupes
+KILLED t27b self compare case-sensitive
+KILLED t27b no lists allowed
+KILLED t27b no cc list allowed
+KILLED t27b no account allowed
+KILLED t27b empty To allowed
+KILLED t27b to/cc not passed
+KILLED t27b cc not passed
+KILLED t27b to not passed
+KILLED t27b reply_all flag dropped
+KILLED t27b addresses in summary
+KILLED t27g warnings excluded from hash
+KILLED t27g plus not dropped
+KILLED t27g prefix off
+KILLED accept any token
+KILLED skip plan hash
+KILLED token reusable
+KILLED scope invalidation no-op
+KILLED confirm ignores thread
+KILLED extra step allowed
+KILLED double run allowed
+KILLED continue after fail
+KILLED report counts unlisted refusals
+KILLED sent mail no warning
+KILLED new user message keeps tokens
+KILLED delete keeps tokens
+KILLED undo after new message
+SKIP(0) reply-all fail open
+SKIP(0) reply recipient unverified
+KILLED safe_link passthrough
+KILLED link logged
+KILLED report link from log not memory
+KILLED teams @thread dropped
+KILLED www.google.com any path
+KILLED http allowed
+KILLED tool text in system
+KILLED do runs during preview
+SKIP(0) more than 6 calls
+KILLED duplicate call runs
+KILLED invalid args run
+KILLED connector allowlist removed
+KILLED disconnected connector offered
+KILLED do classified as read
+KILLED read result logs content
+KILLED plan issued after new message

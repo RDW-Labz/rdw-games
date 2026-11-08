@@ -1,0 +1,182 @@
+name: Pre-Submit Robo Crawl — Authenticated (Android)
+
+# ─────────────────────────────────────────────────────────────────────────────
+# WHAT THIS IS
+# ───────────
+# Firebase Test Lab **Robo crawl** that logs IN and crawls PAST the login
+# screen. It builds each app against an ISOLATED, seeded sandbox Supabase
+# backend (project `ridylekymnpgbsbanfwe` — NOT prod), enters the test
+# credentials via Robo directives, taps Sign in, then lets Robo auto-crawl the
+# authenticated app (bidder: browse → lot detail → bid sheet → watchlist →
+# profile; staff: field hub → lotting/checkout tabs). If the app crashes/ANRs
+# on ANY authenticated screen the run fails — catching the deeper class the
+# unauthenticated `pre-submit-robo.yml` (login screen only) can't reach.
+#
+# SAFETY — why this can't break anything real:
+#   The sandbox has ONLY synthetic data (fake operator + auction + lots + one
+#   fake dual-role user) and `payments_disabled=true`. Robo auto-taps
+#   everything — incl. Place Bid — but every tap hits the sandbox, never prod,
+#   real auctions, real bidders, or real money. Rebuild/reseed anytime with
+#   scripts/test-backend/{apply-schema,seed}.mjs.
+#
+# PROVISIONING (one-time, same GCP setup as pre-submit-robo.yml + 2 secrets):
+#   - Test Lab APIs enabled on cluer-auctions; play-publisher SA granted
+#     roles/cloudtestservice.testAdmin; GCP_SA_KEY secret set.
+#   - Repo secrets ROBO_EMAIL + ROBO_PASSWORD = the sandbox login
+#     (robo@clovrbid.test). These authenticate ONLY against the throwaway
+#     sandbox, so they protect nothing of value.
+#
+# workflow_dispatch only — it costs Test Lab device-minutes + an EAS build.
+# ─────────────────────────────────────────────────────────────────────────────
+
+on:
+  workflow_dispatch:
+    inputs:
+      app:
+        description: 'Which app to crawl'
+        type: choice
+        default: both
+        options: [both, bidder, staff]
+      devices:
+        description: 'Semicolon-separated Test Lab devices (model,version).'
+        type: string
+        default: 'MediumPhone.arm,version=34;MediumPhone.arm,version=30'
+      timeout:
+        description: 'Per-device crawl timeout (e.g. 300s, 5m). Longer than the unauth crawl so Robo has time past login.'
+        type: string
+        default: '300s'
+
+concurrency:
+  group: robo-authed-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  GCP_PROJECT: cluer-auctions
+  EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+  EXPO_NO_TELEMETRY: 1
+  CI: true
+
+jobs:
+  robo:
+    name: Authed Robo crawl (${{ matrix.label }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - app: bidder-app
+            label: bidder
+            appKey: bidder
+            emailField: signin-email-input
+            pwField: signin-password-input
+            submitField: signin-submit
+          - app: field-mobile
+            label: staff
+            appKey: staff
+            emailField: staff-signin-email-input
+            pwField: staff-signin-password-input
+            submitField: staff-signin-submit
+    steps:
+      - name: Skip if not selected
+        id: gate
+        run: |
+          if [ "${{ inputs.app }}" = "both" ] || [ "${{ inputs.app }}" = "${{ matrix.appKey }}" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "Skipping ${{ matrix.appKey }} (input app=${{ inputs.app }})."
+          fi
+
+      - uses: actions/checkout@v4
+        if: steps.gate.outputs.run == 'true'
+
+      - uses: actions/setup-node@v4
+        if: steps.gate.outputs.run == 'true'
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        if: steps.gate.outputs.run == 'true'
+        run: npm ci
+
+      # ── Build a standalone APK on EAS, pointed at the SANDBOX backend. ──────
+      - name: Build robo-authed APK on EAS
+        if: steps.gate.outputs.run == 'true'
+        working-directory: apps/${{ matrix.app }}
+        run: |
+          set -euo pipefail
+          npx eas-cli@latest build \
+            --platform android \
+            --profile robo-authed \
+            --non-interactive \
+            --wait \
+            --json > /tmp/eas-build.json
+          URL=$(jq -r '.[0].artifacts.applicationArchiveUrl // .[0].artifacts.buildUrl // empty' /tmp/eas-build.json)
+          test -n "$URL" && test "$URL" != "null"
+          echo "APK_URL=$URL" >> "$GITHUB_ENV"
+          echo "Resolved APK URL: $URL"
+
+      - name: Download APK
+        if: steps.gate.outputs.run == 'true'
+        run: |
+          set -euo pipefail
+          curl -fSL "$APK_URL" -o /tmp/app.apk
+          ls -la /tmp/app.apk
+
+      # ── Authenticate to GCP / Firebase Test Lab ─────────────────────────────
+      - name: Authenticate to Google Cloud
+        if: steps.gate.outputs.run == 'true'
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Set up gcloud
+        if: steps.gate.outputs.run == 'true'
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: cluer-auctions
+
+      # ── Authenticated Robo crawl ────────────────────────────────────────────
+      # --robo-directives runs FIRST: type email + password into the login
+      # fields (by their RN testID → Android resource-id) and tap Sign in.
+      # Robo then auto-crawls the authenticated app. gcloud exits non-zero if
+      # the app crashes/ANRs on any device → fails CI.
+      - name: Authed Robo crawl on Test Lab
+        if: steps.gate.outputs.run == 'true'
+        env:
+          ROBO_EMAIL: ${{ secrets.ROBO_EMAIL }}
+          ROBO_PASSWORD: ${{ secrets.ROBO_PASSWORD }}
+        run: |
+          set -euo pipefail
+          if [ -z "${ROBO_EMAIL:-}" ] || [ -z "${ROBO_PASSWORD:-}" ]; then
+            echo "::error::ROBO_EMAIL / ROBO_PASSWORD secrets are not set."
+            exit 1
+          fi
+          DEVICE_ARGS=""
+          IFS=';' read -ra DEVS <<< "${{ inputs.devices }}"
+          for d in "${DEVS[@]}"; do
+            d_trim="$(echo "$d" | xargs)"
+            [ -z "$d_trim" ] && continue
+            DEVICE_ARGS="$DEVICE_ARGS --device model=$d_trim,locale=en_US,orientation=portrait"
+          done
+          DIRECTIVES="text:${{ matrix.emailField }}=${ROBO_EMAIL},text:${{ matrix.pwField }}=${ROBO_PASSWORD},click:${{ matrix.submitField }}="
+          echo "Devices: $DEVICE_ARGS"
+          echo "Login via Robo directives on fields: ${{ matrix.emailField }} / ${{ matrix.pwField }} / ${{ matrix.submitField }}"
+          gcloud firebase test android run \
+            --project "$GCP_PROJECT" \
+            --type robo \
+            --app /tmp/app.apk \
+            --timeout "${{ inputs.timeout }}" \
+            --robo-directives "$DIRECTIVES" \
+            $DEVICE_ARGS \
+            2>&1 | tee /tmp/robo-authed-${{ matrix.appKey }}.log
+
+      - name: Upload Robo log
+        if: ${{ always() && steps.gate.outputs.run == 'true' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: robo-authed-${{ matrix.appKey }}-log
+          path: /tmp/robo-authed-${{ matrix.appKey }}.log
+          retention-days: 14

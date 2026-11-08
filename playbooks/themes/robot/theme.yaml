@@ -1,0 +1,69 @@
+name: Robot
+avatar: robot
+light:
+  colors:
+    bg: "#eff3f0"
+    surface: "#e4eae6"
+    surface-raised: "#fafcfb"
+    border: "#6e7972"
+    hairline: "#d0dad4"
+    text: "#1a211d"
+    text-muted: "#4f5c55"
+    accent: "#255f59"
+    accent-text: "#f0fbf8"
+    focus: "#285b84"
+    link: "#285b84"
+    ok: "#2e6634"
+    needs-you: "#7d4a06"
+    rim: "#a05f0a"
+    lamp: "198 119 0"
+    glow-strength: 0.24
+    error: "#a3372a"
+    paused: "#654e92"
+    scrim: "#1a211d52"
+    shadow-1: "0 1px 2px #1a211d14"
+    shadow-2: "0 12px 32px -12px #1a211d40"
+dark:
+  colors:
+    bg: "#161b1a"
+    surface: "#1c2221"
+    surface-raised: "#242b2a"
+    border: "#7f8a87"
+    hairline: "#313a38"
+    text: "#e9eeec"
+    text-muted: "#a7b2ae"
+    accent: "#88d1c0"
+    accent-text: "#0b1f1b"
+    focus: "#8ec5f0"
+    link: "#8ec5f0"
+    ok: "#9bd79d"
+    needs-you: "#f6c05a"
+    rim: "#e6a43c"
+    lamp: "255 190 80"
+    glow-strength: 0.16
+    error: "#ff9d89"
+    paused: "#c6b6e9"
+    scrim: "#00000080"
+    shadow-1: "0 1px 2px #00000066"
+    shadow-2: "0 16px 40px -12px #00000099"
+type:
+  font: 'Figtree, system-ui, -apple-system, "Segoe UI", sans-serif'
+radius:
+  sm: 8
+  md: 12
+  lg: 16
+  pill: 999
+motion:
+  duration-instant: 80
+  duration-fast: 120
+  duration-base: 200
+  duration-slow: 320
+  duration-light: 480
+  breath: 2400
+  ease-out: "cubic-bezier(0, 0, 0.2, 1)"
+  ease-in: "cubic-bezier(0.4, 0, 1, 1)"
+  ease-standard: "cubic-bezier(0.2, 0, 0, 1)"
+sounds:
+  needs_you: default
+  done: default
+  problem: default

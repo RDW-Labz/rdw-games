@@ -1,0 +1,160 @@
+[
+  {
+    "actions": [
+      {
+        "action_type": "pickup.partial_handover",
+        "n": 3102
+      },
+      {
+        "action_type": "invoice.refund_item",
+        "n": 2516
+      },
+      {
+        "action_type": "pickup.manual_checkout",
+        "n": 740
+      },
+      {
+        "action_type": "no_show.forfeited",
+        "n": 682
+      },
+      {
+        "action_type": "no_show.full_forfeit",
+        "n": 653
+      },
+      {
+        "action_type": "lot_sticker_rebound",
+        "n": 336
+      },
+      {
+        "action_type": "lot_discarded",
+        "n": 184
+      },
+      {
+        "action_type": "lot_dedup_retired",
+        "n": 41
+      },
+      {
+        "action_type": "pickup.manager_override",
+        "n": 28
+      },
+      {
+        "action_type": "lot.disposed_duplicate_copy",
+        "n": 27
+      },
+      {
+        "action_type": "lot_sticker_cleared",
+        "n": 19
+      },
+      {
+        "action_type": "invoice.refund",
+        "n": 3
+      },
+      {
+        "action_type": "lot.marked_missing",
+        "n": 2
+      },
+      {
+        "action_type": "lot.shelf_set",
+        "n": 2
+      },
+      {
+        "action_type": "lot.disposed",
+        "n": 2
+      },
+      {
+        "action_type": "invoice_line.handover_reverted",
+        "n": 1
+      },
+      {
+        "action_type": "lot.kept_for_business",
+        "n": 1
+      },
+      {
+        "action_type": "invoice_line.forfeit_cleared",
+        "n": 1
+      }
+    ],
+    "refund_notes": {
+      "refund_rows": 2519,
+      "missing": 0,
+      "damaged": 0,
+      "wrong_desc": 0,
+      "customer_cancel": 0,
+      "dup": 0,
+      "null_note": 2519
+    },
+    "refund_reasons": [
+      {
+        "r": "n/a",
+        "n": 2516
+      },
+      {
+        "r": "requested_by_customer",
+        "n": 3
+      }
+    ],
+    "by_wh": [
+      {
+        "name": "Dodge City",
+        "auctions": 1,
+        "sold": 1,
+        "hammer_c": 100
+      },
+      {
+        "name": "Harrison",
+        "auctions": 252,
+        "sold": 18103,
+        "hammer_c": 16753565
+      }
+    ],
+    "bidder_flags": {
+      "ref_codes": 1350,
+      "referred": 157,
+      "tax_exempt": 6,
+      "resale_cert": 7,
+      "new84": 756,
+      "marketing_ok": 1329,
+      "push": 311
+    },
+    "buyer_buckets": [
+      {
+        "b": 1,
+        "buyers": 374,
+        "spend_c": 2294203
+      },
+      {
+        "b": 2,
+        "buyers": 71,
+        "spend_c": 1405228
+      },
+      {
+        "b": 3,
+        "buyers": 45,
+        "spend_c": 1742867
+      },
+      {
+        "b": 4,
+        "buyers": 21,
+        "spend_c": 1229194
+      },
+      {
+        "b": 5,
+        "buyers": 25,
+        "spend_c": 2124219
+      },
+      {
+        "b": 6,
+        "buyers": 9,
+        "spend_c": 886215
+      },
+      {
+        "b": 7,
+        "buyers": 31,
+        "spend_c": 9799033
+      }
+    ],
+    "conc": {
+      "top20_share": 0.4755639596592755
+    }
+  }
+]

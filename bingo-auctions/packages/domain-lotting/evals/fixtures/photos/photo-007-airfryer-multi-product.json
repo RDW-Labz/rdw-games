@@ -1,0 +1,18 @@
+{
+  "id": "photo-007",
+  "image_path": "photo-007-airfryer-multi-product.jpg",
+  "media_type": "image/jpeg",
+  "photo_quality_label": "clear",
+  "expected": {
+    "title": "Ninja AF101 Air Fryer (4 Quart, Black)",
+    "brand": "Ninja",
+    "model": "AF101",
+    "upc": "622356554985",
+    "category_slug": "small-appliances",
+    "category_legacy": "Appliances",
+    "condition": "New/Sealed",
+    "msrp_cents": 9999,
+    "expected_confidence": "medium"
+  },
+  "notes": "Multiple boxes in frame (Ninja air fryer is the foreground product, with a Cuisinart toaster + a small boxed Vitamix accessory in the background). Tests focus + correct subject identification."
+}

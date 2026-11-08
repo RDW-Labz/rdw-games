@@ -1,0 +1,16 @@
+[
+ {
+  "label": "testemeraldangulardemo",
+  "host": "test.angulardemo.emerald.cbre.com",
+  "nameAvailable": true,
+  "reason": "",
+  "checked": "2026-11-03T22:23:55Z"
+ },
+ {
+  "label": "aon-sitecore-qa-xp-scaled-176730-cm",
+  "host": "qa-cms.aon-hugeops.uk",
+  "nameAvailable": true,
+  "reason": "",
+  "checked": "2026-11-03T22:23:56Z"
+ }
+]

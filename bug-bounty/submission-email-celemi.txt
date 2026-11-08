@@ -1,0 +1,58 @@
+To: security@celemi.com
+Subject: [VDP] Dangling DNS record — dig.sim.celemi.com CNAMEs to a terminated Elastic Beanstalk environment
+
+Hello Celemi security team,
+
+Reporting this under your published disclosure policy (listed in the disclose.io index).
+
+Summary
+-------
+One record in the celemi.com zone still points at an Elastic Beanstalk environment that no
+longer exists, and the target returns NXDOMAIN:
+
+  dig.sim.celemi.com
+    -> mup-env-celemi-prod-app-central.txpey7hhzg.eu-central-1.elasticbeanstalk.com  [NXDOMAIN]
+
+sim.celemi.com itself is live (A records 3.170.115.9/11/55/109 in eu-central-1), so dig.sim looks
+like a left-over from a simulation environment that was torn down without its DNS record.
+
+Why it matters
+--------------
+AWS documents the reuse behaviour for this feature: "If you terminate an environment, you must also
+delete any CNAME mappings that you created, as other customers can reuse an available hostname ...
+A dangling DNS entry can expose internet traffic destined for your domain to security
+vulnerabilities." (docs.aws.amazon.com/elasticbeanstalk/latest/dg/customdomains.html)
+
+This record uses the hashed form <env>.<id>.<region>.elasticbeanstalk.com. The id segment
+(txpey7hhzg) is the part a stranger can register: an environment created with that segment as its
+DNS name resolves every nested name beneath it, ie. this record. That is documented in public
+research on the topic (Stratus Security, "AWS Subdomain Takeover Guide"), and you can verify
+availability read-only with:
+
+  aws elasticbeanstalk check-dns-availability --cname-prefix txpey7hhzg --region eu-central-1
+
+Impact
+------
+Whoever claims the name serves content at https://dig.sim.celemi.com with a valid certificate —
+DNS validation passes straight through the CNAME, so no forged certificate is needed. That gives a
+phishing origin on a celemi.com address, and it bypasses any allow-list keyed on the parent domain
+(CORS, OAuth redirect_uri, CSP, proxy rules). Anything still pointed at the dead name — an
+integration, a CI job, a training environment — is failing silently today and would be captured
+after a takeover.
+CVSS 3.1 6.1 (AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N).
+
+Remediation
+-----------
+Delete the dig.sim.celemi.com CNAME. That is sufficient — the exposure ends the moment the record
+goes. Worth adding "delete the DNS records" to the environment teardown checklist, and sweeping the
+zone once for any other CNAME whose target no longer resolves.
+
+I did not create an environment or claim the hostname, and I did not send any request to it. All of
+this is passive DNS plus provider documentation; the dig output is copied below. Happy to retest
+once the record is gone.
+
+  dig.sim.celemi.com. 3221 IN CNAME mup-env-celemi-prod-app-central.txpey7hhzg.eu-central-1.elasticbeanstalk.com.
+  mup-env-celemi-prod-app-central.txpey7hhzg.eu-central-1.elasticbeanstalk.com -> status: NXDOMAIN
+
+Best regards,
+Michael Cluer

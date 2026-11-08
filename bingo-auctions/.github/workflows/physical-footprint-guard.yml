@@ -1,0 +1,64 @@
+name: Physical footprint guard
+on:
+  pull_request:
+    branches: [master, main]
+  push:
+    branches: [master, main]
+permissions:
+  contents: read
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_PASSWORD: fixture-only
+          POSTGRES_DB: footprint_test
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: New migration omission checks
+        env:
+          MIGRATION_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          node --test scripts/__tests__/new-lot-migration-lint.test.cjs
+          node scripts/check-new-lot-migrations.cjs --base "$MIGRATION_BASE_SHA"
+          # New functions must revoke PUBLIC (2026-10-05: 0389/0390 left the
+          # refund-claim functions callable by anon/authenticated via PUBLIC).
+          node --test scripts/__tests__/function-grants-lint.test.cjs
+          node scripts/check-function-grants.cjs --base "$MIGRATION_BASE_SHA"
+      - name: Install existing runner driver for isolated compatibility tests
+        run: npm install --prefix "$RUNNER_TEMP/runner-compat" --no-save --no-audit --no-fund pg@8
+      - name: Historical runner compatibility
+        env:
+          RUNNER_PG_TEST: '1'
+          NODE_PATH: ${{ runner.temp }}/runner-compat/node_modules
+          PGHOST: localhost
+          PGPORT: '5432'
+          PGUSER: postgres
+          PGPASSWORD: fixture-only
+        run: |
+          node --test scripts/__tests__/migration-runner-compat.test.cjs
+      - name: Isolated SQL behavior (no application database)
+        env:
+          PGPASSWORD: fixture-only
+        run: |
+          psql -X -h localhost -U postgres -d footprint_test -v ON_ERROR_STOP=1 \
+            -f packages/db/test/fixtures/physical-footprint-schema.sql \
+            -f packages/db/migrations/0369_lot_physical_footprint_guard.sql \
+            -f packages/db/test/lot_physical_footprint.sql
+      - name: Concurrent writer and snapshot boundaries
+        env:
+          PGPASSWORD: fixture-only
+        run: python3 packages/db/test/physical-footprint-concurrency.py --host 127.0.0.1 --port 5432 --database footprint_test --user postgres

@@ -1,0 +1,33 @@
+{
+  "picks": [
+    {
+      "name": "three.js examples/jsm postprocessing (EffectComposer + UnrealBloomPass + FilmPass + RGBShiftShader + VignetteShader + OutputPass)",
+      "url": "https://github.com/mrdoob/three.js/tree/r186/examples/jsm/postprocessing",
+      "license": "MIT",
+      "licenseEvidence": "https://raw.githubusercontent.com/mrdoob/three.js/dev/LICENSE — 'The MIT License, Copyright © 2010-2026 three.js authors ... Permission is hereby granted, free of charge, to any person obtaining a copy of this software...'",
+      "commit": null,
+      "stars": 116000,
+      "lastCommit": null,
+      "gives": "Bloom (UnrealBloomPass, ~14.5KB src), film grain (FilmPass, ~3KB), chromatic aberration (shaders/RGBShiftShader.js, ~1.5KB), vignette (shaders/VignetteShader.js, ~1KB), tone mapping (renderer.toneMapping ACES/AgX + OutputPass) — no separate gzip figure published since these ship as source inside the…",
+      "fit": "drop-in",
+      "where": "Splash/load-in bloom+grain+vignette+CA on the T50 holo cards and cinematic intro; import the individual jsm files directly (e.g. 'three/examples/jsm/postprocessing/UnrealBloomPass.js') pinned to the r186 tag alongside the 'three' devDependency, all bundled offline with no CDN.",
+      "risk": "UnrealBloomPass runs ~5 mip downsample+blur passes (~10 extra draw calls) — noticeably heavier than pmndrs' single merged-effect pass on integrated GPUs (Intel iGPU/Apple M-series); mitigate by rendering bloom at half/quarter resolution, capping mip count/strength, and gating the whole composer behi…"
+    }
+  ],
+  "rejected": [
+    {
+      "name": "pmndrs/postprocessing",
+      "url": "https://github.com/pmndrs/postprocessing",
+      "reason": "LICENSE.md is a zlib-style license (Copyright © 2015 Raoul van Rüschen, 'Permission is granted to anyone to use this software for any purpose... subject to the following restrictions...') — not on the allowed list (MIT/Apache-2.0/BSD/CC0/CC-BY), so rejected despite being the more GPU-efficient singl…"
+    }
+  ],
+  "top": [
+    "pmndrs/postprocessing is the architecturally cheaper single-merged-pass option for integrated GPUs but its zlib license isn't allowed; build the bloom/vignette/grain/CA/tonemap chain from three.js's own MIT-licensed EffectComposer+UnrealBloomPass+FilmPass+RGBShiftShader+VignetteShader+OutputPass ins…"
+  ],
+  "moved": [],
+  "id": "scout-1790612825218",
+  "goal": "Post-processing for Three.js: bloom, vignette, film grain, chromatic aberration, tone mapping; compare pmndrs postprocessing vs three/examples EffectComposer; cost on integrated GPUs",
+  "model": "sonnet",
+  "actualModel": "claude-sonnet-5",
+  "createdAt": "2026-09-28T16:29:31.616Z"
+}

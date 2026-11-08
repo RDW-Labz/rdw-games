@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "concurrency": 3,
+  "jobs": [
+    {
+      "id": "python-template",
+      "agent": "claude",
+      "context": [
+        "AGENTS.md",
+        "docs/TICKETS.md"
+      ],
+      "outputs": [
+        "repos/playbooks/template/python/pyproject.toml.tmpl",
+        "repos/playbooks/template/python/.python-version",
+        "repos/playbooks/template/python/.github/workflows/ci.yml",
+        "repos/playbooks/template/python/src/__module__/__init__.py.tmpl",
+        "repos/playbooks/template/python/tests/test_smoke.py.tmpl"
+      ],
+      "timeoutMs": 600000,
+      "prompt": "You are a bounded T01 worker for OASIS. Only edit declared output files. Read root AGENTS.md and docs/TICKETS.md as context; direct coordinator rules govern. Do not build any later ticket, run commands, open PRs or claim tests ran. No secrets or company records. Return files and reasoning for coordinator validation. Build the reusable Python 3.12 uv scaffold template ONLY. Literal tokens {{repo}}, {{codename}}, {{module}} are replaced by coordinator renderer; path __module__ becomes module. pyproject uses hatchling build backend mapping src/{{module}}, no runtime dependencies until a ticket needs them; development dependency group pytest ruff mypy. Python >=3.12,<3.13; .python-version 3.12. Actual importable init __version__=0.1.0 and smoke test imports package and checks version. pytest configured tests; strict mypy src; ruff exclude template directory in playbooks so templates not linted as source. CI ubuntu-latest Python3.12 uv sync --locked, uv run --no-sync pytest -q, uv run --no-sync ruff check ., uv run --no-sync mypy --strict src. Read-only GitHub permissions. Do not generate uv.lock: coordinator does after render. Exact backend/dev deps where reliable; coordinator verifies resolution. No tests skipped; no continue-on-error."
+    },
+    {
+      "id": "desktop-scaffold",
+      "agent": "claude",
+      "context": [
+        "AGENTS.md",
+        "docs/TICKETS.md",
+        "repos/desktop-app/AGENTS.md"
+      ],
+      "outputs": [
+        "repos/desktop-app/package.json",
+        "repos/desktop-app/index.html",
+        "repos/desktop-app/tsconfig.json",
+        "repos/desktop-app/tsconfig.node.json",
+        "repos/desktop-app/vite.config.ts",
+        "repos/desktop-app/eslint.config.js",
+        "repos/desktop-app/src/main.tsx",
+        "repos/desktop-app/src/App.tsx",
+        "repos/desktop-app/src/styles.css",
+        "repos/desktop-app/tests/App.test.tsx",
+        "repos/desktop-app/tests/setup.ts",
+        "repos/desktop-app/src-tauri/Cargo.toml",
+        "repos/desktop-app/src-tauri/build.rs",
+        "repos/desktop-app/src-tauri/src/lib.rs",
+        "repos/desktop-app/src-tauri/src/main.rs",
+        "repos/desktop-app/src-tauri/tauri.conf.json",
+        "repos/desktop-app/.github/workflows/ci.yml"
+      ],
+      "timeoutMs": 600000,
+      "prompt": "You are a bounded T01 worker for OASIS. Only edit declared output files. Read root AGENTS.md and docs/TICKETS.md as context; direct coordinator rules govern. Do not build any later ticket, run commands, open PRs or claim tests ran. No secrets or company records. Return files and reasoning for coordinator validation. Build minimal Tauri 2 Rust shell + React/TypeScript Vite scaffold, T01 ONLY. A static OASIS heading is enough, no orb/connect/auth/settings or Rust API/business commands. Real UI render smoke test using vitest/testing-library/jsdom. npm scripts test (nonwatch), lint eslint, typecheck tsc, build typecheck+vite build, dev vite host127.0.0.1 port1420 strictPort, tauri. Use compatible stable packages; Node22 CI; coordinator resolves/pins lockfiles. Tauri bundle.active=false (T01 does not ship installer), icon list empty if needed, no icon binary required, no filesystem/shell/HTTP plugins. Empty permissions, no remote IPC. CSP limited to self and local dev needs. Rust lib run plus main normal Tauri setup; #[cfg_attr(mobile, tauri::mobile_entry_point)] optional. CI windows-latest and macos-latest: npm ci, lint,test,typecheck,build then cargo fmt --check, cargo clippy --locked --all-targets -- -D warnings, cargo test --locked, npm run tauri build -- --no-bundle. Install stable Rust (rustfmt/clippy). Minimal shell startup unit test only if meaningful; no invented backend functionality. No README/AGENTS/CHANGELOG/.gitignore edits; coordinator owns them and copies reviewed desktop files into reusable template. Do not generate package-lock/Cargo.lock."
+    },
+    {
+      "id": "common-template",
+      "agent": "claude",
+      "context": [
+        "AGENTS.md",
+        "docs/TICKETS.md"
+      ],
+      "outputs": [
+        "repos/playbooks/template/common/README.md.tmpl",
+        "repos/playbooks/template/common/AGENTS.md.tmpl",
+        "repos/playbooks/template/common/.gitignore",
+        "repos/playbooks/template/common/docs/.gitkeep"
+      ],
+      "timeoutMs": 600000,
+      "prompt": "You are a bounded T01 worker for OASIS. Only edit declared output files. Read root AGENTS.md and docs/TICKETS.md as context; direct coordinator rules govern. Do not build any later ticket, run commands, open PRs or claim tests ran. No secrets or company records. Return files and reasoning for coordinator validation. Create four common repository template files. Tokens allowed: {{repo}}, {{codename}}, {{description}}, {{repo_rules}}, {{checks}}. README identify repo/code/description, standard layout and developer check command block {{checks}}, T01 status scaffold only. AGENTS template: refer explicitly to AGENTS.workspace.md in same repo (coordinator copies full root rules there), preserve repo-specific rules through {{repo_rules}}, point to central GitHub RDW-Labz/playbooks docs PLAN and TICKETS; no self-reference. Include ticket completion report shape. .gitignore safeguards .env variants (allow .env.example only if necessary), credentials not invented, .venv python caches tool caches, node_modules dist target, logs/jsonl, all *.remote anywhere, drawer/ and .swarm/. Lockfiles MUST tracked uv.lock package-lock.json src-tauri/Cargo.lock. Include OS junk ignore .DS_Store. docs/.gitkeep empty. Coordinator separately owns CHANGELOG template. No new config file format."
+    }
+  ]
+}

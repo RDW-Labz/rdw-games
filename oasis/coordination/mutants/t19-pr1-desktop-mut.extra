@@ -1,0 +1,8 @@
+Chat never passes working	src/components/Chat.tsx	working={working} placeholder="Message"	working={false} placeholder="Message"
+quick box never passes working	src/quick/QuickApp.tsx	        working={working}	        working={false}
+Composer mark never rendered	src/components/Composer.tsx	{working ? (	{false ? (
+reduced-motion catch-all stops animations no more	src/styles.css	animation-duration: 0ms !important; animation: none !important;	animation-duration: 0ms !important;
+race: stale done still clears working	src/quick/QuickApp.tsx	        if (current) emitWorking(false);	        emitWorking(false);
+race: stale history refresh applied	src/quick/QuickApp.tsx	const stale = () => generation !== sentRef.current;	const stale = () => false;
+race: older stream's card clears newer send's working	src/quick/QuickApp.tsx	if (sentRef.current - endedRef.current <= 1) {	if (true) {
+remount: plan card key tied to its anchor	src/quick/QuickApp.tsx	key={`plan-${frame.type}-${frame.thread_id}-${frame.preview_id}`}	key={`plan-${frame.type}-${frame.thread_id}-${frame.preview_id}-${index}`}

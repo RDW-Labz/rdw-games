@@ -1,0 +1,42 @@
+{
+  "name": "auction-platform",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Multi-tenant auction marketplace SaaS with in-warehouse item locator",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "db:reset": "supabase db reset",
+    "db:push": "supabase db push",
+    "db:types": "node scripts/gen-types.js",
+    "preflight": "node scripts/preflight-static.mjs && node scripts/preflight-deps.mjs",
+    "preflight:static": "node scripts/preflight-static.mjs",
+    "preflight:deps": "node scripts/preflight-deps.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.17",
+    "better-sqlite3": "^12.9.0",
+    "prettier": "^3.8.3",
+    "turbo": "^2.9.9",
+    "typescript": "~5.9.3",
+    "vitest": "^2.1.0"
+  },
+  "overrides": {
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "@types/react": "~19.1.10",
+    "@types/react-dom": "~19.1.11"
+  },
+  "engines": {
+    "node": ">=20.19.4",
+    "npm": ">=10.0.0"
+  },
+  "packageManager": "npm@10.9.0"
+}

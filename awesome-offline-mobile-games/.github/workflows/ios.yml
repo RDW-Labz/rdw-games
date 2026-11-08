@@ -1,0 +1,236 @@
+# The iOS app: stage the payload on Linux, then archive and upload to TestFlight on macOS.
+#
+# PARKED (Michael, 2026-10-29): testing happens through a browser link first, so this
+# workflow no longer runs on every push — it is manual dispatch only, to stop burning
+# macOS runner minutes on an app that is waiting for an Apple account decision.
+#
+# Two jobs on purpose. `payload` runs everywhere (no Xcode, no Apple account) and fails
+# if the app would ship anything other than the collection the browser tests just played.
+# `testflight` only runs when the App Store Connect secrets exist — without them this
+# workflow stays green and simply reports that the build was staged but not uploaded,
+# so a fork or a laptop can run it without secrets.
+name: ios
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  payload:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Build the collection
+        run: npm run build
+      - name: Stage it for iOS
+        run: node tools/stage-ios.mjs
+      - name: Verify the staged app payload
+        run: node tools/verify-ios-payload.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ios-payload
+          path: |
+            ios/web
+            ios/Resources
+            ios/payload.json
+          if-no-files-found: error
+          retention-days: 7
+
+  # Compiles the Swift and boots the app in a simulator, unsigned, so the shell is
+  # proven to build and render without an Apple account. This is the only place the
+  # Swift is ever compiled — a Linux box cannot do it.
+  compile:
+    needs: payload
+    runs-on: macos-14
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: ios-payload
+          path: ios
+      - name: Select the newest Xcode
+        run: |
+          sudo xcode-select -s "$(ls -d /Applications/Xcode_*.app | sort -V | tail -1)"
+          xcodebuild -version
+      - name: Install XcodeGen
+        run: brew install xcodegen
+      - name: Generate the Xcode project
+        working-directory: ios
+        run: xcodegen generate
+      - name: Build for the simulator (unsigned)
+        working-directory: ios
+        run: |
+          xcodebuild build \
+            -project AwesomeOfflineGames.xcodeproj \
+            -scheme AwesomeOfflineGames \
+            -configuration Debug \
+            -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO | tee build.log | tail -30
+          grep -q "\*\* BUILD SUCCEEDED \*\*" build.log
+      - name: Boot it and take a screenshot
+        working-directory: ios
+        run: |
+          APP=build/Build/Products/Debug-iphonesimulator/AwesomeOfflineGames.app
+          echo "--- app bundle ---"
+          ls "$APP" | head -20
+          ls "$APP/web" | head -10
+          du -sh "$APP/web"
+          test -f "$APP/web/index.html" || { echo "index.html is not inside the app bundle"; exit 1; }
+          test -f "$APP/web/games/vaultbreak/index.html" || { echo "games/ is not inside the app bundle"; exit 1; }
+          COUNT=$(find "$APP/web" -type f | wc -l | tr -d ' ')
+          echo "payload files inside the .app: $COUNT"
+          test "$COUNT" -ge 401 || { echo "payload truncated: $COUNT files"; exit 1; }
+          ls "$APP" | grep -q Assets.car || { echo "asset catalogue missing"; exit 1; }
+          UDID=$(xcrun simctl list devices available -j | python3 -c 'import json,sys; d=json.load(sys.stdin)["devices"]; print(next(x["udid"] for rt in sorted(d) if "iOS" in rt for x in d[rt] if x["name"].startswith("iPhone")))')
+          echo "simulator: $UDID"
+          xcrun simctl boot "$UDID" || true
+          xcrun simctl bootstatus "$UDID" -b
+          xcrun simctl install "$UDID" "$APP"
+          xcrun simctl spawn "$UDID" log stream --level debug --style compact \
+            --predicate 'subsystem == "com.rdwlabz.awesomeofflinegames" OR process == "AwesomeOfflineGames"' \
+            > shell.log 2>&1 &
+          LOG_PID=$!
+          xcrun simctl launch "$UDID" com.rdwlabz.awesomeofflinegames
+          sleep 15
+          xcrun simctl io "$UDID" screenshot screenshot-launcher.png
+          # relaunch straight into a game (launch argument, no system dialog)
+          xcrun simctl terminate "$UDID" com.rdwlabz.awesomeofflinegames || true
+          xcrun simctl launch "$UDID" com.rdwlabz.awesomeofflinegames -AOMGStartGame vaultbreak
+          sleep 20
+          xcrun simctl io "$UDID" screenshot screenshot-game.png
+          kill $LOG_PID || true
+          echo "--- shell log ---"
+          grep -E "loaded|failed|terminated|error" shell.log | tail -40 || tail -40 shell.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ios-simulator-proof
+          path: |
+            ios/screenshot-launcher.png
+            ios/screenshot-game.png
+            ios/shell.log
+            ios/build.log
+          if-no-files-found: ignore
+          retention-days: 7
+
+  gate:
+    runs-on: ubuntu-latest
+    outputs:
+      upload: ${{ steps.check.outputs.upload }}
+    steps:
+      - id: check
+        env:
+          TEAM: ${{ secrets.APPLE_TEAM_ID }}
+          KEY_ID: ${{ secrets.APPLE_API_KEY_ID }}
+          ISSUER: ${{ secrets.APPLE_API_ISSUER }}
+          P8: ${{ secrets.APPLE_API_KEY }}
+        run: |
+          if [ -n "$TEAM" ] && [ -n "$KEY_ID" ] && [ -n "$ISSUER" ] && [ -n "$P8" ]; then
+            echo "upload=true" >> "$GITHUB_OUTPUT"
+            echo "App Store Connect secrets present — the build will be uploaded."
+          else
+            echo "upload=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::No App Store Connect secrets (APPLE_TEAM_ID, APPLE_API_KEY_ID, APPLE_API_ISSUER, APPLE_API_KEY). Payload staged; TestFlight upload skipped."
+          fi
+
+  testflight:
+    needs: [payload, gate]
+    if: needs.gate.outputs.upload == 'true'
+    runs-on: macos-14
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: ios-payload
+          path: ios
+      - name: Select the newest Xcode
+        run: |
+          sudo xcode-select -s "$(ls -d /Applications/Xcode_*.app | sort -V | tail -1)"
+          xcodebuild -version
+      - name: Install XcodeGen
+        run: brew install xcodegen
+      - name: Generate the Xcode project
+        working-directory: ios
+        run: xcodegen generate
+      - name: Install the App Store Connect key
+        env:
+          APPLE_API_KEY: ${{ secrets.APPLE_API_KEY }}
+          APPLE_API_KEY_ID: ${{ secrets.APPLE_API_KEY_ID }}
+        run: |
+          mkdir -p "$HOME/private_keys"
+          printf '%s' "$APPLE_API_KEY" | base64 --decode > "$HOME/private_keys/AuthKey_${APPLE_API_KEY_ID}.p8"
+          chmod 600 "$HOME/private_keys/AuthKey_${APPLE_API_KEY_ID}.p8"
+      - name: Import the distribution certificate (optional)
+        env:
+          P12: ${{ secrets.IOS_DIST_CERT_P12 }}
+          P12_PASSWORD: ${{ secrets.IOS_DIST_CERT_PASSWORD }}
+        if: env.P12 != ''
+        run: |
+          KEYCHAIN="$RUNNER_TEMP/signing.keychain-db"
+          security create-keychain -p actions "$KEYCHAIN"
+          security set-keychain-settings -lut 1800 "$KEYCHAIN"
+          security unlock-keychain -p actions "$KEYCHAIN"
+          printf '%s' "$P12" | base64 --decode > "$RUNNER_TEMP/dist.p12"
+          security import "$RUNNER_TEMP/dist.p12" -k "$KEYCHAIN" -P "$P12_PASSWORD" -T /usr/bin/codesign
+          security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k actions "$KEYCHAIN"
+          security list-keychains -d user -s "$KEYCHAIN" $(security list-keychains -d user | tr -d '"')
+      - name: Archive
+        working-directory: ios
+        env:
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+          APPLE_API_KEY_ID: ${{ secrets.APPLE_API_KEY_ID }}
+          APPLE_API_ISSUER: ${{ secrets.APPLE_API_ISSUER }}
+        run: |
+          xcodebuild archive \
+            -project AwesomeOfflineGames.xcodeproj \
+            -scheme AwesomeOfflineGames \
+            -configuration Release \
+            -destination 'generic/platform=iOS' \
+            -archivePath "$RUNNER_TEMP/AOMG.xcarchive" \
+            DEVELOPMENT_TEAM="$APPLE_TEAM_ID" \
+            CODE_SIGN_STYLE=Automatic \
+            -allowProvisioningUpdates \
+            -authenticationKeyPath "$HOME/private_keys/AuthKey_${APPLE_API_KEY_ID}.p8" \
+            -authenticationKeyID "$APPLE_API_KEY_ID" \
+            -authenticationKeyIssuerID "$APPLE_API_ISSUER"
+      - name: Export the IPA
+        working-directory: ios
+        env:
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+          APPLE_API_KEY_ID: ${{ secrets.APPLE_API_KEY_ID }}
+          APPLE_API_ISSUER: ${{ secrets.APPLE_API_ISSUER }}
+        run: |
+          plutil -replace teamID -string "$APPLE_TEAM_ID" ExportOptions.plist
+          xcodebuild -exportArchive \
+            -archivePath "$RUNNER_TEMP/AOMG.xcarchive" \
+            -exportOptionsPlist ExportOptions.plist \
+            -exportPath "$RUNNER_TEMP/export" \
+            -allowProvisioningUpdates \
+            -authenticationKeyPath "$HOME/private_keys/AuthKey_${APPLE_API_KEY_ID}.p8" \
+            -authenticationKeyID "$APPLE_API_KEY_ID" \
+            -authenticationKeyIssuerID "$APPLE_API_ISSUER"
+      - name: Upload to TestFlight
+        env:
+          APPLE_API_KEY_ID: ${{ secrets.APPLE_API_KEY_ID }}
+          APPLE_API_ISSUER: ${{ secrets.APPLE_API_ISSUER }}
+        run: |
+          IPA=$(find "$RUNNER_TEMP/export" -name '*.ipa' -maxdepth 1 | head -1)
+          echo "uploading $IPA"
+          xcrun altool --upload-app -f "$IPA" -t ios \
+            --apiKey "$APPLE_API_KEY_ID" --apiIssuer "$APPLE_API_ISSUER"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ios-build-logs
+          path: ${{ runner.temp }}/export
+          if-no-files-found: ignore
+          retention-days: 7

@@ -1,0 +1,12 @@
+<!doctype html><html><body><script>
+const b64 = "__B64__";
+const bytes = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
+const blobUrl = URL.createObjectURL(new Blob([bytes], {type: 'image/png'}));
+const dataUrl = 'data:image/png;base64,' + b64;
+const out = {};
+function viaOnload(name, url) { return new Promise(r => { const i = new Image(); i.onload = () => r(out[name+'.onload'] = 'loaded ' + i.naturalWidth + 'x' + i.naturalHeight); i.onerror = () => r(out[name+'.onload'] = 'error'); i.src = url; }); }
+async function viaDecode(name, url) { const i = new Image(); i.src = url; try { await i.decode(); out[name+'.decode'] = 'ok ' + i.naturalWidth + 'x' + i.naturalHeight; } catch (e) { out[name+'.decode'] = 'rejected ' + e.name; } }
+document.addEventListener('securitypolicyviolation', e => { out['violation'] = e.violatedDirective + ' ' + e.blockedURI.slice(0, 5); });
+Promise.all([viaOnload('blob', blobUrl), viaDecode('blob', blobUrl), viaOnload('data', dataUrl), viaDecode('data', dataUrl)])
+  .then(() => setTimeout(() => webkit.messageHandlers.done.postMessage(JSON.stringify(out)), 50));
+</script></body></html>

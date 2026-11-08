@@ -1,0 +1,3608 @@
+{
+ "total": 541926,
+ "exact": 2562,
+ "wildcard": 219709,
+ "paying_hosts": 217280,
+ "programs": [
+  {
+   "platform": "h1",
+   "handle": "amazonvrp",
+   "name": "Amazon Vulnerability Research Program",
+   "hosts": 7511,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "flutteruki",
+   "name": "Flutter UK&I",
+   "hosts": 7474,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "paypal",
+   "name": "PayPal",
+   "hosts": 6444,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "epicgames",
+   "name": "Epic Games",
+   "hosts": 5808,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "trip_com",
+   "name": "Trip.com",
+   "hosts": 5286,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "expediagroup_bbp",
+   "name": "Expedia Group Bug Bounty",
+   "hosts": 4998,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "superbet",
+   "name": "Superbet",
+   "hosts": 4466,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "expediagroup",
+   "name": "Expedia Group VDP",
+   "hosts": 4460,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "xiaomi",
+   "name": "Xiaomi",
+   "hosts": 3788,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "it",
+   "handle": "aswatson",
+   "name": "Watsons",
+   "hosts": 3698,
+   "bounty": true,
+   "max_bounty": 8500
+  },
+  {
+   "platform": "h1",
+   "handle": "airbnb",
+   "name": "Airbnb",
+   "hosts": 3427,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "it",
+   "handle": "dpgm",
+   "name": "VTM GO",
+   "hosts": 3141,
+   "bounty": true,
+   "max_bounty": 2200
+  },
+  {
+   "platform": "bc",
+   "handle": "Dell Technologies Application Bug Bounty",
+   "name": "Dell Technologies Application Bug Bounty",
+   "hosts": 3129,
+   "bounty": true,
+   "max_bounty": 2500
+  },
+  {
+   "platform": "bc",
+   "handle": "City of Vienna Managed Bug Bounty",
+   "name": "City of Vienna Managed Bug Bounty",
+   "hosts": 3104,
+   "bounty": true,
+   "max_bounty": 3500
+  },
+  {
+   "platform": "it",
+   "handle": "bpost",
+   "name": "e-tracker",
+   "hosts": 2822,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "it",
+   "handle": "axelspringerse",
+   "name": "Axel Springer SE Vulnerability Disclosure Program",
+   "hosts": 2813,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "mercadolibre",
+   "name": "MercadoLibre",
+   "hosts": 2764,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "playtika",
+   "name": "Playtika",
+   "hosts": 2737,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Indeed",
+   "name": "Indeed",
+   "hosts": 2652,
+   "bounty": true,
+   "max_bounty": 10000
+  },
+  {
+   "platform": "h1",
+   "handle": "shopify",
+   "name": "Shopify",
+   "hosts": 2530,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "eternal",
+   "name": "Eternal",
+   "hosts": 2503,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "yw",
+   "handle": "Telenor Sweden Public Bug Bounty Program",
+   "name": "Telenor Sweden Public Bug Bounty Program",
+   "hosts": 2484,
+   "bounty": true,
+   "max_bounty": 6000
+  },
+  {
+   "platform": "h1",
+   "handle": "goldmansachs",
+   "name": "Goldman Sachs",
+   "hosts": 2440,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Tesla",
+   "name": "Tesla",
+   "hosts": 2436,
+   "bounty": true,
+   "max_bounty": 100000
+  },
+  {
+   "platform": "h1",
+   "handle": "grab",
+   "name": "Grab",
+   "hosts": 2238,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "it",
+   "handle": "intergamma",
+   "name": "Intergamma",
+   "hosts": 2154,
+   "bounty": true,
+   "max_bounty": 5500
+  },
+  {
+   "platform": "h1",
+   "handle": "elastic",
+   "name": "Elastic",
+   "hosts": 2118,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Opera Public Bug Bounty",
+   "name": "Opera Public Bug Bounty",
+   "hosts": 2090,
+   "bounty": true,
+   "max_bounty": 5000
+  },
+  {
+   "platform": "it",
+   "handle": "sqills",
+   "name": "Sqills",
+   "hosts": 2074,
+   "bounty": true,
+   "max_bounty": 2500
+  },
+  {
+   "platform": "h1",
+   "handle": "acronis",
+   "name": "Acronis",
+   "hosts": 2029,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "it",
+   "handle": "dropbox",
+   "name": "Dropbox Vulnerability Disclosure Program ",
+   "hosts": 2027,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "spotify",
+   "name": "Spotify",
+   "hosts": 2022,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "x",
+   "name": "X / xAI",
+   "hosts": 2021,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Northwestern Mutual - Public Bug Bounty",
+   "name": "Northwestern Mutual - Public Bug Bounty",
+   "hosts": 1854,
+   "bounty": true,
+   "max_bounty": 6000
+  },
+  {
+   "platform": "it",
+   "handle": "kinepolis",
+   "name": "Kinepolis Group",
+   "hosts": 1760,
+   "bounty": true,
+   "max_bounty": 5000
+  },
+  {
+   "platform": "h1",
+   "handle": "hilton",
+   "name": "Hilton",
+   "hosts": 1748,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "yw",
+   "handle": "GoTo Financial - Public Bounty Program",
+   "name": "GoTo Financial - Public Bounty Program",
+   "hosts": 1712,
+   "bounty": true,
+   "max_bounty": 5000
+  },
+  {
+   "platform": "h1",
+   "handle": "tinder",
+   "name": "Tinder",
+   "hosts": 1672,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Canva",
+   "name": "Canva",
+   "hosts": 1669,
+   "bounty": true,
+   "max_bounty": 15000
+  },
+  {
+   "platform": "bc",
+   "handle": "SEEK ",
+   "name": "SEEK ",
+   "hosts": 1552,
+   "bounty": true,
+   "max_bounty": 10000
+  },
+  {
+   "platform": "h1",
+   "handle": "klarna",
+   "name": "Klarna",
+   "hosts": 1528,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "crowdstrike",
+   "name": "Crowdstrike",
+   "hosts": 1517,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "playstation",
+   "name": "PlayStation",
+   "hosts": 1505,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "T-Mobile",
+   "name": "T-Mobile",
+   "hosts": 1504,
+   "bounty": true,
+   "max_bounty": 133700
+  },
+  {
+   "platform": "h1",
+   "handle": "early_warning",
+   "name": "Early Warning",
+   "hosts": 1500,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "github",
+   "name": "GitHub",
+   "hosts": 1500,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "vimeo",
+   "name": "Vimeo",
+   "hosts": 1500,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "superhuman",
+   "name": "Superhuman (formerly Grammarly)",
+   "hosts": 1497,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "semrush",
+   "name": "Semrush",
+   "hosts": 1477,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "stripe",
+   "name": "Stripe",
+   "hosts": 1461,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "yw",
+   "handle": "Ezviz - Bug Bounty Program",
+   "name": "Ezviz - Bug Bounty Program",
+   "hosts": 1424,
+   "bounty": true,
+   "max_bounty": 420
+  },
+  {
+   "platform": "yw",
+   "handle": "ExpressVPN - Bug Bounty Program",
+   "name": "ExpressVPN - Bug Bounty Program",
+   "hosts": 1413,
+   "bounty": true,
+   "max_bounty": 2500
+  },
+  {
+   "platform": "h1",
+   "handle": "anduril_industries",
+   "name": "Anduril Industries",
+   "hosts": 1383,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "bookingcom",
+   "name": "Booking.com",
+   "hosts": 1357,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "yw",
+   "handle": "GOJEK - Public Bounty Program",
+   "name": "GOJEK - Public Bounty Program",
+   "hosts": 1302,
+   "bounty": true,
+   "max_bounty": 3500
+  },
+  {
+   "platform": "bc",
+   "handle": "Chime Managed Bug Bounty Engagement",
+   "name": "Chime Managed Bug Bounty Engagement",
+   "hosts": 1283,
+   "bounty": true,
+   "max_bounty": 20000
+  },
+  {
+   "platform": "bc",
+   "handle": "Klaviyo Managed Bug Bounty",
+   "name": "Klaviyo Managed Bug Bounty",
+   "hosts": 1257,
+   "bounty": true,
+   "max_bounty": 3500
+  },
+  {
+   "platform": "h1",
+   "handle": "tiktok",
+   "name": "TikTok",
+   "hosts": 1239,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "netflix",
+   "name": "Netflix",
+   "hosts": 1234,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "EPAM Systems Managed Bug Bounty Program",
+   "name": "EPAM Systems Managed Bug Bounty Program",
+   "hosts": 1203,
+   "bounty": true,
+   "max_bounty": 1000
+  },
+  {
+   "platform": "h1",
+   "handle": "verily_life_sciences",
+   "name": "Verily Life Sciences",
+   "hosts": 1202,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "gitlab",
+   "name": "GitLab",
+   "hosts": 1201,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "grindr",
+   "name": "Grindr",
+   "hosts": 1174,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "it",
+   "handle": "personio",
+   "name": "Personio",
+   "hosts": 1147,
+   "bounty": true,
+   "max_bounty": 5000
+  },
+  {
+   "platform": "bc",
+   "handle": "Optus Managed Bug Bounty",
+   "name": "Optus Managed Bug Bounty",
+   "hosts": 1138,
+   "bounty": true,
+   "max_bounty": 5000
+  },
+  {
+   "platform": "h1",
+   "handle": "ui",
+   "name": "Ubiquiti Inc.",
+   "hosts": 1117,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "scopely",
+   "name": "Scopely",
+   "hosts": 1098,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Asana",
+   "name": "Asana",
+   "hosts": 1048,
+   "bounty": true,
+   "max_bounty": 6500
+  },
+  {
+   "platform": "h1",
+   "handle": "capital-one",
+   "name": "Capital One",
+   "hosts": 1017,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "creditkarma",
+   "name": "Credit Karma",
+   "hosts": 1012,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "it",
+   "handle": "digitalocean",
+   "name": "DigitalOcean",
+   "hosts": 1007,
+   "bounty": true,
+   "max_bounty": 10000
+  },
+  {
+   "platform": "h1",
+   "handle": "ui",
+   "name": "Ubiquiti Inc.",
+   "hosts": 1001,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Wise (ex-TransferWise)",
+   "name": "Wise (ex-TransferWise)",
+   "hosts": 1001,
+   "bounty": true,
+   "max_bounty": 4000
+  },
+  {
+   "platform": "h1",
+   "handle": "floqast",
+   "name": "FloQast",
+   "hosts": 999,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "newegg",
+   "name": "Newegg",
+   "hosts": 999,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "varonis",
+   "name": "Varonis",
+   "hosts": 998,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "8x8-bounty",
+   "name": "8x8",
+   "hosts": 994,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "moonpay",
+   "name": "MoonPay ",
+   "hosts": 985,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "yw",
+   "handle": "HARMAN International - Web Applications",
+   "name": "HARMAN International - Web Applications",
+   "hosts": 958,
+   "bounty": true,
+   "max_bounty": 4000
+  },
+  {
+   "platform": "h1",
+   "handle": "lyst",
+   "name": "Lyst",
+   "hosts": 952,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Origin Energy",
+   "name": "Origin Energy",
+   "hosts": 951,
+   "bounty": true,
+   "max_bounty": 2500
+  },
+  {
+   "platform": "bc",
+   "handle": "Fivetran",
+   "name": "Fivetran",
+   "hosts": 950,
+   "bounty": true,
+   "max_bounty": 7500
+  },
+  {
+   "platform": "h1",
+   "handle": "coinbase",
+   "name": "Coinbase",
+   "hosts": 942,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "it",
+   "handle": "eurid",
+   "name": "EURid",
+   "hosts": 942,
+   "bounty": true,
+   "max_bounty": 1500
+  },
+  {
+   "platform": "h1",
+   "handle": "quora",
+   "name": "Quora",
+   "hosts": 935,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "yw",
+   "handle": "VFS Global Bug Bounty Program",
+   "name": "VFS Global Bug Bounty Program",
+   "hosts": 916,
+   "bounty": true,
+   "max_bounty": 1500
+  },
+  {
+   "platform": "h1",
+   "handle": "logitech",
+   "name": "Logitech",
+   "hosts": 913,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "apnic",
+   "name": "APNIC",
+   "hosts": 899,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "The Trade Desk",
+   "name": "The Trade Desk",
+   "hosts": 830,
+   "bounty": true,
+   "max_bounty": 5000
+  },
+  {
+   "platform": "bc",
+   "handle": "REA Group | realestate.com.au, realcommercial.com.au, property.com.au",
+   "name": "REA Group | realestate.com.au, realcommercial.com.au, property.com.au",
+   "hosts": 826,
+   "bounty": true,
+   "max_bounty": 4500
+  },
+  {
+   "platform": "h1",
+   "handle": "kiwicom",
+   "name": "Kiwi.com",
+   "hosts": 804,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "it",
+   "handle": "cmcom",
+   "name": "CM.com",
+   "hosts": 800,
+   "bounty": true,
+   "max_bounty": 2625
+  },
+  {
+   "platform": "h1",
+   "handle": "toolsforhumanity",
+   "name": "Tools for Humanity",
+   "hosts": 799,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "wordpress",
+   "name": "WordPress",
+   "hosts": 793,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Cisco Networking",
+   "name": "Cisco Networking",
+   "hosts": 779,
+   "bounty": true,
+   "max_bounty": 10000
+  },
+  {
+   "platform": "bc",
+   "handle": "Volkswagen ",
+   "name": "Volkswagen ",
+   "hosts": 766,
+   "bounty": true,
+   "max_bounty": 2500
+  },
+  {
+   "platform": "h1",
+   "handle": "deriv",
+   "name": "Deriv.com",
+   "hosts": 760,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "indrive",
+   "name": "inDrive",
+   "hosts": 733,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "chaturbate",
+   "name": "Chaturbate",
+   "hosts": 717,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Bitdefender",
+   "name": "Bitdefender",
+   "hosts": 702,
+   "bounty": true,
+   "max_bounty": 15000
+  },
+  {
+   "platform": "h1",
+   "handle": "instacart",
+   "name": "Instacart",
+   "hosts": 701,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "fanduel",
+   "name": "FanDuel",
+   "hosts": 663,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "roblox",
+   "name": "Roblox",
+   "hosts": 638,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "shein",
+   "name": "SHEIN",
+   "hosts": 620,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Rapyd",
+   "name": "Rapyd",
+   "hosts": 609,
+   "bounty": true,
+   "max_bounty": 7500
+  },
+  {
+   "platform": "h1",
+   "handle": "visa",
+   "name": "Visa",
+   "hosts": 603,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "8x8-bounty",
+   "name": "8x8",
+   "hosts": 599,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "security",
+   "name": "HackerOne",
+   "hosts": 596,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Tripadvisor ",
+   "name": "Tripadvisor ",
+   "hosts": 596,
+   "bounty": true,
+   "max_bounty": 5000
+  },
+  {
+   "platform": "it",
+   "handle": "capitalcom",
+   "name": "Capital.com",
+   "hosts": 593,
+   "bounty": true,
+   "max_bounty": 15000
+  },
+  {
+   "platform": "it",
+   "handle": "sbb",
+   "name": "SBB - Swiss Federal Railways",
+   "hosts": 592,
+   "bounty": true,
+   "max_bounty": 6666
+  },
+  {
+   "platform": "h1",
+   "handle": "exodus",
+   "name": "Exodus",
+   "hosts": 551,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "mongodb",
+   "name": "MongoDB",
+   "hosts": 548,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "it",
+   "handle": "portofantwerp",
+   "name": "Port of Antwerp-Bruges",
+   "hosts": 548,
+   "bounty": true,
+   "max_bounty": 4500
+  },
+  {
+   "platform": "h1",
+   "handle": "boozt",
+   "name": "Boozt Fashion AB",
+   "hosts": 529,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "bybit_fintech",
+   "name": "Bybit Fintech Ltd",
+   "hosts": 525,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Atlassian",
+   "name": "Atlassian",
+   "hosts": 519,
+   "bounty": true,
+   "max_bounty": 12000
+  },
+  {
+   "platform": "h1",
+   "handle": "hypr-corp",
+   "name": "HYPR",
+   "hosts": 517,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "automattic",
+   "name": "Automattic",
+   "hosts": 511,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "logitech",
+   "name": "Logitech",
+   "hosts": 511,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "pixiv",
+   "name": "pixiv",
+   "hosts": 510,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Bugcrowd",
+   "name": "Bugcrowd",
+   "hosts": 508,
+   "bounty": true,
+   "max_bounty": 10000
+  },
+  {
+   "platform": "bc",
+   "handle": "Viator",
+   "name": "Viator",
+   "hosts": 505,
+   "bounty": true,
+   "max_bounty": 4500
+  },
+  {
+   "platform": "yw",
+   "handle": "Infomaniak Bug Bounty program",
+   "name": "Infomaniak Bug Bounty program",
+   "hosts": 504,
+   "bounty": true,
+   "max_bounty": 7000
+  },
+  {
+   "platform": "h1",
+   "handle": "robinhood_markets",
+   "name": "Robinhood Markets",
+   "hosts": 503,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "robinhood",
+   "name": "Robinhood Markets Bounty",
+   "hosts": 503,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "eToro Managed Bug Bounty Engagement",
+   "name": "eToro Managed Bug Bounty Engagement",
+   "hosts": 503,
+   "bounty": true,
+   "max_bounty": 15000
+  },
+  {
+   "platform": "h1",
+   "handle": "hubspot",
+   "name": "HubSpot",
+   "hosts": 502,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "payoneer",
+   "name": "Payoneer",
+   "hosts": 502,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "flickr",
+   "name": "Flickr",
+   "hosts": 502,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "rockstargames",
+   "name": "Rockstar Games",
+   "hosts": 502,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "fetlife",
+   "name": "FetLife",
+   "hosts": 501,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "cloudflare",
+   "name": "Cloudflare Public Bug Bounty",
+   "hosts": 501,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Arlo Cash Rewards",
+   "name": "Arlo Cash Rewards",
+   "hosts": 501,
+   "bounty": true,
+   "max_bounty": 4500
+  },
+  {
+   "platform": "it",
+   "handle": "datacamp",
+   "name": "DataCamp",
+   "hosts": 501,
+   "bounty": true,
+   "max_bounty": 1500
+  },
+  {
+   "platform": "h1",
+   "handle": "servicenow-disclosure",
+   "name": "ServiceNow Disclosure",
+   "hosts": 500,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "wolt",
+   "name": "Wolt",
+   "hosts": 500,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "wellsfargo-bbp",
+   "name": "Wells Fargo Bounty",
+   "hosts": 500,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "basecamp",
+   "name": "Basecamp",
+   "hosts": 500,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Etsy",
+   "name": "Etsy",
+   "hosts": 500,
+   "bounty": true,
+   "max_bounty": 10000
+  },
+  {
+   "platform": "bc",
+   "handle": "Plusgrade Loyalty Public Program",
+   "name": "Plusgrade Loyalty Public Program",
+   "hosts": 500,
+   "bounty": true,
+   "max_bounty": 5000
+  },
+  {
+   "platform": "bc",
+   "handle": "Statuspage",
+   "name": "Statuspage",
+   "hosts": 500,
+   "bounty": true,
+   "max_bounty": 4000
+  },
+  {
+   "platform": "it",
+   "handle": "ripencc",
+   "name": "RIPE NCC",
+   "hosts": 500,
+   "bounty": true,
+   "max_bounty": 2000
+  },
+  {
+   "platform": "bc",
+   "handle": "Backblaze",
+   "name": "Backblaze",
+   "hosts": 499,
+   "bounty": true,
+   "max_bounty": 6500
+  },
+  {
+   "platform": "bc",
+   "handle": "MyFitnessPal Managed Bug Bounty",
+   "name": "MyFitnessPal Managed Bug Bounty",
+   "hosts": 499,
+   "bounty": true,
+   "max_bounty": 4500
+  },
+  {
+   "platform": "it",
+   "handle": "tomorrowland",
+   "name": "Tomorrowland",
+   "hosts": 492,
+   "bounty": true,
+   "max_bounty": 2500
+  },
+  {
+   "platform": "bc",
+   "handle": "Latitude Financial Services Bug Bounty ",
+   "name": "Latitude Financial Services Bug Bounty ",
+   "hosts": 487,
+   "bounty": true,
+   "max_bounty": 7500
+  },
+  {
+   "platform": "it",
+   "handle": "lansweeper",
+   "name": "Lansweeper Bug Bounty Program",
+   "hosts": 487,
+   "bounty": true,
+   "max_bounty": 2000
+  },
+  {
+   "platform": "bc",
+   "handle": "Octopus",
+   "name": "Octopus",
+   "hosts": 473,
+   "bounty": true,
+   "max_bounty": 6000
+  },
+  {
+   "platform": "h1",
+   "handle": "stripchat",
+   "name": "Stripchat",
+   "hosts": 467,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "wealthsimple",
+   "name": "Wealthsimple",
+   "hosts": 444,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "OpenAI",
+   "name": "OpenAI",
+   "hosts": 427,
+   "bounty": true,
+   "max_bounty": 6500
+  },
+  {
+   "platform": "yw",
+   "handle": "CyberGhost - Bug Bounty Program",
+   "name": "CyberGhost - Bug Bounty Program",
+   "hosts": 418,
+   "bounty": true,
+   "max_bounty": 1250
+  },
+  {
+   "platform": "yw",
+   "handle": "DataDome Bot Bounty",
+   "name": "DataDome Bot Bounty",
+   "hosts": 396,
+   "bounty": true,
+   "max_bounty": 1000
+  },
+  {
+   "platform": "yw",
+   "handle": "DataDome Bug Bounty",
+   "name": "DataDome Bug Bounty",
+   "hosts": 394,
+   "bounty": true,
+   "max_bounty": 3000
+  },
+  {
+   "platform": "bc",
+   "handle": "SoundCloud",
+   "name": "SoundCloud",
+   "hosts": 388,
+   "bounty": true,
+   "max_bounty": 4500
+  },
+  {
+   "platform": "h1",
+   "handle": "reddit",
+   "name": "Reddit",
+   "hosts": 385,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "it",
+   "handle": "mv",
+   "name": "Mobile Vikings",
+   "hosts": 378,
+   "bounty": true,
+   "max_bounty": 5000
+  },
+  {
+   "platform": "h1",
+   "handle": "epicgames-vdp",
+   "name": "Epic Games VDP",
+   "hosts": 370,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Jora",
+   "name": "Jora",
+   "hosts": 362,
+   "bounty": true,
+   "max_bounty": 2500
+  },
+  {
+   "platform": "it",
+   "handle": "uz leuven",
+   "name": "eHealth Hub VZN KUL",
+   "hosts": 354,
+   "bounty": true,
+   "max_bounty": 2000
+  },
+  {
+   "platform": "h1",
+   "handle": "playstation",
+   "name": "PlayStation",
+   "hosts": 339,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "it",
+   "handle": "exoscale",
+   "name": "Exoscale Bug Bounty",
+   "hosts": 332,
+   "bounty": true,
+   "max_bounty": 5000
+  },
+  {
+   "platform": "h1",
+   "handle": "khealth",
+   "name": "KHealth",
+   "hosts": 300,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "eero",
+   "name": "eero",
+   "hosts": 295,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "yw",
+   "handle": "vidaXL Services - Open Bug Bounty Program",
+   "name": "vidaXL Services - Open Bug Bounty Program",
+   "hosts": 288,
+   "bounty": true,
+   "max_bounty": 3000
+  },
+  {
+   "platform": "h1",
+   "handle": "kayak",
+   "name": "KAYAK",
+   "hosts": 283,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "dyson",
+   "name": "Dyson",
+   "hosts": 269,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "crypto",
+   "name": "Crypto.com",
+   "hosts": 268,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "it",
+   "handle": "Uphold",
+   "name": "Uphold",
+   "hosts": 257,
+   "bounty": true,
+   "max_bounty": 6000
+  },
+  {
+   "platform": "h1",
+   "handle": "yuga_labs",
+   "name": "Yuga Labs",
+   "hosts": 251,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "iFood: Bug Bounty Program",
+   "name": "iFood: Bug Bounty Program",
+   "hosts": 251,
+   "bounty": true,
+   "max_bounty": 3750
+  },
+  {
+   "platform": "bc",
+   "handle": "Certinia (formerly FinancialForce)",
+   "name": "Certinia (formerly FinancialForce)",
+   "hosts": 244,
+   "bounty": true,
+   "max_bounty": 4500
+  },
+  {
+   "platform": "yw",
+   "handle": "Private Internet Access - Bug Bounty Program",
+   "name": "Private Internet Access - Bug Bounty Program",
+   "hosts": 224,
+   "bounty": true,
+   "max_bounty": 1250
+  },
+  {
+   "platform": "h1",
+   "handle": "bykea",
+   "name": "Bykea",
+   "hosts": 221,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "valve",
+   "name": "Valve",
+   "hosts": 218,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "krisp",
+   "name": "Krisp",
+   "hosts": 217,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "vercel",
+   "name": "Vercel",
+   "hosts": 199,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "remitly",
+   "name": "Remitly",
+   "hosts": 198,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "it",
+   "handle": "monzobank",
+   "name": "Monzo Public Bug Bounty Program",
+   "hosts": 185,
+   "bounty": true,
+   "max_bounty": 12500
+  },
+  {
+   "platform": "bc",
+   "handle": "ClassDojo",
+   "name": "ClassDojo",
+   "hosts": 182,
+   "bounty": true,
+   "max_bounty": 2500
+  },
+  {
+   "platform": "bc",
+   "handle": "HPE Networking Product Public Program",
+   "name": "HPE Networking Product Public Program",
+   "hosts": 177,
+   "bounty": true,
+   "max_bounty": 5000
+  },
+  {
+   "platform": "h1",
+   "handle": "yelp",
+   "name": "Yelp",
+   "hosts": 156,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Linktree",
+   "name": "Linktree",
+   "hosts": 153,
+   "bounty": true,
+   "max_bounty": 7500
+  },
+  {
+   "platform": "bc",
+   "handle": "Intercom",
+   "name": "Intercom",
+   "hosts": 148,
+   "bounty": true,
+   "max_bounty": 6000
+  },
+  {
+   "platform": "it",
+   "handle": "rivian",
+   "name": "Rivian Bug Bounty",
+   "hosts": 134,
+   "bounty": true,
+   "max_bounty": 5000
+  },
+  {
+   "platform": "bc",
+   "handle": "BitGo Managed Public Bug Bounty Engagement ",
+   "name": "BitGo Managed Public Bug Bounty Engagement ",
+   "hosts": 133,
+   "bounty": true,
+   "max_bounty": 4500
+  },
+  {
+   "platform": "it",
+   "handle": "axelspringerse",
+   "name": "Axel Springer SE Vulnerability Disclosure Program",
+   "hosts": 122,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "banco_plata",
+   "name": "Banco Plata",
+   "hosts": 119,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "deribit",
+   "name": "Deribit",
+   "hosts": 115,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "okg",
+   "name": "OKG",
+   "hosts": 113,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Skyscanner",
+   "name": "Skyscanner",
+   "hosts": 112,
+   "bounty": true,
+   "max_bounty": 8000
+  },
+  {
+   "platform": "it",
+   "handle": "voi",
+   "name": "Voi Vulnerability Disclosure Program",
+   "hosts": 109,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "whatnot",
+   "name": "Whatnot",
+   "hosts": 103,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "airtable",
+   "name": "Airtable",
+   "hosts": 90,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "nba-public",
+   "name": "NBA Public Bug Bounty",
+   "hosts": 87,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "it",
+   "handle": "allegro",
+   "name": "Allegro",
+   "hosts": 77,
+   "bounty": true,
+   "max_bounty": 4000
+  },
+  {
+   "platform": "h1",
+   "handle": "unico_idtech",
+   "name": "Unico IDtech",
+   "hosts": 66,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "arc-bbp",
+   "name": "Arc",
+   "hosts": 58,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Blofin Crypto Managed Bug Bounty Engagement",
+   "name": "Blofin Crypto Managed Bug Bounty Engagement",
+   "hosts": 58,
+   "bounty": true,
+   "max_bounty": 4000
+  },
+  {
+   "platform": "h1",
+   "handle": "forescout_technologies",
+   "name": "ForeScout Technologies",
+   "hosts": 49,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Quizlet",
+   "name": "Quizlet",
+   "hosts": 41,
+   "bounty": true,
+   "max_bounty": 2000
+  },
+  {
+   "platform": "bc",
+   "handle": "Opsgenie",
+   "name": "Opsgenie",
+   "hosts": 39,
+   "bounty": true,
+   "max_bounty": 4000
+  },
+  {
+   "platform": "h1",
+   "handle": "hyatt",
+   "name": "Hyatt Hotels",
+   "hosts": 38,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "it",
+   "handle": "posti",
+   "name": "Posti Bug Bounty ",
+   "hosts": 34,
+   "bounty": true,
+   "max_bounty": 2000
+  },
+  {
+   "platform": "h1",
+   "handle": "dynatrace",
+   "name": "Dynatrace",
+   "hosts": 32,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "marriott",
+   "name": "Marriott Bug Bounty Program",
+   "hosts": 31,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "yw",
+   "handle": "Mon Espace Sant\u00e9 (MES)",
+   "name": "Mon Espace Sant\u00e9 (MES)",
+   "hosts": 31,
+   "bounty": true,
+   "max_bounty": 8000
+  },
+  {
+   "platform": "yw",
+   "handle": "OVHcloud",
+   "name": "OVHcloud",
+   "hosts": 29,
+   "bounty": true,
+   "max_bounty": 12500
+  },
+  {
+   "platform": "h1",
+   "handle": "snapchat",
+   "name": "Snapchat",
+   "hosts": 28,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "csg-public",
+   "name": "Cloud Software Group",
+   "hosts": 27,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "ring",
+   "name": "Ring",
+   "hosts": 26,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "New Blue Website (NBW) - VWFS Bug Bounty Program",
+   "name": "New Blue Website (NBW) - VWFS Bug Bounty Program",
+   "hosts": 21,
+   "bounty": true,
+   "max_bounty": 4500
+  },
+  {
+   "platform": "h1",
+   "handle": "twilio",
+   "name": "Twilio",
+   "hosts": 21,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "TheFork Managed Bug Bounty Engagement",
+   "name": "TheFork Managed Bug Bounty Engagement",
+   "hosts": 21,
+   "bounty": true,
+   "max_bounty": 3500
+  },
+  {
+   "platform": "h1",
+   "handle": "grindr",
+   "name": "Grindr",
+   "hosts": 19,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "it",
+   "handle": "nexo",
+   "name": "Nexo",
+   "hosts": 18,
+   "bounty": true,
+   "max_bounty": 4800
+  },
+  {
+   "platform": "h1",
+   "handle": "live_nation",
+   "name": "Live Nation",
+   "hosts": 17,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "bumble",
+   "name": "Bumble",
+   "hosts": 17,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "it",
+   "handle": "delenprivatebank",
+   "name": "Delen Private Bank",
+   "hosts": 17,
+   "bounty": true,
+   "max_bounty": 15000
+  },
+  {
+   "platform": "bc",
+   "handle": "Recorded Future Public Managed Bug Bounty Engagement",
+   "name": "Recorded Future Public Managed Bug Bounty Engagement",
+   "hosts": 17,
+   "bounty": true,
+   "max_bounty": 5000
+  },
+  {
+   "platform": "yw",
+   "handle": "ZECIBLE PUBLIC BUG BOUNTY PROGRAM",
+   "name": "ZECIBLE PUBLIC BUG BOUNTY PROGRAM",
+   "hosts": 17,
+   "bounty": true,
+   "max_bounty": 2000
+  },
+  {
+   "platform": "bc",
+   "handle": "Just Eat Takeaway.com",
+   "name": "Just Eat Takeaway.com",
+   "hosts": 16,
+   "bounty": true,
+   "max_bounty": 4500
+  },
+  {
+   "platform": "bc",
+   "handle": "Mastercard Public Bug Bounty ",
+   "name": "Mastercard Public Bug Bounty ",
+   "hosts": 14,
+   "bounty": true,
+   "max_bounty": 5000
+  },
+  {
+   "platform": "bc",
+   "handle": "Majid Al Futtaim Properties",
+   "name": "Majid Al Futtaim Properties",
+   "hosts": 13,
+   "bounty": true,
+   "max_bounty": 2500
+  },
+  {
+   "platform": "yw",
+   "handle": "Pine Labs Bug Bounty Program",
+   "name": "Pine Labs Bug Bounty Program",
+   "hosts": 13,
+   "bounty": true,
+   "max_bounty": 1000
+  },
+  {
+   "platform": "bc",
+   "handle": "NEOGOV Public Assets",
+   "name": "NEOGOV Public Assets",
+   "hosts": 13,
+   "bounty": true,
+   "max_bounty": 3500
+  },
+  {
+   "platform": "h1",
+   "handle": "23andme_bbp",
+   "name": "23andMe Bug Bounty",
+   "hosts": 12,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "clear",
+   "name": "CLEAR",
+   "hosts": 12,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Monash University Bug Bounty",
+   "name": "Monash University Bug Bounty",
+   "hosts": 12,
+   "bounty": true,
+   "max_bounty": 7500
+  },
+  {
+   "platform": "yw",
+   "handle": "VINCI SA - Public program",
+   "name": "VINCI SA - Public program",
+   "hosts": 12,
+   "bounty": true,
+   "max_bounty": 3000
+  },
+  {
+   "platform": "bc",
+   "handle": "Majid Al Futtaim Lifestyle",
+   "name": "Majid Al Futtaim Lifestyle",
+   "hosts": 11,
+   "bounty": true,
+   "max_bounty": 3500
+  },
+  {
+   "platform": "h1",
+   "handle": "oppo_bbp",
+   "name": "OPPO",
+   "hosts": 11,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Under Armour Corporate",
+   "name": "Under Armour Corporate",
+   "hosts": 11,
+   "bounty": true,
+   "max_bounty": 2500
+  },
+  {
+   "platform": "bc",
+   "handle": "Keeper Security Public Bounty Program",
+   "name": "Keeper Security Public Bounty Program",
+   "hosts": 11,
+   "bounty": true,
+   "max_bounty": 10000
+  },
+  {
+   "platform": "bc",
+   "handle": "Trello",
+   "name": "Trello",
+   "hosts": 11,
+   "bounty": true,
+   "max_bounty": 12000
+  },
+  {
+   "platform": "yw",
+   "handle": "GRW Trading FZE - Open Bug Bounty Program",
+   "name": "GRW Trading FZE - Open Bug Bounty Program",
+   "hosts": 11,
+   "bounty": true,
+   "max_bounty": 3000
+  },
+  {
+   "platform": "yw",
+   "handle": "MediaMarktSaturn Bug Bounty Program",
+   "name": "MediaMarktSaturn Bug Bounty Program",
+   "hosts": 10,
+   "bounty": true,
+   "max_bounty": 4000
+  },
+  {
+   "platform": "bc",
+   "handle": "Internet Brands Public",
+   "name": "Internet Brands Public",
+   "hosts": 10,
+   "bounty": true,
+   "max_bounty": 2000
+  },
+  {
+   "platform": "bc",
+   "handle": "Under Armour Product Security",
+   "name": "Under Armour Product Security",
+   "hosts": 10,
+   "bounty": true,
+   "max_bounty": 2500
+  },
+  {
+   "platform": "h1",
+   "handle": "coupang_tw",
+   "name": "Coupang Taiwan",
+   "hosts": 10,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "priceline",
+   "name": "Priceline",
+   "hosts": 10,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Flourish",
+   "name": "Flourish",
+   "hosts": 10,
+   "bounty": true,
+   "max_bounty": 6000
+  },
+  {
+   "platform": "bc",
+   "handle": "Glassdoor Managed Bug Bounty Engagement",
+   "name": "Glassdoor Managed Bug Bounty Engagement",
+   "hosts": 10,
+   "bounty": true,
+   "max_bounty": 7000
+  },
+  {
+   "platform": "bc",
+   "handle": "Lime",
+   "name": "Lime",
+   "hosts": 10,
+   "bounty": true,
+   "max_bounty": 7000
+  },
+  {
+   "platform": "bc",
+   "handle": "Prosus",
+   "name": "Prosus",
+   "hosts": 10,
+   "bounty": true,
+   "max_bounty": 1250
+  },
+  {
+   "platform": "it",
+   "handle": "intigriti",
+   "name": "intigriti",
+   "hosts": 10,
+   "bounty": true,
+   "max_bounty": 13337
+  },
+  {
+   "platform": "yw",
+   "handle": "Paddle.com Public Bug Bounty Program",
+   "name": "Paddle.com Public Bug Bounty Program",
+   "hosts": 10,
+   "bounty": true,
+   "max_bounty": 5000
+  },
+  {
+   "platform": "bc",
+   "handle": "lululemon",
+   "name": "lululemon",
+   "hosts": 9,
+   "bounty": true,
+   "max_bounty": 8000
+  },
+  {
+   "platform": "h1",
+   "handle": "1win_com",
+   "name": "1win",
+   "hosts": 9,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "koho",
+   "name": "KOHO",
+   "hosts": 9,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "MGM China Holdings Limited Managed Bug Bounty Program",
+   "name": "MGM China Holdings Limited Managed Bug Bounty Program",
+   "hosts": 9,
+   "bounty": true,
+   "max_bounty": 7500
+  },
+  {
+   "platform": "h1",
+   "handle": "polygon-technology",
+   "name": "Polygon Technology",
+   "hosts": 8,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "gocardless_bbp",
+   "name": "GoCardless Bug Bounty Program",
+   "hosts": 8,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "exness",
+   "name": "EXNESS",
+   "hosts": 8,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "it",
+   "handle": "arkane",
+   "name": "Venly",
+   "hosts": 8,
+   "bounty": true,
+   "max_bounty": 5000
+  },
+  {
+   "platform": "bc",
+   "handle": "Auth0 by Okta",
+   "name": "Auth0 by Okta",
+   "hosts": 7,
+   "bounty": true,
+   "max_bounty": 50000
+  },
+  {
+   "platform": "h1",
+   "handle": "slack",
+   "name": "Slack",
+   "hosts": 7,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "The Hut Group: Public Managed Bug Bounty Engagement",
+   "name": "The Hut Group: Public Managed Bug Bounty Engagement",
+   "hosts": 7,
+   "bounty": true,
+   "max_bounty": 2500
+  },
+  {
+   "platform": "h1",
+   "handle": "meesho_bbp",
+   "name": "Meesho",
+   "hosts": 7,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "walt_io",
+   "name": "Walt.io",
+   "hosts": 7,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "greenhouse",
+   "name": "Greenhouse.io",
+   "hosts": 7,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Bolt Technology O\u00dc",
+   "name": "Bolt Technology O\u00dc",
+   "hosts": 7,
+   "bounty": true,
+   "max_bounty": 6500
+  },
+  {
+   "platform": "bc",
+   "handle": "Bitpanda Ongoing Bug Bounty",
+   "name": "Bitpanda Ongoing Bug Bounty",
+   "hosts": 7,
+   "bounty": true,
+   "max_bounty": 15000
+  },
+  {
+   "platform": "bc",
+   "handle": "Ibotta",
+   "name": "Ibotta",
+   "hosts": 7,
+   "bounty": true,
+   "max_bounty": 1000
+  },
+  {
+   "platform": "bc",
+   "handle": "Optimizely",
+   "name": "Optimizely",
+   "hosts": 7,
+   "bounty": true,
+   "max_bounty": 3500
+  },
+  {
+   "platform": "bc",
+   "handle": "SimpliSafe Managed Bug Bounty Engagement",
+   "name": "SimpliSafe Managed Bug Bounty Engagement",
+   "hosts": 7,
+   "bounty": true,
+   "max_bounty": 6000
+  },
+  {
+   "platform": "h1",
+   "handle": "redox_bbp",
+   "name": "Redox",
+   "hosts": 7,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "yw",
+   "handle": "FDJ United (Online Betting and Gaming) - Bug Bounty program",
+   "name": "FDJ United (Online Betting and Gaming) - Bug Bounty program",
+   "hosts": 6,
+   "bounty": true,
+   "max_bounty": 15000
+  },
+  {
+   "platform": "h1",
+   "handle": "starbucks",
+   "name": "Starbucks",
+   "hosts": 6,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Elementor: Bug Bounty Program",
+   "name": "Elementor: Bug Bounty Program",
+   "hosts": 6,
+   "bounty": true,
+   "max_bounty": 4000
+  },
+  {
+   "platform": "bc",
+   "handle": "Moneytree KK",
+   "name": "Moneytree KK",
+   "hosts": 6,
+   "bounty": true,
+   "max_bounty": 5000
+  },
+  {
+   "platform": "it",
+   "handle": "socialdeal",
+   "name": "Social Deal",
+   "hosts": 6,
+   "bounty": true,
+   "max_bounty": 1000
+  },
+  {
+   "platform": "it",
+   "handle": "torfs",
+   "name": "Torfs",
+   "hosts": 6,
+   "bounty": true,
+   "max_bounty": 6500
+  },
+  {
+   "platform": "it",
+   "handle": "vrtnv",
+   "name": "VRT",
+   "hosts": 6,
+   "bounty": true,
+   "max_bounty": 2000
+  },
+  {
+   "platform": "h1",
+   "handle": "cbre",
+   "name": "CBRE",
+   "hosts": 6,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Entain Public Managed Bug Bounty Engagement 2024",
+   "name": "Entain Public Managed Bug Bounty Engagement 2024",
+   "hosts": 5,
+   "bounty": true,
+   "max_bounty": 5000
+  },
+  {
+   "platform": "h1",
+   "handle": "3cx",
+   "name": "3CX",
+   "hosts": 5,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "privy-bbp",
+   "name": "Privy (Bounty)",
+   "hosts": 5,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "anthropic",
+   "name": "Anthropic",
+   "hosts": 5,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "vodafone_oman",
+   "name": "Vodafone Oman",
+   "hosts": 5,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "arkose_labs",
+   "name": "Arkose Labs",
+   "hosts": 5,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "s-pankki",
+   "name": "S-Pankki",
+   "hosts": 5,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "flipkart",
+   "name": "Flipkart",
+   "hosts": 5,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "plaid",
+   "name": "Plaid",
+   "hosts": 5,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Hypixel Studios Managed Bug Bounty Engagement",
+   "name": "Hypixel Studios Managed Bug Bounty Engagement",
+   "hosts": 5,
+   "bounty": true,
+   "max_bounty": 25000
+  },
+  {
+   "platform": "bc",
+   "handle": "Immutable Bug Bounty",
+   "name": "Immutable Bug Bounty",
+   "hosts": 5,
+   "bounty": true,
+   "max_bounty": 10000
+  },
+  {
+   "platform": "bc",
+   "handle": "LastPass",
+   "name": "LastPass",
+   "hosts": 5,
+   "bounty": true,
+   "max_bounty": 5000
+  },
+  {
+   "platform": "bc",
+   "handle": "USAA",
+   "name": "USAA",
+   "hosts": 5,
+   "bounty": true,
+   "max_bounty": 6000
+  },
+  {
+   "platform": "yw",
+   "handle": "Sant\u00e9 Publique France Bug Bounty Program",
+   "name": "Sant\u00e9 Publique France Bug Bounty Program",
+   "hosts": 5,
+   "bounty": true,
+   "max_bounty": 1500
+  },
+  {
+   "platform": "h1",
+   "handle": "zurich-insurance",
+   "name": "Zurich Insurance",
+   "hosts": 5,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Entain Game Logic Flaws Bug Bounty Program",
+   "name": "Entain Game Logic Flaws Bug Bounty Program",
+   "hosts": 4,
+   "bounty": true,
+   "max_bounty": 6500
+  },
+  {
+   "platform": "bc",
+   "handle": "Majid Al Futtaim Customer Solutions",
+   "name": "Majid Al Futtaim Customer Solutions",
+   "hosts": 4,
+   "bounty": true,
+   "max_bounty": 2500
+  },
+  {
+   "platform": "h1",
+   "handle": "six-group",
+   "name": "SIX Group",
+   "hosts": 4,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "abercrombie_fitch_bbp",
+   "name": "Abercrombie & Fitch Bug Bounty",
+   "hosts": 4,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "abercrombie_fitch",
+   "name": "Abercrombie & Fitch Management Co.",
+   "hosts": 4,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "ripio",
+   "name": "Ripio",
+   "hosts": 4,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "zooplus",
+   "name": "Zooplus",
+   "hosts": 4,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "trendyol",
+   "name": "Trendyol",
+   "hosts": 4,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "hostinger",
+   "name": "hostinger ",
+   "hosts": 4,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "faraday_inc",
+   "name": "Faraday, Inc.",
+   "hosts": 4,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "lark_technologies",
+   "name": "Lark Technologies",
+   "hosts": 4,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "starbucks_japan",
+   "name": "Starbucks Japan",
+   "hosts": 4,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Aiven Managed Bug Bounty",
+   "name": "Aiven Managed Bug Bounty",
+   "hosts": 4,
+   "bounty": true,
+   "max_bounty": 25000
+  },
+  {
+   "platform": "bc",
+   "handle": "Bitso Managed Bug Bounty Engagement",
+   "name": "Bitso Managed Bug Bounty Engagement",
+   "hosts": 4,
+   "bounty": true,
+   "max_bounty": 15000
+  },
+  {
+   "platform": "bc",
+   "handle": "Chipotle Managed Bug Bounty Engagement",
+   "name": "Chipotle Managed Bug Bounty Engagement",
+   "hosts": 4,
+   "bounty": true,
+   "max_bounty": 4500
+  },
+  {
+   "platform": "h1",
+   "handle": "td-bank",
+   "name": "TD Bank Group",
+   "hosts": 4,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Infinite Athlete",
+   "name": "Infinite Athlete",
+   "hosts": 4,
+   "bounty": true,
+   "max_bounty": 4500
+  },
+  {
+   "platform": "bc",
+   "handle": "Ultra Mobile Public ECOMM 2025 Bug Bounty Engagement",
+   "name": "Ultra Mobile Public ECOMM 2025 Bug Bounty Engagement",
+   "hosts": 4,
+   "bounty": true,
+   "max_bounty": 4500
+  },
+  {
+   "platform": "bc",
+   "handle": "Vinted Bug Bounty",
+   "name": "Vinted Bug Bounty",
+   "hosts": 4,
+   "bounty": true,
+   "max_bounty": 8000
+  },
+  {
+   "platform": "it",
+   "handle": "bmw",
+   "name": "BMW Group Automotive",
+   "hosts": 4,
+   "bounty": true,
+   "max_bounty": 15000
+  },
+  {
+   "platform": "yw",
+   "handle": "Dossier Medical Partag\u00e9 Bug Bounty Program",
+   "name": "Dossier Medical Partag\u00e9 Bug Bounty Program",
+   "hosts": 4,
+   "bounty": true,
+   "max_bounty": 2000
+  },
+  {
+   "platform": "yw",
+   "handle": "Moneybox Bug Bounty",
+   "name": "Moneybox Bug Bounty",
+   "hosts": 4,
+   "bounty": true,
+   "max_bounty": 2000
+  },
+  {
+   "platform": "yw",
+   "handle": "YesWeHack",
+   "name": "YesWeHack",
+   "hosts": 4,
+   "bounty": true,
+   "max_bounty": 15000
+  },
+  {
+   "platform": "h1",
+   "handle": "razorpay",
+   "name": "Razorpay",
+   "hosts": 4,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "yw",
+   "handle": "OneDoc",
+   "name": "OneDoc",
+   "hosts": 4,
+   "bounty": true,
+   "max_bounty": 5000
+  },
+  {
+   "platform": "h1",
+   "handle": "pagerduty",
+   "name": "PagerDuty",
+   "hosts": 3,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "agoda-public",
+   "name": "Agoda Public",
+   "hosts": 3,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "kong",
+   "name": "Kong",
+   "hosts": 3,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "whoop_bug_bounty",
+   "name": "Whoop Bug Bounty",
+   "hosts": 3,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "bcny",
+   "name": "The Browser Company of NYC",
+   "hosts": 3,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "syfe_bbp",
+   "name": "Syfe",
+   "hosts": 3,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "circle-bbp",
+   "name": "Circle",
+   "hosts": 3,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "temu",
+   "name": "Temu",
+   "hosts": 3,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "sorare",
+   "name": "Sorare",
+   "hosts": 3,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "evernote",
+   "name": "Evernote",
+   "hosts": 3,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "ridewithvia",
+   "name": "Via",
+   "hosts": 3,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "portswigger",
+   "name": "PortSwigger Web Security",
+   "hosts": 3,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Binance",
+   "name": "Binance",
+   "hosts": 3,
+   "bounty": true,
+   "max_bounty": 10000
+  },
+  {
+   "platform": "bc",
+   "handle": "Blockchain.com Managed Bug Bounty Engagement",
+   "name": "Blockchain.com Managed Bug Bounty Engagement",
+   "hosts": 3,
+   "bounty": true,
+   "max_bounty": 10000
+  },
+  {
+   "platform": "bc",
+   "handle": "Thales Cyber Security Products Bug Bounty",
+   "name": "Thales Cyber Security Products Bug Bounty",
+   "hosts": 3,
+   "bounty": true,
+   "max_bounty": 2500
+  },
+  {
+   "platform": "bc",
+   "handle": "Okta",
+   "name": "Okta",
+   "hosts": 3,
+   "bounty": true,
+   "max_bounty": 75000
+  },
+  {
+   "platform": "bc",
+   "handle": "Cisco ThousandEyes Vulnerability Hunting aka Bug Bounty ",
+   "name": "Cisco ThousandEyes Vulnerability Hunting aka Bug Bounty ",
+   "hosts": 3,
+   "bounty": true,
+   "max_bounty": 4500
+  },
+  {
+   "platform": "bc",
+   "handle": "20 Minuten",
+   "name": "20 Minuten",
+   "hosts": 3,
+   "bounty": true,
+   "max_bounty": 5000
+  },
+  {
+   "platform": "bc",
+   "handle": "Verisign Bug Bounty",
+   "name": "Verisign Bug Bounty",
+   "hosts": 3,
+   "bounty": true,
+   "max_bounty": 10000
+  },
+  {
+   "platform": "bc",
+   "handle": "Majid Al Futtaim Entertainment",
+   "name": "Majid Al Futtaim Entertainment",
+   "hosts": 3,
+   "bounty": true,
+   "max_bounty": 2500
+  },
+  {
+   "platform": "bc",
+   "handle": "Web.com Bug Bounty",
+   "name": "Web.com Bug Bounty",
+   "hosts": 3,
+   "bounty": true,
+   "max_bounty": 3000
+  },
+  {
+   "platform": "bc",
+   "handle": "YNAB",
+   "name": "YNAB",
+   "hosts": 3,
+   "bounty": true,
+   "max_bounty": 3000
+  },
+  {
+   "platform": "h1",
+   "handle": "krisp",
+   "name": "Krisp",
+   "hosts": 3,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "judgeme",
+   "name": "Judge.me ",
+   "hosts": 3,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "transunion",
+   "name": "TransUnion LLC",
+   "hosts": 3,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "fiserv",
+   "name": "Fiserv",
+   "hosts": 2,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "valve",
+   "name": "Valve",
+   "hosts": 2,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "neon_bbp",
+   "name": "Neon",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "chia_network",
+   "name": "Chia Network",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "pornbox",
+   "name": "PornBox",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "sheer_bbp",
+   "name": "Sheer",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "rei_vdp",
+   "name": "REI VDP",
+   "hosts": 2,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "rei_bbp",
+   "name": "REI BBP",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "mergify",
+   "name": "Mergify",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "modern_treasury",
+   "name": "Modern Treasury",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "notion",
+   "name": "Notion Labs, Inc.",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "inspectorio",
+   "name": "Inspectorio",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "doppler",
+   "name": "Doppler",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "xvideos",
+   "name": "XVIDEOS",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "figma",
+   "name": "Figma",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "cs_money",
+   "name": "CS Money",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "evernote",
+   "name": "Evernote",
+   "hosts": 2,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "kubernetes",
+   "name": "Kubernetes",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "urbancompany",
+   "name": "Urban Company",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "yoti",
+   "name": "Yoti",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "epicgames",
+   "name": "Epic Games",
+   "hosts": 2,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "enjin",
+   "name": "Enjin",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "deriv",
+   "name": "Deriv.com",
+   "hosts": 2,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "moneybird",
+   "name": "Moneybird",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "coinspot",
+   "name": "CoinSpot",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "CoinDesk Data - Data API ",
+   "name": "CoinDesk Data - Data API ",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 7500
+  },
+  {
+   "platform": "bc",
+   "handle": "Bullish Exchange",
+   "name": "Bullish Exchange",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 25000
+  },
+  {
+   "platform": "bc",
+   "handle": "Bullish.com",
+   "name": "Bullish.com",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 12000
+  },
+  {
+   "platform": "bc",
+   "handle": "Majid Al Futtaim Retail",
+   "name": "Majid Al Futtaim Retail",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 4000
+  },
+  {
+   "platform": "bc",
+   "handle": "ClickHouse",
+   "name": "ClickHouse",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 2500
+  },
+  {
+   "platform": "bc",
+   "handle": "Fireblocks Web Managed Bug Bounty Engagement",
+   "name": "Fireblocks Web Managed Bug Bounty Engagement",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 12000
+  },
+  {
+   "platform": "bc",
+   "handle": "Felix Health Managed Bug Bounty Engagement",
+   "name": "Felix Health Managed Bug Bounty Engagement",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 4500
+  },
+  {
+   "platform": "bc",
+   "handle": "Gearset: Managed Bug Bounty",
+   "name": "Gearset: Managed Bug Bounty",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 6000
+  },
+  {
+   "platform": "bc",
+   "handle": "LaunchDarkly Managed Bug Bounty Engagement",
+   "name": "LaunchDarkly Managed Bug Bounty Engagement",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 7500
+  },
+  {
+   "platform": "bc",
+   "handle": "Lightspeed Hospitality",
+   "name": "Lightspeed Hospitality",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 7500
+  },
+  {
+   "platform": "bc",
+   "handle": "Electroneum Smart Chain (ETN-SC) \u2014 EVM-Compatible Blockchain",
+   "name": "Electroneum Smart Chain (ETN-SC) \u2014 EVM-Compatible Blockchain",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 12000
+  },
+  {
+   "platform": "bc",
+   "handle": "OpenSea Managed Bug Bounty Program",
+   "name": "OpenSea Managed Bug Bounty Program",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 3000000
+  },
+  {
+   "platform": "bc",
+   "handle": "OSL Managed Public Bug Bounty Engagement ",
+   "name": "OSL Managed Public Bug Bounty Engagement ",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 1500
+  },
+  {
+   "platform": "bc",
+   "handle": "Pinterest",
+   "name": "Pinterest",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 25000
+  },
+  {
+   "platform": "bc",
+   "handle": "PlanetHoster Bug Bounty ",
+   "name": "PlanetHoster Bug Bounty ",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 3000
+  },
+  {
+   "platform": "bc",
+   "handle": "SnapNames Bug Bounty",
+   "name": "SnapNames Bug Bounty",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 2000
+  },
+  {
+   "platform": "bc",
+   "handle": "Sophos",
+   "name": "Sophos",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 80000
+  },
+  {
+   "platform": "bc",
+   "handle": "Ultra Mobile Public Bug Bounty Engagement",
+   "name": "Ultra Mobile Public Bug Bounty Engagement",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 4500
+  },
+  {
+   "platform": "bc",
+   "handle": "Unity Technologies",
+   "name": "Unity Technologies",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 3000
+  },
+  {
+   "platform": "bc",
+   "handle": "Wyze Bug Bounty",
+   "name": "Wyze Bug Bounty",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 5000
+  },
+  {
+   "platform": "it",
+   "handle": "nexuzhealth",
+   "name": "Nexuzhealth VDP",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "yw",
+   "handle": "Alasco GmbH - Bug Bounty Program",
+   "name": "Alasco GmbH - Bug Bounty Program",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 1000
+  },
+  {
+   "platform": "yw",
+   "handle": "Th\u00fcringer Aufbaubank Bug Bounty Program",
+   "name": "Th\u00fcringer Aufbaubank Bug Bounty Program",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 3500
+  },
+  {
+   "platform": "bc",
+   "handle": "TRM Labs Public Bug Bounty Engagement",
+   "name": "TRM Labs Public Bug Bounty Engagement",
+   "hosts": 2,
+   "bounty": true,
+   "max_bounty": 1000
+  },
+  {
+   "platform": "h1",
+   "handle": "itau_unibanco",
+   "name": "Ita\u00fa Unibanco",
+   "hosts": 2,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "alshaya",
+   "name": "Alshaya",
+   "hosts": 2,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "doordash",
+   "name": "DoorDash",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "1password",
+   "name": "1Password - Enterprise Password Manager",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "bumba_bbp",
+   "name": "Bumba",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "audible",
+   "name": "Audible",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "wisdomtree",
+   "name": "WisdomTree, Inc.",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "magic-eden",
+   "name": "Magic Eden",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "inspectorio",
+   "name": "Inspectorio",
+   "hosts": 1,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "wickr",
+   "name": "Wickr",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "wickr",
+   "name": "Wickr",
+   "hosts": 1,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "gocardless_bbp",
+   "name": "GoCardless Bug Bounty Program",
+   "hosts": 1,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "matomo",
+   "name": "Matomo",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "marriott",
+   "name": "Marriott Bug Bounty Program",
+   "hosts": 1,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "affirm",
+   "name": "Affirm",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "goodrx",
+   "name": "GoodRx",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "databricks",
+   "name": "Databricks",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "discourse",
+   "name": "Discourse",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "CoinDesk.com",
+   "name": "CoinDesk.com",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 7500
+  },
+  {
+   "platform": "bc",
+   "handle": "Acorns Grow, Inc.",
+   "name": "Acorns Grow, Inc.",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 4000
+  },
+  {
+   "platform": "bc",
+   "handle": "eazyBI",
+   "name": "eazyBI",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 3000
+  },
+  {
+   "platform": "bc",
+   "handle": "FIS",
+   "name": "FIS",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 20000
+  },
+  {
+   "platform": "bc",
+   "handle": "Glean Technologies Public Engagement",
+   "name": "Glean Technologies Public Engagement",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 5000
+  },
+  {
+   "platform": "bc",
+   "handle": "Kaleido",
+   "name": "Kaleido",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 6000
+  },
+  {
+   "platform": "bc",
+   "handle": "Kohl's",
+   "name": "Kohl's",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 4500
+  },
+  {
+   "platform": "bc",
+   "handle": "Electroneum Legacy Blockchain: EOL",
+   "name": "Electroneum Legacy Blockchain: EOL",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 12000
+  },
+  {
+   "platform": "bc",
+   "handle": "Lightspeed Retail",
+   "name": "Lightspeed Retail",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 7500
+  },
+  {
+   "platform": "h1",
+   "handle": "clarivate",
+   "name": "Clarivate",
+   "hosts": 1,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "bc",
+   "handle": "Navan",
+   "name": "Navan",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 4500
+  },
+  {
+   "platform": "bc",
+   "handle": "Safety Bug Bounty",
+   "name": "Safety Bug Bounty",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 7500
+  },
+  {
+   "platform": "bc",
+   "handle": "Pexels",
+   "name": "Pexels",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 6000
+  },
+  {
+   "platform": "bc",
+   "handle": "Pixabay",
+   "name": "Pixabay",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 6000
+  },
+  {
+   "platform": "bc",
+   "handle": "Refined",
+   "name": "Refined",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 2500
+  },
+  {
+   "platform": "bc",
+   "handle": "Requirement Yogi (Bug bounty)",
+   "name": "Requirement Yogi (Bug bounty)",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 1500
+  },
+  {
+   "platform": "bc",
+   "handle": "Tamedia",
+   "name": "Tamedia",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 2500
+  },
+  {
+   "platform": "bc",
+   "handle": "Ultra Mobile Retailer Portal Bug Bounty Engagement",
+   "name": "Ultra Mobile Retailer Portal Bug Bounty Engagement",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 3500
+  },
+  {
+   "platform": "bc",
+   "handle": "Unisys Managed Bug Bounty Engagement",
+   "name": "Unisys Managed Bug Bounty Engagement",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 4500
+  },
+  {
+   "platform": "bc",
+   "handle": "Upwork",
+   "name": "Upwork",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 5000
+  },
+  {
+   "platform": "bc",
+   "handle": "VR Public Managed Bug Bounty Engagement",
+   "name": "VR Public Managed Bug Bounty Engagement",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 5000
+  },
+  {
+   "platform": "bc",
+   "handle": "HostGator LATAM Bug Bounty",
+   "name": "HostGator LATAM Bug Bounty",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 2500
+  },
+  {
+   "platform": "bc",
+   "handle": "Nubank Brasil Managed Bug Bounty Program",
+   "name": "Nubank Brasil Managed Bug Bounty Program",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 4000
+  },
+  {
+   "platform": "it",
+   "handle": "aikido",
+   "name": "Aikido Security: Bug Bounty Program",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 2500
+  },
+  {
+   "platform": "it",
+   "handle": "bpost",
+   "name": "e-tracker",
+   "hosts": 1,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "it",
+   "handle": "fluvius",
+   "name": "Fluvius",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 5500
+  },
+  {
+   "platform": "it",
+   "handle": "yahoo",
+   "name": "Yahoo Bug Bounty",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 15000
+  },
+  {
+   "platform": "yw",
+   "handle": "ATG Public Bug Bounty Program",
+   "name": "ATG Public Bug Bounty Program",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 4000
+  },
+  {
+   "platform": "yw",
+   "handle": "BookBeat",
+   "name": "BookBeat",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 2000
+  },
+  {
+   "platform": "yw",
+   "handle": "Cryptobox",
+   "name": "Cryptobox",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 5000
+  },
+  {
+   "platform": "yw",
+   "handle": "DANA Bug Bounty Program",
+   "name": "DANA Bug Bounty Program",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 3000
+  },
+  {
+   "platform": "yw",
+   "handle": "IMOU Public Bug Bounty Program",
+   "name": "IMOU Public Bug Bounty Program",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 1200
+  },
+  {
+   "platform": "yw",
+   "handle": "OTTO.DE Bug Bounty",
+   "name": "OTTO.DE Bug Bounty",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 2500
+  },
+  {
+   "platform": "yw",
+   "handle": "Sogexia",
+   "name": "Sogexia",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 2000
+  },
+  {
+   "platform": "yw",
+   "handle": "Superbank - Public Bug Bounty Program",
+   "name": "Superbank - Public Bug Bounty Program",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 2000
+  },
+  {
+   "platform": "yw",
+   "handle": "TeamViewer - Bounty Program",
+   "name": "TeamViewer - Bounty Program",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 10000
+  },
+  {
+   "platform": "bc",
+   "handle": "Aurory Managed Bug Bounty Engagement (Public)",
+   "name": "Aurory Managed Bug Bounty Engagement (Public)",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 4500
+  },
+  {
+   "platform": "bc",
+   "handle": "KuCoin Managed Bug Bounty Program",
+   "name": "KuCoin Managed Bug Bounty Program",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 15000
+  },
+  {
+   "platform": "bc",
+   "handle": "Magic Apps Marketplace Bug Bounty",
+   "name": "Magic Apps Marketplace Bug Bounty",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 1500
+  },
+  {
+   "platform": "bc",
+   "handle": "QuintoAndar Managed Bug Bounty Engagement",
+   "name": "QuintoAndar Managed Bug Bounty Engagement",
+   "hosts": 1,
+   "bounty": true,
+   "max_bounty": 1000
+  },
+  {
+   "platform": "h1",
+   "handle": "latamairlines",
+   "name": "LATAM Airlines",
+   "hosts": 1,
+   "bounty": false,
+   "max_bounty": 0
+  },
+  {
+   "platform": "h1",
+   "handle": "mtn_group",
+   "name": "MTN Group",
+   "hosts": 1,
+   "bounty": false,
+   "max_bounty": 0
+  }
+ ]
+}

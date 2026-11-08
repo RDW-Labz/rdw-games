@@ -1,0 +1,1 @@
+SELECT table_name, string_agg(column_name||':'||data_type, ', ' ORDER BY ordinal_position) cols FROM information_schema.columns WHERE table_schema='public' AND table_name IN ('app_feedback','refund_claims','operator_audit_log','operator_policies','refund_jobs','loyalty_ledger','referrals','auctions','warehouses') GROUP BY table_name

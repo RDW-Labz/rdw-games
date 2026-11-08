@@ -1,0 +1,8 @@
+// ---- DOM floaters: damage numbers, plates, log lines, banner ---------------------------------------------------------------------------------------------
+const FLT_POOL = [], PLATES = [], _pp = { x: 0, y: 0 }; let fltNext = 0;
+(() => { const fl = $('rpgFloat'), pl = $('rpgPlates'); for (let i = 0; i < 26; i++) { const d = document.createElement('div'); d.className = 'flt'; fl.appendChild(d); FLT_POOL.push(d); d.addEventListener('animationend', () => d.classList.remove('go')); } for (let i = 0; i < 16; i++) { const d = document.createElement('div'); d.className = 'plate'; pl.appendChild(d); PLATES.push({ d, key: '', on: false }); } })();
+let fltFrame = 0, fltCount = 0;
+function floatText(x, y, z, txt, cls = '') { if (G.state !== 'play' || VR.presenting) return; if (fltFrame !== frameCount) { fltFrame = frameCount; fltCount = 0; } if (++fltCount > 9 && cls !== 'crit' && cls !== 'hurt') return; /* cap DOM churn in big AoE frames */ if (!rpgProject(x, y, z, _pp)) return; const d = FLT_POOL[fltNext++ % FLT_POOL.length]; d.className = 'flt ' + cls; d.textContent = txt; d.style.setProperty('--x', (_pp.x + (Math.random() - 0.5) * 26) + 'px'); d.style.setProperty('--y', _pp.y + 'px'); void d.offsetWidth; d.classList.add('go'); }
+function rpgLogLine(txt, col) { const el = document.createElement('div'); el.textContent = txt; if (col) { el.style.color = col; el.style.borderColor = col; } const lg = $('rpgLog'); lg.appendChild(el); while (lg.childElementCount > 6) lg.firstChild.remove(); setTimeout(() => el.remove(), 4300); }
+function rpgBanner(h, p, leg) { const b = $('rpgBanner'); $('rpgBanH').textContent = h; $('rpgBanP').textContent = p || ''; b.classList.toggle('leg', !!leg); b.classList.remove('on'); void b.offsetWidth; b.classList.add('on'); }
+

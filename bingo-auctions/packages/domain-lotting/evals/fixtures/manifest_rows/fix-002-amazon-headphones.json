@@ -1,0 +1,23 @@
+{
+  "id": "manifest-002",
+  "source": "amazon",
+  "raw": {
+    "description": "Sony WH-1000XM4 Wireless Premium Noise Canceling Overhead Headphones with Mic for Phone-Call and Alexa Voice Control, Black",
+    "retailer_category": "gl_wireless",
+    "upc": "027242920057",
+    "model_number": "WH-1000XM4",
+    "quantity": 1,
+    "retail_price": 348.0
+  },
+  "expected": {
+    "title": "Sony WH-1000XM4 Wireless Noise Cancelling Over-Ear Headphones (Black)",
+    "brand": "Sony",
+    "model": "WH-1000XM4",
+    "category_slug": "audio",
+    "category_legacy": "Electronics",
+    "condition": "New/Open Box",
+    "msrp_cents": 34800,
+    "expected_confidence": "high"
+  },
+  "notes": "Amazon Returns row using GLDesc gl_wireless. Verbose marketing copy — exercises title-shortening + brand/model extraction."
+}

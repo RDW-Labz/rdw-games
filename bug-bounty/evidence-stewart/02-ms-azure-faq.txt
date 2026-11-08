@@ -1,0 +1,10 @@
+Microsoft Azure — Traffic Manager FAQ
+https://learn.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs
+
+  "When you delete a Traffic Manager profile, the associated domain name is reserved for a
+  period of time. Other Traffic Manager profiles in the same tenant can immediately reuse the
+  name. However, a different Azure tenant isn't able to use the same profile name until the
+  reservation expires."
+  "It's highly recommended that you have such a fallback endpoint in your profile since Traffic
+  Manager returns an NXDOMAIN response if a request comes in and it isn't mapped to any
+  endpoints or if it's mapped to an endpoint but that endpoint is unhealthy."

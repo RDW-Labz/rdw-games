@@ -1,0 +1,4436 @@
+/* BinGo Auctions — brand identity matched to the company logo.
+ * Deep NAVY ground, white text, a vivid ORANGE for action (the logo's
+ * up-right "growth" arrow → CTAs, links-of-action, live markers) and bright
+ * CYAN as the secondary accent (the logo's "AUCTIONS" wordmark → links,
+ * highlights, info). Motif = forward arrow / motion lines, not a dot.
+ *
+ * Type system (self-hosted via next/font, vars set on <html> in layout.tsx):
+ *   --font-display  Plus Jakarta Sans  headings + wordmark (modern geometric)
+ *   --font-body     Inter              crisp neutral body
+ *   --font-mono     Space Mono         lot codes, $ prices, countdown timers
+ */
+:root {
+  --bg: #15233a;            /* deep navy ground (the logo field) */
+  --bg-elev: #1c2e49;       /* raised surface / cards / nav */
+  --bg-elev-2: #18283f;     /* nested raised surface */
+  --surface-2: #243a5c;     /* subtle raised navy */
+  --ink-2: #f4f7fb;         /* headings — near-white on navy */
+  --fg: #e9eff7;            /* body text — near-white */
+  --fg-muted: #9fb1c8;      /* secondary text (blue-gray) */
+  --fg-dim: #6f829c;        /* tertiary text / labels */
+
+  --accent: #f6911e;        /* ORANGE — action, CTAs, the arrow, "live" */
+  --accent-hi: #ffa53a;     /* hover */
+  --accent-dim: rgba(246, 145, 30, 0.15);
+
+  --cyan: #2ba9cb;          /* CYAN — secondary accent, links, highlights */
+  --cyan-hi: #45c2e2;       /* hover */
+  --cyan-dim: rgba(43, 169, 203, 0.16);
+
+  /* Back-compat: some components reference --gold for the celebratory/secondary
+   * accent. Point it at cyan so the brand stays consistent. */
+  --gold: #2ba9cb;
+  --gold-hi: #45c2e2;
+  --gold-dim: rgba(43, 169, 203, 0.16);
+
+  --winning: #f0b429;       /* amber — you're the high bidder */
+  --warn-yellow: #f0b429;
+  --warn-yellow-dim: rgba(240, 180, 41, 0.18);
+  --border: #2b3f5e;        /* subtle navy hairline */
+  --danger: #ff5a5f;        /* red — pops on navy */
+  --urgent-red: #ff5a5f;
+  --urgent-red-dim: rgba(255, 90, 95, 0.16);
+  --success: #2ecc71;
+  --success-dim: rgba(46, 204, 113, 0.14);
+  /* --warning is a semantic alias of --winning (amber): "waiting on someone".
+     Declared because invoices/page.tsx + disputes/page.tsx referenced
+     --warning / --warning-dim / --success-dim before they existed, so those
+     status pills rendered UNSTYLED in production (Operator Console handoff
+     Wave 0, 2026-07-13). */
+  --warning: #f0b429;
+  --warning-dim: rgba(240, 180, 41, 0.16);
+
+  /* Shape scale — confident, lightly rounded (not toy-pill). */
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+}
+
+/* Pulse animation for closing-soon countdowns (<2 min). */
+@keyframes urgent-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+.urgent-pulse {
+  animation: urgent-pulse 1.2s ease-in-out infinite;
+}
+
+/* Horizontal scroll rail with snap-to-card (homepage "Ending soon"). */
+.hsnap {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  gap: 12px;
+  padding-bottom: 8px;
+}
+.hsnap::-webkit-scrollbar { display: none; }
+.hsnap > * {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family:
+    var(--font-body), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Headings carry the geometric display face. */
+h1, h2, h3, h4, h5,
+.font-display {
+  font-family:
+    var(--font-display), 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
+  letter-spacing: -0.01em;
+  color: var(--ink-2);
+}
+
+/* Monospaced "ticket" numerals — lot codes, prices, countdowns. */
+.mono,
+.font-mono {
+  font-family: var(--font-mono), 'Space Mono', ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+a {
+  color: var(--cyan);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--cyan-hi);
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+/* Primary CTA — orange fill, dark-navy label (the logo's arrow color). */
+.btn-primary {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--accent);
+  color: #15233a;
+  border: none;
+  border-radius: var(--radius);
+  font-family: var(--font-display), 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+  transition: background 120ms ease, transform 120ms ease;
+}
+.btn-primary:hover {
+  background: var(--accent-hi);
+  color: #15233a;
+  transform: translateY(-1px);
+}
+
+/* Cyan secondary CTA. */
+.btn-gold {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--cyan);
+  color: #08222c;
+  border: none;
+  border-radius: var(--radius);
+  font-family: var(--font-display), 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 120ms ease, transform 120ms ease;
+}
+.btn-gold:hover {
+  background: var(--cyan-hi);
+  color: #08222c;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  color: var(--fg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  font-family: var(--font-display), 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 120ms ease, color 120ms ease;
+}
+.btn-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Solid dark button, for use ON an accent-tinted surface (the app-promo
+   banner's --accent-dim strip) where an orange .btn-primary would sit orange
+   -on-orange. This is the role the banner's hardcoded #0a0c11 was filling —
+   the color was off-palette and ignored the theme, but the need was real. */
+.btn-dark {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--bg);
+  color: var(--ink-2);
+  border: 1px solid var(--bg);
+  border-radius: var(--radius);
+  font-family: var(--font-display), 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 120ms ease, transform 120ms ease;
+}
+.btn-dark:hover {
+  background: var(--bg-elev);
+  color: var(--ink-2);
+  transform: translateY(-1px);
+}
+
+/* ── Button size scale ─────────────────────────────────────────────────────
+   The .btn-* classes above only ever came in one size, so any surface that
+   needed a bigger or smaller button hand-rolled the whole thing inline. That
+   left the public pages with four paddings (0.75rem 1.5rem, 0.9rem 1.95rem,
+   0.45rem 0.85rem, 7px 12px), four radii (10, 8, 6, 50%), and a hardcoded
+   off-palette #0a0c11 fill in the app-promo banner.
+
+   These are the only two size modifiers. Compose them with a variant
+   (.btn-primary / .btn-secondary / .btn-gold) instead of re-declaring padding
+   inline. Declared after the variants so the single-class specificity tie
+   resolves in the modifier's favor.
+
+   Radius is the one thing that scales: .btn-sm gets --radius-sm, because a
+   10px radius on a 30px-tall button reads as a pill rather than a button.
+   Both values are existing tokens; neither is a new magic number. */
+.btn-sm {
+  padding: 0.42rem 0.85rem;
+  font-size: 0.8rem;
+  border-radius: var(--radius-sm);
+}
+.btn-lg {
+  padding: 0.9rem 1.9rem;
+  font-size: 1.05rem;
+}
+
+/* Buttons whose label sits next to an icon or emoji. */
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+/* ── Arrow chip: the logo's up-right growth arrow, as a reusable accent ──── */
+.arrow-up {
+  display: inline-block;
+  color: var(--accent);
+  font-weight: 800;
+  transform: translateY(-0.04em);
+}
+
+/* Small orange accent dot (back-compat for existing markers/placeholders). */
+.daub {
+  display: inline-block;
+  width: 0.6em;
+  height: 0.6em;
+  border-radius: 50%;
+  background: var(--accent);
+  vertical-align: middle;
+}
+.daub-lg { width: 1em; height: 1em; }
+.daub-gold { background: var(--cyan); }
+
+/* ── Card grid (lots/categories) ───────────────────────────────────────── */
+.bingo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 14px;
+}
+.bingo-cell {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+}
+.bingo-cell:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+}
+
+/* Pill chip — categories, tags, status. */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: 0.28em 0.7em;
+  border-radius: var(--radius-pill);
+  background: var(--surface-2);
+  color: var(--fg-muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.chip-accent { background: var(--accent-dim); color: var(--accent-hi); }
+.chip-gold { background: var(--cyan-dim); color: var(--cyan-hi); }
+
+/* ── Operator Console shared components (design-system rollout Wave 0) ──────
+   Server-component-safe hover/gradient hooks so the shared primitives in
+   components/console/* need no 'use client'. Tokens only. */
+
+/* DataTable: card wrapper, uppercase-muted header, hairline rows, row hover. */
+.console-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.console-table thead th {
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+.console-table tbody td {
+  padding: 11px 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--fg);
+  vertical-align: middle;
+}
+.console-table tbody tr {
+  transition: background 100ms ease;
+}
+.console-table tbody tr:hover {
+  background: var(--bg-elev-2);
+}
+.console-table-card {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius, 10px);
+  overflow: hidden;
+}
+
+/* KpiCard: lift on hover; clickable variant gets a pointer + accent border. */
+.console-kpi {
+  transition: transform 120ms ease, border-color 120ms ease;
+}
+.console-kpi:hover {
+  transform: translateY(-2px);
+}
+a.console-kpi:hover {
+  border-color: var(--accent);
+}
+
+/* SectionDivider: quiet = flat hairline; urgent = orange gradient rule. */
+.console-rule-urgent {
+  height: 2px;
+  border: 0;
+  background: linear-gradient(90deg, var(--accent), transparent);
+}
+
+/* Live status dot — soft pulse for "live" lifecycle pills. */
+@keyframes consolePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.console-live-dot {
+  animation: consolePulse 1.4s ease-in-out infinite;
+}
+
+
+/* ─── Operator console shell: responsive sidebar ──────────────────────────────
+ * Multi-location audit 2026-07-27: the console had NO responsive layout at all —
+ * a fixed `grid-template-columns: 240px 1fr` with no media query and no
+ * hamburger. On a 375px iPhone the 240px sidebar consumed two-thirds of the
+ * screen and crushed content to ~135px, which is why staff reported "there is no
+ * way to switch warehouse on iPhone": the filter bar was off-screen, not absent.
+ *
+ * CSS-only drawer (hidden checkbox + label) rather than a client component, so
+ * the layout stays a server component and the nav still works with JS disabled.
+ */
+.op-shell {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: 100vh;
+}
+.op-nav-toggle,           /* the checkbox itself is never visible */
+.op-nav-button {          /* the hamburger is desktop-hidden      */
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .op-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .op-nav-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    padding: 0.75rem 1rem;
+    background: var(--bg-elev);
+    border-bottom: 1px solid var(--border);
+    color: var(--fg);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    /* Comfortable thumb target — on mobile this is the ONLY way into the nav. */
+    min-height: 44px;
+  }
+
+  .op-sidebar {
+    display: none;
+    border-right: 0 !important;
+    border-bottom: 1px solid var(--border);
+  }
+  /* The checkbox precedes the sidebar in the DOM, so a sibling selector opens it. */
+  .op-nav-toggle:checked ~ .op-sidebar {
+    display: block;
+  }
+}
+
+/* ─── Console v2 · Floor Ledger design tokens (Stage B) ─────────────────────
+ * G · Nightshift values · Scoped to [data-console-v2] only. Never .op-shell.
+ */
+[data-console-v2] {
+  /* Surfaces (page → rail → section → card) */
+  --console-bg: #0b1020;
+  --console-surface: #151d33;
+  --console-surface-raised: #1f2a45;
+  --console-surface-hover: #283553;
+  --console-surface-glass: #18213a;
+  --console-surface-rail: #151d33;
+  --console-bright: #283553;
+
+  /* Text */
+  --console-ink: #e6e0ee;
+  /* Helper grey: lifted one step (#b8c1d6 → #c8d0e1) by the 2026-10-13 type
+     scale; worst text ratio 7.87:1 on --console-surface-hover. */
+  --console-ink-secondary: #c8d0e1;
+  --console-ink-dim: #c8d0e1;
+  --console-ink-muted: #c8d0e1;
+
+  /* Structure */
+  --console-border: #3c4c6e;
+  --console-border-strong: #94a3c0;
+  --console-line: #3c4c6e;
+  --console-edge: #94a3c0;
+  --console-shadow-ink: #04060d;
+
+  /* Primary lime */
+  --console-action: #c8fa7a;
+  --console-action-hover: #e1ffb7;
+  --console-action-active: #c8fa7a;
+  --console-on-action: #202b14;
+  --console-action-bg: #39432b;
+  --console-gradient-primary: linear-gradient(110deg, #e1ffb7 0%, #c8fa7a 100%);
+  --console-glow: 0 0 0 1px #c8fa7a26, 0 0 10px #c8fa7a1a, 0 3px 8px #04060d40;
+  --console-focus-on-lime: #202b14;
+
+  /* Links / accents */
+  --console-link: #c9d6f4;
+  --console-link-hover: #e6e0ee;
+  --console-info-bg: #263f40;
+  --console-violet-fg: #c9d6f4;
+  --console-violet-bg: #1f2a45;
+
+  /* Semantic fills */
+  --console-warning: #f4d7a9;
+  --console-warning-bg: #483829;
+  --console-danger: #ffd0dc;
+  --console-danger-bg: #4b2833;
+  --console-success: #b3e9c5;
+  --console-success-bg: #293f37;
+  --console-neutral: #d3d8e2;
+  --console-neutral-bg: #283246;
+
+  /* Stage hues */
+  --console-stage-intake-fg: #83dace;
+  --console-stage-intake-text: #b2ece5;
+  --console-stage-intake-bg: #263f40;
+  --console-stage-intake-glow: 0 0 12px #83dace26;
+  --console-stage-lotting-fg: #edbf79;
+  --console-stage-lotting-text: #f4d7a9;
+  --console-stage-lotting-bg: #483829;
+  --console-stage-lotting-glow: 0 0 12px #edbf7926;
+  --console-stage-auction-fg: #f29c98;
+  --console-stage-auction-text: #ffc4bc;
+  --console-stage-auction-bg: #4b303b;
+  --console-stage-auction-glow: 0 0 12px #f29c9826;
+  --console-stage-paid-fg: #87d7a4;
+  --console-stage-paid-text: #b3e9c5;
+  --console-stage-paid-bg: #293f37;
+  --console-stage-paid-glow: 0 0 12px #87d7a426;
+  --console-stage-pickup-fg: #c8fa7a;
+  --console-stage-pickup-text: #d6f5ae;
+  --console-stage-pickup-bg: #39432b;
+  --console-stage-pickup-glow: var(--console-glow);
+
+  /* Status-by-meaning */
+  --console-status-inventory-fg: var(--console-stage-intake-text);
+  --console-status-inventory-bg: var(--console-stage-intake-bg);
+  --console-status-scheduled-fg: #d3d8e2; /* neutral grey (Braden 10-13: no lavender) */
+  --console-status-scheduled-bg: #26304a;
+  --console-status-live-fg: var(--console-stage-auction-text);
+  --console-status-live-bg: var(--console-stage-auction-bg);
+  --console-status-sold-fg: #d3d8e2; /* neutral grey (Braden 10-13: no orchid) */
+  --console-status-sold-bg: #26304a;
+  --console-status-paid-fg: #b3e9c5;
+  --console-status-paid-bg: #293f37;
+  --console-status-checked-in-fg: #b2ece5;
+  --console-status-checked-in-bg: #263f40;
+  --console-status-unpaid-fg: #f4d7a9;
+  --console-status-unpaid-bg: #483829;
+  --console-status-refunded-fg: #d7d7dc;
+  --console-status-refunded-bg: #414147;
+  --console-status-handed-fg: #c5dfe6;
+  --console-status-handed-bg: #32464d;
+  --console-status-missing-fg: #f2c4ae;
+  --console-status-missing-bg: #513a32;
+  --console-status-disposed-fg: #d3d8e2;
+  --console-status-disposed-bg: #283246;
+
+  /* Code chip */
+  --console-code-bg: #111a2e;
+  --console-code-border: #94a3c0;
+
+  /* Gradients & elevation */
+  --console-gradient-frame: linear-gradient(135deg, #0b1020 0%, #101729 100%);
+  --console-gradient-floor: linear-gradient(180deg, #1a2440 0%, #151d33 100%);
+  --console-gradient-section: linear-gradient(125deg, #1a2440 0%, #151d33 100%);
+  --console-gradient-band: linear-gradient(110deg, #1a2440 0%, #151d33 100%);
+  --console-gradient-active: linear-gradient(100deg, #2a3858 0%, #1f2a45 100%);
+  --console-gradient-card-top: radial-gradient(ellipse 90% 70% at 8% 0%, #26314f 0%, transparent 52%);
+  --console-shadow-card: 0 8px 24px #04060d40, 0 2px 6px #04060d33;
+  --console-shadow-float: 0 20px 48px #04060d66, 0 4px 12px #04060d4d;
+  --console-shadow-hover: 0 4px 12px #04060d4d;
+  --console-elevation-flat: none;
+  --console-elevation-popover: var(--console-shadow-float);
+  --console-elevation-dialog: var(--console-shadow-float);
+
+  /* Focus & scrim */
+  --console-focus: #e6e0ee;
+  --console-scrim: #04060dc2;
+  --console-focus-width: 3px;
+  --console-focus-offset: 3px;
+  --console-focus-separator: 2px;
+
+  /* Typography */
+  --console-display: var(--font-v2-display), Arial, sans-serif;
+  --console-body: var(--font-v2-body), Arial, sans-serif;
+  --console-font-display: var(--console-display);
+  --console-font-body: var(--console-body);
+  --console-font-mono: var(--console-body);
+  --console-text-xs: 0.8125rem;
+  /* 2026-10-13 type scale: helper/secondary text is 15px, same as body. */
+  --console-text-sm: 0.9375rem;
+  --console-text-base: 0.9375rem;
+  --console-text-section: 1.125rem;
+  --console-text-title: 2rem;
+  --console-text-display: 2.5rem;
+  --console-text-code-lg: 2.5rem;
+  --console-text-code-sm: 0.9375rem;
+  /* 2026-10-13 type scale (Braden, Pickups v2 legibility). */
+  --console-text-name: 1.125rem;
+  --console-weight-name: 600;
+  --console-text-section-title: 1.375rem;
+  --console-text-nav: 0.9375rem;
+  --console-text-nav-header: 0.8125rem;
+  --console-text-helper: 0.9375rem;
+  --console-text-button: 0.9375rem;
+  --console-text-code-chip: 0.9375rem;
+  --console-text-code-bin: 0.75rem;
+  --console-leading-tight: 1.2;
+  --console-leading-control: 1.33;
+  --console-leading-body: 1.47;
+  --console-weight-body: 400;
+  --console-weight-label: 700;
+  --console-weight-strong: 700;
+  --console-tracking-label: 0.08em;
+
+  /* Spacing */
+  --console-space-0: 0;
+  --console-space-1: 4px;
+  --console-space-2: 8px;
+  --console-space-3: 12px;
+  --console-space-4: 16px;
+  --console-space-5: 20px;
+  --console-space-6: 24px;
+  --console-space-8: 32px;
+  --console-space-10: 40px;
+  --console-space-12: 48px;
+
+  /* Radii */
+  --console-radius-none: 0;
+  --console-radius-control: 12px;
+  --console-radius-panel: 16px;
+  --console-radius-frame: 24px;
+  --console-radius-pill: 999px;
+
+  /* Layers */
+  --console-z-base: 0;
+  --console-z-sticky: 10;
+  --console-z-nav: 20;
+  --console-z-popover: 30;
+  --console-z-scrim: 40;
+  --console-z-dialog: 50;
+  --console-z-toast: 60;
+  --console-z-lightbox: 70;
+
+  /* Motion */
+  --console-duration-instant: 0ms;
+  --console-duration-fast: 150ms;
+  --console-duration-base: 200ms;
+  --console-duration-slow: 300ms;
+  --console-duration-pulse: 600ms;
+  --console-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --console-ease-spring: cubic-bezier(0.34, 1.3, 0.64, 1);
+  --console-ease-standard: var(--console-ease-out);
+  --console-ease-enter: var(--console-ease-out);
+  --console-ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  --console-stagger: 40ms;
+  /* Stagger cap: index 0–11 step 40ms apart; item 13 onward adds no delay.
+     Mirrors MOTION_STAGGER_CAP in components/console-v2/motion.ts. */
+  --console-stagger-max-index: 11;
+  /* Per-item order, set inline by components/console-v2/motion.ts. */
+  --console-row-index: 0;
+  --console-reveal-index: 0;
+  --console-enter-distance: 8px;
+  --console-lift-distance: 2px;
+  --console-press-scale: 0.97;
+
+  /* Layout */
+  --console-nav-width: 280px;
+  --console-page-gutter: 24px;
+  --console-grid-gap: 16px;
+  --console-control-min: 44px;
+  --console-row-min: 64px;
+  --console-border-width: 1px;
+  --console-signature-width: 3px;
+  --console-sticky-offset: 0px;
+
+  font-family: var(--console-font-body);
+  font-size: var(--console-text-base);
+  line-height: var(--console-leading-body);
+  color-scheme: dark;
+}
+
+[data-console-v2] h1,
+[data-console-v2] h2,
+[data-console-v2] h3,
+[data-console-v2] .console-v2-display {
+  font-family: var(--console-font-display);
+}
+
+[data-console-v2] .console-v2-code {
+  font-family: var(--console-body);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums lining-nums slashed-zero;
+}
+
+[data-console-v2] .console-v2-pressable {
+  transition:
+    transform var(--console-duration-fast) var(--console-ease-spring),
+    background var(--console-duration-fast) var(--console-ease-out),
+    border-color var(--console-duration-fast) var(--console-ease-out);
+}
+
+[data-console-v2] .console-v2-pressable:active:not(:disabled):not([aria-disabled='true']),
+[data-console-v2] .console-v2-pressable[data-state='active']:not(:disabled):not([aria-disabled='true']) {
+  transform: scale(var(--console-press-scale));
+}
+
+[data-console-v2] .console-v2-btn {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--console-space-2);
+  min-height: var(--console-control-min);
+  padding: 10px 20px;
+  border-radius: var(--console-radius-pill);
+  font-family: var(--console-font-body);
+  font-weight: var(--console-weight-strong);
+  font-size: var(--console-text-base);
+  line-height: 1.25;
+  cursor: pointer;
+  border: var(--console-border-width) solid transparent;
+  text-decoration: none;
+}
+
+[data-console-v2] .console-v2-btn:disabled,
+[data-console-v2] .console-v2-btn[aria-disabled='true'] {
+  cursor: not-allowed;
+  color: var(--console-ink-secondary);
+  background: var(--console-surface-raised);
+  border-color: var(--console-border);
+}
+
+[data-console-v2] .console-v2-btn--primary-lime {
+  background: var(--console-gradient-primary);
+  color: var(--console-on-action);
+  border: 0;
+  position: relative;
+}
+
+[data-console-v2] .console-v2-btn--primary-lime::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: var(--console-radius-pill);
+  box-shadow: var(--console-glow);
+  opacity: 0.65;
+  z-index: -1;
+  pointer-events: none;
+  transition: opacity var(--console-duration-base) var(--console-ease-spring);
+}
+
+[data-console-v2] .console-v2-btn--primary-lime:hover::before,
+[data-console-v2] .console-v2-btn--primary-lime[data-state='hover']::before,
+[data-console-v2] .console-v2-btn--primary-lime:focus-visible::before,
+[data-console-v2] .console-v2-btn--primary-lime[data-state='focus']::before {
+  opacity: 1;
+}
+
+[data-console-v2] .console-v2-btn--primary-lime:focus-visible,
+[data-console-v2] .console-v2-btn--primary-lime[data-state='focus'] {
+  outline: var(--console-focus-width) solid var(--console-focus);
+  outline-offset: var(--console-focus-offset);
+  box-shadow: inset 0 0 0 var(--console-focus-separator) var(--console-focus-on-lime);
+}
+
+[data-console-v2] .console-v2-btn--secondary {
+  background: var(--console-surface-raised);
+  color: var(--console-ink);
+  border-color: var(--console-border-strong);
+}
+
+[data-console-v2] .console-v2-btn--secondary:hover,
+[data-console-v2] .console-v2-btn--secondary[data-state='hover'] {
+  background: var(--console-surface-hover);
+}
+
+[data-console-v2] .console-v2-btn[aria-pressed='true'] {
+  border-color: var(--console-action);
+  color: var(--console-action);
+}
+
+[data-console-v2] .console-v2-btn--ghost {
+  background: transparent;
+  color: var(--console-ink);
+  border-color: transparent;
+}
+
+[data-console-v2] .console-v2-btn--ghost:hover,
+[data-console-v2] .console-v2-btn--ghost[data-state='hover'] {
+  background: var(--console-surface-raised);
+}
+
+[data-console-v2] .console-v2-btn--danger:hover,
+[data-console-v2] .console-v2-btn--danger[data-state='hover'] {
+  filter: brightness(1.08);
+}
+
+[data-console-v2] .console-v2-btn--danger {
+  background: var(--console-danger-bg);
+  color: var(--console-danger);
+  border-color: var(--console-danger);
+}
+
+/* ── v2 button skin START ──
+   v2 Button language on the v1 action components that v2 pages embed
+   unchanged (pickups: PickupActions, MissingItemsQueue, CustomerSearch,
+   SessionsToggle, FilterSelect; lot detail: RelistButton,
+   RemoveFromInventoryButton, KeepForBusinessButton, CancelLotButton,
+   DeleteLotButton). CSS only: handlers, confirm() steps, disabled logic and
+   markup are the v1 components' own. Selectors reach the v1 markup through
+   the host wrappers the v2 pages already put around it (.console-v2-pickups-*
+   hosts, .console-v2-lot-action-body[data-action]).
+
+   Roles: each host's button defaults to SECONDARY (card fill, edge border).
+   PRIMARY (lime) is the one row/region commit: Mark complete or Close pickup
+   (refunded) per pickup row, View invoice per search result, Relist in the
+   lot decisions. DANGER (coral outline): Forfeit, Remove from inventory /
+   Remove permanently, Cancel lot, Delete.
+
+   !important: the v1 components paint with inline style objects
+   (Form.tsx buttonStyle / secondaryButtonStyle / inputStyle and local
+   objects). Only !important beats an inline declaration, so it is used on
+   exactly the properties those objects set: padding, background, color,
+   border, border-radius, font-size, font-weight, opacity, cursor,
+   text-decoration. Nothing
+   else in this block uses it. Role colours travel as custom properties so
+   the role rules themselves need no !important. */
+
+/* (a) Re-point v1 variables inside the v2 roots so v1 text that reads them
+   (muted help, errors, borders, the orange --accent) lands on v2 tokens. */
+[data-console-v2].console-v2-lot-detail,
+[data-console-v2] .console-v2-lot-detail,
+[data-console-v2].console-v2-pickups,
+[data-console-v2] .console-v2-pickups {
+  --fg: var(--console-ink);
+  --fg-muted: var(--console-ink-secondary);
+  --fg-dim: var(--console-ink-dim);
+  --danger: var(--console-danger);
+  --success: var(--console-success);
+  --warning: var(--console-warning);
+  --border: var(--console-border-strong);
+  --bg-elev: var(--console-bg);
+  --accent: var(--console-link);
+}
+
+/* Pickup pass ON/OFF reads --accent / --fg-dim: ON is a positive state. */
+[data-console-v2] .console-v2-pickups-pass-row {
+  --accent: var(--console-success);
+}
+
+/* (b) Buttons: shared v2 shape + secondary defaults. */
+[data-console-v2] .console-v2-pickups-actions-host button,
+[data-console-v2] .console-v2-pickups-missing-host button,
+[data-console-v2] .console-v2-pickups-pass-row button,
+[data-console-v2] .console-v2-pickups-customer-search li > a,
+[data-console-v2] .console-v2-lot-action-body button {
+  --console-v2-skin-bg: var(--console-surface-raised);
+  --console-v2-skin-bg-hover: var(--console-surface-hover);
+  --console-v2-skin-ink: var(--console-ink);
+  --console-v2-skin-edge: var(--console-border-strong);
+  --console-v2-skin-glow: none;
+  --console-v2-skin-focus-shadow: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--console-space-2);
+  box-sizing: border-box;
+  min-height: var(--console-control-min);
+  min-width: var(--console-control-min);
+  padding: 6px 16px !important;
+  border-radius: var(--console-radius-pill) !important;
+  border: var(--console-border-width) solid var(--console-v2-skin-edge) !important;
+  background: var(--console-v2-skin-bg) !important;
+  color: var(--console-v2-skin-ink) !important;
+  box-shadow: var(--console-v2-skin-glow);
+  font-family: var(--console-font-body);
+  font-size: var(--console-text-sm) !important;
+  font-weight: var(--console-weight-strong) !important;
+  line-height: 1.25;
+  white-space: nowrap;
+  text-decoration: none;
+  opacity: 1 !important;
+  cursor: pointer !important;
+  transition:
+    transform var(--console-duration-fast) var(--console-ease-spring),
+    background var(--console-duration-fast) var(--console-ease-out),
+    box-shadow var(--console-duration-fast) var(--console-ease-out);
+}
+
+/* Primary (lime) — one per row / region. */
+[data-console-v2] .console-v2-pickups-actions-host > div > div > button:first-child,
+[data-console-v2] .console-v2-pickups-actions-host > div > button:first-child,
+[data-console-v2] .console-v2-pickups-customer-search li > a,
+[data-console-v2] .console-v2-lot-action-body[data-action='relist'] button {
+  --console-v2-skin-bg: var(--console-gradient-primary);
+  --console-v2-skin-bg-hover: var(--console-gradient-primary);
+  --console-v2-skin-ink: var(--console-on-action);
+  --console-v2-skin-edge: transparent;
+  --console-v2-skin-glow: var(--console-glow);
+  --console-v2-skin-focus-shadow: inset 0 0 0 var(--console-focus-separator) var(--console-focus-on-lime), var(--console-glow);
+}
+
+/* Danger (coral outline). */
+[data-console-v2] .console-v2-pickups-actions-host > div > div > button:nth-child(3),
+[data-console-v2] .console-v2-lot-action-body[data-action='remove'] > button,
+[data-console-v2] .console-v2-lot-action-body[data-action='remove'] > div > div:last-child > button:first-child,
+[data-console-v2] .console-v2-lot-action-body[data-action='cancel'] button,
+[data-console-v2] .console-v2-lot-action-body[data-action='delete'] button {
+  --console-v2-skin-bg: transparent;
+  --console-v2-skin-bg-hover: var(--console-stage-auction-bg);
+  --console-v2-skin-ink: var(--console-stage-auction-text);
+  --console-v2-skin-edge: var(--console-stage-auction-fg);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  [data-console-v2] .console-v2-pickups-actions-host button:hover:not(:disabled),
+  [data-console-v2] .console-v2-pickups-missing-host button:hover:not(:disabled),
+  [data-console-v2] .console-v2-pickups-pass-row button:hover:not(:disabled),
+  [data-console-v2] .console-v2-pickups-customer-search li > a:hover,
+  [data-console-v2] .console-v2-lot-action-body button:hover:not(:disabled) {
+    background: var(--console-v2-skin-bg-hover) !important;
+    filter: brightness(1.04);
+  }
+}
+
+[data-console-v2] .console-v2-pickups-actions-host button:focus-visible,
+[data-console-v2] .console-v2-pickups-missing-host button:focus-visible,
+[data-console-v2] .console-v2-pickups-pass-row button:focus-visible,
+[data-console-v2] .console-v2-pickups-customer-search li > a:focus-visible,
+[data-console-v2] .console-v2-lot-action-body button:focus-visible {
+  outline: var(--console-focus-width) solid var(--console-focus);
+  outline-offset: var(--console-focus-offset);
+  box-shadow: var(--console-v2-skin-focus-shadow);
+}
+
+/* Disabled / busy: card fill, secondary ink, edge border, no glow, full
+   opacity (G-SPEC §4) — never lime. Beats the role colours and the v1
+   inline opacity:0.5. */
+[data-console-v2] .console-v2-pickups-actions-host button:disabled,
+[data-console-v2] .console-v2-pickups-missing-host button:disabled,
+[data-console-v2] .console-v2-pickups-pass-row button:disabled,
+[data-console-v2] .console-v2-lot-action-body button:disabled {
+  background: var(--console-surface-raised) !important;
+  color: var(--console-ink-secondary) !important;
+  border: var(--console-border-width) solid var(--console-border) !important;
+  box-shadow: none;
+  filter: none;
+  cursor: not-allowed !important;
+}
+
+/* Press feedback (motion token scale .97); none under reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-console-v2] .console-v2-pickups-actions-host button:active:not(:disabled),
+  [data-console-v2] .console-v2-pickups-missing-host button:active:not(:disabled),
+  [data-console-v2] .console-v2-pickups-pass-row button:active:not(:disabled),
+  [data-console-v2] .console-v2-pickups-customer-search li > a:active,
+  [data-console-v2] .console-v2-lot-action-body button:active:not(:disabled) {
+    transform: scale(0.97);
+  }
+}
+
+/* Links: v2 link style, 44px target. "Not paid — Mark paid (offline)
+   first →" keeps its danger ink (re-pointed --danger) because the colour
+   carries the warning; "Refund on invoice →" reads re-pointed --accent. */
+[data-console-v2] .console-v2-pickups-actions-host > div > a,
+[data-console-v2] .console-v2-pickups-missing-host a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--console-control-min);
+  font-size: var(--console-text-sm) !important;
+  font-weight: var(--console-weight-strong);
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+  border-radius: var(--console-radius-control);
+  transition: transform var(--console-duration-fast) var(--console-ease-spring);
+}
+
+[data-console-v2] .console-v2-pickups-missing-host a:hover {
+  color: var(--console-link-hover) !important;
+}
+
+[data-console-v2] .console-v2-pickups-actions-host > div > a:focus-visible,
+[data-console-v2] .console-v2-pickups-missing-host a:focus-visible {
+  outline: var(--console-focus-width) solid var(--console-focus);
+  outline-offset: var(--console-focus-offset);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-console-v2] .console-v2-pickups-actions-host > div > a:active,
+  [data-console-v2] .console-v2-pickups-missing-host a:active {
+    transform: scale(0.97);
+  }
+}
+
+/* Fields: deep surface fill, edge border, 12px radius, 44px, lime 3px focus
+   ring (as briefed for this item). */
+[data-console-v2] .console-v2-pickups-warehouse-form > select,
+[data-console-v2] .console-v2-pickups-customer-search input[type='search'],
+[data-console-v2] .console-v2-lot-action-body select,
+[data-console-v2] .console-v2-lot-action-body input:not([type='radio']):not([type='checkbox']) {
+  box-sizing: border-box;
+  min-height: var(--console-control-min);
+  padding: 10px 14px !important;
+  background: var(--console-bg) !important;
+  color: var(--console-ink) !important;
+  border: var(--console-border-width) solid var(--console-border-strong) !important;
+  border-radius: var(--console-radius-control) !important;
+  font-family: var(--console-font-body);
+  font-size: var(--console-text-base) !important;
+  line-height: var(--console-leading-control);
+}
+
+[data-console-v2] .console-v2-pickups-customer-search input[type='search']::placeholder,
+[data-console-v2] .console-v2-lot-action-body input:not([type='radio']):not([type='checkbox'])::placeholder {
+  color: var(--console-ink-secondary);
+  opacity: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  [data-console-v2] .console-v2-pickups-warehouse-form > select:hover,
+  [data-console-v2] .console-v2-pickups-customer-search input[type='search']:hover,
+  [data-console-v2] .console-v2-lot-action-body select:hover,
+  [data-console-v2] .console-v2-lot-action-body input:not([type='radio']):not([type='checkbox']):hover {
+    border-color: var(--console-ink) !important;
+  }
+}
+
+[data-console-v2] .console-v2-pickups-warehouse-form > select:focus-visible,
+[data-console-v2] .console-v2-pickups-customer-search input[type='search']:focus-visible,
+[data-console-v2] .console-v2-lot-action-body select:focus-visible,
+[data-console-v2] .console-v2-lot-action-body input:not([type='radio']):not([type='checkbox']):focus-visible {
+  outline: var(--console-focus-width) solid var(--console-action);
+  outline-offset: 2px;
+}
+
+[data-console-v2] .console-v2-lot-action-body input[type='radio'] {
+  accent-color: var(--console-action);
+}
+/* ── v2 button skin END ── */
+
+[data-console-v2] .console-v2-btn--sm {
+  min-height: var(--console-control-min);
+  padding: 6px 14px;
+  font-size: var(--console-text-sm);
+}
+
+[data-console-v2] .console-v2-btn:focus-visible,
+[data-console-v2] .console-v2-btn[data-state='focus'] {
+  outline: var(--console-focus-width) solid var(--console-focus);
+  outline-offset: var(--console-focus-offset);
+}
+
+[data-console-v2] .console-v2-btn__spinner {
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  opacity: 0.85;
+}
+
+[data-console-v2] .console-v2-btn[aria-busy='true'] .console-v2-btn__spinner {
+  animation: console-v2-spin var(--console-duration-base) linear infinite;
+}
+
+[data-console-v2] .console-v2-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--console-space-2);
+  min-height: 28px;
+  padding: 4px 10px;
+  border-radius: var(--console-radius-pill);
+  font-size: var(--console-text-xs);
+  font-weight: var(--console-weight-strong);
+  border: var(--console-border-width) solid var(--console-border);
+  background: var(--console-surface-raised);
+  color: var(--console-ink);
+}
+
+[data-console-v2] .console-v2-chip:hover:not(:disabled),
+[data-console-v2] .console-v2-chip[data-state='hover']:not(:disabled) {
+  background: var(--console-surface-hover);
+}
+
+[data-console-v2] .console-v2-chip:focus-visible,
+[data-console-v2] .console-v2-chip[data-state='focus'] {
+  outline: var(--console-focus-width) solid var(--console-focus);
+  outline-offset: var(--console-focus-offset);
+}
+
+[data-console-v2] .console-v2-chip--selected {
+  box-shadow: inset 0 0 0 3px var(--console-action);
+  background: var(--console-gradient-active);
+}
+
+[data-console-v2] .console-v2-chip__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--console-radius-pill);
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+[data-console-v2] .console-v2-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 28px;
+  padding: 4px 10px;
+  border-radius: var(--console-radius-pill);
+  font-size: var(--console-text-xs);
+  font-weight: var(--console-weight-strong);
+}
+
+[data-console-v2] .console-v2-status-pill::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: var(--console-radius-pill);
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+[data-console-v2] .console-v2-card {
+  background: var(--console-gradient-section);
+  border-radius: var(--console-radius-panel);
+  padding: var(--console-space-5);
+  box-shadow: inset 0 0 0 1px var(--console-line), var(--console-shadow-card);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-console-v2] .console-v2-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--console-gradient-card-top);
+  opacity: 0.42;
+  pointer-events: none;
+  z-index: 0;
+}
+
+[data-console-v2] .console-v2-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+[data-console-v2] .console-v2-section-header {
+  background: var(--console-gradient-band);
+  border-radius: var(--console-radius-panel) var(--console-radius-panel) 0 0;
+  padding: var(--console-space-3) var(--console-space-5);
+  min-height: var(--console-control-min);
+  display: flex;
+  align-items: center;
+}
+
+[data-console-v2] .console-v2-section-header__title {
+  font-family: var(--console-font-display);
+  font-weight: 600;
+  font-size: 1.375rem;
+  line-height: 1.27;
+  margin: 0;
+  color: var(--console-ink);
+}
+
+[data-console-v2] .console-v2-tabs__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--console-space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+[data-console-v2] .console-v2-tabs__tab {
+  min-height: var(--console-control-min);
+  padding: 0 var(--console-space-3);
+  border-radius: var(--console-radius-pill);
+  border: var(--console-border-width) solid transparent;
+  background: transparent;
+  color: var(--console-ink);
+  font-weight: var(--console-weight-strong);
+  cursor: pointer;
+}
+
+[data-console-v2] .console-v2-tabs__tab:hover:not([aria-selected='true']),
+[data-console-v2] .console-v2-tabs__tab[data-state='hover']:not([aria-selected='true']) {
+  background: var(--console-surface-raised);
+}
+
+[data-console-v2] .console-v2-tabs__tab[aria-selected='true'] {
+  background: var(--console-gradient-active);
+  box-shadow: inset 0 0 0 3px var(--console-action);
+}
+
+[data-console-v2] .console-v2-tabs__tab:focus-visible,
+[data-console-v2] .console-v2-tabs__tab[data-state='focus'] {
+  outline: var(--console-focus-width) solid var(--console-focus);
+  outline-offset: var(--console-focus-offset);
+}
+
+[data-console-v2] .console-v2-dense-table tbody tr {
+  transition: background var(--console-duration-base) var(--console-ease-spring);
+}
+
+[data-console-v2] .console-v2-dense-table tbody tr .console-v2-cell-inner {
+  display: block;
+  min-height: 48px;
+  transition: transform var(--console-duration-base) var(--console-ease-spring);
+}
+
+[data-console-v2] .console-v2-dense-table tbody tr:hover .console-v2-cell-inner,
+[data-console-v2] .console-v2-dense-table tbody tr[data-state='hover'] .console-v2-cell-inner {
+  transform: translateY(calc(-1 * var(--console-lift-distance)));
+}
+
+[data-console-v2] .console-v2-dense-table tbody tr[data-state='hover'] {
+  background: var(--console-surface-hover);
+}
+
+[data-console-v2] .console-v2-dense-table thead {
+  background: var(--console-gradient-band);
+}
+
+[data-console-v2] .console-v2-input-fill {
+  background: #171221;
+}
+
+[data-console-v2] .console-v2-field {
+  min-height: var(--console-control-min);
+  font-size: var(--console-text-base);
+  font-family: var(--console-font-body);
+  font-weight: var(--console-weight-strong);
+  line-height: var(--console-leading-control);
+  color: var(--console-ink);
+  border: var(--console-border-width) solid var(--console-border-strong);
+  border-radius: var(--console-radius-control);
+  padding: 10px 14px;
+  transition:
+    border-color var(--console-duration-fast) var(--console-ease-standard),
+    background var(--console-duration-fast) var(--console-ease-standard);
+}
+
+[data-console-v2] .console-v2-field:hover:not(:disabled),
+[data-console-v2] .console-v2-field[data-state='hover']:not(:disabled) {
+  border-color: var(--console-border-strong);
+  background: var(--console-surface-hover);
+}
+
+[data-console-v2] .console-v2-field:focus-visible,
+[data-console-v2] .console-v2-field[data-state='focus'] {
+  outline: var(--console-focus-width) solid var(--console-focus);
+  outline-offset: var(--console-focus-offset);
+}
+
+[data-console-v2] .console-v2-search-input:hover:not(:disabled),
+[data-console-v2] .console-v2-search-input[data-state='hover']:not(:disabled) {
+  background: var(--console-surface-hover);
+}
+
+[data-console-v2] .console-v2-search-input:focus-visible,
+[data-console-v2] .console-v2-search-input[data-state='focus'] {
+  outline: var(--console-focus-width) solid var(--console-focus);
+  outline-offset: var(--console-focus-offset);
+}
+
+[data-console-v2] .console-v2-filter-select:hover:not(:disabled),
+[data-console-v2] .console-v2-filter-select[data-state='hover']:not(:disabled) {
+  background: var(--console-surface-hover);
+}
+
+[data-console-v2] .console-v2-filter-select:focus-visible,
+[data-console-v2] .console-v2-filter-select[data-state='focus'] {
+  outline: var(--console-focus-width) solid var(--console-focus);
+  outline-offset: var(--console-focus-offset);
+}
+
+[data-console-v2] .console-v2-lot-card:hover,
+[data-console-v2] .console-v2-lot-card[data-state='hover'] {
+  border-color: var(--console-border-strong);
+  box-shadow: var(--console-shadow-hover);
+}
+
+[data-console-v2] .console-v2-lot-card:focus-within,
+[data-console-v2] .console-v2-lot-card[data-state='focus'] {
+  outline: var(--console-focus-width) solid var(--console-focus);
+  outline-offset: var(--console-focus-offset);
+}
+
+[data-console-v2] .console-v2-toast-action:hover,
+[data-console-v2] .console-v2-toast-action[data-state='hover'] {
+  background: var(--console-surface-hover);
+  color: var(--console-link-hover);
+}
+
+[data-console-v2] .console-v2-checkbox:focus-visible,
+[data-console-v2] .console-v2-checkbox[data-state='focus'] {
+  outline: var(--console-focus-width) solid var(--console-focus);
+  outline-offset: var(--console-focus-offset);
+}
+
+@keyframes console-v2-row-in {
+  from {
+    opacity: 0.96;
+    translate: 0 var(--console-enter-distance);
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes console-v2-reveal {
+  from {
+    opacity: 0.96;
+    translate: 0 var(--console-enter-distance);
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes console-v2-page-in {
+  from {
+    opacity: 0.96;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes console-v2-pulse {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 1;
+  }
+}
+
+@keyframes console-v2-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── v2 motion START ──
+ * One motion system for every v2 page. Timing comes only from the tokens in
+ * the v2 token block (--console-duration-*, --console-ease-*, --console-stagger,
+ * --console-stagger-max-index). Indices come from components/console-v2/motion.ts.
+ *   page enter  sections reveal 40ms apart   (--console-reveal-index)
+ *   rows        reveal 40ms apart, capped    (--console-row-index; item 13+ adds no delay)
+ *   hover       rows lift 2px + soft shadow  (spring, 200ms; fine pointers only)
+ *   press       interactive buttons/chips/pills scale .97 (spring, 150ms)
+ *   pulse       current/urgent stage card glows once (600ms, stage hue) after it lands
+ * Only opacity and transform-family properties animate. Nothing loops except the
+ * spinner, which runs only while aria-busy. Entry layers use `translate`; hover
+ * and press use `transform`, so they never overwrite each other.
+ */
+
+[data-console-v2].console-v2-motion-page-in,
+[data-console-v2] .console-v2-motion-page-in {
+  animation: console-v2-page-in var(--console-duration-slow) var(--console-ease-standard) backwards;
+}
+
+[data-console-v2] .console-v2-motion-reveal {
+  animation: console-v2-reveal var(--console-duration-slow) var(--console-ease-standard) backwards;
+  animation-delay: calc(
+    min(var(--console-reveal-index, 0), var(--console-stagger-max-index)) * var(--console-stagger)
+  );
+}
+
+[data-console-v2] .console-v2-motion-row-in {
+  animation: console-v2-row-in var(--console-duration-base) var(--console-ease-standard) backwards;
+  animation-delay: calc(
+    min(var(--console-row-index, 0), var(--console-stagger-max-index)) * var(--console-stagger)
+  );
+}
+
+/* Focus inside a moving section or row cancels its entry: it is at its final
+   place the moment someone reaches it. */
+[data-console-v2] .console-v2-motion-reveal:focus-within,
+[data-console-v2] .console-v2-motion-row-in:focus-within {
+  animation: none;
+}
+
+/* Single pulse: starts once the card has landed (its reveal delay + reveal
+   duration), runs 600ms, never repeats. Hue is the card's stage accent from
+   the v2 stage hues block (stage-hue.ts classes); lime on a stage-less card. */
+[data-console-v2] .console-v2-motion-pulse-once {
+  position: relative;
+}
+
+[data-console-v2] .console-v2-motion-pulse-once::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  box-shadow:
+    0 0 0 2px color-mix(in srgb, var(--console-stage-accent-fg, var(--console-action)) 70%, transparent),
+    0 0 24px color-mix(in srgb, var(--console-stage-accent-fg, var(--console-action)) 45%, transparent);
+  pointer-events: none;
+  opacity: 0;
+  animation: console-v2-pulse var(--console-duration-pulse) var(--console-ease-standard) 1 backwards;
+  animation-delay: calc(
+    min(var(--console-reveal-index, 0), var(--console-stagger-max-index)) * var(--console-stagger) +
+      var(--console-duration-slow)
+  );
+}
+
+/* Press: every interactive pill-shaped control, not only .console-v2-pressable. */
+[data-console-v2] a.console-v2-chip,
+[data-console-v2] button.console-v2-chip,
+[data-console-v2] .console-v2-inventory-tab,
+[data-console-v2] .console-v2-pickups-queue-link,
+[data-console-v2] .console-v2-lot-record-link,
+[data-console-v2] .console-v2-pickups-missing-alert {
+  transition: transform var(--console-duration-fast) var(--console-ease-spring);
+}
+
+[data-console-v2] a.console-v2-chip:active,
+[data-console-v2] button.console-v2-chip:active:not(:disabled),
+[data-console-v2] .console-v2-inventory-tab:active,
+[data-console-v2] .console-v2-pickups-queue-link:active,
+[data-console-v2] .console-v2-lot-record-link:active,
+[data-console-v2] .console-v2-pickups-missing-alert:active {
+  transform: scale(var(--console-press-scale));
+}
+
+/* Row hover lift. Table rows lift their cell contents (transform on <tr> paints
+   unevenly); block rows lift themselves. Touch gets no hover movement. */
+[data-console-v2] .console-v2-motion-lift:not(tr),
+[data-console-v2] tr.console-v2-motion-lift > td > * {
+  transition: transform var(--console-duration-base) var(--console-ease-spring);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  [data-console-v2] .console-v2-motion-lift:not(tr):hover {
+    transform: translateY(calc(-1 * var(--console-lift-distance)));
+    box-shadow:
+      inset 0 0 0 1px var(--console-line),
+      var(--console-shadow-hover);
+  }
+
+  [data-console-v2] tr.console-v2-motion-lift:hover > td > * {
+    transform: translateY(calc(-1 * var(--console-lift-distance)));
+  }
+
+  [data-console-v2] tr.console-v2-motion-lift:hover {
+    box-shadow: var(--console-shadow-hover);
+  }
+}
+
+/* ── v2 motion END ── */
+
+/* ── v2 type scale START ──
+   Braden 2026-10-13: words and names were hard to read on Pickups v2. One
+   scale for every v2 page, driven by the type tokens in the v2 token block
+   (--console-text-name / -section-title / -nav / -helper / -button /
+   -code-chip / -code-bin; --console-text-sm is now 15px). This block holds
+   only the selector-level overrides.
+   It sits ahead of the page blocks it overrides (placement rule), so each
+   override repeats its class once for +1 specificity instead of reaching for
+   !important. !important is used only where the target is a v1 inline style
+   or a v2 inline token on LotIdentity. No max-height anywhere: rows grow. */
+
+/* Customer name on pickups rows: 18px, weight 600. */
+[data-console-v2] .console-v2-pickups-row-name.console-v2-pickups-row-name {
+  font-size: var(--console-text-name);
+  font-weight: var(--console-weight-name);
+  line-height: var(--console-leading-tight);
+}
+
+/* Sticker code chips: code 15px, BIN line 12px (LotIdentity inline sizes). */
+[data-console-v2] .console-v2-pickups-owed-chip.console-v2-pickups-owed-chip .console-v2-code {
+  font-size: var(--console-text-code-chip) !important;
+  line-height: var(--console-leading-tight) !important;
+}
+
+[data-console-v2] .console-v2-pickups-owed-chip.console-v2-pickups-owed-chip .console-v2-code + .console-v2-code {
+  font-size: var(--console-text-code-bin) !important;
+}
+
+/* Missing-items queue (v1 markup): its sticker code is a 12px inline span. */
+[data-console-v2] .console-v2-pickups-missing-host > div > div > span:first-child {
+  font-family: var(--console-body) !important;
+  font-size: var(--console-text-code-chip) !important;
+  font-weight: var(--console-weight-strong) !important;
+}
+
+/* Section titles ("At the counter (24)"): 22px. */
+[data-console-v2] .console-v2-section-header__title.console-v2-section-header__title {
+  font-size: var(--console-text-section-title);
+}
+
+/* Sidebar: every nav item 15px; group headers stay 13px uppercase. */
+[data-console-v2] .console-v2-shell__link.console-v2-shell__link {
+  font-size: var(--console-text-nav);
+}
+
+[data-console-v2] .console-v2-shell__group-toggle.console-v2-shell__group-toggle {
+  font-size: var(--console-text-nav-header);
+}
+
+/* Body / helper text: 15px where a rule still used the 13px label size. */
+[data-console-v2] .console-v2-pickups-row-meta.console-v2-pickups-row-meta,
+[data-console-v2] .console-v2-pickups-owed-empty.console-v2-pickups-owed-empty,
+[data-console-v2] .console-v2-pickups-owed-more.console-v2-pickups-owed-more {
+  font-size: var(--console-text-helper);
+}
+
+[data-console-v2] .console-v2-pickups-invoice-link.console-v2-pickups-invoice-link {
+  font-size: var(--console-text-helper);
+  line-height: var(--console-leading-tight);
+}
+
+/* v1 CustomerSearch helper line (inline 13px). */
+[data-console-v2] .console-v2-pickups-customer-search p {
+  font-size: var(--console-text-helper) !important;
+}
+
+/* Buttons: 15px — v2 Button sizes and v1 actions under the button skin. */
+[data-console-v2] .console-v2-btn.console-v2-btn,
+[data-console-v2] .console-v2-pickups-actions-host.console-v2-pickups-actions-host button,
+[data-console-v2] .console-v2-auctions-row-clone button {
+  font-size: var(--console-text-button) !important;
+}
+
+/* Pickups rows with the bigger type: two lines, not three or four.
+   Open rows (Today, Waiting): name + invoice, then pills + meta. A zero-height
+   flex item forces the line break; content still wraps if a line is full. */
+[data-console-v2] .console-v2-pickups-open-row__main.console-v2-pickups-open-row__main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: var(--console-space-3);
+  row-gap: var(--console-space-1);
+}
+
+[data-console-v2] .console-v2-pickups-open-row__main.console-v2-pickups-open-row__main::after {
+  content: '';
+  order: 2;
+  flex-basis: 100%;
+  height: 0;
+}
+
+[data-console-v2] .console-v2-pickups-open-row__main > .console-v2-pickups-row-name {
+  order: 1;
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+[data-console-v2] .console-v2-pickups-open-row__main > .console-v2-pickups-invoice-link {
+  order: 1;
+}
+
+[data-console-v2] .console-v2-pickups-open-row__main > .console-v2-pickups-row-pills,
+[data-console-v2] .console-v2-pickups-open-row__main > .console-v2-pickups-row-meta {
+  order: 3;
+  margin: 0;
+  min-width: 0;
+}
+
+/* Counter rows: name + invoice on top, pills + owed chips under them, the
+   actions centred on the right across both lines. The identity wrapper has
+   no box of its own, so its children join the row grid. Below 901px the
+   page's single-column stack applies unchanged. */
+@media (min-width: 901px) {
+  [data-console-v2] .console-v2-pickups-counter-row.console-v2-pickups-counter-row {
+    grid-template-columns: minmax(150px, max-content) minmax(0, 1fr) auto;
+    grid-template-areas:
+      'name invoice actions'
+      'pills owed actions';
+    column-gap: var(--console-space-3);
+    row-gap: var(--console-space-1);
+    padding-block: var(--console-space-2);
+  }
+
+  [data-console-v2] .console-v2-pickups-counter-row__identity {
+    display: contents;
+  }
+
+  [data-console-v2] .console-v2-pickups-counter-row .console-v2-pickups-row-name {
+    grid-area: name;
+    min-width: 0;
+    align-self: end;
+  }
+
+  [data-console-v2] .console-v2-pickups-counter-row .console-v2-pickups-invoice-link {
+    grid-area: invoice;
+    justify-self: start;
+    align-self: end;
+  }
+
+  [data-console-v2] .console-v2-pickups-counter-row .console-v2-pickups-row-pills {
+    grid-area: pills;
+    margin-top: 0;
+    align-self: start;
+  }
+
+  [data-console-v2] .console-v2-pickups-counter-row__owed {
+    grid-area: owed;
+    min-width: 0;
+    align-self: start;
+  }
+
+  [data-console-v2] .console-v2-pickups-actions-host--counter {
+    grid-area: actions;
+  }
+}
+
+/* Waiting rows with the unpaid guard: the three actions on one line and the
+   v1 "Not paid — Mark paid (offline) first" link under them, instead of all
+   four in a row that pushes the actions onto a line of their own. */
+[data-console-v2] .console-v2-pickups-actions-host--waiting.console-v2-pickups-actions-host--waiting > div {
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  gap: var(--console-space-1) !important;
+}
+
+[data-console-v2] .console-v2-pickups-waiting-unpaid.console-v2-pickups-waiting-unpaid {
+  padding-block: var(--console-space-2);
+}
+
+/* Auctions list: the 15px dates no longer squeeze the title line (title,
+   status pill and Off-site chip) onto two lines; the dates wrap instead. */
+@media (min-width: 901px) {
+  [data-console-v2] .console-v2-auctions-row-link.console-v2-auctions-row-link {
+    grid-template-columns: minmax(min(100%, 20rem), 1fr) minmax(0, max-content);
+  }
+
+  [data-console-v2] .console-v2-auctions-row.console-v2-auctions-row {
+    padding-block: var(--console-space-3);
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1199px) {
+  [data-console-v2] .console-v2-auctions-row.console-v2-auctions-row {
+    padding-block: var(--console-space-2);
+  }
+}
+
+/* Inventory table: fixed layout gave all seven columns the same width, so
+   titles stacked five lines deep beside half-empty Age / price cells. Title
+   gets the room. Counted from the end so the bulk-select column, when
+   present, doesn't shift the mapping. */
+[data-console-v2] .console-v2-inventory-table th:nth-last-child(7) { width: 17%; }
+[data-console-v2] .console-v2-inventory-table th:nth-last-child(6) { width: 29%; }
+[data-console-v2] .console-v2-inventory-table th:nth-last-child(5) { width: 15%; }
+[data-console-v2] .console-v2-inventory-table th:nth-last-child(4) { width: 11%; }
+[data-console-v2] .console-v2-inventory-table th:nth-last-child(3) { width: 10%; }
+[data-console-v2] .console-v2-inventory-table th:nth-last-child(2) { width: 11%; }
+[data-console-v2] .console-v2-inventory-table th:nth-last-child(1) { width: 7%; }
+
+/* Dashboard Next to close: at 15px the closing time ran under the State
+   pill in the narrow 1440 column. Let it break between time and zone
+   ("8:10 AM" / "CDT") rather than overlap; wide layouts stay on one line. */
+[data-console-v2] .console-v2-closing-table.console-v2-closing-table td:nth-child(4) {
+  white-space: normal;
+}
+
+[data-console-v2] .console-v2-closing-table.console-v2-closing-table th,
+[data-console-v2] .console-v2-closing-table.console-v2-closing-table td {
+  padding-inline: var(--console-space-2);
+}
+
+[data-console-v2] .console-v2-closing-table.console-v2-closing-table th:nth-child(1) { width: 34%; }
+[data-console-v2] .console-v2-closing-table th:nth-child(2) { width: 17%; }
+[data-console-v2] .console-v2-closing-table th:nth-child(3) { width: 11%; }
+[data-console-v2] .console-v2-closing-table th:nth-child(4) { width: 21%; }
+[data-console-v2] .console-v2-closing-table th:nth-child(5) { width: 17%; }
+
+/* ── v2 type scale END ── */
+
+/* ── v2 three-refs START ──
+ * Three refs art direction (2026-10-13; docs/design/console-v2/ART-DIRECTION.md,
+ * "Three refs"). Primitives only; a page opts in by adding classes.
+ *   shadcn    structure: page head with one primary, stat row, trend pill,
+ *             segmented pills (also the tab-pill look), dense tables
+ *   analytics warmth: 16px cards, soft elevation, one lime accent, area-chart gradient
+ *   hud       sparingly: mono-style labels (Atkinson, uppercase), corner brackets on
+ *             the ONE urgent card, a live chip from real data, 3% grid, one scan-line
+ * Opt-in root: .console-v2-refs-page (lime focus ring). Texture: .console-v2-texture-grid.
+ * Only opacity and transform animate; the scan-line exists only under
+ * prefers-reduced-motion: no-preference and never loops.
+ */
+[data-console-v2] {
+  /* analytics · cards + elevation */
+  --console-radius-card: var(--console-radius-panel);
+  --console-elevation-soft:
+    inset 0 1px 0 0 color-mix(in srgb, var(--console-neutral) 7%, transparent),
+    0 12px 32px -14px color-mix(in srgb, var(--console-shadow-ink) 85%, transparent),
+    0 2px 6px -2px color-mix(in srgb, var(--console-shadow-ink) 50%, transparent);
+  --console-elevation-soft-hover:
+    inset 0 1px 0 0 color-mix(in srgb, var(--console-neutral) 10%, transparent),
+    0 18px 40px -16px color-mix(in srgb, var(--console-shadow-ink) 90%, transparent),
+    0 4px 10px -4px color-mix(in srgb, var(--console-shadow-ink) 55%, transparent);
+
+  /* analytics · area chart (stroke lime, fill fades to nothing) */
+  --console-chart-area-stroke: var(--console-action);
+  --console-chart-area-top: color-mix(in srgb, var(--console-action) 34%, transparent);
+  --console-chart-area-mid: color-mix(in srgb, var(--console-action) 12%, transparent);
+  --console-chart-area-bottom: color-mix(in srgb, var(--console-action) 0%, transparent);
+  --console-chart-area-gradient: linear-gradient(
+    180deg,
+    var(--console-chart-area-top) 0%,
+    var(--console-chart-area-mid) 55%,
+    var(--console-chart-area-bottom) 100%
+  );
+  --console-chart-grid: var(--console-line);
+
+  /* hud · mono-style label (Atkinson Hyperlegible; fonts are locked) */
+  --console-label-mono-family: var(--console-font-body);
+  --console-label-mono-size: 0.75rem;
+  --console-label-mono-weight: 700;
+  --console-label-mono-tracking: 0.12em;
+  --console-label-mono-ink: var(--console-ink-secondary);
+
+  /* hud · corner brackets (urgent card only) */
+  --console-bracket-size: 14px;
+  --console-bracket-width: 2px;
+  --console-bracket-offset: 6px;
+  --console-bracket-color: var(--console-action);
+
+  /* hud · grid texture (~3% opacity, background-image only) */
+  --console-texture-grid-size: 32px;
+  --console-texture-grid-line: color-mix(in srgb, var(--console-neutral) 3%, transparent);
+  --console-texture-grid:
+    linear-gradient(to right, var(--console-texture-grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--console-texture-grid-line) 1px, transparent 1px);
+
+  /* hud · live chip */
+  --console-live-fg: var(--console-stage-pickup-text);
+  --console-live-bg: var(--console-stage-pickup-bg);
+  --console-live-edge: color-mix(in srgb, var(--console-action) 45%, transparent);
+  --console-live-dot: var(--console-action);
+
+  /* hud · scan-line reveal (once, top → bottom) */
+  --console-duration-scan: 900ms;
+  --console-ease-scan: cubic-bezier(0.45, 0, 0.55, 1);
+  --console-scan-line: color-mix(in srgb, var(--console-action) 55%, transparent);
+  --console-scan-trail: color-mix(in srgb, var(--console-action) 7%, transparent);
+
+  /* shadcn · solid header button (the page's one primary; lime stays the floor action) */
+  --console-solid-bg: var(--console-neutral);
+  --console-solid-fg: var(--console-bg);
+}
+
+/* Opt-in page root: lime focus ring (locked rule) for everything on the page. */
+[data-console-v2].console-v2-refs-page,
+[data-console-v2] .console-v2-refs-page {
+  --console-focus: var(--console-action);
+}
+
+/* Grid texture: two 1px line gradients over the page frame gradient. */
+[data-console-v2].console-v2-texture-grid,
+[data-console-v2] .console-v2-texture-grid {
+  background-color: var(--console-bg);
+  background-image: var(--console-texture-grid), var(--console-gradient-frame);
+  background-size:
+    var(--console-texture-grid-size) var(--console-texture-grid-size),
+    var(--console-texture-grid-size) var(--console-texture-grid-size),
+    auto;
+}
+
+/* Mono-style label: small uppercase tracked Atkinson over a value. Sentence-case
+   words only — no underscores, no codes-as-labels. */
+[data-console-v2] .console-v2-label-mono {
+  display: block;
+  margin: 0;
+  font-family: var(--console-label-mono-family);
+  font-size: var(--console-label-mono-size);
+  font-weight: var(--console-label-mono-weight);
+  letter-spacing: var(--console-label-mono-tracking);
+  line-height: 1.35;
+  text-transform: uppercase;
+  color: var(--console-label-mono-ink);
+}
+
+/* Warm card: 16px, soft elevation, hairline edge. */
+[data-console-v2] .console-v2-card-soft {
+  border-radius: var(--console-radius-card);
+  border: var(--console-border-width) solid var(--console-line);
+  background: var(--console-surface-raised);
+  box-shadow: var(--console-elevation-soft);
+}
+
+/* Corner brackets: four L-shaped corners just outside the card, in the card's
+   stage hue (lime on a stage-less card). Uses ::before; ::after is the pulse. */
+[data-console-v2] .console-v2-frame-bracket {
+  position: relative;
+  --console-bracket-ink: var(--console-stage-accent-fg, var(--console-bracket-color));
+}
+
+[data-console-v2] .console-v2-frame-bracket::before {
+  content: '';
+  position: absolute;
+  inset: calc(-1 * var(--console-bracket-offset));
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--console-bracket-ink), var(--console-bracket-ink)),
+    linear-gradient(var(--console-bracket-ink), var(--console-bracket-ink)),
+    linear-gradient(var(--console-bracket-ink), var(--console-bracket-ink)),
+    linear-gradient(var(--console-bracket-ink), var(--console-bracket-ink)),
+    linear-gradient(var(--console-bracket-ink), var(--console-bracket-ink)),
+    linear-gradient(var(--console-bracket-ink), var(--console-bracket-ink)),
+    linear-gradient(var(--console-bracket-ink), var(--console-bracket-ink)),
+    linear-gradient(var(--console-bracket-ink), var(--console-bracket-ink));
+  background-repeat: no-repeat;
+  background-position:
+    left top, left top,
+    right top, right top,
+    left bottom, left bottom,
+    right bottom, right bottom;
+  background-size:
+    var(--console-bracket-size) var(--console-bracket-width),
+    var(--console-bracket-width) var(--console-bracket-size),
+    var(--console-bracket-size) var(--console-bracket-width),
+    var(--console-bracket-width) var(--console-bracket-size),
+    var(--console-bracket-size) var(--console-bracket-width),
+    var(--console-bracket-width) var(--console-bracket-size),
+    var(--console-bracket-size) var(--console-bracket-width),
+    var(--console-bracket-width) var(--console-bracket-size);
+}
+
+/* Live status chip: real data only ("Live · 24 at the counter"). The dot is
+   static — no pulsing live dots (motion contract). */
+[data-console-v2] .console-v2-live-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--console-space-2);
+  min-height: 32px;
+  padding: 4px 12px 4px 10px;
+  border-radius: var(--console-radius-pill);
+  border: var(--console-border-width) solid var(--console-live-edge);
+  background: var(--console-live-bg);
+  color: var(--console-live-fg);
+  font-size: var(--console-text-sm);
+  font-weight: var(--console-weight-strong);
+  line-height: 1.2;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+[data-console-v2] .console-v2-live-chip__dot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--console-radius-pill);
+  background: var(--console-live-dot);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--console-live-dot) 22%, transparent);
+}
+
+[data-console-v2] .console-v2-live-chip__label {
+  font-size: var(--console-label-mono-size);
+  letter-spacing: var(--console-label-mono-tracking);
+  text-transform: uppercase;
+}
+
+/* Trend pill (shadcn stat card). Only where real data supports a trend; the
+   arrow and words carry direction, colour stays neutral. */
+[data-console-v2] .console-v2-trend-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--console-space-1);
+  min-height: 24px;
+  padding: 2px 8px;
+  border-radius: var(--console-radius-pill);
+  border: var(--console-border-width) solid var(--console-border-strong);
+  background: var(--console-surface);
+  color: var(--console-ink);
+  font-size: var(--console-text-xs);
+  font-weight: var(--console-weight-strong);
+  line-height: 1.2;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* Segmented control: pill track, lime fill on the selected option. Works for
+   buttons (aria-pressed / role=radio aria-checked) and links (aria-current). */
+[data-console-v2] .console-v2-segmented {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--console-space-1);
+  padding: var(--console-space-1);
+  border-radius: var(--console-radius-pill);
+  border: var(--console-border-width) solid var(--console-line);
+  background: var(--console-surface);
+  box-shadow: var(--console-elevation-soft);
+}
+
+[data-console-v2] .console-v2-segmented__option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--console-control-min);
+  padding: 0 var(--console-space-4);
+  border: 0;
+  border-radius: var(--console-radius-pill);
+  background: transparent;
+  color: var(--console-ink-secondary);
+  font-family: var(--console-font-body);
+  font-size: var(--console-text-sm);
+  font-weight: var(--console-weight-strong);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background var(--console-duration-fast) var(--console-ease-out),
+    color var(--console-duration-fast) var(--console-ease-out),
+    transform var(--console-duration-fast) var(--console-ease-spring);
+}
+
+[data-console-v2] .console-v2-segmented__option:hover {
+  background: var(--console-surface-hover);
+  color: var(--console-ink);
+}
+
+[data-console-v2] .console-v2-segmented__option:active {
+  transform: scale(var(--console-press-scale));
+}
+
+[data-console-v2] .console-v2-segmented__option[aria-pressed='true'],
+[data-console-v2] .console-v2-segmented__option[aria-checked='true'],
+[data-console-v2] .console-v2-segmented__option[aria-current='page'],
+[data-console-v2] .console-v2-segmented__option[aria-selected='true'] {
+  background: var(--console-gradient-primary);
+  color: var(--console-on-action);
+}
+
+[data-console-v2] .console-v2-segmented__option:focus-visible {
+  outline: var(--console-focus-width) solid var(--console-action);
+  outline-offset: 2px;
+}
+
+/* Page header (shadcn): titles left, ONE primary action top-right. */
+[data-console-v2] .console-v2-page-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--console-space-4) var(--console-space-6);
+}
+
+[data-console-v2] .console-v2-page-head__titles {
+  flex: 1 1 22rem;
+  min-width: 0;
+}
+
+[data-console-v2] .console-v2-page-head__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--console-space-2) var(--console-space-3);
+  margin-bottom: var(--console-space-3);
+}
+
+[data-console-v2] .console-v2-page-head__actions {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: var(--console-space-2);
+}
+
+/* Solid neutral button: the header's single primary (shadcn "Quick create"). */
+[data-console-v2] .console-v2-btn--solid {
+  background: var(--console-solid-bg);
+  color: var(--console-solid-fg);
+  border-color: var(--console-solid-bg);
+  box-shadow: var(--console-elevation-soft);
+}
+
+[data-console-v2] .console-v2-btn--solid:hover {
+  filter: brightness(1.06);
+}
+
+[data-console-v2] .console-v2-btn--solid:focus-visible {
+  outline: var(--console-focus-width) solid var(--console-action);
+  outline-offset: var(--console-focus-offset);
+}
+
+/* Scan-line reveal: an aria-hidden layer that sweeps a faint lime line down its
+   container once. Hidden unless motion is allowed; ends at opacity 0. */
+[data-console-v2] .console-v2-scanline {
+  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+[data-console-v2] .console-v2-scanline::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateY(-100%);
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent calc(100% - 56px),
+    var(--console-scan-trail) calc(100% - 3px),
+    var(--console-scan-line) calc(100% - 2px),
+    var(--console-scan-line) 100%
+  );
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-console-v2] .console-v2-scanline {
+    display: block;
+  }
+
+  [data-console-v2] .console-v2-scanline::before {
+    animation: console-v2-scan var(--console-duration-scan) var(--console-ease-scan) 1 both;
+  }
+}
+
+@keyframes console-v2-scan {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  12% {
+    opacity: 1;
+  }
+  82% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+}
+/* ── v2 three-refs END ── */
+
+/* ── v2 three-refs dashboard START ──
+ * Dashboard v2 on the three-refs primitives (ART-DIRECTION.md "Three refs").
+ * Scoped to the opt-in page root so no other v2 page changes.
+ */
+/* Mono labels keep their small tracked size where an older rule sets a size. */
+[data-console-v2].console-v2-refs-page .console-v2-label-mono,
+[data-console-v2] .console-v2-refs-page .console-v2-label-mono {
+  font-size: var(--console-label-mono-size);
+  font-weight: var(--console-label-mono-weight);
+  letter-spacing: var(--console-label-mono-tracking);
+  line-height: 1.35;
+}
+
+[data-console-v2].console-v2-refs-page .console-v2-dashboard-head,
+[data-console-v2] .console-v2-refs-page .console-v2-dashboard-head {
+  margin-bottom: var(--console-space-5);
+}
+
+/* Analytics warmth: soft elevation instead of the heavier card shadow. */
+[data-console-v2].console-v2-refs-page .console-v2-stat-tile,
+[data-console-v2] .console-v2-refs-page .console-v2-stat-tile,
+[data-console-v2].console-v2-refs-page .console-v2-dashboard-rail,
+[data-console-v2] .console-v2-refs-page .console-v2-dashboard-rail {
+  box-shadow: var(--console-elevation-soft);
+}
+
+[data-console-v2].console-v2-refs-page .console-v2-card,
+[data-console-v2] .console-v2-refs-page .console-v2-card {
+  box-shadow: inset 0 0 0 1px var(--console-line), var(--console-elevation-soft);
+}
+
+[data-console-v2].console-v2-refs-page .console-v2-stat-tile__label,
+[data-console-v2] .console-v2-refs-page .console-v2-stat-tile__label {
+  margin-bottom: var(--console-space-3);
+}
+
+/* Stage-card numbers sit as a label over the stage title. */
+[data-console-v2].console-v2-refs-page .console-v2-stage-card__compact-row .console-v2-stage-card__num,
+[data-console-v2] .console-v2-refs-page .console-v2-stage-card__compact-row .console-v2-stage-card__num {
+  margin-bottom: 0;
+}
+/* ── v2 three-refs dashboard END ── */
+
+[data-console-v2] .console-v2-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+[data-console-v2].console-v2-dashboard,
+[data-console-v2] .console-v2-dashboard {
+  --console-dashboard-rail: 280px;
+  box-sizing: border-box;
+}
+
+[data-console-v2] .console-v2-dashboard-shell {
+  display: grid;
+  grid-template-columns: var(--console-dashboard-rail) minmax(0, 1fr);
+  gap: var(--console-space-6);
+  align-items: start;
+  max-width: 100%;
+}
+
+[data-console-v2] .console-v2-dashboard-rail {
+  position: sticky;
+  top: var(--console-space-4);
+  align-self: start;
+  padding: var(--console-space-5);
+  border-radius: var(--console-radius-panel);
+  background: var(--console-gradient-floor);
+  border: var(--console-border-width) solid var(--console-line);
+  box-shadow: var(--console-shadow-card);
+}
+
+[data-console-v2] .console-v2-stage-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--console-space-3);
+}
+
+/* ── v2 stage hues START ── */
+/* One stage → hue mapping (components/console-v2/stage-hue.ts). A hued element
+   carries .console-v2-stage-hued + .console-v2-stage-hue--<stage>; the modifier
+   points the local accent props at that stage's FROZEN tokens. Stage-less
+   elements get no class and keep the neutral rules below. */
+[data-console-v2] .console-v2-stage-hue--intake {
+  --console-stage-accent-fg: var(--console-stage-intake-fg);
+  --console-stage-accent-text: var(--console-stage-intake-text);
+  --console-stage-accent-bg: var(--console-stage-intake-bg);
+  --console-stage-accent-glow: var(--console-stage-intake-glow);
+}
+
+[data-console-v2] .console-v2-stage-hue--lotting {
+  --console-stage-accent-fg: var(--console-stage-lotting-fg);
+  --console-stage-accent-text: var(--console-stage-lotting-text);
+  --console-stage-accent-bg: var(--console-stage-lotting-bg);
+  --console-stage-accent-glow: var(--console-stage-lotting-glow);
+}
+
+[data-console-v2] .console-v2-stage-hue--auction {
+  --console-stage-accent-fg: var(--console-stage-auction-fg);
+  --console-stage-accent-text: var(--console-stage-auction-text);
+  --console-stage-accent-bg: var(--console-stage-auction-bg);
+  --console-stage-accent-glow: var(--console-stage-auction-glow);
+}
+
+[data-console-v2] .console-v2-stage-hue--paid {
+  --console-stage-accent-fg: var(--console-stage-paid-fg);
+  --console-stage-accent-text: var(--console-stage-paid-text);
+  --console-stage-accent-bg: var(--console-stage-paid-bg);
+  --console-stage-accent-glow: var(--console-stage-paid-glow);
+}
+
+[data-console-v2] .console-v2-stage-hue--pickup {
+  --console-stage-accent-fg: var(--console-stage-pickup-fg);
+  --console-stage-accent-text: var(--console-stage-pickup-text);
+  --console-stage-accent-bg: var(--console-stage-pickup-bg);
+  --console-stage-accent-glow: var(--console-stage-pickup-glow);
+}
+
+/* Every stage card keeps its hue on the left edge; number, title and counts
+   read in the stage's -text. (Compound selectors outrank the neutral
+   .console-v2-stage-card rules that follow this block.) */
+[data-console-v2] .console-v2-stage-card.console-v2-stage-hued {
+  border-left-color: var(--console-stage-accent-fg);
+}
+
+[data-console-v2] .console-v2-stage-card.console-v2-stage-hued .console-v2-stage-card__num,
+[data-console-v2] .console-v2-stage-card.console-v2-stage-hued h3,
+[data-console-v2] .console-v2-stage-card.console-v2-stage-hued .console-v2-stage-card__count-value,
+[data-console-v2] .console-v2-stage-card.console-v2-stage-hued .console-v2-stage-card__inline-count {
+  color: var(--console-stage-accent-text);
+}
+
+/* The page's own stage (Pickup on pickups, the lot's stage on lot detail, the
+   most urgent stage on the dashboard): hue tint + hue glow, thicker edge.
+   Replaces the lime ring so a coral or teal stage never wears lime. */
+[data-console-v2] .console-v2-stage-card.console-v2-stage-hued.console-v2-stage-card--current {
+  background: linear-gradient(110deg, var(--console-stage-accent-bg), var(--console-surface-raised));
+  box-shadow: var(--console-shadow-card), var(--console-stage-accent-glow);
+  border-left-width: calc(var(--console-signature-width) + 2px);
+}
+
+/* Rails also mark the current stage without colour (title underline). */
+[data-console-v2] .console-v2-stage-card.console-v2-stage-hued.console-v2-stage-card--current:not(.console-v2-stage-card--featured) h3 {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Stat tiles that name a stage: label in the stage's -text (mockup .g-stat-label). */
+[data-console-v2] .console-v2-stat-tile.console-v2-stage-hued .console-v2-stat-tile__label {
+  color: var(--console-stage-accent-text);
+}
+/* ── v2 stage hues END ── */
+
+[data-console-v2] .console-v2-stage-card {
+  position: relative;
+  padding: var(--console-space-4);
+  border-radius: var(--console-radius-panel);
+  background: var(--console-surface-raised);
+  border: var(--console-border-width) solid var(--console-line);
+  border-left-width: var(--console-signature-width);
+  box-shadow: var(--console-shadow-card);
+}
+
+[data-console-v2] .console-v2-stage-card__num {
+  display: block;
+  font-size: var(--console-text-xs);
+  color: var(--console-ink-secondary);
+  margin-bottom: var(--console-space-1);
+}
+
+[data-console-v2] .console-v2-stage-card__count {
+  margin: var(--console-space-2) 0;
+  display: flex;
+  align-items: baseline;
+  gap: var(--console-space-2);
+}
+
+[data-console-v2] .console-v2-stage-card__count-value {
+  font-family: var(--console-font-display);
+  font-size: var(--console-text-display);
+  line-height: 1;
+  color: var(--console-ink);
+}
+
+[data-console-v2] .console-v2-stage-card__count-hint {
+  font-size: var(--console-text-sm);
+  color: var(--console-ink-secondary);
+}
+
+[data-console-v2] .console-v2-stage-card__purpose {
+  margin: 0 0 var(--console-space-3);
+  font-size: var(--console-text-sm);
+  color: var(--console-ink-secondary);
+  line-height: var(--console-leading-control);
+}
+
+[data-console-v2] .console-v2-stage-card__compact-row {
+  display: flex;
+  align-items: center;
+  gap: var(--console-space-2);
+  margin-bottom: var(--console-space-2);
+}
+
+[data-console-v2] .console-v2-stage-card__inline-count {
+  font-family: var(--console-font-display);
+  font-weight: var(--console-weight-strong);
+  color: var(--console-ink);
+}
+
+[data-console-v2] .console-v2-dashboard-stage-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--console-control-min);
+  font-weight: var(--console-weight-strong);
+  color: var(--console-link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+[data-console-v2] .console-v2-dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--console-grid-gap);
+  margin-bottom: var(--console-space-4);
+}
+
+[data-console-v2] .console-v2-stat-tile {
+  display: block;
+  min-height: 132px;
+  padding: var(--console-space-5);
+  border-radius: var(--console-radius-panel);
+  background: var(--console-surface-raised);
+  border: var(--console-border-width) solid var(--console-line);
+  box-shadow: var(--console-shadow-card);
+  text-decoration: none;
+  color: inherit;
+}
+
+[data-console-v2] .console-v2-stat-tile__label {
+  font-size: var(--console-text-base);
+  font-weight: var(--console-weight-strong);
+  color: var(--console-ink);
+  margin-bottom: var(--console-space-2);
+}
+
+[data-console-v2] .console-v2-stat-tile__value {
+  font-size: var(--console-text-display);
+  line-height: 1.2;
+  color: var(--console-ink);
+}
+
+[data-console-v2] .console-v2-stat-tile__value--money {
+  font-size: var(--console-text-title);
+}
+
+[data-console-v2] .console-v2-stat-tile__def {
+  margin: var(--console-space-2) 0 0;
+  font-size: var(--console-text-sm);
+  color: var(--console-ink-secondary);
+  line-height: var(--console-leading-control);
+}
+
+[data-console-v2] .console-v2-dashboard-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(200px, 312px);
+  gap: var(--console-space-6);
+  margin-bottom: var(--console-space-6);
+}
+
+[data-console-v2] .console-v2-dashboard-main > .console-v2-dashboard-closing {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+[data-console-v2] .console-v2-dashboard-main > .console-v2-dashboard-decisions {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+[data-console-v2] .console-v2-decision-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--console-space-2);
+  margin-top: var(--console-space-4);
+}
+
+[data-console-v2] .console-v2-decision-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--console-space-3);
+  min-height: var(--console-control-min);
+  padding: var(--console-space-3) var(--console-space-4);
+  border-radius: var(--console-radius-panel);
+  background: var(--console-surface);
+  border: var(--console-border-width) solid var(--console-line);
+  color: var(--console-ink);
+  text-decoration: none;
+  font-weight: var(--console-weight-strong);
+}
+
+[data-console-v2] .console-v2-decision-row__badge {
+  min-width: 2rem;
+  padding: var(--console-space-1) var(--console-space-2);
+  border-radius: var(--console-radius-pill);
+  background: var(--console-surface-hover);
+  color: var(--console-ink);
+  font-family: var(--console-font-display);
+  text-align: center;
+}
+
+[data-console-v2] .console-v2-closing-table-wrap {
+  margin-top: var(--console-space-4);
+  overflow-x: auto;
+  border: var(--console-border-width) solid var(--console-line);
+  border-radius: var(--console-radius-panel);
+}
+
+[data-console-v2] .console-v2-closing-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+[data-console-v2] .console-v2-closing-table th {
+  text-align: left;
+  padding: var(--console-space-2) var(--console-space-3);
+  font-size: var(--console-text-xs);
+  font-weight: var(--console-weight-label);
+  letter-spacing: var(--console-tracking-label);
+  text-transform: uppercase;
+  color: var(--console-ink-secondary);
+  background: transparent;
+  border-bottom: var(--console-border-width) solid var(--console-line);
+}
+
+/* One continuous band across the header row (per-cell gradients look patchy). */
+[data-console-v2] .console-v2-closing-table thead {
+  background: var(--console-gradient-band);
+}
+
+[data-console-v2] .console-v2-closing-table td:nth-child(4) {
+  white-space: nowrap;
+}
+
+[data-console-v2] .console-v2-closing-table td {
+  vertical-align: top;
+  border-bottom: var(--console-border-width) solid var(--console-line);
+  background: var(--console-surface);
+  padding: var(--console-space-2) var(--console-space-3);
+}
+
+/* Numbers right-aligned under right-aligned headers, so "$24.00" and "6"
+   never read as one figure. Lot column gets the room. */
+[data-console-v2] .console-v2-closing-table th:nth-child(1) {
+  width: 38%;
+}
+[data-console-v2] .console-v2-closing-table th:nth-child(2),
+[data-console-v2] .console-v2-closing-table td:nth-child(2),
+[data-console-v2] .console-v2-closing-table th:nth-child(3),
+[data-console-v2] .console-v2-closing-table td:nth-child(3) {
+  text-align: right;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+[data-console-v2] .console-v2-closing-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+[data-console-v2] .console-v2-closing-lot-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+[data-console-v2] .console-v2-closing-lot-link:focus-visible {
+  outline: var(--console-focus-width) solid var(--console-focus);
+  outline-offset: var(--console-focus-offset);
+}
+
+[data-console-v2] .console-v2-closing-money {
+  text-align: right;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+[data-console-v2] .console-v2-dashboard-finance {
+  margin-top: var(--console-space-6);
+}
+
+[data-console-v2] .console-v2-dashboard-stats--finance {
+  margin-top: var(--console-space-4);
+}
+
+@media (max-width: 1199px) {
+  [data-console-v2].console-v2-dashboard,
+  [data-console-v2] .console-v2-dashboard {
+    --console-dashboard-rail: 200px;
+  }
+
+  [data-console-v2] .console-v2-dashboard-main {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  [data-console-v2] .console-v2-dashboard-main > .console-v2-dashboard-closing {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  [data-console-v2] .console-v2-dashboard-main > .console-v2-dashboard-decisions {
+    grid-column: 1;
+    grid-row: 2;
+  }
+}
+
+@media (max-width: 900px) {
+  [data-console-v2] .console-v2-dashboard-shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  [data-console-v2] .console-v2-dashboard-rail {
+    position: static;
+  }
+
+  [data-console-v2] .console-v2-dashboard-stats {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1199px) {
+  [data-console-v2] {
+    --console-nav-width: 112px;
+    --console-page-gutter: 20px;
+    --console-grid-gap: 12px;
+  }
+}
+
+@media (max-width: 900px) {
+  [data-console-v2] {
+    --console-nav-width: 0px;
+    --console-page-gutter: 16px;
+    --console-grid-gap: 12px;
+  }
+}
+
+/* Lot detail root carries data-console-v2 itself → compound selector (slice-2 lesson).
+   The shell grid reads this; without it the template is invalid and the rail stacks. */
+[data-console-v2].console-v2-lot-detail,
+[data-console-v2] .console-v2-lot-detail {
+  --console-dashboard-rail: 280px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1199px) {
+  [data-console-v2].console-v2-lot-detail,
+  [data-console-v2] .console-v2-lot-detail {
+    --console-dashboard-rail: 200px;
+  }
+}
+
+[data-console-v2] .console-v2-lot-shell {
+  display: grid;
+  grid-template-columns: var(--console-dashboard-rail) minmax(0, 1fr);
+  gap: var(--console-space-6);
+  align-items: start;
+}
+
+[data-console-v2] .console-v2-lot-rail {
+  position: sticky;
+  top: var(--console-space-4);
+  align-self: start;
+  padding: var(--console-space-5);
+  border-radius: var(--console-radius-panel);
+  background: var(--console-gradient-floor);
+  border: var(--console-border-width) solid var(--console-line);
+  box-shadow: var(--console-shadow-card);
+}
+
+[data-console-v2] .console-v2-lot-work {
+  min-width: 0;
+}
+
+[data-console-v2] .console-v2-lot-identity-band {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--console-space-6);
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: var(--console-space-6);
+  border-radius: var(--console-radius-panel);
+  background: var(--console-gradient-band);
+  border: var(--console-border-width) solid var(--console-line);
+  margin-bottom: var(--console-space-6);
+}
+
+[data-console-v2] .console-v2-lot-identity-band__main {
+  flex: 1 1 280px;
+  min-width: 0;
+}
+
+[data-console-v2] .console-v2-lot-identity-band__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--console-space-2);
+}
+
+[data-console-v2] .console-v2-lot-identity-hero .console-v2-code:first-of-type {
+  font-size: var(--console-text-code-lg);
+  line-height: 1.2;
+}
+
+[data-console-v2] .console-v2-lot-successor {
+  margin-bottom: var(--console-space-6);
+  padding: var(--console-space-4);
+  border-radius: var(--console-radius-panel);
+  border: var(--console-border-width) solid var(--console-warning);
+  border-left-width: 4px;
+  background: var(--console-surface-raised);
+}
+
+[data-console-v2] .console-v2-lot-decisions {
+  margin-bottom: var(--console-space-6);
+}
+
+[data-console-v2] .console-v2-lot-action-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--console-space-3);
+  margin-top: var(--console-space-4);
+}
+
+[data-console-v2] .console-v2-lot-action-details {
+  border-radius: var(--console-radius-panel);
+  border: var(--console-border-width) solid var(--console-line);
+  background: var(--console-surface-raised);
+  overflow: hidden;
+}
+
+[data-console-v2] .console-v2-lot-action-summary {
+  min-height: var(--console-control-min);
+  padding: var(--console-space-3) var(--console-space-4);
+  cursor: pointer;
+  font-weight: var(--console-weight-strong);
+  list-style: none;
+}
+
+[data-console-v2] .console-v2-lot-action-summary::-webkit-details-marker {
+  display: none;
+}
+
+[data-console-v2] .console-v2-lot-action-body {
+  padding: var(--console-space-4);
+  border-top: var(--console-border-width) solid var(--console-line);
+}
+
+[data-console-v2] .console-v2-lot-action-body--primary {
+  box-shadow: inset 0 0 0 1px var(--console-action-bg);
+}
+
+[data-console-v2] .console-v2-lot-evidence {
+  display: grid;
+  grid-template-columns: minmax(180px, 220px) minmax(0, 1fr);
+  gap: var(--console-space-5);
+  margin-top: var(--console-space-4);
+}
+
+[data-console-v2] .console-v2-lot-photo-empty {
+  display: flex;
+  flex-direction: column;
+  gap: var(--console-space-2);
+  min-height: 220px;
+  padding: var(--console-space-4);
+  border-radius: var(--console-radius-control);
+  border: var(--console-border-width) dashed var(--console-line);
+  font-size: var(--console-text-sm);
+  color: var(--console-ink-secondary);
+}
+
+[data-console-v2] .console-v2-lot-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--console-space-4);
+  margin: 0;
+}
+
+[data-console-v2] .console-v2-lot-facts dt {
+  font-size: var(--console-text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--console-tracking-label);
+  color: var(--console-ink-secondary);
+  margin: 0;
+}
+
+[data-console-v2] .console-v2-lot-facts dd {
+  margin: var(--console-space-1) 0 0;
+  font-weight: var(--console-weight-strong);
+}
+
+[data-console-v2] .console-v2-lot-facts__wide {
+  grid-column: 1 / -1;
+}
+
+[data-console-v2] .console-v2-lot-bids-wrap {
+  margin-top: var(--console-space-4);
+  overflow-x: auto;
+  border: var(--console-border-width) solid var(--console-line);
+  border-radius: var(--console-radius-panel);
+}
+
+[data-console-v2] .console-v2-lot-bids {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+[data-console-v2] .console-v2-lot-bids thead {
+  background: var(--console-gradient-band);
+}
+
+[data-console-v2] .console-v2-lot-bids th,
+[data-console-v2] .console-v2-lot-bids td {
+  padding: var(--console-space-2) var(--console-space-3);
+  border-bottom: var(--console-border-width) solid var(--console-line);
+  text-align: left;
+  vertical-align: top;
+}
+
+[data-console-v2] .console-v2-lot-bids__money {
+  text-align: right;
+  font-variant-numeric: tabular-nums lining-nums;
+  padding-right: var(--console-space-4);
+}
+
+[data-console-v2] .console-v2-lot-bids__money--muted {
+  color: var(--console-ink-secondary);
+}
+
+[data-console-v2] .console-v2-lot-timeline {
+  list-style: none;
+  margin: var(--console-space-4) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--console-space-2);
+}
+
+[data-console-v2] .console-v2-lot-timeline li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--console-space-3);
+  padding: var(--console-space-3);
+  border-radius: var(--console-radius-control);
+  background: var(--console-surface-raised);
+  border: var(--console-border-width) solid var(--console-line);
+  font-size: var(--console-text-sm);
+}
+
+[data-console-v2] .console-v2-lot-record-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--console-space-1);
+}
+
+[data-console-v2] .console-v2-lot-record-link {
+  min-height: var(--console-control-min);
+  display: inline-flex;
+  align-items: center;
+  padding: var(--console-space-2) var(--console-space-4);
+  border-radius: var(--console-radius-control);
+  color: var(--console-link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: var(--console-weight-strong);
+}
+
+[data-console-v2] .console-v2-stage-card--current {
+  box-shadow: inset 0 0 0 3px var(--console-action);
+  background: var(--console-gradient-active);
+}
+
+[data-console-v2] .console-v2-inventory-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--console-space-2);
+  margin: var(--console-space-6) 0 var(--console-space-4);
+}
+
+[data-console-v2] .console-v2-inventory-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--console-space-2);
+  min-height: var(--console-control-min);
+  padding: var(--console-space-2) var(--console-space-4);
+  border-radius: var(--console-radius-pill);
+  border: var(--console-border-width) solid var(--console-line);
+  color: var(--console-ink-secondary);
+  text-decoration: none;
+  font-weight: var(--console-weight-strong);
+}
+
+[data-console-v2] .console-v2-inventory-tab--active {
+  border-color: var(--console-action);
+  color: var(--console-ink);
+  background: var(--console-gradient-active);
+  box-shadow: inset 0 0 0 2px var(--console-action-bg);
+}
+
+[data-console-v2] .console-v2-inventory-tab__count {
+  min-width: 1.5rem;
+  text-align: center;
+  padding: 0 var(--console-space-2);
+  border-radius: var(--console-radius-pill);
+  font-size: var(--console-text-xs);
+  background: var(--console-surface);
+}
+
+[data-console-v2] .console-v2-inventory-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--console-space-2);
+  align-items: flex-end;
+  margin-bottom: var(--console-space-4);
+}
+
+[data-console-v2] .console-v2-inventory-filters .console-v2-field {
+  flex: 1 1 160px;
+  min-width: 0;
+}
+
+[data-console-v2] .console-v2-inventory-quality {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--console-space-2);
+  align-items: center;
+  margin-bottom: var(--console-space-4);
+}
+
+[data-console-v2] .console-v2-inventory-table-wrap {
+  margin-top: var(--console-space-4);
+  overflow-x: auto;
+  border: var(--console-border-width) solid var(--console-line);
+  border-radius: var(--console-radius-panel);
+}
+
+[data-console-v2] .console-v2-inventory-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+[data-console-v2] .console-v2-inventory-table thead {
+  background: var(--console-gradient-band);
+}
+
+[data-console-v2] .console-v2-inventory-table th,
+[data-console-v2] .console-v2-inventory-table td {
+  padding: var(--console-space-2) var(--console-space-3);
+  border-bottom: var(--console-border-width) solid var(--console-line);
+  vertical-align: top;
+  text-align: left;
+}
+
+[data-console-v2] .console-v2-inventory-table__money {
+  text-align: right;
+  font-variant-numeric: tabular-nums lining-nums;
+  padding-right: var(--console-space-4);
+}
+
+[data-console-v2] .console-v2-inventory-row-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+[data-console-v2] .console-v2-inventory-row-link:focus-visible {
+  outline: var(--console-focus-width) solid var(--console-focus);
+  outline-offset: var(--console-focus-offset);
+}
+
+[data-console-v2] .console-v2-inventory-empty {
+  margin-top: var(--console-space-4);
+  padding: var(--console-space-8);
+  text-align: center;
+  color: var(--console-ink-secondary);
+  border: var(--console-border-width) dashed var(--console-line);
+  border-radius: var(--console-radius-panel);
+}
+
+[data-console-v2] .console-v2-inventory-table__select {
+  width: var(--console-control-min);
+  padding-left: var(--console-space-2);
+  padding-right: var(--console-space-1);
+  vertical-align: middle;
+}
+
+[data-console-v2] .console-v2-inventory-select {
+  width: var(--console-control-min);
+  height: var(--console-control-min);
+  margin: 0;
+  cursor: pointer;
+  accent-color: var(--console-stage-lotting-fg);
+}
+
+[data-console-v2] .console-v2-inventory-row--selected {
+  background: color-mix(in srgb, var(--console-stage-lotting-fg) 8%, transparent);
+}
+
+[data-console-v2] .console-v2-inventory-bulk-bar {
+  position: sticky;
+  bottom: 0;
+  z-index: var(--console-z-sticky, 20);
+  margin-top: var(--console-space-4);
+  padding: var(--console-space-3) var(--console-space-4);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--console-space-2);
+  align-items: center;
+  border: var(--console-border-width) solid var(--console-line);
+  border-radius: var(--console-radius-panel);
+  background: var(--console-surface-raised);
+  box-shadow: var(--console-elevation-popover);
+}
+
+[data-console-v2] .console-v2-inventory-bulk-bar__count {
+  font-size: var(--console-text-base);
+  margin-right: var(--console-space-1);
+}
+
+@media (max-width: 900px) {
+  [data-console-v2] .console-v2-lot-shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  [data-console-v2] .console-v2-lot-rail {
+    position: static;
+  }
+
+  [data-console-v2] .console-v2-lot-evidence {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  [data-console-v2] .console-v2-lot-facts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Reused v1 pieces (PickupActions' Forfeit + "Not paid" link, MissingItemsQueue
+   codes) paint with v1 --danger / --fg-dim, which fail AA on v2 rows
+   (3.77:1 and 2.93:1, axe 10-13). Re-point those v1 variables to v2 tokens
+   for descendants of the v2 pickups root only — v1 pages are untouched. */
+[data-console-v2].console-v2-pickups,
+[data-console-v2] .console-v2-pickups {
+  --danger: var(--console-danger);
+  --fg-dim: var(--console-ink-dim);
+}
+
+[data-console-v2].console-v2-pickups,
+[data-console-v2] .console-v2-pickups {
+  --console-dashboard-rail: 280px;
+  box-sizing: border-box;
+}
+
+[data-console-v2] .console-v2-pickups-shell {
+  display: grid;
+  grid-template-columns: var(--console-dashboard-rail) minmax(0, 1fr);
+  gap: var(--console-space-6);
+  align-items: start;
+  max-width: 100%;
+}
+
+[data-console-v2] .console-v2-pickups-rail {
+  position: sticky;
+  top: var(--console-space-4);
+  align-self: start;
+  padding: var(--console-space-5);
+  border-radius: var(--console-radius-panel);
+  background: var(--console-gradient-floor);
+  border: var(--console-border-width) solid var(--console-line);
+  box-shadow: var(--console-shadow-card);
+}
+
+[data-console-v2] .console-v2-pickups-queue-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--console-space-2);
+}
+
+[data-console-v2] .console-v2-pickups-queue-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--console-control-min);
+  padding: 0 var(--console-space-4);
+  border-radius: var(--console-radius-panel);
+  background: var(--console-surface-raised);
+  color: var(--console-link);
+  font-weight: var(--console-weight-strong);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+[data-console-v2] .console-v2-pickups-head-tools {
+  display: flex;
+  flex-direction: column;
+  gap: var(--console-space-4);
+  margin-bottom: var(--console-space-5);
+}
+
+[data-console-v2] .console-v2-pickups-header-search {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--console-space-3) var(--console-space-4);
+}
+
+[data-console-v2] .console-v2-pickups-customer-search {
+  flex: 1 1 min(100%, 560px);
+  min-width: 0;
+}
+
+[data-console-v2] .console-v2-pickups-customer-search h2 {
+  font-size: var(--console-text-sm) !important;
+  font-weight: var(--console-weight-strong) !important;
+  color: var(--console-ink) !important;
+  margin: 0 0 var(--console-space-2) !important;
+}
+
+[data-console-v2] .console-v2-pickups-customer-search > p {
+  display: none;
+}
+
+[data-console-v2] .console-v2-pickups-customer-search input {
+  width: 100%;
+  max-width: none !important;
+  min-height: var(--console-control-min);
+  background: var(--console-page) !important;
+  border: var(--console-border-width) solid var(--console-border-strong) !important;
+  border-radius: var(--console-radius-control) !important;
+  color: var(--console-ink) !important;
+}
+
+[data-console-v2] .console-v2-pickups-pass-row > div {
+  display: flex !important;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--console-space-2) !important;
+  margin: 0 !important;
+  padding: var(--console-space-2) var(--console-space-3) !important;
+  min-height: var(--console-control-min);
+  border-radius: var(--console-radius-panel) !important;
+  background: var(--console-surface-raised) !important;
+  border: var(--console-border-width) solid var(--console-line) !important;
+  font-size: var(--console-text-sm) !important;
+}
+
+[data-console-v2] .console-v2-pickups-pass-row > div > span:last-of-type {
+  display: none;
+}
+
+[data-console-v2] .console-v2-pickups-pass-row > div > span:first-of-type::after {
+  content: ' ·';
+}
+
+[data-console-v2] .console-v2-pickups-warehouse-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--console-space-2);
+  max-width: 28rem;
+}
+
+[data-console-v2] .console-v2-pickups-missing-alert {
+  display: block;
+  margin-bottom: var(--console-space-4);
+  padding: var(--console-space-2) var(--console-space-3);
+  border-radius: var(--console-radius-control);
+  background: var(--console-warning-bg, #513a32);
+  color: var(--console-warning-fg, #f2c4ae);
+  font-weight: var(--console-weight-strong);
+  font-size: var(--console-text-sm);
+  text-decoration: none;
+}
+
+[data-console-v2] .console-v2-pickups-missing-alert:hover {
+  filter: brightness(1.05);
+}
+
+[data-console-v2] .console-v2-pickups-queue {
+  margin-top: var(--console-space-6);
+  scroll-margin-top: 128px;
+}
+
+[data-console-v2] .console-v2-pickups-queue-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--console-space-3);
+}
+
+[data-console-v2] .console-v2-pickups-empty {
+  margin: 0;
+  font-size: var(--console-text-sm);
+  color: var(--console-ink-secondary);
+}
+
+[data-console-v2] .console-v2-pickups-counter-row {
+  display: grid;
+  grid-template-columns: minmax(140px, 200px) minmax(0, 1fr) auto;
+  gap: var(--console-space-4);
+  align-items: center;
+  padding: var(--console-space-3) var(--console-space-4);
+  border-radius: var(--console-radius-panel);
+  background: var(--console-surface-raised);
+  box-shadow: inset 0 0 0 1px var(--console-line);
+  overflow: hidden;
+}
+
+[data-console-v2] .console-v2-pickups-row-name {
+  margin: 0;
+  font-size: var(--console-text-base);
+  font-weight: var(--console-weight-strong);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+[data-console-v2] .console-v2-pickups-invoice-link {
+  font-size: var(--console-text-sm);
+  color: var(--console-link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+[data-console-v2] .console-v2-pickups-row-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--console-space-2);
+  margin-top: var(--console-space-1);
+}
+
+[data-console-v2] .console-v2-pickups-owed-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--console-space-2);
+  min-width: 0;
+}
+
+[data-console-v2] .console-v2-pickups-owed-chip {
+  padding: 2px var(--console-space-2);
+  border-radius: var(--console-radius-control);
+  background: var(--console-page);
+  box-shadow: inset 0 0 0 1px var(--console-line);
+}
+
+[data-console-v2] .console-v2-pickups-owed-chip .console-v2-code {
+  font-size: var(--console-text-xs) !important;
+}
+
+[data-console-v2] .console-v2-pickups-owed-empty,
+[data-console-v2] .console-v2-pickups-owed-more {
+  font-size: var(--console-text-xs);
+  color: var(--console-ink-secondary);
+}
+
+[data-console-v2] .console-v2-pickups-open-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--console-space-3);
+  min-height: 72px;
+  padding: var(--console-space-3) var(--console-space-4);
+  border-radius: var(--console-radius-panel);
+  background: var(--console-surface-raised);
+  box-shadow: inset 0 0 0 1px var(--console-line);
+  overflow: hidden;
+}
+
+[data-console-v2] .console-v2-pickups-open-row__main {
+  min-width: 0;
+  flex: 1 1 240px;
+}
+
+[data-console-v2] .console-v2-pickups-row-meta {
+  margin: var(--console-space-1) 0 0;
+  font-size: var(--console-text-xs);
+  color: var(--console-ink-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+[data-console-v2] .console-v2-pickups-open-row__actions {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: var(--console-space-3);
+  flex-shrink: 0;
+}
+
+
+
+[data-console-v2] .console-v2-pickups-done-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--console-space-3);
+  min-height: 44px;
+  padding: var(--console-space-2) var(--console-space-4);
+  border-radius: var(--console-radius-panel);
+  background: var(--console-surface-raised);
+  box-shadow: inset 0 0 0 1px var(--console-line);
+}
+
+[data-console-v2] .console-v2-pickups-actions-host > div {
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: var(--console-space-2) !important;
+}
+
+[data-console-v2] .console-v2-pickups-actions-host > div > div {
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: var(--console-space-2) !important;
+}
+
+[data-console-v2] .console-v2-pickups-actions-host button {
+  white-space: nowrap;
+  font-size: var(--console-text-sm) !important;
+  padding: 6px 12px !important;
+}
+
+
+[data-console-v2] .console-v2-pickups-missing-section {
+  margin-top: var(--console-space-6);
+  scroll-margin-top: 128px;
+}
+
+[data-console-v2] .console-v2-pickups-missing-host > div {
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+[data-console-v2] .console-v2-pickups-missing-host > div > div:first-child {
+  display: none;
+}
+
+[data-console-v2] .console-v2-pickups-missing-host > div > div:not(:first-child) {
+  display: grid !important;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--console-space-3);
+  min-height: 44px;
+  padding: var(--console-space-2) var(--console-space-3) !important;
+  border-top: none !important;
+  border-radius: var(--console-radius-panel);
+  background: var(--console-surface-raised);
+  box-shadow: inset 0 0 0 1px var(--console-line);
+  margin-bottom: var(--console-space-2);
+  font-size: var(--console-text-sm) !important;
+}
+
+@media (max-width: 1199px) {
+  [data-console-v2] .console-v2-pickups-shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  [data-console-v2] .console-v2-pickups-rail {
+    position: static;
+  }
+
+  [data-console-v2] .console-v2-pickups-counter-row {
+    grid-template-columns: minmax(0, 1fr);
+    max-height: none;
+  }
+
+  [data-console-v2] .console-v2-pickups-open-row {
+    max-height: none;
+  }
+}
+
+/* Slice 5 — auctions & warehouses (v1 component tokens on v2 surfaces) */
+[data-console-v2].console-v2-auctions-list,
+[data-console-v2] .console-v2-auctions-list,
+[data-console-v2].console-v2-auction-detail,
+[data-console-v2] .console-v2-auction-detail,
+[data-console-v2].console-v2-auction-builder,
+[data-console-v2] .console-v2-auction-builder,
+[data-console-v2].console-v2-warehouses-list,
+[data-console-v2] .console-v2-warehouses-list,
+[data-console-v2].console-v2-warehouse-hub,
+[data-console-v2] .console-v2-warehouse-hub,
+[data-console-v2].console-v2-warehouse-form,
+[data-console-v2] .console-v2-warehouse-form {
+  --danger: var(--console-danger);
+  --fg-dim: var(--console-ink-dim);
+  --fg-muted: var(--console-ink-secondary);
+  --fg: var(--console-ink);
+  --border: var(--console-line);
+  --bg-elev: var(--console-surface-raised);
+  --bg: var(--console-bg);
+  --accent: var(--console-stage-auction-text);
+  --accent-dim: color-mix(in srgb, var(--console-stage-auction-fg) 18%, transparent);
+  --success: var(--console-success);
+  --warning: var(--console-warning);
+}
+
+[data-console-v2] .console-v2-offsite-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 4px 10px;
+  border-radius: var(--console-radius-pill);
+  font-size: var(--console-text-xs);
+  font-weight: var(--console-weight-strong);
+  color: var(--console-stage-auction-text);
+  background: var(--console-stage-auction-bg);
+  box-shadow: inset 0 0 0 1px var(--console-line);
+}
+
+[data-console-v2] .console-v2-inactive-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 4px 10px;
+  border-radius: var(--console-radius-pill);
+  font-size: var(--console-text-xs);
+  font-weight: var(--console-weight-strong);
+  color: var(--console-danger);
+  background: var(--console-danger-bg);
+}
+
+[data-console-v2] .console-v2-auctions-list-head,
+[data-console-v2] .console-v2-warehouses-list-head,
+[data-console-v2] .console-v2-auction-builder-head,
+[data-console-v2] .console-v2-warehouse-hub-head,
+[data-console-v2] .console-v2-warehouse-form-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--console-space-3);
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--console-space-4);
+}
+
+[data-console-v2] .console-v2-auctions-list-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--console-space-2);
+}
+
+[data-console-v2] .console-v2-auctions-rows,
+[data-console-v2] .console-v2-warehouses-rows {
+  list-style: none;
+  margin: var(--console-space-4) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--console-space-2);
+}
+
+[data-console-v2] .console-v2-auctions-row,
+[data-console-v2] .console-v2-warehouses-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--console-space-3);
+  align-items: center;
+  padding: var(--console-space-4);
+  border-radius: var(--console-radius-panel);
+  background: var(--console-surface-raised);
+  box-shadow: inset 0 0 0 1px var(--console-line);
+}
+
+[data-console-v2] .console-v2-auctions-row-link,
+[data-console-v2] .console-v2-warehouses-row-link {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--console-space-4);
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+  min-width: 0;
+}
+
+[data-console-v2] .console-v2-auctions-row-title-line,
+[data-console-v2] .console-v2-warehouses-row-title-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--console-space-2);
+  align-items: center;
+}
+
+[data-console-v2] .console-v2-auctions-row-title,
+[data-console-v2] .console-v2-warehouses-row-title {
+  font-weight: var(--console-weight-strong);
+  font-size: var(--console-text-base);
+}
+
+[data-console-v2] .console-v2-auctions-row-meta,
+[data-console-v2] .console-v2-warehouses-row-meta {
+  margin-top: var(--console-space-1);
+  font-size: var(--console-text-sm);
+  color: var(--console-ink-secondary);
+}
+
+[data-console-v2] .console-v2-auctions-row-dates {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--console-space-2);
+  margin: 0;
+  font-size: var(--console-text-sm);
+}
+
+[data-console-v2] .console-v2-auctions-row-dates dt {
+  margin: 0;
+  font-size: var(--console-text-xs);
+  color: var(--console-ink-secondary);
+  text-transform: uppercase;
+  letter-spacing: var(--console-tracking-label);
+}
+
+[data-console-v2] .console-v2-auctions-row-dates dd {
+  margin: var(--console-space-1) 0 0;
+}
+
+[data-console-v2] .console-v2-warehouses-row-cta {
+  font-size: var(--console-text-sm);
+  font-weight: var(--console-weight-strong);
+  color: var(--console-link);
+}
+
+[data-console-v2] .console-v2-auctions-empty,
+[data-console-v2] .console-v2-warehouses-empty {
+  margin-top: var(--console-space-4);
+  padding: var(--console-space-8);
+  text-align: center;
+  color: var(--console-ink-secondary);
+  border: var(--console-border-width) dashed var(--console-line);
+  border-radius: var(--console-radius-panel);
+}
+
+[data-console-v2] .console-v2-setup-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--console-space-2);
+}
+
+[data-console-v2] .console-v2-setup-step {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--console-space-3);
+  align-items: center;
+  padding: var(--console-space-4);
+  border-radius: var(--console-radius-panel);
+  background: var(--console-surface-raised);
+  box-shadow: inset 0 0 0 1px var(--console-line);
+  border-left: 4px solid var(--console-line);
+}
+
+[data-console-v2] .console-v2-setup-step__marker {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  border: 2px solid var(--console-line);
+}
+
+[data-console-v2] .console-v2-setup-step__marker--done {
+  background: var(--console-success);
+  color: var(--console-on-action);
+  border-color: var(--console-success);
+}
+
+[data-console-v2] .console-v2-setup-step__marker--na {
+  border-style: dashed;
+  background: transparent;
+}
+
+[data-console-v2] .console-v2-setup-step__body {
+  flex: 1;
+  min-width: 0;
+}
+
+[data-console-v2] .console-v2-setup-step__title {
+  font-weight: var(--console-weight-strong);
+  font-size: var(--console-text-base);
+}
+
+[data-console-v2] .console-v2-setup-step__detail {
+  margin-top: var(--console-space-1);
+  font-size: var(--console-text-sm);
+  color: var(--console-ink-secondary);
+}
+
+[data-console-v2] .console-v2-setup-summary {
+  font-size: var(--console-text-sm);
+  color: var(--console-ink-secondary);
+}
+
+[data-console-v2] .console-v2-auction-detail-headline {
+  margin-bottom: var(--console-space-4);
+}
+
+[data-console-v2] .console-v2-auction-detail-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--console-space-2);
+  align-items: center;
+  margin-top: var(--console-space-2);
+}
+
+[data-console-v2] .console-v2-auction-detail-warehouse {
+  font-size: var(--console-text-sm);
+  color: var(--console-ink-secondary);
+}
+
+[data-console-v2] .console-v2-auction-detail-dates {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--console-space-3);
+  margin: 0;
+  font-size: var(--console-text-sm);
+}
+
+[data-console-v2] .console-v2-auction-detail-dates dt {
+  margin: 0;
+  font-size: var(--console-text-xs);
+  color: var(--console-ink-secondary);
+  text-transform: uppercase;
+}
+
+[data-console-v2] .console-v2-auction-detail-dates dd {
+  margin: var(--console-space-1) 0 0;
+}
+
+[data-console-v2] .console-v2-auction-detail-stats {
+  margin: var(--console-space-6) 0 var(--console-space-4);
+}
+
+[data-console-v2] .console-v2-auction-detail-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--console-grid-gap);
+}
+
+[data-console-v2] .console-v2-auction-detail-stats-grid .console-v2-stat-tile {
+  min-height: 0;
+}
+
+[data-console-v2] .console-v2-auction-detail-provenance {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--console-space-4);
+  align-items: center;
+  padding: var(--console-space-3) var(--console-space-4);
+  margin-bottom: var(--console-space-6);
+  border-radius: var(--console-radius-panel);
+  background: var(--console-surface-raised);
+  box-shadow: inset 0 0 0 1px var(--console-line);
+  font-size: var(--console-text-sm);
+}
+
+[data-console-v2] .console-v2-auction-detail-provenance-heading {
+  font-size: var(--console-text-xs);
+  font-weight: var(--console-weight-strong);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--console-ink-secondary);
+}
+
+[data-console-v2] .console-v2-auction-detail-provenance-item {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--console-space-1);
+  align-items: baseline;
+}
+
+[data-console-v2] .console-v2-auction-detail-provenance-count {
+  font-weight: var(--console-weight-strong);
+  color: var(--console-ink);
+}
+
+[data-console-v2] .console-v2-auction-detail-provenance-hint {
+  color: var(--console-ink-secondary);
+}
+
+[data-console-v2] .console-v2-auction-detail-preview-qr {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--console-space-5);
+  align-items: center;
+  padding: var(--console-space-4);
+  margin: var(--console-space-6) 0;
+  border-radius: var(--console-radius-panel);
+  background: var(--console-surface-raised);
+  box-shadow: inset 0 0 0 1px var(--console-line);
+}
+
+[data-console-v2] .console-v2-auction-detail-preview-qr-image-wrap {
+  flex-shrink: 0;
+  padding: var(--console-space-2);
+  border-radius: var(--console-radius-panel);
+  background: #fff;
+  line-height: 0;
+}
+
+[data-console-v2] .console-v2-auction-detail-preview-qr-copy {
+  flex: 1;
+  min-width: min(260px, 100%);
+}
+
+[data-console-v2] .console-v2-auction-detail-preview-qr-title {
+  margin: 0;
+  font-size: var(--console-text-lg);
+  font-weight: var(--console-weight-strong);
+}
+
+[data-console-v2] .console-v2-auction-detail-preview-qr-body {
+  margin: var(--console-space-2) 0 var(--console-space-3);
+  font-size: var(--console-text-sm);
+  line-height: var(--console-leading-control);
+  color: var(--console-ink-secondary);
+}
+
+[data-console-v2] .console-v2-auction-detail-actions {
+  margin: var(--console-space-6) 0;
+}
+
+[data-console-v2] .console-v2-auction-detail-actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--console-space-2);
+  align-items: center;
+  margin-top: var(--console-space-3);
+}
+
+[data-console-v2] .console-v2-auction-closing-window {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--console-space-4);
+  align-items: center;
+  padding: var(--console-space-4);
+  border-radius: var(--console-radius-panel);
+  background: var(--console-surface-raised);
+  box-shadow: inset 0 0 0 1px var(--console-line);
+}
+
+[data-console-v2] .console-v2-auction-detail-featured,
+[data-console-v2] .console-v2-auction-detail-lots {
+  margin-top: var(--console-space-6);
+}
+
+[data-console-v2] .console-v2-auction-builder-intro,
+[data-console-v2] .console-v2-auction-builder-notice {
+  margin-bottom: var(--console-space-4);
+}
+
+[data-console-v2] .console-v2-auction-builder-work {
+  margin-top: var(--console-space-4);
+}
+
+[data-console-v2] .console-v2-warehouse-form-body {
+  margin-top: var(--console-space-4);
+}
+
+[data-console-v2] .console-v2-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 900px) {
+  [data-console-v2] .console-v2-auctions-row-link {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  [data-console-v2] .console-v2-auctions-row-dates {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-console-v2] {
+    --console-duration-fast: 0ms;
+    --console-duration-base: 0ms;
+    --console-duration-slow: 0ms;
+    --console-duration-pulse: 0ms;
+    --console-stagger: 0ms;
+    --console-enter-distance: 0px;
+    --console-lift-distance: 0px;
+    --console-press-scale: 1;
+  }
+
+  /* Static final state: no animation, no transition, no transform (including
+     the individual translate/scale/rotate properties the entry layers use). */
+  [data-console-v2],
+  [data-console-v2] *,
+  [data-console-v2] *::before,
+  [data-console-v2] *::after {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    translate: none !important;
+    scale: none !important;
+    rotate: none !important;
+    will-change: auto !important;
+  }
+}
+
+/* Narrow rail (1024): the urgent card's action fills the card with tighter
+   side padding so "Check out N →" stays on one line inside the button. */
+@media (max-width: 1199px) {
+  [data-console-v2] .console-v2-stage-card {
+    padding-inline: var(--console-space-3);
+  }
+  [data-console-v2] .console-v2-stage-card .console-v2-btn {
+    width: 100%;
+    justify-content: center;
+    padding-inline: var(--console-space-2);
+    font-size: var(--console-text-sm);
+  }
+}
+
+/* ── v2 lists START ──
+   Braden 2026-10-13: v2 lists keep the v1 table structure (columns, order,
+   images where v1 had them) under the v2 skin. Cards are for the dashboard and
+   detail pages, not lists. One shared table skin (.console-v2-list-*), then
+   per-list column widths. Type comes from the v2 type tokens by name; the
+   --console-text-name / -helper fallbacks resolve to today's sizes until the
+   type-scale tokens land, then the bump flows in. Rows grow (min height via
+   the cell height, never max-height). No overflow clipping on the table wrap:
+   the v1 Clone menu opens below its button and must not be cut off. */
+[data-console-v2],
+[data-console-v2].console-v2-auctions-list,
+[data-console-v2].console-v2-inventory,
+[data-console-v2].console-v2-warehouses-list {
+  --console-list-thumbs-width: 120px;
+  --console-list-row-min: 64px;
+  --console-list-pill-scheduled-fg: var(--console-stage-intake-text);
+  --console-list-pill-scheduled-bg: var(--console-stage-intake-bg);
+  --console-list-pill-live-fg: var(--console-stage-pickup-text);
+  --console-list-pill-live-bg: var(--console-stage-pickup-bg);
+  --console-list-pill-live-dot: var(--console-action);
+  --console-list-pill-draft-fg: var(--console-neutral);
+  --console-list-pill-draft-bg: var(--console-neutral-bg);
+}
+
+[data-console-v2] .console-v2-list-table-wrap {
+  margin-top: var(--console-space-6);
+  border-radius: var(--console-radius-panel);
+  background: var(--console-surface);
+  box-shadow: inset 0 0 0 var(--console-border-width) var(--console-line);
+}
+
+[data-console-v2] .console-v2-list-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: var(--console-text-helper, var(--console-text-base));
+  line-height: var(--console-leading-control);
+  color: var(--console-ink);
+}
+
+[data-console-v2] .console-v2-list-col-thumbs {
+  width: var(--console-list-thumbs-width);
+}
+
+[data-console-v2] .console-v2-list-table th {
+  padding: var(--console-space-3);
+  text-align: left;
+  vertical-align: middle;
+  font-size: var(--console-text-xs);
+  font-weight: var(--console-weight-label);
+  letter-spacing: var(--console-tracking-label);
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--console-ink-secondary);
+  border-bottom: var(--console-border-width) solid var(--console-line);
+}
+
+[data-console-v2] .console-v2-list-table td {
+  height: var(--console-list-row-min);
+  padding: var(--console-space-2) var(--console-space-3);
+  vertical-align: middle;
+  overflow-wrap: anywhere;
+  border-bottom: var(--console-border-width) solid var(--console-line);
+}
+
+[data-console-v2] .console-v2-list-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+[data-console-v2] .console-v2-list-table tbody tr:hover td {
+  background: var(--console-surface-raised);
+}
+
+[data-console-v2] .console-v2-list-table th[data-col='thumbs'],
+[data-console-v2] .console-v2-list-table td[data-col='thumbs'] {
+  padding-inline: var(--console-space-2);
+}
+
+[data-console-v2] .console-v2-list-thumbs {
+  display: flex;
+  gap: var(--console-space-1);
+  width: calc(var(--console-list-thumbs-width) - 2 * var(--console-space-2));
+}
+
+[data-console-v2] .console-v2-list-thumb {
+  display: block;
+  flex: 0 0 auto;
+  width: 32px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 6px;
+  background: var(--console-surface-raised);
+}
+
+[data-console-v2] .console-v2-list-title {
+  display: inline;
+  font-size: var(--console-text-name, var(--console-text-section));
+  font-weight: var(--console-weight-name, 600);
+  line-height: var(--console-leading-tight);
+  color: var(--console-ink);
+  text-decoration: none;
+}
+
+[data-console-v2] a.console-v2-list-title:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+[data-console-v2] a.console-v2-list-title:focus-visible {
+  outline: 3px solid var(--console-action);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+[data-console-v2] .console-v2-list-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px var(--console-space-2);
+  margin-top: 2px;
+  font-size: var(--console-text-xs);
+  line-height: var(--console-leading-control);
+  color: var(--console-ink-secondary);
+}
+
+[data-console-v2] .console-v2-list-sub {
+  margin-top: 2px;
+  font-size: var(--console-text-xs);
+  line-height: var(--console-leading-control);
+  color: var(--console-ink-secondary);
+}
+
+[data-console-v2] .console-v2-list-nowrap {
+  white-space: nowrap;
+}
+
+[data-console-v2] .console-v2-list-num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+[data-console-v2] .console-v2-list-table th.console-v2-list-num {
+  text-align: right;
+}
+
+[data-console-v2] .console-v2-list-offsite {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 var(--console-space-2);
+  border-radius: var(--console-radius-pill);
+  font-size: var(--console-text-xs);
+  font-weight: var(--console-weight-strong);
+  line-height: 1.5;
+  color: var(--console-stage-auction-text);
+  background: var(--console-stage-auction-bg);
+}
+
+[data-console-v2] .console-v2-list-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: var(--console-radius-pill);
+  font-size: var(--console-text-xs);
+  font-weight: var(--console-weight-strong);
+  line-height: var(--console-leading-control);
+  white-space: nowrap;
+}
+
+[data-console-v2] .console-v2-list-pill--scheduled {
+  color: var(--console-list-pill-scheduled-fg);
+  background: var(--console-list-pill-scheduled-bg);
+}
+
+[data-console-v2] .console-v2-list-pill--live {
+  color: var(--console-list-pill-live-fg);
+  background: var(--console-list-pill-live-bg);
+}
+
+[data-console-v2] .console-v2-list-pill--draft {
+  color: var(--console-list-pill-draft-fg);
+  background: var(--console-list-pill-draft-bg);
+}
+
+[data-console-v2] .console-v2-list-pill__dot {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 auto;
+  border-radius: var(--console-radius-pill);
+  background: var(--console-list-pill-live-dot);
+}
+
+/* Warehouses (v1 row contents as columns): Name · Location · Floor plan ·
+   Pickup mode · Setup. No images: v1 has none on this list. */
+[data-console-v2] .console-v2-warehouses-col-location {
+  width: 200px;
+}
+
+[data-console-v2] .console-v2-warehouses-col-plan {
+  width: 200px;
+}
+
+[data-console-v2] .console-v2-warehouses-col-mode {
+  width: 220px;
+}
+
+[data-console-v2] .console-v2-warehouses-col-setup {
+  width: 136px;
+}
+
+[data-console-v2] .console-v2-warehouses-table td[data-col='setup'] {
+  text-align: right;
+}
+
+[data-console-v2] .console-v2-warehouses-table td[data-col='location'],
+[data-console-v2] .console-v2-warehouses-table td[data-col='plan'],
+[data-console-v2] .console-v2-warehouses-table td[data-col='mode'] {
+  color: var(--console-ink-secondary);
+}
+
+[data-console-v2] .console-v2-list-inactive {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 var(--console-space-2);
+  border-radius: var(--console-radius-pill);
+  font-size: var(--console-text-xs);
+  font-weight: var(--console-weight-strong);
+  line-height: 1.5;
+  color: var(--console-danger);
+  background: var(--console-danger-bg);
+}
+
+@media (max-width: 1279px) {
+  [data-console-v2] .console-v2-warehouses-col-location,
+  [data-console-v2] .console-v2-warehouses-col-plan {
+    width: 168px;
+  }
+
+  [data-console-v2] .console-v2-warehouses-col-mode {
+    width: 184px;
+  }
+}
+
+/* Auctions: Thumbs · Title · Status · Starts · Ends · Premium · Clone. */
+[data-console-v2] .console-v2-auctions-col-status {
+  width: 128px;
+}
+
+[data-console-v2] .console-v2-auctions-col-date {
+  width: 208px;
+}
+
+[data-console-v2] .console-v2-auctions-col-premium {
+  width: 96px;
+}
+
+[data-console-v2] .console-v2-auctions-col-clone {
+  width: 104px;
+}
+
+[data-console-v2] .console-v2-auctions-table td[data-col='clone'] {
+  text-align: right;
+}
+
+@media (max-width: 1279px) {
+  [data-console-v2] .console-v2-auctions-col-status {
+    width: 120px;
+  }
+
+  [data-console-v2] .console-v2-auctions-col-date {
+    width: 136px;
+  }
+
+  [data-console-v2] .console-v2-auctions-col-premium {
+    width: 96px;
+  }
+
+  [data-console-v2] .console-v2-auctions-col-clone {
+    width: 112px;
+  }
+}
+
+/* Inventory (v1 columns): [select] · Photo · Lot code · Title · Location ·
+   Source / VRID · Vendor · MSRP · Intaken. Status and starting bid (v2's
+   extras) sit under the title. Auto layout so long titles take the room;
+   the existing inventory wrap scrolls sideways inside itself if it must. */
+[data-console-v2] .console-v2-list-table.console-v2-inventory-list-table {
+  table-layout: auto;
+}
+
+[data-console-v2] .console-v2-inventory-col-select {
+  width: 56px;
+}
+
+[data-console-v2] .console-v2-inventory-col-thumb {
+  width: 76px;
+}
+
+[data-console-v2] .console-v2-inventory-thumb-link {
+  display: block;
+  width: 60px;
+  line-height: 0;
+}
+
+[data-console-v2] .console-v2-list-thumb.console-v2-list-thumb--lot {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+}
+
+[data-console-v2] .console-v2-inventory-list-table td[data-col='title'] {
+  min-width: 200px;
+}
+
+[data-console-v2] .console-v2-inventory-list-table td[data-col='location'] {
+  min-width: 128px;
+  overflow-wrap: normal;
+}
+
+/* Two-word headers may wrap so the v1 columns fit at 1024 without scrolling. */
+[data-console-v2] .console-v2-inventory-list-table th {
+  white-space: normal;
+}
+
+[data-console-v2] .console-v2-inventory-list-table td[data-col='code'],
+[data-console-v2] .console-v2-inventory-list-table td[data-col='msrp'],
+[data-console-v2] .console-v2-inventory-list-table td[data-col='intaken'] {
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+
+[data-console-v2] .console-v2-inventory-list-table td[data-col='source'],
+[data-console-v2] .console-v2-inventory-list-table td[data-col='vendor'],
+[data-console-v2] .console-v2-inventory-list-table td[data-col='location'] {
+  color: var(--console-ink-secondary);
+}
+
+[data-console-v2] .console-v2-list-meta .console-v2-status-pill {
+  min-height: 0;
+  padding: 0 var(--console-space-2);
+  line-height: 1.5;
+}
+
+/* ── v2 lists END ── */
+
+/* ── v2 shell START ── */
+/* Console v2 shell (?ui=v2 only): sidebar + compact header around the page.
+   Sidebar is 240px like v1's so v2 pages keep the same work width at 1440;
+   main keeps v1's 2rem padding so pages that bleed with margin: -2rem (and the
+   build-skew / MFA notices) land exactly as they do in the v1 shell. At
+   <=1024px the sidebar becomes a drawer opened from the header. */
+[data-console-v2].console-v2-shell {
+  --console-shell-nav-width: 240px;
+  --console-shell-stage-fg: var(--console-violet-fg);
+  --console-shell-stage-glow: none;
+  display: grid;
+  grid-template-columns: var(--console-shell-nav-width) minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    'nav header'
+    'nav main';
+  min-height: 100vh;
+  background: var(--console-bg);
+  color: var(--console-ink);
+}
+
+[data-console-v2].console-v2-shell[data-stage='intake'],
+[data-console-v2] .console-v2-shell__link[data-stage='intake'],
+[data-console-v2] .console-v2-shell__stage-dot[data-stage='intake'],
+[data-console-v2] .console-v2-shell__group-current[data-stage='intake'] {
+  --console-shell-stage-fg: var(--console-stage-intake-fg);
+  --console-shell-stage-glow: var(--console-stage-intake-glow);
+}
+[data-console-v2].console-v2-shell[data-stage='lotting'],
+[data-console-v2] .console-v2-shell__link[data-stage='lotting'],
+[data-console-v2] .console-v2-shell__stage-dot[data-stage='lotting'],
+[data-console-v2] .console-v2-shell__group-current[data-stage='lotting'] {
+  --console-shell-stage-fg: var(--console-stage-lotting-fg);
+  --console-shell-stage-glow: var(--console-stage-lotting-glow);
+}
+[data-console-v2].console-v2-shell[data-stage='auction'],
+[data-console-v2] .console-v2-shell__link[data-stage='auction'],
+[data-console-v2] .console-v2-shell__stage-dot[data-stage='auction'],
+[data-console-v2] .console-v2-shell__group-current[data-stage='auction'] {
+  --console-shell-stage-fg: var(--console-stage-auction-fg);
+  --console-shell-stage-glow: var(--console-stage-auction-glow);
+}
+[data-console-v2].console-v2-shell[data-stage='paid'],
+[data-console-v2] .console-v2-shell__link[data-stage='paid'],
+[data-console-v2] .console-v2-shell__stage-dot[data-stage='paid'],
+[data-console-v2] .console-v2-shell__group-current[data-stage='paid'] {
+  --console-shell-stage-fg: var(--console-stage-paid-fg);
+  --console-shell-stage-glow: var(--console-stage-paid-glow);
+}
+[data-console-v2].console-v2-shell[data-stage='pickup'],
+[data-console-v2] .console-v2-shell__link[data-stage='pickup'],
+[data-console-v2] .console-v2-shell__stage-dot[data-stage='pickup'],
+[data-console-v2] .console-v2-shell__group-current[data-stage='pickup'] {
+  --console-shell-stage-fg: var(--console-stage-pickup-fg);
+  --console-shell-stage-glow: var(--console-stage-pickup-glow);
+}
+[data-console-v2] .console-v2-shell__link[data-stage='neutral'],
+[data-console-v2] .console-v2-shell__stage-dot[data-stage='neutral'],
+[data-console-v2] .console-v2-shell__group-current[data-stage='neutral'] {
+  --console-shell-stage-fg: var(--console-violet-fg);
+  --console-shell-stage-glow: none;
+}
+
+/* Skip link: off-screen until focused, then top-left above everything. */
+[data-console-v2] .console-v2-shell__skip {
+  position: absolute;
+  top: var(--console-space-2);
+  left: var(--console-space-2);
+  z-index: var(--console-z-lightbox);
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--console-control-min);
+  padding: 0 var(--console-space-4);
+  border-radius: var(--console-radius-control);
+  background: var(--console-surface-raised);
+  color: var(--console-ink);
+  font-weight: var(--console-weight-strong);
+  text-decoration: none;
+  white-space: nowrap;
+  /* Clipped, not transformed: the reduced-motion rule resets transforms. */
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+[data-console-v2] .console-v2-shell__skip:focus,
+[data-console-v2] .console-v2-shell__skip:focus-visible {
+  clip-path: none;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  outline: var(--console-focus-width) solid var(--console-focus);
+  outline-offset: var(--console-focus-offset);
+}
+
+/* ── Sidebar ── */
+/* Sticky, full viewport tall, scrolls its own links (G-SPEC: a floor pane's
+   links may scroll; the work never does). Not a height cap on content. */
+[data-console-v2] .console-v2-shell__nav {
+  grid-area: nav;
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: 100vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--console-space-5) var(--console-space-3) var(--console-space-8);
+  background: var(--console-gradient-floor);
+  border-right: var(--console-border-width) solid var(--console-line);
+  z-index: var(--console-z-nav);
+}
+
+[data-console-v2] .console-v2-shell__brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--console-space-2);
+  min-height: var(--console-control-min);
+  padding: 0 var(--console-space-3);
+  margin-bottom: var(--console-space-3);
+  border-radius: var(--console-radius-control);
+  color: var(--console-ink);
+  text-decoration: none;
+  line-height: var(--console-control-min);
+}
+[data-console-v2] .console-v2-shell__brand-word {
+  font-family: var(--console-font-display);
+  font-size: 1.5rem;
+  font-weight: var(--console-weight-strong);
+  letter-spacing: -0.01em;
+}
+[data-console-v2] .console-v2-shell__brand-sub {
+  font-size: var(--console-text-xs);
+  font-weight: var(--console-weight-label);
+  letter-spacing: var(--console-tracking-label);
+  text-transform: uppercase;
+  color: var(--console-stage-pickup-text);
+}
+
+[data-console-v2] .console-v2-shell__groups,
+[data-console-v2] .console-v2-shell__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+[data-console-v2] .console-v2-shell__groups {
+  display: grid;
+  gap: var(--console-space-2);
+}
+[data-console-v2] .console-v2-shell__list {
+  display: grid;
+  gap: 2px;
+}
+[data-console-v2] .console-v2-shell__list[hidden] {
+  display: none;
+}
+
+[data-console-v2] .console-v2-shell__group-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--console-space-2);
+  width: 100%;
+  min-height: var(--console-control-min);
+  padding: 0 var(--console-space-3);
+  border: 0;
+  border-radius: var(--console-radius-control);
+  background: transparent;
+  color: var(--console-ink-secondary);
+  font: inherit;
+  font-size: var(--console-text-xs);
+  font-weight: var(--console-weight-label);
+  letter-spacing: var(--console-tracking-label);
+  text-transform: uppercase;
+  text-align: left;
+  cursor: pointer;
+}
+[data-console-v2] .console-v2-shell__group-toggle > span:first-child {
+  flex: 1 1 auto;
+}
+[data-console-v2] .console-v2-shell__chevron {
+  flex: 0 0 auto;
+}
+[data-console-v2] .console-v2-shell__group-current {
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--console-radius-pill);
+  background: var(--console-shell-stage-fg);
+}
+
+[data-console-v2] .console-v2-shell__link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: var(--console-control-min);
+  padding: var(--console-space-2) var(--console-space-3);
+  border-radius: var(--console-radius-control);
+  color: var(--console-ink);
+  font-size: var(--console-text-base);
+  font-weight: var(--console-weight-label);
+  line-height: var(--console-leading-control);
+  text-decoration: none;
+  transition: background var(--console-duration-fast) var(--console-ease-out);
+}
+[data-console-v2] .console-v2-shell__link--sub {
+  padding-left: var(--console-space-8);
+  color: var(--console-ink-secondary);
+  font-size: var(--console-text-sm);
+  font-weight: var(--console-weight-body);
+}
+
+/* Current page: active gradient + a 3px rule in the page's stage hue; the glow
+   sits on the rule only (G-SPEC: glow on the selected rule, never whole rows). */
+[data-console-v2] .console-v2-shell__link[aria-current='page'] {
+  background: var(--console-gradient-active);
+  color: var(--console-ink);
+  font-weight: var(--console-weight-strong);
+}
+[data-console-v2] .console-v2-shell__link[aria-current='page']::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: var(--console-space-2);
+  bottom: var(--console-space-2);
+  width: var(--console-signature-width);
+  border-radius: var(--console-radius-pill);
+  background: var(--console-shell-stage-fg);
+  box-shadow: var(--console-shell-stage-glow);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  [data-console-v2] .console-v2-shell__link:hover,
+  [data-console-v2] .console-v2-shell__group-toggle:hover {
+    background: var(--console-gradient-active);
+    color: var(--console-ink);
+  }
+}
+
+/* Focus ring drawn inside the control: the nav scrolls, and an outside ring
+   would be clipped by it. */
+[data-console-v2] .console-v2-shell__brand:focus-visible,
+[data-console-v2] .console-v2-shell__link:focus-visible,
+[data-console-v2] .console-v2-shell__group-toggle:focus-visible,
+[data-console-v2] .console-v2-shell__menu:focus-visible,
+[data-console-v2] .console-v2-shell__switch:focus-visible,
+[data-console-v2] .console-v2-shell__signout a:focus-visible {
+  outline: var(--console-focus-width) solid var(--console-focus);
+  outline-offset: calc(-1 * var(--console-focus-width));
+  background: var(--console-gradient-active);
+  color: var(--console-ink);
+}
+
+/* ── Header ── */
+[data-console-v2] .console-v2-shell__header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--console-space-3) var(--console-space-6);
+  min-height: 72px;
+  padding: var(--console-space-3) 2rem;
+  background: var(--console-gradient-band);
+  border-bottom: var(--console-border-width) solid var(--console-line);
+}
+[data-console-v2] .console-v2-shell__menu {
+  display: none;
+  align-items: center;
+  gap: var(--console-space-2);
+  min-height: var(--console-control-min);
+  min-width: var(--console-control-min);
+  padding: 0 var(--console-space-4);
+  border: var(--console-border-width) solid var(--console-edge);
+  border-radius: var(--console-radius-control);
+  background: var(--console-surface);
+  color: var(--console-ink);
+  font: inherit;
+  font-weight: var(--console-weight-label);
+  cursor: pointer;
+}
+[data-console-v2] .console-v2-shell__menu[aria-expanded='true'] {
+  background: var(--console-gradient-active);
+}
+[data-console-v2] .console-v2-shell__context {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+[data-console-v2] .console-v2-shell__context p,
+[data-console-v2] .console-v2-shell__operator p {
+  margin: 0;
+}
+[data-console-v2] .console-v2-shell__context-group,
+[data-console-v2] .console-v2-shell__operator-label {
+  font-size: var(--console-text-xs);
+  font-weight: var(--console-weight-label);
+  letter-spacing: var(--console-tracking-label);
+  text-transform: uppercase;
+  color: var(--console-ink-secondary);
+}
+[data-console-v2] .console-v2-shell__context-page {
+  display: flex;
+  align-items: center;
+  gap: var(--console-space-2);
+  font-size: var(--console-text-section);
+  font-weight: var(--console-weight-strong);
+  line-height: var(--console-leading-tight);
+  overflow-wrap: anywhere;
+}
+[data-console-v2] .console-v2-shell__stage-dot {
+  flex: 0 0 auto;
+  width: 10px;
+  height: 10px;
+  border-radius: var(--console-radius-pill);
+  background: var(--console-shell-stage-fg);
+  box-shadow: var(--console-shell-stage-glow);
+}
+[data-console-v2] .console-v2-shell__operator {
+  text-align: right;
+}
+[data-console-v2] .console-v2-shell__operator-name {
+  font-weight: var(--console-weight-strong);
+}
+[data-console-v2] .console-v2-shell__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--console-space-2);
+}
+[data-console-v2] .console-v2-shell__switch,
+[data-console-v2] .console-v2-shell__signout a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--console-control-min);
+  min-width: var(--console-control-min);
+  padding: 0 var(--console-space-4);
+  border-radius: var(--console-radius-control);
+  font-weight: var(--console-weight-label);
+  white-space: nowrap;
+}
+[data-console-v2] .console-v2-shell__switch {
+  border: var(--console-border-width) solid var(--console-edge);
+  background: var(--console-surface);
+  color: var(--console-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+[data-console-v2] .console-v2-shell__signout a {
+  color: var(--console-ink-secondary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+@media (hover: hover) and (pointer: fine) {
+  [data-console-v2] .console-v2-shell__switch:hover,
+  [data-console-v2] .console-v2-shell__signout a:hover,
+  [data-console-v2] .console-v2-shell__menu:hover {
+    background: var(--console-gradient-active);
+    color: var(--console-ink);
+  }
+}
+
+/* ── Main ── */
+/* Same 2rem as v1's <main>. Inherited type is reset to v1's body values so a
+   page that has no v2 version yet renders as it does today; v2 pages carry
+   their own [data-console-v2] root and get v2 type back. */
+[data-console-v2] .console-v2-shell__main {
+  grid-area: main;
+  min-width: 0;
+  padding: 2rem;
+  font-family:
+    var(--font-body), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, sans-serif;
+  font-size: 1rem;
+  line-height: normal;
+  color: var(--fg);
+}
+[data-console-v2] .console-v2-shell__main:focus {
+  outline: none;
+}
+[data-console-v2] .console-v2-shell__main h1,
+[data-console-v2] .console-v2-shell__main h2,
+[data-console-v2] .console-v2-shell__main h3 {
+  font-family:
+    var(--font-display), 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
+}
+[data-console-v2] .console-v2-shell__main [data-console-v2] h1,
+[data-console-v2] .console-v2-shell__main [data-console-v2] h2,
+[data-console-v2] .console-v2-shell__main [data-console-v2] h3,
+[data-console-v2] .console-v2-shell__main .console-v2-display {
+  font-family: var(--console-font-display);
+}
+
+[data-console-v2] .console-v2-shell__scrim {
+  display: none;
+}
+
+/* ── <=1024: sidebar becomes a drawer ── */
+@media (max-width: 1024px) {
+  [data-console-v2].console-v2-shell {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'header'
+      'main';
+  }
+  [data-console-v2] .console-v2-shell__nav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: min(320px, calc(100vw - var(--console-space-12)));
+    height: auto;
+    z-index: var(--console-z-dialog);
+    box-shadow: var(--console-shadow-float);
+    visibility: hidden;
+    transform: translateX(-100%);
+    transition:
+      transform var(--console-duration-base) var(--console-ease-out),
+      visibility 0s linear var(--console-duration-base);
+  }
+  [data-console-v2].console-v2-shell[data-drawer-open='true'] .console-v2-shell__nav {
+    visibility: visible;
+    transform: none;
+    transition: transform var(--console-duration-base) var(--console-ease-out);
+  }
+  [data-console-v2].console-v2-shell[data-drawer-open='true'] .console-v2-shell__scrim {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: var(--console-z-scrim);
+    background: var(--console-scrim);
+  }
+  [data-console-v2] .console-v2-shell__menu {
+    display: inline-flex;
+  }
+  [data-console-v2] .console-v2-shell__header {
+    padding-inline: var(--console-space-4);
+    gap: var(--console-space-3);
+  }
+}
+
+@media (max-width: 640px) {
+  [data-console-v2] .console-v2-shell__operator {
+    text-align: left;
+  }
+}
+/* ── v2 shell END ── */

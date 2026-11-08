@@ -1,0 +1,80 @@
+# Daily summary email for BinGo: customer feedback, last night's auctions,
+# stuck lots, refunded items with no next step, and anything that failed.
+#
+# Read-only: every statement is a SELECT through the Supabase Management API
+# (the script refuses anything else), plus GETs from this repo's Actions API.
+# It writes nothing. Safe at any hour (CLAUDE.md Rule 9).
+#
+# Timing: GitHub starts scheduled runs 12–19 minutes late (measured on
+# import-d2l-folder.yml). Both slots below fire; the script sends only from the
+# one that is 06:45 in Chicago that day (11:45 UTC in summer, 12:45 in winter),
+# so the email lands around 7:00 CT all year.
+#
+# Recipients come only from the DAILY_SUMMARY_TO secret (comma-separated).
+# The run log shows the subject and section counts, never the body or the
+# addresses.
+
+name: Daily summary email (BinGo)
+
+on:
+  schedule:
+    - cron: '45 11 * * *'
+    - cron: '45 12 * * *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'send = email it now. dry = build it, print the section counts, send nothing.'
+        required: true
+        type: choice
+        default: send
+        options:
+          - send
+          - dry
+
+concurrency:
+  group: daily-summary
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  summary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Guard secrets
+        env:
+          HAS_PAT: ${{ secrets.SUPABASE_ACCESS_TOKEN != '' }}
+          HAS_RESEND: ${{ secrets.RESEND_API_KEY != '' }}
+          HAS_TO: ${{ secrets.DAILY_SUMMARY_TO != '' }}
+          MODE: ${{ inputs.mode || 'send' }}
+        run: |
+          if [ "$HAS_PAT" != "true" ]; then
+            echo "::error::SUPABASE_ACCESS_TOKEN repo secret is not set."
+            exit 1
+          fi
+          if [ "$MODE" = "send" ] && { [ "$HAS_RESEND" != "true" ] || [ "$HAS_TO" != "true" ]; }; then
+            echo "::error::RESEND_API_KEY and DAILY_SUMMARY_TO repo secrets must both be set to send."
+            exit 1
+          fi
+
+      - name: Build and send
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          # Required, not an override: a missing ref can never silently target
+          # another project.
+          SUPABASE_PROJECT_REF: npwseclcxcatjhgjrtwe
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          DAILY_SUMMARY_TO: ${{ secrets.DAILY_SUMMARY_TO }}
+          GITHUB_TOKEN: ${{ github.token }}
+          EVENT_NAME: ${{ github.event_name }}
+          SCHEDULE: ${{ github.event.schedule }}
+          MODE: ${{ inputs.mode || 'send' }}
+        run: node scripts/daily-summary.mjs

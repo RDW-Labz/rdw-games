@@ -1,0 +1,25 @@
+T13 onboarding decisions -- checks run 2026-09-22T18:05:35Z
+Ownership expanded to include tests/test_onboarding_data.py and onboarding/v1/fixtures/first-run.yaml (access_level mentions).
+Summary: pytest 50 passed / 0 failed; ruff check pass; ruff format pass; mypy --strict pass; mypy --strict --platform win32 pass; git diff --check pass.
+======================================================================
+### uv sync --frozen
+[2mChecked [1m29 packages[0m [2min 3ms[0m[0m
+exit: 0
+### pytest -q
+[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m                       [100%][0m
+[32m[32m[1m50 passed[0m[32m in 0.30s[0m[0m
+exit: 0
+### ruff check .
+[1;32mAll checks passed![0m
+exit: 0
+### ruff format --check .
+31 files already formatted
+exit: 0
+### mypy --strict src
+[1m[32mSuccess: no issues found in 9 source files(B[m
+exit: 0
+### mypy --strict --platform win32 src
+[1m[32mSuccess: no issues found in 9 source files(B[m
+exit: 0
+### git diff --check
+exit: 0

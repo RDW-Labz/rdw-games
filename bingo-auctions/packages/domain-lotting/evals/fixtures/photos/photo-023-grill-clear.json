@@ -1,0 +1,18 @@
+{
+  "id": "photo-023",
+  "image_path": "photo-023-grill-clear.jpg",
+  "media_type": "image/jpeg",
+  "photo_quality_label": "clear",
+  "expected": {
+    "title": "Weber Spirit II E-310 3-Burner Liquid Propane Gas Grill (Black)",
+    "brand": "Weber",
+    "model": "45010001",
+    "upc": "077924039973",
+    "category_slug": "grills-cooking",
+    "category_legacy": "Home & Garden",
+    "condition": "New/Sealed",
+    "msrp_cents": 59900,
+    "expected_confidence": "high"
+  },
+  "notes": "Grill on a pallet wrapped in plastic — corner-of-pallet ID label visible. Tests Weber red-and-black branding recognition."
+}

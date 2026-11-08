@@ -1,0 +1,18 @@
+{
+  "id": "photo-018",
+  "image_path": "photo-018-fridge-occluded.jpg",
+  "media_type": "image/jpeg",
+  "photo_quality_label": "occluded",
+  "expected": {
+    "title": "Whirlpool 24.5 Cu Ft Side-by-Side Refrigerator with Ice Maker (Stainless Steel)",
+    "brand": "Whirlpool",
+    "model": "WRS555SIHZ",
+    "upc": "883049466071",
+    "category_slug": "major-appliances",
+    "category_legacy": "Appliances",
+    "condition": "New/Sealed",
+    "msrp_cents": 144900,
+    "expected_confidence": "low"
+  },
+  "notes": "Refrigerator wrapped in protective plastic with shipping tape covering the model badge. Tests recognition when nameplate is not visible — model should fall back to brand+visible-features."
+}

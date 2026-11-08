@@ -1,0 +1,1 @@
+{"command":"worktrees/remote-t05/.venv/bin/python coordination/t05-t06-integration.py","exit_code":0,"sandbox":"escalated for temporary localhost listeners only","approval_wait_proven":true,"approvals":2,"changed_arguments":1,"completed_steps":2,"metadata_audit_events":8,"private_temp_files_cleaned_on_exit":true,"recorded_samples":2,"result":"PASS","services":2}

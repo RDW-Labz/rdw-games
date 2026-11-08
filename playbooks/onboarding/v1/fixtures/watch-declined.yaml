@@ -1,0 +1,13 @@
+# Fake, recorded fixture for onboarding-v1 test case "watch-page-declined":
+# a fully onboarded person visits a new site and says no to watching it.
+# No real names or client data.
+steps:
+  show_intro:
+    value: {screens_shown: 0}
+  collect_answers:
+    value: {asked_ids: []}
+  write_profile:
+    value: {status: onboarded, missing_fields: []}
+    confirm: true
+  ask_watch_page:
+    value: {status: onboarded, missing_fields: [], watch_decision: "no"}

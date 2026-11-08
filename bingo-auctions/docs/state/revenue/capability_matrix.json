@@ -1,0 +1,33 @@
+{
+  "as_of": "2026-10-15T18:30Z",
+  "note": "verified = a live call ran this session and returned the expected result. Evidence paths are relative to docs/state/revenue/.",
+  "tools": [
+    {"tool": "prod read-only SQL (gh apply-migration.yml mode=query)", "verified": true, "cost_per_unit": 0.0, "unit": "query (~60-80s, serialized)", "allowed_data": "production (aggregates only)", "evidence": "queries/b1..b5 — GH runs 38784005120, 38784214385, 38784322236, 38784444812, 38784570225"},
+    {"tool": "repo typecheck (turbo, 12 tasks)", "verified": true, "cost_per_unit": 0.0, "allowed_data": "repo", "evidence": "worktree run 2026-10-15, TC_EXIT 0"},
+    {"tool": "repo unit tests (turbo, 12 tasks; operator-web 901, field-mobile 121, bidder-app 103)", "verified": true, "cost_per_unit": 0.0, "allowed_data": "repo", "evidence": "TEST_EXIT 0 (4 tasks were turbo cache hits)"},
+    {"tool": "npm run preflight", "verified": true, "cost_per_unit": 0.0, "allowed_data": "repo", "evidence": "PF_EXIT 0"},
+    {"tool": "post-deploy-check.yml", "verified": true, "cost_per_unit": 0.0, "allowed_data": "production (read)", "evidence": "GH run 38775867050 success 2026-10-15 (not run by this session)"},
+    {"tool": "Maestro e2e (CI maestro.yml)", "verified": false, "cost_per_unit": 0.0, "allowed_data": "repo", "evidence": "master runs 38778373007 + 38772450997 FAILED (field-mobile Android emulator adb exit 1). Not installed locally. UNVERIFIED — cannot be a gate until green."},
+    {"tool": "Square sandbox (payment test mode)", "verified": false, "cost_per_unit": 0.0, "allowed_data": "test only", "evidence": "No .secrets/ on this Mac; .env reads denied. UNVERIFIED — blocker for any payment-path build."},
+    {"tool": "Codex CLI", "verified": true, "cost_per_unit": 0.0, "unit": "ChatGPT subscription; ~10k tokens per trivial call", "allowed_data": "repo (no secrets, no PII)", "evidence": "live call returned CODEX_OK"},
+    {"tool": "Cursor CLI (composer-2.5)", "verified": true, "cost_per_unit": 0.0, "unit": "team plan included model", "allowed_data": "repo (no secrets, no PII)", "evidence": "live call returned CURSOR_OK"},
+    {"tool": "Hermes on dev2 (direct ssh)", "verified": true, "cost_per_unit": 0.0, "allowed_data": "text only (no repo, no PII)", "evidence": "live call returned HERMES_OK"},
+    {"tool": "Hermes via project-swarm", "verified": false, "cost_per_unit": 0.0, "allowed_data": "text only", "evidence": "swarm run 1792088418193-990cb30a failed: exit 1, 'Malformed CLI JSONL'. Policy says route Hermes through swarm, so Hermes is blocked until fixed."},
+    {"tool": "OpenRouter", "verified": false, "cost_per_unit": null, "allowed_data": "public only", "evidence": "Not tested. Memory no-idle-routing says OpenRouter is OFF for BinGo; run prompt allows $5/day. Conflict logged; not used."},
+    {"tool": "Web research (Claude WebSearch/WebFetch)", "verified": false, "cost_per_unit": 0.0, "allowed_data": "public", "evidence": "to be verified at Phase 1 start"},
+    {"tool": "Cloudflare deploy / rollback", "verified": false, "cost_per_unit": 0.0, "allowed_data": "production", "evidence": "No CF token on this Mac; rollback = rerun previous deploy (~6 min). Braden-only."}
+  ],
+  "assets": [
+    {"asset": "Bidder base", "access": "prod SQL", "fact": "1,350 live bidders, 1,005 with card on file, 1,329 marketing opt-in, 311 push tokens", "evidence": "queries/b2.json, b5.json"},
+    {"asset": "Heavy-buyer segment", "access": "prod SQL", "fact": "31 buyers with 60+ invoices in 84 days = $97,990 hammer (~50% of 84-day hammer); top 20 buyers = 47.6%", "evidence": "queries/b5.json"},
+    {"asset": "Inventory flow", "access": "prod SQL", "fact": "24,198 lots closed in 84 days across 253 auctions (Harrison 252, Dodge City 1); sell-through 83.4%; 3,858 zero-bid lots", "evidence": "queries/b2.json, b5.json"},
+    {"asset": "Card-on-file + auto-charge at close (Square)", "access": "repo", "fact": "lib/square.ts + auto-charge-drain cron; fees ledger exists (bidder_fee_ledger, reason relot_fee only)", "evidence": "migration 0105; queries/b1.json"},
+    {"asset": "Paid-membership plumbing (bidder_subscriptions, operators.pro_*, membership_fee_bps)", "access": "repo + prod SQL", "fact": "Built for Stripe; pro_enabled=false; 0 subscription rows. Needs Square rewrite before any use.", "evidence": "queries/b1.json; docs/plans/PLAN-operator-memberships-2026-06-03.md"},
+    {"asset": "Shipping (EasyPost quote/label routes)", "access": "repo", "fact": "Code exists; offers_shipping=false; 5 of 11,126 invoices have a fulfillment_method set", "evidence": "apps/operator-web/src/lib/easypost.ts; queries/b1.json"},
+    {"asset": "Off-site event auctions", "access": "repo + prod SQL", "fact": "Crandall warehouse row live (Sat/Sun 12-4); no Crandall lots closed in last 84 days", "evidence": "migrations 0411/0412; queries/b4.json, b5.json"},
+    {"asset": "Per-sq-ft flooring bidding", "access": "repo", "fact": "Spec only (branches docs/sqft-bidding-spec, docs/live-edit-spec-and-sqft-prs); no code on master", "evidence": "git branch -r"},
+    {"asset": "Pickup counter", "access": "prod SQL", "fact": "Harrison open 7 days 10:30-18:00; 30-min slots x5; paid->pickup p50 1.9 days, p90 4.9 days; 7-day window", "evidence": "queries/b4.json"},
+    {"asset": "Customer Feedback channel", "access": "prod SQL", "fact": "app_feedback: only 4 non-staff rows ever — too thin to rely on as a demand signal", "evidence": "queries/b4.json"},
+    {"asset": "Watchlist / saved searches", "access": "prod SQL", "fact": "26,126 watchlist rows from 656 bidders; 36 saved searches from 21 bidders", "evidence": "queries/b4.json"}
+  ]
+}

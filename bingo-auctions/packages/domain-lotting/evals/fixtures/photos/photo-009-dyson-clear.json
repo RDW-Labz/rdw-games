@@ -1,0 +1,18 @@
+{
+  "id": "photo-009",
+  "image_path": "photo-009-dyson-clear.jpg",
+  "media_type": "image/jpeg",
+  "photo_quality_label": "clear",
+  "expected": {
+    "title": "Dyson V11 Animal Cordless Stick Vacuum Cleaner",
+    "brand": "Dyson",
+    "model": "V11 Animal",
+    "upc": "885609014579",
+    "category_slug": "small-appliances",
+    "category_legacy": "Appliances",
+    "condition": "New/Open Box",
+    "msrp_cents": 59999,
+    "expected_confidence": "high"
+  },
+  "notes": "Standard front-of-box shot, opened box on warehouse pallet."
+}

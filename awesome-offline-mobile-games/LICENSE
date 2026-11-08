@@ -1,0 +1,44 @@
+MIT License
+
+Copyright (c) 2026 Awesome Offline Mobile Games contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+SCOPE OF THIS LICENCE
+
+This MIT licence covers the material authored in this repository: the four
+original games in games/ (Vaultbreak, Tessera, Ember Drift, Rift Nine), the
+Arcade Shell in shell/, the local library server in server/, and the tooling in
+tests/ and tools/.
+
+It does NOT cover the six port titles. Those remain under their upstream
+licences:
+
+  Mindustry                  GPL-3.0      https://github.com/Anuken/Mindustry
+  Shattered Pixel Dungeon    GPL-3.0      https://github.com/00-Evan/shattered-pixel-dungeon
+  Luanti                     LGPL-2.1+    https://github.com/luanti-org/luanti
+  Endless Sky                GPL-3.0      https://github.com/endless-sky/endless-sky
+  DarkPlaces                 GPL-2.0      https://github.com/evilant0/DarkPlaces
+  DDNet                      Zlib         https://github.com/ddnet/ddnet
+
+None of their source is vendored in this repository. Each ports/<id>/PROVENANCE.md
+records the upstream URL, pinned commit, licence, artifact size and SHA-256. Reusing
+a port means going to upstream and accepting upstream's terms.

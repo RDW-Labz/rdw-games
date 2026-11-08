@@ -1,0 +1,49 @@
+
+> oasis-rig@0.1.0 tauri
+> tauri build --bundles app -c {"bundle":{"createUpdaterArtifacts":false}}
+
+        Info Looking up installed tauri packages to check mismatched versions...
+     Running beforeBuildCommand `npm run build`
+
+> oasis-rig@0.1.0 build
+> npm run typecheck && vite build
+
+
+> oasis-rig@0.1.0 typecheck
+> tsc -p tsconfig.json --noEmit && tsc -p tsconfig.node.json --noEmit
+
+vite v6.4.3 building for production...
+transforming...
+✓ 169 modules transformed.
+rendering chunks...
+[plugin vite:reporter] 
+(!) /Users/prime/Documents/repos-projects/oasis/repos/desktop-app/node_modules/@tauri-apps/api/core.js is dynamically imported by /Users/prime/Documents/repos-projects/oasis/repos/desktop-app/src/lib/platform.ts, /Users/prime/Documents/repos-projects/oasis/repos/desktop-app/src/lib/platform.ts, /Users/prime/Documents/repos-projects/oasis/repos/desktop-app/src/lib/platform.ts, /Users/prime/Documents/repos-projects/oasis/repos/desktop-app/src/lib/platform.ts, /Users/prime/Documents/repos-projects/oasis/repos/desktop-app/src/lib/platform.ts, /Users/prime/Documents/repos-projects/oasis/repos/desktop-app/src/lib/serviceClient.ts, /Users/prime/Documents/repos-projects/oasis/repos/desktop-app/src/lib/serviceClient.ts but also statically imported by /Users/prime/Documents/repos-projects/oasis/repos/desktop-app/node_modules/@tauri-apps/api/dpi.js, /Users/prime/Documents/repos-projects/oasis/repos/desktop-app/node_modules/@tauri-apps/api/event.js, /Users/prime/Documents/repos-projects/oasis/repos/desktop-app/node_modules/@tauri-apps/api/image.js, /Users/prime/Documents/repos-projects/oasis/repos/desktop-app/node_modules/@tauri-apps/api/menu/base.js, /Users/prime/Documents/repos-projects/oasis/repos/desktop-app/node_modules/@tauri-apps/api/menu/checkMenuItem.js, /Users/prime/Documents/repos-projects/oasis/repos/desktop-app/node_modules/@tauri-apps/api/menu/iconMenuItem.js, /Users/prime/Documents/repos-projects/oasis/repos/desktop-app/node_modules/@tauri-apps/api/menu/menu.js, /Users/prime/Documents/repos-projects/oasis/repos/desktop-app/node_modules/@tauri-apps/api/menu/menuItem.js, /Users/prime/Documents/repos-projects/oasis/repos/desktop-app/node_modules/@tauri-apps/api/menu/predefinedMenuItem.js, /Users/prime/Documents/repos-projects/oasis/repos/desktop-app/node_modules/@tauri-apps/api/menu/submenu.js, /Users/prime/Documents/repos-projects/oasis/repos/desktop-app/node_modules/@tauri-apps/api/path.js, /Users/prime/Documents/repos-projects/oasis/repos/desktop-app/node_modules/@tauri-apps/api/window.js, /Users/prime/Documents/repos-projects/oasis/repos/desktop-app/node_modules/@tauri-apps/plugin-fs/dist-js/index.js, /Users/prime/Documents/repos-projects/oasis/repos/desktop-app/node_modules/@tauri-apps/plugin-opener/dist-js/index.js, /Users/prime/Documents/repos-projects/oasis/repos/desktop-app/node_modules/@tauri-apps/plugin-updater/dist-js/index.js, /Users/prime/Documents/repos-projects/oasis/repos/desktop-app/src/lib/power.ts, /Users/prime/Documents/repos-projects/oasis/repos/desktop-app/src/orb/OrbApp.tsx, /Users/prime/Documents/repos-projects/oasis/repos/desktop-app/src/quick/QuickApp.tsx, dynamic import will not move module into another chunk.
+
+computing gzip size...
+dist/orb.html                                0.55 kB │ gzip:  0.31 kB
+dist/index.html                              0.64 kB │ gzip:  0.33 kB
+dist/quick.html                              0.65 kB │ gzip:  0.34 kB
+dist/assets/sheet-9PbpiAu9.png              28.50 kB
+dist/assets/Figtree-Variable-C7NAicIV.ttf   62.71 kB
+dist/assets/avatarEngine-CKPjTvVu.css        0.15 kB │ gzip:  0.15 kB
+dist/assets/orb-jAOIqBv9.css                 3.85 kB │ gzip:  1.06 kB
+dist/assets/main-DiRYaTwh.css               72.76 kB │ gzip: 10.72 kB
+dist/assets/quick-EbTCKiP1.css              81.05 kB │ gzip: 11.97 kB
+dist/assets/index-By0YkHU0.js                0.18 kB │ gzip:  0.18 kB │ map:   3.48 kB
+dist/assets/index-D6RazpPL.js                1.16 kB │ gzip:  0.66 kB │ map:  57.08 kB
+dist/assets/image-CBxrWAnk.js                2.61 kB │ gzip:  0.73 kB │ map:  18.11 kB
+dist/assets/orb-CYPCHjwp.js                  7.77 kB │ gzip:  3.23 kB │ map:  26.94 kB
+dist/assets/menu-BpFBtFKk.js                 8.74 kB │ gzip:  2.01 kB │ map:  39.70 kB
+dist/assets/window-BDm9OTPj.js              11.62 kB │ gzip:  3.01 kB │ map:  82.61 kB
+dist/assets/quick-DyWLa0fN.js               13.07 kB │ gzip:  4.90 kB │ map:  53.80 kB
+dist/assets/useStickToBottom-D3ycysEw.js    29.79 kB │ gzip: 10.58 kB │ map: 106.38 kB
+dist/assets/main-ar0C6Wck.js                56.69 kB │ gzip: 16.59 kB │ map: 190.90 kB
+dist/assets/avatarEngine-Db3-DstX.js       268.49 kB │ gzip: 85.50 kB │ map: 874.97 kB
+✓ built in 793ms
+   Compiling oasis-rig v0.1.0 (/Users/prime/Documents/repos-projects/oasis/repos/desktop-app/src-tauri)
+    Finished `release` profile [optimized] target(s) in 27.85s
+       Built application at: /Users/prime/Documents/repos-projects/oasis/repos/desktop-app/src-tauri/target/release/oasis-rig
+    Bundling OASIS.app (/Users/prime/Documents/repos-projects/oasis/repos/desktop-app/src-tauri/target/release/bundle/macos/OASIS.app)
+    Finished 1 bundle at:
+        /Users/prime/Documents/repos-projects/oasis/repos/desktop-app/src-tauri/target/release/bundle/macos/OASIS.app
+

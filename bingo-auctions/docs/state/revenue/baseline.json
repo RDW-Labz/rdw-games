@@ -1,0 +1,62 @@
+{
+  "window": "2026-07-27..2026-10-05 (11 full weeks, Central)",
+  "per_week_avg_cents": {
+    "hammer": 1637879,
+    "buyer_premium": 245675,
+    "tax": 154703,
+    "invoice_total": 2038257,
+    "square_fees": 82317,
+    "cash_refunds": 372450,
+    "invoices": 802,
+    "buyers": 182
+  },
+  "refund_cash_share_of_total": 0.183,
+  "last4_vs_first4_hammer_growth": 0.48,
+  "lots_84d": {
+    "closed_lots": 24198,
+    "sold": 20187,
+    "avg_hammer_c": 956,
+    "median_hammer_c": 500,
+    "avg_msrp_sold_c": 20385,
+    "relisted_children": 3923,
+    "auctions": 253,
+    "zero_bid": 3858,
+    "sell_through": 0.834,
+    "zero_bid_share": 0.159,
+    "hammer_to_msrp": 0.047
+  },
+  "buyers_84d": {
+    "buyers": 576,
+    "buyers_2plus_weeks": 390,
+    "relisted_unpaid": 86,
+    "refunded_full": 695,
+    "part_refund": 1191,
+    "repeat_rate_2plus_weeks": 0.677,
+    "top20_hammer_share": 0.476,
+    "heavy_buyers_60plus_invoices": {
+      "b": 7,
+      "buyers": 31,
+      "spend_c": 9799033
+    }
+  },
+  "lines_84d": {
+    "lines": 20340,
+    "picked": 16256,
+    "refunded": 2464,
+    "forfeited": 767,
+    "refund_line_rate": 0.121,
+    "forfeit_line_rate": 0.038
+  },
+  "forfeits_84d": {
+    "lines": 823,
+    "hammer_c": 421468
+  },
+  "pickup_lag_days": {
+    "n": 8497,
+    "p50_days": 1.88971493700231,
+    "p90_days": 4.91215690965741,
+    "over3d": 2663,
+    "over7d": 27
+  },
+  "refund_reason_recorded": "CORRECTED 2026-10-15: 2,422 of 2,428 pre-pickup refunds have after_state.sub_reason; original 0 read the wrong key"
+}

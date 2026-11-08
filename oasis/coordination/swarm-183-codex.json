@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "concurrency": 1,
+  "checks": [
+    {
+      "name": "npm-test",
+      "argv": [
+        "npm",
+        "test"
+      ],
+      "timeoutMs": 1800000
+    },
+    {
+      "name": "npm-check",
+      "argv": [
+        "npm",
+        "run",
+        "check"
+      ],
+      "timeoutMs": 300000
+    }
+  ],
+  "jobs": [
+    {
+      "id": "swarm-183-codex",
+      "agent": "codex",
+      "model": "gpt-6-astra",
+      "tier": "expensive",
+      "tierReason": "Shell access is needed to verify the strict lock guard against a real npm install and stale-lock negative case, establish the regression test fails before the fix, and run the full npm suite before returning bounded edits.",
+      "timeoutMs": 1800000,
+      "prompt": "Implement field lesson #183 in this existing project-swarm repository at HEAD dabe6bb (branch lessons-177-178). Keep the existing OpenRouter adapter and all current behavior. Strict rule from Braden: every Node repo should have a lockfile; if package.json exists without package-lock.json, report the exact warning `no-lockfile: <path>/package.json has no package-lock.json` and explicitly say the lock check did not run. When a lockfile exists, keep npm-lock-check strict and run `npm ci --dry-run`; a stale/inconsistent lockfile must still refuse. Generate package-lock.json with `npm install --package-lock-only`; do not commit and verify there are no dependency changes. Write the regression tests before or with the code: missing-lock warning and explicit did-not-run status, present lockfile invokes npm ci --dry-run, stale-lock negative still refuses. Prove at least the missing-lock regression assertion fails against the pre-fix implementation for the expected assertion (not an import/setup failure), then passes after the fix. Do not rerun a named known flaky test blindly if it flakes; preserve the exact failing test name and report honestly. Run focused test `node --test tests/field-lesson183.test.mjs`, then `npm ci --dry-run` with the generated lockfile, `npm test`, and `npm run check`; include exact results in the PR payload. Update CHANGELOG.md for version 1.24.0 and append public lesson 85 to docs/lessons.md. Lesson 85 must be generic and scrubbed: no names, repository names, URLs, prompt text, or private details. Rewrite coordination/swarm-183-pr-create.json as a complete review payload for the entire 1.24.0 scope now present: the existing OpenRouter adapter plus lessons 177\u2013179, 181, and 183; retain sections for checks, mutation check, and speed metrics, with honest check placeholders/details and a concise speed metric statement. Do not include Claude conversation URLs or internal worker names. Show the exact proposed public lesson 85 text in your final JSON summary so Braden can review it before any push. Do not push, commit, use GitHub/gh to create a PR, update the installed swarm, run other queue items, read credentials/keychains/home-private paths, or blanket-stage files. Do not change package.json or dependencies. Only write these outputs: tools/ship.mjs, tests/field-lesson183.test.mjs, package-lock.json, CHANGELOG.md, docs/lessons.md, and coordination/swarm-183-pr-create.json; update docs/manifest-reference.md only if required to document the warning contract. Final response must be a parseable JSON object summarizing changed files, commands and exact results, pre-fix negative proof, any flakes, and proposed public lesson text.",
+      "context": [
+        "tools/ship.mjs",
+        "package.json",
+        "CHANGELOG.md",
+        "docs/lessons.md",
+        "docs/manifest-reference.md",
+        "docs/providers.md",
+        "tests/field-lessons-batch-a.test.mjs",
+        "tests/field-lessons-batch-f.test.mjs",
+        "tests/field-lessons-batch-k.test.mjs",
+        "tests/lessons120-ship.test.mjs"
+      ],
+      "contextGlob": [
+        "tests/*.mjs"
+      ],
+      "outputs": [
+        "tools/ship.mjs",
+        "tests/field-lesson183.test.mjs",
+        "package-lock.json",
+        "CHANGELOG.md",
+        "docs/lessons.md",
+        "coordination/swarm-183-pr-create.json"
+      ]
+    }
+  ]
+}

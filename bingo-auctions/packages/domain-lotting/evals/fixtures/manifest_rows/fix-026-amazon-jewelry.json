@@ -1,0 +1,23 @@
+{
+  "id": "manifest-026",
+  "source": "amazon",
+  "raw": {
+    "description": "Apple Watch SE (2nd Gen, 2023) GPS 40mm Smart Watch w/ Midnight Aluminum Case with Midnight Sport Band",
+    "retailer_category": "gl_watch",
+    "upc": "194253778660",
+    "model_number": "MRE03LL/A",
+    "quantity": 1,
+    "retail_price": 249.0
+  },
+  "expected": {
+    "title": "Apple Watch SE (2nd Gen, 2023) GPS 40mm with Midnight Sport Band (MRE03LL/A)",
+    "brand": "Apple",
+    "model": "MRE03LL/A",
+    "category_slug": "wearable-tech",
+    "category_legacy": "Electronics",
+    "condition": "New/Sealed",
+    "msrp_cents": 24900,
+    "expected_confidence": "high"
+  },
+  "notes": "Adversarial: the manifest categorizes a Smart Watch under gl_watch (jewelry-watches in the seed table). The correct platform slug is 'wearable-tech' under electronics. Tests product-aware overrides."
+}

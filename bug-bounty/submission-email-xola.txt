@@ -1,0 +1,65 @@
+To: security@xola.com
+Subject: [VDP] Subdomain takeover — wixdemo.xola.com (dangling CNAME to unclaimed Wix edge)
+
+Hello Xola security team,
+
+I'm reporting an issue found under your Vulnerability Disclosure Policy
+(https://www.xola.com/vdp), which covers "any digital assets owned, operated, or
+maintained by Xola".
+
+Summary
+-------
+wixdemo.xola.com is a Xola-owned record in the xola.com Route 53 zone that CNAMEs to
+Wix's hosting edge (www66.wixdns.net). No Wix site is attached to it, so it resolves to a
+Wix edge that returns their "Reconnect Your Domain — This domain isn't connected to a
+site" page (errorCode: ConnectYourDomain, HTTP 404). That is the documented fingerprint
+for a claimable Wix domain: the DNS proof Wix requires is already in place, so a Wix
+account can attach its own site to the host and serve content on a xola.com subdomain,
+with a valid Wix-issued certificate for wixdemo.xola.com already in place
+(Google Trust Services, CN=wixdemo.xola.com, SANs wixdemo.xola.com + www.wixdemo.xola.com,
+valid 2026-10-03 to 2027-01-01).
+
+Impact
+------
+Arbitrary attacker-controlled content on https://wixdemo.xola.com: brand-abuse phishing,
+bypass of any *.xola.com allow-list (CSP, redirect_uri prefixes, proxy allow-lists),
+cookie-planting on the .xola.com scope. Severity assessed as Medium (CVSS 3.1 6.1,
+AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N).
+
+Reproduction
+------------
+  $ dig +noall +answer wixdemo.xola.com CNAME
+  wixdemo.xola.com. 196 IN CNAME www66.wixdns.net.
+  www66.wixdns.net. 214 IN CNAME cdn1.wixdns.net.
+  cdn1.wixdns.net.  214 IN CNAME td-ccm-neg-87-45.wixdns.net.
+  td-ccm-neg-87-45.wixdns.net. 7114 IN A 34.149.87.45
+
+  $ curl -sSI https://wixdemo.xola.com/
+  HTTP/2 404
+  server: Pepyaka            (Wix edge)
+  x-wix-request-id: 1793559419.582614317511486
+
+Rendered page: "Reconnect Your Domain | Wix.com — This domain isn't connected to a site".
+Inline state: window.__ERROR_DATA__ = { errorCode: 'ConnectYourDomain', serverErrorCode: '404' }.
+
+Remediation
+-----------
+Delete the dangling wixdemo (and www.wixdemo) CNAME from the xola.com zone — that alone
+closes it. Longer term, sweep the zone for CNAMEs pointing at third-party edges with no
+live origin (Wix, Netlify, Vercel, Railway, GitHub Pages, S3/CloudFront, Azure, HubSpot),
+and delete DNS before decommissioning a vendor site rather than after.
+
+Notes on my testing
+-------------------
+Scope of testing was limited to passive DNS (public certificate transparency) and single
+GET requests to in-scope xola.com hostnames. I did not create a Wix account, did not
+attempt to claim the domain, and did not access any user data.
+
+Evidence: DNS/CNAME chain, TLS certificate, response headers, raw HTML with the
+ConnectYourDomain marker, rendered DOM, and a screenshot of the dangling page.
+
+If you need anything else for triage, or want me to retest once the record is removed,
+I'm happy to help. I'd ask for at least 90 days before any public discussion.
+
+Best regards,
+Michael Cluer

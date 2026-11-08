@@ -1,0 +1,9 @@
+# Eval reports are runtime output — not version-controlled.
+reports/*
+!reports/.gitkeep
+
+# Photo files are local-only (see fixtures/photos/README.md).
+fixtures/photos/*.jpg
+fixtures/photos/*.jpeg
+fixtures/photos/*.png
+fixtures/photos/*.webp

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run build -w @auction-platform/operator-web",
+  "installCommand": "npm install --include-workspace-root",
+  "outputDirectory": "apps/operator-web/.next",
+  "framework": "nextjs",
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, max-age=0" }
+      ]
+    }
+  ]
+}

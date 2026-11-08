@@ -1,0 +1,10 @@
+pins:
+  agent-core: 0.1.0
+  skills: 0.1.0
+  connectors: 0.1.0
+model:
+  default: openrouter/anthropic/claude-sonnet
+  restricted_data: ollama/llama3
+proactive:
+  morning-brief: "0 7 * * MON-FRI"
+  daily-proposals: "0 16 * * MON-FRI"

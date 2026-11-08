@@ -1,0 +1,23 @@
+{
+  "id": "manifest-030",
+  "source": "lowes",
+  "raw": {
+    "description": "GE 25.6-Cu Ft Side-by-Side Refrigerator with Ice Maker (Stainless Steel)",
+    "retailer_category": "refrigerator accessories",
+    "upc": "084691838364",
+    "model_number": "GSS25GYPFS",
+    "quantity": 1,
+    "retail_price": 1399.0
+  },
+  "expected": {
+    "title": "GE 25.6 Cu Ft Side-by-Side Refrigerator with Ice Maker (Stainless Steel, GSS25GYPFS)",
+    "brand": "GE",
+    "model": "GSS25GYPFS",
+    "category_slug": "major-appliances",
+    "category_legacy": "Appliances",
+    "condition": "New/Sealed",
+    "msrp_cents": 139900,
+    "expected_confidence": "high"
+  },
+  "notes": "Major appliance — note the MISCATEGORIZED retailer_category ('refrigerator accessories' is for parts, not the unit itself). Tests that the model overrides retailer category with description+SKU evidence."
+}

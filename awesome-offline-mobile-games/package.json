@@ -1,0 +1,31 @@
+{
+  "name": "awesome-offline-mobile-games",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Fourteen deep offline games for phones: six open-source ports rebuilt from pinned source, four originals built here on real sprites, audio and game data, and four cross-hybrids that cross one clone's systems with another's under a new name. No accounts, no ads, no network.",
+  "license": "MIT",
+  "type": "commonjs",
+  "scripts": {
+    "serve": "python3 server/server.py",
+    "build": "node tools/sync-catalog.mjs --check && node tests/smoke.mjs && node tests/vendor.mjs && node tools/stage-dist.mjs",
+    "ios:stage": "node tools/stage-ios.mjs",
+    "ios:check": "node tools/verify-ios-payload.mjs",
+    "ios:payload": "npm run build && npm run ios:stage && npm run ios:check",
+    "catalog": "node tools/sync-catalog.mjs",
+    "catalog:check": "node tools/sync-catalog.mjs --check",
+    "provenance": "python3 tools/ports-provenance.py",
+    "provenance:check": "python3 tools/ports-provenance.py --check",
+    "test:smoke": "node tests/smoke.mjs",
+    "test:browser": "node tests/browser.mjs",
+    "test:touch": "node tests/touch.mjs",
+    "test": "node tools/sync-catalog.mjs --check && node tests/smoke.mjs && node tests/vendor.mjs && python3 tools/ports-provenance.py --check && node tests/browser.mjs && node tests/touch.mjs && node tests/offline.mjs && node tests/longrun.mjs",
+    "test:offline": "node tests/offline.mjs",
+    "test:longrun": "node tests/longrun.mjs",
+    "vendor": "python3 tools/vendor.py sync",
+    "vendor:check": "python3 tools/vendor.py --check",
+    "test:vendor": "node tests/vendor.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

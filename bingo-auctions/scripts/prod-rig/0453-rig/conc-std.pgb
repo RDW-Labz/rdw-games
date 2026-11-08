@@ -1,0 +1,4 @@
+\set b random(1, 4)
+\set m random(1, 500)
+\set n random(2, 3)
+SELECT rig_bid('00000000-0000-0000-0000-000000000107', :b, :m * 100 + :b, NULL, :n);

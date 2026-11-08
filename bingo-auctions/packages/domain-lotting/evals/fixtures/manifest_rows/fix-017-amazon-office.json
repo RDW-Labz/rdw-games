@@ -1,0 +1,23 @@
+{
+  "id": "manifest-017",
+  "source": "amazon",
+  "raw": {
+    "description": "HP DeskJet 2755e Wireless Color All-in-One Printer with bonus 6 free months Instant Ink (26K67A), white",
+    "retailer_category": "gl_office_product",
+    "upc": "194850779886",
+    "model_number": "26K67A",
+    "quantity": 1,
+    "retail_price": 84.99
+  },
+  "expected": {
+    "title": "HP DeskJet 2755e Wireless Color All-in-One Printer (26K67A)",
+    "brand": "HP",
+    "model": "26K67A",
+    "category_slug": "office-school",
+    "category_legacy": "Office",
+    "condition": "New/Sealed",
+    "msrp_cents": 8499,
+    "expected_confidence": "high"
+  },
+  "notes": "Office product — easy."
+}

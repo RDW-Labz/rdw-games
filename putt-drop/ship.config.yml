@@ -1,0 +1,12 @@
+# Putt Drop — ship-pipeline config (orchestrator invokes workflows; no ship.yml here yet).
+project: putt-drop
+publish: true
+build:
+  preset: prebuilt
+  artifacts:
+    android: dist/android/putt-drop.aab
+targets:
+  android:
+    package_name: com.rdwlabz.puttdrop
+    track: internal
+    release_status: completed

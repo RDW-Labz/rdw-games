@@ -1,0 +1,22 @@
+{
+  "id": "manifest-003",
+  "source": "wayfair",
+  "raw": {
+    "description": "Beachcrest Home Sumter 24'' Single Bathroom Vanity Set",
+    "retailer_category": "Bath > Vanities & Vanity Sets",
+    "model_number": "BCMH4422",
+    "quantity": 1,
+    "retail_price": 459.99
+  },
+  "expected": {
+    "title": "Beachcrest Home Sumter 24-inch Single Bathroom Vanity Set",
+    "brand": "Beachcrest Home",
+    "model": "BCMH4422",
+    "category_slug": "vanities",
+    "category_legacy": "Furniture",
+    "condition": "New/Sealed",
+    "msrp_cents": 45999,
+    "expected_confidence": "medium"
+  },
+  "notes": "Wayfair house brand — model number is non-standard, brand is unfamiliar to most LLMs. Tests whether the model trusts the manifest rather than hallucinating a 'real' brand."
+}

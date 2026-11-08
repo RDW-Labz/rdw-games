@@ -1,0 +1,117 @@
+# Putt Drop -> RDW Labz publishing pipeline. Dry runs until ship.config.yml says publish: true.
+# The android target uploads a PREBUILT, signed .aab, so this workflow builds one and hands it
+# to ship.yml as the ship-artifacts artifact (paths in ship.config.yml are relative to it).
+name: ship
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Re-publish targets already marked published in the release receipt
+        type: boolean
+        default: false
+      full_dry_run:
+        description: Also run the macOS iOS job in the dry run (no iOS target here)
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    env:
+      # Play already has versionCode 1 (0.1.0). Bump this before any real publish; it must
+      # always be higher than every build already on Play.
+      VERSION_CODE: "3"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build
+      - run: npx cap sync android
+
+      - uses: actions/setup-java@b36c23c0d998641eff861008f374ee103c25ac73 # v4.4.0
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Require Android signing secrets
+        env:
+          ANDROID_KEYSTORE_B64: ${{ secrets.ANDROID_KEYSTORE_B64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ vars.ANDROID_KEY_ALIAS }}
+        run: |
+          missing=
+          [ -z "$ANDROID_KEYSTORE_B64" ] && missing="$missing ANDROID_KEYSTORE_B64"
+          [ -z "$ANDROID_KEYSTORE_PASSWORD" ] && missing="$missing ANDROID_KEYSTORE_PASSWORD"
+          [ -z "$ANDROID_KEY_PASSWORD" ] && missing="$missing ANDROID_KEY_PASSWORD"
+          [ -z "$ANDROID_KEY_ALIAS" ] && missing="$missing ANDROID_KEY_ALIAS (repo variable)"
+          if [ -n "$missing" ]; then
+            echo "Cannot build a signed release AAB: missing$missing."
+            exit 1
+          fi
+
+      - name: Decode upload key
+        env:
+          ANDROID_KEYSTORE_B64: ${{ secrets.ANDROID_KEYSTORE_B64 }}
+        run: |
+          umask 077
+          printf '%s' "$ANDROID_KEYSTORE_B64" | base64 -d > "$RUNNER_TEMP/upload.p12"
+
+      - name: Build release AAB
+        working-directory: android
+        env:
+          SHIP_KEYSTORE_PATH: ${{ runner.temp }}/upload.p12
+          SHIP_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          SHIP_KEY_ALIAS: ${{ vars.ANDROID_KEY_ALIAS }}
+          SHIP_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          VERSION_NAME=$(node -p "require('../package.json').version")
+          ./gradlew --no-daemon :app:bundleRelease \
+            -PversionCode="$VERSION_CODE" \
+            -PversionName="$VERSION_NAME"
+          mkdir -p "$GITHUB_WORKSPACE/ship-out/dist/android"
+          cp app/build/outputs/bundle/release/app-release.aab \
+            "$GITHUB_WORKSPACE/ship-out/dist/android/putt-drop.aab"
+
+      - name: Verify release AAB signature
+        run: |
+          jarsigner -verify ship-out/dist/android/putt-drop.aab >/dev/null
+          keytool -printcert -jarfile ship-out/dist/android/putt-drop.aab | awk '/SHA256:/{print; exit}'
+
+      - name: Remove upload key
+        if: always()
+        run: rm -f "$RUNNER_TEMP/upload.p12"
+
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: ship-artifacts
+          path: ship-out/
+          if-no-files-found: error
+          retention-days: 3
+
+  ship:
+    needs: build
+    uses: RDW-Labz/ship-pipeline/.github/workflows/ship.yml@v1
+    with:
+      config_path: ship.config.yml
+      # inputs.* are empty on tag pushes, so fall back to false.
+      force: ${{ inputs.force || false }}
+      full_dry_run: ${{ inputs.full_dry_run || false }}
+      artifact_name: ship-artifacts
+    secrets: inherit

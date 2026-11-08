@@ -1,0 +1,15 @@
+{
+  "id": "upc-011",
+  "code": "B07GNW61TL",
+  "code_type": "asin",
+  "expected": {
+    "title": "iRobot Roomba i7+ (7550) Self-Emptying Robot Vacuum",
+    "brand": "iRobot",
+    "model": "7550",
+    "category_slug": "small-appliances",
+    "category_legacy": "Appliances",
+    "condition": "",
+    "msrp_cents": 79999
+  },
+  "notes": "Tests whether the model picks the SKU 7550 over the marketing name 'i7+'."
+}

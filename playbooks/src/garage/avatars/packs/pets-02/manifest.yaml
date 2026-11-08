@@ -1,0 +1,109 @@
+name: Marge
+artist: OASIS
+grid:
+  frame: 128
+  columns: 12
+  rows:
+  - idle
+  - working
+  - asking
+  - proposal_ready
+  - done
+  - needs_attention
+  - paused
+  - offline
+  - idle_variant_1
+  - idle_variant_2
+  - idle_variant_3
+  - celebrate
+  fps: 6
+palette:
+- '#140E0C'
+- '#231001'
+- '#231713'
+- '#2E2A28'
+- '#3D2305'
+- '#433E3B'
+- '#473424'
+- '#51320A'
+- '#57402A'
+- '#574521'
+- '#58524E'
+- '#65400D'
+- '#6A4C30'
+- '#6A531B'
+- '#6D6762'
+- '#6E662B'
+- '#6E7176'
+- '#734B2E'
+- '#784E11'
+- '#7C5322'
+- '#7F5D27'
+- '#835917'
+- '#837C76'
+- '#876920'
+- '#886C2F'
+- '#888245'
+- '#8B5C3A'
+- '#8F9297'
+- '#926019'
+- '#966C28'
+- '#977732'
+- '#99928B'
+- '#9D6A1C'
+- '#A09A5A'
+- '#A2702E'
+- '#A4752A'
+- '#A57C38'
+- '#A66A22'
+- '#A8711C'
+- '#AC842E'
+- '#AEA8A1'
+- '#B17922'
+- '#B38740'
+- '#B6ABA0'
+- '#B7B9BD'
+- '#B9B36E'
+- '#BA8125'
+- '#BB8A34'
+- '#C38929'
+- '#C3BEB7'
+- '#C4904A'
+- '#C7913C'
+- '#CC8E33'
+- '#CC912B'
+- '#CF7F1E'
+- '#D29B48'
+- '#D69932'
+- '#D6CF8E'
+- '#D8D4CE'
+- '#E0A23A'
+- '#E8AB49'
+- '#E9B864'
+- '#EEAD3C'
+- '#F29A1F'
+- '#F2AA3C'
+- '#F7B94B'
+- '#FECA5B'
+- '#FFC53D'
+- '#FFD27A'
+- '#FFD98A'
+- '#FFF1B8'
+- '#FFF3DC'
+- '#FFF4D6'
+- '#FFFBF2'
+- '#FFFFFF'
+anchors:
+  status_light:
+    x: 62
+    y: 56
+    w: 10
+    h: 8
+  chat_button:
+    x: 64
+    y: 122
+  baseline: 119
+tier: animated
+frames: 12
+fps: 6
+category: Pets

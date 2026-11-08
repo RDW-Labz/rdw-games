@@ -1,0 +1,65 @@
+name: Needs-braden label
+
+# Applies `needs-braden` from the paths a PR changes, when the PR opens or is
+# retargeted. Reason (#720): #716, #638 and #717 each lost a RED TEAM round to
+# a missing label. Paths only — PR titles, bodies and comments are never read.
+# This workflow only ADDS the label; it never removes one, and it does not
+# gate, approve or merge anything.
+#
+# Security (#721 RED TEAM HIGH): this uses `pull_request_target` and checks out
+# the repository's DEFAULT branch, never the PR base SHA. A PR can target a
+# writable non-default branch, so the base SHA is not trusted code. PR head code
+# is never executed. Forks and Dependabot PRs take the same trusted route.
+#
+# Retargeting (#721 RED TEAM): changing a PR's base changes the diff without
+# moving the head. `edited` catches most cases and the scheduled sweep
+# re-classifies every open PR, bound to the current base and head.
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, ready_for_review, edited]
+  schedule:
+    - cron: '23 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: needs-braden-${{ github.event.pull_request.number || 'sweep' }}
+  cancel-in-progress: false
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out trusted default-branch code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+      - name: Apply needs-braden from changed paths
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          failed=0
+          if [ -n "$PR" ]; then
+            node scripts/ci/needs-braden-label.mjs "$PR" || failed=1
+          else
+            # Paginate the whole open-PR list: a fixed --limit silently drops
+            # older PRs, and a failed list must fail the sweep (#721 RED TEAM).
+            if ! numbers=$(gh api --paginate \
+              "repos/$GITHUB_REPOSITORY/pulls?state=open&per_page=100" --jq '.[].number'); then
+              echo "needs-braden: could not list open PRs" >&2
+              exit 1
+            fi
+            for n in $numbers; do
+              node scripts/ci/needs-braden-label.mjs "$n" || failed=1
+            done
+          fi
+          # Surface denied mutations without abandoning the rest of the sweep.
+          exit "$failed"

@@ -1,0 +1,18 @@
+{
+  "id": "photo-017",
+  "image_path": "photo-017-graco-stroller-clear.jpg",
+  "media_type": "image/jpeg",
+  "photo_quality_label": "clear",
+  "expected": {
+    "title": "Graco Modes Pramette Travel System (Bayfield)",
+    "brand": "Graco",
+    "model": "2079769",
+    "upc": "047406178391",
+    "category_slug": "baby-kids",
+    "category_legacy": "Other",
+    "condition": "New/Sealed",
+    "msrp_cents": 39999,
+    "expected_confidence": "high"
+  },
+  "notes": "Stroller box, retail. Tests baby-kids slug + 'Other' legacy fallback."
+}

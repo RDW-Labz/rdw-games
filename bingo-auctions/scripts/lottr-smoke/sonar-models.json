@@ -1,0 +1,38 @@
+{
+  "$comment": [
+    "Models to compare for the Sonar / web_search_lookup pipeline.",
+    "All entries must be web-search-capable (live web grounding before",
+    "answering). Comparing across providers is the whole point — Perplexity's",
+    "Sonar family, OpenAI's search-preview variants, and Google's Gemini",
+    "grounded variants each have different MSRP-capture quirks.",
+    "",
+    "Production default as of 2026-05-15 is openai/gpt-4o-search-preview",
+    "(swap from perplexity/sonar after the 2026-05-15 mega-sim showed 92% vs",
+    "50% MSRP capture). perplexity/sonar stays as the failover when",
+    "gpt-4o is rate-limited.",
+    "",
+    "Models without web grounding (claude-haiku, gemini-flash without",
+    "search, etc) are NOT included here — they'd hallucinate URLs/prices.",
+    "Use the photo-identify harness (scripts/lottr-smoke/run.mjs) for those.",
+    "",
+    "Rough pricing (fetched live at run start):",
+    "  openai/gpt-4o-search-preview        — $2.50/M in, $10/M out",
+    "  openai/gpt-4o-mini-search-preview   — $0.15/M in, $0.60/M out  (cheaper variant)",
+    "  perplexity/sonar                    — $5/M in, $5/M out + $5/1K searches",
+    "  perplexity/sonar-reasoning          — $1/M in, $5/M out  (newer)",
+    "  perplexity/sonar-reasoning-pro      — $2/M in, $8/M out  (newer)",
+    "  perplexity/sonar-pro                — $15/M in, $15/M out  (DROPPED — worse than vanilla)",
+    "  perplexity/sonar-deep-research      — slower, deeper, more expensive",
+    "",
+    "Add new models freely — the runner fetches pricing live and gracefully",
+    "skips unknown model IDs (logs a warning + cost=0)."
+  ],
+  "models": [
+    "openai/gpt-4o-search-preview",
+    "openai/gpt-4o-mini-search-preview",
+    "perplexity/sonar",
+    "perplexity/sonar-reasoning",
+    "perplexity/sonar-reasoning-pro",
+    "perplexity/sonar-deep-research"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "title": "Release 1.26.1: config outside the install, private-names via config, public scrub",
+  "head": "swarm-1.26.1",
+  "base": "main",
+  "body": "## Summary\n\n- Configuration files now live outside the install checkout, with support for standard system paths and detection of misplaced configs.\n- Private name filtering now reads from configuration when not explicitly provided, supporting path patterns to protect sensitive files in diffs.\n- Removed product names from documentation, tests, and comments to maintain consistency in public repositories.\n- Test suite isolated from local configuration to ensure consistent test behavior across different environments.\n\n## Checks\n\n<!-- swarm:checks -->\n\n## Mutation check\n\nNo ask-first gate or persisted-state mapping in this tool. Each new rule has a test that fails without it (tests/config-private-names.test.mjs).\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+}

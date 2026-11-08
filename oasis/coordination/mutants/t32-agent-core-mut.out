@@ -1,0 +1,14 @@
+KILLED any role accepted
+KILLED checks on non-critic accepted
+SURVIVED non-list checks accepted
+KILLED empty checks accepted
+KILLED duplicate checks accepted
+KILLED unknown/later id accepted
+KILLED non-reader id accepted
+KILLED critic without checks accepted
+KILLED extra unknown key accepted
+KILLED role dropped from Step
+KILLED checks dropped from Step
+KILLED generic message (no step id)
+KILLED seen_ids recorded early (self-check)
+DONE

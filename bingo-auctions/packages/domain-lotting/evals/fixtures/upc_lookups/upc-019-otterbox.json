@@ -1,0 +1,15 @@
+{
+  "id": "upc-019",
+  "code": "840304748167",
+  "code_type": "upc",
+  "expected": {
+    "title": "OtterBox Defender Series Case for iPhone 15 Pro Max (Black)",
+    "brand": "OtterBox",
+    "model": "77-92539",
+    "category_slug": "cell-phones",
+    "category_legacy": "Electronics",
+    "condition": "",
+    "msrp_cents": 5995
+  },
+  "notes": "Cell-phone accessory. Tests cell-phones slug from migration 0034."
+}

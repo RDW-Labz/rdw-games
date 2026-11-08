@@ -1,0 +1,35 @@
+{
+ "version": 1,
+ "concurrency": 1,
+ "jobs": [
+  {
+   "id": "t80-import-private-skip",
+   "agent": "codex",
+   "model": "gpt-6-astra",
+   "tier": "expensive",
+   "timeoutMs": 3000000,
+   "context": [
+    "docs/_swarm/lessons-sample-rows.md",
+    "package.json",
+    "tests/_isolate-config.mjs",
+    "tests/field-lesson-t80-core.test.mjs",
+    "tests/field-lesson-t80-import.test.mjs",
+    "tests/field-lesson-t80-ship.test.mjs",
+    "tools/lessons-publish.mjs",
+    "tools/lessons.mjs"
+   ],
+   "outputs": [
+    "tools/lessons-publish.mjs",
+    "tests/field-lesson-t80-import.test.mjs"
+   ],
+   "ignoreTests": [
+    "tests/field-lesson-t80-cli.test.mjs",
+    "tests/field-lesson-t80-ship.test.mjs",
+    "tests/field-lesson-t80-core.test.mjs",
+    "tests/field-lessons-batch-x.test.mjs"
+   ],
+   "prompt": "T80 fix job `t80-import-private-skip` for project-swarm 1.41.0 (decision #340), a follow-up to the lenient `lesson import`. Today importLessons in tools/lessons-publish.mjs runs the write-time private-names check over the whole imported set, so one legacy row whose cell holds a configured private term makes the command answer {status:'error', code:'private-name', field:'evidence'} and nothing is imported. Change importLessons so the private-names check runs per incoming row: a row that fails it is not written and is listed under the existing `skipped` array as {id, line, reason:'private-name', field} (the term itself is never printed, same as today); every clean row is still imported; the command answers status 'ok' whenever the file parsed, even if every row was skipped. A row already in the store keeps its current handling. Keep every existing export, option, error code and behaviour of both files; no reformatting of untouched code. Use your shell to read the context files and write your outputs (edit tools/lessons-publish.mjs in place and append tests to tests/field-lesson-t80-import.test.mjs); do not run tests, installs or network commands; re-read your files once for syntax before returning.\n\nTests to append to tests/field-lesson-t80-import.test.mjs in its existing style (fake ids 9001 and up, dates in 2000, a private-names fixture file naming a fake term such as `zzzfakeclient`; no real names, repos, URLs or run ids): one three-row fixture where the middle row's evidence cell holds the fake term asserts the result is status ok with imported [first, third] and skipped [{id: middle, line, reason:'private-name', field:'evidence'}] and that the store holds exactly the two clean rows; one where the term sits in the fix cell asserts field 'fix'; one where every row is tainted asserts status ok, imported [] and three skipped entries; and one asserting the term never appears anywhere in the JSON result or the store.\n\nReturn JSON only, under 600 characters, after the files: {\"status\":\"complete|partial\",\"filesChanged\":[...],\"reproTest\":\"tests/field-lesson-t80-import.test.mjs\",\"newResultKeys\":[...],\"findings\":[\"<\u22643 one-liners>\"]}\n\n(ignoreTests: existing tests that mention tools/lessons-publish.mjs are not inlined; keep every existing behaviour so they stay green; the orchestrator runs the whole suite after integrate.)",
+   "tierReason": "follow-up on the same Codex-only path; a shell worker edits two files in place"
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+:root {
+  color-scheme: light dark;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.shell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.shell h1 {
+  margin: 0;
+  font-size: 3rem;
+  letter-spacing: 0.4rem;
+}
+
+.shell p {
+  margin: 0;
+  opacity: 0.7;
+}

@@ -1,0 +1,170 @@
+{
+  "cli": {
+    "version": ">= 13.0.0",
+    "appVersionSource": "remote",
+    "requireCommit": true
+  },
+  "build": {
+    "internal": {
+      "distribution": "internal",
+      "channel": "preview",
+      "node": "22.11.0",
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "EXPO_PUBLIC_SUPABASE_URL": "https://npwseclcxcatjhgjrtwe.supabase.co",
+        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5wd3NlY2xjeGNhdGpoZ2pydHdlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIyNTg0MzAsImV4cCI6MjA5NzgzNDQzMH0.5I1GTFR0nPZBvMl15qYhPcpvVO9HNT7omVKH_wZQDaw",
+        "EXPO_PUBLIC_API_BASE_URL": "https://bingoauctions.com"
+      }
+    },
+    "simulator-smoke": {
+      "ios": {
+        "simulator": true
+      },
+      "channel": "development",
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_SUPABASE_URL": "https://placeholder.supabase.co",
+        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiJ9.placeholder",
+        "EXPO_PUBLIC_API_BASE_URL": "https://placeholder.example.com"
+      }
+    },
+    "smoke-apk": {
+      "distribution": "internal",
+      "channel": "development",
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "EXPO_PUBLIC_SUPABASE_URL": "https://placeholder.supabase.co",
+        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiJ9.placeholder",
+        "EXPO_PUBLIC_API_BASE_URL": "https://placeholder.example.com"
+      }
+    },
+    "robo-authed": {
+      "distribution": "internal",
+      "channel": "development",
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "EXPO_PUBLIC_SUPABASE_URL": "https://ridylekymnpgbsbanfwe.supabase.co",
+        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "sb_publishable_HSHRySVW4PZ48neQs5WJTw_bgPoRomq",
+        "EXPO_PUBLIC_API_BASE_URL": "https://placeholder.example.com"
+      }
+    },
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "channel": "development",
+      "node": "22.11.0",
+      "ios": {
+        "simulator": false
+      },
+      "android": {
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleDebug"
+      },
+      "env": {
+        "EXPO_PUBLIC_SUPABASE_URL": "https://npwseclcxcatjhgjrtwe.supabase.co",
+        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5wd3NlY2xjeGNhdGpoZ2pydHdlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIyNTg0MzAsImV4cCI6MjA5NzgzNDQzMH0.5I1GTFR0nPZBvMl15qYhPcpvVO9HNT7omVKH_wZQDaw",
+        "EXPO_PUBLIC_API_BASE_URL": "https://bingoauctions.com",
+        "EXPO_PUBLIC_GOOGLE_OAUTH_IOS_CLIENT_ID": "320714067980-e2dudrcgp50du1co0gdm91t1ie2rn70c.apps.googleusercontent.com",
+        "EXPO_PUBLIC_SENTRY_DSN": "https://ce87e02f6489d7d289ce36cf4929dd5a@o4511407260696576.ingest.us.sentry.io/4511407383248896",
+        "SENTRY_ORG": "rdw-rb",
+        "SENTRY_PROJECT": "clovrbid-bidder"
+      }
+    },
+    "preview": {
+      "distribution": "store",
+      "channel": "preview",
+      "autoIncrement": true,
+      "node": "22.11.0",
+      "ios": {
+        "simulator": false
+      },
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "EXPO_PUBLIC_SUPABASE_URL": "https://npwseclcxcatjhgjrtwe.supabase.co",
+        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5wd3NlY2xjeGNhdGpoZ2pydHdlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIyNTg0MzAsImV4cCI6MjA5NzgzNDQzMH0.5I1GTFR0nPZBvMl15qYhPcpvVO9HNT7omVKH_wZQDaw",
+        "EXPO_PUBLIC_API_BASE_URL": "https://bingoauctions.com",
+        "EXPO_PUBLIC_GOOGLE_OAUTH_IOS_CLIENT_ID": "320714067980-e2dudrcgp50du1co0gdm91t1ie2rn70c.apps.googleusercontent.com",
+        "EXPO_PUBLIC_SENTRY_DSN": "https://ce87e02f6489d7d289ce36cf4929dd5a@o4511407260696576.ingest.us.sentry.io/4511407383248896",
+        "SENTRY_ORG": "rdw-rb",
+        "SENTRY_PROJECT": "clovrbid-bidder"
+      }
+    },
+    "production": {
+      "channel": "production",
+      "autoIncrement": true,
+      "node": "22.11.0",
+      "ios": {
+        "resourceClass": "m-large"
+      },
+      "android": {
+        "buildType": "app-bundle"
+      },
+      "env": {
+        "EXPO_PUBLIC_SUPABASE_URL": "https://npwseclcxcatjhgjrtwe.supabase.co",
+        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5wd3NlY2xjeGNhdGpoZ2pydHdlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIyNTg0MzAsImV4cCI6MjA5NzgzNDQzMH0.5I1GTFR0nPZBvMl15qYhPcpvVO9HNT7omVKH_wZQDaw",
+        "EXPO_PUBLIC_API_BASE_URL": "https://bingoauctions.com",
+        "EXPO_PUBLIC_GOOGLE_OAUTH_IOS_CLIENT_ID": "320714067980-e2dudrcgp50du1co0gdm91t1ie2rn70c.apps.googleusercontent.com",
+        "EXPO_PUBLIC_SENTRY_DSN": "https://ce87e02f6489d7d289ce36cf4929dd5a@o4511407260696576.ingest.us.sentry.io/4511407383248896",
+        "SENTRY_ORG": "rdw-rb",
+        "SENTRY_PROJECT": "clovrbid-bidder"
+      }
+    },
+    "bidder-canary": {
+      "extends": "production",
+      "channel": "bidder-canary",
+      "distribution": "internal",
+      "ios": {
+        "simulator": true
+      },
+      "env": {
+        "EXPO_PUBLIC_SUPABASE_URL": "https://npwseclcxcatjhgjrtwe.supabase.co",
+        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5wd3NlY2xjeGNhdGpoZ2pydHdlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIyNTg0MzAsImV4cCI6MjA5NzgzNDQzMH0.5I1GTFR0nPZBvMl15qYhPcpvVO9HNT7omVKH_wZQDaw",
+        "EXPO_PUBLIC_API_BASE_URL": "https://bingoauctions.com",
+        "EXPO_PUBLIC_GOOGLE_OAUTH_IOS_CLIENT_ID": "320714067980-e2dudrcgp50du1co0gdm91t1ie2rn70c.apps.googleusercontent.com",
+        "EXPO_PUBLIC_SENTRY_DSN": "https://ce87e02f6489d7d289ce36cf4929dd5a@o4511407260696576.ingest.us.sentry.io/4511407383248896",
+        "SENTRY_ORG": "rdw-rb",
+        "SENTRY_PROJECT": "clovrbid-bidder"
+      }
+    }
+  },
+  "submit": {
+    "preview": {
+      "ios": {
+        "appleId": "jmacluer@icloud.com",
+        "appleTeamId": "73554WL25P",
+        "ascAppId": "6785655751",
+        "ascApiKeyPath": "../../.secrets/AuthKey_25M83P99J8.p8",
+        "ascApiKeyId": "25M83P99J8",
+        "ascApiKeyIssuerId": "df79d9d0-5f90-4a53-8e2f-4c16b3fafce9"
+      },
+      "android": {
+        "track": "internal",
+        "releaseStatus": "completed",
+        "serviceAccountKeyPath": "../../.secrets/google-play-service-account.json"
+      }
+    },
+    "production": {
+      "ios": {
+        "appleId": "jmacluer@icloud.com",
+        "appleTeamId": "73554WL25P",
+        "ascAppId": "6785655751",
+        "ascApiKeyPath": "../../.secrets/AuthKey_25M83P99J8.p8",
+        "ascApiKeyId": "25M83P99J8",
+        "ascApiKeyIssuerId": "df79d9d0-5f90-4a53-8e2f-4c16b3fafce9"
+      },
+      "android": {
+        "track": "production",
+        "releaseStatus": "draft",
+        "serviceAccountKeyPath": "../../.secrets/google-play-service-account.json"
+      }
+    }
+  }
+}

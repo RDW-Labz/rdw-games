@@ -1,0 +1,83 @@
+{
+  "note": "Machine-readable port provenance. tools/ports-provenance.py hashes each artifact, writes ports/<id>/PROVENANCE.md and syncs the matching catalog fields. Paths are absolute because the 18 GB source tree is never vendored into this repo.",
+  "ports": [
+    {
+      "id": "mindustry",
+      "upstream": "https://github.com/Anuken/Mindustry",
+      "license": "GPL-3.0",
+      "clone": "/home/cluer/cloned-free-games/games/Mindustry",
+      "artifact": "/home/cluer/cloned-free-games/games/Mindustry/android/build/outputs/apk/debug/android-debug.apk",
+      "kind": "apk",
+      "package": "io.anuke.mindustry",
+      "version": "9-bleeding-edge-28063",
+      "abis": ["arm64-v8a", "armeabi-v7a", "x86", "x86_64"],
+      "build": "./gradlew android:assembleDebug  (JDK 21; keep minifyEnabled true — without R8 desugaring the app dies on boot with AbstractMethodError)",
+      "notes": "The Arc engine it depends on is pinned locally at cloned-free-games/games/Arc (commit 7445105cd2). Campaign is fully offline; LAN multiplayer is optional and never required."
+    },
+    {
+      "id": "shattered-pixel-dungeon",
+      "upstream": "https://github.com/00-Evan/shattered-pixel-dungeon",
+      "license": "GPL-3.0",
+      "clone": "/home/cluer/cloned-free-games/games/shattered-pixel-dungeon",
+      "artifact": "/home/cluer/cloned-free-games/games/shattered-pixel-dungeon/android/build/outputs/apk/debug/android-debug.apk",
+      "kind": "apk",
+      "package": "com.shatteredpixel.shatteredpixeldungeon",
+      "version": "4.0.2",
+      "abis": ["arm64-v8a", "armeabi-v7a", "x86", "x86_64"],
+      "build": "./gradlew android:assembleDebug  (LibGDX + gdx-freetype; needs JDK 21 and the Android SDK at local.properties)",
+      "notes": "Single-player roguelike, no network code at all. The deepest permadeath dungeon crawler in the collection."
+    },
+    {
+      "id": "luanti",
+      "upstream": "https://github.com/luanti-org/luanti",
+      "license": "LGPL-2.1+",
+      "clone": "/home/cluer/cloned-free-games/games/luanti",
+      "artifact": "/home/cluer/cloned-free-games/games/luanti/android/app/build/outputs/apk/debug/app-arm64-v8a-debug.apk",
+      "kind": "apk",
+      "package": "net.minetest.minetest",
+      "version": "5.17.0",
+      "abis": ["arm64-v8a"],
+      "build": "cd android && ./gradlew assembleDebug  (NDK 28.2; the ABI-split build produces app-<abi>-debug.apk per target)",
+      "notes": "Sandbox voxel world; single-player and LAN are both offline-capable. Four ABI-split APKs exist in the clone — arm64-v8a is the one shipped here. No content mods are bundled; the base game is complete on its own."
+    },
+    {
+      "id": "endless-sky",
+      "upstream": "https://github.com/endless-sky/endless-sky",
+      "license": "GPL-3.0",
+      "clone": "/home/cluer/crg/games/endless-sky",
+      "artifact": "/home/cluer/crg/games/endless-sky/build/endless-sky",
+      "kind": "binary",
+      "package": null,
+      "version": null,
+      "abis": [],
+      "build": "cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release && ninja -C build  (then run build/endless-sky)",
+      "notes": "No Android APK is checked into the clone; the verified artifact is the desktop build. For phones, use the project's official Android release or stream it from a desktop host. Open-world space trading and combat, entirely offline."
+    },
+    {
+      "id": "darkplaces",
+      "upstream": "https://github.com/evilant0/DarkPlaces",
+      "license": "GPL-2.0",
+      "clone": "/home/cluer/crg/games/darkplaces",
+      "artifact": "/home/cluer/crg/games/darkplaces/darkplaces-sdl",
+      "kind": "binary",
+      "package": null,
+      "version": null,
+      "abis": [],
+      "build": "make sdl-release  (then copy the freely redistributable shareware pak0.pak into id1/ and run ./darkplaces-sdl -basedir .)",
+      "notes": "Quake engine. Ships instructions to fetch the shareware pak only — never a retail pak. Timedemo measured at 98.5 fps average on the reference machine."
+    },
+    {
+      "id": "ddnet",
+      "upstream": "https://github.com/ddnet/ddnet",
+      "license": "Zlib",
+      "clone": "/home/cluer/crg/games/ddnet",
+      "artifact": "/home/cluer/crg/games/ddnet/build/DDNet",
+      "kind": "binary",
+      "package": "org.ddnet.client",
+      "version": "20.1.1",
+      "abis": ["arm64-v8a", "armeabi-v7a", "x86", "x86_64"],
+      "build": "cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release && ninja -C build",
+      "notes": "A 132 MB Android APK (org.ddnet.client 20.1.1) also exists at /home/cluer/projects/cloned-free-games/apks/ddnet.apk. The verified artifact here is the desktop binary. Practice and local servers play offline; public servers need the network, so it is the one title whose best mode is online."
+    }
+  ]
+}

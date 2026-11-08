@@ -1,0 +1,110 @@
+{
+  "floorStory": [
+    {
+      "num": "01",
+      "label": "Pickup",
+      "bracket": true,
+      "revealDelay": "0.2s",
+      "pulse": {
+        "name": "console-v2-pulse",
+        "duration": "0.6s",
+        "delay": "0.5s"
+      }
+    },
+    {
+      "num": "02",
+      "label": "Lotting",
+      "bracket": false,
+      "revealDelay": "0.04s",
+      "pulse": null
+    },
+    {
+      "num": "03",
+      "label": "Auction",
+      "bracket": false,
+      "revealDelay": "0.08s",
+      "pulse": null
+    },
+    {
+      "num": "04",
+      "label": "Paid",
+      "bracket": false,
+      "revealDelay": "0.12s",
+      "pulse": null
+    },
+    {
+      "num": "05",
+      "label": "Intake",
+      "bracket": false,
+      "revealDelay": "0.16s",
+      "pulse": null
+    }
+  ],
+  "scanline": {
+    "name": "console-v2-scan",
+    "duration": "0.9s",
+    "iterations": "1"
+  },
+  "pages": {
+    "dashboard": {
+      "1024": {
+        "axe": [],
+        "hscroll": 0,
+        "animations": {
+          "total": 1,
+          "infinite": 0,
+          "names": [
+            "console-v2-scan"
+          ]
+        }
+      },
+      "1440": {
+        "axe": [],
+        "hscroll": 0,
+        "animations": {
+          "total": 1,
+          "infinite": 0,
+          "names": [
+            "console-v2-scan"
+          ]
+        }
+      },
+      "reduced": {
+        "animations": 0,
+        "running": 0,
+        "elementsWithTransformOrTransformTransition": 0
+      },
+      "reducedScanline": "none"
+    },
+    "ds": {
+      "1024": {
+        "axe": [],
+        "hscroll": 0,
+        "animations": {
+          "total": 1,
+          "infinite": 0,
+          "names": [
+            "console-v2-scan"
+          ]
+        }
+      },
+      "1440": {
+        "axe": [],
+        "hscroll": 0,
+        "animations": {
+          "total": 1,
+          "infinite": 0,
+          "names": [
+            "console-v2-scan"
+          ]
+        }
+      },
+      "reduced": {
+        "animations": 0,
+        "running": 0,
+        "elementsWithTransformOrTransformTransition": 0
+      },
+      "reducedScanline": "none"
+    }
+  }
+}

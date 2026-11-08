@@ -1,0 +1,12 @@
+{
+  "extends": "../../../tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["DOM", "DOM.Iterable", "ES2022"],
+    "noEmit": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "types": ["@playwright/test", "node"]
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules"]
+}

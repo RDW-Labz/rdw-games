@@ -1,0 +1,110 @@
+name: Beatrix
+artist: OASIS
+grid:
+  frame: 128
+  columns: 12
+  rows:
+  - idle
+  - working
+  - asking
+  - proposal_ready
+  - done
+  - needs_attention
+  - paused
+  - offline
+  - idle_variant_1
+  - idle_variant_2
+  - idle_variant_3
+  - celebrate
+  fps: 6
+palette:
+- '#140E0C'
+- '#160D08'
+- '#231713'
+- '#261A0F'
+- '#2E2A28'
+- '#312318'
+- '#353019'
+- '#3A291F'
+- '#3B371F'
+- '#411909'
+- '#413024'
+- '#423C22'
+- '#433E3B'
+- '#473424'
+- '#482E18'
+- '#494327'
+- '#4A3525'
+- '#4A382F'
+- '#533D28'
+- '#554034'
+- '#564D2E'
+- '#57402A'
+- '#58524E'
+- '#5E230F'
+- '#5F432C'
+- '#604B3E'
+- '#62341B'
+- '#674C32'
+- '#6A4C30'
+- '#6D6762'
+- '#6E7176'
+- '#705338'
+- '#772E17'
+- '#795B3F'
+- '#7B4426'
+- '#7C5322'
+- '#837C76'
+- '#866544'
+- '#8B381D'
+- '#8E5431'
+- '#8F9297'
+- '#936F4C'
+- '#99928B'
+- '#A14626'
+- '#A2702E'
+- '#A37B55'
+- '#A66A22'
+- '#AC8868'
+- '#AE6039'
+- '#AEA8A1'
+- '#B6ABA0'
+- '#B7B9BD'
+- '#C18C5B'
+- '#C24C25'
+- '#C3BEB7'
+- '#C4904A'
+- '#CC8E33'
+- '#CDA57C'
+- '#CF7F1E'
+- '#D66033'
+- '#D8D4CE'
+- '#E0BF9D'
+- '#E9B864'
+- '#EDEAE5'
+- '#F29A1F'
+- '#F2AA3C'
+- '#F8DCBA'
+- '#FFC53D'
+- '#FFD27A'
+- '#FFD98A'
+- '#FFF1B8'
+- '#FFF3DC'
+- '#FFF4D6'
+- '#FFF6D9'
+- '#FFFBF2'
+- '#FFFFFF'
+anchors:
+  status_light:
+    x: 62
+    y: 57
+    w: 10
+    h: 8
+  chat_button:
+    x: 64
+    y: 122
+  baseline: 119
+tier: animated
+frames: 12
+fps: 6
+category: Pets

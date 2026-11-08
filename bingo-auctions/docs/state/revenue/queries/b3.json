@@ -1,0 +1,30 @@
+[
+  {
+    "table_name": "app_feedback",
+    "cols": "id:uuid, created_at:timestamp with time zone, author_id:uuid, app:text, kind:text, message:text, reporter_label:text, screen:text, app_version:text, update_id:text, platform:text, os_version:text, device_model:text, status:text, triage_note:text, resolved_at:timestamp with time zone, operator_id:uuid, attachments:jsonb, contact_email:text, ip_hash:text"
+  },
+  {
+    "table_name": "auctions",
+    "cols": "id:uuid, operator_id:uuid, warehouse_id:uuid, title:text, description:text, status:USER-DEFINED, starts_at:timestamp with time zone, ends_at:timestamp with time zone, soft_close_minutes:integer, pickup_starts_at:timestamp with time zone, pickup_ends_at:timestamp with time zone, buyer_premium_bps:integer, created_at:timestamp with time zone, updated_at:timestamp with time zone, format:USER-DEFINED, close_stagger_seconds:integer, featured_image_urls:ARRAY, last_lot_ends_at:timestamp with time zone, pickup_mode_override:text, closed_at:timestamp with time zone, canceled_at:timestamp with time zone, canceled_by:uuid, bid_increment_schedule:jsonb, prebid_enabled:boolean, unlisted:boolean"
+  },
+  {
+    "table_name": "operator_audit_log",
+    "cols": "id:bigint, operator_id:uuid, actor_user_id:uuid, action_type:text, target_id:uuid, before_state:jsonb, after_state:jsonb, reason_note:text, created_at:timestamp with time zone"
+  },
+  {
+    "table_name": "operator_policies",
+    "cols": "operator_id:uuid, version:integer, terms_md:text, refund_md:text, shipping_md:text, payment_window_hours:integer, pickup_window_days:integer, shipping_offered:boolean, refund_window_post_pickup_hours:integer, effective_at:timestamp with time zone, published:boolean, content_hash:text, created_by:uuid, created_at:timestamp with time zone, dispute_response_hours:integer, no_show_policy:text, restock_fee_cents:integer, relist_fee_cents:integer, admin_can_refund_outside_window:boolean, require_identity_check:boolean, identity_check_threshold_cents:integer, require_signature:boolean, allow_bidder_disputes:boolean"
+  },
+  {
+    "table_name": "refund_claims",
+    "cols": "invoice_id:uuid, claim_key:text, claimed_at:timestamp with time zone, claimed_by:uuid, released_at:timestamp with time zone"
+  },
+  {
+    "table_name": "refund_jobs",
+    "cols": "id:uuid, operator_id:uuid, invoice_id:uuid, lot_id:uuid, amount_cents:bigint, reason:USER-DEFINED, sub_reason:USER-DEFINED, reason_note:text, status:text, attempts:integer, last_error:text, stripe_refund_id:text, locked_at:timestamp with time zone, locked_by:text, created_at:timestamp with time zone, processed_at:timestamp with time zone, created_by:uuid"
+  },
+  {
+    "table_name": "warehouses",
+    "cols": "id:uuid, operator_id:uuid, name:text, address_line1:text, address_line2:text, city:text, state:text, postal_code:text, country:text, timezone:text, floor_plan_url:text, floor_plan_width_px:integer, floor_plan_height_px:integer, pickup_hours:jsonb, created_at:timestamp with time zone, updated_at:timestamp with time zone, pickup_slot_minutes:integer, pickup_slot_capacity:integer, entrance_x_px:integer, entrance_y_px:integer, pickup_mode:text, floor_plan_version:integer, floor_plan_uploaded_at:timestamp with time zone, tax_rate_bps:integer, square_location_id:text, active:boolean, pickup_instructions:text, customer_notice:text"
+  }
+]

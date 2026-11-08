@@ -1,0 +1,18 @@
+{
+  "id": "photo-010",
+  "image_path": "photo-010-bosch-mixer-dark.jpg",
+  "media_type": "image/jpeg",
+  "photo_quality_label": "dark",
+  "expected": {
+    "title": "Bosch Universal Plus Stand Mixer (MUM6N10UC, 800W)",
+    "brand": "Bosch",
+    "model": "MUM6N10UC",
+    "upc": "821268000016",
+    "category_slug": "small-appliances",
+    "category_legacy": "Appliances",
+    "condition": "Like New",
+    "msrp_cents": 49999,
+    "expected_confidence": "low"
+  },
+  "notes": "Underexposed warehouse shot, shadows on the model number sticker. Stresses OCR robustness."
+}

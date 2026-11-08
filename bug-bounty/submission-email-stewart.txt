@@ -1,0 +1,40 @@
+To: secops@stewart.com
+Subject: [VDP] Dangling DNS records - ind-dev.stewart.com / ind-uat.stewart.com (Azure Traffic Manager)
+
+Hello Stewart security team,
+
+Reporting under your Vulnerability Disclosure Program (www.stewart.com/en/vdp).
+
+Two records in the stewart.com zone still CNAME to Azure Traffic Manager profiles that no
+longer answer:
+
+  ind-dev.stewart.com  -> ind-dev.trafficmanager.net   NXDOMAIN
+  ind-uat.stewart.com  -> ind-uat.trafficmanager.net   NXDOMAIN
+  $ dig ind-dev.trafficmanager.net A +noall +comments  =>  status: NXDOMAIN
+
+Traffic Manager profile names are globally unique and tenant-scoped. Per Microsoft's FAQ,
+"when you delete a Traffic Manager profile, the associated domain name is reserved for a period
+of time ... a different Azure tenant isn't able to use the same profile name until the
+reservation expires" - after which any tenant can create a profile with that name and receive
+the same trafficmanager.net hostname, bind an external endpoint, and serve content on your
+subdomain.
+
+Caveat I want to be upfront about: NXDOMAIN on a trafficmanager.net name can also mean the
+profile still exists with no healthy endpoints, so this proves the records are dead, not that
+the names are already claimable. Either way they are dangling DNS entries pointing into a
+namespace that can be handed to someone else, and they should be removed.
+
+Impact if claimable: attacker content on https://ind-dev.stewart.com / ind-uat.stewart.com with
+a cert issued for those names, usable for phishing inside your brand's domain and for capturing
+any request - and any token - still configured for those hostnames. The ind-/dev/uat naming
+suggests an integration environment, which makes stale clients pointing at it the realistic risk.
+
+Remediation: delete both CNAMEs. One change, permanently closed. Worth adding "delete the DNS
+records" to your Azure teardown checklist and sweeping the zone for any CNAME whose target no
+longer resolves (Traffic Manager, App Service, Storage - and the AWS equivalents).
+
+Testing was passive DNS only (certificate transparency + dig); I made no HTTP requests to the
+records, used no Azure subscription, and created/claimed nothing. Evidence included below.
+
+Best regards,
+Michael Cluer

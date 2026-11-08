@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>RDW Labz — Receivables &amp; Filing Register</title>
+<style>
+  @page { size: letter; margin: 14mm 14mm 16mm; }
+  :root{ --ink:#111418; --mute:#5e6672; --line:#dfe3e8; --accent:#0b5cad; --warn:#8a4a00; --ok:#0d6a3c; }
+  *{box-sizing:border-box}
+  body{margin:0;font:12.5px/1.45 -apple-system,"Segoe UI",Inter,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
+  h1{font-size:21px;margin:0 0 2px;letter-spacing:-.2px}
+  h2{page-break-after:avoid;font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--mute);margin:22px 0 7px;border-bottom:1px solid var(--line);padding-bottom:4px}
+  .sub{color:var(--mute);font-size:11.5px}
+  table.band{width:100%;border-collapse:collapse;margin:14px 0 4px;border:1px solid var(--line)}
+  table.band td{width:20%;padding:9px 11px;border-right:1px solid var(--line);vertical-align:top}
+  table.band td:last-child{border-right:0}
+  table.band b{display:block;font-size:17px;letter-spacing:-.3px}
+  table.band span{display:block;font-size:10.5px;color:var(--mute);text-transform:uppercase;letter-spacing:.07em}
+  table{width:100%;border-collapse:collapse;font-size:11.5px;page-break-inside:avoid}
+  th{text-align:left;font-weight:600;color:var(--mute);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--line);padding:5px 6px}
+  td{padding:5px 6px;border-bottom:1px solid #f0f2f5;vertical-align:top}
+  td.dom{font-weight:600}
+  td.n,th.n{text-align:right;width:60px}
+  td.amt,th.amt{text-align:right;width:78px;white-space:nowrap}
+  .pill{display:inline-block;padding:1px 7px;border-radius:999px;font-size:10px;font-weight:600;letter-spacing:.02em}
+  .p-ok{background:#e7f5ec;color:var(--ok)} .p-warn{background:#fdf0e3;color:var(--warn)} .p-mute{background:#eef1f4;color:var(--mute)}
+  .note{font-size:11px;color:var(--mute);margin:7px 0 0}
+  table.split{width:100%;border-collapse:collapse}
+  table.split>tbody>tr>td{width:56%;vertical-align:top;padding:0 14px 0 0;border:0}
+  table.split>tbody>tr>td+td{width:44%;padding:0}
+  code{font:11px ui-monospace,SFMono-Regular,Menlo,monospace;background:#f5f7f9;padding:1px 4px;border-radius:3px}
+  .foot{margin-top:20px;border-top:1px solid var(--line);padding-top:8px;font-size:10.5px;color:var(--mute)}
+  ul{margin:5px 0 0 16px;padding:0} li{margin:2px 0}
+</style></head><body>
+
+<h1>RDW Labz — Receivables &amp; Filing Register</h1>
+<div class="sub">Prepared 2026-11-03 07:54 UTC · for the 13:00 CT review · every figure read back from the live systems, not from notes</div>
+
+<table class="band"><tr>
+  <td><span>Collected</span><b>$0.00</b></td>
+  <td><span>Offers outstanding</span><b>$19,500</b></td>
+  <td><span>Claims filed</span><b>2</b></td>
+  <td><span>Verified records</span><b>33</b></td>
+  <td><span>Drafts pinned by a login</span><b>3</b></td>
+</tr></table>
+
+<h2>1 · Invoice rail — live and payable</h2>
+<table>
+<tr><th>Rail</th><th>State</th><th class="amt">Amount</th></tr>
+<tr><td>SquareHub invoice API (<code>:8000</code>)</td><td><span class="pill p-ok">LIVE</span> issue → Square create+send → webhook tracks payment</td><td class="amt">—</td></tr>
+<tr><td>INV-0005 (plumbing test, <code>jmacluer@gmail.com</code>)</td><td><span class="pill p-warn">ISSUED</span> unpaid · proves the rail end to end</td><td class="amt">$1.00</td></tr>
+<tr><td>Next number</td><td>INV-0006 — issued from one command, below</td><td class="amt">—</td></tr>
+<tr><td>Payments received</td><td><span class="pill p-mute">NONE</span> <code>invoices/payments</code> returns 0 items</td><td class="amt">$0.00</td></tr>
+<tr><td>Payment links (RDW Labz location)</td><td><span class="pill p-ok">HTTP 200</span> $1,500 sweep · $750/mo monitoring</td><td class="amt">—</td></tr>
+</table>
+<p class="note">No invoice is issued to a prospect who has not agreed — an invoice before consent reads as a bill for a cold email. The moment anyone replies yes:
+<code>~/bin/bb invoice --to &lt;addr&gt; --name "&lt;Company&gt;" --domain &lt;domain&gt; --amount 1500 --apply --send</code></p>
+
+<h2>2 · Offers outstanding — 13 delivered, 3 bounced</h2>
+<table>
+<tr><th>Domain</th><th class="n">Records</th><th>First touch</th><th>Nudge due</th><th class="amt">Value</th></tr>
+<tr><td class='dom'>starbucks.com</td><td class='n'>6</td><td>Nov 02</td><td>Nov 03 23:52</td><td class='amt'>$1,500</td></tr>
+<tr><td class='dom'>harman.com</td><td class='n'>4</td><td>Nov 02</td><td>Nov 03 23:52</td><td class='amt'>$1,500</td></tr>
+<tr><td class='dom'>teamviewer.com</td><td class='n'>3</td><td>Nov 02</td><td>Nov 03 23:52</td><td class='amt'>$1,500</td></tr>
+<tr><td class='dom'>differential.com</td><td class='n'>2</td><td>Nov 01</td><td>Nov 03 18:31</td><td class='amt'>$1,500</td></tr>
+<tr><td class='dom'>stewart.com</td><td class='n'>2</td><td>Nov 01</td><td>Nov 03 18:31</td><td class='amt'>$1,500</td></tr>
+<tr><td class='dom'>celemi.com</td><td class='n'>1</td><td>Nov 01</td><td>Nov 03 18:31</td><td class='amt'>$1,500</td></tr>
+<tr><td class='dom'>chipotle.com</td><td class='n'>1</td><td>Nov 02</td><td>Nov 03 23:52</td><td class='amt'>$1,500</td></tr>
+<tr><td class='dom'>safaricom.co.ke</td><td class='n'>1</td><td>Nov 02</td><td>Nov 04 12:31</td><td class='amt'>$1,500</td></tr>
+<tr><td class='dom'>bpost.be</td><td class='n'>1</td><td>Nov 02</td><td>Nov 04 12:31</td><td class='amt'>$1,500</td></tr>
+<tr><td class='dom'>luva.bet</td><td class='n'>1</td><td>Nov 02</td><td>Nov 04 12:32</td><td class='amt'>$1,500</td></tr>
+<tr><td class='dom'>unifysquare.com</td><td class='n'>1</td><td>Nov 02</td><td>Nov 03 23:52</td><td class='amt'>$1,500</td></tr>
+<tr><td class='dom'>unit4.com</td><td class='n'>1</td><td>Nov 02</td><td>Nov 04 12:31</td><td class='amt'>$1,500</td></tr>
+<tr><td class='dom'>xola.com</td><td class='n'>1</td><td>Nov 01</td><td>Nov 03 18:31</td><td class='amt'>$1,500</td></tr>
+</table>
+<p class="note">Bounced and unrecoverable: <code>vfsglobal.com</code>, <code>luva.bet.br</code>, <code>unit4cloud.com</code>. Nudges are one per address, inside a 44–120 hour window, and none is due before the meeting — the earliest fires today 18:31 UTC.</p>
+<p class="note">Four records retired this morning on re-check: <code>differential.com</code> ×2 and <code>celemi.com</code> no longer point at their dead targets — the owners fixed them — and one Bentley hostname has been deleted outright. Two of those were on the offer list, which is what a good free finding is supposed to do.</p>
+
+<h2>3 · Claims filed</h2>
+<table>
+<tr><th>Platform / ID</th><th>Programme</th><th>Finding</th><th>State</th></tr>
+<tr><td>HackerOne 4168910</td><td>GitHub</td><td><code>nines.githubapp.com</code> → deleted Azure App Service app</td><td><span class="pill p-mute">informative closed — no bounty</span></td></tr>
+<tr><td>HackerOne 4169021</td><td>Starbucks</td><td>7 × <code>*.starbucks.com</code> → deleted Traffic Manager profiles</td><td><span class="pill p-warn">informative</span> closed — no claimed PoC</td></tr>
+<tr><td>Celemi (direct VDP)</td><td>—</td><td><code>dig.sim.celemi.com</code> → deleted App Service app, fixed and confirmed</td><td><span class="pill p-ok">REWARD OFFERED</span> Docusign awaiting signature</td></tr>
+</table>
+<p class="note">HackerOne identity verification was approved on 2 Nov, so the account can be paid. Starbucks was closed as <i>informative</i> with an explicit reason: the programme requires a PoC file <b>hosted on the affected domain</b>, i.e. a demonstrated claim, and DNS-only evidence does not meet it. That is the single largest constraint on this channel — see the note at the end.</p>
+<p class="note">Celemi is the first confirmed money: their AppSec lead reviewed the report, confirmed the vulnerability, fixed it, and sent a <b>Reward Acceptance Agreement</b> via Docusign on 2 Nov. It needs your signature — the reward decision is inside the document, behind an access code that is in your mailbox. Signed revenue is not collected revenue, so nothing is booked yet.</p>
+
+<h2>4 · Pinned behind a login</h2>
+<table class="split"><tr><td>
+<table>
+<tr><th>Programme</th><th class="n">Hosts</th><th class="amt">Grid</th></tr>
+<tr><td>bpost <span class="pill p-mute">Intigriti</span></td><td class="n">2</td><td class="amt">pays</td></tr>
+<tr><td>tomorrowland <span class="pill p-mute">Intigriti</span></td><td class="n">1</td><td class="amt">pays</td></tr>
+<tr><td>EPAM (emakina.at) <span class="pill p-mute">Bugcrowd</span></td><td class="n">14</td><td class="amt">$150 each</td></tr>
+<tr><td colspan="3" style="color:#8a4a00">YesWeHack — <b>0 hosts</b> after the asset-level re-check</td></tr>
+</table>
+</td><td>
+<ul>
+<li><b>Intigriti</b> — captcha on the login form; both drafts ready to file the moment a session exists.</li>
+<li><b>Bugcrowd</b> — password rejected, reset mail never arrives, Okta recovery returns <code>403 E0000006</code>. Ticket #197336 open, outside business hours.</li>
+<li><b>YesWeHack</b> — no longer a channel: all ten matches were domain matches, and TeamViewer, Harman and VFS each publish <i>“All domains not listed In-Scope”</i>.</li>
+<li><b>Expedia</b> — <code>submission_state: paused</code>; a POST returns a bare 403.</li>
+</ul>
+</td></tr></table>
+
+<h2>5 · Two corrections made today, before anything was filed on them</h2>
+<p class="note"><b>(a) karwei is not a takeover.</b> The ≤$5,500 line in the previous edition was wrong. <code>karwei.netlify.app</code> does not 404 — it serves Karwei's own audiotour site, which means the Netlify site belongs to them and nobody, including us, can claim it. What is missing is only the custom-domain binding for <code>www.audiotour.karwei.nl</code>: a misconfiguration with no attacker in the loop. It is withdrawn from the offer list; filing it would have been an informative at best and a credibility loss at triage.</p>
+<p class="note"><b>(b) The scope gate was lying, and the database was repaired.</b> Apex detection used the last two labels, so <code>www.cbn.com.bo</code> was stored under a domain called <code>com.bo</code> and inherited an unrelated Visa asset's tier. Replaced with the Public Suffix List: <b>44</b> bogus apex rows removed, <b>73,390</b> hosts re-parented, <b>928</b> scope apexes corrected. Matching is now exact-asset or a wildcard the host sits under, with explicit exclusions winning — which takes the YesWeHack channel from ten hosts to <b>zero</b>, avoiding ten out-of-scope filings.</p>
+
+<h2>6 · The free tier, tested rather than assumed</h2>
+<p class="note">Free-claim plan was the obvious answer, so it got measured instead of assumed. Free-tier hosts are wildcard zones — every name resolves whether or not it is taken — so DNS proves nothing there and the only honest test is what the provider serves. <b>455 CNAME targets</b> across <b>10 namespaces</b> (netlify.app, github.io, herokuapp.com, vercel.app, pages.dev, fly.dev, web.app, firebaseapp.com, onrender.com, azurestaticapps.net) were probed against each provider's own “nothing deployed here” signature.</p>
+<table>
+<tr><th>Result</th><th class="n">Targets</th><th>Meaning</th></tr>
+<tr><td>Name genuinely unclaimed</td><td class="n">148</td><td>nothing is deployed on the subdomain</td></tr>
+<tr><td>Already occupied</td><td class="n">241</td><td>a site answers; no claim exists</td></tr>
+<tr><td>Unhelpful answer</td><td class="n">66</td><td>no reliable signature — never treated as claimable</td></tr>
+<tr><td><b>Unclaimed <i>and</i> inside a published scope</b></td><td class="n"><b>1</b></td><td>tomorrowland, and it is already taken</td></tr>
+</table>
+<p class="note">The single in-scope free candidate was <code>united-in-joy.tomorrowland.com</code> → <code>kiosk.tlbe22-bmw.pages.dev</code> (Intigriti, wildcard <code>*.tomorrowland.com</code>). It fails too: <code>tlbe22-bmw.pages.dev</code> returns 200 with the title <b>SpaghettiSec</b> — another researcher claimed that project, which is why only the <code>kiosk</code> branch alias still 404s. The free tier is picked over. What is left unclaimed in this corpus is exactly the inventory nobody without a payment card could reach.</p>
+
+<h2>7 · The claim path is built; the only thing missing is a subscription</h2>
+<p class="note">Every platform asked the same question today — <i>can you show control?</i> Starbucks put it in one sentence: “a PoC file hosted on the affected domain confirming control.” A dangling CNAME proves a name is unused, not that it can be taken. So the claim itself is now machinery rather than advice: <code>engine/azure_claim.py</code> takes a name out of the book, re-checks with DNS that it is still unclaimed, creates the exact resource, and then proves the chain by asking the <i>victim's</i> hostname what it serves. Traffic Manager profiles cost nothing for a PoC (billing is per million DNS queries, and the endpoint points at a static page we already own).</p>
+<table>
+<tr><th>Inventory</th><th class="n">Names</th><th>Status</th></tr>
+<tr><td>Traffic Manager profiles (<code>*.trafficmanager.net</code>)</td><td class="n">20</td><td>all re-verified AVAILABLE by DNS today</td></tr>
+<tr><td>App Service names (<code>*.azurewebsites.net</code>)</td><td class="n">12</td><td>all AVAILABLE; free F1 plan is enough</td></tr>
+<tr><td>Elastic Beanstalk hostnames</td><td class="n">2</td><td>available (NODATA signature), needs an AWS account</td></tr>
+<tr><td><b>Blocked at</b></td><td class="n">—</td><td><code>az account list</code> is empty: <code>Michael@cluerholdings.com</code> has <b>0 subscriptions</b>, and a self-serve subscription requires a payment method</td></tr>
+</table>
+<p class="note">The preflight is honest about where it stops: <code>azure_claim.py --target combomobile-ac --dry-run</code> prints the three commands it would run and then says <b>BLOCKED — no Azure subscription</b>. Put a card on the account once (a $1 reversible hold, no spend) and each of the 32 names becomes one command: claim, prove, file, delete. Until then the book stays informative no matter how clean the DNS work is. The outreach revenue ($19,500 offered) runs on a different rail and is unaffected by this.</p>
+
+<div class="foot">Figures read at 2026-11-03 15:42 UTC from <code>engine/state.db</code>, <code>outreach/sent.json</code>, <code>reports/filed.json</code> and the SquareHub API. No payment card or credential is stored in this document.</div>
+</body></html>

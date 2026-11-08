@@ -1,0 +1,13 @@
+Azure Traffic Manager takeover mechanics (public write-ups)
+
+  https://www.stratussecurity.com/post/azure-subdomain-takeover-guide
+    CNAME -> <profile>.trafficmanager.net returning NXDOMAIN "means it is likely to be
+    vulnerable"; the Azure portal shows a green tick if the profile name is available; create
+    the profile, add an endpoint (point it at an app service), content is then served on the
+    customer's subdomain. Notes the false-positive case: "it will appear to be vulnerable when
+    it's not, like when there are no endpoints configured but the resource is deployed".
+
+  https://cystack.net/research/subdomain-takeover-chapter-two-azure-services
+    Same path, External endpoint type takes an attacker-controlled IP.
+
+  can-i-take-over-xyz: Microsoft Azure -> Vulnerable, signature NXDOMAIN (issue #35).

@@ -1,0 +1,21 @@
+{
+  "id": "manifest-029",
+  "source": "other",
+  "raw": {
+    "description": "Black Office Chair Mesh High Back Adjustable Lumbar Support",
+    "retailer_category": "office furniture",
+    "quantity": 4,
+    "retail_price": 89.99
+  },
+  "expected": {
+    "title": "Mesh High-Back Adjustable Office Chair (Black)",
+    "brand": "",
+    "model": "",
+    "category_slug": "office-furniture",
+    "category_legacy": "Office",
+    "condition": "New/Sealed",
+    "msrp_cents": 8999,
+    "expected_confidence": "low"
+  },
+  "notes": "Adversarial: NO brand, NO model, NO UPC, just a generic description. Tests whether the model invents a fictional brand or correctly returns empty. A model that hallucinates 'Amazon Basics' or similar fails this case — we want a graceful low-confidence answer."
+}

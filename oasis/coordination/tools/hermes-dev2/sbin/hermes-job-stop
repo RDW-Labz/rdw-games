@@ -1,0 +1,14 @@
+#!/bin/bash
+# Root wrapper: stops one job's unit (hermes-job-finish@<id> still cleans up).
+# sudoers allows hermes-sub this wrapper; it takes exactly one job id.
+# A job counts as running while its unit is starting, running or reloading,
+# so a cancel right after submit still stops it.
+set -euo pipefail
+PATH=/usr/sbin:/usr/bin:/sbin:/bin
+[[ $# -eq 1 && $1 =~ ^j-[a-z0-9]{8,62}$ ]] || { echo "bad job id" >&2; exit 2; }
+unit="hermes-w-job@$1.service"
+state=$(/usr/bin/systemctl is-active "$unit" || true)
+case $state in
+  active|activating|reloading) exec /usr/bin/systemctl stop "$unit" ;;
+  *) exit 1 ;;
+esac

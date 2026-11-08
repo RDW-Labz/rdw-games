@@ -1,0 +1,109 @@
+name: Mireio
+artist: OASIS
+grid:
+  frame: 128
+  columns: 12
+  rows:
+  - idle
+  - working
+  - asking
+  - proposal_ready
+  - done
+  - needs_attention
+  - paused
+  - offline
+  - idle_variant_1
+  - idle_variant_2
+  - idle_variant_3
+  - celebrate
+  fps: 6
+palette:
+- '#140E0C'
+- '#161618'
+- '#1F2226'
+- '#231713'
+- '#272A2E'
+- '#273245'
+- '#2D3136'
+- '#2E2A28'
+- '#2F3B4E'
+- '#35383B'
+- '#362419'
+- '#374354'
+- '#3A4960'
+- '#3B3F43'
+- '#3D3228'
+- '#414F65'
+- '#433E3B'
+- '#46556C'
+- '#473424'
+- '#474646'
+- '#484D55'
+- '#4A3E31'
+- '#50321D'
+- '#515863'
+- '#556173'
+- '#57402A'
+- '#58524E'
+- '#5A534C'
+- '#5B4938'
+- '#5F3D24'
+- '#646363'
+- '#687281'
+- '#6A4C30'
+- '#6D6762'
+- '#6E5E4C'
+- '#6E7176'
+- '#74492F'
+- '#76716C'
+- '#7C5322'
+- '#7C828A'
+- '#7F6E57'
+- '#837C76'
+- '#88919B'
+- '#8F9297'
+- '#907E67'
+- '#98A1AA'
+- '#99928B'
+- '#A08E76'
+- '#A2702E'
+- '#A66A22'
+- '#A8B0B9'
+- '#AEA8A1'
+- '#B29F86'
+- '#B5C3CD'
+- '#B6ABA0'
+- '#B7B9BD'
+- '#C3BEB7'
+- '#C4904A'
+- '#C4B197'
+- '#CC8E33'
+- '#CF7F1E'
+- '#D1C1AA'
+- '#D8D4CE'
+- '#DBD8CF'
+- '#E9B864'
+- '#F29A1F'
+- '#F2AA3C'
+- '#FFC53D'
+- '#FFD27A'
+- '#FFD98A'
+- '#FFF1B8'
+- '#FFF3DC'
+- '#FFF4D6'
+- '#FFFBF2'
+- '#FFFFFF'
+anchors:
+  status_light:
+    x: 59
+    y: 60
+    w: 10
+    h: 8
+  chat_button:
+    x: 64
+    y: 122
+  baseline: 119
+tier: animated
+frames: 12
+fps: 6
+category: Fantasy

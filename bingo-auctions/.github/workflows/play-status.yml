@@ -1,0 +1,85 @@
+# Play Status — read-only poll of what Google Play is actually serving.
+#
+# The Android counterpart to asc-status.yml. That workflow exists because Apple
+# sends no webhook when review decides; this one exists because until it was
+# written, nothing in this repo could answer "what version do Android users
+# have?" at all.
+#
+# That gap has a cost on the record. The 2026-09-17 delivery audit could state
+# the live version for the web Worker, the cron Worker, the database, both OTA
+# channels and both iOS apps — and had to write "unverifiable" against Play.
+# Android bidder users had been stranded on an old runtime for six weeks, and
+# the only reason anybody knew was that somebody noticed.
+#
+# The job log ends with one `PLAY <track> <status> version=… codes=… fraction=…`
+# line per release, greppable the same way asc-status's `STATUS` lines are.
+#
+# Read-only: the script opens a Play edit because the API exposes track state
+# only inside one, reads, and deletes it. It never commits. To actually promote
+# a draft, that is play_promote.py, deliberately a separate script.
+
+name: Play Status
+
+on:
+  workflow_dispatch:
+    inputs:
+      app:
+        description: 'Which app to check'
+        required: true
+        type: choice
+        default: bidder
+        options:
+          - bidder
+          - staff
+          - both
+      tracks:
+        description: 'Space-separated Play tracks. Blank = production beta alpha internal.'
+        required: false
+        type: string
+        default: ''
+
+jobs:
+  status:
+    name: Play release state
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install --quiet PyJWT cryptography
+      - name: Query Google Play
+        env:
+          GOOGLE_PLAY_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT_KEY }}
+        run: |
+          set -euo pipefail
+          if [ -z "${GOOGLE_PLAY_SERVICE_ACCOUNT_KEY:-}" ]; then
+            echo "::error::GOOGLE_PLAY_SERVICE_ACCOUNT_KEY is not set. Add it at Settings → Secrets and variables → Actions (same secret eas-submit.yml uses)."
+            exit 1
+          fi
+          case "${{ inputs.app }}" in
+            bidder) DIRS="apps/bidder-app" ;;
+            staff)  DIRS="apps/field-mobile" ;;
+            both)   DIRS="apps/bidder-app apps/field-mobile" ;;
+          esac
+          for DIR in $DIRS; do
+            # The package name is read out of the app config that actually
+            # ships, rather than written here a second time — a copy would be
+            # one more thing to keep in sync, and getting it wrong means
+            # reporting some OTHER app's versions as if they were ours.
+            #
+            # Read by regex, not by evaluating the config: `npm ci` on this
+            # monorepo costs minutes, and asc-status.yml needs no install at
+            # all. The tradeoff is that this only works while android.package
+            # is a literal, so the extractor refuses rather than guesses if it
+            # does not find exactly one.
+            PKG=$(python3 - "$DIR" <<'PY'
+          import re, sys
+          path = f'{sys.argv[1]}/app.config.ts'
+          src = open(path).read()
+          hits = set(re.findall(r"package:\s*['\"]([A-Za-z0-9_.]+)['\"]", src))
+          if len(hits) != 1:
+              sys.exit(f'{path}: expected exactly one android.package literal, found {sorted(hits) or "none"}')
+          print(hits.pop())
+          PY
+          )
+            echo "── $DIR ($PKG) ──"
+            python3 scripts/store-release/play_status.py "$PKG" ${{ inputs.tracks }}
+          done

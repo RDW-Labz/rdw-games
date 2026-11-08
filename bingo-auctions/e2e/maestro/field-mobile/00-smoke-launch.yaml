@@ -1,0 +1,36 @@
+# Smoke launch — field-mobile (staff app)
+#
+# Asserts the staff app boots and the JS bundle renders the login screen.
+# Minimal-syntax form that works across Maestro 1.x and 2.x parser
+# versions. No `timeout:` under selectors, no `extendedWaitUntil` —
+# Maestro's default visibility timeout (~10s) is enough on a warm
+# CI runner.
+#
+# Run locally (iOS Simulator):
+#   maestro test e2e/maestro/field-mobile/00-smoke-launch.yaml
+#
+# appId/title fixed 2026-10 (CI: Maestro Smoke green again): the app's
+# bundleIdentifier/package was renamed com.cluerholdings.bidwizops ->
+# com.bingoauctions.staff and its on-screen brand ClovrBid Staff -> BinGo
+# Staff back on 2026-06-22 (apps/field-mobile/app.config.ts), but this flow
+# still targeted the old id/text, so every CI run failed with "Unable to
+# launch app com.cluerholdings.bidwizops" (iOS) / "Package ... is not
+# installed" (Android) since the rename landed.
+
+appId: com.bingoauctions.staff
+---
+- launchApp:
+    clearState: true
+    stopApp: true
+
+- waitForAnimationToEnd
+
+- assertVisible: "Sign in"
+
+- assertVisible: "BinGo Staff"
+
+- assertVisible:
+    id: "staff-signin-email-input"
+
+- assertVisible:
+    id: "staff-signin-submit"

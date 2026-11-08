@@ -1,0 +1,18 @@
+{
+  "id": "photo-022",
+  "image_path": "photo-022-fitbit-blurry.jpg",
+  "media_type": "image/jpeg",
+  "photo_quality_label": "blurry",
+  "expected": {
+    "title": "Fitbit Versa 4 Fitness Smartwatch (Black/Graphite)",
+    "brand": "Fitbit",
+    "model": "FB523BKBK",
+    "upc": "810038854076",
+    "category_slug": "wearable-tech",
+    "category_legacy": "Electronics",
+    "condition": "Like New",
+    "msrp_cents": 19999,
+    "expected_confidence": "low"
+  },
+  "notes": "Out-of-focus phone shot of a Fitbit on a desk. Model name is on the side of the small box."
+}

@@ -1,0 +1,2188 @@
+{
+ "checked": 1400,
+ "dangling": [
+  {
+   "host": "09e30495.b2b.apps.northwesternmutual.com",
+   "target": "a0e915f60691d469f9ba2fe9b0c0e79a-334529240.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "0bba80ec.b2b.apps.northwesternmutual.com",
+   "target": "a70fee7e0b0904242aa2a2db85a8b1ce-1542682754.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "0cmh7572.cloudstation.eu-west-1.dev.hydra.sophos.com",
+   "target": "tf-data-transformer-48336e01-1678086255.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "0j0sb4tx.cloudstation.eu-west-1.qa.hydra.sophos.com",
+   "target": "tf-fake-load-ms-4be5deb9-1967066591.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "0y8km3oh.cloudstation.eu-west-1.dev.hydra.sophos.com",
+   "target": "internal-tf-p-ml-assist-fb8469a4-742767595.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "1jwqo068-cloudhub-eu-west-1.qa.hydra.sophos.com",
+   "target": "tf-informatica-adapter-827c43fc-381981826.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "24v3bzt1.cloudhub.eu-west-1.qa.hydra.sophos.com",
+   "target": "tf-test-aa-cert-d09e4df9-1776262983.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "25thbirthday.mortgagechoice.com.au",
+   "target": "dualstack.25thbirthday-m-choice-com-au-34406229.us-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:REA Group | realestate.com.au, realcommercial.com.au, property.com.au via *.mortgagechoice.com.au"
+  },
+  {
+   "host": "357f5k9h.cloudstation.eu-west-1.inf.hydra.sophos.com",
+   "target": "tf-fake-load-ms-a643958e-1182291929.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "3ds.dev.lineup.com.mx",
+   "target": "dvhn9y37o35ut.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "3ds.prod.lineup.com.mx",
+   "target": "d2kx5vnsixat02.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "3g84crv4.cloudstation.eu-west-1.dev.hydra.sophos.com",
+   "target": "tf-sandstorm-service-82f05453-1536485159.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "4b7052a5.b2b.apps.northwesternmutual.com",
+   "target": "a1add1067ace742f686ed590f602a2f1-1489135533.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "4pr33ts6.cloudstation.eu-central-1.qa.hydra.sophos.com",
+   "target": "tf-email-delivery-204c5d28-812834099.eu-central-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "4sd36kos.cloudstation.eu-west-1.qa.hydra.sophos.com",
+   "target": "tf-document-maker-71f06577-1402102029.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "611lcubt.cloudstation.eu-central-1.qa.hydra.sophos.com",
+   "target": "tf-device-manager-9fe3840d-633535190.eu-central-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "66471600.b2b.apps.northwesternmutual.com",
+   "target": "ab09d736780d9484ea4fe4bb74fde358-211157956.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "684e6834.b2b.apps.northwesternmutual.com",
+   "target": "adf66ff59d26948c6aeb3795d5697eeb-1231680950.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "6k7ivdon.cloudstation.us-west-2.qa.hydra.sophos.com",
+   "target": "tf-new-api-demo-4e36826a-106715046.us-west-2.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "6la09dii.cloudstation.eu-central-1.qa.hydra.sophos.com",
+   "target": "tf-file-analysis-broker-621f9706-1813481525.eu-central-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "71n2smu1.cloudstation.eu-central-1.qa.hydra.sophos.com",
+   "target": "tf-new-api-demo-bcd592bf-1614046449.eu-central-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "76iiywr5.cloudstation.eu-central-1.qa.hydra.sophos.com",
+   "target": "tf-authz-datasync-7cf59c3e-1516426722.eu-central-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "7rc7p68b.cloudstation.eu-west-1.qa.hydra.sophos.com",
+   "target": "tf-device-discovery-30443584-1585224589.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "7u864yfk.cloudstation.eu-west-1.dev.hydra.sophos.com",
+   "target": "tf-topic-manager-2fb93f62-1216252156.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "7vmldu8i-cloudhub-eu-west-1.inf.hydra.sophos.com",
+   "target": "tf-alert-service2-103190b1-2118832368.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "89hi0qya.cloudhub.eu-west-1.qa.hydra.sophos.com",
+   "target": "tf-argus-55783778-1065294614.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "8bof843i.cloudstation.eu-west-1.dev.hydra.sophos.com",
+   "target": "tf-cxgr-transformer-3836f854-1334617460.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "8ludpwn3.cloudstation.eu-west-1.dev.hydra.sophos.com",
+   "target": "tf-group-config-manager-f31794e0-24736731.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "8mgjy487.cloudstation.eu-west-1.qa.hydra.sophos.com",
+   "target": "tf-new-api-demo-e58284ef-2001680051.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "8qxndogk.cloudstation.us-west-2.qa.hydra.sophos.com",
+   "target": "tf-alerts-71010d34-1651226294.us-west-2.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "8tggmfps.cloudstation.eu-west-1.dev.hydra.sophos.com",
+   "target": "tf-test-grafana-9bb2a11c-340684179.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "8zpm19ra.cloudstation.eu-west-1.dev.hydra.sophos.com",
+   "target": "internal-tf-sasi-cloud-7fdae0ce-781161638.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "a-cms.prodeng.mercadolibre.com",
+   "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:mercadolibre via *.mercadolibre.com"
+  },
+  {
+   "host": "a.disabled.prodeng.mercadolibre.com",
+   "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:mercadolibre via *.mercadolibre.com"
+  },
+  {
+   "host": "a.prodeng.mercadolibre.com",
+   "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:mercadolibre via *.mercadolibre.com"
+  },
+  {
+   "host": "a.repositoryproduction.prodeng.mercadolibre.com",
+   "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:mercadolibre via *.mercadolibre.com"
+  },
+  {
+   "host": "a3.client.chef.prodeng.mercadolibre.com",
+   "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:mercadolibre via *.mercadolibre.com"
+  },
+  {
+   "host": "a3desk.thetradedesk.com",
+   "target": "d2n54mjqo8qfoq.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:The Trade Desk via *.thetradedesk.com"
+  },
+  {
+   "host": "a455cc91.b2b.apps.northwesternmutual.com",
+   "target": "ae21a444847e04282a6582e33f4d9d3a-1668876579.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "a7.scm.prodeng.mercadolibre.com",
+   "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:mercadolibre via *.mercadolibre.com"
+  },
+  {
+   "host": "aaoffer.mastercard.us",
+   "target": "d24kwnmuop575x.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "ab38aca9.b2b.apps.northwesternmutual.com",
+   "target": "a4ad7c76136324474b8723a12f764d5b-1789768601.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "acc-auth.takeaway.com",
+   "target": "dvsps28xobw6x.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "acc-vendors-shop.thuisbezorgd.nl",
+   "target": "d2wc8st0tu2l5z.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "acc.intergamma.nl",
+   "target": "ACC-WEB-ELB-872630108.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "it:intergamma via *.intergamma.nl/*"
+  },
+  {
+   "host": "acceptancelegal.naspers.com",
+   "target": "d3n6nqc2wv5yg0.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "account-correlation-cloudhub-eu-west-1.inf.hydra.sophos.com",
+   "target": "tf-account-correlation-d17bc318-699510985.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "account-correlation.cloudhub.eu-west-1.inf.hydra.sophos.com",
+   "target": "tf-account-correlation-d17bc318-699510985.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "account-qai.nba.com",
+   "target": "nba-sf-qai-2047461283.us-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "account-staging.nba.com",
+   "target": "nba-sf-staging-337485272.us-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "accounta.production.prodeng.mercadolibre.com",
+   "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:mercadolibre via *.mercadolibre.com"
+  },
+  {
+   "host": "accounts-prep.welcomesoftware.com",
+   "target": "d1xbtz0kuxnb47.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "accounts.epicgames-stage.ol.epicgames.com",
+   "target": "accountportalv2-web-stg-a-2123378841.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:epicgames via *.epicgames.com"
+  },
+  {
+   "host": "accounts.launcher-website-prod07.ol.epicgames.com",
+   "target": "accountportal-website-prod07-lc-339512713.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:epicgames via *.epicgames.com"
+  },
+  {
+   "host": "acvkis.files-localdev.welcomesoftware.com",
+   "target": "d24ul37q6gmmop.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "admin-dev.uzleuven.be",
+   "target": "d22tjso227g4fp.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "admin-stag.uzleuven.be",
+   "target": "d3czf1vsddjdfi.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "admin.genoapay.com",
+   "target": "internal-genoapay-admin-1029048153.ap-southeast-2.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:Latitude Financial Services Bug Bounty  via *.genoapay.com"
+  },
+  {
+   "host": "admin.insurance.latitudefinancial.com.au",
+   "target": "d8hwuowhm8od1.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:Latitude Financial Services Bug Bounty  via *.latitudefinancial.com.au"
+  },
+  {
+   "host": "admin.sauto-top-cons-docker.vwfs.cz",
+   "target": "elb-sauto-top-cons-2021562196.eu-central-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "admin.shop.dyson.co.nz",
+   "target": "magento-nz-admin-1065341916.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "admin.uat.genoapay.com",
+   "target": "uat-genoapay-213633863.ap-southeast-2.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:Latitude Financial Services Bug Bounty  via *.genoapay.com"
+  },
+  {
+   "host": "admins-a.prodeng.mercadolibre.com",
+   "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:mercadolibre via *.mercadolibre.com"
+  },
+  {
+   "host": "adondepodemosllevarte.marriottbonvoy.com",
+   "target": "d3ad83hncxa7hz.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "aem-default.beta.blendlabs.com",
+   "target": "betaaemdefault-1828704748.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "agentlookup.stewart.com",
+   "target": "d28w3vn6d1tm1o.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "agilecraft.northwesternmutual.com",
+   "target": "agilecraft-prod-public-elb-555794946.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "agpos.agenciacentral.com.uy",
+   "target": "vendainternet-873082966.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "ak.gh.sgtest.prodeng.mercadolibre.com",
+   "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:mercadolibre via *.mercadolibre.com"
+  },
+  {
+   "host": "akamai-logs.psn.tools.playstation.net",
+   "target": "a75a19536e3ee11e8afa2062fa8ef92f-2058581471.us-west-2.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:playstation via *.playstation.net"
+  },
+  {
+   "host": "alarm-monitoring.adsrvr.org",
+   "target": "a14db9f6a943011e89d550a259001b69-367039486.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:The Trade Desk via *.adsrvr.org"
+  },
+  {
+   "host": "alarmsgp.ezviz7.com",
+   "target": "ezalarmsgp-1001931873.ap-southeast-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "yw:Ezviz - Bug Bounty Program via *.ezviz7.com"
+  },
+  {
+   "host": "alarmus.ezviz7.com",
+   "target": "alarm-1428970966.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "yw:Ezviz - Bug Bounty Program via *.ezviz7.com"
+  },
+  {
+   "host": "alation-beta.audible.com",
+   "target": "alati-alati-sein55s6kdpk-1687885642.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "alb.das-dv.bpost.cloud",
+   "target": "alb-parcels-ds-euwe01-das-app-02-857786502.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "it:bpost via *.bpost.cloud"
+  },
+  {
+   "host": "alb.das-st1.bpost.cloud",
+   "target": "alb-parcels-st1-euwe01-ext-das-1-29834142.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "it:bpost via *.bpost.cloud"
+  },
+  {
+   "host": "alberta.ca.hotels.com",
+   "target": "expedia-vb-634821915.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:expediagroup via *.hotels.com"
+  },
+  {
+   "host": "alberta.hotels.com",
+   "target": "expedia-vb-634821915.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:expediagroup via *.hotels.com"
+  },
+  {
+   "host": "alberta.jp.hotels.com",
+   "target": "expedia-vb-634821915.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:expediagroup via *.hotels.com"
+  },
+  {
+   "host": "alberta.kr.hotels.com",
+   "target": "expedia-vb-634821915.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:expediagroup via *.hotels.com"
+  },
+  {
+   "host": "alberta.nl.hotels.com",
+   "target": "expedia-vb-634821915.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:expediagroup via *.hotels.com"
+  },
+  {
+   "host": "albtls-dc.t.co",
+   "target": "d3gzx3srebfdro.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "albtls-na.t.co",
+   "target": "d3s4muaizwzfam.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "albtls.t.co",
+   "target": "d36dkmmzn58vje.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "albtls1.t.co",
+   "target": "d3gzx3srebfdro.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "alert-manager.audi-mini.ignite.harman.com",
+   "target": "internal-alb-alertmanager-audi-mini-1006818531.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "alert-settings.cloudstation.eu-central-1.qa.hydra.sophos.com",
+   "target": "tf-alert-settings-dc613b34-1704235550.eu-central-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "alerting-rules-cloudhub-eu-west-1.inf.hydra.sophos.com",
+   "target": "tf-alerting-rules-b2a4c825-1398049978.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "alerts-cloudstation-eu-central-1.qa.hydra.sophos.com",
+   "target": "tf-alerts-fc15c8f3-1780665764.eu-central-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "alerts-cloudstation-eu-west-1.dev.hydra.sophos.com",
+   "target": "tf-alerts-52a11848-1183657334.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "alerts-cloudstation-us-west-2.qa.hydra.sophos.com",
+   "target": "tf-alerts-71010d34-1651226294.us-west-2.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "alerts-notifier-cloudstation-eu-central-1.qa.hydra.sophos.com",
+   "target": "tf-alerts-notifier-bbfb0885-52725319.eu-central-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "alerts-notifier-cloudstation-eu-west-1.inf.hydra.sophos.com",
+   "target": "tf-alerts-notifier-a7b41f1c-1659489966.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "alerts-notifier.cloudstation.eu-west-1.inf.hydra.sophos.com",
+   "target": "tf-alerts-notifier-a7b41f1c-1659489966.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "alerts.cloudstation.eu-west-1.dev.hydra.sophos.com",
+   "target": "tf-alerts-52a11848-1183657334.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "alerts.cloudstation.us-west-2.qa.hydra.sophos.com",
+   "target": "tf-alerts-71010d34-1651226294.us-west-2.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "alpha.data-o0.ptr8540.sg-file.metrics.a.prodeng.mercadolibre.com",
+   "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:mercadolibre via *.mercadolibre.com"
+  },
+  {
+   "host": "alqxl9k3.cloudstation.eu-west-1.dev.hydra.sophos.com",
+   "target": "tf-topic-manager-62b6f1f4-491860492.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "altitude-reservation-res-1.cloudinary.com",
+   "target": "d11x6y92bmqmul.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "ambassador-stage.glassdoor.com",
+   "target": "internal-a52e75ad5d5744c9fbb89b5b38751681-371931509.us-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "ame-prod.uscellular.com",
+   "target": "d2kmnrod5sb11p.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:T-Mobile via https://*.uscellular.com"
+  },
+  {
+   "host": "amr-arba01.adminml.com",
+   "target": "internal-lb-sorter-prd-amr-arba01-1879541874.sa-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:mercadolibre via *.adminml.com"
+  },
+  {
+   "host": "analytics-admin.prosus.com",
+   "target": "d29jy55hoybp3h.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:Prosus via https://analytics-admin.prosus.com"
+  },
+  {
+   "host": "analyticsapi.naspers.com",
+   "target": "analytics-1488265192.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "api-cr-dev.hilton.com",
+   "target": "hiltondevapiecs-767211666.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:hilton via *.hilton.com"
+  },
+  {
+   "host": "api-dev.diet.mayoclinic.org",
+   "target": "internal-eh-dev-services-mcd-alb-1986819713.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "api-int.adsrvr.org",
+   "target": "ttd-east-desk-thetradedesk-com-761682349.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:The Trade Desk via *.adsrvr.org"
+  },
+  {
+   "host": "api-internal.odp-ac.bpost.cloud",
+   "target": "internal-alb-parcels-ac-euwe01-odp-01-1165124.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "it:bpost via *.bpost.cloud"
+  },
+  {
+   "host": "api-mall-staging.paymaya.com",
+   "target": "mayam-mayam-keavrrtss4hn-1505330408.ap-southeast-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "api-old-pxy.gotinder.com",
+   "target": "tinder-prod-pxy-1011891005.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:tinder via *.gotinder.com"
+  },
+  {
+   "host": "api-prod-origin.rei.com",
+   "target": "envoy-ingress-lb-322497262.us-west-2.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "api-qa1.diet.mayoclinic.org",
+   "target": "internal-eh-qa1-services-mcd-alb-1727469190.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "api-staging.diet.mayoclinic.org",
+   "target": "internal-eh-staging-services-mcd-alb-590383612.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "api-vpn.prod.authy.com",
+   "target": "k8s-authyapi-authyapi-e4d39e43a8-1045551870.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "api.beta.20min.ch",
+   "target": "d22tagl2zbogba.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "api.cfp-dv.bpost.cloud",
+   "target": "internal-alb-parcels-ds-euwe01-cfp-01-1407901368.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "it:bpost via *.bpost.cloud"
+  },
+  {
+   "host": "api.cfp-st.bpost.cloud",
+   "target": "internal-alb-parcels-st-euwe01-cfp-01-1104623437.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "it:bpost via *.bpost.cloud"
+  },
+  {
+   "host": "api.das-dv.bpost.cloud",
+   "target": "awseb-awseb-1g37687wwr116-1971690431.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "it:bpost via *.bpost.cloud"
+  },
+  {
+   "host": "api.dev-us1.authy.com",
+   "target": "otk-authy-api-ns-staging-365235684.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "api.diet.mayoclinic.org",
+   "target": "eh-prod-services-mcd-alb-398479743.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "api.docs.salesforce.com",
+   "target": "d18ab3jea8g7s5.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "api.eu1-dr.thousandeyes.com",
+   "target": "api-258203117.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "api.insurful.blendlabs.com",
+   "target": "awseb-awseb-1uzcdlrluvnjj-1278011585.us-west-2.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "api.jupiter.apigee.net",
+   "target": "dlb006rt-1687899544.us-west-2.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "api.medplum-perf-test.thirtymadison.com",
+   "target": "medplu-backe-sha4islrphlk-1488406128.us-east-2.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "api.s6e.sbgservices.com",
+   "target": "d39ndrta5h8we1.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:flutteruki via *.sbgservices.com"
+  },
+  {
+   "host": "api.stage-us1.authy.com",
+   "target": "otk-authy-api-ns-stage-960614563.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "api.tipjar.soundcloud.com",
+   "target": "api-tipjar-dev-950045632.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "api.us1-dr.thousandeyes.com",
+   "target": "api-eks1-1977791566.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "api.videri.com",
+   "target": "coreo-konga-uip8o6uj7gdv-1456100395.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "api.wombat.indeed.tech",
+   "target": "splunk-prod-api-prod-alb-255660584.us-east-2.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:Indeed via https://*.indeed.tech"
+  },
+  {
+   "host": "api2.thetradedesk.com",
+   "target": "api-hap-elb-650744935.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:The Trade Desk via *.thetradedesk.com"
+  },
+  {
+   "host": "apicdm.carrentals.com",
+   "target": "prodpci-tapirpub-1758896296.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:expediagroup via *.carrentals.com"
+  },
+  {
+   "host": "apicr.carrentals.com",
+   "target": "prodpci-tarsierpub-877336199.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:expediagroup via *.carrentals.com"
+  },
+  {
+   "host": "apim-dev.proxyonboarding.lululemon.com",
+   "target": "proxyonboarding-alb-dev-1309952073.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "apim.apigeeaccess.lululemon.com",
+   "target": "apim-apigeeaccess-alb-prd-251765077.us-west-2.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "apim.proxyonboarding.lululemon.com",
+   "target": "proxyonboarding-alb-prd-586212190.us-west-2.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "apim.tokenapi.lululemon.com",
+   "target": "apim-tokenapi-alb-prd-1145221508.us-west-2.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "apiportal.jupiter.apigee.net",
+   "target": "dlb01dwe2dc001-542298461.us-west-2.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "apitestmb.bpost.cloud",
+   "target": "test-mcblnk-1198920819.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "it:bpost via *.bpost.cloud"
+  },
+  {
+   "host": "app-archive.prometheus.gotinder.com",
+   "target": "prod-prometheus-app-archive-ext-2112692697.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:tinder via *.gotinder.com"
+  },
+  {
+   "host": "app.eu1-dr.thousandeyes.com",
+   "target": "app-2131955379.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "app.insurance.latitudefinancial.com.au",
+   "target": "d2xi6c9w3ivdci.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:Latitude Financial Services Bug Bounty  via *.latitudefinancial.com.au"
+  },
+  {
+   "host": "app.us1-dr.thousandeyes.com",
+   "target": "app-eks1-552605253.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "apply.dev.genoapay.com",
+   "target": "d2jv8o4ia4xfce.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:Latitude Financial Services Bug Bounty  via *.genoapay.com"
+  },
+  {
+   "host": "apply.dev.latitudepay.com",
+   "target": "dg39rnmbj748n.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:Latitude Financial Services Bug Bounty  via *.latitudepay.com"
+  },
+  {
+   "host": "apply.genoapay.com",
+   "target": "d1tmz2ge6z8awf.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:Latitude Financial Services Bug Bounty  via *.genoapay.com"
+  },
+  {
+   "host": "apply.uat.genoapay.com",
+   "target": "d2nyc7hrbejonn.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:Latitude Financial Services Bug Bounty  via *.genoapay.com"
+  },
+  {
+   "host": "aps-insight.adsrvr.org",
+   "target": "insight-1537846145.ap-southeast-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:The Trade Desk via *.adsrvr.org"
+  },
+  {
+   "host": "aq27zm7b.cloudstation.eu-west-1.qa.hydra.sophos.com",
+   "target": "tf-group-config-manager-206b4dfd-129206274.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "arcgis-nonprod.de.infra.marcus.com",
+   "target": "nonprod-arcgis-nlb-1923150342.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:goldmansachs via *.marcus.com"
+  },
+  {
+   "host": "arcgis-nonprod.infra.marcus.com",
+   "target": "nonprod-arcgis-alb-1310872242.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:goldmansachs via *.marcus.com"
+  },
+  {
+   "host": "archive.prometheus.tinderops.net",
+   "target": "prod-prometheus-app-archive-ext-2112692697.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:tinder via *.tinderops.net"
+  },
+  {
+   "host": "arenamrv.ticketmaster.com.br",
+   "target": "d23yd72jkckv79.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "argocd-us-east-2.isr-dev.ridewithvia.com",
+   "target": "k8s-argocd-argocdse-81042329de-1865613368.us-east-2.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "argocd.ray.grammarly.io",
+   "target": "internal-prod-gitlab-runners-argocd-805436677.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:superhuman via *.grammarly.io"
+  },
+  {
+   "host": "argus-cloudhub-eu-west-1.dev.hydra.sophos.com",
+   "target": "tf-argus-7964bb07-1883947258.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "argus-cloudhub-eu-west-1.qa.hydra.sophos.com",
+   "target": "tf-argus-55783778-1065294614.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "argus.cloudhub.eu-west-1.dev.hydra.sophos.com",
+   "target": "tf-argus-7964bb07-1883947258.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "argus.cloudhub.eu-west-1.qa.hydra.sophos.com",
+   "target": "tf-argus-55783778-1065294614.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "arize-otlp-prod.rbx.com",
+   "target": "internal-k8s-arize-arizeotl-d6587a4f70-679248253.us-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:roblox via *.rbx.com"
+  },
+  {
+   "host": "arlotestwebdevnew.arlo.com",
+   "target": "d1vrtt2k8j1bml.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "art-pipeline-s3.it.epicgames.com",
+   "target": "d3g5f91ciy9h8d.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:epicgames via *.epicgames.com"
+  },
+  {
+   "host": "assets-cdn-aws.buffalo-ggn.net",
+   "target": "d16attxawuhpj2.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "assets-developer.ladbrokes.com",
+   "target": "d24fshvkndbikb.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "assets-origin.buffalo-ggn.net",
+   "target": "assets-cdn-01-04-buffalo-ggn-net-1880766368.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "assets-stag.uzleuven.be",
+   "target": "d3pe62ez3668e5.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "assets.dev.lineup.com.mx",
+   "target": "d190paxigmlnk0.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "assets.dev.sandbox.itv.com",
+   "target": "dqynjgl6gyzlu.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "assets.editionhotels.com",
+   "target": "d12bko03q98gt1.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "associated.blendlabs.com",
+   "target": "prodbailey-1961810125.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "asterix-es.reckostaging.com",
+   "target": "internal-af3e96f1abaa04353b6704dfc37ee543-815252254.ap-south-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:stripe via *.reckostaging.com"
+  },
+  {
+   "host": "asterix-kafka.reckostaging.com",
+   "target": "internal-aa71d32a23c66436fa4285f0b58f1fba-1180865085.ap-south-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:stripe via *.reckostaging.com"
+  },
+  {
+   "host": "atlantis.thousandeyes.com",
+   "target": "atlantis-1635083496.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "atlassian-ext.marriott.com",
+   "target": "aad-tc-jira-lb-1681395186.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "atlassiantest.thetradedesk.com",
+   "target": "slb-jira-alb-670602940.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:The Trade Desk via *.thetradedesk.com"
+  },
+  {
+   "host": "atxydw.files-localdev.welcomesoftware.com",
+   "target": "djqhv5cp3irht.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "audi-mini.hivemq.ignite.harman.com",
+   "target": "andromeda-mqtt-ext-elb-536895343.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "aurora-sglang.us-east-1.models.x.ai",
+   "target": "ab74714963781430da5c4d9a29a6ee3c-1355387950.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:x via *.x.ai"
+  },
+  {
+   "host": "aurora-upsampler-sglang.us-east-1.models.x.ai",
+   "target": "ab74714963781430da5c4d9a29a6ee3c-1355387950.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:x via *.x.ai"
+  },
+  {
+   "host": "auth-dev.cloud.marriott.com",
+   "target": "idea-auth-service-dev-lb-315310452.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "auth-rps-dv1.bpost.cloud",
+   "target": "d36py10g03v6q2.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "it:bpost via *.bpost.cloud"
+  },
+  {
+   "host": "auth-sb.thetradedesk.com",
+   "target": "sb-auth-ttd-com-127644683.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:The Trade Desk via *.thetradedesk.com"
+  },
+  {
+   "host": "auth-sre.pingone.com",
+   "target": "d2a2265i8rqt7r.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "auth-stage.videri.com",
+   "target": "gluu-loadtesting-lb-684833883.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "auth.cloud.marriott.com",
+   "target": "idea-auth-service-lb-1391944998.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "auth.etl-test.riskrecon.com",
+   "target": "internal-auth-test-383035207.us-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "auth.prometheus.tinderops.net",
+   "target": "prod-prometheus-auth-ext-1110368052.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:tinder via *.tinderops.net"
+  },
+  {
+   "host": "auth.staging.k8s.tinderops.net",
+   "target": "a55ae6444c9a011e7a43702d6522eff7-353328157.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:tinder via *.tinderops.net"
+  },
+  {
+   "host": "auth.travelconnect-lab.expediagroup.com",
+   "target": "d1oe0mfgxzy648.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:expediagroup via *.expediagroup.com"
+  },
+  {
+   "host": "auth.travelconnect.expediagroup.com",
+   "target": "dnxixuh0kql0h.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:expediagroup via *.expediagroup.com"
+  },
+  {
+   "host": "authn.concedo.data-platform.myteksi.net",
+   "target": "a2ef17f539d7811e9a277066ce9abb9d-2088288461.ap-southeast-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:grab via *.myteksi.net"
+  },
+  {
+   "host": "authn.concedo.stg.data-platform.myteksi.net",
+   "target": "a116d5b8d9bb311e9a6d20a49f905788-1402058337.ap-southeast-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:grab via *.myteksi.net"
+  },
+  {
+   "host": "author-cms-dev.coinbase-corp.com",
+   "target": "coinbase-dev-1126889141.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:coinbase via *.coinbase-corp.com"
+  },
+  {
+   "host": "author-cms-production.coinbase-corp.com",
+   "target": "coinbase-prod-650618376.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:coinbase via *.coinbase-corp.com"
+  },
+  {
+   "host": "author-cms-staging.coinbase-corp.com",
+   "target": "coinbase-stage3-967637017.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:coinbase via *.coinbase-corp.com"
+  },
+  {
+   "host": "authz-datasync-cloudstation-us-west-2.qa.hydra.sophos.com",
+   "target": "tf-authz-datasync-17a7a6c5-991406063.us-west-2.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "authz-datasync.cloudstation.us-west-2.qa.hydra.sophos.com",
+   "target": "tf-authz-datasync-17a7a6c5-991406063.us-west-2.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "authz-poc-cloudstation-us-west-2.qa.hydra.sophos.com",
+   "target": "tf-authz-poc-b9556b72-238560389.us-west-2.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "authz-poc.cloudstation.eu-west-1.dev.hydra.sophos.com",
+   "target": "tf-authz-poc-b39b361b-957320198.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "authz-poc.cloudstation.us-west-2.qa.hydra.sophos.com",
+   "target": "tf-authz-poc-b9556b72-238560389.us-west-2.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "authz.cloudstation.eu-central-1.qa.hydra.sophos.com",
+   "target": "tf-authz-6dd0528c-335139235.eu-central-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "authz.concedo.data-platform.myteksi.net",
+   "target": "afd1d4bf09d7911e9a277066ce9abb9d-731547424.ap-southeast-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:grab via *.myteksi.net"
+  },
+  {
+   "host": "authz.concedo.stg.data-platform.myteksi.net",
+   "target": "ace3d23ff9d6a11e9a277066ce9abb9d-1464382159.ap-southeast-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:grab via *.myteksi.net"
+  },
+  {
+   "host": "auto.lh360.com",
+   "target": "prod-lighthouse-www1-1679982115.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "autonomy.northwesternmutual.com",
+   "target": "autonomy-prod-public-elb-226005432.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "autoupdateapi.lansweeper.com",
+   "target": "d2iocurz91szyb.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "it:lansweeper via *.lansweeper.com"
+  },
+  {
+   "host": "aws-eu-west-2a-lms.rbx.com",
+   "target": "nfd-prod-a-931214499.eu-west-2.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:roblox via *.rbx.com"
+  },
+  {
+   "host": "aws-glean-dev-2-be.glean.com",
+   "target": "k8s-default-gleaning-ead1355550-1912294288.us-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING"
+  },
+  {
+   "host": "aws-us-east-1b-lms.rbx.com",
+   "target": "nfd-prod-b-542137491.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:roblox via *.rbx.com"
+  }
+ ],
+ "payable": [
+  {
+   "host": "25thbirthday.mortgagechoice.com.au",
+   "target": "dualstack.25thbirthday-m-choice-com-au-34406229.us-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:REA Group | realestate.com.au, realcommercial.com.au, property.com.au via *.mortgagechoice.com.au"
+  },
+  {
+   "host": "a-cms.prodeng.mercadolibre.com",
+   "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:mercadolibre via *.mercadolibre.com"
+  },
+  {
+   "host": "a.disabled.prodeng.mercadolibre.com",
+   "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:mercadolibre via *.mercadolibre.com"
+  },
+  {
+   "host": "a.prodeng.mercadolibre.com",
+   "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:mercadolibre via *.mercadolibre.com"
+  },
+  {
+   "host": "a.repositoryproduction.prodeng.mercadolibre.com",
+   "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:mercadolibre via *.mercadolibre.com"
+  },
+  {
+   "host": "a3.client.chef.prodeng.mercadolibre.com",
+   "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:mercadolibre via *.mercadolibre.com"
+  },
+  {
+   "host": "a3desk.thetradedesk.com",
+   "target": "d2n54mjqo8qfoq.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:The Trade Desk via *.thetradedesk.com"
+  },
+  {
+   "host": "a7.scm.prodeng.mercadolibre.com",
+   "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:mercadolibre via *.mercadolibre.com"
+  },
+  {
+   "host": "acc.intergamma.nl",
+   "target": "ACC-WEB-ELB-872630108.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "it:intergamma via *.intergamma.nl/*"
+  },
+  {
+   "host": "accounta.production.prodeng.mercadolibre.com",
+   "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:mercadolibre via *.mercadolibre.com"
+  },
+  {
+   "host": "accounts.epicgames-stage.ol.epicgames.com",
+   "target": "accountportalv2-web-stg-a-2123378841.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:epicgames via *.epicgames.com"
+  },
+  {
+   "host": "accounts.launcher-website-prod07.ol.epicgames.com",
+   "target": "accountportal-website-prod07-lc-339512713.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:epicgames via *.epicgames.com"
+  },
+  {
+   "host": "admin.genoapay.com",
+   "target": "internal-genoapay-admin-1029048153.ap-southeast-2.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:Latitude Financial Services Bug Bounty  via *.genoapay.com"
+  },
+  {
+   "host": "admin.insurance.latitudefinancial.com.au",
+   "target": "d8hwuowhm8od1.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:Latitude Financial Services Bug Bounty  via *.latitudefinancial.com.au"
+  },
+  {
+   "host": "admin.uat.genoapay.com",
+   "target": "uat-genoapay-213633863.ap-southeast-2.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:Latitude Financial Services Bug Bounty  via *.genoapay.com"
+  },
+  {
+   "host": "admins-a.prodeng.mercadolibre.com",
+   "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:mercadolibre via *.mercadolibre.com"
+  },
+  {
+   "host": "ak.gh.sgtest.prodeng.mercadolibre.com",
+   "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:mercadolibre via *.mercadolibre.com"
+  },
+  {
+   "host": "akamai-logs.psn.tools.playstation.net",
+   "target": "a75a19536e3ee11e8afa2062fa8ef92f-2058581471.us-west-2.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:playstation via *.playstation.net"
+  },
+  {
+   "host": "alarm-monitoring.adsrvr.org",
+   "target": "a14db9f6a943011e89d550a259001b69-367039486.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:The Trade Desk via *.adsrvr.org"
+  },
+  {
+   "host": "alarmsgp.ezviz7.com",
+   "target": "ezalarmsgp-1001931873.ap-southeast-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "yw:Ezviz - Bug Bounty Program via *.ezviz7.com"
+  },
+  {
+   "host": "alarmus.ezviz7.com",
+   "target": "alarm-1428970966.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "yw:Ezviz - Bug Bounty Program via *.ezviz7.com"
+  },
+  {
+   "host": "alb.das-dv.bpost.cloud",
+   "target": "alb-parcels-ds-euwe01-das-app-02-857786502.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "it:bpost via *.bpost.cloud"
+  },
+  {
+   "host": "alb.das-st1.bpost.cloud",
+   "target": "alb-parcels-st1-euwe01-ext-das-1-29834142.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "it:bpost via *.bpost.cloud"
+  },
+  {
+   "host": "alberta.ca.hotels.com",
+   "target": "expedia-vb-634821915.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:expediagroup via *.hotels.com"
+  },
+  {
+   "host": "alberta.hotels.com",
+   "target": "expedia-vb-634821915.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:expediagroup via *.hotels.com"
+  },
+  {
+   "host": "alberta.jp.hotels.com",
+   "target": "expedia-vb-634821915.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:expediagroup via *.hotels.com"
+  },
+  {
+   "host": "alberta.kr.hotels.com",
+   "target": "expedia-vb-634821915.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:expediagroup via *.hotels.com"
+  },
+  {
+   "host": "alberta.nl.hotels.com",
+   "target": "expedia-vb-634821915.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:expediagroup via *.hotels.com"
+  },
+  {
+   "host": "alpha.data-o0.ptr8540.sg-file.metrics.a.prodeng.mercadolibre.com",
+   "target": "prodeng-prod-public-alb-tmp-1129379816.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:mercadolibre via *.mercadolibre.com"
+  },
+  {
+   "host": "ame-prod.uscellular.com",
+   "target": "d2kmnrod5sb11p.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:T-Mobile via https://*.uscellular.com"
+  },
+  {
+   "host": "amr-arba01.adminml.com",
+   "target": "internal-lb-sorter-prd-amr-arba01-1879541874.sa-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:mercadolibre via *.adminml.com"
+  },
+  {
+   "host": "analytics-admin.prosus.com",
+   "target": "d29jy55hoybp3h.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:Prosus via https://analytics-admin.prosus.com"
+  },
+  {
+   "host": "api-cr-dev.hilton.com",
+   "target": "hiltondevapiecs-767211666.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:hilton via *.hilton.com"
+  },
+  {
+   "host": "api-int.adsrvr.org",
+   "target": "ttd-east-desk-thetradedesk-com-761682349.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:The Trade Desk via *.adsrvr.org"
+  },
+  {
+   "host": "api-internal.odp-ac.bpost.cloud",
+   "target": "internal-alb-parcels-ac-euwe01-odp-01-1165124.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "it:bpost via *.bpost.cloud"
+  },
+  {
+   "host": "api-old-pxy.gotinder.com",
+   "target": "tinder-prod-pxy-1011891005.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:tinder via *.gotinder.com"
+  },
+  {
+   "host": "api.cfp-dv.bpost.cloud",
+   "target": "internal-alb-parcels-ds-euwe01-cfp-01-1407901368.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "it:bpost via *.bpost.cloud"
+  },
+  {
+   "host": "api.cfp-st.bpost.cloud",
+   "target": "internal-alb-parcels-st-euwe01-cfp-01-1104623437.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "it:bpost via *.bpost.cloud"
+  },
+  {
+   "host": "api.das-dv.bpost.cloud",
+   "target": "awseb-awseb-1g37687wwr116-1971690431.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "it:bpost via *.bpost.cloud"
+  },
+  {
+   "host": "api.s6e.sbgservices.com",
+   "target": "d39ndrta5h8we1.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:flutteruki via *.sbgservices.com"
+  },
+  {
+   "host": "api.wombat.indeed.tech",
+   "target": "splunk-prod-api-prod-alb-255660584.us-east-2.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:Indeed via https://*.indeed.tech"
+  },
+  {
+   "host": "api2.thetradedesk.com",
+   "target": "api-hap-elb-650744935.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:The Trade Desk via *.thetradedesk.com"
+  },
+  {
+   "host": "apicdm.carrentals.com",
+   "target": "prodpci-tapirpub-1758896296.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:expediagroup via *.carrentals.com"
+  },
+  {
+   "host": "apicr.carrentals.com",
+   "target": "prodpci-tarsierpub-877336199.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:expediagroup via *.carrentals.com"
+  },
+  {
+   "host": "apitestmb.bpost.cloud",
+   "target": "test-mcblnk-1198920819.eu-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "it:bpost via *.bpost.cloud"
+  },
+  {
+   "host": "app-archive.prometheus.gotinder.com",
+   "target": "prod-prometheus-app-archive-ext-2112692697.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:tinder via *.gotinder.com"
+  },
+  {
+   "host": "app.insurance.latitudefinancial.com.au",
+   "target": "d2xi6c9w3ivdci.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:Latitude Financial Services Bug Bounty  via *.latitudefinancial.com.au"
+  },
+  {
+   "host": "apply.dev.genoapay.com",
+   "target": "d2jv8o4ia4xfce.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:Latitude Financial Services Bug Bounty  via *.genoapay.com"
+  },
+  {
+   "host": "apply.dev.latitudepay.com",
+   "target": "dg39rnmbj748n.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:Latitude Financial Services Bug Bounty  via *.latitudepay.com"
+  },
+  {
+   "host": "apply.genoapay.com",
+   "target": "d1tmz2ge6z8awf.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:Latitude Financial Services Bug Bounty  via *.genoapay.com"
+  },
+  {
+   "host": "apply.uat.genoapay.com",
+   "target": "d2nyc7hrbejonn.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:Latitude Financial Services Bug Bounty  via *.genoapay.com"
+  },
+  {
+   "host": "aps-insight.adsrvr.org",
+   "target": "insight-1537846145.ap-southeast-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:The Trade Desk via *.adsrvr.org"
+  },
+  {
+   "host": "arcgis-nonprod.de.infra.marcus.com",
+   "target": "nonprod-arcgis-nlb-1923150342.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:goldmansachs via *.marcus.com"
+  },
+  {
+   "host": "arcgis-nonprod.infra.marcus.com",
+   "target": "nonprod-arcgis-alb-1310872242.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:goldmansachs via *.marcus.com"
+  },
+  {
+   "host": "archive.prometheus.tinderops.net",
+   "target": "prod-prometheus-app-archive-ext-2112692697.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:tinder via *.tinderops.net"
+  },
+  {
+   "host": "argocd.ray.grammarly.io",
+   "target": "internal-prod-gitlab-runners-argocd-805436677.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:superhuman via *.grammarly.io"
+  },
+  {
+   "host": "arize-otlp-prod.rbx.com",
+   "target": "internal-k8s-arize-arizeotl-d6587a4f70-679248253.us-west-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:roblox via *.rbx.com"
+  },
+  {
+   "host": "art-pipeline-s3.it.epicgames.com",
+   "target": "d3g5f91ciy9h8d.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:epicgames via *.epicgames.com"
+  },
+  {
+   "host": "asterix-es.reckostaging.com",
+   "target": "internal-af3e96f1abaa04353b6704dfc37ee543-815252254.ap-south-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:stripe via *.reckostaging.com"
+  },
+  {
+   "host": "asterix-kafka.reckostaging.com",
+   "target": "internal-aa71d32a23c66436fa4285f0b58f1fba-1180865085.ap-south-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:stripe via *.reckostaging.com"
+  },
+  {
+   "host": "atlassiantest.thetradedesk.com",
+   "target": "slb-jira-alb-670602940.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:The Trade Desk via *.thetradedesk.com"
+  },
+  {
+   "host": "aurora-sglang.us-east-1.models.x.ai",
+   "target": "ab74714963781430da5c4d9a29a6ee3c-1355387950.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:x via *.x.ai"
+  },
+  {
+   "host": "aurora-upsampler-sglang.us-east-1.models.x.ai",
+   "target": "ab74714963781430da5c4d9a29a6ee3c-1355387950.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:x via *.x.ai"
+  },
+  {
+   "host": "auth-rps-dv1.bpost.cloud",
+   "target": "d36py10g03v6q2.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "it:bpost via *.bpost.cloud"
+  },
+  {
+   "host": "auth-sb.thetradedesk.com",
+   "target": "sb-auth-ttd-com-127644683.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "bc:The Trade Desk via *.thetradedesk.com"
+  },
+  {
+   "host": "auth.prometheus.tinderops.net",
+   "target": "prod-prometheus-auth-ext-1110368052.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:tinder via *.tinderops.net"
+  },
+  {
+   "host": "auth.staging.k8s.tinderops.net",
+   "target": "a55ae6444c9a011e7a43702d6522eff7-353328157.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:tinder via *.tinderops.net"
+  },
+  {
+   "host": "auth.travelconnect-lab.expediagroup.com",
+   "target": "d1oe0mfgxzy648.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:expediagroup via *.expediagroup.com"
+  },
+  {
+   "host": "auth.travelconnect.expediagroup.com",
+   "target": "dnxixuh0kql0h.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:expediagroup via *.expediagroup.com"
+  },
+  {
+   "host": "authn.concedo.data-platform.myteksi.net",
+   "target": "a2ef17f539d7811e9a277066ce9abb9d-2088288461.ap-southeast-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:grab via *.myteksi.net"
+  },
+  {
+   "host": "authn.concedo.stg.data-platform.myteksi.net",
+   "target": "a116d5b8d9bb311e9a6d20a49f905788-1402058337.ap-southeast-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:grab via *.myteksi.net"
+  },
+  {
+   "host": "author-cms-dev.coinbase-corp.com",
+   "target": "coinbase-dev-1126889141.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:coinbase via *.coinbase-corp.com"
+  },
+  {
+   "host": "author-cms-production.coinbase-corp.com",
+   "target": "coinbase-prod-650618376.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:coinbase via *.coinbase-corp.com"
+  },
+  {
+   "host": "author-cms-staging.coinbase-corp.com",
+   "target": "coinbase-stage3-967637017.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:coinbase via *.coinbase-corp.com"
+  },
+  {
+   "host": "authz.concedo.data-platform.myteksi.net",
+   "target": "afd1d4bf09d7911e9a277066ce9abb9d-731547424.ap-southeast-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:grab via *.myteksi.net"
+  },
+  {
+   "host": "authz.concedo.stg.data-platform.myteksi.net",
+   "target": "ace3d23ff9d6a11e9a277066ce9abb9d-1464382159.ap-southeast-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:grab via *.myteksi.net"
+  },
+  {
+   "host": "autoupdateapi.lansweeper.com",
+   "target": "d2iocurz91szyb.cloudfront.net",
+   "kind": "cloudfront",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "it:lansweeper via *.lansweeper.com"
+  },
+  {
+   "host": "aws-eu-west-2a-lms.rbx.com",
+   "target": "nfd-prod-a-931214499.eu-west-2.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:roblox via *.rbx.com"
+  },
+  {
+   "host": "aws-us-east-1b-lms.rbx.com",
+   "target": "nfd-prod-b-542137491.us-east-1.elb.amazonaws.com",
+   "kind": "elb",
+   "target_a": "",
+   "status": "DANGLING",
+   "scope": "h1:roblox via *.rbx.com"
+  }
+ ]
+}

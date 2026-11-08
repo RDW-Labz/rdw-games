@@ -1,0 +1,120 @@
+{
+  "pass_mark": 70,
+  "top": {
+    "id": "C05",
+    "name": "Reseller bulk lots: bundle 2×-relisted and zero-bid items into box/pallet lots (B-Stock/Quicklotz model E8/E11)",
+    "total": 69,
+    "disqualified": null
+  },
+  "runner_up": {
+    "id": "C04",
+    "name": "Buyer's premium 15% → 17% on selected auctions (fee tuning; BidFTA is 17.25%, E2)",
+    "total": 68,
+    "disqualified": null
+  },
+  "passes": [],
+  "ranking": [
+    {
+      "id": "C05",
+      "name": "Reseller bulk lots: bundle 2×-relisted and zero-bid items into box/pallet lots (B-Stock/Quicklotz model E8/E11)",
+      "total": 69,
+      "disqualified": null
+    },
+    {
+      "id": "C04",
+      "name": "Buyer's premium 15% → 17% on selected auctions (fee tuning; BidFTA is 17.25%, E2)",
+      "total": 68,
+      "disqualified": null
+    },
+    {
+      "id": "C03",
+      "name": "Per-lot handling fee $1 (BidFTA/MAC.BID/OLA model E2/E4/E6)",
+      "total": 64,
+      "disqualified": null
+    },
+    {
+      "id": "C14",
+      "name": "Paid express counter pickup ($3/visit, items pre-pulled before arrival; MAC.BID Fast Pass E5)",
+      "total": 62,
+      "disqualified": null
+    },
+    {
+      "id": "C09",
+      "name": "Saved-search alerts push (re-engagement on unsold stock)",
+      "total": 61,
+      "disqualified": null
+    },
+    {
+      "id": "C06",
+      "name": "Consignment / event auctions for outside sellers at 20-30% commission (Crandall model, E12)",
+      "total": 51,
+      "disqualified": null
+    },
+    {
+      "id": "C15",
+      "name": "Collect the fees already published (auto-charge $5 relot fee to card; enforce $5 restock fee)",
+      "total": 49,
+      "disqualified": null
+    },
+    {
+      "id": "C12",
+      "name": "Price/data reports for resellers",
+      "total": 47,
+      "disqualified": null
+    },
+    {
+      "id": "C01",
+      "name": "Paid pickup hold past the 7-day window ($5/item, MAC.BID model E4)",
+      "total": 44,
+      "disqualified": null
+    },
+    {
+      "id": "C08",
+      "name": "Shipping via existing EasyPost code",
+      "total": 44,
+      "disqualified": null
+    },
+    {
+      "id": "C02",
+      "name": "BinGo Plus membership $9.99/mo (early pickup hour, free holds, express counter) — BidFTA+/MAC.BID model E3/E5",
+      "total": 43,
+      "disqualified": null
+    },
+    {
+      "id": "C13",
+      "name": "Late-pickup storage fee after day 7",
+      "total": 41,
+      "disqualified": null
+    },
+    {
+      "id": "C11",
+      "name": "License the platform to other liquidators (SaaS, $99/mo + 2% GMV per competitive-pricing-analysis.md)",
+      "total": 36,
+      "disqualified": null
+    },
+    {
+      "id": "C17",
+      "name": "Sponsored local ads in app/site",
+      "total": 36,
+      "disqualified": null
+    },
+    {
+      "id": "C07",
+      "name": "Paid local delivery",
+      "total": 32,
+      "disqualified": null
+    },
+    {
+      "id": "C10",
+      "name": "Promoted/featured lots paid by sellers",
+      "total": 29,
+      "disqualified": null
+    },
+    {
+      "id": "C16",
+      "name": "Per-sq-ft flooring sales",
+      "total": 0,
+      "disqualified": "D4 — flooring volume is not identifiable in verified data (no flooring category in top sold or unsold categories); spec only on docs/sqft-bidding-spec"
+    }
+  ]
+}

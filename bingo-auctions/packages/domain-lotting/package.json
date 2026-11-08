@@ -1,0 +1,37 @@
+{
+  "name": "@auction-platform/domain-lotting",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Lotting domain — pure logic ported from the standalone LotTR app: Anthropic-backed product identification (UPC/ASIN/photo), retail price lookup, stock photo discovery, condition description builder, and title/warranty text cleanup. Consumed by both field-mobile (mobile lotting) and operator-web (LotTR-Pro desktop classifier).",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./constants": "./src/constants.ts",
+    "./types": "./src/types.ts",
+    "./config": "./src/config.ts",
+    "./ai": "./src/ai/index.ts",
+    "./lookup": "./src/lookup/index.ts",
+    "./text": "./src/text/index.ts",
+    "./normalize": "./src/normalize/index.ts"
+  },
+  "scripts": {
+    "lint": "echo 'no-op'",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "eval": "tsx evals/index.ts",
+    "eval:photo-id": "tsx evals/index.ts --suite=photo-id",
+    "eval:manifest-classify": "tsx evals/index.ts --suite=manifest-classify",
+    "eval:upc-lookup": "tsx evals/index.ts --suite=upc-lookup",
+    "eval:all": "tsx evals/index.ts --suite=all"
+  },
+  "peerDependencies": {
+    "@supabase/supabase-js": "^2.105.3"
+  },
+  "devDependencies": {
+    "@supabase/supabase-js": "^2.105.3",
+    "tsx": "^4.19.0",
+    "typescript": "~5.9.3"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "id": "upc-016",
+  "code": "B08PCMYY3J",
+  "code_type": "asin",
+  "expected": {
+    "title": "Shark Vertex Pro IZ363HT Cordless Stick Vacuum with DuoClean PowerFins",
+    "brand": "Shark",
+    "model": "IZ363HT",
+    "category_slug": "small-appliances",
+    "category_legacy": "Appliances",
+    "condition": "",
+    "msrp_cents": 39999
+  },
+  "notes": "Shark vacuum ASIN."
+}

@@ -1,0 +1,22 @@
+{
+ "version": 1,
+ "concurrency": 1,
+ "jobs": [
+  {
+   "id": "bd-beacon-depth",
+   "agent": "claude",
+   "model": "opus",
+   "tier": "expensive",
+   "tierReason": "Pixel-art lighting and shading across 32 frames against a reference; same Opus worker drew the pack",
+   "prompt": "You are job BD (Beacon depth pass) for OASIS. Braden approved the Beacon pack and asked for one depth pass. Edit coordination/references/orb-sketches/beacon_v2.py only. You cannot run it; the coordinator runs it. Look at coordination/references/orb-sketches/beacon-v2/preview-64-dark.png (current state, 64 and 128 px) and coordination/references/orb-sketches/higgsfield/candidate-4.png (reference).\nKeep: pixel art on the native 64 grid scaled 2x to 128 (no smooth gradients, no blur, no anti-aliasing, no semi-transparent pixels in the sheet: every pixel is fully opaque or fully transparent); the grid, state order, 4 frames, 6 fps; body, feet, face size, curved handle and poses; the band region, its tones per state (BAND_TONES/STATE_BAND unchanged) and the manifest anchors; every existing self-check.\nDo NOT draw any glow halo or ground shadow outside the character: the T17 engine draws those (decision #79).\nAdd depth, as hand-placed pixel shading with a small number of extra palette tones and ordered dithering where it helps:\n1. One light source from the top left: lighter tones on the upper-left of the body, cap, handle, arms and feet; darker tones on the lower-right; a 1-2 px darker shade under the cap and under the band (contact shadow inside the character).\n2. Inner paper glow: the paper body is lit from inside, brightest in the centre just below the face, fading to the ribs and edges; the vertical ribs stay visible. The glow brightness follows the band's tone per state (calm dimmer, needs-you brightest, paused grey-toned, offline almost unlit), using the existing per-state band tone as the key.\n3. Brass shine: a 1-2 px specular highlight on the upper-left of the cap, handle and each foot, plus a darker brass shade on the opposite side.\n4. Thicker outline: make the dark outline 2 native px on the outer silhouette (1 px stays fine for inner lines), and keep the light rim outside it, so the silhouette and rim survive the 128 -> 64 nearest-neighbour downscale in preview-64-dark.png.\nUpdate the docstring (revision 4: depth pass). Add one self-check: no pixel in sheet.png has alpha other than 0 or 255. Only write the declared output. End with one JSON line, max 6 notes: {\"files_changed\":[...],\"notes\":[...]}.",
+   "context": [
+    "coordination/references/orb-sketches/higgsfield/candidate-4.png",
+    "coordination/references/orb-sketches/beacon-v2/preview-64-dark.png"
+   ],
+   "outputs": [
+    "coordination/references/orb-sketches/beacon_v2.py"
+   ],
+   "timeoutMs": 3600000
+  }
+ ]
+}

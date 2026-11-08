@@ -1,0 +1,121 @@
+# Ask the live Worker who an ops alert would actually reach.
+#
+# OPS_ALERT_EMAIL is a Cloudflare Worker secret and CRON_SECRET is a GitHub
+# repo secret. Both are write-only: nobody — not the owner, not CI, not the
+# Cloudflare dashboard — can read either back. So "is the notify list right?"
+# had no answer except waiting for a real alert, and a typo produced silence
+# rather than an error. That is how the 2026-09-19 outage reached nobody for
+# 45 minutes.
+#
+# This workflow is the missing half of /api/debug/alert-check (#345): the
+# endpoint knows the answer and needs CRON_SECRET to be asked, and CRON_SECRET
+# lives here. The secret is passed as a header and never printed; the RESPONSE
+# carries the resolved recipient list, which is not secret.
+#
+# Run it after any change to OPS_ALERT_EMAIL, and after the deploy that
+# carries it — the value reaches the Worker at deploy time, not when the
+# GitHub secret is saved.
+
+name: Verify ops alert recipients
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'dry = resolve the list, send nothing. send = also deliver a TEST email to everyone on it.'
+        required: true
+        type: choice
+        default: dry
+        options:
+          - dry
+          - send
+      base_url:
+        description: 'Override the target origin (leave blank for production)'
+        required: false
+        type: string
+        default: ''
+
+permissions: {}
+
+concurrency:
+  group: ops-alert-verify
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Guard secret
+        env:
+          HAS_SECRET: ${{ secrets.CRON_SECRET != '' }}
+        run: |
+          if [ "$HAS_SECRET" != "true" ]; then
+            echo "::error::CRON_SECRET repo secret is not set — cannot authenticate to /api/debug/alert-check."
+            exit 1
+          fi
+
+      - name: Ask the Worker who it would page
+        env:
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+          MODE: ${{ inputs.mode }}
+          BASE: ${{ inputs.base_url }}
+        run: |
+          set -uo pipefail
+          base="${BASE:-}"
+          [ -z "$base" ] && base="https://bingoauctions.com"
+          url="$base/api/debug/alert-check"
+          [ "$MODE" = "dry" ] && url="$url?dry=1"
+
+          echo "POST $url  (mode=$MODE)"
+          echo
+
+          # -w writes the status AFTER the body so a non-2xx still shows the
+          # JSON, which carries the reason. The secret goes in a header and is
+          # never echoed; GitHub would mask it anyway, but not printing it at
+          # all is the stronger guarantee.
+          code=$(curl -sS -X POST "$url" \
+                   -H "x-cron-secret: $CRON_SECRET" \
+                   -o response.json -w '%{http_code}') || {
+            echo "::error::request failed — the Worker did not answer."
+            exit 1
+          }
+
+          echo "HTTP $code"
+          echo
+          if command -v jq >/dev/null && jq -e . response.json >/dev/null 2>&1; then
+            jq . response.json
+          else
+            cat response.json; echo
+          fi
+          echo
+
+          # 503 is the endpoint reporting an honestly broken pager — a missing
+          # RESEND_API_KEY, or Resend refusing the send. Fail the run so this
+          # cannot be mistaken for a pass by anything reading the result.
+          if [ "$code" != "200" ]; then
+            echo "::error::alert-check returned HTTP $code — the pager is not healthy. See the reason field above."
+            exit 1
+          fi
+
+          if command -v jq >/dev/null; then
+            if [ "$(jq -r '.using_fallback' response.json)" = "true" ]; then
+              echo "::warning::using_fallback=true — OPS_ALERT_EMAIL did not reach the Worker, so this is the hardcoded default, not your list. Check that a deploy ran AFTER the secret was set."
+            fi
+            echo "Recipients the Worker resolved:"
+            jq -r '.recipients[] | "  - " + .' response.json
+
+            # The SMS half. Only the pg_cron failure spike pages by SMS, and
+            # it is the one alert where minutes matter — so an empty list or
+            # missing Twilio credentials is a finding, not a detail. Warn
+            # rather than fail: email-only is degraded, not broken.
+            sms_count=$(jq -r '.sms_recipient_count // 0' response.json)
+            echo
+            echo "SMS numbers the Worker resolved: $sms_count"
+            jq -r '(.sms_recipients // [])[] | "  - " + .' response.json
+            if [ "$sms_count" = "0" ]; then
+              echo "::warning::no SMS numbers — pg_cron failure spikes page by email only. Set the OPS_ALERT_SMS repo secret (E.164, comma-separated) and redeploy."
+            elif [ "$(jq -r '.twilio_configured' response.json)" != "true" ]; then
+              echo "::warning::OPS_ALERT_SMS lists numbers but Twilio credentials are not on the Worker — those SMS pages will silently fail. Check TWILIO_ACCOUNT_SID / TWILIO_AUTH_TOKEN and a from-number or messaging service."
+            fi
+          fi

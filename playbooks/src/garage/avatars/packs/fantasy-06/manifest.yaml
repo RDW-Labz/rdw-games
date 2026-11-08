@@ -1,0 +1,108 @@
+name: Cael
+artist: OASIS
+grid:
+  frame: 128
+  columns: 12
+  rows:
+  - idle
+  - working
+  - asking
+  - proposal_ready
+  - done
+  - needs_attention
+  - paused
+  - offline
+  - idle_variant_1
+  - idle_variant_2
+  - idle_variant_3
+  - celebrate
+  fps: 6
+palette:
+- '#140E0C'
+- '#231713'
+- '#2A1609'
+- '#2E2A28'
+- '#3D2F27'
+- '#3E2512'
+- '#433E3B'
+- '#473424'
+- '#4C3017'
+- '#4F3F33'
+- '#513421'
+- '#573C1B'
+- '#57402A'
+- '#58524E'
+- '#594A3D'
+- '#60381F'
+- '#604322'
+- '#645647'
+- '#684D22'
+- '#694E32'
+- '#6A4C30'
+- '#6D4126'
+- '#6D6762'
+- '#6E7176'
+- '#6F6151'
+- '#726C11'
+- '#745028'
+- '#785F36'
+- '#7B6C5A'
+- '#7C5322'
+- '#826942'
+- '#837C76'
+- '#847563'
+- '#86824D'
+- '#897325'
+- '#8D7E69'
+- '#8F9297'
+- '#90704A'
+- '#948570'
+- '#99928B'
+- '#9B7C54'
+- '#9B8C76'
+- '#A1937D'
+- '#A2702E'
+- '#A5865D'
+- '#A66A22'
+- '#AB9D86'
+- '#AE8E64'
+- '#AEA8A1'
+- '#B6ABA0'
+- '#B7966A'
+- '#B7B9BD'
+- '#BAAD95'
+- '#BD9C70'
+- '#C2A074'
+- '#C3BEB7'
+- '#C4904A'
+- '#C7A578'
+- '#CC8E33'
+- '#CDAB7E'
+- '#CF7F1E'
+- '#D4B385'
+- '#DEBD91'
+- '#E9B864'
+- '#F29A1F'
+- '#F2AA3C'
+- '#FFC53D'
+- '#FFD27A'
+- '#FFD98A'
+- '#FFF1B8'
+- '#FFF3DC'
+- '#FFF4D6'
+- '#FFFBF2'
+- '#FFFFFF'
+anchors:
+  status_light:
+    x: 61
+    y: 66
+    w: 10
+    h: 8
+  chat_button:
+    x: 64
+    y: 122
+  baseline: 119
+tier: animated
+frames: 12
+fps: 6
+category: Fantasy

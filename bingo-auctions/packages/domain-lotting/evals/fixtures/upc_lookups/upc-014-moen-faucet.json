@@ -1,0 +1,15 @@
+{
+  "id": "upc-014",
+  "code": "026508319215",
+  "code_type": "upc",
+  "expected": {
+    "title": "Moen Adler 84603SRS 2-Handle Widespread Bathroom Faucet (Spot Resist Stainless)",
+    "brand": "Moen",
+    "model": "84603SRS",
+    "category_slug": "faucets-fixtures",
+    "category_legacy": "Tools & Hardware",
+    "condition": "",
+    "msrp_cents": 7998
+  },
+  "notes": "Common Lowes UPC."
+}

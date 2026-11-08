@@ -1,0 +1,12 @@
+# The precheck is a separate unit because systemd 259 runs a + ExecStartPre
+# inside the worker's mount and network namespaces.  Those namespaces hide
+# /opt/hermes-dev2/sbin and the host hermes_w nft table.
+[Unit]
+Description=Hermes worker precheck %i
+# Ordering only (no pull): a job start mounts the work tmpfs first, then this checks it.
+After=hermes-firewall.service var-lib-hermes\x2djobs-work.mount
+
+[Service]
+Type=oneshot
+RemainAfterExit=no
+ExecStart=/opt/hermes-dev2/sbin/hermes-unit-precheck %i

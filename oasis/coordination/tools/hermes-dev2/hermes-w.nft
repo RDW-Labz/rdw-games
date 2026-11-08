@@ -1,0 +1,16 @@
+# Firewall for the hermes-w worker user (decision #384), in its own table so
+# it never touches dev2's other rules. ANY hermes-w packet on dev2's HOST
+# network is dropped, IPv4 and IPv6, with no exception (the proxy is a Unix
+# socket, not a port). Jobs, forwarders and probes don't need it: they run
+# in private network namespaces, where host nftables rules don't apply. This
+# table is the wall for a hermes-w process OUTSIDE those (a stray process).
+# Every worker unit checks this rule is present (hermes-unit-precheck).
+table inet hermes_w
+delete table inet hermes_w
+
+table inet hermes_w {
+	chain output {
+		type filter hook output priority filter; policy accept;
+		meta skuid "hermes-w" counter drop
+	}
+}

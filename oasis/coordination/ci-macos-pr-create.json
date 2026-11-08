@@ -1,0 +1,6 @@
+{
+ "title": "ci: run the desktop gate on macOS for every PR",
+ "body": "**needs Braden** \u2014 hold for his \"merge N\" (CI change).\n**Changed:** Adds a macOS gate to every pull request with the same lint, type, npm, and Rust checks as the Windows gate.\n**Could break:** The added runner may expose macOS-specific CI failures on pull requests.\n**Proof:** The workflow regression test checks the macOS runner, PR condition, and npm checks.\n## Checks\n<!-- swarm:checks -->\n## Mutation check\nNo gate or state mapping; CI config only. The new test fails on the old ci.yml.\n\n\ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)",
+ "head": "ci-macos-pr-gate",
+ "base": "main"
+}

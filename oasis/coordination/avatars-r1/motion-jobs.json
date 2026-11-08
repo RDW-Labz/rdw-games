@@ -1,0 +1,145 @@
+{
+  "project": "OASIS avatars round 1",
+  "folder_id": "ec6df37d-8282-4cd0-a484-9da87063105a",
+  "workspace": "55116074-0baf-4e46-8431-b29517d13d45",
+  "date": "2026-09-28",
+  "cap_credits": 70,
+  "balance_start": 1409.63,
+  "balance_end": 1349.13,
+  "credits_spent": 60.5,
+  "redone": [],
+  "refusals": 0,
+  "note": "First batch submit returned a preset suggestion for every item (no job, no charge); resubmitted with declined_preset_id.",
+  "jobs": [
+    {
+      "character": "pets-01",
+      "state": "sprite_base",
+      "job_id": "0713c464-4534-4c73-8355-e63fcce355b5",
+      "model": "gpt_image_2_5",
+      "params": "1k medium, image edit of the portrait on flat magenta",
+      "cost": 0.5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "pets-01",
+      "state": "idle",
+      "job_id": "5e9880da-3206-4110-b6aa-df3ae0f4968c",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "pets-01",
+      "state": "working",
+      "job_id": "b9b29aa9-bb12-423d-a49e-80e0a8f80175",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "pets-01",
+      "state": "asking",
+      "job_id": "94504d60-5f5b-423c-8698-255f93f6a1ed",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "pets-01",
+      "state": "proposal_ready",
+      "job_id": "bdadfc63-95c7-44f7-afff-3a27ff875f0f",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "pets-01",
+      "state": "done",
+      "job_id": "b5d9bec1-1aba-434d-acc9-46ea4625d227",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "pets-01",
+      "state": "needs_attention",
+      "job_id": "83c8cff4-bbf6-4ce5-8715-8fc60fbfe726",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "pets-01",
+      "state": "paused",
+      "job_id": "8aa4789d-3f2b-4b57-b6cb-f7f1345b94c1",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "pets-01",
+      "state": "offline",
+      "job_id": "e0776ecc-6ee8-4178-b500-8b9c4cfee559",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "pets-01",
+      "state": "celebrate",
+      "job_id": "41385a3b-da5d-4404-a95f-cecb2c620fbe",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "pets-01",
+      "state": "idle_variant_1",
+      "job_id": "1310760e-18b7-49aa-bea9-3acbbe06207b",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "pets-01",
+      "state": "idle_variant_2",
+      "job_id": "3f016523-1297-47af-91d6-700dbce13d2e",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "pets-01",
+      "state": "idle_variant_3",
+      "job_id": "75701471-5185-4f56-bf74-e945f0dd7a82",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    }
+  ]
+}

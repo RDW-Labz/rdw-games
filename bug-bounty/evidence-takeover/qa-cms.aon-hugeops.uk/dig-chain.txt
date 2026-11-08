@@ -1,0 +1,15 @@
+# captured 2026-11-07T20:59:55Z
+# $ dig-chain.txt
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 54504
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; ANSWER SECTION:
+qa-cms.aon-hugeops.uk.	300	IN	CNAME	aon-sitecore-qa-xp-scaled-176730-cm.azurewebsites.net.
+
+;; AUTHORITY SECTION:
+azurewebsites.net.	60	IN	SOA	ns1-224.azure-dns.com. msnhst.microsoft.com. 2029458736 900 300 604800 60
+
+

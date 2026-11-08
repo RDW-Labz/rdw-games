@@ -1,0 +1,9 @@
+# Add T91, T92, T93 to docs/TICKETS.md (Braden typed them 2026-10-02 ~16:00Z)
+
+Append three entries after the `## T81 — Speed pipeline …` entry (the last `##` ticket), in the house style of T80/T81 (a `## TNN — title (repo) — Braden typed 2026-10-02` heading, then **Why**, **What/Build** numbered items, **Tests**, **Done when**). Facts, verbatim from Braden plus the done-when the orchestrator wrote in coordination/TASK.md (top block, "Done-when (T91)"):
+
+- T91 — Browser tool (agent-core): Playwright for Python (pinned); persistent browser profile per person under the drawer; never types into credential-shaped fields (password, one-time code, card, SSN) — refuses with a plain-words line; `never_automate_hosts` from profile.yaml enforced at the browser layer (navigation and sub-resource requests blocked and logged); ask-first per site (first visit to a new host pauses for Yes) and on submit shapes (any form submit / posting button pauses; `always_ask`); every step leaves a screenshot in the trail, written only through the scrubber; every action logs who/what/host/when; Windows must work (CI job) and macOS; mutation checks: credential typing, host block, submit ask, scrubber bypass each kill a test; `**needs Braden**` PR.
+- T92 — Read-only web fetch through T91 (rag-pipeline): fetch a page through the T91 tool with no typing and no submit, same host block, return text + a screenshot reference; tests with a fake browser.
+- T93 — First browser skill: utility bill draft on the TurboTenant site (skills): uses the person's own saved session (never credentials), fills the draft from arguments, STOPS before Submit (`always_ask`); fixtures with fakes, no client data; the vendor name is the target site, not a client (flag in the PR). Mac check: Braden runs it on his rig.
+
+Change nothing else in the file. Return JSON only.

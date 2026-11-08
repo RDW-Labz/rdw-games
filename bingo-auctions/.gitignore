@@ -1,0 +1,82 @@
+node_modules/
+# Also ignore node_modules when it is a symlink (worktrees link to the main checkout).
+# "node_modules/" only matches directories; #454 committed a symlink through that gap.
+node_modules
+.turbo/
+dist/
+build/
+.next/
+.open-next/
+.wrangler/
+.dryrun-out/
+.expo/
+.expo-shared/
+out/
+
+# Project-level working scratch (mega-sim outputs, audit dumps, test artifacts)
+tmp/
+
+# env files
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+
+# Cloudflare migration scratch — holds rotated secrets pending move to 1Password
+.cloudflare-migration/
+
+# Local-only secret files (ASC API .p8 keys, etc). NEVER commit.
+.secrets/
+*.p8
+
+# logs
+*.log
+npm-debug.log*
+
+# Backup files (e.g. .env.migrations.local.bak from rotations)
+*.bak
+
+# Ad-hoc local scratch directories under scripts/
+# (lottr fixtures, testflight feedback dumps, import reports, tmp downloads)
+scripts/.tmp-*
+scripts/.testflight-feedback/
+scripts/.import-reports/
+
+# Filter-repo backup artifact (created the moment filter-repo is run)
+.git/filter-repo/
+
+# editor
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# OS
+Thumbs.db
+
+# tooling
+.eslintcache
+*.tsbuildinfo
+coverage/
+
+# Supabase local
+supabase/.branches/
+supabase/.temp/
+
+# EAS
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+
+# Stripe local
+infra/stripe/.stripe-cli.json
+
+.vercel
+
+# Claude Code worktrees + local agent state
+.claude/
+design/generated/raw/

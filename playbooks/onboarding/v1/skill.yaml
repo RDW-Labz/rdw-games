@@ -1,0 +1,30 @@
+name: onboarding-v1
+version: 1.0.0
+tier: shared
+goal: Introduce the agent and learn who this person is, then write profile.yaml
+done_when: profile.yaml has every required field filled and reads true to the person
+model: default
+steps:
+  - id: show_intro
+    do: garage.onboarding.steps.make_show_intro_tool
+  - id: collect_answers
+    do: garage.onboarding.steps.make_collect_answers_tool
+  - id: write_profile
+    do: garage.onboarding.steps.make_write_profile_tool
+  - id: ask_watch_page
+    do: garage.onboarding.steps.make_ask_watch_page_tool
+checker: onboarding_profile_complete
+risky_steps: [write_profile]
+always_ask: []
+undo: "Restore profile.yaml from the drawer's last saved copy, including its watch_answers field (the canonical saved-answer store); a page's local watch_answers.yaml entry is only ever added, never removed by undo"
+budget: {max_steps: 10, max_seconds: 60, max_usd: 0.0}
+test_cases:
+  - id: first-run
+    fixture: fixtures/first-run.yaml
+    expect: {status: onboarded, missing_fields: []}
+  - id: second-run-gaps-only
+    fixture: fixtures/second-run.yaml
+    expect: {status: onboarded, missing_fields: []}
+  - id: watch-page-declined
+    fixture: fixtures/watch-declined.yaml
+    expect: {status: onboarded, missing_fields: []}

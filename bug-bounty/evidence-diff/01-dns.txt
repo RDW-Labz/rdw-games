@@ -1,0 +1,16 @@
+== differential.com zone ==
+ns1.dnsimple.com. admin.dnsimple.com. 1434563305 86400 7200 604800 300
+differential.com.	3564	IN	NS	ns1.dnsimple.com.
+differential.com.	3564	IN	NS	ns2.dnsimple.com.
+differential.com.	3564	IN	NS	ns4.dnsimple.com.
+differential.com.	3564	IN	NS	ns3.dnsimple.com.
+
+== dangling records ==
+-- bas-facility-layout-tool-api-dev.differential.com
+bas-facility-layout-tool-api-dev.differential.com. 1722	IN CNAME bas-facility-layout-tool-api-dev.us-east-2.elasticbeanstalk.com.
+-- bas-facility-layout-tool-api-staging.differential.com
+bas-facility-layout-tool-api-staging.differential.com. 1722 IN CNAME bas-facility-layout-tool-api-staging.us-east-2.elasticbeanstalk.com.
+
+== target resolution ==
+bas-facility-layout-tool-api-dev.us-east-2.elasticbeanstalk.com : status: NXDOMAIN
+bas-facility-layout-tool-api-staging.us-east-2.elasticbeanstalk.com : status: NXDOMAIN

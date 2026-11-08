@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "concurrency": 1,
+  "jobs": [
+    {
+      "id": "t76c-skills",
+      "agent": "openrouter",
+      "model": "anthropic/claude-sonnet-5.5",
+      "tier": "mid",
+      "maxOutputTokens": 32768,
+      "timeoutMs": 1800000,
+      "context": [
+        "docs/formats.md",
+        "src/almanac/validate.py",
+        "src/almanac/runner.py",
+        "CHANGELOG.md",
+        "shared/freight-invoices/skill.yaml",
+        "shared/freight-invoices/SKILL.md",
+        "shared/freight-invoices/fixtures/case-1.yaml",
+        "shared/freight-invoices/fixtures/injection-mail.yaml",
+        "shared/freight-invoices/fixtures/profile.yaml",
+        "src/freight_invoices.py",
+        "tests/test_freight_invoices.py",
+        "shared/month-end-close/skill.yaml",
+        "shared/month-end-close/SKILL.md",
+        "tests/test_month_end_close.py",
+        ".swarm-manifests/t76c-contract.md",
+        "tests/test_validate.py"
+      ],
+      "outputs": [
+        "shared/month-end-close-prep/skill.yaml",
+        "shared/month-end-close-prep/SKILL.md",
+        "shared/month-end-close-prep/fixtures/case-1.yaml",
+        "shared/month-end-close-prep/fixtures/case-2.yaml",
+        "shared/month-end-close-prep/fixtures/injection-memo.yaml",
+        "shared/month-end-close-prep/fixtures/profile.yaml",
+        "src/month_end_close_prep.py",
+        "tests/test_month_end_close_prep.py",
+        "src/almanac/validate.py",
+        "CHANGELOG.md"
+      ],
+      "prompt": "T76c (decisions #330, #329, #98, #73): build the month-end-close-prep shared skill.\nBuild exactly what the contract \u00a71\u2013\u00a74 specifies. Mirror the freight-invoices pattern file-for-file.\nKey rules: (1) QuickBooks reads only, no writes; (2) thresholds are profile arguments `prep_overdue_days` (default 60) and `prep_amount_floor` (default 1000.0); (3) extract aging in days from date fields via code only, never model interpolation per #73; (4) `always_ask: [save_draft]` for the note write per decision #98 (user must confirm before the note is saved); (5) no real person, vendor, client, bank or product names anywhere; use fake .example names only; (6) injection fixture contains vendor memo with instruction text as DATA; test proves checklist never changes, never adds item, never changes number, never triggers action, and never reads or interpolates memo text per #73; (7) all functions typed for `mypy --strict`; (8) tests use fake fixtures only and include the three mutant-killing tests from contract \u00a74; (9) CHANGELOG: one new block in the `## Unreleased` section (no version bump; pyproject unchanged).\nReturn every output file as a whole file.\nNote: This worker (openrouter adapter) cannot run tests. After integrate, the seat runs `uv run --no-sync pytest -q`, `uv run --no-sync ruff check .`, `uv run --no-sync mypy --strict src`, and `python -m almanac.validate shared/month-end-close-prep/skill.yaml --profile shared/month-end-close-prep/fixtures/profile.yaml`. Any failure comes back as a follow-up job.\n\nOUTPUT SIZE RULES (the previous attempt was truncated at 20k output tokens): for the two EXISTING outputs `src/almanac/validate.py` and `CHANGELOG.md` return an `edits` entry (one exact find/replace each: insert the new TOOL_ACCESS lines for QuickBooks reads after the `\"compute.format_freight_list\": \"model\",` line; insert the new `## Unreleased` block right after the `Newest first.` line, ABOVE the existing `## Unreleased` block, merging into it as a new bullet under that same heading), never their whole content. Keep every new file compact: no long docstrings, no repeated comments, SKILL.md under 60 lines, tests under 200 lines, fixtures minimal. Total reply must stay under 30k tokens.\n\nENVELOPE RULES (the previous attempt was refused as \"invalid, duplicate, or undeclared output\"): every declared output path appears EXACTLY ONCE across `files` and `edits`, never in both. `src/almanac/validate.py` and `CHANGELOG.md` go ONLY in `edits`, each with a non-empty `find` string that occurs exactly once in the current file (copy it verbatim from the context) and a `replace` that contains that find text plus the insertion. Every other declared path goes ONLY in `files` with its complete content. Do not write any path that is not declared. Do not add `tests/__init__.py`, `conftest.py` or any extra file.\n\nReturn JSON only, max 12 lines: {\"status\": \"done|partial|blocked\", \"summary\": \"<one line>\", \"files\": [\"<every output path written>\"], \"crossJobNames\": [\"<any name you needed that is not in the contract>\"], \"reproTest\": \"<the test that covers the injection case>\", \"findings\": [\"<\u22643 one-liners: anything in the contract you could not honour>\"]}\n\nignoreTests note: tests/test_email_reply.py, tests/test_utility_share.py and tests/test_freight_invoices.py are not in context because the only validate.py change is new TOOL_ACCESS entries for the new compute tools; those tests do not exercise them.",
+      "ignoreTests": [
+        "tests/test_email_reply.py",
+        "tests/test_freight_invoices.py",
+        "tests/test_utility_share.py"
+      ]
+    }
+  ],
+  "contract": ".swarm-manifests/t76c-contract.md"
+}

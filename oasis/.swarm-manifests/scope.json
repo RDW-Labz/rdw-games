@@ -1,0 +1,49 @@
+{
+ "version": 1,
+ "concurrency": 1,
+ "jobs": [
+  {
+   "id": "scope-t13-chat",
+   "agent": "claude",
+   "model": "sonnet",
+   "tier": "mid",
+   "prompt": "You are a read-only scoping job for OASIS. Read AGENTS.md, docs/PLAN.md, docs/TICKETS.md (T12, T12b, T13) and docs/DECISIONS.md. Do not edit any source file. Write exactly two files.\n\nFacts: T13 (playbooks#3, repos/playbooks/onboarding/v1 + src/garage/onboarding) is merged, but its done-when is not met: 'Braden runs it as user zero in the Rig; his profile.yaml reads true to him; a second run skips answered questions and asks only the gaps.' Today the Rig (desktop-app, Tauri + React) has no onboarding screen and rig-service (agent-core, worktrees/agent-core-guide-verify = main) does not expose onboarding. Separately, Rig chat answers as plain Claude: the chat backend does not use the person's profile.yaml / agent profile.\n\n1. coordination/t13-rig-scope.md: what already exists (one line each, with file:line), what is missing to meet T13's done-when on Braden's Mac, and a build plan split into PRs per repo (agent-core endpoint(s) + how playbooks code reaches agent-core, respecting the pin-by-version rule and the vendored-wheel practice; desktop-app screen). For every choice the plan/decisions do NOT settle (e.g. dependency direction, where the onboarding runs, endpoint shape, whether it runs through the loop runner as 'delivered as a skill'), list it under '## Decisions for Braden' with 2-3 options and a one-line recommendation each, citing the plan line that leaves it open. Cap 120 lines.\n2. coordination/chat-profile-scope.md: how chat works today (file:line), what 'chat uses the profile' means per PLAN (quote the plan lines, cite line numbers), what fields of profile.yaml would go into the system prompt, what must never go (secrets, restricted data), how it is tested, which PR(s). Same '## Decisions for Braden' section. Cap 80 lines.\nNever invent a plan rule: if the plan is silent, say 'plan silent'. End with one JSON line: {\"files_changed\":[...],\"decisions_count\":{\"t13\":n,\"chat\":n}}.",
+   "context": [
+    "AGENTS.md",
+    "docs/PLAN.md",
+    "docs/TICKETS.md",
+    "docs/DECISIONS.md",
+    "repos/playbooks/docs/onboarding.md",
+    "repos/playbooks/onboarding/v1/SKILL.md",
+    "repos/playbooks/onboarding/v1/skill.yaml",
+    "repos/playbooks/onboarding/v1/intro.yaml",
+    "repos/playbooks/onboarding/v1/questions.yaml",
+    "repos/playbooks/onboarding/v1/fixtures/second-run.yaml",
+    "repos/playbooks/src/garage/onboarding/session.py",
+    "repos/playbooks/src/garage/onboarding/steps.py",
+    "repos/playbooks/src/garage/onboarding/writer.py",
+    "repos/playbooks/src/garage/onboarding/watch.py",
+    "repos/playbooks/src/garage/onboarding/data.py",
+    "repos/playbooks/pyproject.toml",
+    "worktrees/agent-core-guide-verify/src/anorak/local_service.py",
+    "worktrees/agent-core-guide-verify/src/anorak/local_service_adapters.py",
+    "worktrees/agent-core-guide-verify/src/anorak/service_cli.py",
+    "worktrees/agent-core-guide-verify/src/anorak/memory/profile.py",
+    "worktrees/agent-core-guide-verify/src/anorak/loop.py",
+    "worktrees/agent-core-guide-verify/docs/local-service.md",
+    "worktrees/agent-core-guide-verify/pyproject.toml",
+    "repos/desktop-app/src/App.tsx",
+    "repos/desktop-app/src/components/Chat.tsx",
+    "repos/desktop-app/src/lib/serviceClient.ts",
+    "repos/desktop-app/docs/local-api.md",
+    "repos/desktop-app/docs/rig.md",
+    "repos/desktop-app/docs/mac-quickstart.md"
+   ],
+   "outputs": [
+    "coordination/t13-rig-scope.md",
+    "coordination/chat-profile-scope.md"
+   ],
+   "timeoutMs": 2400000
+  }
+ ]
+}

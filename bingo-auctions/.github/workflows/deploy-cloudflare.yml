@@ -1,0 +1,267 @@
+name: Deploy Cloudflare Workers (BinGo)
+
+# Deploys operator-web (bingo-web) and cron-trigger (bingo-cron) to Cloudflare.
+# Manual trigger only (workflow_dispatch). Runs on ubuntu-latest because the
+# author machine is win32-arm64, where Cloudflare workerd has no binary.
+#
+# Required repository secrets:
+#   CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID
+#   NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY, SUPABASE_SERVICE_ROLE_KEY
+#   CRON_SECRET           (openssl rand -hex 32)
+#   SUPER_ADMIN_EMAILS    (comma-separated; e.g. michael@cluerholdings.com)
+#   SENTRY_AUTH_TOKEN     (optional source-map upload)
+# No Stripe secrets: BinGo runs payments_disabled (no processor yet).
+
+on:
+  workflow_dispatch:
+    inputs:
+      skip_operator_web:
+        description: 'Skip the bingo-web Worker deploy'
+        required: false
+        type: boolean
+        default: false
+      skip_cron_trigger:
+        description: 'Skip the bingo-cron Worker deploy'
+        required: false
+        type: boolean
+        default: false
+
+concurrency:
+  group: deploy-cloudflare
+  cancel-in-progress: false
+
+jobs:
+  validate-ref:
+    name: Require master deployment ref
+    runs-on: ubuntu-latest
+    permissions: {}
+    steps:
+      - name: Reject any ref except master
+        run: |
+          if [[ "${GITHUB_REF:-}" != 'refs/heads/master' ]]; then
+            echo '::error::Production deploy requires refs/heads/master.'
+            exit 1
+          fi
+
+  deploy:
+    needs: validate-ref
+    name: Build + deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies (workspace root)
+        run: npm ci --no-audit --no-fund
+
+      - name: Build operator-web (webpack — NOT Turbopack)
+        if: ${{ !inputs.skip_operator_web }}
+        working-directory: apps/operator-web
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.NEXT_PUBLIC_SENTRY_DSN }}
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_RELEASE: ${{ github.sha }}
+          # Identifies THIS build to the running console so an open tab can
+          # tell it has gone stale (src/lib/build-id.ts). A deploy replaces
+          # the Worker's _next/static assets wholesale, so a tablet left open
+          # from before the deploy holds chunk URLs that now 404 and the UI
+          # quietly stops responding (2026-09-15: "the auction builder
+          # glitches out").
+          #
+          # MUST match how scripts/deploy-cf.sh computes it — the FULL commit
+          # SHA, `git rev-parse HEAD`. If the two paths disagree, deploying via
+          # the other one at the same commit shows every open tablet a reload
+          # prompt for a change that did not happen. Deliberately NOT reusing
+          # SENTRY_RELEASE: deploy-cf.sh sets that to the SHORT sha, and
+          # matching formats across two scripts is exactly the drift this
+          # comment exists to prevent.
+          NEXT_PUBLIC_BUILD_ID: ${{ github.sha }}
+          # Browser-side Meta Pixel. NEXT_PUBLIC_* is inlined into the client
+          # bundle at BUILD time, so a runtime Worker secret would never reach
+          # it -- it has to be here. MetaPixel.tsx renders nothing at all while
+          # this is empty, so merging it before the Pixel exists is inert.
+          NEXT_PUBLIC_META_PIXEL_ID: ${{ secrets.NEXT_PUBLIC_META_PIXEL_ID }}
+        run: |
+          npx next build --webpack
+          npx opennextjs-cloudflare build
+
+      - name: Deploy bingo-web Worker (operator-web)
+        if: ${{ !inputs.skip_operator_web }}
+        working-directory: apps/operator-web
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx wrangler deploy
+
+      - name: Push runtime secrets to bingo-web
+        if: ${{ !inputs.skip_operator_web }}
+        working-directory: apps/operator-web
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          SUPER_ADMIN_EMAILS: ${{ secrets.SUPER_ADMIN_EMAILS }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+          SQUARE_ACCESS_TOKEN: ${{ secrets.SQUARE_ACCESS_TOKEN }}
+          SQUARE_APPLICATION_ID: ${{ secrets.SQUARE_APPLICATION_ID }}
+          SQUARE_LOCATION_ID: ${{ secrets.SQUARE_LOCATION_ID }}
+          SQUARE_WEBHOOK_SIGNATURE_KEY: ${{ secrets.SQUARE_WEBHOOK_SIGNATURE_KEY }}
+          # 0323/0324 social posting. The runner lives in operator-web
+          # (/api/cron/social-post), so these must reach THIS Worker — putting
+          # them anywhere else means readMetaCredentials() returns null and the
+          # feature silently reports 'meta_not_configured' forever.
+          # The loop below skips empty secrets, so this is safe to merge before
+          # the values exist.
+          META_PAGE_ACCESS_TOKEN: ${{ secrets.META_PAGE_ACCESS_TOKEN }}
+          META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
+          META_IG_USER_ID: ${{ secrets.META_IG_USER_ID }}
+          # 0339 Conversions API. META_PIXEL_ID is the DATASET id from Events
+          # Manager, not the App id -- they look alike and the wrong one fails
+          # with a bare "(#100) Missing perms". META_CAPI_TOKEN is optional and
+          # takes precedence over META_PAGE_ACCESS_TOKEN when set, so the CAPI
+          # credential can be scoped down and rotated without touching posting.
+          # META_CAPI_TEST_EVENT_CODE routes everything to the Test Events tab
+          # instead of the live dataset -- set it to verify, then CLEAR it, or
+          # real conversions never reach optimisation.
+          META_PIXEL_ID: ${{ secrets.META_PIXEL_ID }}
+          META_CAPI_TOKEN: ${{ secrets.META_CAPI_TOKEN }}
+          META_CAPI_TEST_EVENT_CODE: ${{ secrets.META_CAPI_TEST_EVENT_CODE }}
+          BRIGHTDATA_API_TOKEN: ${{ secrets.BRIGHTDATA_API_TOKEN }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          # Arms the rate limit on the PUBLIC feedback form (0327). The route
+          # stores sha256(salt + ip) purely to refuse a sixth submission in an
+          # hour; with no salt it stores nothing and does not throttle, which is
+          # the deliberate failure direction — a rate limit is not worth keeping
+          # visitor IPs in a table staff can read. Rotating the value only
+          # resets the current hour's counters.
+          FEEDBACK_IP_SALT: ${{ secrets.FEEDBACK_IP_SALT }}
+          # RESEND_API_KEY powers all transactional email (auth via Supabase
+          # SMTP + the notifications_outbox drain). Set manually on the Worker
+          # during the 2026-07-04 launch-night email cutover; adding it here so
+          # that once the repo secret exists, deploys keep the Worker in sync.
+          # The loop skips it while the repo secret is empty, so this does NOT
+          # wipe the live manually-set Worker value in the meantime.
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          # Server-side error reporting. sentry.server.config.ts and
+          # sentry.edge.config.ts both read process.env.SENTRY_DSN and only call
+          # Sentry.init() inside `if (dsn)`, so without this every
+          # Sentry.captureException on the Worker is a silent no-op — the code
+          # reads as instrumented and reports nothing.
+          #
+          # That is not hypothetical. On 2026-09-19 the site was unusable for 45
+          # minutes; /api/cron/health-check detected it correctly and fired
+          # captureException on every 5-minute tick for most of an hour, and not
+          # one event left the process. We found out from a customer. See #339.
+          #
+          # NEXT_PUBLIC_SENTRY_DSN (build step above) is a DIFFERENT variable for
+          # the browser bundle and does not satisfy the server runtime.
+          #
+          # Skip-if-empty like the rest: while the repo secret is unset the loop
+          # below skips it and behaviour is exactly as it is today. It only takes
+          # effect once a Sentry project exists and the secret is set.
+          SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+          # Who gets paged. Comma-separated, same shape as SUPER_ADMIN_EMAILS.
+          # lib/ops-alert.ts falls back to the super-admin inbox when this is
+          # unset, which is how the pager stayed a single hardcoded address that
+          # nobody could see from the repo — the 2026-07-04 audit asked for this
+          # to be set explicitly and it never was.
+          #
+          # Covers all six ops alerts: pg_cron failure spikes, the invoice
+          # dead-letter queue, auto-charge failures, app crash spikes, silent
+          # exits, and handover invariant violations.
+          #
+          # Skip-if-empty like the rest, so leaving the repo secret unset does
+          # NOT wipe a value set by hand on the Worker.
+          OPS_ALERT_EMAIL: ${{ secrets.OPS_ALERT_EMAIL }}
+          # 0477 feedback emails: who gets each new item + the 07:00 digest
+          # (comma-separated; unset = OPS_ALERT_EMAIL), and the From for replies
+          # to customers (unset = BinGo Auctions Support <support@...>).
+          FEEDBACK_NOTIFY_EMAIL: ${{ secrets.FEEDBACK_NOTIFY_EMAIL }}
+          FEEDBACK_REPLY_FROM: ${{ secrets.FEEDBACK_REPLY_FROM }}
+          # Who gets paged by SMS. E.164, comma-separated (+15015550123).
+          # Only the pg_cron failure spike uses it: that burst lasted four
+          # minutes on 2026-09-20 and the email was read 25 minutes after
+          # Resend accepted it. Unset = no SMS, email still goes.
+          OPS_ALERT_SMS: ${{ secrets.OPS_ALERT_SMS }}
+          # Twilio reaches those numbers. sms-drain.ts has always read these
+          # from the Worker, but they were set by hand and never pushed from
+          # here — so the repo could not say whether the pager had a way out.
+          # Skip-if-empty, so an unset repo secret leaves the Worker's value
+          # alone rather than wiping bidder SMS.
+          TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
+          TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
+          TWILIO_FROM_PHONE: ${{ secrets.TWILIO_FROM_PHONE }}
+          TWILIO_MESSAGING_SERVICE_SID: ${{ secrets.TWILIO_MESSAGING_SERVICE_SID }}
+          # ── Local inference on the office 4090 (Ollama via Cloudflare Tunnel) ──
+          # All skip-if-empty: while these repo secrets are unset the loop skips
+          # them and the Worker stays 100% cloud (domain-lotting's ollama tier is
+          # only added per-task when LLM_PROVIDER_<TASK>=ollama, and a missing
+          # base URL fails fast to the cloud fallback). Set them to flip lotting
+          # inference onto the local box. See packages/domain-lotting/src/ai/llm.ts for provider routing.
+          #   Connection:
+          LLM_OLLAMA_BASE_URL: ${{ secrets.LLM_OLLAMA_BASE_URL }}
+          OLLAMA_CF_ACCESS_CLIENT_ID: ${{ secrets.OLLAMA_CF_ACCESS_CLIENT_ID }}
+          OLLAMA_CF_ACCESS_CLIENT_SECRET: ${{ secrets.OLLAMA_CF_ACCESS_CLIENT_SECRET }}
+          LLM_OLLAMA_TIMEOUT_MS: ${{ secrets.LLM_OLLAMA_TIMEOUT_MS }}
+          #   Per-task routing (set value to `ollama` to move that task local):
+          LLM_PROVIDER_DESCRIPTION_GENERATE: ${{ secrets.LLM_PROVIDER_DESCRIPTION_GENERATE }}
+          LLM_PROVIDER_PHOTO_IDENTIFY: ${{ secrets.LLM_PROVIDER_PHOTO_IDENTIFY }}
+          LLM_PROVIDER_KEYWORD_SEARCH: ${{ secrets.LLM_PROVIDER_KEYWORD_SEARCH }}
+          LLM_PROVIDER_CODE_LOOKUP: ${{ secrets.LLM_PROVIDER_CODE_LOOKUP }}
+          LLM_PROVIDER_SHELF_SCAN: ${{ secrets.LLM_PROVIDER_SHELF_SCAN }}
+          #   Optional model-name overrides (default nemotron3:33b vision / hermes3:8b text):
+          LLM_MODEL_PHOTO_IDENTIFY_OLLAMA: ${{ secrets.LLM_MODEL_PHOTO_IDENTIFY_OLLAMA }}
+          LLM_MODEL_SHELF_SCAN_OLLAMA: ${{ secrets.LLM_MODEL_SHELF_SCAN_OLLAMA }}
+          LLM_MODEL_DESCRIPTION_GENERATE_OLLAMA: ${{ secrets.LLM_MODEL_DESCRIPTION_GENERATE_OLLAMA }}
+          LLM_MODEL_KEYWORD_SEARCH_OLLAMA: ${{ secrets.LLM_MODEL_KEYWORD_SEARCH_OLLAMA }}
+          LLM_MODEL_CODE_LOOKUP_OLLAMA: ${{ secrets.LLM_MODEL_CODE_LOOKUP_OLLAMA }}
+        run: |
+          set -euo pipefail
+          for n in NEXT_PUBLIC_SUPABASE_URL NEXT_PUBLIC_SUPABASE_ANON_KEY SUPABASE_SERVICE_ROLE_KEY SUPER_ADMIN_EMAILS CRON_SECRET SQUARE_ACCESS_TOKEN SQUARE_APPLICATION_ID SQUARE_LOCATION_ID SQUARE_WEBHOOK_SIGNATURE_KEY META_PAGE_ACCESS_TOKEN META_PAGE_ID META_IG_USER_ID META_PIXEL_ID META_CAPI_TOKEN META_CAPI_TEST_EVENT_CODE BRIGHTDATA_API_TOKEN OPENROUTER_API_KEY FEEDBACK_IP_SALT RESEND_API_KEY SENTRY_DSN OPS_ALERT_EMAIL FEEDBACK_NOTIFY_EMAIL FEEDBACK_REPLY_FROM OPS_ALERT_SMS TWILIO_ACCOUNT_SID TWILIO_AUTH_TOKEN TWILIO_FROM_PHONE TWILIO_MESSAGING_SERVICE_SID LLM_OLLAMA_BASE_URL OLLAMA_CF_ACCESS_CLIENT_ID OLLAMA_CF_ACCESS_CLIENT_SECRET LLM_OLLAMA_TIMEOUT_MS LLM_PROVIDER_DESCRIPTION_GENERATE LLM_PROVIDER_PHOTO_IDENTIFY LLM_PROVIDER_KEYWORD_SEARCH LLM_PROVIDER_CODE_LOOKUP LLM_PROVIDER_SHELF_SCAN LLM_MODEL_PHOTO_IDENTIFY_OLLAMA LLM_MODEL_SHELF_SCAN_OLLAMA LLM_MODEL_DESCRIPTION_GENERATE_OLLAMA LLM_MODEL_KEYWORD_SEARCH_OLLAMA LLM_MODEL_CODE_LOOKUP_OLLAMA; do
+            val="${!n}"
+            if [ -z "$val" ]; then echo "skip $n (empty repo secret)"; continue; fi
+            printf '%s' "$val" | npx wrangler secret put "$n"
+            echo "pushed $n"
+          done
+
+      - name: Deploy bingo-cron Worker (cron trigger)
+        if: ${{ !inputs.skip_cron_trigger }}
+        working-directory: apps/cron-trigger
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx wrangler deploy
+
+      - name: Push CRON_SECRET + CRON_TARGET_URL to bingo-cron
+        if: ${{ !inputs.skip_cron_trigger }}
+        working-directory: apps/cron-trigger
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+          CRON_TARGET_URL: ${{ secrets.CRON_TARGET_URL }}
+        run: |
+          if [ -z "$CRON_SECRET" ]; then echo "CRON_SECRET not set — skipping"; exit 0; fi
+          printf '%s' "$CRON_SECRET" | npx wrangler secret put CRON_SECRET
+          printf '%s' "${CRON_TARGET_URL:-https://bingoauctions.com}" | npx wrangler secret put CRON_TARGET_URL
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "### BinGo deploy summary" >> $GITHUB_STEP_SUMMARY
+          echo "- bingo-web: ${{ !inputs.skip_operator_web && 'deployed' || 'skipped' }}" >> $GITHUB_STEP_SUMMARY
+          echo "- bingo-cron: ${{ !inputs.skip_cron_trigger && 'deployed' || 'skipped' }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Commit: \`${{ github.sha }}\`" >> $GITHUB_STEP_SUMMARY
+# registration bump

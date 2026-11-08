@@ -1,0 +1,6 @@
+{
+  "title": "CI templates: actions/checkout v7.0.1 and setup-uv v10.2.0, pinned by SHA",
+  "head": "ci-template-actions",
+  "base": "main",
+  "body": "## What\n\nBumps the actions in the repo CI templates, pinned by full commit SHA (AGENTS.md: never a moving tag):\n\n- `template/python/.github/workflows/ci.yml`: `actions/checkout` v4 -> v7.0.1, `astral-sh/setup-uv` v6 -> v10.2.0.\n- `template/desktop/.github/workflows/ci.yml`: `actions/checkout` v4 -> v7.0.1.\n- `CHANGELOG.md` Unreleased entry. No version bump (templates are not in the wheel).\n\nsetup-uv v7-v10 breaking changes checked: node24 runtime (GitHub-hosted runners are fine), cache pruning off by default, and `enable-cache: auto` now turns the cache off for some events. The template sets `enable-cache: true`, and `python-version` still exists, so it behaves the same.\n\nThe repo's own `.github/workflows/ci.yml` is unchanged.\n\n## Checks (rerun by coordinator)\n\n- `ruff check .` clean\n- `pytest -q` passed\n- `git diff --check` clean\n\n\ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)"
+}

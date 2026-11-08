@@ -1,0 +1,150 @@
+name: Import D2L Wayfair Folder (auto)
+
+# Scans the shared Google Drive "D2L manifests" folder and imports EVERY
+# manifest JSON it finds into the BinGo manifest pool. Idempotent: the import
+# script dedupes on (operator_id, source_key), so re-importing the same files
+# every run is safe — only genuinely new boxes are added.
+#
+# That claim used to read "(operator_id, tracking_number)" and was FALSE for
+# any box without a tracking number: NULLs are distinct in a UNIQUE btree, so
+# the conflict never fired and this daily schedule re-inserted every untracked
+# box, every day — 18,297 rows standing in for 923 real units, +812/day.
+# Mig 0310 cleaned that up and added the source_key natural key that makes the
+# sentence above actually true. Don't revert the conflict target.
+#
+# source_key is keyed on UNIT IDENTITY: 'u:<unit_id>' for the snake_case
+# export, 'nk:<ItemNumber>:<n>' for the PascalCase one (which fans a single
+# unit out into one entry per UPC/photo variant — 500 of them in the worst
+# case). Mig 0309 keyed on per-day row counts instead and is a no-op stub;
+# don't resurrect it.
+#
+# WHY THIS EXISTS
+# ───────────────
+# import-d2l.yml imports ONE file by Drive file id and only runs when a human/
+# session dispatches it. The owner's "d2l fetch" app drops new
+# Harrison_ir_<date>.json files into the folder every few days, and nobody was
+# dispatching the single-file workflow — so the catalog silently stopped
+# updating after 2026-07-09. This workflow lists the folder itself and runs on
+# a daily schedule, so new drops flow in on their own.
+#
+# LISTING WITHOUT CREDENTIALS
+# ───────────────────────────
+# The folder is link-shared ("Anyone with the link — Viewer"). Google's
+# `embeddedfolderview` endpoint returns a plain HTML list of the folder's
+# files (id + name) with no auth, and each file downloads via
+# drive.usercontent.google.com/download?id=… — the same credential-free path
+# import-d2l.yml already uses. If the folder is NOT link-shared the listing
+# comes back empty and the job fails loudly with the fix.
+#
+# The only secret needed is SUPABASE_SERVICE_ROLE_KEY (the import script's DB
+# write key) — same as import-d2l.yml.
+
+on:
+  workflow_dispatch:
+    inputs:
+      folder_id:
+        description: 'Google Drive folder id (defaults to the D2L manifests folder)'
+        required: false
+        type: string
+        default: '1DEHP76DtDN7Qqqz9Dvy3gMwhd5T2KFXA'
+  schedule:
+    # Daily at 08:00 UTC (~2-3am Central) — off-hours so a big import never
+    # competes with live lotting/pickup traffic.
+    - cron: '0 8 * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: import-d2l-folder
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: List + import every manifest in the folder
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: https://npwseclcxcatjhgjrtwe.supabase.co
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          # schedule runs have no inputs → fall back to the default folder id.
+          FOLDER_ID: ${{ inputs.folder_id || '1DEHP76DtDN7Qqqz9Dvy3gMwhd5T2KFXA' }}
+        run: |
+          set -euo pipefail
+          echo "Scanning Drive folder: $FOLDER_ID"
+
+          # embeddedfolderview returns a simple, stable HTML list (each file is
+          # a <div class="flip-entry" id="entry-<FILE_ID>"> with a
+          # <div class="flip-entry-title"><FILE_NAME></div>). Far easier to
+          # parse reliably than the JS-heavy main folder page.
+          curl -sSL --max-time 90 -A 'Mozilla/5.0' \
+            "https://drive.google.com/embeddedfolderview?id=${FOLDER_ID}#list" \
+            -o /tmp/folder.html
+          echo "Fetched $(wc -c < /tmp/folder.html) bytes of folder HTML"
+
+          # Extract (id, name) pairs → newline-separated "id<TAB>name", keeping
+          # only *.json entries. Python for robust regex over the whole blob.
+          python3 - <<'PY' > /tmp/files.tsv
+          import re, html, sys
+          h = open('/tmp/folder.html', encoding='utf-8', errors='replace').read()
+          # Each file entry: id="entry-<FILE_ID>" ... "flip-entry-title">NAME</div>
+          entries = re.findall(
+              r'id="entry-([A-Za-z0-9_-]{20,})".*?flip-entry-title[^>]*>([^<]+)<',
+              h, re.S)
+          seen = set()
+          for fid, name in entries:
+              name = html.unescape(name).strip()
+              if fid in seen:
+                  continue
+              seen.add(fid)
+              if name.lower().endswith('.json'):
+                  print(f"{fid}\t{name}")
+          PY
+
+          COUNT=$(wc -l < /tmp/files.tsv | tr -d ' ')
+          echo "Found $COUNT manifest (.json) file(s) in the folder:"
+          cat /tmp/files.tsv || true
+
+          if [ "$COUNT" = "0" ]; then
+            echo '::error::No .json files found in the folder listing. Most likely the folder is not link-shared. Fix: in Google Drive, right-click the "D2L manifests" folder → Share → General access → "Anyone with the link" (Viewer), then re-run. (Also possible: Google changed the embeddedfolderview markup.)'
+            echo '--- first 800 bytes of folder HTML for diagnosis ---'
+            head -c 800 /tmp/folder.html || true
+            exit 1
+          fi
+
+          FAILED=0
+          while IFS=$'\t' read -r FID NAME; do
+            [ -z "$FID" ] && continue
+            echo ""
+            echo "=== Importing $NAME ($FID) ==="
+            if ! curl -sSL --max-time 180 -o /tmp/manifest.json \
+              "https://drive.usercontent.google.com/download?id=${FID}&export=download&confirm=t"; then
+              echo "::warning::download failed for $NAME ($FID) — skipping"
+              FAILED=$((FAILED+1))
+              continue
+            fi
+            # Skip anything that isn't a JSON array (e.g. a Drive interstitial).
+            if ! head -c 1 /tmp/manifest.json | grep -q '\['; then
+              echo "::warning::$NAME did not download as a JSON array — skipping"
+              head -c 200 /tmp/manifest.json || true
+              FAILED=$((FAILED+1))
+              continue
+            fi
+            # Dedupe on (operator_id, tracking_number) makes re-import safe.
+            node scripts/import-d2l-manifest.mjs --file /tmp/manifest.json --filename "$NAME" || {
+              echo "::warning::import script failed for $NAME — continuing"
+              FAILED=$((FAILED+1))
+            }
+          done < /tmp/files.tsv
+
+          echo ""
+          echo "=== Folder import done. Files with problems: $FAILED / $COUNT ==="
+          # Don't fail the whole run for a single bad file; only a total listing
+          # failure (handled above) is fatal.

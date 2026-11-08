@@ -1,0 +1,76 @@
+name: Get Play App Signing SHA-256
+
+# Prints the Google Play *app signing* key SHA-256 for the bidder app, in the
+# colon-delimited uppercase form assetlinks.json wants.
+#
+# Why this workflow exists (2026-08-07): the value is needed to finish the
+# Android App Links fix, and the only documented way to get it is a Play
+# Console trip (Setup -> App integrity -> App signing). That page shows TWO
+# fingerprints — app signing key and upload key — and picking the wrong one
+# leaves verification silently broken. scripts/get-play-app-signing-sha.mjs
+# already reads it from the Play Developer API instead, but it needs the
+# service-account JSON, which only lives on the owner's machine and in the
+# GOOGLE_PLAY_SERVICE_ACCOUNT_KEY repo secret. This runs it in CI so nobody
+# has to find the page or pick between the two values.
+#
+# The printed fingerprint is PUBLIC — it is served to the world at
+# https://bingoauctions.com/.well-known/assetlinks.json. It is not a secret
+# and is deliberately not masked, so it can be copied out of the job log.
+#
+# Read-only: the script opens a throwaway Play edit to list version codes and
+# always abandons it. Nothing is committed, published, or promoted.
+
+on:
+  workflow_dispatch:
+    inputs:
+      package:
+        description: 'Android package name'
+        required: false
+        type: string
+        default: com.bingoauctions.bidder
+
+jobs:
+  fingerprint:
+    name: Fetch app signing SHA-256
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Materialize Google Play service account on disk
+        env:
+          GOOGLE_PLAY_KEY: ${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT_KEY }}
+        run: |
+          if [ -z "$GOOGLE_PLAY_KEY" ]; then
+            echo "::error::GOOGLE_PLAY_SERVICE_ACCOUNT_KEY repo secret is not set"
+            exit 1
+          fi
+          mkdir -p /tmp/play-key
+          echo "$GOOGLE_PLAY_KEY" > /tmp/play-key/service-account.json
+          chmod 600 /tmp/play-key/service-account.json
+          if ! jq -e '.client_email' /tmp/play-key/service-account.json > /dev/null; then
+            echo "::error::Google Play service account JSON is missing or malformed"
+            exit 1
+          fi
+
+      - name: Print app signing SHA-256
+        env:
+          GP_SA_PATH: /tmp/play-key/service-account.json
+          GP_PKG: ${{ inputs.package }}
+        run: |
+          set -euo pipefail
+          node scripts/get-play-app-signing-sha.mjs | tee /tmp/sha.txt
+          {
+            echo '### Play app signing SHA-256'
+            echo
+            echo 'Set this as `ANDROID_APP_SIGNING_SHA256` (wrangler.jsonc `vars`) and redeploy.'
+            echo
+            echo '```'
+            grep 'SHA-256 for assetlinks.json' /tmp/sha.txt || cat /tmp/sha.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"

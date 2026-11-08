@@ -1,0 +1,5 @@
+# captured 2026-11-07T20:59:55Z
+# $ curl-headers.txt
+
+[stderr] curl: (6) Could not resolve host: nines.githubapp.com
+

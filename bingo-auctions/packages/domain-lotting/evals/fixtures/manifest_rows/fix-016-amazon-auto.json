@@ -1,0 +1,23 @@
+{
+  "id": "manifest-016",
+  "source": "amazon",
+  "raw": {
+    "description": "WeatherTech FloorLiner DigitalFit, 1st Row, Black 2014-2018 Toyota 4Runner Floor Mats",
+    "retailer_category": "gl_automotive",
+    "upc": "012345608751",
+    "model_number": "445261",
+    "quantity": 1,
+    "retail_price": 149.95
+  },
+  "expected": {
+    "title": "WeatherTech FloorLiner DigitalFit 1st Row Black Floor Mats (2014-2018 Toyota 4Runner)",
+    "brand": "WeatherTech",
+    "model": "445261",
+    "category_slug": "auto-accessories",
+    "category_legacy": "Automotive",
+    "condition": "New/Sealed",
+    "msrp_cents": 14995,
+    "expected_confidence": "high"
+  },
+  "notes": "Automotive accessories — fitment-specific SKU. Tests whether the model preserves vehicle fit info in the title."
+}

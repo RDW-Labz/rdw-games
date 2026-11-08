@@ -1,0 +1,18 @@
+{
+  "id": "photo-019",
+  "image_path": "photo-019-paint-sprayer-clear.jpg",
+  "media_type": "image/jpeg",
+  "photo_quality_label": "clear",
+  "expected": {
+    "title": "Graco Project Painter Plus Airless Paint Sprayer",
+    "brand": "Graco",
+    "model": "257025",
+    "upc": "633955562516",
+    "category_slug": "paint-decor",
+    "category_legacy": "Tools & Hardware",
+    "condition": "New/Sealed",
+    "msrp_cents": 24900,
+    "expected_confidence": "high"
+  },
+  "notes": "Real Lowe's seed product (lowes.json sku 257025). Drop in any product photo."
+}

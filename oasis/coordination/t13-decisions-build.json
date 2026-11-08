@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "kind": "native-task-boundary",
+  "status": "READY",
+  "ticket": "T13",
+  "model": "gpt-5.6-sol",
+  "worktree": "worktrees/playbooks-t13-decisions",
+  "context": [
+    "AGENTS.md",
+    "docs/PLAN.md",
+    "docs/TICKETS.md",
+    "docs/DECISIONS.md",
+    "coordination/TASK.md",
+    "worktrees/playbooks-t13-decisions/AGENTS.md",
+    "worktrees/playbooks-t13-decisions/AGENTS.workspace.md",
+    "worktrees/playbooks-t13-decisions/onboarding/v1/SKILL.md",
+    "worktrees/playbooks-t13-decisions/onboarding/v1/questions.yaml",
+    "worktrees/playbooks-t13-decisions/onboarding/v1/skill.yaml",
+    "worktrees/playbooks-t13-decisions/src/garage/onboarding/data.py",
+    "worktrees/playbooks-t13-decisions/src/garage/onboarding/session.py",
+    "worktrees/playbooks-t13-decisions/src/garage/onboarding/watch.py",
+    "worktrees/playbooks-t13-decisions/src/garage/onboarding/writer.py",
+    "worktrees/playbooks-t13-decisions/tests/test_onboarding_session.py",
+    "worktrees/playbooks-t13-decisions/tests/test_onboarding_watch.py",
+    "worktrees/playbooks-t13-decisions/tests/test_onboarding_writer.py"
+  ],
+  "ownership": [
+    "onboarding/v1/SKILL.md",
+    "onboarding/v1/questions.yaml",
+    "onboarding/v1/skill.yaml",
+    "src/garage/onboarding/data.py",
+    "src/garage/onboarding/session.py",
+    "src/garage/onboarding/watch.py",
+    "src/garage/onboarding/writer.py",
+    "tests/test_onboarding_session.py",
+    "tests/test_onboarding_watch.py",
+    "tests/test_onboarding_writer.py",
+    "docs/onboarding.md",
+    "docs/changes-T13.md"
+  ],
+  "prompt": "Implement only the authorized T13 behavior. Keep profile.yaml.watch_answers as the canonical saved-answer store: Yes and No decisions mirror into that mapping by page, while Not now remains unsaved and prompts again. Onboarding must never ask for or accept access_level as user input. New profiles default access_level to member, and an existing admin value must survive every onboarding run; Braden sets admin during provisioning. Preserve question gap behavior and the three fixed YAML formats: profile.yaml, skill.yaml, and connector.yaml. Add focused tests for saved watch answers, NOT_NOW repeat, no access_level question/input, admin preservation, default member, atomic profile writing and the skill fixture. Do not edit root docs/DECISIONS.md or docs/TICKETS.md; the coordinator owns their supplemental decision entries. Use fake names only, no secrets, no external actions, no commits or publishing, and update only declared files. Return the required ticket JSON report with checks marked unrun until coordinator runs them.",
+  "acceptance": [
+    "uv sync --locked",
+    "uv run --no-sync pytest -q",
+    "uv run --no-sync ruff check .",
+    "uv run --no-sync mypy --strict src",
+    "git diff --check"
+  ],
+  "constraints": [
+    "Do not overwrite existing unrelated docs/DECISIONS.md or dirty docs/research content.",
+    "No new configuration format and no Phase 1/3 onboarding behavior.",
+    "One PR for playbooks T13; root later integrates the ticket changelog into CHANGELOG."
+  ],
+  "timeoutMs": 3600000
+}

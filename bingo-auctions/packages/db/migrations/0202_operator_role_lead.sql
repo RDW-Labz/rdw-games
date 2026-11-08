@@ -1,0 +1,30 @@
+-- 0202_operator_role_lead.sql
+--
+-- Add a new operator staff role: 'lead' ("Lead / Key holder").
+--
+-- 'lead' sits BELOW 'manager' in the staff hierarchy. It exists for the
+-- front-of-house key holder / shift lead who runs the pickup counter:
+--   * It CAN issue in-window per-lot refunds (the same in-window path a
+--     manager/admin uses in /api/invoices/[id]/refund-items). Out-of-window
+--     refunds remain super-admin-only and are UNCHANGED.
+--   * Otherwise it has the same operator-scoped access as 'picker': login,
+--     pickup/checkout, and invoice read/write — all already scoped to the
+--     staff member's operator.
+--
+-- No RLS policy or RPC changes are required:
+--   * The staff invoice/pickup/checkout surfaces are already operator-scoped
+--     by role-agnostic policies (e.g. invoices_staff_all is
+--     `FOR ALL USING (operator_id = current_operator_id())`, and the pickup
+--     RPCs gate only on "is this user operator staff?", any role).
+--   * Every manager-only operation gates on `v_role NOT IN ('admin','manager')`,
+--     which already excludes 'lead' — so lead stays blocked from those, as
+--     intended.
+--
+-- The only enforcement difference (lead may issue in-window refunds) lives in
+-- the application route gate, not in the database.
+--
+-- IMPORTANT: this migration contains ONLY the ALTER TYPE. Postgres forbids
+-- using a newly-added enum value in the same transaction it was added, so the
+-- new 'lead' value is deliberately NOT referenced anywhere else here.
+
+ALTER TYPE operator_user_role ADD VALUE IF NOT EXISTS 'lead';

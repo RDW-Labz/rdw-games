@@ -1,0 +1,678 @@
+name: EAS Build
+
+# (registration touch 2026-07-01: forces GitHub to register this
+#  workflow_dispatch workflow in the bingo-auctions fork so `gh workflow run`
+#  can dispatch it — the file existed on master but was never scanned.)
+#
+# Triggers a cloud EAS build for bidder-app, field-mobile (staff), or both.
+#
+# WHY THIS WORKFLOW EXISTS
+# ────────────────────────
+# The repo owner's daily driver is win32-arm64. The hermesc binary bundled by
+# EAS CLI is x86_64 ELF and cannot execute on aarch64 — meaning `eas build`
+# and `eas update` cannot run locally on that machine. This workflow delegates
+# all EAS operations to ubuntu-latest (x86_64) GitHub runners, where EAS CLI
+# works without restriction. EAS itself handles the actual macOS/Xcode build
+# on its own cloud infrastructure — this runner only drives the CLI.
+#
+# PREREQUISITES
+# ─────────────
+# Repository secrets that must be configured before this workflow will succeed:
+#
+#   EXPO_TOKEN            — Personal access token from expo.dev/settings/access-tokens
+#                           Scopes: build:create, build:read, submit:create.
+#                           Docs: https://docs.expo.dev/accounts/programmatic-access/
+#
+# Additional secrets required ONLY when `submit: true` is selected AND the
+# eas.json ascApiKeyPath (../../.secrets/AuthKey_25M83P99J8.p8) is not
+# checked in (it isn't — .secrets/ is gitignored). EAS submit reads ASC
+# credentials from env vars when the file path doesn't exist:
+#
+#   ASC_API_KEY           — Contents of AuthKey_25M83P99J8.p8 (the raw PEM text)
+#   ASC_API_KEY_ID        — Key ID: 25M83P99J8
+#   ASC_API_KEY_ISSUER_ID — Issuer ID: df79d9d0-5f90-4a53-8e2f-4c16b3fafce9
+#
+# Add all secrets at: https://github.com/jmacluer-design/auction-platform/settings/secrets/actions
+#
+# EXPECTED DURATION
+# ─────────────────
+#   Cold iOS build (bidder-app, production): ~35–45 min (EAS cloud time)
+#   Warm iOS build (cache hit):              ~15–20 min
+#   Android build (bidder-app only):         ~10–20 min
+#   This runner exits after queuing — set timeout to 45 min as a safety net
+#   for the driver job itself (network hiccups, EAS queue drain, etc.).
+#   The actual build timeout is controlled by EAS, not this runner.
+#
+# BUILD ARTIFACTS
+# ───────────────
+#   EAS builds are available at: https://expo.dev/accounts/[your-account]/projects/
+#   Or via CLI: eas build:list --platform ios --profile production
+#   TestFlight builds (after submit): App Store Connect → TestFlight tab
+#   Play Store builds: Google Play Console → Internal Testing track
+#
+# ANDROID NOTE FOR STAFF APP
+# ──────────────────────────
+#   UPDATED 2026-05-26: field-mobile's production profile now HAS an android
+#   block (buildType app-bundle), so the build-staff job honors the `platform`
+#   input just like build-bidder — platform=all builds staff iOS + Android and
+#   (when submit=true) ships iOS→TestFlight and Android→Play internal track.
+#   The Staff Play app (com.cluerholdings.bidwizops) is registered under RDW, LLC.
+#   (The `preview` profile still omits android; use `production` for Android.)
+
+on:
+  workflow_dispatch:
+    inputs:
+      app:
+        description: 'Which app to build'
+        required: true
+        type: choice
+        default: both
+        options:
+          - bidder
+          - staff
+          - both
+
+      profile:
+        description: 'EAS build profile (maps to eas.json build.<profile>)'
+        required: true
+        type: choice
+        default: production
+        options:
+          - preview
+          - production
+          # 2026-08-14: added. 'preview' is distribution:store and 'production'
+          # is buildType:app-bundle — neither yields something you can sideload
+          # onto a warehouse Samsung. 'internal' is distribution:internal +
+          # buildType:apk on the preview channel, which is what the floor phones
+          # actually need, and it keeps them on a channel we publish OTAs to.
+          - internal
+          # 2026-10-28: staff test build for Jared/Tim: internal distribution
+          # (Android APK; iOS ad hoc, registered devices only) on the
+          # DEVELOPMENT channel, prod env. Never the floor phones' channel.
+          - tester
+
+      platform:
+        description: 'Target platform (staff always builds ios only)'
+        required: true
+        type: choice
+        default: ios
+        options:
+          - ios
+          - android
+          - all
+
+      submit:
+        description: 'Submit to TestFlight / Play Store after build completes'
+        required: false
+        type: boolean
+        default: false
+
+      clear_ios_provisioning:
+        # When true, removes the cached iOS provisioning profile + ad-hoc
+        # entitlement state on EAS BEFORE building. The next build then
+        # re-mints a fresh profile with whatever entitlement set the project
+        # declares right now (Associated Domains, Apple Sign In, etc.).
+        #
+        # WHEN TO TURN THIS ON
+        # ────────────────────
+        # Flip ON for ONE build after any change to ios.entitlements,
+        # ios.associatedDomains, ios.usesAppleSignIn, or any other Expo
+        # config key that flips a native iOS entitlement. Then flip OFF.
+        #
+        # Leaving it on every build is harmless but slow — EAS spends ~30s
+        # talking to Apple Developer Portal each time to re-mint instead of
+        # using the cached profile.
+        #
+        # WHY THIS MATTERS (2026-05-23 incident)
+        # ──────────────────────────────────────
+        # Build e4c78d5e-695d-4f9e-bf6a-a1371675dc25 failed at the fastlane
+        # archive step with:
+        #   Provisioning profile "*[expo] com.cluerholdings.auctionplatform
+        #   AppStore 2026-05-13T17:42:40.755Z" doesn't support the
+        #   Associated Domains capability.
+        # The profile was minted on 2026-05-13 BEFORE Universal Links was
+        # added to app.config.ts (line 113: `associatedDomains:
+        # ['applinks:clovrbid.com']`). EAS cached the old profile and didn't
+        # auto-regenerate when the entitlement set changed. Setting this
+        # input to true on the next build clears that cache.
+        description: 'iOS only: clear cached provisioning profile to force re-mint with current entitlements (set true once after entitlement changes, then back to false)'
+        required: false
+        type: boolean
+        default: false
+
+  # workflow_call lets a tagged-release workflow (or any other workflow in this
+  # repo) trigger EAS builds programmatically without duplicating the logic.
+  # Callers must pass the same inputs; defaults mirror workflow_dispatch above.
+  workflow_call:
+    inputs:
+      app:
+        required: false
+        type: string
+        default: both
+      profile:
+        required: false
+        type: string
+        default: production
+      platform:
+        required: false
+        type: string
+        default: ios
+      submit:
+        required: false
+        type: boolean
+        default: false
+      clear_ios_provisioning:
+        required: false
+        type: boolean
+        default: false
+    secrets:
+      EXPO_TOKEN:
+        required: true
+      ASC_API_KEY:
+        required: false
+      ASC_API_KEY_ID:
+        required: false
+      ASC_API_KEY_ISSUER_ID:
+        required: false
+
+# ── Concurrency ────────────────────────────────────────────────────────────────
+# Separate concurrency groups per app so a bidder build and a staff build can
+# run simultaneously, but two builds for the same app queue rather than cancel.
+# cancel-in-progress: false is intentional — a build already submitted to EAS
+# cannot be recalled from here; letting it finish avoids orphaned EAS jobs.
+
+jobs:
+  # ── Bidder App ───────────────────────────────────────────────────────────────
+  build-bidder:
+    name: EAS build — bidder (${{ inputs.profile }}, ${{ inputs.platform }})
+    # Skip this job when the caller asked for staff-only.
+    if: ${{ inputs.app == 'bidder' || inputs.app == 'both' }}
+    runs-on: ubuntu-latest
+    # 2026-07-28: raised 45 -> 120. With submit=true the job now WAITS for the
+    # build (see the build step) instead of firing --no-wait and racing it, so the
+    # driver has to cover a cold iOS build (35-45 min) PLUS the store upload
+    # (6-17 min observed). 45 would have timed out mid-submit and left a built
+    # artifact unsubmitted. submit=false still returns in well under a minute.
+    timeout-minutes: 120
+    permissions:
+      contents: read
+    concurrency:
+      group: eas-build-bidder
+      cancel-in-progress: false
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install workspace dependencies
+        # npm ci is canonical in this repo (see ios-simulator-smoke.yml, ci.yml).
+        # --no-audit --no-fund mirrors deploy-cloudflare.yml: faster, no noise.
+        run: npm ci --no-audit --no-fund
+
+      - name: Install EAS CLI
+        # Pin to a specific major version. eas.json requires >= 13.0.0.
+        # Using `@latest` would pass CI today but silently break if EAS ships a
+        # breaking v14. Bump this pin intentionally when upgrading eas.json cli.version.
+        run: npm install -g eas-cli@13
+
+      - name: Authenticate with EAS
+        # EXPO_TOKEN is read automatically by eas-cli when set in the environment.
+        # The explicit `whoami` call lets the run log show which account was
+        # resolved, making auth failures easy to spot.
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: eas whoami
+
+      # 2026-05-24: eas-cli 13.x needs the ASC API key as a FILE on disk + 3
+      # env vars to mint a fresh iOS provisioning profile in non-interactive
+      # mode. Previously we exported EXPO_ASC_API_KEY (eas-cli 7.x convention)
+      # which 13.x ignores, causing "Failed to set up credentials" on builds
+      # where Expo's cached profile was deleted.
+      - name: Materialize ASC API key on disk
+        if: ${{ inputs.platform == 'ios' || inputs.platform == 'all' }}
+        env:
+          ASC_API_KEY: ${{ secrets.ASC_API_KEY }}
+        run: |
+          mkdir -p /tmp/asc-key
+          echo "$ASC_API_KEY" > /tmp/asc-key/AuthKey.p8
+          chmod 600 /tmp/asc-key/AuthKey.p8
+
+      # 2026-08-11: refuse to build a version the store will reject, or one
+      # that reads as a downgrade on testers' phones. Both directions have
+      # already shipped — bidder at 0.1.1 against a released 1.0.0 (every
+      # upload bounced, ITMS-90062), and staff's stray "1.0" builds pinning
+      # every iPhone to build 27 for eight days while four newer builds went
+      # past it. Each cost a full 35-45 min EAS build plus the submit before
+      # anyone noticed; the staff one hid for over a week. Asking ASC first
+      # costs seconds. See scripts/store-release/version_guard.py.
+      #
+      # Deliberately WITHOUT --allow-missing-credentials, unlike the PR check
+      # in app-version-guard.yml: a build we could not verify against the
+      # store is precisely what this step exists to stop.
+      - name: Guard app version against the store
+        if: ${{ inputs.platform == 'ios' || inputs.platform == 'all' }}
+        env:
+          ASC_API_KEY: ${{ secrets.ASC_API_KEY }}
+          ASC_API_KEY_ID: ${{ secrets.ASC_API_KEY_ID }}
+          ASC_API_KEY_ISSUER_ID: ${{ secrets.ASC_API_KEY_ISSUER_ID }}
+        run: |
+          pip install --quiet PyJWT cryptography
+          python3 scripts/store-release/version_guard.py apps/bidder-app
+
+      - name: Queue EAS build — bidder
+        id: build_bidder
+        working-directory: apps/bidder-app
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+          # ASC API key envs (eas-cli 13.x naming) — required for non-
+          # interactive credential provisioning when EAS needs to mint a
+          # fresh provisioning profile from Apple Developer Portal.
+          # See https://docs.expo.dev/build/building-on-ci/#optional-provide-an-asc-api-token-for-your-apple-team
+          EXPO_ASC_API_KEY_PATH: /tmp/asc-key/AuthKey.p8
+          EXPO_ASC_KEY_ID: ${{ secrets.ASC_API_KEY_ID }}
+          EXPO_ASC_ISSUER_ID: ${{ secrets.ASC_API_KEY_ISSUER_ID }}
+          # Apple Team ID + type — both required in non-interactive mode
+          # so EAS doesn't prompt "Select your Apple Team Type:". The values
+          # come from eas.json (appleTeamId 73554WL25P) and GOLD RUN LLC's
+          # paid Developer Program enrollment type (COMPANY_OR_ORGANIZATION).
+          EXPO_APPLE_TEAM_ID: '73554WL25P'
+          EXPO_APPLE_TEAM_TYPE: COMPANY_OR_ORGANIZATION
+          # NOTE: EAS_NO_VCS is intentionally NOT set here.
+          # This is a monorepo (apps/* + packages/*) and the cloud build needs
+          # the workspace deps (@auction-platform/design-system, shared, etc.).
+          # eas.json has `cli.requireCommit: true`, which tells EAS CLI to
+          # archive via `git clone --depth 1` from the repo root — that picks
+          # up packages/* automatically. Setting EAS_NO_VCS=1 would swap to
+          # the non-VCS packaging algorithm, which uses .easignore from the
+          # eas.json directory as the project root and would re-introduce the
+          # 2026-05-23 INSTALL_DEPENDENCIES failure where workspace deps 404
+          # on the npm registry (`@auction-platform/design-system: Not found`).
+          # The `actions/checkout@v4` step above already leaves a clean tree,
+          # so requireCommit's clean-tree gate passes here.
+        run: |
+          # --clear-cache: when clear_ios_provisioning is true, append this
+          # flag to force EAS to:
+          #   1. wipe its build cache (cocoapods, gradle, npm)
+          #   2. re-evaluate iOS entitlements from the project config
+          #   3. detect the entitlement diff against the cached provisioning
+          #      profile and re-mint a fresh profile from Apple Developer
+          #      Portal that supports the current capability set
+          #      (Associated Domains, Apple Sign In, Push, etc.)
+          # This is the documented fix for the 2026-05-23 archive failure:
+          #   Provisioning profile "*[expo] com.cluerholdings.auctionplatform
+          #   AppStore 2026-05-13T17:42:40.755Z" doesn't support the
+          #   Associated Domains capability.
+          # Flip clear_ios_provisioning back to false after one successful
+          # build to avoid the ~30s Apple Developer Portal round-trip on
+          # every subsequent build.
+          EXTRA_FLAGS=""
+          if [[ "${{ inputs.clear_ios_provisioning }}" == "true" ]]; then
+            EXTRA_FLAGS="--clear-cache"
+            echo "clear_ios_provisioning=true → adding --clear-cache to eas build"
+            echo "This will force EAS to re-mint the iOS provisioning profile"
+            echo "from Apple Developer Portal with the current entitlement set."
+          fi
+
+          # 2026-07-28: WAIT for the build when we are going to submit it.
+          #
+          # `--no-wait` + the later `eas submit --latest` was a race that
+          # silently shipped STALE code to testers. --no-wait returns in ~36s;
+          # the submit step then ran ~6 min later and `--latest` resolves to the
+          # latest COMPLETED build — never the one just queued, since a cold iOS
+          # build takes 35-45 min. Observed on run 30371740164 (8e53e8b): queue
+          # 36s, iOS submit 6 min, workflow green, wrong artifact in TestFlight.
+          #
+          # Waiting makes `--latest` mean "the build this job just produced".
+          # Deliberately NOT using --auto-submit: that has EAS submit from its
+          # own infra, but this workflow's store credentials are local files
+          # materialized onto the runner and patched into eas.json below, which
+          # EAS's server-side submit cannot see.
+          #
+          # Cost: when submit=true the job now blocks for the real build time
+          # (see the job timeout). When submit=false it still returns immediately.
+          WAIT_FLAG="--no-wait"
+          if [[ "${{ inputs.submit }}" == "true" ]]; then
+            WAIT_FLAG=""
+            echo "submit=true → waiting for the build, then submitting it by its ID"
+          fi
+
+          if [[ "${{ inputs.submit }}" == "true" ]]; then
+            # 2026-09-24: submit by the ID of THIS build, never `--latest`.
+            # `--latest` takes the newest finished build of ANY profile, and CI
+            # builds smoke APKs on every master push; a smoke APK finishing at the
+            # wrong moment would be uploaded to the store. Waiting (above) made
+            # that unlikely, not impossible.
+            eas build \
+              --platform ${{ inputs.platform }} \
+              --profile ${{ inputs.profile }} \
+              --non-interactive \
+              --json \
+              $EXTRA_FLAGS > /tmp/eas-build-bidder.json
+            cat /tmp/eas-build-bidder.json
+            IOS_ID=$(jq -r '[.[] | select((.platform | ascii_downcase) == "ios") | .id][0] // empty' /tmp/eas-build-bidder.json)
+            ANDROID_ID=$(jq -r '[.[] | select((.platform | ascii_downcase) == "android") | .id][0] // empty' /tmp/eas-build-bidder.json)
+            echo "ios_build_id=$IOS_ID" >> "$GITHUB_OUTPUT"
+            echo "android_build_id=$ANDROID_ID" >> "$GITHUB_OUTPUT"
+            echo "Built: ios=${IOS_ID:-none} android=${ANDROID_ID:-none}"
+            case "${{ inputs.platform }}" in
+              ios)     [[ -n "$IOS_ID" ]] ;;
+              android) [[ -n "$ANDROID_ID" ]] ;;
+              all)     [[ -n "$IOS_ID" && -n "$ANDROID_ID" ]] ;;
+            esac || { echo "::error::could not read the build ID(s) from eas build --json; refusing to submit"; exit 1; }
+          else
+            eas build \
+              --platform ${{ inputs.platform }} \
+              --profile ${{ inputs.profile }} \
+              --non-interactive \
+              $WAIT_FLAG \
+              $EXTRA_FLAGS
+          fi
+          # --no-wait returns as soon as EAS has accepted the build request.
+          # The actual compile time (35-45 min cold) runs on EAS infrastructure.
+          # Monitor progress at https://expo.dev/accounts/[account]/projects/bidder-app/builds
+          # or with: eas build:list --platform ios --profile ${{ inputs.profile }}
+
+      # 2026-05-24: eas submit reads ascApiKeyPath from eas.json, NOT from
+      # env vars (env vars are build-time only). The path in eas.json
+      # resolves to ../../.secrets/AuthKey_*.p8 which doesn't exist on the
+      # GHA runner. Patch the path to /tmp/asc-key/AuthKey.p8 at workflow
+      # time using jq — clean checkout each run means this is ephemeral.
+      - name: Patch eas.json ascApiKeyPath for CI submit
+        if: ${{ inputs.submit == true && (inputs.platform == 'ios' || inputs.platform == 'all') }}
+        working-directory: apps/bidder-app
+        run: |
+          jq '.submit.${{ inputs.profile }}.ios.ascApiKeyPath = "/tmp/asc-key/AuthKey.p8"' eas.json > eas.json.tmp
+          mv eas.json.tmp eas.json
+          echo "Patched eas.json submit.${{ inputs.profile }}.ios.ascApiKeyPath:"
+          jq '.submit.${{ inputs.profile }}.ios' eas.json
+
+      - name: Submit bidder iOS to TestFlight
+        if: ${{ inputs.submit == true && (inputs.platform == 'ios' || inputs.platform == 'all') }}
+        working-directory: apps/bidder-app
+        env:
+          BUILD_ID: ${{ steps.build_bidder.outputs.ios_build_id }}
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+          EXPO_APPLE_TEAM_ID: '73554WL25P'
+          EXPO_APPLE_TEAM_TYPE: COMPANY_OR_ORGANIZATION
+        run: |
+          eas submit \
+            --platform ios \
+            --id "$BUILD_ID" \
+            --profile ${{ inputs.profile }} \
+            --non-interactive
+
+      # ── Bidder Android → Play internal track ────────────────────────────
+      # Added 2026-05-26: Android submit was previously punted; now wired
+      # via GHA secret `GOOGLE_PLAY_SERVICE_ACCOUNT_KEY` (the contents of
+      # .secrets/google-play-service-account.json). We materialize the JSON
+      # to disk + patch eas.json's serviceAccountKeyPath so eas submit can
+      # find it.
+      - name: Materialize Google Play service account on disk
+        if: ${{ inputs.submit == true && (inputs.platform == 'android' || inputs.platform == 'all') }}
+        env:
+          GOOGLE_PLAY_KEY: ${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT_KEY }}
+        run: |
+          mkdir -p /tmp/play-key
+          echo "$GOOGLE_PLAY_KEY" > /tmp/play-key/service-account.json
+          chmod 600 /tmp/play-key/service-account.json
+          # Sanity check — file should be valid JSON with client_email field
+          if ! jq -e '.client_email' /tmp/play-key/service-account.json > /dev/null; then
+            echo "::error::Google Play service account JSON is missing or malformed"
+            exit 1
+          fi
+
+      - name: Patch eas.json serviceAccountKeyPath for CI submit
+        if: ${{ inputs.submit == true && (inputs.platform == 'android' || inputs.platform == 'all') }}
+        working-directory: apps/bidder-app
+        run: |
+          jq '.submit.${{ inputs.profile }}.android.serviceAccountKeyPath = "/tmp/play-key/service-account.json"' eas.json > eas.json.tmp
+          mv eas.json.tmp eas.json
+          echo "Patched eas.json submit.${{ inputs.profile }}.android.serviceAccountKeyPath:"
+          jq '.submit.${{ inputs.profile }}.android' eas.json
+
+      - name: Submit bidder Android to Play internal track
+        if: ${{ inputs.submit == true && (inputs.platform == 'android' || inputs.platform == 'all') }}
+        working-directory: apps/bidder-app
+        env:
+          BUILD_ID: ${{ steps.build_bidder.outputs.android_build_id }}
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: |
+          eas submit \
+            --platform android \
+            --id "$BUILD_ID" \
+            --profile ${{ inputs.profile }} \
+            --non-interactive
+
+      - name: Build summary
+        if: always()
+        run: |
+          echo "### EAS Build — bidder-app" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Input                  | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "|------------------------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| profile                | \`${{ inputs.profile }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| platform               | \`${{ inputs.platform }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| submit                 | \`${{ inputs.submit }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| clear_ios_provisioning | \`${{ inputs.clear_ios_provisioning }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| commit                 | \`${{ github.sha }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Track the build: https://expo.dev/accounts/$(eas whoami 2>/dev/null || echo '[account]')/projects/bidder-app/builds" >> $GITHUB_STEP_SUMMARY
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+
+  # ── Staff App (field-mobile) ─────────────────────────────────────────────────
+  build-staff:
+    name: EAS build — staff (${{ inputs.profile }}, ${{ inputs.platform }})
+    # Skip this job when the caller asked for bidder-only.
+    if: ${{ inputs.app == 'staff' || inputs.app == 'both' }}
+    runs-on: ubuntu-latest
+    # 2026-07-28: raised 45 -> 120. With submit=true the job now WAITS for the
+    # build (see the build step) instead of firing --no-wait and racing it, so the
+    # driver has to cover a cold iOS build (35-45 min) PLUS the store upload
+    # (6-17 min observed). 45 would have timed out mid-submit and left a built
+    # artifact unsubmitted. submit=false still returns in well under a minute.
+    timeout-minutes: 120
+    permissions:
+      contents: read
+    concurrency:
+      group: eas-build-staff
+      cancel-in-progress: false
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install workspace dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Install EAS CLI
+        run: npm install -g eas-cli@13
+
+      - name: Authenticate with EAS
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: eas whoami
+
+      # 2026-05-24: Materialize ASC API key for non-interactive build +
+      # submit. Same pattern as bidder job above. Staff is iOS-only so
+      # this step always runs (no platform input to gate on).
+      - name: Materialize ASC API key on disk
+        env:
+          ASC_API_KEY: ${{ secrets.ASC_API_KEY }}
+        run: |
+          mkdir -p /tmp/asc-key
+          echo "$ASC_API_KEY" > /tmp/asc-key/AuthKey.p8
+          chmod 600 /tmp/asc-key/AuthKey.p8
+
+      # Same store gate as the bidder job above — the staff app is where the
+      # 2026-08-11 build-27 pin actually happened. See the comment there.
+      - name: Guard app version against the store
+        if: ${{ inputs.platform == 'ios' || inputs.platform == 'all' }}
+        env:
+          ASC_API_KEY: ${{ secrets.ASC_API_KEY }}
+          ASC_API_KEY_ID: ${{ secrets.ASC_API_KEY_ID }}
+          ASC_API_KEY_ISSUER_ID: ${{ secrets.ASC_API_KEY_ISSUER_ID }}
+        run: |
+          pip install --quiet PyJWT cryptography
+          python3 scripts/store-release/version_guard.py apps/field-mobile
+
+      - name: Queue EAS build — staff
+        id: build_staff
+        working-directory: apps/field-mobile
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+          # ASC API key envs (eas-cli 13.x naming) — same as bidder build step
+          EXPO_ASC_API_KEY_PATH: /tmp/asc-key/AuthKey.p8
+          EXPO_ASC_KEY_ID: ${{ secrets.ASC_API_KEY_ID }}
+          EXPO_ASC_ISSUER_ID: ${{ secrets.ASC_API_KEY_ISSUER_ID }}
+          EXPO_APPLE_TEAM_ID: '73554WL25P'
+          EXPO_APPLE_TEAM_TYPE: COMPANY_OR_ORGANIZATION
+          # NOTE: EAS_NO_VCS is intentionally NOT set here — see the matching
+          # comment in the build-bidder job above. cli.requireCommit in
+          # eas.json gives us the correct monorepo-aware archive.
+        run: |
+          # 2026-05-26: field-mobile eas.json now has an android block on the
+          # production profile (buildType app-bundle), so we honor the caller's
+          # `platform` input instead of hard-wiring iOS. The Staff Play app
+          # (com.cluerholdings.bidwizops) is registered under RDW, LLC.
+          # 2026-07-28: WAIT for the build when we are going to submit it.
+          #
+          # `--no-wait` + the later `eas submit --latest` was a race that
+          # silently shipped STALE code to testers. --no-wait returns in ~36s;
+          # the submit step then ran ~6 min later and `--latest` resolves to the
+          # latest COMPLETED build — never the one just queued, since a cold iOS
+          # build takes 35-45 min. Observed on run 30371740164 (8e53e8b): queue
+          # 36s, iOS submit 6 min, workflow green, wrong artifact in TestFlight.
+          #
+          # Waiting makes `--latest` mean "the build this job just produced".
+          # Deliberately NOT using --auto-submit: that has EAS submit from its
+          # own infra, but this workflow's store credentials are local files
+          # materialized onto the runner and patched into eas.json below, which
+          # EAS's server-side submit cannot see.
+          #
+          # Cost: when submit=true the job now blocks for the real build time
+          # (see the job timeout). When submit=false it still returns immediately.
+          WAIT_FLAG="--no-wait"
+          if [[ "${{ inputs.submit }}" == "true" ]]; then
+            WAIT_FLAG=""
+            echo "submit=true → waiting for the build, then submitting it by its ID"
+          fi
+
+          if [[ "${{ inputs.submit }}" == "true" ]]; then
+            # 2026-09-24: submit by the ID of THIS build, never `--latest`.
+            # `--latest` takes the newest finished build of ANY profile, and CI
+            # builds smoke APKs on every master push; a smoke APK finishing at the
+            # wrong moment would be uploaded to the store. Waiting (above) made
+            # that unlikely, not impossible.
+            eas build \
+              --platform ${{ inputs.platform }} \
+              --profile ${{ inputs.profile }} \
+              --non-interactive \
+              --json > /tmp/eas-build-staff.json
+            cat /tmp/eas-build-staff.json
+            IOS_ID=$(jq -r '[.[] | select((.platform | ascii_downcase) == "ios") | .id][0] // empty' /tmp/eas-build-staff.json)
+            ANDROID_ID=$(jq -r '[.[] | select((.platform | ascii_downcase) == "android") | .id][0] // empty' /tmp/eas-build-staff.json)
+            echo "ios_build_id=$IOS_ID" >> "$GITHUB_OUTPUT"
+            echo "android_build_id=$ANDROID_ID" >> "$GITHUB_OUTPUT"
+            echo "Built: ios=${IOS_ID:-none} android=${ANDROID_ID:-none}"
+            case "${{ inputs.platform }}" in
+              ios)     [[ -n "$IOS_ID" ]] ;;
+              android) [[ -n "$ANDROID_ID" ]] ;;
+              all)     [[ -n "$IOS_ID" && -n "$ANDROID_ID" ]] ;;
+            esac || { echo "::error::could not read the build ID(s) from eas build --json; refusing to submit"; exit 1; }
+          else
+            eas build \
+              --platform ${{ inputs.platform }} \
+              --profile ${{ inputs.profile }} \
+              --non-interactive \
+              $WAIT_FLAG
+          fi
+
+      - name: Patch eas.json ascApiKeyPath for CI submit
+        if: ${{ inputs.submit == true && (inputs.platform == 'ios' || inputs.platform == 'all') }}
+        working-directory: apps/field-mobile
+        run: |
+          jq '.submit.${{ inputs.profile }}.ios.ascApiKeyPath = "/tmp/asc-key/AuthKey.p8"' eas.json > eas.json.tmp
+          mv eas.json.tmp eas.json
+          echo "Patched eas.json submit.${{ inputs.profile }}.ios.ascApiKeyPath:"
+          jq '.submit.${{ inputs.profile }}.ios' eas.json
+
+      - name: Submit staff iOS to TestFlight
+        if: ${{ inputs.submit == true && (inputs.platform == 'ios' || inputs.platform == 'all') }}
+        working-directory: apps/field-mobile
+        env:
+          BUILD_ID: ${{ steps.build_staff.outputs.ios_build_id }}
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+          EXPO_APPLE_TEAM_ID: '73554WL25P'
+          EXPO_APPLE_TEAM_TYPE: COMPANY_OR_ORGANIZATION
+        run: |
+          # Staff app: bundle com.cluerholdings.bidwizops, ASC ID 6767026881.
+          # ascAppId is already set in field-mobile/eas.json submit.<profile>.ios.
+          eas submit \
+            --platform ios \
+            --id "$BUILD_ID" \
+            --profile ${{ inputs.profile }} \
+            --non-interactive
+
+      # ── Staff Android → Play track ──────────────────────────────────────
+      # Added 2026-05-26 alongside the bidder Android wiring. Staff Play app
+      # (ClovrBid Staff, package com.cluerholdings.bidwizops) registered under
+      # RDW, LLC. Uses the GOOGLE_PLAY_SERVICE_ACCOUNT_KEY GHA secret.
+      - name: Materialize Google Play service account on disk
+        if: ${{ inputs.submit == true && (inputs.platform == 'android' || inputs.platform == 'all') }}
+        env:
+          GOOGLE_PLAY_KEY: ${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT_KEY }}
+        run: |
+          mkdir -p /tmp/play-key
+          echo "$GOOGLE_PLAY_KEY" > /tmp/play-key/service-account.json
+          chmod 600 /tmp/play-key/service-account.json
+          if ! jq -e '.client_email' /tmp/play-key/service-account.json > /dev/null; then
+            echo "::error::Google Play service account JSON is missing or malformed"
+            exit 1
+          fi
+
+      - name: Patch eas.json serviceAccountKeyPath for CI submit
+        if: ${{ inputs.submit == true && (inputs.platform == 'android' || inputs.platform == 'all') }}
+        working-directory: apps/field-mobile
+        run: |
+          jq '.submit.${{ inputs.profile }}.android.serviceAccountKeyPath = "/tmp/play-key/service-account.json"' eas.json > eas.json.tmp
+          mv eas.json.tmp eas.json
+          echo "Patched eas.json submit.${{ inputs.profile }}.android.serviceAccountKeyPath:"
+          jq '.submit.${{ inputs.profile }}.android' eas.json
+
+      - name: Submit staff Android to Play track
+        if: ${{ inputs.submit == true && (inputs.platform == 'android' || inputs.platform == 'all') }}
+        working-directory: apps/field-mobile
+        env:
+          BUILD_ID: ${{ steps.build_staff.outputs.android_build_id }}
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: |
+          eas submit \
+            --platform android \
+            --id "$BUILD_ID" \
+            --profile ${{ inputs.profile }} \
+            --non-interactive
+
+      - name: Build summary
+        if: always()
+        run: |
+          echo "### EAS Build — field-mobile (staff)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Input    | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "|----------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| profile  | \`${{ inputs.profile }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| platform | \`${{ inputs.platform }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| submit   | \`${{ inputs.submit }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| commit   | \`${{ github.sha }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Track the build: https://expo.dev/accounts/$(eas whoami 2>/dev/null || echo '[account]')/projects/field-mobile/builds" >> $GITHUB_STEP_SUMMARY
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}

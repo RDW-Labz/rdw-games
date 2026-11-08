@@ -1,0 +1,9 @@
+# Game clones live in games/ as separate git repos (multi-GB) — not vendored here.
+games/
+OpenTTD/
+emulator.log
+.queue/
+logs/
+.build/
+build-*.log
+evidence/*.tmp

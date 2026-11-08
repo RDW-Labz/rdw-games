@@ -1,0 +1,18 @@
+{
+  "id": "photo-024",
+  "image_path": "photo-024-airpods-clear.jpg",
+  "media_type": "image/jpeg",
+  "photo_quality_label": "clear",
+  "expected": {
+    "title": "Apple AirPods Pro (2nd Generation) with MagSafe Charging Case (USB-C)",
+    "brand": "Apple",
+    "model": "MTJV3AM/A",
+    "upc": "194253397830",
+    "category_slug": "audio",
+    "category_legacy": "Electronics",
+    "condition": "New/Sealed",
+    "msrp_cents": 24900,
+    "expected_confidence": "high"
+  },
+  "notes": "Sealed white retail box with minimalist Apple branding. Tests confidence on premium electronics."
+}

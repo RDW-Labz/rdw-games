@@ -1,0 +1,15 @@
+{
+  "id": "upc-006",
+  "code": "717709024205",
+  "code_type": "upc",
+  "expected": {
+    "title": "Metabo HPT NV65AH2M 2-1/2-inch 15-Degree Pneumatic Coil Roofing Nailer",
+    "brand": "Metabo HPT",
+    "model": "NV65AH2M",
+    "category_slug": "power-tools",
+    "category_legacy": "Tools & Hardware",
+    "condition": "",
+    "msrp_cents": 26900
+  },
+  "notes": "Sourced from db/seed/lowes.json. Brand was rebranded from 'Hitachi' to 'Metabo HPT' — tests whether the model knows the rebrand and avoids returning 'Hitachi'."
+}

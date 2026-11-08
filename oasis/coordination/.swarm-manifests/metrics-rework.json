@@ -1,0 +1,34 @@
+{
+ "version": 1,
+ "concurrency": 1,
+ "checks": [
+  {
+   "name": "pytest",
+   "argv": [
+    "python3",
+    "-m",
+    "pytest",
+    "-q",
+    "coordination/tools/test_session_metrics.py"
+   ]
+  }
+ ],
+ "jobs": [
+  {
+   "id": "metrics-rework",
+   "agent": "claude",
+   "model": "sonnet",
+   "tier": "mid",
+   "timeoutMs": 1800000,
+   "prompt": "You are job metrics-rework (mid). File tools only; the coordinator runs `python3 -m pytest -q coordination/tools/test_session_metrics.py` after you. Own exactly two files: coordination/tools/session_metrics.py and coordination/tools/test_session_metrics.py. Keep every existing output field, flag and behaviour; existing tests must still pass unchanged.\n\nAdd a rework measurement (swarm improvement loop; first step is measurement, not redesign). In the same JSON line add a `rework` object computed from every ROOT's .swarm/runs/*/state.json whose top-level `integratedAt` falls inside [since, until]:\n- `integrated`: count of such runs with `checksSkipped` not true.\n- `integrated_no_checks`: count with `checksSkipped` true.\n- `red`: count of integrated runs (with checks) whose `checksPassed` is false.\n- `red_rate`: red / integrated rounded to 2 places (null when integrated is 0).\n- `red_by_check`: object {check name: count} over runs counted in `red`, counting each check in that run's `checks` array whose `status` is not \"passed\".\n- `red_kind`: object with keys tests, lint, types, timeout, env, counting each red run once: env if any failing check's `tail` matches (ModuleNotFound|No module named|command not found|ENOENT|Executable doesn't exist|version mismatch); else timeout if a failing tail matches (timed out|Timeout); else lint if every failing check name is in {ruff, eslint, whitespace, lint, format}; else types if every failing name is in {mypy, typecheck, tsc, types, types-win32}; else tests.\n- `red_cost_usd`: sum of jobs[].costUsd over red runs (missing cost = 0), rounded to 2 places.\nNote in the module docstring: state.json keeps only the LAST integrate attempt per run, so a run re-integrated green counts as green (undercount; say so).\nAdd a `--rework-only` flag that prints just {\"rework\": {...}} and ignores the idle/parallel computation's need for jobs.\nTests: build fake state.json files under tmp_path (at least: one green, one red lint-only, one red tests with cost, one checksSkipped, one outside the window) and assert every field. Each new test must fail on the old code.\nFinal message: one JSON line {\"status\":\"done|blocked\",\"changed\":[...],\"tests_added\":N}.",
+   "context": [
+    "coordination/tools/session_metrics.py",
+    "coordination/tools/test_session_metrics.py"
+   ],
+   "outputs": [
+    "coordination/tools/session_metrics.py",
+    "coordination/tools/test_session_metrics.py"
+   ]
+  }
+ ]
+}

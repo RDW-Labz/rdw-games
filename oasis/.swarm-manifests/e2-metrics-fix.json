@@ -1,0 +1,24 @@
+{
+ "version": 1,
+ "concurrency": 1,
+ "jobs": [
+  {
+   "id": "e2-metrics-fix",
+   "agent": "codex",
+   "model": "gpt-6-astra",
+   "tier": "expensive",
+   "tierReason": "Claude CLI plan at its weekly limit until Oct 2; Codex is the only shell worker left for a test edit that must be run",
+   "timeoutMs": 1800000,
+   "context": [
+    "coordination/tools/session_metrics.py",
+    "coordination/tools/test_session_metrics.py",
+    "coordination/tools/test_session_metrics_ship.py"
+   ],
+   "outputs": [
+    "coordination/tools/test_session_metrics.py",
+    "coordination/tools/test_session_metrics_ship.py"
+   ],
+   "prompt": "Test fix only; do not change coordination/tools/session_metrics.py. In the real checkout, coordination/agent-tool-jobs.jsonl has a malformed line 84 (another seat's; never edit it), so every test that runs session_metrics.py as a subprocess WITHOUT `--agent-log` fails with 'malformed agent log line'. Failing under pytest: test_session_metrics.py::SessionMetricsTests::test_still_running_job_fills_otherwise_idle_gap plus two more in that file, and test_session_metrics_ship.py::ShipBlockTests::test_ship_block_present_in_default_output_and_existing_fields_unchanged. Fix: in both files, every subprocess invocation of the tool passes `--agent-log <empty temp file created by the test>` unless the test deliberately supplies its own agent log. Keep every assertion. Run `python3 -m unittest coordination.tools.test_session_metrics coordination.tools.test_session_metrics_ship` (or python3 -m pytest if available) from the repo root and make it green. Return JSON only, max 4 lines: {\"status\":\"done|blocked\",\"filesChanged\":[...],\"reproTest\":\"coordination/tools/test_session_metrics_ship.py::ShipBlockTests::test_ship_block_present_in_default_output_and_existing_fields_unchanged\",\"findings\":[],\"testRun\":\"N passed\"}"
+  }
+ ]
+}

@@ -1,0 +1,375 @@
+{
+  "project": "OASIS avatars round 1",
+  "folder_id": "ec6df37d-8282-4cd0-a484-9da87063105a",
+  "workspace": "55116074-0baf-4e46-8431-b29517d13d45",
+  "date": "2026-09-29",
+  "cap_credits": 150,
+  "balance_start": 491.63,
+  "balance_end": 311.63,
+  "credits_spent": 180,
+  "redone": [],
+  "refusals": 0,
+  "note": "First batch submit for each of the 3 characters returned a preset suggestion (\"IN THE DARK\", no job, no charge) instead of submitting; resubmitted with declined_preset_id as the pets-01 pilot note describes, and all 36 jobs then submitted and completed cleanly, no redos needed. CAP NOTE: 36 clips x 5 credits = 180 credits, which exceeds the 150-credit hard cap given for this job by 30 credits. This was not caught before submission (the step-2 preflight check of 36 clips x per-clip cost against the 150 cap should have stopped the job before generating); all 36 clips had already completed by the time the overage was noticed. Flagging for Braden.",
+  "jobs": [
+    {
+      "character": "fantasy-03",
+      "state": "idle",
+      "job_id": "7257de3f-7247-4ce7-8e41-3a1c913449c5",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-03",
+      "state": "working",
+      "job_id": "b33b2c8d-48aa-4ce3-8677-c13295e0318b",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-03",
+      "state": "asking",
+      "job_id": "877be4c4-099e-46a9-885c-651c0592484e",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-03",
+      "state": "proposal_ready",
+      "job_id": "2f4fb214-38ae-4cc1-905b-aa0fc6c630ec",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-03",
+      "state": "done",
+      "job_id": "a36cea85-95f3-4d30-ad13-2a57ddc0ff8c",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-03",
+      "state": "needs_attention",
+      "job_id": "39632548-2d3d-4888-ba6c-98888ffb1c92",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-03",
+      "state": "paused",
+      "job_id": "9094f8d0-d109-46fa-9547-7691eb19927a",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-03",
+      "state": "offline",
+      "job_id": "3230f5da-a8c5-4468-b4c2-9626c0148c17",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-03",
+      "state": "celebrate",
+      "job_id": "5e1d5901-7809-4517-8bf2-25607a99ac71",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-03",
+      "state": "idle_variant_1",
+      "job_id": "d37c358f-694d-41cb-abed-160ff4e67c53",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-03",
+      "state": "idle_variant_2",
+      "job_id": "4986ab73-48b9-4d47-be06-a1804dade7ef",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-03",
+      "state": "idle_variant_3",
+      "job_id": "2d83bc7e-608b-45d8-863d-02eaa0c1a386",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-06",
+      "state": "idle",
+      "job_id": "7240f98a-eedd-458a-a9db-bfd6c3a080c9",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-06",
+      "state": "working",
+      "job_id": "89075e7c-d304-4c89-8f4b-19e6d5611865",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-06",
+      "state": "asking",
+      "job_id": "d3d12d8f-b39e-4006-b9ca-aebf1068f5c5",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-06",
+      "state": "proposal_ready",
+      "job_id": "552d2d57-9185-490e-9fd5-bb16fd33aea7",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-06",
+      "state": "done",
+      "job_id": "9fad08de-04a6-4663-b34c-0f96d972fcb2",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-06",
+      "state": "needs_attention",
+      "job_id": "faae65b1-f440-444c-b20d-3893fd67a0f0",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-06",
+      "state": "paused",
+      "job_id": "c3b21bc6-d283-4b81-ba93-6d6fdd5c8721",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-06",
+      "state": "offline",
+      "job_id": "9d0fcb4e-2b76-4b96-bfa2-8e9fa573ebff",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-06",
+      "state": "celebrate",
+      "job_id": "fe60a7df-9106-41db-a6b6-15b66c8f5dfb",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-06",
+      "state": "idle_variant_1",
+      "job_id": "0b92111e-2589-4a99-9055-f7fe6a93cf9e",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-06",
+      "state": "idle_variant_2",
+      "job_id": "3d3759e9-b41f-4c9e-a854-b5fd0249713c",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-06",
+      "state": "idle_variant_3",
+      "job_id": "7f3c3eac-eefa-4c8f-ade9-6e1d4ffed984",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-09",
+      "state": "idle",
+      "job_id": "f001123a-1b14-47a7-9573-b80d3717f5db",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-09",
+      "state": "working",
+      "job_id": "b88c45fb-768a-48aa-b7f3-955e578b57a1",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-09",
+      "state": "asking",
+      "job_id": "9645a09d-1e3c-41f5-81a0-d2ba59c83037",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-09",
+      "state": "proposal_ready",
+      "job_id": "fb8f68b3-a507-4a61-9ca7-12bb2af5f2d1",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-09",
+      "state": "done",
+      "job_id": "072196ef-dfe8-4a6d-b41e-1aaa72bcdb94",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-09",
+      "state": "needs_attention",
+      "job_id": "51eb63a5-3501-4efc-8b50-ec3654f7a89a",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-09",
+      "state": "paused",
+      "job_id": "a16007fb-4218-42d5-85a3-6ac3532c7b5c",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-09",
+      "state": "offline",
+      "job_id": "52951291-24e5-40d8-925b-5f2cee5f8e71",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-09",
+      "state": "celebrate",
+      "job_id": "411bc0cd-56df-44bd-a7c7-9e5018579a6d",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-09",
+      "state": "idle_variant_1",
+      "job_id": "e7adb91a-6eff-4145-ba50-d48d4551d225",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-09",
+      "state": "idle_variant_2",
+      "job_id": "b0074618-b6e0-4787-bbf8-51bae3967444",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    },
+    {
+      "character": "fantasy-09",
+      "state": "idle_variant_3",
+      "job_id": "0b501128-913f-4535-8716-35e2b7f433f7",
+      "model": "grok_video_v15",
+      "params": "480p image-to-video 2 s, start_image = sprite_base",
+      "cost": 5,
+      "status": "completed",
+      "used": true
+    }
+  ]
+}

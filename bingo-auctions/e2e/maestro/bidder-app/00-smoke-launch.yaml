@@ -1,0 +1,34 @@
+# Smoke launch — bidder-app
+#
+# Asserts the app boots and the JS bundle renders the login screen.
+# Minimal-syntax form that works across Maestro 1.x and 2.x parser
+# versions. No `timeout:` under selectors, no `extendedWaitUntil` —
+# Maestro's default visibility timeout (~10s) is enough on a warm
+# CI runner. If the runner is cold, the first assertion's default
+# timeout still covers React Native bundle boot.
+#
+# Run locally (iOS Simulator):
+#   maestro test e2e/maestro/bidder-app/00-smoke-launch.yaml
+#
+# appId fixed 2026-10 (CI: Maestro Smoke green again): the app's
+# bundleIdentifier/package was renamed com.cluerholdings.auctionplatform ->
+# com.bingoauctions.bidder on 2026-06-22 (apps/bidder-app/app.config.ts), but
+# this flow still targeted the old id, so every CI run failed with "Unable
+# to launch app com.cluerholdings.auctionplatform" (iOS) / "Package ... is
+# not installed" (Android) since the rename landed.
+
+appId: com.bingoauctions.bidder
+---
+- launchApp:
+    clearState: true
+    stopApp: true
+
+- waitForAnimationToEnd
+
+- assertVisible: "Sign in"
+
+- assertVisible:
+    id: "signin-email-input"
+
+- assertVisible:
+    id: "signin-submit"

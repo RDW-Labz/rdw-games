@@ -1,0 +1,857 @@
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  typecheck:
+    name: typecheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install
+        # PERF-11 (2026-05-24 audit): --prefer-offline reuses the npm
+        # cache that setup-node@v4 populated; --no-audit skips a slow
+        # network call we don't gate CI on.
+        run: npm ci --prefer-offline --no-audit
+      - name: Turbo cache
+        uses: actions/cache@v4
+        with:
+          path: .turbo
+          # PERF-13 (2026-05-24 audit): keying on github.sha invalidates
+          # cache on every commit. hashFiles on package-lock.json only
+          # busts when dependencies change.
+          key: turbo-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: turbo-${{ runner.os }}-
+      - name: Typecheck all workspaces
+        run: npx turbo run typecheck
+      - name: Preflight (launch-crash + dependency guards)
+        # No workflow ran `npm run preflight`, so its rules rotted unnoticed:
+        # two of them still enforced the 2026-05-20 expo-updates removal that
+        # was reversed on 2026-05-25, and preflight had been failing on a clean
+        # checkout for two months. A guard nobody runs is a guard that drifts
+        # into blocking the thing it was meant to protect. ~2s.
+        run: npm run preflight
+
+  lint:
+    name: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install
+        # PERF-11 (2026-05-24 audit): --prefer-offline reuses the npm
+        # cache that setup-node@v4 populated; --no-audit skips a slow
+        # network call we don't gate CI on.
+        run: npm ci --prefer-offline --no-audit
+      - name: Lint all workspaces
+        run: npx turbo run lint
+      - name: Production credential and deployment boundary guards
+        run: node --test .github/tests/ci-production-boundary.test.cjs
+      - name: Source guards (block regressions of fixed bug patterns)
+        # Static grep-style guards: no automatic_tax on charges (2026-06-02
+        # outage), no { operatorId } to subscriptions/checkout (PR #204), no
+        # reads of removed legacy columns (pro_*, operator_policies.shipping_offered).
+        run: node scripts/smoke/source-guards.mjs
+      - name: Cron schedule guard (every scheduled route has a handler, and back)
+        # Four prod failures were a list naming something that was not there:
+        # refund-jobs-drain (#321), settlements-release and reconcile-payments
+        # (#330) all POSTed to a 404 on a timer, and social-post is a handler
+        # nothing schedules. #330 ran this diff by hand and wrote the result in
+        # a PR description; this keeps it. Also checks the cron expressions
+        # against wrangler.jsonc, which nothing has ever compared.
+        run: node scripts/smoke/cron-schedule-guard.mjs
+      - name: Daily summary email tests (fake data only)
+        run: node --test scripts/__tests__/daily-summary.test.mjs
+      - name: Staff API route + dependency guard
+        run: node --test scripts/__tests__/staff-api-routes.test.mjs
+      - name: Needs-braden path labeler tests (#720)
+        run: node --test scripts/__tests__/needs-braden-label.test.mjs
+      - name: RED TEAM findings registry guard (#720)
+        # Fails when the registry is malformed, an ID repeats, or a row marked
+        # merged names a test file that is not in the checkout.
+        run: |
+          node --test scripts/__tests__/red-team-checklist.test.mjs
+          node scripts/ci/red-team-checklist.mjs
+      - name: Rollback-range verifier tests (#750)
+        # A rollback range that starts after the implementation commit "works"
+        # while leaving the change in place (#745 documented exactly that), so
+        # the range is now replayed on a throwaway worktree and compared.
+        run: node --test scripts/__tests__/rollback-range-0750.test.mjs
+      - name: Business metrics snapshot tests (#725)
+        # The published file must hold only numbers, the "<5" sentinel and one
+        # date; a string (a name, an id, free text) anywhere fails the job
+        # instead of reaching Grok.
+        run: node --test scripts/__tests__/status-metrics.test.mjs
+      - name: Stalled re-review alert tests (#723)
+        # The sweep posts one reminder per (PR, head) after 60 minutes with no
+        # RED TEAM verdict. These tests pin every binding case offline; the
+        # scheduled workflow never runs PR code and never labels or merges.
+        run: node --test scripts/__tests__/stalled-review-alert.test.mjs
+      - name: Maestro failure watch tests (#868)
+        # The watcher alerts once per master failure streak: text-only issue
+        # comments, no labels/approvals/merges, no check weakening.
+        run: node --test scripts/__tests__/maestro-failure-watch.test.mjs
+      - name: Migration 0517 file-shape tests (#893 / #952)
+        # Fails on the pre-fix rollback (reason-only refusal) and on a
+        # flag-gated or missing append-only trigger. SQL behaviour is in
+        # the schema-migrations job (bidder_credits_buckets.sql).
+        run: node --test scripts/__tests__/migration-0517.test.mjs
+
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    needs: typecheck
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install
+        # PERF-11 (2026-05-24 audit): --prefer-offline reuses the npm
+        # cache that setup-node@v4 populated; --no-audit skips a slow
+        # network call we don't gate CI on.
+        run: npm ci --prefer-offline --no-audit
+      - name: Turbo cache
+        uses: actions/cache@v4
+        with:
+          path: .turbo
+          key: turbo-test-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: turbo-test-${{ runner.os }}-
+      - name: Run unit tests across workspaces
+        run: npx turbo run test
+
+  test-db:
+    name: db package tests
+    runs-on: ubuntu-latest
+    needs: typecheck
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install
+        # PERF-11 (2026-05-24 audit): --prefer-offline reuses the npm
+        # cache that setup-node@v4 populated; --no-audit skips a slow
+        # network call we don't gate CI on.
+        run: npm ci --prefer-offline --no-audit
+      - name: Run @auction-platform/db tests (smoke only; load test gated by PLACE_BID_LOAD=1)
+        # PLACE_BID_LOAD is intentionally NOT set here. The smoke test
+        # (place_bid load test module loads) runs without a Supabase stack.
+        # To run the full load suite set PLACE_BID_LOAD=1 and provide
+        # SUPABASE_URL + keys pointing at a local/staging Supabase instance.
+        run: npm test --workspace=@auction-platform/db
+
+  schema-check:
+    name: schema migrations
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        # pgvector build of postgres 16: mig 0209 (product embeddings) runs
+        # CREATE EXTENSION vector, which plain postgres:16-alpine can't satisfy
+        # ("extension vector is not available" — the 2026-07-02 red-master run).
+        # Supabase prod ships pgvector, so CI must too.
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install psql
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq postgresql-client
+      - name: Apply migrations in order
+        env:
+          PGPASSWORD: postgres
+        run: |
+          # Supabase-only schemas + roles. We stub them so the migrations
+          # apply cleanly in CI without a full Supabase stack. The roles
+          # exist as NOLOGIN stubs — GRANT statements in our migrations
+          # reference `authenticated` and `anon` (Supabase's RLS roles)
+          # which would otherwise fail with "role does not exist" on
+          # vanilla Postgres.
+          psql -h localhost -U postgres -c "CREATE ROLE authenticated NOLOGIN;"
+          psql -h localhost -U postgres -c "CREATE ROLE anon NOLOGIN;"
+          psql -h localhost -U postgres -c "CREATE ROLE service_role NOLOGIN BYPASSRLS;"
+          psql -h localhost -U postgres -c "CREATE SCHEMA auth; CREATE SCHEMA storage;"
+          psql -h localhost -U postgres -c "CREATE TABLE auth.users (id uuid primary key);"
+          # storage.buckets — superset of every column our migrations
+          # touch. Supabase's real table has these plus a couple more
+          # (cors_rules, lifecycle_rules) but we don't reference those.
+          psql -h localhost -U postgres -c "
+            CREATE TABLE storage.buckets (
+              id                  text PRIMARY KEY,
+              name                text,
+              owner               uuid,
+              owner_id            text,
+              public              boolean DEFAULT false,
+              file_size_limit     bigint,
+              allowed_mime_types  text[],
+              avif_autodetection  boolean DEFAULT false,
+              created_at          timestamptz DEFAULT now(),
+              updated_at          timestamptz DEFAULT now()
+            );"
+          psql -h localhost -U postgres -c "
+            CREATE TABLE storage.objects (
+              id            uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+              bucket_id     text REFERENCES storage.buckets(id),
+              name          text,
+              owner         uuid,
+              owner_id      text,
+              metadata      jsonb,
+              path_tokens   text[],
+              version       text,
+              created_at    timestamptz DEFAULT now(),
+              updated_at    timestamptz DEFAULT now(),
+              last_accessed_at timestamptz DEFAULT now()
+            );"
+          psql -h localhost -U postgres -c "CREATE OR REPLACE FUNCTION auth.uid() RETURNS uuid LANGUAGE sql STABLE AS \$\$ SELECT NULL::uuid \$\$;"
+          psql -h localhost -U postgres -c "CREATE OR REPLACE FUNCTION storage.foldername(name text) RETURNS text[] LANGUAGE sql AS \$\$ SELECT string_to_array(name, '/') \$\$;"
+          # Supabase ships a logical-replication publication called
+          # supabase_realtime that powers their Realtime feature. Our
+          # migration 0017 ALTERs it (`ADD TABLE ...`). Stub it empty
+          # here so the ALTER finds something to extend.
+          psql -h localhost -U postgres -c "CREATE PUBLICATION supabase_realtime;"
+          # pg_cron is not compiled into postgres:16-alpine. Stub the cron schema
+          # so any migration referencing cron.schedule / cron.job finds them.
+          # Migration 0071 wraps CREATE EXTENSION pg_cron in a safe DO block;
+          # these stubs ensure cron.schedule() calls in later migrations also work.
+          psql -h localhost -U postgres -c "CREATE SCHEMA IF NOT EXISTS cron;"
+          psql -h localhost -U postgres -c "CREATE TABLE IF NOT EXISTS cron.job (jobid bigserial PRIMARY KEY, schedule text, command text, nodename text, nodeport int, database text, username text, active boolean DEFAULT true, jobname text);"
+          psql -h localhost -U postgres -c "CREATE TABLE IF NOT EXISTS cron.job_run_details (jobid bigint, runid bigserial PRIMARY KEY, job_pid int, database text, username text, command text, status text, return_message text, start_time timestamptz, end_time timestamptz);"
+          # cron.schedule() stubs RECORD the job into cron.job (real pg_cron
+          # does too) so packages/db/test/cron_functions_smoke.sql can invoke
+          # each scheduled command and catch deferred-planning errors — the
+          # mig-0182 class where a function applies but throws at first run.
+          # unschedule() removes the row so dropped jobs aren't smoke-tested.
+          # These run during migration apply, so they stay no-throw.
+          psql -h localhost -U postgres -c "CREATE OR REPLACE FUNCTION cron.schedule(p_schedule text, p_command text) RETURNS bigint LANGUAGE sql AS \$\$ INSERT INTO cron.job(schedule, command) VALUES (p_schedule, p_command); SELECT 0::bigint \$\$;"
+          psql -h localhost -U postgres -c "CREATE OR REPLACE FUNCTION cron.schedule(p_name text, p_schedule text, p_command text) RETURNS bigint LANGUAGE sql AS \$\$ INSERT INTO cron.job(jobname, schedule, command) VALUES (p_name, p_schedule, p_command); SELECT 0::bigint \$\$;"
+          psql -h localhost -U postgres -c "CREATE OR REPLACE FUNCTION cron.unschedule(p_name text) RETURNS boolean LANGUAGE sql AS \$\$ DELETE FROM cron.job WHERE jobname = p_name; SELECT true \$\$;"
+          psql -h localhost -U postgres -c "CREATE OR REPLACE FUNCTION cron.unschedule(p_jobid bigint) RETURNS boolean LANGUAGE sql AS \$\$ SELECT true \$\$;"
+          # Supabase ships pgcrypto in the `extensions` schema; migrations 0091 +
+          # 0093 call `extensions.digest(...)` to hash policy text. On vanilla
+          # Postgres `CREATE EXTENSION pgcrypto` (in migration 0001) lands the
+          # function in `public`, and the `extensions` schema doesn't exist at
+          # all. Stub a schema + an md5-backed `digest()` so the qualified call
+          # resolves. The hash bytes differ from production but no migration
+          # enforces hash length or value, so CI just needs the call to apply.
+          psql -h localhost -U postgres -c "CREATE SCHEMA IF NOT EXISTS extensions;"
+          psql -h localhost -U postgres -c "CREATE OR REPLACE FUNCTION extensions.digest(data text, algorithm text) RETURNS bytea LANGUAGE sql AS \$\$ SELECT decode(md5(data), 'hex') \$\$;"
+          for f in packages/db/migrations/*.sql; do
+            echo "Applying $f"
+            if [[ "$f" == packages/db/migrations/0476_scan_resolver_ignores_dead_sales.sql ]]; then
+              # 0476's preflight demands prod's exact _find_lot_by_scan text;
+              # master's differs in comments only. Keep the preflight intact;
+              # the fixture refuses any non-comment difference.
+              psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+                -v bingo_empty_ci_fixture=0476_prod_function -f scripts/ci/fixture-0476-prod-find-lot-by-scan.sql
+            fi
+            if [[ "$f" == packages/db/migrations/0366_softdelete_catalog_misfire_20260921.sql ]]; then
+              # Run the unchanged one-off cleanup with a positive synthetic
+              # capture in this empty CI database; preserve its prod assertion.
+              test "${GITHUB_ACTIONS:-}" = true
+              psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+                -v bingo_empty_ci_fixture=0366_schema_only -f scripts/ci/fixture-0366.sql
+            else
+              psql -h localhost -U postgres -v ON_ERROR_STOP=1 -f "$f"
+            fi
+          done
+      - name: Run SQL RPC tests (resolve_category_ids_batch)
+        env:
+          PGPASSWORD: postgres
+        run: |
+          # Plain-psql assertion tests (no pgTAP extension required).
+          # resolve_category_ids_batch is STABLE + SECURITY DEFINER with no
+          # auth.uid() dependency so it runs fine as the postgres superuser.
+          # bulk_import_lots is NOT tested here — see test file header for rationale.
+          psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/resolve_category_ids_batch.sql
+      - name: Test the one-active-lot-per-item guard (mig 0294)
+        env:
+          PGPASSWORD: postgres
+        run: |
+          # Locks in BOTH directions of the 2026-07-28 duplicate incident, which
+          # flipped twice because each fix was verified in only one direction:
+          # separately-stickered boxes under one lineage root must list, while
+          # relist twins and ancestor/descendant pairs must still be refused.
+          # Self-contained fixtures inside a ROLLBACKed transaction.
+          psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/lineage_assign_guard.sql
+      - name: Test the scan resolver against relist collisions (mig 0304)
+        run: |
+          # The relist identity carryover leaves the box's printed label as BOTH
+          # the retired parent's lot_code and the raw half of the live child's
+          # sticker_code — 855 lot pairs on prod. The old first-hit ladder
+          # probed lot_code before sticker_code and so answered every one of
+          # those scans with the tombstone (no auction, stale bin).
+          # Two fixtures are the ones a refactor loses: the UNLINKED pair (188
+          # of the 855 have no relisted_from_lot_id back-pointer, so a
+          # lineage-only fix leaves them broken) and the hop-only pair (nothing
+          # but a tombstone matches, so the forward walk is the only answer).
+          # Also pins soft-delete exclusion, qr_token precedence, batch put-away
+          # filing against the live child, and pickup-by-sticker-label.
+          PGPASSWORD=postgres psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/scan_resolver_collision.sql
+      - name: Test the indexed manifest tracking probe (mig 0386)
+        run: |
+          # 2026-10-05 floor outage: every Wayfair label was in the pool, but the
+          # tracking probe's OR-of-LIKEs read the whole import_rows heap per
+          # scan (6-23 s on prod) and the staff role's 8 s statement_timeout
+          # turned that into "no manifest match". 0386 probes the exact value
+          # through the unique index first and only then the 154 list rows via
+          # a partial index. Pins: 12-digit and 34-digit FedEx scans, the list
+          # fallback, exact-beats-list, lotted rows excluded, clean misses,
+          # the partial index predicate, and <100 ms per call.
+          PGPASSWORD=postgres psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/find_import_row_by_scan_fast.sql
+      - name: Test the phantom relist-child retirement (mig 0306)
+        run: |
+          # Repeated relist clicks after a forfeit left duplicate in_inventory
+          # rows showing a sold box as available stock. The risk is cancelling
+          # something real: phantoms and the row holding the sale are siblings
+          # off the same parent, so the predicate is all that separates them.
+          # Every must-NOT-cancel shape is pinned — the auction holder, a row
+          # with bids, and the last row standing (cancelling that one erases
+          # the item from inventory) — plus the 0290 canceled_at stamp.
+          PGPASSWORD=postgres psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/phantom_relist_child.sql
+      - name: Test the relist-twin retirement (mig 0307)
+        run: |
+          # The tail of the 0306 class: clone pairs where nothing in the lineage
+          # ever reached an auction, so 0306's anchor (a sibling holding the
+          # sale) did not exist and one of the duplicates IS the item's only
+          # record. Keep the oldest, cancel the newer.
+          # The fixture that matters is duplicate_lot (0299): that feature makes
+          # two identical in_inventory siblings for two REAL boxes on purpose,
+          # and only the absent lineage and a differing intake_at separate them
+          # from a clone pair. Also pins keep-the-oldest (nothing may erase an
+          # item), sticker-bound and bid-carrying rows, and the audit that keeps
+          # the unanchored tail visible.
+          PGPASSWORD=postgres psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/duplicate_relist_twin.sql
+      - name: Test that a collected item can never be resold (migs 0355/0356)
+        run: |
+          # 2026-09-14 incident: items handed over at the counter were forfeited
+          # by the sweep and relisted; second buyers found empty shelves. Pins
+          # the relist guard across the WHOLE lineage (stamp or customer tick on
+          # any ancestor blocks, a put-away scan or a refund clears), the
+          # late-pickup restore (stamping a line on an unsold lot puts it back
+          # to won), completion stamping its lines, and an end-to-end replay of
+          # a partial pickup through auto_mark_pickup_no_show.
+          PGPASSWORD=postgres psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/collected_item_never_resold.sql
+      - name: Test the handover-invariant monitor and reclaim guard (migs 0357/0358)
+        run: |
+          # Second layer for the 2026-09-14 incident. Each detector case breaks
+          # the guard that normally prevents the state (trigger disabled inside
+          # the rolled-back transaction) and confirms the pg_cron monitor
+          # reports it, then confirms the real remediation resolves the row.
+          # Also pins: the 0358 trigger refuses a collected lot returning to
+          # stock, an unguarded sweep tick rolls back whole, and returns /
+          # put-away scans never trip either layer.
+          PGPASSWORD=postgres psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/collected_item_invariant_monitor.sql
+      - name: Test the untracked-manifest dedupe (mig 0310)
+        run: |
+          # The daily import-d2l-folder run re-inserted every untracked box on
+          # every schedule tick: import_rows_tracking_uniq is UNIQUE (operator,
+          # tracking_number) and NULLs are distinct in a plain btree, so the
+          # importer's ON CONFLICT never fired for a box with no tracking
+          # number. 18,297 prod rows stood in for 923 real units, +812/day.
+          # The KEY is the risk, not the delete. 0309 keyed on how many rows
+          # arrived in a day and would have destroyed 123 real units while
+          # keeping 1,207 phantoms; 0310 keys on unit identity. So the fixtures
+          # that matter are the ones that must NOT collapse — two unit_ids
+          # under one order+sku, and a legacy line with ReturnedQuantity 2 —
+          # pinned alongside the UPC fan-out that must, the closed NULL hole,
+          # and the tracked population that was never broken.
+          PGPASSWORD=postgres psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/import_rows_source_key_dedupe.sql
+      - name: Test every app ON CONFLICT target is resolvable (contract)
+        run: |
+          # The seam that bit us three times in one week: a unit test proves the
+          # code builds the right query STRING; nothing proved the database would
+          # accept the query PostgREST DERIVES from it. On 2026-09-19 a manifest
+          # import 500'd because commitImport upserts on (operator_id, source_key)
+          # via PostgREST — a predicate-less ON CONFLICT — against a PARTIAL index
+          # that only a WHERE-bearing raw statement could infer. The old SQL test
+          # even wrote the predicate form, so it validated a query the app cannot
+          # send. This test enumerates every onConflict target in the app and
+          # asserts each is inferable by a predicate-less ON CONFLICT, i.e. backed
+          # by a FULL unique index on exactly those columns. Keep its target list
+          # in sync with `grep -rn onConflict: apps/operator-web/src`.
+          PGPASSWORD=postgres psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/onconflict_targets_resolvable.sql
+      - name: Test the carrier-barcode sticker guard (mig 0308)
+        run: |
+          # Wayfair returns arrive on FedEx labels, and the label's barcode wins
+          # the camera frame over the colour sticker — three lots on 2026-08-02
+          # bound the tracking number as their sticker_code, which is what the
+          # worklist then displays. The old guard only caught numerics with a
+          # valid GS1 check digit; FedEx tracking uses mod-11 and sailed through.
+          # This is a SHAPE rule, so the ACCEPT cases carry the risk, not the
+          # rejects: every real sticker family on prod (PNK/BRN/TEA colour
+          # labels, LPNs, vendor SKUs, ASINs) is pinned as still bindable. A
+          # tightening that flags 'SZQW-US-VD035-WE-A-M05' stops lotting cold.
+          # Also pins the manual-entry override, rebind carrying the same guard,
+          # 0283's twin guard surviving the rewrite, and repairable=false once a
+          # lot has been filed into a bin.
+          PGPASSWORD=postgres psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/carrier_barcode_sticker.sql
+      - name: Test the relist location repair (mig 0305)
+        run: |
+          # relist copies intake_bin_id onto the child, then a put-away scan
+          # that resolved to the retired ancestor (the mig 0304 bug) wrote the
+          # real location there instead. 102 lots on prod; two customers were
+          # sent to an empty shelf on 2026-07-31.
+          # The DIRECTION is the risk: copying the wrong side sends staff to a
+          # shelf the item was never on. Both fixtures that must NOT move are
+          # pinned — a child re-binned more recently than its ancestor, and a
+          # child whose ancestor is not a relisted tombstone. Plus idempotency.
+          PGPASSWORD=postgres psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/relist_location_drift.sql
+      - name: Test PIN-worker attribution on both create paths (mig 0321)
+        run: |
+          # 0321 adds an OVERLOAD to create_draft_lot and relist_lot_into_auction
+          # rather than rewriting either (their bodies are 7KB and ~300 lines of
+          # hot-path lotting/lineage logic). The risk that buys is overload
+          # MIS-RESOLUTION, which would either break lotting on the warehouse
+          # floor or silently keep attributing nothing — so both the old and the
+          # new arity are pinned for each function.
+          # Also pins that a foreign-operator or inactive worker id is dropped to
+          # NULL rather than raising: attribution must never block a lot create.
+          # Prod before this: relists 0% attributed (48% of volume), fresh lots
+          # 61.8% via a fire-and-forget client UPDATE that swallowed failures.
+          PGPASSWORD=postgres psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/lot_worker_attribution.sql
+      - name: New lots carry their load (mig 0428)
+        env:
+          PGPASSWORD: postgres
+        run: |
+          # create_draft_lot/24 stamps the shift's load (same operator, not
+          # archived; never blocks a lot); /22 and /23 unchanged; a relist
+          # child inherits its parent's load; a manifest lot takes its import's
+          # load and that beats the shift pick; nothing overwrites a load.
+          psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/lots_carry_load.sql
+      - name: Load summary numbers (mig 0429)
+        env:
+          PGPASSWORD: postgres
+        run: |
+          # load_summary(load): lots / sold / unsold / gross / refunds / net
+          # (tax excluded) / profit, relist copies counted through their
+          # original lot, checked against hand-worked numbers; admin/manager
+          # of the load's operator only; PUBLIC has no EXECUTE.
+          psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/load_summary.sql
+      - name: anon cannot call the load functions (mig 0430)
+        env:
+          PGPASSWORD: postgres
+        run: |
+          # load_summary and create_draft_lot/24: anon and PUBLIC have no
+          # EXECUTE; authenticated and service_role keep it.
+          psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/revoke_anon_load_functions.sql
+      - name: Lock down the 0382 snapshot table (mig 0490)
+        env:
+          PGPASSWORD: postgres
+        run: |
+          # 2026-11-04 security advisor: the 0382 snapshot table had RLS off.
+          # Pins RLS on with no policies, anon/authenticated with no SELECT or
+          # UPDATE even if granted again, and service_role still able to read.
+          psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/stranded_drafts_rls.sql
+      - name: Preflight labels tracked-only readers and catches string bodies (#738)
+        env:
+          PGPASSWORD: postgres
+        run: |
+          # 2026-11-04: the 0382 preflight must say its catalog sections are
+          # tracked dependencies only (not a complete reader audit) and must
+          # surface a string-bodied reader that pg_depend cannot see.
+          psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/tracked_catalog_preflight.sql
+      - name: Test worker reports add up across locations (mig 0420)
+        run: |
+          # 2026-10-13: Tim read 41 under All locations and 36 under Crandall;
+          # unshelved drafts (no warehouse) counted under All and nowhere else.
+          # Pins All = every location + unshelved on both report functions, and
+          # that a location's own numbers still exclude the drafts.
+          PGPASSWORD=postgres psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/worker_reports_unshelved.sql
+      - name: Test atomic photo append (mig 0489)
+        run: |
+          # RED TEAM on #683: two devices attaching to the same lot erased
+          # each other's photo (read then write), and a zero-row update
+          # reported success. Pins: two appends both survive, repeat is a
+          # no-op, unsafe host reports ok=false, cross-operator refused,
+          # deleted lot refused.
+          PGPASSWORD=postgres psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/append_lot_photo_url.sql
+      - name: Test atomic photo removal (mig 0491)
+        run: |
+          # RED TEAM on #683: the inventory Save wrote the whole photo_urls
+          # array, erasing a photo another device had just attached. Pins:
+          # removing one URL keeps a concurrently appended one, absent/empty
+          # removals are ok no-ops, cross-operator refused, deleted lot refused.
+          PGPASSWORD=postgres psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/remove_lot_photo_urls.sql
+      - name: Test atomic photo reorder (mig 0492)
+        run: |
+          # RED TEAM on #683: "Make Hero" changes only the order, so the
+          # atomic add/remove delta never persisted it. Pins: reordering moves
+          # the named photo first and keeps a concurrent attachment at the end,
+          # a URL another device removed is not re-added, empty is a no-op,
+          # cross-operator refused, deleted lot refused.
+          PGPASSWORD=postgres psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/reorder_lot_photo_urls.sql
+      - name: Test photo reorder under a concurrent append (mig 0492)
+        run: |
+          # RED TEAM on #683: reorder read photo_urls, then wrote an order
+          # built from that stale snapshot, so an append committed in between
+          # disappeared (and a removal could be resurrected). Uses a second
+          # PostgreSQL session (dblink): session A locks the row and appends,
+          # session B's reorder must keep the concurrent URL. Requires the read
+          # to take the row lock (`FOR UPDATE`).
+          PGPASSWORD=postgres psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/reorder_lot_photo_urls_concurrency.sql
+      - name: Test the in-flight refund claim (mig 0389)
+        run: |
+          # 2026-10-05: 13 invoices had the same line refunded twice, one or
+          # two minutes apart. The per-line guard stops a sequential repeat;
+          # claim_refund stops two requests in flight at once. Pins: second
+          # identical claim refused inside the window, different key allowed,
+          # release and expiry re-allow, bad input refused without error.
+          PGPASSWORD=postgres psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/refund_claims.sql
+      - name: Test per-day money (mig 0417 + 0422)
+        run: |
+          # 2026-10-14: console "Revenue" summed status='paid' invoices, so a
+          # partial refund dropped the whole invoice ($37.6k shown vs $52.3k
+          # charged, Sept 30-Oct 12). Pins: a partially refunded invoice counts
+          # its full gross on its paid day (Chicago, incl. an after-6-PM sale)
+          # and its refund comes off the refund day; multi-day refunds split
+          # by audit row. 0422: refunds come from operator_refund_ledger, so
+          # every day's refunds equal operator_money_summary and
+          # operator_reports_period_summary for that day (one source).
+          PGPASSWORD=postgres psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/money_daily_revenue.sql
+      - name: Test bidder_credits buckets (mig 0517)
+        env:
+          PGPASSWORD: postgres
+        run: |
+          # Additive cash/credit buckets on the existing ledger (#893). Pins:
+          # one spend row per invoice with split columns; unique indexes still
+          # reject a second spend/reversal; UPDATE/DELETE raise; NULL bucket is
+          # legacy credit; flag-off insert shape still records 3000 spend on a
+          # 10000 invoice (card remainder 7000); no FK CASCADE/SET NULL;
+          # probe CASCADE/SET NULL cannot silently erase rows; rollback
+          # refuses cash-bucket / business-owned / split-spend data that a
+          # reason-only guard would allow. ROLLBACKed transaction.
+          PGPASSWORD=postgres psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/bidder_credits_buckets.sql
+      - name: Test the self-raise guard (mig 0350)
+        env:
+          PGPASSWORD: postgres
+        run: |
+          # A "self-raise" must never LOWER a bidder's maximum. The missing
+          # guard shipped in 0216 and was copied forward verbatim into 0221 and
+          # 0263 — three rewrites, same defect — because the self-raise path is
+          # an UPDATE with no history row, so nothing about it is visible. It
+          # cost 16 bidders a win between 2026-07-08 and 2026-09-08 before a
+          # customer complaint surfaced it. A fourth rewrite would be just as
+          # silent, which is why this is pinned in CI and not in a comment.
+          PGPASSWORD=postgres psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/place_bid_self_raise_guard.sql
+      - name: Test relocate follows the live lot (mig 0311)
+        run: |
+          # 0305 repaired relist children stranded by put-away SCANS and keyed
+          # its predicate on intake_at. The Bin Audit "Move here" path
+          # (audit_relocate_lot) deliberately does NOT stamp intake_at — a
+          # shelf-to-shelf move must not reset age-in-inventory — so 0305 was
+          # blind to every pair drifted that way. 40 on prod, 17 of them `won`.
+          # Staff worked around it by reading the OLD record's "last known on
+          # this record" bin, which is how we know the ancestor holds the box.
+          # Pins BOTH halves: the redirect (a location write aimed at a
+          # tombstone lands on its one live successor, and does NOT when there
+          # are zero or several) and the repair, including the two fixtures
+          # that must NOT move and idempotency.
+          # Also pins the mig-0312 chain behaviour: relist lineage is a chain,
+          # not a pair, and the repair propagates ONE generation per run. A
+          # root relocate leaves mid+leaf holding the SAME stale copy, so
+          # mid-vs-leaf agree and the leaf is invisible until mid is fixed.
+          # Applying 0311 to prod proved it (pass 1: 40 rows, pass 2: 6,
+          # pass 3: 2, pass 4: converged). Fixtures pin that one pass reaches
+          # only the middle generation, that the fixpoint driver finishes the
+          # job, that it stops at a generation which was itself scan-binned,
+          # and that a second call is stable (no oscillation).
+          PGPASSWORD=postgres psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/relocate_follows_live_lot.sql
+      - name: Test invoice_lots.forfeited_at (mig 0301)
+        run: |
+          # Makes "is this line still owed?" answerable from invoice_lots alone
+          # (picked_up_at / refunded_at / forfeited_at all NULL). Before 0301
+          # forfeiture lived only on the pickup row while its siblings lived on
+          # the line, which is how the 2026-07-29 display bug happened: code
+          # reasoning from the line called a forfeited item "Ready to collect"
+          # and printed its shelf location. Asserts the stamp lands on open
+          # lines only, never overwrites a collected/refunded line, and does not
+          # move when an already-forfeited pickup is touched again.
+          PGPASSWORD=postgres psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/invoice_lots_forfeited_at.sql
+      - name: Test undo_invoice_line_pickup (mig 0487)
+        run: |
+          # #702: TEA3828564 was marked picked up by mistake and the only way
+          # back was a one-off migration, because nothing in the console can
+          # clear invoice_lots.picked_up_at. Pins the reversal: admin only (a
+          # manager AND a picker are refused — #706), reason >= 5 chars,
+          # refunded/unpaid/foreign/relisted lines refused, one audit row, a
+          # second call a no-op, and the bin assignment + completed pickup also
+          # put back. A forfeited (0256 forfeited-not-resold) line is allowed
+          # and reports forfeit_remains, so 0444's undo forfeit can run next.
+          PGPASSWORD=postgres psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/undo_invoice_line_pickup.sql
+      - name: Test undo_invoice_line_pickup two-connection races (mig 0487, #798)
+        run: |
+          # The preflight and the RPC owed-count use READ COMMITTED, so a
+          # refund, move/re-stage or completion can commit between the decision
+          # and the writes. This file drives the real functions from a SECOND
+          # connection (dblink) and covers both orders of refund/restore,
+          # move/restore and undo/confirm through staff_confirm_pickup and
+          # manager_pickup_override. Requires the dblink contrib extension,
+          # which the pgvector/pg16 CI image provides.
+          PGPASSWORD=postgres psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/undo_invoice_line_pickup_concurrency.sql
+      - name: Test staff_confirm_pickup unique code resolution (mig 0509, #808)
+        run: |
+          # 0304/0487 matched a supplied code against lot_code OR the sticker
+          # raw half on every line, but stamped only one arbitrary row. Pins
+          # 0509: a code that matches more than one line is refused as
+          # 'pickup_code_ambiguous' before any line, bin, pickup, audit or
+          # notification write; a unique code still trips pickup_incomplete
+          # when a sibling is owed; and lot_code + sticker for the same line
+          # dedupe to one stamp.
+          PGPASSWORD=postgres psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/pickup_ambiguous_code.sql
+      - name: Test clear_sticker_code (mig 0300)
+        run: |
+          # Pins the pool-release SCOPE. Clearing a lot's sticker frees its
+          # lot_sticker_pool claim so the physical label can be re-claimed, but
+          # the release is keyed on claimed_by_lot_id = this lot. Unscoped (e.g.
+          # by sticker_code or operator alone) it would free a sticker another
+          # lot legitimately holds and two lots would fight over one label. The
+          # fixture keeps a second lot holding its own sticker and asserts that
+          # claim survives. Also pins the floor-recovery gate and idempotency.
+          PGPASSWORD=postgres psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/clear_sticker_code.sql
+      - name: Test duplicate_lot (mig 0299)
+        run: |
+          # Pins the RELIST vs DUPLICATE distinction. A duplicate is a DIFFERENT
+          # identical box, so it must carry NO relisted_from_lot_id — with
+          # lineage, a case of six identical items reads as six listings of one
+          # item to every guard built since 0275, which is the duplicate-listing
+          # class this repo spent a month closing. Also pins what must not be
+          # inherited (lot_code, sticker, qr_token, unit identity, bid/listing
+          # state) against what must (item + product detail, photos).
+          # Also pins mig 0322: a duplicate of a SHELVED source lands
+          # in_inventory on that same bin (assignable to an auction, with
+          # intake_at = now so the aging report is not backdated), and a
+          # duplicate of a shelfless one lands in pending_intake claiming no
+          # location. Neither may be 'draft' — nothing lists draft, so those
+          # duplicates were reachable only by searching for them one at a time.
+          # Self-contained fixtures inside a ROLLBACKed transaction.
+          PGPASSWORD=postgres psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/duplicate_lot.sql
+      - name: Location history crosses the relist boundary (mig 0328)
+        env:
+          PGPASSWORD: postgres
+        run: |
+          # A relist mints a NEW lots row, so "where is it?" answered from that
+          # row alone is the answer staff already know is wrong. Pins that
+          # lot_location_history walks the chain in BOTH directions (a picker
+          # can scan either generation's label), that the trigger logs a real
+          # shelf change, and — the one that keeps the log usable — that a
+          # no-op write does not flood it with phantom moves.
+          PGPASSWORD=postgres psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/lot_location_history.sql
+      - name: Check notification kinds used in code exist in the enum (mig 0298)
+        env:
+          PGPASSWORD: postgres
+        run: |
+          # Catches the mig-0292 class: code enqueues a notifications_outbox row
+          # whose `kind` is not a notification_kind label, so every insert 22P02s
+          # at runtime while typecheck/lint/schema-migrations all stay green.
+          # 0292 shipped the marketing-campaign feature without its enum value:
+          # four runs, 410 recipients, zero enqueued, zero sent -- and the run
+          # rows still recorded healthy recipient counts. The same check found
+          # 'shipment_dispatched' missing too.
+          node scripts/check-notification-kinds.mjs \
+            "postgresql://postgres:postgres@localhost:5432/postgres"
+      - name: Test the pickup-session open-session indexes (mig 0297)
+        env:
+          PGPASSWORD: postgres
+        run: |
+          # Locks in the model 0293 described and 0297 delivers: one open
+          # session per warehouse PLUS one legacy all-locations session, with
+          # duplicates of either refused. 0293 added the per-warehouse index but
+          # never dropped the bidder-wide one, so warehouse-scoped inserts
+          # 23505'd and getOrCreateOpenSession returned null -- 49 of 107
+          # bidders with items to collect had no pickup pass at all.
+          # Self-contained fixtures inside a ROLLBACKed transaction.
+          psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/pickup_session_open_indexes.sql
+      - name: Test the relist active-child guard on refunds (mig 0296)
+        env:
+          PGPASSWORD: postgres
+        run: |
+          # Locks in BOTH directions of the 2026-07-29 "unable to relot refunded
+          # items" report: a won-then-REFUNDED child must stop blocking its
+          # parent (the item came back to the shelf), while a live/scheduled/
+          # draft child, or a won child that was NOT refunded, must still refuse.
+          # The canceled/unsold rows guard against regressing 0285's legitimate
+          # re-relist case. Self-contained fixtures inside a ROLLBACKed
+          # transaction.
+          psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/relist_refunded_child_guard.sql
+      - name: Test the relist label reclaim (mig 0314)
+        env:
+          PGPASSWORD: postgres
+        run: |
+          # The box's printed label is how staff and customers track an item
+          # (owner decision 2026-08-07), but 0213's derive step refused it to
+          # every new relist child whenever a STALE record of the same box —
+          # usually the unsold previous attempt — still wore it. Pins the
+          # reclaim (unsold / canceled / won-refunded kin are stripped, direct
+          # child and deep-walk shapes both) and, more importantly, its limits:
+          # never from a won kin with an active claim (a customer is owed that
+          # box), never across trees (a different physical box), and the plain
+          # 0192 source-wears handover unchanged. Self-contained fixtures
+          # inside a ROLLBACKed transaction.
+          psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/relist_label_reclaim.sql
+      - name: Test lots.display_code resolution (mig 0315)
+        env:
+          PGPASSWORD: postgres
+        run: |
+          # The computed column every surface reads to show the label that is
+          # physically on the box. 0314 fixed which row OWNS the label; this is
+          # what fixed READING it — a lot whose label lives on a legacy
+          # ancestor's lot_code showed the customer a synthetic BIN-###### that
+          # appears nowhere on the box (2026-08-10 field report). Pins the
+          # resolution order, that a synthetic ancestor code is never inherited,
+          # that it resolves deeper than the two ancestors a PostgREST embed
+          # returns, and that a lineage cycle terminates.
+          psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/lot_display_code.sql
+      - name: Test scan resolves to the current lineage member (mig 0316)
+        env:
+          PGPASSWORD: postgres
+        run: |
+          # A scanned label must return the box's CURRENT record. 0304 hopped
+          # forward only off a tombstone and only DOWNWARD, so a box that went
+          # unsold and was relisted resolved to the superseded unsold twin —
+          # the current record is its SIBLING, which a descend-only walk cannot
+          # reach (2026-08-10, TEA4951993 at the pickup counter). Pins the
+          # sibling hop, that an already-current row is untouched, that 0304's
+          # tombstone walk still works, that an unpicked purchase outranks a
+          # newer relist, and that a lineage cycle degrades safely.
+          psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/scan_resolves_current_member.sql
+      - name: Test /reports totals cover every invoice (mig 0418)
+        env:
+          PGPASSWORD: postgres
+        run: |
+          # 2026-10-14: /reports summed only the first 1,000 invoices in JS
+          # (1,677 in range: $25,295.63 shown vs $41,846.26). Pins exact cent
+          # totals over 1,202 invoices, the Chicago month edge, operator
+          # scoping, agreement with operator_money_summary, and the staff gate.
+          psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/operator_reports_period_summary.sql
+      - name: Test refunds land on the refund date on both money reports (mig 0421)
+        env:
+          PGPASSWORD: postgres
+        run: |
+          # 2026-10-14: the Money page and /reports subtracted a refund in the
+          # month the invoice was PAID. Pins: a September sale refunded in
+          # October shows gross in September and the refund in October, on
+          # operator_money_summary AND operator_reports_period_summary, which
+          # agree; all-time totals still equal the invoice accumulators.
+          psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/refunds_by_refund_date.sql
+      - name: Test lots.category_id follows a category edit (mig 0419)
+        env:
+          PGPASSWORD: postgres
+        run: |
+          # Editing lots.category (console lot edit, staff worklist) left the
+          # old category_id, so the bidder browse filter kept the lot under its
+          # old category. Pins the re-point on edit, that a picked id survives
+          # an unresolvable edit, and that an explicit category_id in the same
+          # UPDATE wins. Self-contained fixtures inside a ROLLBACKed transaction.
+          psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/lot_category_id_follows_edit.sql
+      - name: Test app version tables + ping RPC (mig 0424)
+        env:
+          PGPASSWORD: postgres
+        run: |
+          # app_versions (public read, service_role writes) and
+          # record_app_version_ping (one row per user/device/app/Chicago day).
+          # Pins the seed, that anon reads but cannot write or see updated_by,
+          # that pings are RPC-only, the same-day upsert, input validation,
+          # and that user_id comes from the JWT sub. ROLLBACKed transaction.
+          psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/app_versions.sql
+      - name: Missing Items report and resolve actions (mig 0426)
+        env:
+          PGPASSWORD: postgres
+        run: |
+          # Report = 0345's rule; Found puts away and lets a relist through;
+          # Confirmed missing writes off; Unsellable flags then disposes; roles,
+          # other operators and anon are refused. ROLLBACKed transaction.
+          psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/missing_item_checks.sql
+      - name: Smoke-test cron functions (runtime plan-error guard)
+        env:
+          PGPASSWORD: postgres
+        run: |
+          # Catches the mig-0182 class: a plpgsql cron function that applies via
+          # CREATE OR REPLACE (so schema-migrations stays green) but throws at
+          # first execution because planning is deferred. Invokes every
+          # cron.schedule'd command once against the empty migrated DB; fails
+          # only on schema/plan-class errors. See the SQL file header.
+          psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/cron_functions_smoke.sql
+      - name: Smoke-test app read paths (column/FK/RLS/RPC drift)
+        env:
+          PGPASSWORD: postgres
+        run: |
+          # Catches the write->read drift class (operator-settings audit, PRs
+          # #203/#204): an app reads a column / PostgREST embed / RLS policy /
+          # RPC that a migration renamed or removed. Passes tsc (untyped
+          # clients) + schema-migrations, fails only at runtime. This runs each
+          # critical query shape (WHERE false) + catalog assertions against the
+          # freshly-migrated schema. See the SQL file header.
+          psql -h localhost -U postgres -v ON_ERROR_STOP=1 \
+            -f packages/db/test/app_read_paths_smoke.sql

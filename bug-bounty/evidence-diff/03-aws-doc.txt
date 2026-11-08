@@ -1,0 +1,14 @@
+AWS documentation — "Your Elastic Beanstalk environment's Domain name"
+https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customdomains.html
+
+  By default, your environment is available to users at a subdomain of
+  elasticbeanstalk.com. When you create an environment, you can choose a hostname
+  for your application. The subdomain and domain are autopopulated to
+  `<region>.elasticbeanstalk.com`. To route users to your environment, Elastic
+  Beanstalk registers a CNAME record that points to your environment's load balancer.
+
+  Important: "If you terminate an environment, you must also delete any CNAME
+  mappings that you created, as other customers can reuse an available hostname.
+  Be sure to delete DNS records that point to your terminated environment to prevent
+  a dangling DNS entry. A dangling DNS entry can expose internet traffic destined
+  for your domain to security vulnerabilities."

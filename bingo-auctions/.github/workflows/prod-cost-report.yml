@@ -1,0 +1,107 @@
+# Weekly read-only cost report against BinGo prod.
+#
+# Watches what queries COST rather than how they are spelled. The 2026-09-19
+# outage — one unindexed lookup on `lots`, 31.4 CPU-hours over 11 days —
+# was visible in pg_stat_statements for five days before anyone noticed, and
+# the saturation episodes it caused began on 09-14.
+#
+# Deliberately NOT a PR gate. Cost is rows x calls and neither is in a diff,
+# so a syntactic rule (no leading wildcards, say) fires on legitimate
+# staff-facing searches and misses the next expensive query written slightly
+# differently. See the header of scripts/prod-cost-report.mjs.
+#
+# Every statement is a SELECT against a pg_stat / pg_catalog view: no writes,
+# no locks, no customer data. Safe during warehouse hours (CLAUDE.md Rule 9).
+#
+# Output goes to the run summary. When a threshold is crossed it also opens or
+# updates ONE issue labelled `prod-cost` — a report nobody reads is the same
+# failure as no report, and a new issue every week is the same failure again.
+
+name: Prod cost report (BinGo)
+
+on:
+  schedule:
+    # Mondays 13:00 UTC (~8am Central). Start of the week so a finding has
+    # five working days to be acted on, not discovered on a Friday evening.
+    - cron: '0 13 * * 1'
+  workflow_dispatch:
+
+concurrency:
+  group: prod-cost-report
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Guard secret
+        env:
+          HAS_PAT: ${{ secrets.SUPABASE_ACCESS_TOKEN != '' }}
+        run: |
+          if [ "$HAS_PAT" != "true" ]; then
+            echo "::error::SUPABASE_ACCESS_TOKEN repo secret is not set."
+            exit 1
+          fi
+
+      - name: Run cost report
+        id: report
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          # Required, not an override: the script has no default project ref,
+          # so a missing value can never silently target ClovrBid (this repo's
+          # upstream) instead of BinGo.
+          SUPABASE_PROJECT_REF: npwseclcxcatjhgjrtwe
+        run: |
+          set +e
+          node scripts/prod-cost-report.mjs > report.md
+          code=$?
+          set -e
+          # 0 = clean, 2 = thresholds crossed, anything else = the run broke.
+          if [ "$code" != "0" ] && [ "$code" != "2" ]; then
+            cat report.md || true
+            echo "::error::cost report failed with exit $code"
+            exit "$code"
+          fi
+          echo "findings=$([ "$code" = "2" ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+          cat report.md >> "$GITHUB_STEP_SUMMARY"
+          cat report.md
+
+      - name: Open or update the cost issue
+        if: steps.report.outputs.findings == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          {
+            echo "Automated weekly report. Thresholds and the reasoning behind each are in"
+            echo "\`scripts/prod-cost-report.mjs\`; the incident that motivated them is RUNBOOK 3.1."
+            echo ""
+            cat report.md
+            echo ""
+            echo "[Full run]($RUN_URL)"
+          } > issue.md
+
+          # One issue, reused. A weekly issue nobody closes is noise; an issue
+          # that keeps growing is a record of whether this is getting worse.
+          existing=$(gh issue list --label prod-cost --state open \
+                       --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body-file issue.md
+            echo "commented on #$existing"
+          else
+            gh label create prod-cost --description "Weekly prod cost report findings" \
+              --color B60205 2>/dev/null || true
+            gh issue create --title "Prod cost report: thresholds crossed" \
+              --label prod-cost --body-file issue.md
+          fi

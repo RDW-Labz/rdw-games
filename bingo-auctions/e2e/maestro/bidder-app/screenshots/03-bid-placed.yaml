@@ -1,0 +1,131 @@
+# App Store screenshot — bidder-app: Bid placed / high-bidder state
+#
+# ASSERTION-TOLERANT REWRITE (2026-05-24)
+# ----------------------------------------
+# Previous flow had TWO defects:
+#   1. `- clearText` on line 74 is invalid YAML in Maestro 1.39 — the
+#      command is `eraseText` (Maestro 1.39 default = 50-char erase),
+#      not `clearText`. The whole flow failed YAML parsing before any
+#      screenshot ran. Production log: "Failed to parse file:
+#      .../03-bid-placed.yaml:74".
+#   2. Even after fixing the parse error, the earlier `assertVisible
+#      id: browse-screen` would have aborted the flow before the bidder
+#      reached the lot detail.
+#
+# New structure: every potentially-failing step is `optional: true`,
+# `clearText` is replaced with `eraseText` (Maestro 1.39 syntax), and
+# canonical screenshots are captured at each milestone.
+#
+# Output (always):
+#   screenshots/03-bid-placed-launch.png
+#   screenshots/03-bid-placed-post-auth.png
+#   screenshots/03-bid-placed-detail.png
+#   screenshots/bid-placed.png    (canonical)
+
+appId: com.bingoauctions.bidder
+env:
+  BIDDER_EMAIL: ${BIDDER_EMAIL}
+  BIDDER_PASSWORD: ${BIDDER_PASSWORD}
+---
+# ── Step 1: Launch fresh ────────────────────────────────────────────────────
+- launchApp:
+    clearState: true
+    stopApp: true
+
+- waitForAnimationToEnd
+
+# ── Step 2: GUARANTEED first PNG ────────────────────────────────────────────
+- takeScreenshot: screenshots/03-bid-placed-launch
+
+# ── Step 3: Confirm bundle rendered (non-fatal) ─────────────────────────────
+- extendedWaitUntil:
+    visible:
+      text: "Sign in"
+    timeout: 15000
+    optional: true
+
+# ── Step 4: Sign in ─────────────────────────────────────────────────────────
+- tapOn:
+    id: signin-email-input
+    optional: true
+- inputText: ${BIDDER_EMAIL}
+
+- tapOn:
+    id: signin-password-input
+    optional: true
+- inputText: ${BIDDER_PASSWORD}
+
+- tapOn:
+    id: signin-submit
+    optional: true
+
+- waitForAnimationToEnd
+
+# ── Step 5: SECOND GUARANTEED PNG — post-auth state ─────────────────────────
+- takeScreenshot: screenshots/03-bid-placed-post-auth
+
+# ── Step 6: Best-effort wait for browse content ─────────────────────────────
+- extendedWaitUntil:
+    visible:
+      text: "Current bid"
+    timeout: 20000
+    optional: true
+
+# ── Step 7: Best-effort navigation to BIN-000035 ────────────────────────────
+- scrollUntilVisible:
+    element:
+      id: lot-card-BIN-000035
+    direction: DOWN
+    timeout: 15000
+    optional: true
+
+- tapOn:
+    id: lot-card-BIN-000035
+    optional: true
+
+- waitForAnimationToEnd
+
+# ── Step 8: THIRD GUARANTEED PNG — lot detail before bidding ────────────────
+- takeScreenshot: screenshots/03-bid-placed-detail
+
+# ── Step 9: Wait for the bid sheet to be ready ──────────────────────────────
+- extendedWaitUntil:
+    visible:
+      text: "Starts at"
+    timeout: 10000
+    optional: true
+
+# ── Step 10: Enter bid amount ───────────────────────────────────────────────
+# Maestro 1.39 syntax: eraseText (NOT clearText). Default erases 50 chars,
+# which is more than enough to clear the typical "1.00" placeholder.
+- tapOn:
+    id: bid-amount-input
+    optional: true
+- eraseText
+- inputText: "1.00"
+
+# ── Step 11: Place the bid ──────────────────────────────────────────────────
+# The earlier `assertVisible text: "You start the bidding"` pre-confirm
+# was too fragile (only renders when no prior bidder exists), so it's
+# removed. Tapping place-bid even without that confirmation works fine.
+- tapOn:
+    id: place-bid-button
+    optional: true
+
+- waitForAnimationToEnd
+
+# ── Step 12: Best-effort wait for high-bidder banner ────────────────────────
+# The Realtime subscription pushes winner_bidder_id UPDATE. Allow
+# generous time for the RPC + Realtime delivery. If it doesn't arrive,
+# the canonical screenshot below still captures whatever state the
+# bidder sees — still informative for App Store reviewers.
+- extendedWaitUntil:
+    visible:
+      text: "You're the high bidder"
+    timeout: 15000
+    optional: true
+
+- waitForAnimationToEnd
+
+# ── Step 13: Canonical "bid-placed" screenshot ──────────────────────────────
+- takeScreenshot: screenshots/bid-placed

@@ -1,0 +1,632 @@
+name: Maestro Smoke
+
+# Runs the Maestro smoke-launch flows on iOS Simulator (macOS) and Android
+# Emulator (ubuntu) in parallel. Only the smoke-launch flows (00-smoke-launch)
+# are wired here because they need no live backend — the app just has to boot
+# and render the unauthenticated screen.
+#
+# The full bid flow (01-bid-flow.yaml) requires a live Supabase environment
+# and is best run via Maestro Cloud. Run it manually until Maestro Cloud is
+# provisioned:
+#   BIDDER_EMAIL=... BIDDER_PASSWORD=... maestro test e2e/maestro/bidder-app/01-bid-flow.yaml
+#
+# Screenshot job (ios-screenshots):
+#   Runs on workflow_dispatch only — screenshot flows require a live Supabase
+#   environment with seeded test data. The job runs AFTER the smoke ios job
+#   passes (needs: [ios]). It does NOT fail CI on imperfect screenshots; it
+#   always uploads whatever was captured as a GHA artifact so the team can
+#   inspect and polish in Figma / Photoshop.
+#
+#   Artifacts are named ios-app-store-screenshots-{device-name} and retained
+#   for 30 days. Download from the Actions tab > workflow run > Artifacts.
+#
+# Relationship to ios-simulator-smoke.yml / android-simulator-smoke.yml:
+#   Those workflows build the native app + do a raw crash check (8s survive).
+#   This workflow installs Maestro ON TOP of that and uses it as the assertion
+#   layer — it does not rebuild the app, it reuses the same simulator/emulator
+#   session after the existing smoke workflows run. For simplicity in this
+#   initial scaffold both jobs do their own minimal prebuild; once Maestro
+#   proves reliable, wire it as a dependent job that reuses build artifacts.
+#
+# Concurrency: cancel stale runs so rapid pushes don't queue up and consume
+# quota (macOS runners are 10× the minute-multiplier).
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_screenshots:
+        description: 'Also run the App Store screenshot flows (macOS, ~90 min). Off by default — the crash/launch smoke does not need it.'
+        type: boolean
+        default: false
+  push:
+    branches: [main, master]
+    paths:
+      - 'apps/bidder-app/**'
+      - 'apps/field-mobile/**'
+      - 'packages/**'
+      - 'e2e/maestro/**'
+      - '.github/workflows/maestro.yml'
+
+concurrency:
+  group: maestro-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # Placeholder backend — the smoke flows never authenticate or fetch data;
+  # they only assert the app boots and the login screen renders.
+  EXPO_PUBLIC_SUPABASE_URL: https://placeholder.supabase.co
+  EXPO_PUBLIC_SUPABASE_ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiJ9.placeholder
+  EXPO_PUBLIC_API_BASE_URL: https://placeholder.example.com
+  EAS_BUILD_PROFILE: development
+  CI: true
+  EXPO_NO_TELEMETRY: 1
+  EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+
+jobs:
+  # ── iOS — macOS runner ──────────────────────────────────────────────────
+  ios:
+    name: Maestro Smoke (iOS — ${{ matrix.app }})
+    runs-on: macos-15
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        app: [bidder-app, field-mobile]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # ── Select Xcode ≥ 16.1 (required by RN 0.81.5) ──────────────────
+      - name: Select newest Xcode
+        run: |
+          NEWEST=$(ls -d /Applications/Xcode_*.app 2>/dev/null | sort -V | tail -1)
+          if [[ -z "$NEWEST" ]]; then
+            NEWEST=/Applications/Xcode.app
+          fi
+          echo "DEVELOPER_DIR=$NEWEST/Contents/Developer" >> $GITHUB_ENV
+
+      - name: Show Xcode version
+        run: xcodebuild -version
+
+      # ── CocoaPods + Xcode caches ────────────────────────────────────────
+      - name: Cache CocoaPods specs
+        uses: actions/cache@v4
+        with:
+          path: ~/.cocoapods
+          key: cocoapods-specs-${{ matrix.app }}-${{ hashFiles(format('apps/{0}/Podfile.lock', matrix.app)) }}
+          restore-keys: cocoapods-specs-${{ matrix.app }}-
+
+      - name: Cache CocoaPods install
+        uses: actions/cache@v4
+        with:
+          path: apps/${{ matrix.app }}/ios/Pods
+          key: pods-${{ matrix.app }}-${{ hashFiles(format('apps/{0}/Podfile.lock', matrix.app)) }}
+          restore-keys: pods-${{ matrix.app }}-
+
+      - name: Cache Xcode DerivedData
+        uses: actions/cache@v4
+        with:
+          path: ~/Library/Developer/Xcode/DerivedData
+          key: derived-maestro-${{ matrix.app }}-${{ hashFiles(format('apps/{0}/Podfile.lock', matrix.app)) }}
+          restore-keys: derived-maestro-${{ matrix.app }}-
+
+      # ── Build bidder-app for simulator ─────────────────────────────────
+      - name: Prebuild (ios/)
+        working-directory: apps/${{ matrix.app }}
+        run: npx expo prebuild --platform ios --clean
+
+      - name: Pod install
+        working-directory: apps/${{ matrix.app }}/ios
+        run: pod install --repo-update
+
+      - name: Build .app for simulator
+        working-directory: apps/${{ matrix.app }}
+        run: |
+          set -euo pipefail
+          WORKSPACE=$(ls -d ios/*.xcworkspace | head -1)
+          SCHEME=$(basename "$WORKSPACE" .xcworkspace)
+          xcodebuild \
+            -workspace "$WORKSPACE" \
+            -scheme "$SCHEME" \
+            -configuration Release \
+            -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath ~/Library/Developer/Xcode/DerivedData \
+            CODE_SIGNING_ALLOWED=NO \
+            2>&1 | xcbeautify --renderer github-actions
+
+      # ── Boot simulator ─────────────────────────────────────────────────
+      - name: Boot iOS simulator
+        run: |
+          SIM_UDID=$(xcrun simctl list devices available --json \
+            | node -e "
+                const d = JSON.parse(require('fs').readFileSync('/dev/stdin','utf8'));
+                const iphones = Object.entries(d.devices)
+                  .flatMap(([k,v]) => v.map(dev => ({...dev, runtime: k})))
+                  .filter(d => d.name.startsWith('iPhone') && d.isAvailable);
+                iphones.sort((a,b) => b.runtime.localeCompare(a.runtime));
+                process.stdout.write(iphones[0].udid);
+              ")
+          echo "SIM_UDID=$SIM_UDID" >> $GITHUB_ENV
+          xcrun simctl boot "$SIM_UDID" || true
+
+      - name: Locate and install .app
+        run: |
+          APP_PATH=$(find ~/Library/Developer/Xcode/DerivedData -name "*.app" \
+            -not -name "*.appex" | grep -v "Wrapper" | head -1)
+          echo "APP_PATH=$APP_PATH" >> $GITHUB_ENV
+          xcrun simctl install "$SIM_UDID" "$APP_PATH"
+
+      # ── Install Maestro ────────────────────────────────────────────────
+      - name: Install Maestro CLI
+        run: |
+          export MAESTRO_VERSION=1.39.0
+          curl -fsSL https://get.maestro.mobile.dev | bash
+          echo "$HOME/.maestro/bin" >> $GITHUB_PATH
+
+      - name: Verify Maestro install
+        run: maestro --version
+
+      # ── Run smoke flow ─────────────────────────────────────────────────
+      - name: Run ${{ matrix.app }} smoke launch
+        run: |
+          maestro test \
+            --format junit \
+            --output /tmp/maestro-ios-results.xml \
+            e2e/maestro/${{ matrix.app }}/00-smoke-launch.yaml
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: maestro-ios-results-${{ matrix.app }}
+          path: /tmp/maestro-ios-results.xml
+          retention-days: 7
+
+  # ── Android — ubuntu runner ─────────────────────────────────────────────
+  android:
+    name: Maestro Smoke (Android — ${{ matrix.app }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        app: [bidder-app, field-mobile]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Free disk space
+        uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: false
+          android: false
+          dotnet: true
+          haskell: true
+          large-packages: true
+          docker-images: true
+          swap-storage: true
+
+      - name: Install dependencies
+        run: npm ci
+
+      # ── Build the standalone APK on EAS Cloud ────────────────────────────
+      # The free ubuntu runner OOMs on a local Hermes/Metro Gradle build
+      # (assembleDebug killed with SIGTERM / exit 143). EAS builds it on a
+      # capable worker instead. The `smoke-apk` profile is a placeholder-
+      # backend, JS-bundled, universal (all-ABI) APK with internal
+      # distribution — installable on the x86_64 emulator; we only assert the
+      # app boots. EAS Pro priority queue keeps this ~10-15 min.
+      - name: Build APK on EAS
+        working-directory: apps/${{ matrix.app }}
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: |
+          set -euo pipefail
+          npx eas-cli@latest build \
+            --platform android \
+            --profile smoke-apk \
+            --non-interactive \
+            --wait \
+            --json > /tmp/eas-build.json
+          echo "----- eas build --json -----"
+          cat /tmp/eas-build.json
+          URL=$(jq -r '.[0].artifacts.applicationArchiveUrl // .[0].artifacts.buildUrl // empty' /tmp/eas-build.json)
+          echo "APK_URL=$URL" >> "$GITHUB_ENV"
+          echo "Resolved APK URL: $URL"
+
+      - name: Download APK
+        run: |
+          set -euo pipefail
+          test -n "${APK_URL:-}" && test "$APK_URL" != "null"
+          curl -fSL "$APK_URL" -o /tmp/app.apk
+          ls -la /tmp/app.apk
+          echo "APK_PATH=/tmp/app.apk" >> "$GITHUB_ENV"
+
+      # ── AVD cache + emulator ─────────────────────────────────────────────
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | \
+            sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: Cache AVD snapshot
+        uses: actions/cache@v4
+        id: avd-cache
+        with:
+          path: |
+            ~/.android/avd/*
+            ~/.android/adb*
+          key: avd-android-34-maestro
+
+      - name: Create AVD + warm snapshot
+        if: steps.avd-cache.outputs.cache-hit != 'true'
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          target: google_apis
+          arch: x86_64
+          force-avd-creation: false
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: false
+          script: echo "AVD warmed."
+
+      # ── Install Maestro + run smoke flow ─────────────────────────────────
+      - name: Run ${{ matrix.app }} smoke launch in emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          target: google_apis
+          arch: x86_64
+          force-avd-creation: false
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: true
+          script: |
+            # android-emulator-runner runs `script` under /bin/sh (dash), which
+            # has no `-o pipefail`. Use `set -eu` (dash-safe), NOT `set -euo pipefail`.
+            set -eu
+
+            # Install the APK
+            adb install -r -t "$APK_PATH"
+            echo "APK installed."
+
+            # Install Maestro CLI. NOTE: android-emulator-runner runs each script
+            # line in a SEPARATE shell, so `export PATH` does not carry to the next
+            # line and multi-line `\` continuations break. Invoke maestro by
+            # ABSOLUTE PATH on a SINGLE line.
+            curl -fsSL https://get.maestro.mobile.dev | bash
+            "$HOME/.maestro/bin/maestro" --version
+            "$HOME/.maestro/bin/maestro" test --format junit --output /tmp/maestro-android-results.xml e2e/maestro/${{ matrix.app }}/00-smoke-launch.yaml
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: maestro-android-results-${{ matrix.app }}
+          path: /tmp/maestro-android-results.xml
+          retention-days: 7
+
+  # ── App Store Screenshots — macOS only, workflow_dispatch only ─────────────
+  #
+  # Runs screenshot flows for each Apple-required simulator size AFTER the
+  # ios smoke job passes. The job is gated to workflow_dispatch so it never
+  # runs on push (it requires live Supabase + seeded test data).
+  #
+  # Secrets required (add in repo Settings > Secrets):
+  #   BIDDER_EMAIL, BIDDER_PASSWORD              — seeded bid-flow account
+  #   BIDDER_PICKUP_EMAIL, BIDDER_PICKUP_PASSWORD — account with paid invoice
+  #   STAFF_EMAIL, STAFF_PASSWORD                — operator staff account
+  #
+  # The job never hard-fails on screenshot content — `continue-on-error: true`
+  # on individual Maestro steps ensures all flows are attempted and artifacts
+  # are always uploaded regardless of assertion failures.
+  ios-screenshots:
+    name: App Store Screenshots (iOS)
+    runs-on: macos-15
+    timeout-minutes: 90
+    # Only run when explicitly dispatched AND the run_screenshots input is set.
+    # The crash/launch smoke (ios/android jobs) never needs this 90-min job, so
+    # a plain dispatch validates launch health without burning macOS minutes on
+    # App Store assets.
+    if: github.event_name == 'workflow_dispatch' && inputs.run_screenshots
+    # 2026-05-24: `needs: [ios]` removed — the smoke job builds its own
+    # app independently of this job, so coupling them only meant a
+    # transient smoke flake blocked all screenshot work. This job does
+    # its own clean prebuild + pod install + xcodebuild + sim install.
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # iPhone 6.7" — 1290×2796 (THE ONLY required device size as of 2025).
+          #
+          # APPLE'S CURRENT SCREENSHOT RULES (App Store Connect, 2025+)
+          # ──────────────────────────────────────────────────────────────
+          # Apple now requires ONLY the 6.7"/6.9" "iPhone Pro Max" screenshot
+          # set. Every smaller display class — 6.5", 6.1", 5.5", 5.4", 4.7" —
+          # is AUTO-DERIVED by App Store Connect from the 6.7" upload. There
+          # is no longer a benefit to uploading multiple device-class sets:
+          # https://developer.apple.com/help/app-store-connect/reference/screenshot-specifications
+          # https://developer.apple.com/news/?id=ue8wcfzs (Apr 2025 update)
+          #
+          # WHY THE OTHER TWO MATRIX ENTRIES WERE DROPPED (2026-05-23)
+          # ──────────────────────────────────────────────────────────────
+          # macos-15 runners ship Xcode 26.x with iOS 18+ simulator runtimes.
+          # iPhone 8 Plus support ended with iOS 17 (no iOS 18+ runtime is
+          # ever paired with that device profile), so `xcodebuild
+          # -destination 'platform=iOS Simulator,name=iPhone 8 Plus,OS=latest'`
+          # has no valid runtime to target and the build step exits non-zero.
+          # iPhone 11 Pro Max hits the same wall on Xcode 26 (the device
+          # profile exists but the latest iOS runtime no longer bundles it
+          # on default macos-15 images). Re-adding these devices would
+          # require pinning a specific iOS=17.x runtime + provisioning that
+          # runtime on the runner — net negative since Apple no longer wants
+          # those screenshots anyway.
+          - device_name: iphone-16-pro-max
+            simulator_name: "iPhone 16 Pro Max"
+            os_version: "latest"
+
+    env:
+      BIDDER_EMAIL: ${{ secrets.BIDDER_EMAIL }}
+      BIDDER_PASSWORD: ${{ secrets.BIDDER_PASSWORD }}
+      BIDDER_PICKUP_EMAIL: ${{ secrets.BIDDER_PICKUP_EMAIL }}
+      BIDDER_PICKUP_PASSWORD: ${{ secrets.BIDDER_PICKUP_PASSWORD }}
+      STAFF_EMAIL: ${{ secrets.STAFF_EMAIL }}
+      STAFF_PASSWORD: ${{ secrets.STAFF_PASSWORD }}
+      # Live Supabase credentials for screenshot flows (seeded test project).
+      EXPO_PUBLIC_SUPABASE_URL: ${{ secrets.SCREENSHOT_SUPABASE_URL }}
+      EXPO_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.SCREENSHOT_SUPABASE_ANON_KEY }}
+      EXPO_PUBLIC_API_BASE_URL: ${{ secrets.SCREENSHOT_API_BASE_URL }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # ── Select Xcode ────────────────────────────────────────────────────
+      - name: Select newest Xcode
+        run: |
+          NEWEST=$(ls -d /Applications/Xcode_*.app 2>/dev/null | sort -V | tail -1)
+          if [[ -z "$NEWEST" ]]; then
+            NEWEST=/Applications/Xcode.app
+          fi
+          echo "DEVELOPER_DIR=$NEWEST/Contents/Developer" >> $GITHUB_ENV
+
+      - name: Show Xcode version
+        run: xcodebuild -version
+
+      # ── CocoaPods + DerivedData caches ───────────────────────────────────
+      - name: Cache CocoaPods specs
+        uses: actions/cache@v4
+        with:
+          path: ~/.cocoapods
+          key: cocoapods-specs-${{ hashFiles('apps/bidder-app/Podfile.lock') }}
+          restore-keys: cocoapods-specs-
+
+      - name: Cache CocoaPods install
+        uses: actions/cache@v4
+        with:
+          path: apps/bidder-app/ios/Pods
+          key: pods-bidder-screenshots-${{ hashFiles('apps/bidder-app/Podfile.lock') }}
+          restore-keys: pods-bidder-screenshots-
+
+      - name: Cache Xcode DerivedData
+        uses: actions/cache@v4
+        with:
+          path: ~/Library/Developer/Xcode/DerivedData
+          key: derived-screenshots-bidder-${{ matrix.device_name }}-${{ hashFiles('apps/bidder-app/ios/**/*.xcodeproj/**', 'apps/bidder-app/Podfile.lock') }}
+          restore-keys: derived-screenshots-bidder-${{ matrix.device_name }}-
+
+      # ── Build bidder-app for simulator ─────────────────────────────────
+      - name: Prebuild bidder-app (ios/)
+        working-directory: apps/bidder-app
+        run: npx expo prebuild --platform ios --clean
+
+      - name: Pod install (bidder-app)
+        working-directory: apps/bidder-app/ios
+        run: pod install --repo-update
+
+      - name: Build bidder-app .app for simulator
+        working-directory: apps/bidder-app
+        run: |
+          set -euo pipefail
+          WORKSPACE=$(ls -d ios/*.xcworkspace | head -1)
+          SCHEME=$(basename "$WORKSPACE" .xcworkspace)
+          xcodebuild \
+            -workspace "$WORKSPACE" \
+            -scheme "$SCHEME" \
+            -configuration Release \
+            -sdk iphonesimulator \
+            -destination 'platform=iOS Simulator,name=${{ matrix.simulator_name }},OS=${{ matrix.os_version }}' \
+            -derivedDataPath ~/Library/Developer/Xcode/DerivedData \
+            CODE_SIGNING_ALLOWED=NO \
+            2>&1 | xcbeautify --renderer github-actions
+
+      # ── Build field-mobile for simulator ───────────────────────────────
+      - name: Cache CocoaPods install (field-mobile)
+        uses: actions/cache@v4
+        with:
+          path: apps/field-mobile/ios/Pods
+          key: pods-field-screenshots-${{ hashFiles('apps/field-mobile/Podfile.lock') }}
+          restore-keys: pods-field-screenshots-
+
+      - name: Prebuild field-mobile (ios/)
+        working-directory: apps/field-mobile
+        run: npx expo prebuild --platform ios --clean
+
+      - name: Pod install (field-mobile)
+        working-directory: apps/field-mobile/ios
+        run: pod install --repo-update
+
+      - name: Build field-mobile .app for simulator
+        working-directory: apps/field-mobile
+        run: |
+          set -euo pipefail
+          WORKSPACE=$(ls -d ios/*.xcworkspace | head -1)
+          SCHEME=$(basename "$WORKSPACE" .xcworkspace)
+          xcodebuild \
+            -workspace "$WORKSPACE" \
+            -scheme "$SCHEME" \
+            -configuration Release \
+            -sdk iphonesimulator \
+            -destination 'platform=iOS Simulator,name=${{ matrix.simulator_name }},OS=${{ matrix.os_version }}' \
+            -derivedDataPath ~/Library/Developer/Xcode/DerivedData \
+            CODE_SIGNING_ALLOWED=NO \
+            2>&1 | xcbeautify --renderer github-actions
+
+      # ── Boot target simulator ───────────────────────────────────────────
+      - name: Boot ${{ matrix.simulator_name }} simulator
+        run: |
+          set -euo pipefail
+          SIM_UDID=$(xcrun simctl list devices available --json \
+            | node -e "
+                const d = JSON.parse(require('fs').readFileSync('/dev/stdin','utf8'));
+                const all = Object.entries(d.devices)
+                  .flatMap(([k,v]) => v.map(dev => ({...dev, runtime: k})));
+                const match = all.find(d =>
+                  d.name === '${{ matrix.simulator_name }}' && d.isAvailable
+                );
+                if (!match) { process.stderr.write('Simulator not found: ${{ matrix.simulator_name }}\n'); process.exit(1); }
+                process.stdout.write(match.udid);
+              ")
+          echo "SIM_UDID=$SIM_UDID" >> $GITHUB_ENV
+          xcrun simctl boot "$SIM_UDID" || true
+          # Give SpringBoard time to settle before installing apps
+          sleep 5
+
+      # ── Install both apps on simulator ──────────────────────────────────
+      # Pick each .app by the CFBundleIdentifier in its Info.plist (bundle ids
+      # from apps/*/app.config.ts, renamed 2026-06-22). `grep -l` on an .app
+      # directory never matches (it's a directory, not a file) — that's why
+      # this always fell through to the path-based fallback, which used the
+      # pre-rebrand ids (com.cluerholdings.*) and could pick the wrong app.
+      - name: Install bidder-app on simulator
+        run: |
+          set -euo pipefail
+          BIDDER_APP=""
+          while IFS= read -r app; do
+            id=$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$app/Info.plist" 2>/dev/null || true)
+            if [[ "$id" == "com.bingoauctions.bidder" ]]; then BIDDER_APP="$app"; break; fi
+          done < <(find ~/Library/Developer/Xcode/DerivedData -name "*.app" -not -path "*/Wrapper/*")
+          test -n "$BIDDER_APP"
+          echo "BIDDER_APP_PATH=$BIDDER_APP" >> $GITHUB_ENV
+          xcrun simctl install "$SIM_UDID" "$BIDDER_APP"
+
+      - name: Install field-mobile on simulator
+        run: |
+          set -euo pipefail
+          FIELD_APP=""
+          while IFS= read -r app; do
+            id=$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$app/Info.plist" 2>/dev/null || true)
+            if [[ "$id" == "com.bingoauctions.staff" ]]; then FIELD_APP="$app"; break; fi
+          done < <(find ~/Library/Developer/Xcode/DerivedData -name "*.app" -not -path "*/Wrapper/*")
+          test -n "$FIELD_APP"
+          xcrun simctl install "$SIM_UDID" "$FIELD_APP"
+
+      # ── Install Maestro ─────────────────────────────────────────────────
+      - name: Install Maestro CLI
+        run: |
+          export MAESTRO_VERSION=1.39.0
+          curl -fsSL https://get.maestro.mobile.dev | bash
+          echo "$HOME/.maestro/bin" >> $GITHUB_PATH
+
+      - name: Verify Maestro install
+        run: maestro --version
+
+      # ── Run bidder-app screenshot flows ─────────────────────────────────
+      # continue-on-error: true so a flow assertion failure doesn't prevent
+      # artifact upload — we always want to see what was captured.
+      - name: Screenshot — bidder-app home
+        continue-on-error: true
+        run: |
+          maestro test \
+            --format junit \
+            --output /tmp/ss-bidder-01-home.xml \
+            e2e/maestro/bidder-app/screenshots/01-home.yaml
+
+      - name: Screenshot — bidder-app lot detail
+        continue-on-error: true
+        run: |
+          maestro test \
+            --format junit \
+            --output /tmp/ss-bidder-02-lot-detail.xml \
+            e2e/maestro/bidder-app/screenshots/02-lot-detail.yaml
+
+      - name: Screenshot — bidder-app bid placed
+        continue-on-error: true
+        run: |
+          maestro test \
+            --format junit \
+            --output /tmp/ss-bidder-03-bid-placed.xml \
+            e2e/maestro/bidder-app/screenshots/03-bid-placed.yaml
+
+      - name: Screenshot — bidder-app pickup tab
+        continue-on-error: true
+        run: |
+          maestro test \
+            --format junit \
+            --output /tmp/ss-bidder-04-pickup.xml \
+            e2e/maestro/bidder-app/screenshots/04-pickup.yaml
+
+      # ── Run field-mobile screenshot flows ────────────────────────────────
+      - name: Screenshot — field-mobile lotting hub
+        continue-on-error: true
+        run: |
+          maestro test \
+            --format junit \
+            --output /tmp/ss-field-01-lotting-hub.xml \
+            e2e/maestro/field-mobile/screenshots/01-lotting-hub.yaml
+
+      - name: Screenshot — field-mobile checkout verify
+        continue-on-error: true
+        run: |
+          maestro test \
+            --format junit \
+            --output /tmp/ss-field-02-checkout-verify.xml \
+            e2e/maestro/field-mobile/screenshots/02-checkout-verify.yaml
+
+      # ── Collect all screenshots into one directory ───────────────────────
+      # Maestro writes takeScreenshot PNGs into a `screenshots/` dir relative
+      # to the cwd. Collect them alongside the JUnit XML results.
+      - name: Collect screenshots
+        if: always()
+        run: |
+          mkdir -p /tmp/app-store-screenshots/${{ matrix.device_name }}
+          # Copy PNGs captured by Maestro (written to ./screenshots/ by default)
+          if [ -d screenshots ]; then
+            cp -r screenshots/. /tmp/app-store-screenshots/${{ matrix.device_name }}/
+          fi
+          # Copy JUnit XML results for traceability
+          cp /tmp/ss-*.xml /tmp/app-store-screenshots/${{ matrix.device_name }}/ 2>/dev/null || true
+
+      # ── Upload artifact ──────────────────────────────────────────────────
+      - name: Upload App Store screenshots — ${{ matrix.device_name }}
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-app-store-screenshots-${{ matrix.device_name }}
+          path: /tmp/app-store-screenshots/${{ matrix.device_name }}/
+          # Retain for 30 days so the team has time to download + polish
+          retention-days: 30
+          # Don't fail the upload step if no PNGs were captured (flow errors)
+          if-no-files-found: warn

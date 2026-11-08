@@ -1,0 +1,414 @@
+[
+ {
+  "apex": "alumni.cbre.co.uk",
+  "target": "cbrealumni-660335358.eu-west-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "api-gateway.cbre.es",
+  "target": "a387ae32262b945f0be1b0827f25ce02-1507080927.eu-west-2.elb.amazonaws.com"
+ },
+ {
+  "apex": "api-ukplatform.cbre.com",
+  "target": "prod-ukdt-alb-585109678.eu-west-2.elb.amazonaws.com"
+ },
+ {
+  "apex": "api.bluesky.cbre.com",
+  "target": "bluesky-prod-api-1916000599.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "api.siteanalytics.cbre.com",
+  "target": "site-analytics-dev-api-2000041426.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "apizone3d-dev.cbre.es",
+  "target": "zone3d-lb-242880635.eu-west-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "assetiqdev.cbre.com",
+  "target": "dev-assetiq-1981938965.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "atcouchdb.cbre.com",
+  "target": "couch-elb-1652499713.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "atcouchdbstaging-west.cbre.com",
+  "target": "couchdb-elb-1851467704.us-west-2.elb.amazonaws.com"
+ },
+ {
+  "apex": "bcdpjm-dev.cbre.de",
+  "target": "k8s-walteringress-cabc4eb814-1366693435.eu-central-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "be-landx.cbre.co.uk",
+  "target": "landx-prod-backend-1304621180.eu-west-2.elb.amazonaws.com"
+ },
+ {
+  "apex": "blue.api.cbre.com",
+  "target": "wso-prod-alb-2033310181.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "blue.apikey.cbre.com",
+  "target": "wso-prod-alb-2033310181.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "cdm-api-dev.cbre.com",
+  "target": "gia-automtn-cdm-portal-alb-dev-416629259.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "cdm-api-uat.cbre.com",
+  "target": "gia-automtn-cdm-portal-alb-uat-143164719.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "cdm-uat.cbre.com",
+  "target": "gia-automtn-cdm-portal-alb-uat-143164719.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "costargw-dev.cbre.com",
+  "target": "costar-proxy-lb-dev-1868044092.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "datalake-sync.apps.mendix.com",
+  "target": "k8s-mendix-0c3ee92f9b-752404873.eu-west-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "dev-api-ukplatform.cbre.com",
+  "target": "dev-api-ukdt-alb-494075874.eu-west-2.elb.amazonaws.com"
+ },
+ {
+  "apex": "dev-api-zone.cbre.es",
+  "target": "zone-backend-alb-dev-77591002.eu-west-2.elb.amazonaws.com"
+ },
+ {
+  "apex": "dev-emailtagging.cbre.com",
+  "target": "dev-email-tagging-2026045210.ap-southeast-2.elb.amazonaws.com"
+ },
+ {
+  "apex": "dev-workplace.cbre.at",
+  "target": "spacer-dev-alb-896415817.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "dev-workplace.cbre.co.uk",
+  "target": "spacer-dev-alb-1476755895.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "dev-workplace.cbre.sk",
+  "target": "spacer-staging-alb-318258504.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "dev.api.bluesky.cbre.com",
+  "target": "bluesky-dev-api-1600503652.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "dev.bluesky.cbre.com",
+  "target": "bluesky-dev-fe-818420771.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "devapi-ukplatform.cbre.com",
+  "target": "dev-ukdt-alb-981650952.eu-west-2.elb.amazonaws.com"
+ },
+ {
+  "apex": "developer.ayoba.me",
+  "target": "ayoba-developer-portal-1885550405.af-south-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "docgenerator.miq.cbre.com",
+  "target": "miq-prod-docgenerator-754672381.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "docgenerator.training.miq.cbre.com",
+  "target": "miq-training-docgenerator-1438017796.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "dr.api.cbre.com",
+  "target": "wso-dr-alb-1882831728.us-west-2.elb.amazonaws.com"
+ },
+ {
+  "apex": "dr.apikey.cbre.com",
+  "target": "wso-dr-alb-1882831728.us-west-2.elb.amazonaws.com"
+ },
+ {
+  "apex": "edpstats.training.miq.cbre.com",
+  "target": "miq-training-edp-stats-1288587451.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "estimator-api-uat.cbre.com",
+  "target": "costconsultancy-api-alb-uat-1472694620.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "estimator-uat.cbre.com",
+  "target": "costconsultancy-ui-alb-uat-85779271.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "glsearch.cbre.com",
+  "target": "prodgl-alb-1577611822.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "gwsmobility.cbre.com",
+  "target": "gwsmobility-prod-alb-1112239379.us-west-2.elb.amazonaws.com"
+ },
+ {
+  "apex": "jira.cbre.com",
+  "target": "devopscoe-jira-prod-alb-1412555156.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "marketiq-staging.cbre.com",
+  "target": "usmiq-staging-fe-1461000793.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "myfmadmin-dev.cbre.com",
+  "target": "usawse1mfmad-alb-1362613662.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "myreceiptsdev.cbre.com",
+  "target": "cbre-myreceipts-dev-alb-504751044.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "myservice-dev.cbre.com",
+  "target": "usawse1msrvd-alb-745768401.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "mywork-dev.cbre.com",
+  "target": "usawse1mwrkd-alb-1435446138.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "pagegroup.web.iongroup.com",
+  "target": "pagegroup-shared-1841879472.eu-west-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "pmforms-dev.cbre.com",
+  "target": "evolvewebnonprod-alb-dev-2116777849.ap-southeast-2.elb.amazonaws.com"
+ },
+ {
+  "apex": "pmforms-pes.cbre.com",
+  "target": "evolvewebnonprod-alb-dev-2116777849.ap-southeast-2.elb.amazonaws.com"
+ },
+ {
+  "apex": "pmforms-test.cbre.com",
+  "target": "evolvewebnonprod-alb-dev-2116777849.ap-southeast-2.elb.amazonaws.com"
+ },
+ {
+  "apex": "pmforms-uat.cbre.com",
+  "target": "evolvewebnonprod-alb-dev-2116777849.ap-southeast-2.elb.amazonaws.com"
+ },
+ {
+  "apex": "preprodapi-ukplatform.cbre.com",
+  "target": "preprod-ukdt-alb-1416780097.eu-west-2.elb.amazonaws.com"
+ },
+ {
+  "apex": "preview.residential.cbrevietnam.com",
+  "target": "vmresi-nonprod-1521397070.ap-southeast-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "pulse-bcp.cbre.com",
+  "target": "pm-assetview-alb-prod-1470734436.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "pulse-contact.cbre.com",
+  "target": "pm-assetview-alb-prod-1470734436.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "pulse-criticaldate.cbre.com",
+  "target": "pm-assetview-alb-prod-1470734436.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "pulse-dev.cbre.com",
+  "target": "pm-pulse-non-prod-312934520.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "pulse-document.cbre.com",
+  "target": "pm-assetview-alb-prod-1470734436.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "pulse-dr.cbre.com",
+  "target": "pm-assetview-alb-dr-1274400630.us-west-2.elb.amazonaws.com"
+ },
+ {
+  "apex": "pulse-shared.cbre.com",
+  "target": "pm-assetview-alb-prod-1470734436.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "pulseforms-pes.cbre.com",
+  "target": "evolvewebnonprod-alb-dev-2116777849.ap-southeast-2.elb.amazonaws.com"
+ },
+ {
+  "apex": "qa.das.cbre.com",
+  "target": "das-qa-app-1844535077.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "qaapi-ukplatform.cbre.com",
+  "target": "qa-ukdt-alb-1588763847.eu-west-2.elb.amazonaws.com"
+ },
+ {
+  "apex": "reports.training.miq.cbre.com",
+  "target": "miq-training-pdf-report-642747367.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "siteanalytics.cbre.com",
+  "target": "site-analytics-dev-fe-586957619.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "spill-staging.cbre.com",
+  "target": "spill-staging-v120-elb-579703903.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "staging-api.performanceiq.cbre.com",
+  "target": "perfiq-staging-api-443791062.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "statsreport-qa.cbre.com",
+  "target": "stats-qa-lb-429462088.eu-west-2.elb.amazonaws.com"
+ },
+ {
+  "apex": "test-api-gateway.cbre.es",
+  "target": "a08d4cb9ac4b84c3fb1a6530f497d3c7-1440140656.eu-west-2.elb.amazonaws.com"
+ },
+ {
+  "apex": "test-jenkins.cbre.es",
+  "target": "dualstack.internal-jenkins-alb-staging-internal-873481049.eu-west-2.elb.amazonaws.com"
+ },
+ {
+  "apex": "test-workplace.cbre.at",
+  "target": "spacer-staging-alb-318258504.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "test-workplace.cbre.co.uk",
+  "target": "spacer-staging-alb-318258504.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "test-workplace.cbre.de",
+  "target": "spacer-staging-alb-318258504.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "test-workplace.cbre.fr",
+  "target": "spacer-staging-alb-318258504.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "test-workplace.cbre.hu",
+  "target": "spacer-staging-alb-318258504.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "test-workplace.cbre.nl",
+  "target": "spacer-staging-alb-318258504.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "test-workplace.cbre.pl",
+  "target": "spacer-staging-alb-318258504.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "training.api.miq.cbre.com",
+  "target": "miq-training-api-1344656680.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "training.miq.cbre.com",
+  "target": "miq-training-fe-1517095500.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "tsdcarc.cl.iongroup.com",
+  "target": "tpt-ie-tatadr-alb-public-770914153.eu-west-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "tsdqmastor.cl.iongroup.com",
+  "target": "tpt-ie-tatadr-alb-public-770914153.eu-west-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "tspcarc.cl.iongroup.com",
+  "target": "tpt-fr-tata-alb-public-596214524.eu-central-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "tspqmastor.cl.iongroup.com",
+  "target": "tpt-fr-tata-alb-public-596214524.eu-central-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "tstcarc.cl.iongroup.com",
+  "target": "tpt-fr-tata-alb-whitelist-1282054715.eu-central-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "tstqmastor.cl.iongroup.com",
+  "target": "tpt-fr-tata-alb-public-596214524.eu-central-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "tsucarc.cl.iongroup.com",
+  "target": "tpt-fr-tata-alb-whitelist-1282054715.eu-central-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "tsuqmastor.cl.iongroup.com",
+  "target": "tpt-fr-tata-alb-public-596214524.eu-central-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "uat.api.bluesky.cbre.com",
+  "target": "bluesky-uat-api-1778641160.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "wallet.cbre.es",
+  "target": "wallet-lb-1808874923.eu-west-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "walter-cloud.cbre.eu",
+  "target": "ad9ba945-prod-clientservic-0557-1090485723.eu-central-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "workplace.cbre.at",
+  "target": "spacer-production-alb-743144133.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "workplace.cbre.co.uk",
+  "target": "spacer-production-alb-743144133.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "workplace.cbre.de",
+  "target": "spacer-production-alb-743144133.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "workplace.cbre.fr",
+  "target": "spacer-production-alb-743144133.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "workplace.cbre.hu",
+  "target": "spacer-production-alb-743144133.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "workplace.cbre.nl",
+  "target": "spacer-production-alb-743144133.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "workplace.cbre.pl",
+  "target": "spacer-production-alb-743144133.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "workplace.cbre.sk",
+  "target": "spacer-production-alb-743144133.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "www.cmslistings.cbre.eu",
+  "target": "mc-13518-797311248.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "www.residential.cmslistings.cbre.eu",
+  "target": "mc-13518-797311248.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "www.spacespot.de",
+  "target": "at-prod-ss-alb-2128781280.eu-central-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "www.spacespot.es",
+  "target": "at-prod-ss-alb-2128781280.eu-central-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "www.spacespot.fi",
+  "target": "at-prod-ss-alb-2128781280.eu-central-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "www.spacespot.no",
+  "target": "at-prod-ss-alb-2128781280.eu-central-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "www.uk.cmslistings.cbre.eu",
+  "target": "mc-13518-797311248.us-east-1.elb.amazonaws.com"
+ },
+ {
+  "apex": "zone.cbre.es",
+  "target": "zone-marketing-alb-prod-1225329606.eu-west-2.elb.amazonaws.com"
+ }
+]

@@ -1,0 +1,20 @@
+# Venture codes are stable keys (drawers, role gate); change a name freely, never a code without a decision (DECISIONS.md #61).
+ventures:
+  - code: holdings
+    name: Cluer Holdings
+  - code: rdw
+    name: RDW LLC
+  - code: bin-there
+    name: Bin-There Bought That
+  - code: alpena-trucking
+    name: Alpena Trucking
+  - code: wk-trucking
+    name: Wayne Kelley Trucking
+  - code: jmac
+    name: JMAC Construction
+  - code: gold-run
+    name: Gold Run LLC
+  - code: glory-road
+    name: Glory Road
+  - code: evage
+    name: Evage LLC

@@ -1,0 +1,1 @@
+3b0953abaaf7f4ddb4e6141a184a9829dbcb513210b84aead13ef8b9a739974b  connectors-0.5.2-py3-none-any.whl

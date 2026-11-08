@@ -1,0 +1,4494 @@
+[
+ {
+  "target": "angry-jackson-6f78f0.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://angry-jackson-6f78f0.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "angry-jackson-6f78f0.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://angry-jackson-6f78f0.netlify.app/",
+  "status": 404,
+  "hosts": [
+   "www.netsmart.com.cy",
+   "www.prl2.netsmart.com.cy"
+  ]
+ },
+ {
+  "target": "base44.onrender.com",
+  "ns": "onrender.com",
+  "verdict": "AVAILABLE",
+  "why": "Render answers 404 for an unused service name",
+  "url": "https://base44.onrender.com/",
+  "status": 404,
+  "hosts": [
+   "www.ajebo.com.ng"
+  ]
+ },
+ {
+  "target": "cebit-2017.herokuapp.com",
+  "ns": "herokuapp.com",
+  "verdict": "AVAILABLE",
+  "why": "Heroku answers 'No such app' for a free name",
+  "url": "https://cebit-2017.herokuapp.com/",
+  "status": 404,
+  "hosts": [
+   "cebit.salesforce.com"
+  ]
+ },
+ {
+  "target": "developer-cloud.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://developer-cloud.netlify.app/",
+  "status": 404,
+  "hosts": [
+   "developer.cloud.com"
+  ]
+ },
+ {
+  "target": "instant-4u83.onrender.com",
+  "ns": "onrender.com",
+  "verdict": "AVAILABLE",
+  "why": "Render answers 404 for an unused service name",
+  "url": "https://instant-4u83.onrender.com/",
+  "status": 404,
+  "hosts": [
+   "reports.venly.io"
+  ]
+ },
+ {
+  "target": "kiosk.tlbe22-bmw.pages.dev",
+  "ns": "pages.dev",
+  "verdict": "AVAILABLE",
+  "why": "Cloudflare Pages 404 for an unused project name",
+  "url": "https://kiosk.tlbe22-bmw.pages.dev/",
+  "status": 404,
+  "hosts": [
+   "united-in-joy.tomorrowland.com"
+  ]
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404
+ },
+ {
+  "target": "kubernetes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://kubernetes.netlify.app/",
+  "status": 404,
+  "hosts": [
+   "0wjdfidbisniscepatg.docs.canary.k8s.io",
+   "1-5o.docs.kubernetes.io",
+   "1-6e.docs.kubernetes.io",
+   "1-8e.docs.kubernetes.io",
+   "1.docs.canary.kubernetes.io",
+   "1.docs.k8s.io",
+   "11a.docs.kubernetes.io",
+   "15.docs.canary.kubernetes.io",
+   "17q.docs.kubernetes.io",
+   "2.docs.canary.kubernetes.io",
+   "20.docs.canary.kubernetes.io",
+   "22.docs.canary.kubernetes.io",
+   "239.docs.canary.kubernetes.io",
+   "2k.docs.canary.kubernetes.io",
+   "42vz-f.docs.canary.kubernetes.io",
+   "6lgkhjyitqmndle.docs.canary.k8s.io",
+   "7.docs.k8s.io",
+   "a07.docs.k8s.io",
+   "adncarevents.docs.canary.k8s.io",
+   "ahmed12tqubmitg.docs.canary.k8s.io",
+   "antivirus1-ip151k.docs.foru.iobrbrjbr4-v1-7.docs.k8s.io",
+   "antivirus1overi.fr-kusanagiommunityaime-demo-kubectl.docs.k8s.io",
+   "antivirussistobrbrjbr-pwmbvigsvc.g.gi81.v1-7.docs.k8s.io",
+   "api27.docs.canary.kubernetes.io",
+   "appv1-je.docs.k8s.io",
+   "beta.billing.bid.redirect2.kubectl.docs.k8s.io",
+   "bid.redirect2.kubectl.docs.k8s.io",
+   "billing.bid.redirect2.kubectl.docs.k8s.io",
+   "blogm.ux-test.docs.kubernetes.io",
+   "canary.7.docs.k8s.io",
+   "changelog-kootac-paycommunity-iad-v1-7k.docs.k8s.io",
+   "changelog-kootac-pays.docs.k8s.io",
+   "cia.testing-engineering.docs.k8s.io",
+   "com2-logindevticketingfoia-dot-gov.appv1-7.docs.k8s.io",
+   "com2-logindevticketingfoia-dot-gov.appv1-je.docs.k8s.io",
+   "comc.docs.kubernetes.io",
+   "comk.ux-test.docs.kubernetes.io",
+   "computeo.2.docs.canary.kubernetes.io",
+   "confluence.dev.csistobrbrjbr-pwmbvigsvc.g.gi81.v1-7.docs.k8s.io",
+   "csistobrbrjbr-pwmbvigsvc.g.gi81.v1-7.docs.k8s.io",
+   "demo7-syndeowwwa.sif1-7.docs.k8s.io",
+   "dev.csistobrbrjbr-pwmbvigsvc.g.gi81.v1-7.docs.k8s.io",
+   "devk.ux-test.docs.kubernetes.io",
+   "docs.foru.iobrbrjbr4-v1-7.docs.k8s.io",
+   "docso.foru.iobrbrjbr4-v1-7.docs.k8s.io",
+   "duracellconfluencei.docs.canary.k8s.io",
+   "elbm.22.docs.canary.kubernetes.io",
+   "eni.ux-test.docs.kubernetes.io",
+   "escience5p.docs.canary.k8s.io",
+   "fls.ux-test.docs.kubernetes.io",
+   "flsc.docs.kubernetes.io",
+   "fp9luencee.docs.canary.k8s.io",
+   "g.gi81.v1-7.docs.k8s.io",
+   "gi61z-fvcconfluencek.docs.canary.k8s.io",
+   "gi81.v1-7.docs.k8s.io",
+   "gitestbed1.v1-7.docs.k8s.io",
+   "gitestbed1a.v1-7.docs.k8s.io",
+   "go-migrationq.docs.kubernetes.io",
+   "hb-pacoel73fluence3.docs.canary.k8s.io",
+   "host-209-149-112-62.docs.k8s.io",
+   "hugo-migration.docs.kubernetes.io",
+   "i43ubectl.docs.k8s.io",
+   "kubectl.docs.k8s.io",
+   "kubectl.docs.kubernetes.io",
+   "kubectl9.docs.kubernetes.io",
+   "now.com2-logindevticketingfoia-dot-gov.appv1-7.docs.k8s.io",
+   "redirect2.kubectl.docs.k8s.io",
+   "sif1-7.docs.k8s.io",
+   "v1-10.docs.kubernetes.io",
+   "v1-11.docs.kubernetes.io",
+   "v1-12.docs.kubernetes.io",
+   "v1-13.docs.kubernetes.io",
+   "v1-16.docs.kubernetes.io",
+   "v1-17.docs.kubernetes.io",
+   "v1-18.docs.kubernetes.io",
+   "v1-19.docs.kubernetes.io",
+   "v1-20.docs.kubernetes.io",
+   "v1-21.docs.kubernetes.io",
+   "v1-22.docs.kubernetes.io",
+   "v1-23.docs.kubernetes.io",
+   "v1-24.docs.kubernetes.io",
+   "v1-25.docs.kubernetes.io",
+   "v1-26.docs.kubernetes.io",
+   "v1-28.docs.kubernetes.io",
+   "v1-29.docs.kubernetes.io",
+   "v1-30.docs.kubernetes.io",
+   "v1-31.docs.kubernetes.io",
+   "v1-32.docs.kubernetes.io",
+   "v1-33.docs.kubernetes.io",
+   "v1-6.docs.kubernetes.io",
+   "v1-7.docs.kubernetes.io",
+   "v1-8.docs.kubernetes.io",
+   "v1-9.docs.kubernetes.io",
+   "virus.syndeowww.sif1-7.docs.k8s.io",
+   "virus0316com.changelog-kootac-pay.docs.k8s.io",
+   "virus0316com.host-209-149-112-62.docs.k8s.io",
+   "virus0316com.mx225.docs.k8s.io",
+   "www.antivirus1overi.fr-kusanagiommunityaime-demo-kubectl.docs.k8s.io",
+   "www.changelog-kootac-pay.docs.k8s.io",
+   "www.docs.kubernetes.io",
+   "www.hugo-migration.docs.kubernetes.io",
+   "www.kind.docs.kubernetes.io",
+   "www.kubectl.docs.k8s.io",
+   "www.ux-test.docs.kubernetes.io",
+   "www.v1-10.docs.kubernetes.io",
+   "www.v1-11.docs.kubernetes.io",
+   "www.v1-12.docs.kubernetes.io",
+   "www.v1-13.docs.kubernetes.io",
+   "www.v1-14.docs.kubernetes.io",
+   "www.v1-15.docs.kubernetes.io",
+   "www.v1-16.docs.kubernetes.io",
+   "www.v1-17.docs.kubernetes.io",
+   "www.v1-18.docs.kubernetes.io",
+   "www.v1-19.docs.kubernetes.io",
+   "www.v1-20.docs.kubernetes.io",
+   "www.v1-21.docs.kubernetes.io",
+   "www.v1-22.docs.kubernetes.io",
+   "www.v1-23.docs.kubernetes.io",
+   "www.v1-24.docs.kubernetes.io",
+   "www.v1-25.docs.kubernetes.io",
+   "www.v1-26.docs.kubernetes.io",
+   "www.v1-4.docs.kubernetes.io",
+   "www.v1-5.docs.kubernetes.io",
+   "www.v1-6.docs.kubernetes.io",
+   "www.v1-7.docs.k8s.io",
+   "www.v1-7.docs.kubernetes.io",
+   "www.v1-8.docs.kubernetes.io",
+   "www.v1-9.docs.kubernetes.io",
+   "www.virus-r80.i43ubectl.docs.k8s.io",
+   "www.virus0316com.changelog-kootac-pay.docs.k8s.io",
+   "www.virus0316com.host-209-149-112-62.docs.k8s.io",
+   "www.virus0316com.mx225.docs.k8s.io",
+   "www.virus0316dev2-k8s-876543210z-www.27654.service.now.com2-logindevticketingfoia-dot-gov.appv1-7.docs.k8s.io",
+   "www.virus0316ts-shanemancommunityaime-demo-kubectl.docs.k8s.io",
+   "www9.v1-9.docs.kubernetes.io",
+   "wwwc.v1-6.docs.kubernetes.io",
+   "wwwg.v1-8.docs.kubernetes.io",
+   "wwwm.hugo-migration.docs.kubernetes.io"
+  ]
+ },
+ {
+  "target": "lime-run-freely.vercel.app",
+  "ns": "vercel.app",
+  "verdict": "AVAILABLE",
+  "why": "Vercel answers DEPLOYMENT_NOT_FOUND for an unused project subdomain",
+  "url": "https://lime-run-freely.vercel.app/",
+  "status": 404,
+  "hosts": [
+   "run.li.me"
+  ]
+ },
+ {
+  "target": "lopdp-miltalleres.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "AVAILABLE",
+  "why": "Netlify answers 404 'Site not found' for a subdomain with no site attached",
+  "url": "https://lopdp-miltalleres.netlify.app/",
+  "status": 404,
+  "hosts": [
+   "datos.1001talleres.com.ec"
+  ]
+ },
+ {
+  "target": "trust1-admin-api-hk.herokuapp.com",
+  "ns": "herokuapp.com",
+  "verdict": "AVAILABLE",
+  "why": "Heroku answers 'No such app' for a free name",
+  "url": "https://trust1-admin-api-hk.herokuapp.com/",
+  "status": 404,
+  "hosts": [
+   "api.trust1-admin.hk.salesforce.com"
+  ]
+ },
+ {
+  "target": "a16z-staging.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 401, body did not match the 'nothing deployed' signature",
+  "url": "https://a16z-staging.netlify.app/",
+  "status": 401,
+  "hosts": [
+   "staging.a16z.com"
+  ]
+ },
+ {
+  "target": "ambitious-water-039546910.5.azurestaticapps.net",
+  "ns": "azurestaticapps.net",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 403, body did not match the 'nothing deployed' signature",
+  "url": "https://ambitious-water-039546910.5.azurestaticapps.net/",
+  "status": 403,
+  "hosts": [
+   "ctm-qa.stewart.com"
+  ]
+ },
+ {
+  "target": "black-ground-0a6dc2e10.4.azurestaticapps.net",
+  "ns": "azurestaticapps.net",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 403, body did not match the 'nothing deployed' signature",
+  "url": "https://black-ground-0a6dc2e10.4.azurestaticapps.net/",
+  "status": 403,
+  "hosts": [
+   "stg-salessubledger.chipotle.com"
+  ]
+ },
+ {
+  "target": "black-ground-0fd8c7b03.5.azurestaticapps.net",
+  "ns": "azurestaticapps.net",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 302, body did not match the 'nothing deployed' signature",
+  "url": "https://black-ground-0fd8c7b03.5.azurestaticapps.net/",
+  "status": 302,
+  "hosts": [
+   "professional.digital-commerce.miele.com"
+  ]
+ },
+ {
+  "target": "black-pebble-08996e00f.1.azurestaticapps.net",
+  "ns": "azurestaticapps.net",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 403, body did not match the 'nothing deployed' signature",
+  "url": "https://black-pebble-08996e00f.1.azurestaticapps.net/",
+  "status": 403,
+  "hosts": [
+   "distrolistmanager.onbe.com"
+  ]
+ },
+ {
+  "target": "console-443.pages.dev",
+  "ns": "pages.dev",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 500, body did not match the 'nothing deployed' signature",
+  "url": "https://console-443.pages.dev/",
+  "status": 500,
+  "hosts": [
+   "new.console.oganesson.aws.neon.build"
+  ]
+ },
+ {
+  "target": "differential.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://differential.github.io/",
+  "status": 200,
+  "hosts": [
+   "github.differential.com"
+  ]
+ },
+ {
+  "target": "drops-d6e15.web.app",
+  "ns": "web.app",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 404, body did not match the 'nothing deployed' signature",
+  "url": "https://drops-d6e15.web.app/",
+  "status": 404,
+  "hosts": [
+   "verify.gotdrops.com"
+  ]
+ },
+ {
+  "target": "expediagroup.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://expediagroup.github.io/",
+  "status": 200,
+  "hosts": [
+   "opensource.expediagroup.com"
+  ]
+ },
+ {
+  "target": "faradayio.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://faradayio.github.io/",
+  "status": 200,
+  "hosts": [
+   "brand.faraday.ai"
+  ]
+ },
+ {
+  "target": "feathery-forms.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 307, body did not match the 'nothing deployed' signature",
+  "url": "https://feathery-forms.netlify.app/",
+  "status": 307
+ },
+ {
+  "target": "feathery-forms.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 307, body did not match the 'nothing deployed' signature",
+  "url": "https://feathery-forms.netlify.app/",
+  "status": 307,
+  "hosts": [
+   "forms.cuyahogacounty.gov",
+   "forms.go.cuyahogacounty.gov"
+  ]
+ },
+ {
+  "target": "gentle-meadow-0f8306300.3.azurestaticapps.net",
+  "ns": "azurestaticapps.net",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 403, body did not match the 'nothing deployed' signature",
+  "url": "https://gentle-meadow-0f8306300.3.azurestaticapps.net/",
+  "status": 403,
+  "hosts": [
+   "prism-snap.apps.origin.com.au"
+  ]
+ },
+ {
+  "target": "hackathlon-7b23b.firebaseapp.com",
+  "ns": "firebaseapp.com",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 302, body did not match the 'nothing deployed' signature",
+  "url": "https://hackathlon-7b23b.firebaseapp.com/",
+  "status": 302,
+  "hosts": [
+   "hackathlon.decathlon.com"
+  ]
+ },
+ {
+  "target": "iabtechlab.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://iabtechlab.github.io/",
+  "status": 200,
+  "hosts": [
+   "www.unifiedid.com"
+  ]
+ },
+ {
+  "target": "icy-mud-000d0e410.5.azurestaticapps.net",
+  "ns": "azurestaticapps.net",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 403, body did not match the 'nothing deployed' signature",
+  "url": "https://icy-mud-000d0e410.5.azurestaticapps.net/",
+  "status": 403,
+  "hosts": [
+   "int-salessubledger.chipotle.com"
+  ]
+ },
+ {
+  "target": "klaviyo-static-academy.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 404, body did not match the 'nothing deployed' signature",
+  "url": "https://klaviyo-static-academy.netlify.app/",
+  "status": 404,
+  "hosts": [
+   "static.academy.klaviyo.com"
+  ]
+ },
+ {
+  "target": "kohofinancial.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://kohofinancial.github.io/",
+  "status": 200,
+  "hosts": [
+   "ghpages.koho.ca"
+  ]
+ },
+ {
+  "target": "kubernetes-sigs-vsphere-csi-driver.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "UNKNOWN",
+  "why": "request failed: URLError",
+  "url": "https://kubernetes-sigs-vsphere-csi-driver.netlify.app/",
+  "hosts": [
+   "vsphere-csi-driver.sigs.k8s.io"
+  ]
+ },
+ {
+  "target": "legacy-docs-rasa-x.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 404, body did not match the 'nothing deployed' signature",
+  "url": "https://legacy-docs-rasa-x.netlify.app/",
+  "status": 404,
+  "hosts": [
+   "legacy-docs-rasa-x.rasa.com"
+  ]
+ },
+ {
+  "target": "lemon-river-0ffbb9010.5.azurestaticapps.net",
+  "ns": "azurestaticapps.net",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 403, body did not match the 'nothing deployed' signature",
+  "url": "https://lemon-river-0ffbb9010.5.azurestaticapps.net/",
+  "status": 403,
+  "hosts": [
+   "qa-salessubledger.chipotle.com"
+  ]
+ },
+ {
+  "target": "lemon-tree-04d2b7910.5.azurestaticapps.net",
+  "ns": "azurestaticapps.net",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 403, body did not match the 'nothing deployed' signature",
+  "url": "https://lemon-tree-04d2b7910.5.azurestaticapps.net/",
+  "status": 403,
+  "hosts": [
+   "dev-salessubledger.chipotle.com"
+  ]
+ },
+ {
+  "target": "lively-stone-0903abc03.1.azurestaticapps.net",
+  "ns": "azurestaticapps.net",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 403, body did not match the 'nothing deployed' signature",
+  "url": "https://lively-stone-0903abc03.1.azurestaticapps.net/",
+  "status": 403,
+  "hosts": [
+   "app-01.bugbounty.ch"
+  ]
+ },
+ {
+  "target": "logitech.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://logitech.github.io/",
+  "status": 200
+ },
+ {
+  "target": "logitech.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://logitech.github.io/",
+  "status": 200,
+  "hosts": [
+   "astro-firmware-guidelines.logitech.com",
+   "opensource.logitech.com"
+  ]
+ },
+ {
+  "target": "lunchrun.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://lunchrun.github.io/",
+  "status": 200,
+  "hosts": [
+   "www.lunchrun.com.jm"
+  ]
+ },
+ {
+  "target": "mango-glacier-0dd4ba010.2.azurestaticapps.net",
+  "ns": "azurestaticapps.net",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 403, body did not match the 'nothing deployed' signature",
+  "url": "https://mango-glacier-0dd4ba010.2.azurestaticapps.net/",
+  "status": 403,
+  "hosts": [
+   "ctm-dev.stewart.com"
+  ]
+ },
+ {
+  "target": "mango-smoke-00272591e.azurestaticapps.net",
+  "ns": "azurestaticapps.net",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 403, body did not match the 'nothing deployed' signature",
+  "url": "https://mango-smoke-00272591e.azurestaticapps.net/",
+  "status": 403,
+  "hosts": [
+   "heydoc.onbe.com"
+  ]
+ },
+ {
+  "target": "playcanvas.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://playcanvas.github.io/",
+  "status": 200
+ },
+ {
+  "target": "playcanvas.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://playcanvas.github.io/",
+  "status": 200
+ },
+ {
+  "target": "playcanvas.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://playcanvas.github.io/",
+  "status": 200,
+  "hosts": [
+   "api.playcanvas.com",
+   "blog.playcanvas.com",
+   "developer.playcanvas.com"
+  ]
+ },
+ {
+  "target": "rasahq-assets.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 404, body did not match the 'nothing deployed' signature",
+  "url": "https://rasahq-assets.netlify.app/",
+  "status": 404,
+  "hosts": [
+   "assets.rasa.com"
+  ]
+ },
+ {
+  "target": "rasahq-docs-rasa-v2.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 404, body did not match the 'nothing deployed' signature",
+  "url": "https://rasahq-docs-rasa-v2.netlify.app/",
+  "status": 404,
+  "hosts": [
+   "legacy-docs-oss.rasa.com"
+  ]
+ },
+ {
+  "target": "rasahq-docsv2-rasa-x.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 404, body did not match the 'nothing deployed' signature",
+  "url": "https://rasahq-docsv2-rasa-x.netlify.app/",
+  "status": 404,
+  "hosts": [
+   "legacy-docs-enterprise.rasa.com"
+  ]
+ },
+ {
+  "target": "salmon-smoke-020046310.5.azurestaticapps.net",
+  "ns": "azurestaticapps.net",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 403, body did not match the 'nothing deployed' signature",
+  "url": "https://salmon-smoke-020046310.5.azurestaticapps.net/",
+  "status": 403,
+  "hosts": [
+   "ctm-uat.stewart.com"
+  ]
+ },
+ {
+  "target": "share-62n.pages.dev",
+  "ns": "pages.dev",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 404, body did not match the 'nothing deployed' signature",
+  "url": "https://share-62n.pages.dev/",
+  "status": 404,
+  "hosts": [
+   "share.whoop.com"
+  ]
+ },
+ {
+  "target": "spring-media.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://spring-media.github.io/",
+  "status": 200
+ },
+ {
+  "target": "spring-media.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://spring-media.github.io/",
+  "status": 200
+ },
+ {
+  "target": "spring-media.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://spring-media.github.io/",
+  "status": 200
+ },
+ {
+  "target": "spring-media.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://spring-media.github.io/",
+  "status": 200
+ },
+ {
+  "target": "spring-media.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://spring-media.github.io/",
+  "status": 200
+ },
+ {
+  "target": "spring-media.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://spring-media.github.io/",
+  "status": 200
+ },
+ {
+  "target": "spring-media.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://spring-media.github.io/",
+  "status": 200
+ },
+ {
+  "target": "spring-media.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://spring-media.github.io/",
+  "status": 200
+ },
+ {
+  "target": "spring-media.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://spring-media.github.io/",
+  "status": 200
+ },
+ {
+  "target": "spring-media.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://spring-media.github.io/",
+  "status": 200
+ },
+ {
+  "target": "spring-media.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://spring-media.github.io/",
+  "status": 200
+ },
+ {
+  "target": "spring-media.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://spring-media.github.io/",
+  "status": 200
+ },
+ {
+  "target": "spring-media.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://spring-media.github.io/",
+  "status": 200
+ },
+ {
+  "target": "spring-media.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://spring-media.github.io/",
+  "status": 200
+ },
+ {
+  "target": "spring-media.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://spring-media.github.io/",
+  "status": 200
+ },
+ {
+  "target": "spring-media.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://spring-media.github.io/",
+  "status": 200,
+  "hosts": [
+   "atlas.docs.ps.axelspringer.de",
+   "babelfisch-api.docs.ps.axelspringer.de",
+   "cancellation-api-next.docs.ps.axelspringer.de",
+   "dealer.docs.ps.axelspringer.de",
+   "dove-api.docs.ps.axelspringer.de",
+   "entitled-api.docs.ps.axelspringer.de",
+   "ki-coding-seminar.ps.axelspringer.de",
+   "kitten-api.docs.ps.axelspringer.de",
+   "lefty-lapi.docs.ps.axelspringer.de",
+   "nmt-upday.docs.tech.as-nmt.de",
+   "octopus.docs.ps.axelspringer.de",
+   "paywall-center-api.docs.ps.axelspringer.de",
+   "puss-in-boots-api.docs.ps.axelspringer.de",
+   "stray-api.docs.ps.axelspringer.de",
+   "wall-e-api.docs.ps.axelspringer.de",
+   "whoami-api.docs.ps.axelspringer.de"
+  ]
+ },
+ {
+  "target": "stg-drops-1.web.app",
+  "ns": "web.app",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 404, body did not match the 'nothing deployed' signature",
+  "url": "https://stg-drops-1.web.app/",
+  "status": 404,
+  "hosts": [
+   "verify-dev.gotdrops.com"
+  ]
+ },
+ {
+  "target": "stribika.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://stribika.github.io/",
+  "status": 200,
+  "hosts": [
+   "blog.stribik.technology"
+  ]
+ },
+ {
+  "target": "themis-ai.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://themis-ai.github.io/",
+  "status": 200,
+  "hosts": [
+   "docs.themisai.io"
+  ]
+ },
+ {
+  "target": "ua-commercialization.herokuapp.com",
+  "ns": "herokuapp.com",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 502, body did not match the 'nothing deployed' signature",
+  "url": "https://ua-commercialization.herokuapp.com/",
+  "status": 502,
+  "hosts": [
+   "ideahouse.ua.com"
+  ]
+ },
+ {
+  "target": "unity-technologies.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://unity-technologies.github.io/",
+  "status": 200
+ },
+ {
+  "target": "unity-technologies.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://unity-technologies.github.io/",
+  "status": 200,
+  "hosts": [
+   "app-ui.unity.com",
+   "onetrust-integration-demo.internal.unity.com"
+  ]
+ },
+ {
+  "target": "victorious-moss-0b33e3a10.4.azurestaticapps.net",
+  "ns": "azurestaticapps.net",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 403, body did not match the 'nothing deployed' signature",
+  "url": "https://victorious-moss-0b33e3a10.4.azurestaticapps.net/",
+  "status": 403,
+  "hosts": [
+   "salessubledger.chipotle.com"
+  ]
+ },
+ {
+  "target": "vocal-basbousa-117bf3.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 404, body did not match the 'nothing deployed' signature",
+  "url": "https://vocal-basbousa-117bf3.netlify.app/",
+  "status": 404,
+  "hosts": [
+   "beta.docs.x.immutable.com"
+  ]
+ },
+ {
+  "target": "voiapp.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://voiapp.github.io/",
+  "status": 200
+ },
+ {
+  "target": "voiapp.github.io",
+  "ns": "github.io",
+  "verdict": "UNKNOWN",
+  "why": "owner check inconclusive",
+  "url": "https://voiapp.github.io/",
+  "status": 200,
+  "hosts": [
+   "lwm2m-objects.voiapp.io",
+   "platform-docs.voiapp.io"
+  ]
+ },
+ {
+  "target": "witty-ground-0d00d5903.3.azurestaticapps.net",
+  "ns": "azurestaticapps.net",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 302, body did not match the 'nothing deployed' signature",
+  "url": "https://witty-ground-0d00d5903.3.azurestaticapps.net/",
+  "status": 302,
+  "hosts": [
+   "dbt-docs.datafabric.portofantwerpbruges.com"
+  ]
+ },
+ {
+  "target": "witty-ocean-0e0fe4b10.1.azurestaticapps.net",
+  "ns": "azurestaticapps.net",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 403, body did not match the 'nothing deployed' signature",
+  "url": "https://witty-ocean-0e0fe4b10.1.azurestaticapps.net/",
+  "status": 403,
+  "hosts": [
+   "ctm.stewart.com"
+  ]
+ },
+ {
+  "target": "wonderful-pond-02c8c2300.3.azurestaticapps.net",
+  "ns": "azurestaticapps.net",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 403, body did not match the 'nothing deployed' signature",
+  "url": "https://wonderful-pond-02c8c2300.3.azurestaticapps.net/",
+  "status": 403,
+  "hosts": [
+   "prism-snap-test.apps.origin.com.au"
+  ]
+ },
+ {
+  "target": "xv-brand-guidelines.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "UNKNOWN",
+  "why": "HTTP 401, body did not match the 'nothing deployed' signature",
+  "url": "https://xv-brand-guidelines.netlify.app/",
+  "status": 401,
+  "hosts": [
+   "brand.xvservice.net"
+  ]
+ },
+ {
+  "target": "8x8.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner 8x8 exists but has no site here \u2014 repo-level claim only",
+  "url": "https://8x8.github.io/",
+  "status": 404,
+  "hosts": [
+   "cloud8.devrel.8x8cloud.net"
+  ]
+ },
+ {
+  "target": "agreeable-meadow-00ae3f103.4.azurestaticapps.net",
+  "ns": "azurestaticapps.net",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: MTA-STS",
+  "url": "https://agreeable-meadow-00ae3f103.4.azurestaticapps.net/",
+  "status": 200,
+  "hosts": [
+   "mta-sts.transsicura.ch"
+  ]
+ },
+ {
+  "target": "aida-paraguay.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: AIDA Paraguay",
+  "url": "https://aida-paraguay.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "www.aidaparaguay.com.py"
+  ]
+ },
+ {
+  "target": "aiven.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner aiven exists but has no site here \u2014 repo-level claim only",
+  "url": "https://aiven.github.io/",
+  "status": 404
+ },
+ {
+  "target": "aiven.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner aiven exists but has no site here \u2014 repo-level claim only",
+  "url": "https://aiven.github.io/",
+  "status": 404
+ },
+ {
+  "target": "aiven.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner aiven exists but has no site here \u2014 repo-level claim only",
+  "url": "https://aiven.github.io/",
+  "status": 404,
+  "hosts": [
+   "handbook.aiven.io",
+   "incident-management-docs.handbook.aiven.io",
+   "robjecter.aiven.io"
+  ]
+ },
+ {
+  "target": "andreijiroh-dev.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner andreijiroh-dev exists but has no site here \u2014 repo-level claim only",
+  "url": "https://andreijiroh-dev.github.io/",
+  "status": 404,
+  "hosts": [
+   "status.andreijiroh.dev"
+  ]
+ },
+ {
+  "target": "andreijirohdev-labs.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner andreijirohdev-labs exists but has no site here \u2014 repo-level claim only",
+  "url": "https://andreijirohdev-labs.github.io/",
+  "status": 404,
+  "hosts": [
+   "spotbuds.labs.andreijiroh.dev"
+  ]
+ },
+ {
+  "target": "angry-hawking-bc33c2.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers",
+  "url": "https://angry-hawking-bc33c2.netlify.app/",
+  "status": 200
+ },
+ {
+  "target": "angry-hawking-bc33c2.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers",
+  "url": "https://angry-hawking-bc33c2.netlify.app/",
+  "status": 200
+ },
+ {
+  "target": "angry-hawking-bc33c2.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers",
+  "url": "https://angry-hawking-bc33c2.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "pds.28degreescard.com.au",
+   "pds.gemvisa.com.au",
+   "pds.gomastercard.com.au"
+  ]
+ },
+ {
+  "target": "arlo-partner-platform.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner arlo-partner-platform exists but has no site here \u2014 repo-level claim only",
+  "url": "https://arlo-partner-platform.github.io/",
+  "status": 404,
+  "hosts": [
+   "arlo-partner-platform.arlo.com"
+  ]
+ },
+ {
+  "target": "ashy-beach-065fc080f-production.eastus2.2.azurestaticapps.net",
+  "ns": "azurestaticapps.net",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: ClosedLoop AI",
+  "url": "https://ashy-beach-065fc080f-production.eastus2.2.azurestaticapps.net/",
+  "status": 200,
+  "hosts": [
+   "app.closedloop.sh"
+  ]
+ },
+ {
+  "target": "askjacqueline.vercel.app",
+  "ns": "vercel.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Ask Jacqueline has moved",
+  "url": "https://askjacqueline.vercel.app/",
+  "status": 200,
+  "hosts": [
+   "ask.thetradedesk.com"
+  ]
+ },
+ {
+  "target": "attachme-platform.onrender.com",
+  "ns": "onrender.com",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: ",
+  "url": "https://attachme-platform.onrender.com/",
+  "status": 200,
+  "hosts": [
+   "www.attachme.co.ke"
+  ]
+ },
+ {
+  "target": "backstage.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner backstage exists but has no site here \u2014 repo-level claim only",
+  "url": "https://backstage.github.io/",
+  "status": 404
+ },
+ {
+  "target": "backstage.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner backstage exists but has no site here \u2014 repo-level claim only",
+  "url": "https://backstage.github.io/",
+  "status": 404
+ },
+ {
+  "target": "backstage.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner backstage exists but has no site here \u2014 repo-level claim only",
+  "url": "https://backstage.github.io/",
+  "status": 404
+ },
+ {
+  "target": "backstage.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner backstage exists but has no site here \u2014 repo-level claim only",
+  "url": "https://backstage.github.io/",
+  "status": 404
+ },
+ {
+  "target": "backstage.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner backstage exists but has no site here \u2014 repo-level claim only",
+  "url": "https://backstage.github.io/",
+  "status": 404
+ },
+ {
+  "target": "backstage.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner backstage exists but has no site here \u2014 repo-level claim only",
+  "url": "https://backstage.github.io/",
+  "status": 404
+ },
+ {
+  "target": "backstage.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner backstage exists but has no site here \u2014 repo-level claim only",
+  "url": "https://backstage.github.io/",
+  "status": 404,
+  "hosts": [
+   "canon.backstage.io",
+   "config.backstage.io",
+   "contribfest.backstage.io",
+   "patches.backstage.io",
+   "ui.backstage.io",
+   "versions.backstage.io",
+   "www.backstage.io"
+  ]
+ },
+ {
+  "target": "badgesysteem.web.app",
+  "ns": "web.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: VDAB - Badgesysteem",
+  "url": "https://badgesysteem.web.app/",
+  "status": 200,
+  "hosts": [
+   "badgesysteem.vdab.be"
+  ]
+ },
+ {
+  "target": "betmgm-br-promo.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers",
+  "url": "https://betmgm-br-promo.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "promo.betmgm.bet.br"
+  ]
+ },
+ {
+  "target": "bifrost-docs.pages.dev",
+  "ns": "pages.dev",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Home - shadcn-docs-nuxt",
+  "url": "https://bifrost-docs.pages.dev/",
+  "status": 200,
+  "hosts": [
+   "docs.alkemi.no"
+  ]
+ },
+ {
+  "target": "bitrise-io.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner bitrise-io exists but has no site here \u2014 repo-level claim only",
+  "url": "https://bitrise-io.github.io/",
+  "status": 404,
+  "hosts": [
+   "webflow-scripts.bitrise.io"
+  ]
+ },
+ {
+  "target": "bitrise-team.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner bitrise-team exists but has no site here \u2014 repo-level claim only",
+  "url": "https://bitrise-team.github.io/",
+  "status": 404,
+  "hosts": [
+   "api-docs.bitrise.io"
+  ]
+ },
+ {
+  "target": "bookbeatadmin.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner bookbeatadmin exists but has no site here \u2014 repo-level claim only",
+  "url": "https://bookbeatadmin.github.io/",
+  "status": 404,
+  "hosts": [
+   "status.bookbeat.com"
+  ]
+ },
+ {
+  "target": "brave-plant-0bf1f6b03.5.azurestaticapps.net",
+  "ns": "azurestaticapps.net",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: eWaiver",
+  "url": "https://brave-plant-0bf1f6b03.5.azurestaticapps.net/",
+  "status": 200,
+  "hosts": [
+   "consent.superdrug.com"
+  ]
+ },
+ {
+  "target": "brave-smoke-0a838d40f.4.azurestaticapps.net",
+  "ns": "azurestaticapps.net",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Welcome to Stewart Sign Help Documentation! | Welcome to Ste",
+  "url": "https://brave-smoke-0a838d40f.4.azurestaticapps.net/",
+  "status": 200,
+  "hosts": [
+   "help.sign.stewart.com"
+  ]
+ },
+ {
+  "target": "circlefin.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner circlefin exists but has no site here \u2014 repo-level claim only",
+  "url": "https://circlefin.github.io/",
+  "status": 404,
+  "hosts": [
+   "risk-kyc-swagger.circle.com"
+  ]
+ },
+ {
+  "target": "cli-experimental.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: SIG CLI",
+  "url": "https://cli-experimental.netlify.app/",
+  "status": 200
+ },
+ {
+  "target": "cli-experimental.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: SIG CLI",
+  "url": "https://cli-experimental.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "kubectl.sigs.k8s.io",
+   "kustomize.sigs.k8s.io"
+  ]
+ },
+ {
+  "target": "cloud-web-4vm.pages.dev",
+  "ns": "pages.dev",
+  "verdict": "OCCUPIED",
+  "why": "a site answers",
+  "url": "https://cloud-web-4vm.pages.dev/",
+  "status": 200
+ },
+ {
+  "target": "cloud-web-4vm.pages.dev",
+  "ns": "pages.dev",
+  "verdict": "OCCUPIED",
+  "why": "a site answers",
+  "url": "https://cloud-web-4vm.pages.dev/",
+  "status": 200,
+  "hosts": [
+   "cloud.aiven.io",
+   "nevia.aiven.io"
+  ]
+ },
+ {
+  "target": "cloudcomph.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: cloud.com.ph \u2014 CloudSigma IaaS, Locally Hosted in the Philip",
+  "url": "https://cloudcomph.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "www.cloud.com.ph"
+  ]
+ },
+ {
+  "target": "cloudlinux.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner cloudlinux exists but has no site here \u2014 repo-level claim only",
+  "url": "https://cloudlinux.github.io/",
+  "status": 404,
+  "hosts": [
+   "docs.single.cloudlinux.com"
+  ]
+ },
+ {
+  "target": "competent-swirles-2b4dad.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: MoEngage GrowthAccelerator",
+  "url": "https://competent-swirles-2b4dad.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "growth-accelerator.moengage.com"
+  ]
+ },
+ {
+  "target": "counterspell24-echoesoftheabyss.pages.dev",
+  "ns": "pages.dev",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Echoes of the Abyss",
+  "url": "https://counterspell24-echoesoftheabyss.pages.dev/",
+  "status": 200,
+  "hosts": [
+   "counterspell-construct.labs.andreijiroh.dev"
+  ]
+ },
+ {
+  "target": "deedster-quiz.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Deedster Quiz",
+  "url": "https://deedster-quiz.netlify.app/",
+  "status": 200
+ },
+ {
+  "target": "deedster-quiz.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Deedster Quiz",
+  "url": "https://deedster-quiz.netlify.app/",
+  "status": 200
+ },
+ {
+  "target": "deedster-quiz.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Deedster Quiz",
+  "url": "https://deedster-quiz.netlify.app/",
+  "status": 200
+ },
+ {
+  "target": "deedster-quiz.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Deedster Quiz",
+  "url": "https://deedster-quiz.netlify.app/",
+  "status": 200
+ },
+ {
+  "target": "deedster-quiz.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Deedster Quiz",
+  "url": "https://deedster-quiz.netlify.app/",
+  "status": 200
+ },
+ {
+  "target": "deedster-quiz.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Deedster Quiz",
+  "url": "https://deedster-quiz.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "matsmart.quiz.deedster.com",
+   "qliro.quiz.deedster.com",
+   "quiz.deedster.com",
+   "www.matsmart.quiz.deedster.com",
+   "www.qliro.quiz.deedster.com",
+   "www.quiz.deedster.com"
+  ]
+ },
+ {
+  "target": "delightful-mushroom-030508010.1.azurestaticapps.net",
+  "ns": "azurestaticapps.net",
+  "verdict": "OCCUPIED",
+  "why": "a site answers",
+  "url": "https://delightful-mushroom-030508010.1.azurestaticapps.net/",
+  "status": 200,
+  "hosts": [
+   "oidc-configuration.audit-log.githubusercontent.com"
+  ]
+ },
+ {
+  "target": "design-system-6k1.pages.dev",
+  "ns": "pages.dev",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: storybook - Storybook",
+  "url": "https://design-system-6k1.pages.dev/",
+  "status": 200,
+  "hosts": [
+   "aquarium-library.aiven.io"
+  ]
+ },
+ {
+  "target": "di-handbook.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Handbook",
+  "url": "https://di-handbook.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "handbook.differential.com"
+  ]
+ },
+ {
+  "target": "discourse-org.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner discourse-org exists but has no site here \u2014 repo-level claim only",
+  "url": "https://discourse-org.github.io/",
+  "status": 404,
+  "hosts": [
+   "www-redesign.discourse.org"
+  ]
+ },
+ {
+  "target": "discourse.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner discourse exists but has no site here \u2014 repo-level claim only",
+  "url": "https://discourse.github.io/",
+  "status": 404
+ },
+ {
+  "target": "discourse.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner discourse exists but has no site here \u2014 repo-level claim only",
+  "url": "https://discourse.github.io/",
+  "status": 404,
+  "hosts": [
+   "docs.discourse.org",
+   "emberperf.discourse.org"
+  ]
+ },
+ {
+  "target": "distracted-goldberg-a6ad5f.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Rasa Enterprise Readiness Scorecard",
+  "url": "https://distracted-goldberg-a6ad5f.netlify.app/",
+  "status": 200
+ },
+ {
+  "target": "distracted-goldberg-a6ad5f.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Rasa Enterprise Readiness Scorecard",
+  "url": "https://distracted-goldberg-a6ad5f.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "enterprise-scorecard.rasa.com",
+   "www.enterprise-scorecard.rasa.com"
+  ]
+ },
+ {
+  "target": "dktunited.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner dktunited exists but has no site here \u2014 repo-level claim only",
+  "url": "https://dktunited.github.io/",
+  "status": 404
+ },
+ {
+  "target": "dktunited.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner dktunited exists but has no site here \u2014 repo-level claim only",
+  "url": "https://dktunited.github.io/",
+  "status": 404,
+  "hosts": [
+   "login-doc.decathlon.com",
+   "sports-user-doc.decathlon.com"
+  ]
+ },
+ {
+  "target": "dopplerhq.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner dopplerhq exists but has no site here \u2014 repo-level claim only",
+  "url": "https://dopplerhq.github.io/",
+  "status": 404
+ },
+ {
+  "target": "dopplerhq.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner dopplerhq exists but has no site here \u2014 repo-level claim only",
+  "url": "https://dopplerhq.github.io/",
+  "status": 404,
+  "hosts": [
+   "demo.import.doppler.com",
+   "helm.doppler.com"
+  ]
+ },
+ {
+  "target": "dpg-media-boekenwijzer.web.app",
+  "ns": "web.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: De Grote Kinderboekenzoeker | Qmusic",
+  "url": "https://dpg-media-boekenwijzer.web.app/",
+  "status": 200,
+  "hosts": [
+   "boekenzoeker.dpgmedia.nl"
+  ]
+ },
+ {
+  "target": "dualvipers.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner dualvipers exists but has no site here \u2014 repo-level claim only",
+  "url": "https://dualvipers.github.io/",
+  "status": 404,
+  "hosts": [
+   "advisory.dualvs.com"
+  ]
+ },
+ {
+  "target": "edupay-uw0w.onrender.com",
+  "ns": "onrender.com",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: EduPay - Digital School Payment Platform",
+  "url": "https://edupay-uw0w.onrender.com/",
+  "status": 200,
+  "hosts": [
+   "www.edupay.com.ng"
+  ]
+ },
+ {
+  "target": "eg-internal.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner eg-internal exists but has no site here \u2014 repo-level claim only",
+  "url": "https://eg-internal.github.io/",
+  "status": 404
+ },
+ {
+  "target": "eg-internal.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner eg-internal exists but has no site here \u2014 repo-level claim only",
+  "url": "https://eg-internal.github.io/",
+  "status": 404
+ },
+ {
+  "target": "eg-internal.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner eg-internal exists but has no site here \u2014 repo-level claim only",
+  "url": "https://eg-internal.github.io/",
+  "status": 404,
+  "hosts": [
+   "developer-ai-radar.eg-internal.ghpages.expedia.biz",
+   "devex-mcp-registry.eg-internal.ghpages.expedia.biz",
+   "egds-components-android.eg-internal.ghpages.expedia.biz"
+  ]
+ },
+ {
+  "target": "eighty-dby.pages.dev",
+  "ns": "pages.dev",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Willkommen zur Ausstellung \u201e80 Jahre Axel Springer\u201c! | 80 Ja",
+  "url": "https://eighty-dby.pages.dev/",
+  "status": 200,
+  "hosts": [
+   "80years.axelspringer.com"
+  ]
+ },
+ {
+  "target": "emtech12-html-lab.pages.dev",
+  "ns": "pages.dev",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: HTML Lab - Performance Task in Empowerment Technologies 12",
+  "url": "https://emtech12-html-lab.pages.dev/",
+  "status": 200,
+  "hosts": [
+   "emtech-html.labs.andreijiroh.dev"
+  ]
+ },
+ {
+  "target": "etalab.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner etalab exists but has no site here \u2014 repo-level claim only",
+  "url": "https://etalab.github.io/",
+  "status": 404,
+  "hosts": [
+   "agd.data.gouv.fr"
+  ]
+ },
+ {
+  "target": "eufy-lighting-demo.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Light Effects Preview",
+  "url": "https://eufy-lighting-demo.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "lighting-demo.eufy.com"
+  ]
+ },
+ {
+  "target": "eufy.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers",
+  "url": "https://eufy.netlify.app/",
+  "status": 200
+ },
+ {
+  "target": "eufy.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers",
+  "url": "https://eufy.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "release.eufy.com",
+   "uat.eufy.com"
+  ]
+ },
+ {
+  "target": "european-unified-id.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner european-unified-id exists but has no site here \u2014 repo-level claim only",
+  "url": "https://european-unified-id.github.io/",
+  "status": 404,
+  "hosts": [
+   "www.euid.eu"
+  ]
+ },
+ {
+  "target": "fedihosting-foundation.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner fedihosting-foundation exists but has no site here \u2014 repo-level claim only",
+  "url": "https://fedihosting-foundation.github.io/",
+  "status": 404,
+  "hosts": [
+   "feeds.fedihosting.foundation"
+  ]
+ },
+ {
+  "target": "figforms.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers",
+  "url": "https://figforms.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "forms.figma.com"
+  ]
+ },
+ {
+  "target": "financialforcedev.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner financialforcedev exists but has no site here \u2014 repo-level claim only",
+  "url": "https://financialforcedev.github.io/",
+  "status": 404,
+  "hosts": [
+   "developer.financialforce.com"
+  ]
+ },
+ {
+  "target": "fucerep.pages.dev",
+  "ns": "pages.dev",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: FUCEREP - Cooperativa de Ahorro y Cr\u00e9dito",
+  "url": "https://fucerep.pages.dev/",
+  "status": 200,
+  "hosts": [
+   "www.fucerep.com.uy"
+  ]
+ },
+ {
+  "target": "gateway-api-inference-extension.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Introduction - Kubernetes Gateway API Inference Extension",
+  "url": "https://gateway-api-inference-extension.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "gateway-api-inference-extension.sigs.k8s.io"
+  ]
+ },
+ {
+  "target": "github.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner github exists but has no site here \u2014 repo-level claim only",
+  "url": "https://github.github.io/",
+  "status": 404
+ },
+ {
+  "target": "github.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner github exists but has no site here \u2014 repo-level claim only",
+  "url": "https://github.github.io/",
+  "status": 404
+ },
+ {
+  "target": "github.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner github exists but has no site here \u2014 repo-level claim only",
+  "url": "https://github.github.io/",
+  "status": 404
+ },
+ {
+  "target": "github.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner github exists but has no site here \u2014 repo-level claim only",
+  "url": "https://github.github.io/",
+  "status": 404
+ },
+ {
+  "target": "github.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner github exists but has no site here \u2014 repo-level claim only",
+  "url": "https://github.github.io/",
+  "status": 404
+ },
+ {
+  "target": "github.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner github exists but has no site here \u2014 repo-level claim only",
+  "url": "https://github.github.io/",
+  "status": 404
+ },
+ {
+  "target": "github.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner github exists but has no site here \u2014 repo-level claim only",
+  "url": "https://github.github.io/",
+  "status": 404
+ },
+ {
+  "target": "github.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner github exists but has no site here \u2014 repo-level claim only",
+  "url": "https://github.github.io/",
+  "status": 404
+ },
+ {
+  "target": "github.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner github exists but has no site here \u2014 repo-level claim only",
+  "url": "https://github.github.io/",
+  "status": 404
+ },
+ {
+  "target": "github.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner github exists but has no site here \u2014 repo-level claim only",
+  "url": "https://github.github.io/",
+  "status": 404
+ },
+ {
+  "target": "github.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner github exists but has no site here \u2014 repo-level claim only",
+  "url": "https://github.github.io/",
+  "status": 404
+ },
+ {
+  "target": "github.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner github exists but has no site here \u2014 repo-level claim only",
+  "url": "https://github.github.io/",
+  "status": 404
+ },
+ {
+  "target": "github.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner github exists but has no site here \u2014 repo-level claim only",
+  "url": "https://github.github.io/",
+  "status": 404
+ },
+ {
+  "target": "github.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner github exists but has no site here \u2014 repo-level claim only",
+  "url": "https://github.github.io/",
+  "status": 404
+ },
+ {
+  "target": "github.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner github exists but has no site here \u2014 repo-level claim only",
+  "url": "https://github.github.io/",
+  "status": 404
+ },
+ {
+  "target": "github.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner github exists but has no site here \u2014 repo-level claim only",
+  "url": "https://github.github.io/",
+  "status": 404
+ },
+ {
+  "target": "github.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner github exists but has no site here \u2014 repo-level claim only",
+  "url": "https://github.github.io/",
+  "status": 404
+ },
+ {
+  "target": "github.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner github exists but has no site here \u2014 repo-level claim only",
+  "url": "https://github.github.io/",
+  "status": 404
+ },
+ {
+  "target": "github.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner github exists but has no site here \u2014 repo-level claim only",
+  "url": "https://github.github.io/",
+  "status": 404
+ },
+ {
+  "target": "github.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner github exists but has no site here \u2014 repo-level claim only",
+  "url": "https://github.github.io/",
+  "status": 404
+ },
+ {
+  "target": "github.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner github exists but has no site here \u2014 repo-level claim only",
+  "url": "https://github.github.io/",
+  "status": 404
+ },
+ {
+  "target": "github.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner github exists but has no site here \u2014 repo-level claim only",
+  "url": "https://github.github.io/",
+  "status": 404
+ },
+ {
+  "target": "github.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner github exists but has no site here \u2014 repo-level claim only",
+  "url": "https://github.github.io/",
+  "status": 404,
+  "hosts": [
+   "actions-availability-report.githubapp.com",
+   "actions-support-report.githubapp.com",
+   "ai.githubapp.com",
+   "api-platform-docs.githubapp.com",
+   "are-we-available.githubapp.com",
+   "availability-core4-report.githubapp.com",
+   "codeql-profile-viewer.githubapp.com",
+   "codeql-reports.githubapp.com",
+   "coding-maintenance-reports.githubapp.com",
+   "compute-products-fundamentals.githubapp.com",
+   "delivery-org.githubapp.com",
+   "gandalf-reports.githubapp.com",
+   "i2c-reports.githubapp.com",
+   "npm-reports.githubapp.com",
+   "pgm-kb.githubapp.com",
+   "primer-query.githubapp.com",
+   "repos.githubapp.com",
+   "saga.githubapp.com",
+   "skald.githubapp.com",
+   "storage-reports.githubapp.com",
+   "structured-templates-playground.githubapp.com",
+   "try.github.io",
+   "word-to-markdown.githubapp.com"
+  ]
+ },
+ {
+  "target": "grnhse.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner grnhse exists but has no site here \u2014 repo-level claim only",
+  "url": "https://grnhse.github.io/",
+  "status": 404,
+  "hosts": [
+   "careerleveling.greenhouse.io"
+  ]
+ },
+ {
+  "target": "gym-app-5a56a.web.app",
+  "ns": "web.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Fiternal",
+  "url": "https://gym-app-5a56a.web.app/",
+  "status": 200,
+  "hosts": [
+   "gym.zomans.com"
+  ]
+ },
+ {
+  "target": "hacker0x01.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner hacker0x01 exists but has no site here \u2014 repo-level claim only",
+  "url": "https://hacker0x01.github.io/",
+  "status": 404
+ },
+ {
+  "target": "hacker0x01.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner hacker0x01 exists but has no site here \u2014 repo-level claim only",
+  "url": "https://hacker0x01.github.io/",
+  "status": 404
+ },
+ {
+  "target": "hacker0x01.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner hacker0x01 exists but has no site here \u2014 repo-level claim only",
+  "url": "https://hacker0x01.github.io/",
+  "status": 404
+ },
+ {
+  "target": "hacker0x01.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner hacker0x01 exists but has no site here \u2014 repo-level claim only",
+  "url": "https://hacker0x01.github.io/",
+  "status": 404
+ },
+ {
+  "target": "hacker0x01.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner hacker0x01 exists but has no site here \u2014 repo-level claim only",
+  "url": "https://hacker0x01.github.io/",
+  "status": 404
+ },
+ {
+  "target": "hacker0x01.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner hacker0x01 exists but has no site here \u2014 repo-level claim only",
+  "url": "https://hacker0x01.github.io/",
+  "status": 404
+ },
+ {
+  "target": "hacker0x01.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner hacker0x01 exists but has no site here \u2014 repo-level claim only",
+  "url": "https://hacker0x01.github.io/",
+  "status": 404
+ },
+ {
+  "target": "hacker0x01.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner hacker0x01 exists but has no site here \u2014 repo-level claim only",
+  "url": "https://hacker0x01.github.io/",
+  "status": 404,
+  "hosts": [
+   "mta-sts.dev.wearehackerone.com",
+   "mta-sts.forwarding.hackerone.com",
+   "mta-sts.hackerone.com",
+   "mta-sts.managed.hackerone.com",
+   "mta-sts.staging.wearehackerone.com",
+   "mta-sts.testserver.wearehackerone.com",
+   "mta-sts.wearehackerone.com",
+   "www.hacker101.com"
+  ]
+ },
+ {
+  "target": "happy-coast-03a07cb00.2.azurestaticapps.net",
+  "ns": "azurestaticapps.net",
+  "verdict": "OCCUPIED",
+  "why": "a site answers",
+  "url": "https://happy-coast-03a07cb00.2.azurestaticapps.net/",
+  "status": 200,
+  "hosts": [
+   "www.sponsor.co.th"
+  ]
+ },
+ {
+  "target": "happy-moss-0d0e2c403.4.azurestaticapps.net",
+  "ns": "azurestaticapps.net",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: MTA-STS",
+  "url": "https://happy-moss-0d0e2c403.4.azurestaticapps.net/",
+  "status": 200,
+  "hosts": [
+   "mta-sts.swisspass.ch"
+  ]
+ },
+ {
+  "target": "hkx-dettol-ke-prod-2af2.web.app",
+  "ns": "web.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers",
+  "url": "https://hkx-dettol-ke-prod-2af2.web.app/",
+  "status": 200,
+  "hosts": [
+   "www.dettol.co.ke"
+  ]
+ },
+ {
+  "target": "icy-plant-02fe4af1e.5.azurestaticapps.net",
+  "ns": "azurestaticapps.net",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: ",
+  "url": "https://icy-plant-02fe4af1e.5.azurestaticapps.net/",
+  "status": 200,
+  "hosts": [
+   "mta-sts.ivanti.com"
+  ]
+ },
+ {
+  "target": "immutable-gamingvc.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: vc-dashboard",
+  "url": "https://immutable-gamingvc.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "gamingvc.immutable.com"
+  ]
+ },
+ {
+  "target": "immutable.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner immutable exists but has no site here \u2014 repo-level claim only",
+  "url": "https://immutable.github.io/",
+  "status": 404,
+  "hosts": [
+   "spore.dev.immutable.com"
+  ]
+ },
+ {
+  "target": "imx-docs-prod.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Immutable Documentation",
+  "url": "https://imx-docs-prod.netlify.app/",
+  "status": 200
+ },
+ {
+  "target": "imx-docs-prod.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Immutable Documentation",
+  "url": "https://imx-docs-prod.netlify.app/",
+  "status": 200
+ },
+ {
+  "target": "imx-docs-prod.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Immutable Documentation",
+  "url": "https://imx-docs-prod.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "deprecated-docs.immutable.com",
+   "devsupport.immutable.com",
+   "docs.x.immutable.com"
+  ]
+ },
+ {
+  "target": "indrive-fl.web.app",
+  "ns": "web.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers",
+  "url": "https://indrive-fl.web.app/",
+  "status": 200,
+  "hosts": [
+   "demo.indrive.com"
+  ]
+ },
+ {
+  "target": "indriver.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner indriver exists but has no site here \u2014 repo-level claim only",
+  "url": "https://indriver.github.io/",
+  "status": 404
+ },
+ {
+  "target": "indriver.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner indriver exists but has no site here \u2014 repo-level claim only",
+  "url": "https://indriver.github.io/",
+  "status": 404
+ },
+ {
+  "target": "indriver.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner indriver exists but has no site here \u2014 repo-level claim only",
+  "url": "https://indriver.github.io/",
+  "status": 404
+ },
+ {
+  "target": "indriver.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner indriver exists but has no site here \u2014 repo-level claim only",
+  "url": "https://indriver.github.io/",
+  "status": 404,
+  "hosts": [
+   "pagerduty.indriver.com",
+   "pd-helper.indriver.com",
+   "start.indriver.io",
+   "url-checker.indriver.com"
+  ]
+ },
+ {
+  "target": "insomnia-api-production.web.app",
+  "ns": "web.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Insomnia",
+  "url": "https://insomnia-api-production.web.app/",
+  "status": 200,
+  "hosts": [
+   "app.insomnia.rest"
+  ]
+ },
+ {
+  "target": "interaktiv-election-mf.web.app",
+  "ns": "web.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers",
+  "url": "https://interaktiv-election-mf.web.app/",
+  "status": 200,
+  "hosts": [
+   "interaktiv-election-mf.tagesanzeiger.ch"
+  ]
+ },
+ {
+  "target": "interaktiv-popular-votes-mf.web.app",
+  "ns": "web.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers",
+  "url": "https://interaktiv-popular-votes-mf.web.app/",
+  "status": 200,
+  "hosts": [
+   "interaktiv-popular-votes-mf.tagesanzeiger.ch"
+  ]
+ },
+ {
+  "target": "jadbinders-com-jm.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Welcome to JAD Binders \u2014 Site",
+  "url": "https://jadbinders-com-jm.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "www.jadbinders.com.jm"
+  ]
+ },
+ {
+  "target": "jolly-sand-061050003.1.azurestaticapps.net",
+  "ns": "azurestaticapps.net",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Redirecting",
+  "url": "https://jolly-sand-061050003.1.azurestaticapps.net/",
+  "status": 200,
+  "hosts": [
+   "register.retailsso.com"
+  ]
+ },
+ {
+  "target": "k8s-kwok.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Home | KWOK",
+  "url": "https://k8s-kwok.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "kwok.sigs.k8s.io"
+  ]
+ },
+ {
+  "target": "karwei.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Karwei audiotour",
+  "url": "https://karwei.netlify.app/",
+  "status": 200
+ },
+ {
+  "target": "karwei.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Karwei audiotour",
+  "url": "https://karwei.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "audiotour.karwei.nl",
+   "www.audiotour.karwei.nl"
+  ]
+ },
+ {
+  "target": "kind-cliff-0755cb103.4.azurestaticapps.net",
+  "ns": "azurestaticapps.net",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: MTA-STS",
+  "url": "https://kind-cliff-0755cb103.4.azurestaticapps.net/",
+  "status": 200,
+  "hosts": [
+   "mta-sts.elvetino.ch"
+  ]
+ },
+ {
+  "target": "kind-rock-055e49203.5.azurestaticapps.net",
+  "ns": "azurestaticapps.net",
+  "verdict": "OCCUPIED",
+  "why": "a site answers",
+  "url": "https://kind-rock-055e49203.5.azurestaticapps.net/",
+  "status": 200,
+  "hosts": [
+   "appt-uat.healthclinics.superdrug.com"
+  ]
+ },
+ {
+  "target": "klaviyo.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner klaviyo exists but has no site here \u2014 repo-level claim only",
+  "url": "https://klaviyo.github.io/",
+  "status": 404
+ },
+ {
+  "target": "klaviyo.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner klaviyo exists but has no site here \u2014 repo-level claim only",
+  "url": "https://klaviyo.github.io/",
+  "status": 404
+ },
+ {
+  "target": "klaviyo.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner klaviyo exists but has no site here \u2014 repo-level claim only",
+  "url": "https://klaviyo.github.io/",
+  "status": 404
+ },
+ {
+  "target": "klaviyo.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner klaviyo exists but has no site here \u2014 repo-level claim only",
+  "url": "https://klaviyo.github.io/",
+  "status": 404
+ },
+ {
+  "target": "klaviyo.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner klaviyo exists but has no site here \u2014 repo-level claim only",
+  "url": "https://klaviyo.github.io/",
+  "status": 404,
+  "hosts": [
+   "atlas.documentation.klaviyo.com",
+   "fender.documentation.klaviyo.com",
+   "igf.documentation.klaviyo.com",
+   "klaviyo-graph.documentation.klaviyo.com",
+   "local-dev.documentation.klaviyo.com"
+  ]
+ },
+ {
+  "target": "kubernetes-sig-multicluster.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Introduction - SIG Multicluster",
+  "url": "https://kubernetes-sig-multicluster.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "multicluster.sigs.k8s.io"
+  ]
+ },
+ {
+  "target": "kubernetes-sigs-cloud-provide-azure.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Cloud Provider Azure",
+  "url": "https://kubernetes-sigs-cloud-provide-azure.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "cloud-provider-azure.sigs.k8s.io"
+  ]
+ },
+ {
+  "target": "kubernetes-sigs-cloud-provider-aws.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Kubernetes AWS Cloud Provider",
+  "url": "https://kubernetes-sigs-cloud-provider-aws.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "cloud-provider-aws.sigs.k8s.io"
+  ]
+ },
+ {
+  "target": "kubernetes-sigs-cloud-provider-vsphere.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Introduction \u00b7 GitBook",
+  "url": "https://kubernetes-sigs-cloud-provider-vsphere.netlify.app/",
+  "status": 200
+ },
+ {
+  "target": "kubernetes-sigs-cloud-provider-vsphere.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Introduction \u00b7 GitBook",
+  "url": "https://kubernetes-sigs-cloud-provider-vsphere.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "cloud-provider-vsphere.sigs.canary.k8s.io",
+   "cloud-provider-vsphere.sigs.k8s.io"
+  ]
+ },
+ {
+  "target": "kubernetes-sigs-cluster-api-openstack.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Introduction - Kubernetes Cluster API Provider OpenStack",
+  "url": "https://kubernetes-sigs-cluster-api-openstack.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "cluster-api-openstack.sigs.k8s.io"
+  ]
+ },
+ {
+  "target": "kubernetes-sigs-cluster-api-provider-azure.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Introduction - The Cluster API Provider Azure Book",
+  "url": "https://kubernetes-sigs-cluster-api-provider-azure.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "capz.sigs.k8s.io"
+  ]
+ },
+ {
+  "target": "kubernetes-sigs-kmm.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Kernel Module Management",
+  "url": "https://kubernetes-sigs-kmm.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "kmm.sigs.k8s.io"
+  ]
+ },
+ {
+  "target": "kubernetes-sigs-krew.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Krew \u2013 kubectl plugin manager",
+  "url": "https://kubernetes-sigs-krew.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "krew.sigs.k8s.io"
+  ]
+ },
+ {
+  "target": "kubernetes-sigs-release-notes.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Kubernetes Release Notes",
+  "url": "https://kubernetes-sigs-release-notes.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "relnotes.k8s.io"
+  ]
+ },
+ {
+  "target": "kubernetes-sigs-scheduler-plugins.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Scheduler Plugins | Scheduler Plugins",
+  "url": "https://kubernetes-sigs-scheduler-plugins.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "scheduler-plugins.sigs.k8s.io"
+  ]
+ },
+ {
+  "target": "lemon-smoke-08b02c40f.1.azurestaticapps.net",
+  "ns": "azurestaticapps.net",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: eSign360 API Documentation | eSign360 API Documentation",
+  "url": "https://lemon-smoke-08b02c40f.1.azurestaticapps.net/",
+  "status": 200,
+  "hosts": [
+   "integration.sign.stewart.com"
+  ]
+ },
+ {
+  "target": "lightspeed.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner lightspeed exists but has no site here \u2014 repo-level claim only",
+  "url": "https://lightspeed.github.io/",
+  "status": 404,
+  "hosts": [
+   "helios.lightspeed.app"
+  ]
+ },
+ {
+  "target": "lively-bay-08f2f7103.4.azurestaticapps.net",
+  "ns": "azurestaticapps.net",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: MTA-STS",
+  "url": "https://lively-bay-08f2f7103.4.azurestaticapps.net/",
+  "status": 200,
+  "hosts": [
+   "mta-sts.sbbcargo.com"
+  ]
+ },
+ {
+  "target": "mms-osc-firebase-mmbe-p-3000.web.app",
+  "ns": "web.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Redirecting...",
+  "url": "https://mms-osc-firebase-mmbe-p-3000.web.app/",
+  "status": 200,
+  "hosts": [
+   "app.mediamarkt.be"
+  ]
+ },
+ {
+  "target": "mms-osc-firebase-mmpl-p-3000.web.app",
+  "ns": "web.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Redirecting...",
+  "url": "https://mms-osc-firebase-mmpl-p-3000.web.app/",
+  "status": 200,
+  "hosts": [
+   "app.mediamarkt.pl"
+  ]
+ },
+ {
+  "target": "mms-osc-firebase-mwit-p-3000.web.app",
+  "ns": "web.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Redirecting...",
+  "url": "https://mms-osc-firebase-mwit-p-3000.web.app/",
+  "status": 200,
+  "hosts": [
+   "app.mediaworld.it"
+  ]
+ },
+ {
+  "target": "moneybird.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner moneybird exists but has no site here \u2014 repo-level claim only",
+  "url": "https://moneybird.github.io/",
+  "status": 404
+ },
+ {
+  "target": "moneybird.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner moneybird exists but has no site here \u2014 repo-level claim only",
+  "url": "https://moneybird.github.io/",
+  "status": 404
+ },
+ {
+  "target": "moneybird.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner moneybird exists but has no site here \u2014 repo-level claim only",
+  "url": "https://moneybird.github.io/",
+  "status": 404
+ },
+ {
+  "target": "moneybird.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner moneybird exists but has no site here \u2014 repo-level claim only",
+  "url": "https://moneybird.github.io/",
+  "status": 404,
+  "hosts": [
+   "brandbook.moneybird.com",
+   "handboek.moneybird.com",
+   "mobile-design-system.moneybird.com",
+   "support.moneybird.com"
+  ]
+ },
+ {
+  "target": "netshop-isp.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: NetShop ISP - Dedicated Servers, VPS, Data Center &amp; Host",
+  "url": "https://netshop-isp.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "www.netshop-isp.com.cy"
+  ]
+ },
+ {
+  "target": "npm.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner npm exists but has no site here \u2014 repo-level claim only",
+  "url": "https://npm.github.io/",
+  "status": 404
+ },
+ {
+  "target": "npm.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner npm exists but has no site here \u2014 repo-level claim only",
+  "url": "https://npm.github.io/",
+  "status": 404
+ },
+ {
+  "target": "npm.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner npm exists but has no site here \u2014 repo-level claim only",
+  "url": "https://npm.github.io/",
+  "status": 404
+ },
+ {
+  "target": "npm.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner npm exists but has no site here \u2014 repo-level claim only",
+  "url": "https://npm.github.io/",
+  "status": 404
+ },
+ {
+  "target": "npm.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner npm exists but has no site here \u2014 repo-level claim only",
+  "url": "https://npm.github.io/",
+  "status": 404,
+  "hosts": [
+   "api-docs.npmjs.com",
+   "blog.npmjs.org",
+   "docs.npmjs.com",
+   "license.npmjs.com",
+   "tls-test.npmjs.com"
+  ]
+ },
+ {
+  "target": "onbe.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner onbe exists but has no site here \u2014 repo-level claim only",
+  "url": "https://onbe.github.io/",
+  "status": 404
+ },
+ {
+  "target": "onbe.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner onbe exists but has no site here \u2014 repo-level claim only",
+  "url": "https://onbe.github.io/",
+  "status": 404
+ },
+ {
+  "target": "onbe.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner onbe exists but has no site here \u2014 repo-level claim only",
+  "url": "https://onbe.github.io/",
+  "status": 404,
+  "hosts": [
+   "automationreports.onbe.com",
+   "design-system.onbe.com",
+   "structurizr-c4-models.onbe.com"
+  ]
+ },
+ {
+  "target": "pixiv-comic-store-production.firebaseapp.com",
+  "ns": "firebaseapp.com",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: \u307f\u3093\u306a\u306epixiv\u30b3\u30df\u30c3\u30af\u30b9\u30c8\u30a2",
+  "url": "https://pixiv-comic-store-production.firebaseapp.com/",
+  "status": 200,
+  "hosts": [
+   "comicstore.pixiv.net"
+  ]
+ },
+ {
+  "target": "playlistinabottle-thestage.web.app",
+  "ns": "web.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Spotify \u2013 Web Player",
+  "url": "https://playlistinabottle-thestage.web.app/",
+  "status": 200,
+  "hosts": [
+   "playlistinabottle-thestage.byspotify.com"
+  ]
+ },
+ {
+  "target": "playtika-sandbox.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner playtika-sandbox exists but has no site here \u2014 repo-level claim only",
+  "url": "https://playtika-sandbox.github.io/",
+  "status": 404,
+  "hosts": [
+   "it-services.playticorp.com"
+  ]
+ },
+ {
+  "target": "playtika.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner playtika exists but has no site here \u2014 repo-level claim only",
+  "url": "https://playtika.github.io/",
+  "status": 404
+ },
+ {
+  "target": "playtika.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner playtika exists but has no site here \u2014 repo-level claim only",
+  "url": "https://playtika.github.io/",
+  "status": 404
+ },
+ {
+  "target": "playtika.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner playtika exists but has no site here \u2014 repo-level claim only",
+  "url": "https://playtika.github.io/",
+  "status": 404
+ },
+ {
+  "target": "playtika.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner playtika exists but has no site here \u2014 repo-level claim only",
+  "url": "https://playtika.github.io/",
+  "status": 404
+ },
+ {
+  "target": "playtika.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner playtika exists but has no site here \u2014 repo-level claim only",
+  "url": "https://playtika.github.io/",
+  "status": 404
+ },
+ {
+  "target": "playtika.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner playtika exists but has no site here \u2014 repo-level claim only",
+  "url": "https://playtika.github.io/",
+  "status": 404
+ },
+ {
+  "target": "playtika.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner playtika exists but has no site here \u2014 repo-level claim only",
+  "url": "https://playtika.github.io/",
+  "status": 404
+ },
+ {
+  "target": "playtika.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner playtika exists but has no site here \u2014 repo-level claim only",
+  "url": "https://playtika.github.io/",
+  "status": 404
+ },
+ {
+  "target": "playtika.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner playtika exists but has no site here \u2014 repo-level claim only",
+  "url": "https://playtika.github.io/",
+  "status": 404
+ },
+ {
+  "target": "playtika.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner playtika exists but has no site here \u2014 repo-level claim only",
+  "url": "https://playtika.github.io/",
+  "status": 404
+ },
+ {
+  "target": "playtika.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner playtika exists but has no site here \u2014 repo-level claim only",
+  "url": "https://playtika.github.io/",
+  "status": 404
+ },
+ {
+  "target": "playtika.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner playtika exists but has no site here \u2014 repo-level claim only",
+  "url": "https://playtika.github.io/",
+  "status": 404
+ },
+ {
+  "target": "playtika.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner playtika exists but has no site here \u2014 repo-level claim only",
+  "url": "https://playtika.github.io/",
+  "status": 404
+ },
+ {
+  "target": "playtika.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner playtika exists but has no site here \u2014 repo-level claim only",
+  "url": "https://playtika.github.io/",
+  "status": 404,
+  "hosts": [
+   "backoffice-builder-docs.playticorp.com",
+   "backoffice-docs.playticorp.com",
+   "data-workspace.playticorp.com",
+   "feature-registry-docs.playticorp.com",
+   "innersource-marketplace.playticorp.com",
+   "it-docs.playticorp.com",
+   "landscape.playticorp.com",
+   "lynx-documentation.playticorp.com",
+   "pgd-event-extensions.playticorp.com",
+   "pgd-extensions.playticorp.com",
+   "pgd-tools.playticorp.com",
+   "psd-tool.playticorp.com",
+   "quest-trail-generator.playticorp.com",
+   "shm-playground.playticorp.com"
+  ]
+ },
+ {
+  "target": "pullrequestinc.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner pullrequestinc exists but has no site here \u2014 repo-level claim only",
+  "url": "https://pullrequestinc.github.io/",
+  "status": 404,
+  "hosts": [
+   "internal-docs.pullrequest.com"
+  ]
+ },
+ {
+  "target": "rasa-open-source.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Home \u00b7 Rasa Community",
+  "url": "https://rasa-open-source.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "opensource.rasa.com"
+  ]
+ },
+ {
+  "target": "rasahq-docs-v0.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Build contextual chatbots and AI assistants with our open so",
+  "url": "https://rasahq-docs-v0.netlify.app/",
+  "status": 200
+ },
+ {
+  "target": "rasahq-docs-v0.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Build contextual chatbots and AI assistants with our open so",
+  "url": "https://rasahq-docs-v0.netlify.app/",
+  "status": 200
+ },
+ {
+  "target": "rasahq-docs-v0.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Build contextual chatbots and AI assistants with our open so",
+  "url": "https://rasahq-docs-v0.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "legacy-docs-v0.rasa.com",
+   "legacy-docs-v1.rasa.com",
+   "legacy-docs.rasa.com"
+  ]
+ },
+ {
+  "target": "rasahq-ghost-blog-redirects.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Rasa Blog | Insights on Conversational AI, LLMs &amp; Agent ",
+  "url": "https://rasahq-ghost-blog-redirects.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "blog.rasa.com"
+  ]
+ },
+ {
+  "target": "rasahq-hubspot-blog-redirects.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Company &amp; Community | Rasa Blog",
+  "url": "https://rasahq-hubspot-blog-redirects.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "learn.rasa.com"
+  ]
+ },
+ {
+  "target": "rasahq.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner rasahq exists but has no site here \u2014 repo-level claim only",
+  "url": "https://rasahq.github.io/",
+  "status": 404
+ },
+ {
+  "target": "rasahq.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner rasahq exists but has no site here \u2014 repo-level claim only",
+  "url": "https://rasahq.github.io/",
+  "status": 404,
+  "hosts": [
+   "chatwidget.rasa.com",
+   "helm.rasa.com"
+  ]
+ },
+ {
+  "target": "razorpay-ai-tools.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner razorpay-ai-tools exists but has no site here \u2014 repo-level claim only",
+  "url": "https://razorpay-ai-tools.github.io/",
+  "status": 404,
+  "hosts": [
+   "rize-sessions.razorpay.com"
+  ]
+ },
+ {
+  "target": "razorpay.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner razorpay exists but has no site here \u2014 repo-level claim only",
+  "url": "https://razorpay.github.io/",
+  "status": 404
+ },
+ {
+  "target": "razorpay.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner razorpay exists but has no site here \u2014 repo-level claim only",
+  "url": "https://razorpay.github.io/",
+  "status": 404
+ },
+ {
+  "target": "razorpay.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner razorpay exists but has no site here \u2014 repo-level claim only",
+  "url": "https://razorpay.github.io/",
+  "status": 404
+ },
+ {
+  "target": "razorpay.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner razorpay exists but has no site here \u2014 repo-level claim only",
+  "url": "https://razorpay.github.io/",
+  "status": 404,
+  "hosts": [
+   "onboarding-sdk.razorpay.com",
+   "opensource.razorpay.com",
+   "rize-global-readiness.razorpay.com",
+   "universe.razorpay.com"
+  ]
+ },
+ {
+  "target": "release-0-1--kubernetes-sigs-cluster-api.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Introduction \u00b7 The Cluster API Book",
+  "url": "https://release-0-1--kubernetes-sigs-cluster-api.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "release-0-1.cluster-api.sigs.k8s.io"
+  ]
+ },
+ {
+  "target": "release-1-1--kubernetes-sigs-cluster-api.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Introduction - The Cluster API Book",
+  "url": "https://release-1-1--kubernetes-sigs-cluster-api.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "release-1-1.cluster-api.sigs.k8s.io"
+  ]
+ },
+ {
+  "target": "release-1-11--kubernetes-sigs-cluster-api.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Introduction - The Cluster API Book",
+  "url": "https://release-1-11--kubernetes-sigs-cluster-api.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "release-1-11.cluster-api.sigs.k8s.io"
+  ]
+ },
+ {
+  "target": "release-1-14--kubernetes-sigs-cluster-api.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Introduction - The Cluster API Book",
+  "url": "https://release-1-14--kubernetes-sigs-cluster-api.netlify.app/",
+  "status": 200
+ },
+ {
+  "target": "release-1-14--kubernetes-sigs-cluster-api.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Introduction - The Cluster API Book",
+  "url": "https://release-1-14--kubernetes-sigs-cluster-api.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "cluster-api.sigs.canary.k8s.io",
+   "cluster-api.sigs.k8s.io"
+  ]
+ },
+ {
+  "target": "release-1-3--kubernetes-sigs-cluster-api.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Introduction - The Cluster API Book",
+  "url": "https://release-1-3--kubernetes-sigs-cluster-api.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "release-1-3.cluster-api.sigs.k8s.io"
+  ]
+ },
+ {
+  "target": "release-1-4--kubernetes-sigs-cluster-api.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Introduction - The Cluster API Book",
+  "url": "https://release-1-4--kubernetes-sigs-cluster-api.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "release-1-4.cluster-api.sigs.k8s.io"
+  ]
+ },
+ {
+  "target": "release-1-8--kubernetes-sigs-cluster-api.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Introduction - The Cluster API Book",
+  "url": "https://release-1-8--kubernetes-sigs-cluster-api.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "release-1-8.cluster-api.sigs.k8s.io"
+  ]
+ },
+ {
+  "target": "release-1-9--kubernetes-sigs-cluster-api.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Introduction - The Cluster API Book",
+  "url": "https://release-1-9--kubernetes-sigs-cluster-api.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "release-1-9.cluster-api.sigs.k8s.io"
+  ]
+ },
+ {
+  "target": "remitly.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner remitly exists but has no site here \u2014 repo-level claim only",
+  "url": "https://remitly.github.io/",
+  "status": 404,
+  "hosts": [
+   "guidebook.dev.remitly.com"
+  ]
+ },
+ {
+  "target": "remove-bg.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner remove-bg exists but has no site here \u2014 repo-level claim only",
+  "url": "https://remove-bg.github.io/",
+  "status": 404,
+  "hosts": [
+   "kaleido-core-lib.docs.kaleido.ai"
+  ]
+ },
+ {
+  "target": "segmentio.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner segmentio exists but has no site here \u2014 repo-level claim only",
+  "url": "https://segmentio.github.io/",
+  "status": 404
+ },
+ {
+  "target": "segmentio.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner segmentio exists but has no site here \u2014 repo-level claim only",
+  "url": "https://segmentio.github.io/",
+  "status": 404,
+  "hosts": [
+   "evergreen.segment.com",
+   "facade.segment.com"
+  ]
+ },
+ {
+  "target": "sendgrid.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner sendgrid exists but has no site here \u2014 repo-level claim only",
+  "url": "https://sendgrid.github.io/",
+  "status": 404,
+  "hosts": [
+   "styleguide.sendgrid.com"
+  ]
+ },
+ {
+  "target": "skroutz-internal.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner skroutz-internal exists but has no site here \u2014 repo-level claim only",
+  "url": "https://skroutz-internal.github.io/",
+  "status": 404,
+  "hosts": [
+   "api-docs.skroutz.gr"
+  ]
+ },
+ {
+  "target": "superbet-group.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner superbet-group exists but has no site here \u2014 repo-level claim only",
+  "url": "https://superbet-group.github.io/",
+  "status": 404,
+  "hosts": [
+   "offer-scripts.gh.happening.dev"
+  ]
+ },
+ {
+  "target": "survey-v2-simplesat.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Survey | Simplesat",
+  "url": "https://survey-v2-simplesat.netlify.app/",
+  "status": 200
+ },
+ {
+  "target": "survey-v2-simplesat.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Survey | Simplesat",
+  "url": "https://survey-v2-simplesat.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "helpsurvey.abercrombie.com",
+   "helpsurvey.hollisterco.com"
+  ]
+ },
+ {
+  "target": "takeaway-driver-61a64.web.app",
+  "ns": "web.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Courier App Landing",
+  "url": "https://takeaway-driver-61a64.web.app/",
+  "status": 200,
+  "hosts": [
+   "mca.scoober.com"
+  ]
+ },
+ {
+  "target": "thankful-pond-0cba96d03.5.azurestaticapps.net",
+  "ns": "azurestaticapps.net",
+  "verdict": "OCCUPIED",
+  "why": "a site answers",
+  "url": "https://thankful-pond-0cba96d03.5.azurestaticapps.net/",
+  "status": 200,
+  "hosts": [
+   "appt.healthclinics.superdrug.com"
+  ]
+ },
+ {
+  "target": "theking1141.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner theking1141 exists but has no site here \u2014 repo-level claim only",
+  "url": "https://theking1141.github.io/",
+  "status": 404,
+  "hosts": [
+   "test3.24x7.com.ru"
+  ]
+ },
+ {
+  "target": "thousandeyes.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner thousandeyes exists but has no site here \u2014 repo-level claim only",
+  "url": "https://thousandeyes.github.io/",
+  "status": 404,
+  "hosts": [
+   "developer.thousandeyes.com"
+  ]
+ },
+ {
+  "target": "timely-semifreddo-6a703f.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Phenom Insights",
+  "url": "https://timely-semifreddo-6a703f.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "intelligence.phenom.com"
+  ]
+ },
+ {
+  "target": "truework-marketing.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers",
+  "url": "https://truework-marketing.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "heco.marketing-ops.truework.com"
+  ]
+ },
+ {
+  "target": "turbine-kreuzberg.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner turbine-kreuzberg exists but has no site here \u2014 repo-level claim only",
+  "url": "https://turbine-kreuzberg.github.io/",
+  "status": 404,
+  "hosts": [
+   "vida.turbinekreuzberg.com"
+  ]
+ },
+ {
+  "target": "turbinekreuzberg.fly.dev",
+  "ns": "fly.dev",
+  "verdict": "OCCUPIED",
+  "why": "a site answers",
+  "url": "https://turbinekreuzberg.fly.dev/",
+  "status": 200,
+  "hosts": [
+   "www.turbinekreuzberg.com"
+  ]
+ },
+ {
+  "target": "v0-cashier-v2-demo.vercel.app",
+  "ns": "vercel.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: v0 App",
+  "url": "https://v0-cashier-v2-demo.vercel.app/",
+  "status": 200,
+  "hosts": [
+   "cashier-demo.deriv.com"
+  ]
+ },
+ {
+  "target": "velvety-travesseiro-0cd1e2.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers",
+  "url": "https://velvety-travesseiro-0cd1e2.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "proxy.pstream.labs.andreijiroh.dev"
+  ]
+ },
+ {
+  "target": "vr-spinning-wheel.vercel.app",
+  "ns": "vercel.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers",
+  "url": "https://vr-spinning-wheel.vercel.app/",
+  "status": 200,
+  "hosts": [
+   "onnenpyora.vr.fi"
+  ]
+ },
+ {
+  "target": "wcms-production-100607-4fd6d265-a0e6-44a9-9d31-e8997d6a3d14.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers",
+  "url": "https://wcms-production-100607-4fd6d265-a0e6-44a9-9d31-e8997d6a3d14.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "www.mjrtheatres.com"
+  ]
+ },
+ {
+  "target": "whoopinc.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner whoopinc exists but has no site here \u2014 repo-level claim only",
+  "url": "https://whoopinc.github.io/",
+  "status": 404
+ },
+ {
+  "target": "whoopinc.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner whoopinc exists but has no site here \u2014 repo-level claim only",
+  "url": "https://whoopinc.github.io/",
+  "status": 404
+ },
+ {
+  "target": "whoopinc.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner whoopinc exists but has no site here \u2014 repo-level claim only",
+  "url": "https://whoopinc.github.io/",
+  "status": 404,
+  "hosts": [
+   "prefect-docs.dataeng.whoop.com",
+   "whoopds-core-docs.dataeng.whoop.com",
+   "whoopds-docs.dataeng.whoop.com"
+  ]
+ },
+ {
+  "target": "wickrinc.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner wickrinc exists but has no site here \u2014 repo-level claim only",
+  "url": "https://wickrinc.github.io/",
+  "status": 404,
+  "hosts": [
+   "enterprise.wickr.com"
+  ]
+ },
+ {
+  "target": "wrapped-party.web.app",
+  "ns": "web.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: ",
+  "url": "https://wrapped-party.web.app/",
+  "status": 200,
+  "hosts": [
+   "wrappedparty.byspotify.com"
+  ]
+ },
+ {
+  "target": "wrappedforartists-byspotify.web.app",
+  "ns": "web.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Wrapped for Artists",
+  "url": "https://wrappedforartists-byspotify.web.app/",
+  "status": 200,
+  "hosts": [
+   "www.wrappedforartists.byspotify.com"
+  ]
+ },
+ {
+  "target": "wrappedforauthors-byspotify.web.app",
+  "ns": "web.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Wrapped for Authors",
+  "url": "https://wrappedforauthors-byspotify.web.app/",
+  "status": 200,
+  "hosts": [
+   "wrappedforauthors.byspotify.com"
+  ]
+ },
+ {
+  "target": "wrappedforcreators-byspotify.web.app",
+  "ns": "web.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Wrapped for Creators",
+  "url": "https://wrappedforcreators-byspotify.web.app/",
+  "status": 200,
+  "hosts": [
+   "wrappedforcreators.byspotify.com"
+  ]
+ },
+ {
+  "target": "www-interseller.netlify.app",
+  "ns": "netlify.app",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Interseller",
+  "url": "https://www-interseller.netlify.app/",
+  "status": 200,
+  "hosts": [
+   "www.interseller.io"
+  ]
+ },
+ {
+  "target": "xsightme.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner xsightme exists but has no site here \u2014 repo-level claim only",
+  "url": "https://xsightme.github.io/",
+  "status": 404,
+  "hosts": [
+   "devdocs.connect.xsight.maf.ae"
+  ]
+ },
+ {
+  "target": "yoyogames.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner yoyogames exists but has no site here \u2014 repo-level claim only",
+  "url": "https://yoyogames.github.io/",
+  "status": 404,
+  "hosts": [
+   "gmace-dev.gamemaker.io"
+  ]
+ },
+ {
+  "target": "zealous-beach-09f9bf703.1.azurestaticapps.net",
+  "ns": "azurestaticapps.net",
+  "verdict": "OCCUPIED",
+  "why": "a site answers: Redirecting",
+  "url": "https://zealous-beach-09f9bf703.1.azurestaticapps.net/",
+  "status": 200,
+  "hosts": [
+   "password.retailsso.com"
+  ]
+ },
+ {
+  "target": "zenitysec.github.io",
+  "ns": "github.io",
+  "verdict": "OCCUPIED",
+  "why": "owner zenitysec exists but has no site here \u2014 repo-level claim only",
+  "url": "https://zenitysec.github.io/",
+  "status": 404,
+  "hosts": [
+   "chat.zenity.io"
+  ]
+ }
+]

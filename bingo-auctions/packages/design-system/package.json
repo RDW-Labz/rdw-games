@@ -1,0 +1,26 @@
+{
+  "name": "@auction-platform/design-system",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Design tokens (colors, typography) and pure visual helpers (countdown formatting, heat-from-close-at). Theme is React-Native-free; the `./components` subpath exports shared RN components (e.g. BrandedButton) for the bidder + field apps.",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./theme": "./src/theme.ts",
+    "./components/BrandedButton": "./src/components/BrandedButton.tsx"
+  },
+  "scripts": {
+    "lint": "echo 'no-op'",
+    "typecheck": "tsc --noEmit",
+    "test": "echo 'no-op'"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
+  "devDependencies": {
+    "@types/react": "~19.1.10",
+    "typescript": "~5.9.3"
+  }
+}

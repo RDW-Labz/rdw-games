@@ -1,0 +1,41 @@
+# Clone manifest — every game this repo judges, with upstream + pinned commit.
+# Run scripts/fetch-games.sh to recreate the games/ tree.
+2048	https://github.com/gabrielecirulli/2048.git	478b6ec
+clumsy-bird	https://github.com/ellisonleao/clumsy-bird.git	fae3d48
+FlappyBird	https://github.com/VadimBoev/FlappyBird.git	3b3060c
+hextris	https://github.com/Hextris/hextris.git	3f4847d
+luanti	https://github.com/luanti-org/luanti.git	32bb549
+Mindustry	https://github.com/Anuken/Mindustry.git	b873c01
+OpenRA	https://github.com/OpenRA/OpenRA.git	1f594e3
+openttd	https://github.com/OpenTTD/OpenTTD.git	51cb6dc
+shattered-pixel-dungeon	https://github.com/00-Evan/shattered-pixel-dungeon.git	57a4e06
+stk-code	https://github.com/supertuxkart/stk-code.git	2997f19
+Unciv	https://github.com/yairm210/Unciv.git	adc539d
+endless-sky	https://github.com/endless-sky/endless-sky.git	c3c7908
+ddnet	https://github.com/DDNet/ddnet.git	00955a3
+darkplaces	https://github.com/DarkPlacesEngine/darkplaces.git	10d4863
+crawl	https://github.com/crawl/crawl.git	cf8c9bc	crawl-ref/source/rltiles crawl-ref/source/dat
+widelands	https://github.com/widelands/widelands.git	29753773	
+openrct2	https://github.com/OpenRCT2/OpenRCT2.git	3b7114c	
+flare-game	https://github.com/flareteam/flare-game.git	PENDING	mods/empyrean_campaign/images mods/empyrean_campaign/items mods/empyrean_campaign/music mods/empyrean_campaign/soundfx mods/alpha_demo/images mods/devlab/images mods/fantasycore
+wesnoth	https://github.com/wesnoth/wesnoth.git	PENDING	data/core/images data/core/music data/core/units images
+veloren	https://github.com/veloren/veloren.git	cd75076	
+warzone2100	https://github.com/Warzone2100/warzone2100.git	ceda97e	
+openhv	https://github.com/OpenHV/openhv.git	089365a	
+Cataclysm-DDA	https://github.com/CleverRaven/Cataclysm-DDA.git	2599825
+DevilutionX	https://github.com/diasurgical/devilutionX.git	b325996
+Freeciv	https://github.com/freeciv/freeciv	af90756
+OpenMW	https://github.com/OpenMW/openmw.git	16b1400
+FLARE	https://github.com/flareteam/flare-engine	f9a17a2
+EasyRPG-Player	https://github.com/EasyRPG/Player	497a87b
+supertux	https://github.com/SuperTux/supertux.git	c7cceeb
+gzdoom	https://github.com/ZDoom/gzdoom.git	c26ce2e
+HyperRogue	https://github.com/zenorogue/hyperrogue	c7c9a29
+teeworlds	https://github.com/teeworlds/teeworlds.git	5d68273
+Vector-Pinball	https://github.com/dozingcat/Vector-Pinball	b8c57cd
+freeminer	https://github.com/freeminer/freeminer	e31670e
+0ad	https://gitea.wildfiregames.com/0ad/0ad.git	cedd5e89
+Idle-Fantasy	https://github.com/tristinbaker/IdleFantasy	df1e743
+Principia	https://github.com/Bithack/principia	a1af28b
+TheXTech	https://github.com/Wohlstand/TheXTech	32ac864
+OpenJK	https://github.com/JACoders/OpenJK.git	260c59c

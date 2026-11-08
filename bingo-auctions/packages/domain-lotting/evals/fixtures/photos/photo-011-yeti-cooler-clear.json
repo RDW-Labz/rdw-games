@@ -1,0 +1,18 @@
+{
+  "id": "photo-011",
+  "image_path": "photo-011-yeti-cooler-clear.jpg",
+  "media_type": "image/jpeg",
+  "photo_quality_label": "clear",
+  "expected": {
+    "title": "YETI Tundra 45 Hard Cooler (Tan)",
+    "brand": "YETI",
+    "model": "Tundra 45",
+    "upc": "888830002704",
+    "category_slug": "camping",
+    "category_legacy": "Sporting Goods",
+    "condition": "New/Sealed",
+    "msrp_cents": 32500,
+    "expected_confidence": "high"
+  },
+  "notes": "Crisp shot of the cooler itself (no box). YETI logo + 'Tundra 45' molded into the lid. Tests product-on-its-own-without-packaging recognition."
+}

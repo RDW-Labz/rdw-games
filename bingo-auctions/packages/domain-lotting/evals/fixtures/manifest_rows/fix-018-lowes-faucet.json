@@ -1,0 +1,23 @@
+{
+  "id": "manifest-018",
+  "source": "lowes",
+  "raw": {
+    "description": "Moen Adler Spot Resist Stainless 2-handle Widespread WaterSense Bathroom Sink Faucet with Drain",
+    "retailer_category": "bath faucets",
+    "upc": "026508319215",
+    "model_number": "84603SRS",
+    "quantity": 1,
+    "retail_price": 79.98
+  },
+  "expected": {
+    "title": "Moen Adler 84603SRS 2-Handle Widespread Bathroom Faucet (Spot Resist Stainless)",
+    "brand": "Moen",
+    "model": "84603SRS",
+    "category_slug": "faucets-fixtures",
+    "category_legacy": "Tools & Hardware",
+    "condition": "New/Sealed",
+    "msrp_cents": 7998,
+    "expected_confidence": "high"
+  },
+  "notes": "Bath fixture — model-number-with-finish-suffix pattern. Easy."
+}

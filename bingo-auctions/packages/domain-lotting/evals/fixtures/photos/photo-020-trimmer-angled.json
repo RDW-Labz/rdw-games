@@ -1,0 +1,18 @@
+{
+  "id": "photo-020",
+  "image_path": "photo-020-trimmer-angled.jpg",
+  "media_type": "image/jpeg",
+  "photo_quality_label": "angled",
+  "expected": {
+    "title": "EGO POWER+ MST1704 56V 17-inch Multi-Head String Trimmer (Battery + Charger Included)",
+    "brand": "EGO",
+    "model": "MST1704",
+    "upc": "195532102664",
+    "category_slug": "outdoor-power",
+    "category_legacy": "Home & Garden",
+    "condition": "New/Sealed",
+    "msrp_cents": 39900,
+    "expected_confidence": "medium"
+  },
+  "notes": "EGO trimmer in long-format box, photographed at angle so the model number is foreshortened."
+}

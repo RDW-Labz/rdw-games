@@ -1,0 +1,23 @@
+{
+  "id": "manifest-014",
+  "source": "amazon",
+  "raw": {
+    "description": "Omron Platinum Blood Pressure Monitor BP5450 with Bluetooth Smart - Upper Arm Cuff",
+    "retailer_category": "gl_drugstore",
+    "upc": "073796265458",
+    "model_number": "BP5450",
+    "quantity": 1,
+    "retail_price": 99.99
+  },
+  "expected": {
+    "title": "Omron Platinum BP5450 Bluetooth Upper Arm Blood Pressure Monitor",
+    "brand": "Omron",
+    "model": "BP5450",
+    "category_slug": "health",
+    "category_legacy": "Health & Beauty",
+    "condition": "New/Sealed",
+    "msrp_cents": 9999,
+    "expected_confidence": "high"
+  },
+  "notes": "Health & wellness — Amazon GLDesc gl_drugstore alias. Tests the legacy 'Health & Beauty' bucket disambiguation between top-level 'beauty' vs 'health'."
+}

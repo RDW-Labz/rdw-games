@@ -1,0 +1,18 @@
+{
+ "version": 1,
+ "concurrency": 1,
+ "jobs": [
+  {
+   "id": "t48m-pr",
+   "agent": "openrouter",
+   "model": "deepseek/deepseek-v4.1-flash",
+   "tier": "cheap",
+   "timeoutMs": 300000,
+   "context": [
+    "coordination/t48m-changelog-0731.md"
+   ],
+   "outputs": [],
+   "prompt": "Write a GitHub PR body for agent-core 0.7.31 from this CHANGELOG section (the only source of facts):\n<<<CHANGELOG\n## 0.7.31\n\n- T48 Mac-check fix, four issues found testing 0.7.30 on a real Mac:\n  1. Teams-send guard now fires on the person's own turn text, before any\n     model or tool call: any message pairing a send verb (reply, respond,\n     answer, message, ping, write back, send, tell, \"DM\") with a Teams\n     phrasing (\"on Teams\", \"in Teams\", \"via Teams\", \"Teams message\", \"Teams\n     chat\") gets the fixed refusal as the *first* reply, in any word order,\n     case-insensitively -- \"Reply to Darren on Teams\" no longer asks \"which\n     chat?\" then reports a read failure. A non-send Teams question (\"any new\n     Teams messages?\") is unaffected.\n  2. A partial Teams (or other) read never leaves a \"couldn't read\"/\"could\n     not read\"/\"unable to read\" claim standing once any data was actually\n     read this turn -- the reply uses what was read and says it may be\n     partial. A total failure (nothing read at all) still keeps the honest\n     line.\n  3. A recap's opening line is enforced in code, not only the prompt: at\n     most 25 words, no heading, no leading count, and never the generic\n     \"Here's your recap\" preamble -- when nothing in the model's own reply\n     qualifies, a short, itself-qualifying generic line leads instead.\n  4. Chat auto-titles now require 2-4 words total, at least 2 of them real\n     subject words (not stopwords/filler like \"how\", \"today\", \"casual\",\n     \"check-in\"): \"How Today\" and \"Casual Check-in\" no longer pass. The\n     one-time retitle migration marker is bumped so every drawer gets one\n     more pass under the new rule, still skipping any title a person chose\n     themselves. A legacy index entry with no `auto_titled` key at all\n     (pre-T48) is retitled the same way. The dated placeholder used when a\n     chat's first message has no subject words at all reads \"Chat, <Mon D>\"\n     (e.g. \"Chat, Sep 28\"), confirmed #260.\n\n## 0.7.30\n\nCHANGELOG>>>\n Return ONLY JSON: {\"title\": \"agent-core 0.7.31: T48 Mac-check fixes\", \"body\": \"...\"}. The body must be exactly: first line `**needs Braden**` (the Teams-send gate changed); blank line; `## Summary` with one bullet per fix, plain words, max 8 bullets, each <= 25 words, taken only from the CHANGELOG; `## Checks` with the single line `<!-- swarm:checks -->`; `## Mutation check` with the single line `<!-- mutants -->`; `## Rig` with the line `Rig not restarted: Braden restarts it.`. No other sections, no invented facts."
+  }
+ ]
+}

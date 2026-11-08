@@ -1,0 +1,23 @@
+{
+  "id": "manifest-005",
+  "source": "lowes",
+  "raw": {
+    "description": "NV65AH2M 2-1/2-in 15-Degree Pneumatic Coil Roofing Nailer",
+    "retailer_category": "Pneumatics",
+    "upc": "717709024205",
+    "model_number": "NV65AH2M",
+    "quantity": 1,
+    "retail_price": 269.0
+  },
+  "expected": {
+    "title": "Metabo HPT NV65AH2M 2-1/2-inch 15-Degree Pneumatic Coil Roofing Nailer",
+    "brand": "Metabo HPT",
+    "model": "NV65AH2M",
+    "category_slug": "power-tools",
+    "category_legacy": "Tools & Hardware",
+    "condition": "New/Sealed",
+    "msrp_cents": 26900,
+    "expected_confidence": "medium"
+  },
+  "notes": "Lowes truncated brand off the title — model number is the only brand-recovery signal. Tests model-number-to-brand resolution."
+}

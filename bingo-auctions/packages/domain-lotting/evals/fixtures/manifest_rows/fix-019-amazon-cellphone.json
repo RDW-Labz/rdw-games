@@ -1,0 +1,23 @@
+{
+  "id": "manifest-019",
+  "source": "amazon",
+  "raw": {
+    "description": "OtterBox Defender Series Case for iPhone 15 Pro Max - Black",
+    "retailer_category": "cell phones, chargers & accessories",
+    "upc": "840304748167",
+    "model_number": "77-92539",
+    "quantity": 1,
+    "retail_price": 59.95
+  },
+  "expected": {
+    "title": "OtterBox Defender Series Case for iPhone 15 Pro Max (Black)",
+    "brand": "OtterBox",
+    "model": "77-92539",
+    "category_slug": "cell-phones",
+    "category_legacy": "Electronics",
+    "condition": "New/Sealed",
+    "msrp_cents": 5995,
+    "expected_confidence": "high"
+  },
+  "notes": "Nellis-style category label. Cell-phone accessory — tests new top-level taxonomy from migration 0034."
+}

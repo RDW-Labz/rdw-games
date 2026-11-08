@@ -1,0 +1,18 @@
+{
+  "id": "photo-002",
+  "image_path": "photo-002-vitamix-blender-blurry.jpg",
+  "media_type": "image/jpeg",
+  "photo_quality_label": "blurry",
+  "expected": {
+    "title": "Vitamix 5200 Standard Blender (Black, 64oz)",
+    "brand": "Vitamix",
+    "model": "5200",
+    "upc": "703113001017",
+    "category_slug": "small-appliances",
+    "category_legacy": "Appliances",
+    "condition": "Like New",
+    "msrp_cents": 44995,
+    "expected_confidence": "medium"
+  },
+  "notes": "Phone photo, slight motion blur — degrades OCR. Tests how cheap models handle imperfect inputs."
+}

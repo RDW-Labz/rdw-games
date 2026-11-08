@@ -1,0 +1,651 @@
+{
+  "since": "2026-09-21",
+  "until": "2026-09-28",
+  "generated": "2026-09-28T19:45:06.098504+00:00",
+  "repos": {
+    "agent-core": {
+      "runs": 159,
+      "runMedianS": 118,
+      "runP90S": 490,
+      "byEvent": {
+        "push": {
+          "runs": 67,
+          "medianS": 114
+        },
+        "pull_request": {
+          "runs": 83,
+          "medianS": 109
+        },
+        "schedule": {
+          "runs": 3,
+          "medianS": 2828
+        },
+        "workflow_dispatch": {
+          "runs": 6,
+          "medianS": 1978
+        }
+      },
+      "jobs": {
+        "tests, lint, types (ubuntu-latest)": {
+          "n": 147,
+          "medianS": 39,
+          "p90S": 348,
+          "failRate": 0.05,
+          "flakeRate": 0.02,
+          "wipRedRate": 0.29,
+          "countedRuns": 130,
+          "wipRuns": 17
+        },
+        "tests, lint, types (macos-latest)": {
+          "n": 147,
+          "medianS": 36,
+          "p90S": 238,
+          "failRate": 0.01,
+          "flakeRate": 0.02,
+          "wipRedRate": 0.0,
+          "countedRuns": 130,
+          "wipRuns": 17
+        },
+        "tests, lint, types (windows-latest)": {
+          "n": 147,
+          "medianS": 109,
+          "p90S": 390,
+          "failRate": 0.07,
+          "flakeRate": 0.02,
+          "wipRedRate": 0.41,
+          "countedRuns": 130,
+          "wipRuns": 17
+        },
+        "one-step rig install (offline) (ubuntu-latest)": {
+          "n": 2,
+          "medianS": 13,
+          "p90S": 15,
+          "failRate": 0.0,
+          "flakeRate": 0.0,
+          "wipRedRate": null,
+          "countedRuns": 2,
+          "wipRuns": 0
+        },
+        "one-step rig install (offline) (windows-latest)": {
+          "n": 2,
+          "medianS": 53,
+          "p90S": 87,
+          "failRate": 0.0,
+          "flakeRate": 0.0,
+          "wipRedRate": null,
+          "countedRuns": 2,
+          "wipRuns": 0
+        },
+        "one-step rig install (offline) (macos-latest)": {
+          "n": 2,
+          "medianS": 12,
+          "p90S": 12,
+          "failRate": 0.0,
+          "flakeRate": 0.0,
+          "wipRedRate": null,
+          "countedRuns": 2,
+          "wipRuns": 0
+        },
+        "injection-matrix": {
+          "n": 9,
+          "medianS": 2651,
+          "p90S": 3021,
+          "failRate": 0.0,
+          "flakeRate": 0.0,
+          "wipRedRate": null,
+          "countedRuns": 9,
+          "wipRuns": 0
+        },
+        "tests, lint, types": {
+          "n": 2,
+          "medianS": 9,
+          "p90S": 25,
+          "failRate": 0.0,
+          "flakeRate": 0.0,
+          "wipRedRate": null,
+          "countedRuns": 2,
+          "wipRuns": 0
+        },
+        "test": {
+          "n": 1,
+          "medianS": 9,
+          "p90S": 9,
+          "failRate": 1.0,
+          "flakeRate": 1.0,
+          "wipRedRate": null,
+          "countedRuns": 1,
+          "wipRuns": 0
+        }
+      },
+      "prWallMedianS": 419,
+      "flakeRate": 0.02,
+      "quarantineCandidates": []
+    },
+    "remote": {
+      "runs": 20,
+      "runMedianS": 44,
+      "runP90S": 95,
+      "byEvent": {
+        "push": {
+          "runs": 5,
+          "medianS": 24
+        },
+        "pull_request": {
+          "runs": 15,
+          "medianS": 51
+        }
+      },
+      "jobs": {
+        "internal pins": {
+          "n": 2,
+          "medianS": 6,
+          "p90S": 9,
+          "failRate": 0.0,
+          "flakeRate": 0.0,
+          "wipRedRate": null,
+          "countedRuns": 2,
+          "wipRuns": 0
+        },
+        "tests, lint, types (ubuntu-latest)": {
+          "n": 15,
+          "medianS": 14,
+          "p90S": 24,
+          "failRate": 0.0,
+          "flakeRate": 0.0,
+          "wipRedRate": 0.0,
+          "countedRuns": 4,
+          "wipRuns": 10
+        },
+        "tests, lint, types (windows-latest)": {
+          "n": 15,
+          "medianS": 63,
+          "p90S": 536,
+          "failRate": 0.53,
+          "flakeRate": 0.0,
+          "wipRedRate": 0.89,
+          "countedRuns": 4,
+          "wipRuns": 9
+        },
+        "tests, lint, types": {
+          "n": 4,
+          "medianS": 12,
+          "p90S": 13,
+          "failRate": 0.0,
+          "flakeRate": 0.0,
+          "wipRedRate": null,
+          "countedRuns": 4,
+          "wipRuns": 0
+        },
+        "test": {
+          "n": 1,
+          "medianS": 16,
+          "p90S": 16,
+          "failRate": 1.0,
+          "flakeRate": 1.0,
+          "wipRedRate": null,
+          "countedRuns": 1,
+          "wipRuns": 0
+        }
+      },
+      "prWallMedianS": 1294,
+      "flakeRate": 0.07,
+      "quarantineCandidates": []
+    },
+    "skills": {
+      "runs": 28,
+      "runMedianS": 17,
+      "runP90S": 50,
+      "byEvent": {
+        "push": {
+          "runs": 14,
+          "medianS": 16
+        },
+        "pull_request": {
+          "runs": 14,
+          "medianS": 19
+        }
+      },
+      "jobs": {
+        "tests, lint, types": {
+          "n": 27,
+          "medianS": 13,
+          "p90S": 20,
+          "failRate": 0.0,
+          "flakeRate": 0.0,
+          "wipRedRate": null,
+          "countedRuns": 27,
+          "wipRuns": 0
+        },
+        "internal pins": {
+          "n": 2,
+          "medianS": 7,
+          "p90S": 8,
+          "failRate": 0.0,
+          "flakeRate": 0.0,
+          "wipRedRate": null,
+          "countedRuns": 2,
+          "wipRuns": 0
+        },
+        "test": {
+          "n": 1,
+          "medianS": 9,
+          "p90S": 9,
+          "failRate": 1.0,
+          "flakeRate": 1.0,
+          "wipRedRate": null,
+          "countedRuns": 1,
+          "wipRuns": 0
+        }
+      },
+      "prWallMedianS": 59,
+      "flakeRate": 0.03,
+      "quarantineCandidates": []
+    },
+    "connectors": {
+      "runs": 50,
+      "runMedianS": 24,
+      "runP90S": 30,
+      "byEvent": {
+        "push": {
+          "runs": 20,
+          "medianS": 25
+        },
+        "pull_request": {
+          "runs": 30,
+          "medianS": 24
+        }
+      },
+      "jobs": {
+        "tests, lint, types": {
+          "n": 49,
+          "medianS": 20,
+          "p90S": 26,
+          "failRate": 0.02,
+          "flakeRate": 0.0,
+          "wipRedRate": 0.09,
+          "countedRuns": 38,
+          "wipRuns": 11
+        },
+        "test": {
+          "n": 1,
+          "medianS": 9,
+          "p90S": 9,
+          "failRate": 1.0,
+          "flakeRate": 1.0,
+          "wipRedRate": null,
+          "countedRuns": 1,
+          "wipRuns": 0
+        }
+      },
+      "prWallMedianS": 225,
+      "flakeRate": 0.03,
+      "quarantineCandidates": []
+    },
+    "rag-pipeline": {
+      "runs": 5,
+      "runMedianS": 15,
+      "runP90S": 29,
+      "byEvent": {
+        "push": {
+          "runs": 3,
+          "medianS": 15
+        },
+        "pull_request": {
+          "runs": 2,
+          "medianS": 13
+        }
+      },
+      "jobs": {
+        "tests, lint, types": {
+          "n": 4,
+          "medianS": 10,
+          "p90S": 13,
+          "failRate": 0.0,
+          "flakeRate": 0.0,
+          "wipRedRate": null,
+          "countedRuns": 4,
+          "wipRuns": 0
+        },
+        "internal pins": {
+          "n": 2,
+          "medianS": 5,
+          "p90S": 6,
+          "failRate": 0.0,
+          "flakeRate": 0.0,
+          "wipRedRate": null,
+          "countedRuns": 2,
+          "wipRuns": 0
+        },
+        "test": {
+          "n": 1,
+          "medianS": 13,
+          "p90S": 13,
+          "failRate": 1.0,
+          "flakeRate": 1.0,
+          "wipRedRate": null,
+          "countedRuns": 1,
+          "wipRuns": 0
+        }
+      },
+      "prWallMedianS": 1297,
+      "flakeRate": 0.14,
+      "quarantineCandidates": []
+    },
+    "playbooks": {
+      "runs": 29,
+      "runMedianS": 24,
+      "runP90S": 67,
+      "byEvent": {
+        "push": {
+          "runs": 14,
+          "medianS": 21
+        },
+        "pull_request": {
+          "runs": 15,
+          "medianS": 25
+        }
+      },
+      "jobs": {
+        "internal pins": {
+          "n": 2,
+          "medianS": 8,
+          "p90S": 10,
+          "failRate": 0.0,
+          "flakeRate": 0.0,
+          "wipRedRate": null,
+          "countedRuns": 2,
+          "wipRuns": 0
+        },
+        "tests, lint, types": {
+          "n": 28,
+          "medianS": 16,
+          "p90S": 64,
+          "failRate": 0.0,
+          "flakeRate": 0.0,
+          "wipRedRate": null,
+          "countedRuns": 28,
+          "wipRuns": 0
+        },
+        "test": {
+          "n": 1,
+          "medianS": 10,
+          "p90S": 10,
+          "failRate": 1.0,
+          "flakeRate": 1.0,
+          "wipRedRate": null,
+          "countedRuns": 1,
+          "wipRuns": 0
+        }
+      },
+      "prWallMedianS": 446,
+      "flakeRate": 0.03,
+      "quarantineCandidates": []
+    },
+    "desktop-app": {
+      "runs": 127,
+      "runMedianS": 595,
+      "runP90S": 1110,
+      "byEvent": {
+        "push": {
+          "runs": 66,
+          "medianS": 604
+        },
+        "pull_request": {
+          "runs": 61,
+          "medianS": 587
+        }
+      },
+      "jobs": {
+        "desktop-app (macos-latest)": {
+          "n": 112,
+          "medianS": 210,
+          "p90S": 567,
+          "failRate": 0.04,
+          "flakeRate": 0.02,
+          "wipRedRate": 0.33,
+          "countedRuns": 103,
+          "wipRuns": 9
+        },
+        "desktop-app (windows-latest)": {
+          "n": 112,
+          "medianS": 595,
+          "p90S": 1162,
+          "failRate": 0.06,
+          "flakeRate": 0.01,
+          "wipRedRate": 0.67,
+          "countedRuns": 103,
+          "wipRuns": 9
+        },
+        "vitest timings (windows)": {
+          "n": 14,
+          "medianS": 125,
+          "p90S": 140,
+          "failRate": 0.0,
+          "flakeRate": null,
+          "wipRedRate": 0.0,
+          "countedRuns": 0,
+          "wipRuns": 14
+        },
+        "idle CPU of the real app (windows)": {
+          "n": 5,
+          "medianS": 786,
+          "p90S": 1072,
+          "failRate": 1.0,
+          "flakeRate": null,
+          "wipRedRate": 1.0,
+          "countedRuns": 0,
+          "wipRuns": 5
+        },
+        "test": {
+          "n": 1,
+          "medianS": 24,
+          "p90S": 24,
+          "failRate": 1.0,
+          "flakeRate": 1.0,
+          "wipRedRate": null,
+          "countedRuns": 1,
+          "wipRuns": 0
+        }
+      },
+      "prWallMedianS": 627,
+      "flakeRate": 0.02,
+      "quarantineCandidates": []
+    },
+    "agent-amber": {
+      "runs": 5,
+      "runMedianS": 17,
+      "runP90S": 32,
+      "byEvent": {
+        "push": {
+          "runs": 3,
+          "medianS": 17
+        },
+        "pull_request": {
+          "runs": 2,
+          "medianS": 14
+        }
+      },
+      "jobs": {
+        "internal pins": {
+          "n": 2,
+          "medianS": 7,
+          "p90S": 8,
+          "failRate": 0.0,
+          "flakeRate": 0.0,
+          "wipRedRate": null,
+          "countedRuns": 2,
+          "wipRuns": 0
+        },
+        "tests, lint, types": {
+          "n": 4,
+          "medianS": 10,
+          "p90S": 13,
+          "failRate": 0.0,
+          "flakeRate": 0.0,
+          "wipRedRate": null,
+          "countedRuns": 4,
+          "wipRuns": 0
+        },
+        "test": {
+          "n": 1,
+          "medianS": 6,
+          "p90S": 6,
+          "failRate": 1.0,
+          "flakeRate": 1.0,
+          "wipRedRate": null,
+          "countedRuns": 1,
+          "wipRuns": 0
+        }
+      },
+      "prWallMedianS": 1298,
+      "flakeRate": 0.14,
+      "quarantineCandidates": []
+    },
+    "agent-michael": {
+      "runs": 5,
+      "runMedianS": 17,
+      "runP90S": 32,
+      "byEvent": {
+        "push": {
+          "runs": 3,
+          "medianS": 17
+        },
+        "pull_request": {
+          "runs": 2,
+          "medianS": 15
+        }
+      },
+      "jobs": {
+        "internal pins": {
+          "n": 2,
+          "medianS": 6,
+          "p90S": 7,
+          "failRate": 0.0,
+          "flakeRate": 0.0,
+          "wipRedRate": null,
+          "countedRuns": 2,
+          "wipRuns": 0
+        },
+        "tests, lint, types": {
+          "n": 4,
+          "medianS": 12,
+          "p90S": 13,
+          "failRate": 0.0,
+          "flakeRate": 0.0,
+          "wipRedRate": null,
+          "countedRuns": 4,
+          "wipRuns": 0
+        },
+        "test": {
+          "n": 1,
+          "medianS": 10,
+          "p90S": 10,
+          "failRate": 1.0,
+          "flakeRate": 1.0,
+          "wipRedRate": null,
+          "countedRuns": 1,
+          "wipRuns": 0
+        }
+      },
+      "prWallMedianS": 1299,
+      "flakeRate": 0.14,
+      "quarantineCandidates": []
+    },
+    "project-swarm": {
+      "runs": 219,
+      "runMedianS": 57,
+      "runP90S": 93,
+      "byEvent": {
+        "push": {
+          "runs": 109,
+          "medianS": 48
+        },
+        "dynamic": {
+          "runs": 63,
+          "medianS": 74
+        },
+        "pull_request": {
+          "runs": 47,
+          "medianS": 52
+        }
+      },
+      "jobs": {
+        "tag": {
+          "n": 25,
+          "medianS": 7,
+          "p90S": 9,
+          "failRate": 0.0,
+          "flakeRate": 0.0,
+          "wipRedRate": null,
+          "countedRuns": 25,
+          "wipRuns": 0
+        },
+        "test (macos-latest, 22)": {
+          "n": 131,
+          "medianS": 36,
+          "p90S": 67,
+          "failRate": 0.03,
+          "flakeRate": 0.0,
+          "wipRedRate": 0.16,
+          "countedRuns": 101,
+          "wipRuns": 25
+        },
+        "test (ubuntu-latest, 22)": {
+          "n": 131,
+          "medianS": 25,
+          "p90S": 41,
+          "failRate": 0.01,
+          "flakeRate": 0.0,
+          "wipRedRate": 0.04,
+          "countedRuns": 100,
+          "wipRuns": 27
+        },
+        "test (ubuntu-latest, 20)": {
+          "n": 131,
+          "medianS": 29,
+          "p90S": 41,
+          "failRate": 0.02,
+          "flakeRate": 0.0,
+          "wipRedRate": 0.1,
+          "countedRuns": 100,
+          "wipRuns": 29
+        },
+        "test (macos-latest, 20)": {
+          "n": 131,
+          "medianS": 41,
+          "p90S": 73,
+          "failRate": 0.05,
+          "flakeRate": 0.03,
+          "wipRedRate": 0.14,
+          "countedRuns": 101,
+          "wipRuns": 22
+        },
+        "Analyze (actions)": {
+          "n": 63,
+          "medianS": 43,
+          "p90S": 48,
+          "failRate": 0.0,
+          "flakeRate": 0.0,
+          "wipRedRate": 0.0,
+          "countedRuns": 50,
+          "wipRuns": 13
+        },
+        "Analyze (javascript-typescript)": {
+          "n": 63,
+          "medianS": 68,
+          "p90S": 94,
+          "failRate": 0.0,
+          "flakeRate": 0.0,
+          "wipRedRate": 0.0,
+          "countedRuns": 50,
+          "wipRuns": 13
+        }
+      },
+      "prWallMedianS": 97,
+      "flakeRate": 0.01,
+      "quarantineCandidates": [
+        "test (macos-latest, 20)"
+      ]
+    }
+  }
+}

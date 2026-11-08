@@ -1,0 +1,18 @@
+{
+  "id": "photo-028",
+  "image_path": "photo-028-petsafe-fountain-blurry.jpg",
+  "media_type": "image/jpeg",
+  "photo_quality_label": "blurry",
+  "expected": {
+    "title": "PetSafe Drinkwell 360 Stainless Steel Pet Fountain (128oz)",
+    "brand": "PetSafe",
+    "model": "PWW00-13556",
+    "upc": "729849133563",
+    "category_slug": "pet-supplies",
+    "category_legacy": "Other",
+    "condition": "Like New",
+    "msrp_cents": 8995,
+    "expected_confidence": "low"
+  },
+  "notes": "Out-of-focus phone shot of a returned pet fountain on a workbench. Box visible in the corner."
+}

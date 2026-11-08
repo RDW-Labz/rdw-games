@@ -1,0 +1,5 @@
+package com.rdwlabz.puttdrop;
+
+import com.getcapacitor.BridgeActivity;
+
+public class MainActivity extends BridgeActivity {}

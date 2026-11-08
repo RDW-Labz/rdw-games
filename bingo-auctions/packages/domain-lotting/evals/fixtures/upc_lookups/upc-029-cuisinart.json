@@ -1,0 +1,15 @@
+{
+  "id": "upc-029",
+  "code": "086279098856",
+  "code_type": "upc",
+  "expected": {
+    "title": "Cuisinart 12-Cup Programmable Coffeemaker (DCC-3200P1)",
+    "brand": "Cuisinart",
+    "model": "DCC-3200P1",
+    "category_slug": "small-appliances",
+    "category_legacy": "Appliances",
+    "condition": "",
+    "msrp_cents": 9999
+  },
+  "notes": "Common UPC."
+}

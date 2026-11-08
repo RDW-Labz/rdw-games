@@ -1,0 +1,54 @@
+# XcodeGen spec — the Xcode project is generated, never hand-edited or committed.
+# Generate with:  cd ios && xcodegen generate
+#
+# APPLE_TEAM_ID comes from the environment (a CI secret, or your own shell) so the
+# same spec builds for Michael's account and for a local archive on a Mac.
+name: AwesomeOfflineGames
+
+options:
+  bundleIdPrefix: com.rdwlabz
+  deploymentTarget:
+    iOS: "16.0"
+  createIntermediateGroups: true
+  developmentLanguage: en
+  groupSortPosition: top
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    IPHONEOS_DEPLOYMENT_TARGET: "16.0"
+    ENABLE_USER_SCRIPT_SANDBOXING: NO
+    CODE_SIGN_STYLE: Automatic
+    DEVELOPMENT_TEAM: ${APPLE_TEAM_ID}
+    # The app is fully offline: no entitlements file, no ATS exceptions, no background modes.
+    ENABLE_BITCODE: NO
+
+targets:
+  AwesomeOfflineGames:
+    type: application
+    platform: iOS
+    deploymentTarget: "16.0"
+    sources:
+      - path: Sources
+      - path: Resources
+      # the staged collection, copied verbatim as a folder reference so the
+      # relative asset paths inside the games keep working
+      - path: web
+        type: folder
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_NAME: AwesomeOfflineGames
+        PRODUCT_BUNDLE_IDENTIFIER: com.rdwlabz.awesomeofflinegames
+        INFOPLIST_FILE: Info.plist
+        GENERATE_INFOPLIST_FILE: NO
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: "1"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SUPPORTS_MACCATALYST: NO
+        SUPPORTS_MAC_DESIGNED_FOR_IPHONE: NO
+    scheme:
+      gatherCoverageData: false
+      testTargets: []

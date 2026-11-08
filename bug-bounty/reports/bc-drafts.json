@@ -1,0 +1,51 @@
+{
+ "volkswagen-og": {
+  "links": [
+   "/engagements/volkswagen-og/submissions/36988234-27d5-4e7a-a58d-0f40851b39f0/edit",
+   "/engagements/volkswagen-og/submissions/452fded3-8d3c-4f47-b3ad-d557da397aa2/edit",
+   "/engagements/volkswagen-og/submissions/5568e678-80f9-4c0d-b14a-cd3ccc6665f0/edit",
+   "/engagements/volkswagen-og/submissions/67992aab-6bec-4325-8c71-c348286d4eb8/edit",
+   "/engagements/volkswagen-og/submissions/dfe7b909-a95c-4167-8120-ef33299a5db8/edit"
+  ],
+  "titles": [
+   "Submit report",
+   "Subdomain takeover: `api.qa.whatsup.volkswagen.de` CNAMEs to an Azure App Service target nothing owns\n\nDraft",
+   "Subdomain takeover: `api.qa.whatsup.volkswagen.de` CNAMEs to an Azure App Service target nothing owns\n\nDraft",
+   "Subdomain takeover: `api.qa.whatsup.volkswagen.de` CNAMEs to an Azure App Service target nothing owns\n\nDraft",
+   "Subdomain takeover of api.qa.whatsup.volkswagen.de via unclaimed Azure App Service name\n\nDraft",
+   "Subdomain takeover: `api.qa.whatsup.volkswagen.de` CNAMEs to an Azure App Service target nothing owns\n\nDraft"
+  ]
+ },
+ "epam-mbb-og": {
+  "links": [
+   "/engagements/epam-mbb-og/submissions/4884ac4f-1480-491f-9408-f1886893c2e9/edit",
+   "/engagements/epam-mbb-og/submissions/a668e197-95fd-45a7-8b17-ab3e0812fa48/edit",
+   "/engagements/epam-mbb-og/submissions/b461f6a4-30d9-4faa-9cc5-c9eb5d63dd26/edit",
+   "/engagements/epam-mbb-og/submissions/d31d159e-830a-43e7-b779-9bb9b5ec45e7/edit",
+   "/engagements/epam-mbb-og/submissions/fb947741-703e-419b-870a-fac8322092ad/edit"
+  ],
+  "titles": [
+   "Submit report",
+   "14 *.devweb.emakina.at hostnames dangle on two unclaimed Azure App Service names\n\nDraft",
+   "Subdomain takeover: `donau-carbon-us.devweb.emakina.at` CNAMEs to an Azure App Service target nothing owns\n\nDraft",
+   "Subdomain takeover: `donau-carbon-us.devweb.emakina.at` CNAMEs to an Azure App Service target nothing owns\n\nDraft",
+   "Subdomain takeover: `alt.emakina.at` CNAMEs to a generic target nothing owns\n\nDraft",
+   "Subdomain takeover: `donau-carbon-us.devweb.emakina.at` CNAMEs to an Azure App Service target nothing owns\n\nDraft"
+  ]
+ },
+ "etoro-mbb-og": {
+  "links": [
+   "/engagements/etoro-mbb-og/submissions/715228af-deb9-4252-bd28-352509b1e55a/edit",
+   "/engagements/etoro-mbb-og/submissions/b579ea10-02da-4320-b40c-eaa76292569f/edit",
+   "/engagements/etoro-mbb-og/submissions/c9e32cf6-c7b2-4051-8a95-a0c71d4f3e59/edit",
+   "/engagements/etoro-mbb-og/submissions/d893d394-6728-43cd-8495-079f597df7c9/edit"
+  ],
+  "titles": [
+   "Submit report",
+   "Subdomain takeover of candle-src.etoro.com via unclaimed Traffic Manager profile\n\nDraft",
+   "Subdomain takeover of candle-src.etoro.com via unclaimed Traffic Manager profile\n\nDraft",
+   "Subdomain takeover of candle-src.etoro.com via unclaimed Traffic Manager profile\n\nDraft",
+   "Subdomain takeover: `candle-src.etoro.com` CNAMEs to an Azure Traffic Manager target nothing owns\n\nDraft"
+  ]
+ }
+}

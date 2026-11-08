@@ -1,0 +1,15 @@
+{
+  "id": "upc-023",
+  "code": "AB12CD34EF56",
+  "code_type": "upc",
+  "expected": {
+    "title": "",
+    "brand": "",
+    "model": "",
+    "category_slug": "other-misc",
+    "category_legacy": "Other",
+    "condition": "",
+    "msrp_cents": 0
+  },
+  "notes": "NEGATIVE — alphanumeric in a UPC slot. Tests rejection of garbled scans (mixed letters/digits is a classic OCR error)."
+}

@@ -1,0 +1,66 @@
+[
+ {
+  "id": "c1",
+  "root": "/Users/prime/Documents/repos-projects/oasis/worktrees/agent-core-t29",
+  "run": "1790460660516-95cd9286",
+  "set": "design",
+  "failed": "format",
+  "model": "haiku"
+ },
+ {
+  "id": "c2",
+  "root": "/Users/prime/Documents/repos-projects/oasis/worktrees/desktop-app-t19-p4",
+  "run": "1790445857645-5eab196d",
+  "set": "design",
+  "failed": "typecheck+test",
+  "model": "haiku"
+ },
+ {
+  "id": "c3",
+  "root": "/Users/prime/Documents/repos-projects/oasis/worktrees/desktop-app-t19-p4",
+  "run": "1790454435009-d286de4e",
+  "set": "design",
+  "failed": "test",
+  "model": "sonnet"
+ },
+ {
+  "id": "c4",
+  "root": "/Users/prime/Documents/repos-projects/oasis/worktrees/desktop-app-first-name",
+  "run": "1790405159233-cca90b16",
+  "set": "design",
+  "failed": "test",
+  "model": "sonnet"
+ },
+ {
+  "id": "c5",
+  "root": "/Users/prime/Documents/repos-projects/project-swarm-lessons106",
+  "run": "1790466271666-4e36fb29",
+  "set": "design",
+  "failed": "test",
+  "model": "sonnet"
+ },
+ {
+  "id": "c6",
+  "root": "/Users/prime/Documents/repos-projects/oasis/worktrees/agent-core-scoreboard-route",
+  "run": "1790461754086-edb91f41",
+  "set": "design",
+  "failed": "format",
+  "model": "sonnet"
+ },
+ {
+  "id": "h1",
+  "root": "/Users/prime/Documents/repos-projects/oasis/worktrees/desktop-app-reentry",
+  "run": "1790430423465-70c5f4db",
+  "set": "heldout",
+  "failed": "test",
+  "model": "sonnet"
+ },
+ {
+  "id": "h2",
+  "root": "/Users/prime/Documents/repos-projects/oasis/worktrees/connectors-t43",
+  "run": "1790467665098-eda3208e",
+  "set": "heldout",
+  "failed": "pytest",
+  "model": "sonnet"
+ }
+]

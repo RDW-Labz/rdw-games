@@ -1,0 +1,23 @@
+{
+  "id": "manifest-024",
+  "source": "amazon",
+  "raw": {
+    "description": "Bowflex SelectTech 552 Adjustable Dumbbells (Pair) - Replaces 15 Sets of Weights",
+    "retailer_category": "1000 exercise & fitness",
+    "upc": "612749001020",
+    "model_number": "100131",
+    "quantity": 1,
+    "retail_price": 549.0
+  },
+  "expected": {
+    "title": "Bowflex SelectTech 552 Adjustable Dumbbells (Pair, Replaces 15 Sets)",
+    "brand": "Bowflex",
+    "model": "100131",
+    "category_slug": "exercise",
+    "category_legacy": "Sporting Goods",
+    "condition": "New/Sealed",
+    "msrp_cents": 54900,
+    "expected_confidence": "high"
+  },
+  "notes": "Sports & fitness — adversarial because the BidFTA-style numeric prefix '1000 exercise & fitness' is also reused for kitchen 'bakeware' in the same competitor's taxonomy. Tests context-aware category routing."
+}

@@ -1,0 +1,120 @@
+{
+ "generated_by": "engine/build_reports.py + this spec",
+ "evidence_index": "evidence-takeover/index.json",
+ "note": "body markdown is the report file; asset list is the exact host set verified dangling at capture time",
+ "submissions": [
+  {
+   "platform": "bugcrowd",
+   "engagement": "volkswagen-og",
+   "program": "Volkswagen",
+   "max_reward_usd": 2500,
+   "title": "Subdomain takeover of api.qa.whatsup.volkswagen.de via unclaimed Azure App Service name",
+   "vrt": "Server Security Misconfiguration > Subdomain Takeover",
+   "severity": "P3",
+   "asset": [
+    "api.qa.whatsup.volkswagen.de"
+   ],
+   "report": "reports/out/vw-whatsup-qa-azure.md",
+   "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N (6.5)"
+  },
+  {
+   "platform": "bugcrowd",
+   "engagement": "epam-mbb-og",
+   "program": "EPAM Systems",
+   "max_reward_usd": 1000,
+   "title": "14 *.devweb.emakina.at hostnames dangle on two unclaimed Azure App Service names",
+   "vrt": "Server Security Misconfiguration > Subdomain Takeover",
+   "severity": "P3",
+   "asset": [
+    "donau-carbon-us.devweb.emakina.at",
+    "donau-carbon.devweb.emakina.at",
+    "donau-chemie-group.devweb.emakina.at",
+    "donau-chemie-ro.devweb.emakina.at",
+    "donau-chemie.devweb.emakina.at",
+    "donau-products.devweb.emakina.at",
+    "donau-realitaeten.devweb.emakina.at",
+    "donau-umweltinformation.devweb.emakina.at",
+    "donau.devweb.emakina.at",
+    "donauchem-hu.devweb.emakina.at",
+    "donauchem-pl.devweb.emakina.at",
+    "donauchem-rs.devweb.emakina.at",
+    "donauchem-sk.devweb.emakina.at",
+    "ganterdevweb.emakina.at"
+   ],
+   "report": "reports/out/epam-emakina-azure-batch.md",
+   "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N (6.5)"
+  },
+  {
+   "platform": "bugcrowd",
+   "engagement": "etoro-mbb-og",
+   "program": "eToro",
+   "max_reward_usd": 15000,
+   "title": "Subdomain takeover of candle-src.etoro.com via unclaimed Traffic Manager profile",
+   "vrt": "Server Security Misconfiguration > Subdomain Takeover",
+   "severity": "P3",
+   "asset": [
+    "candle-src.etoro.com"
+   ],
+   "report": "reports/out/etoro-candle-takeover.md",
+   "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N (6.5)"
+  },
+  {
+   "platform": "intigriti",
+   "engagement": "bpost",
+   "program": "bpost",
+   "max_reward_usd": null,
+   "title": "Subdomain takeover of combomobile-1.[ac|st]bpost.be via unclaimed Traffic Manager profiles",
+   "vrt": "subdomain takeover",
+   "severity": "high",
+   "asset": [
+    "combomobile-1.acbpost.be",
+    "combomobile-1.stbpost.be"
+   ],
+   "report": "reports/out/bpost-trafficmanager-takeover.md",
+   "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N (6.5)"
+  },
+  {
+   "platform": "hackerone",
+   "engagement": "cbre",
+   "program": "CBRE",
+   "max_reward_usd": null,
+   "title": "Subdomain takeover of scorecard.prod.cbreapps.com and test.angulardemo.emerald.cbre.com",
+   "vrt": "CWE-350",
+   "severity": "high",
+   "asset": [
+    "scorecard.prod.cbreapps.com",
+    "test.angulardemo.emerald.cbre.com"
+   ],
+   "report": "reports/out/cbre-azure-takeover.md",
+   "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N (6.5)"
+  },
+  {
+   "platform": "hackerone",
+   "engagement": "aon",
+   "program": "AON",
+   "max_reward_usd": null,
+   "title": "Subdomain takeover of qa-cms.aon-hugeops.uk via unclaimed Azure App Service name",
+   "vrt": "CWE-350",
+   "severity": "high",
+   "asset": [
+    "qa-cms.aon-hugeops.uk"
+   ],
+   "report": "reports/out/aon-azure-takeover.md",
+   "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N (6.5)"
+  },
+  {
+   "platform": "hackerone",
+   "engagement": "github",
+   "program": "GitHub",
+   "max_reward_usd": null,
+   "title": "Subdomain takeover of nines.githubapp.com via unclaimed Azure App Service name",
+   "vrt": "CWE-350",
+   "severity": "high",
+   "asset": [
+    "nines.githubapp.com"
+   ],
+   "report": "reports/out/github-nines-azure-takeover.md",
+   "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N (6.5)"
+  }
+ ]
+}

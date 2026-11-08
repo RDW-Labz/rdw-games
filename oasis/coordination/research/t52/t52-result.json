@@ -1,0 +1,37 @@
+{
+  "go": true,
+  "q1_plain_chromium": {
+    "answer": "Yes. Backend reach is HTTP fetch + WebSocket to a baseUrl from Tauri invoke('resolve_service_base_url'); outside Tauri that invoke rejects and App.tsx/QuickApp.tsx/OrbApp.tsx all fall back to hardcoded http://127.0.0.1:4405. A full mock/fixture path already exists and needs no building: vite.config.ts 'preview-browser' mode aliases @tauri-apps/api/{core,event,window,menu} to tests/preview/*Stub.ts (invoke answers resolve_service_base_url + fake token sk-FAKE-0000); tests/fakeService.ts is a complete fake HTTP/WS backend, already used by npm run dev:fake-service and scripts/preview-screens.ts. If none existed, a mock would need: GET /status, /onboarding/questions, /theme, /avatar, /connectors, WS /chat, plus Tauri resolve_service_base_url + get_service_token.",
+    "evidence": "Verified by running: node --import tsx/esm against desktop-app's own vite.config.ts preview-browser branch + tests/fakeService.ts + tests/preview/tauriStub.ts in plain Playwright chromium-1243, no Tauri process, no rig-service. Output: 'nav status 200', 'LAMP_OK true', 'TEXT_OK true', 'CONSOLE_ERRORS []', 'PASS true'. Route table cross-checked against src/lib/serviceClient.ts JSDoc and src/lib/platform.ts invoke() call sites (grep 'invoke(' -l found quick/QuickApp.tsx, lib/serviceClient.ts, lib/platform.ts, orb/OrbApp.tsx)."
+  },
+  "q2_loopback_4318": {
+    "answer": "No, not with today's mechanism. In ref/claude-shell.mjs, shellProfile()'s loopbackDenied path allows network-bind/inbound/outbound on localhost:* broadly, then appends per-port DENY rules only for ports already listening on the host at job start (scanListeningPorts via lsof), excluding proxyPort. That is a blocklist of pre-existing listeners, not an allowlist of one port; no rule shape grants only 4318. validateNetworkAllow() also refuses any non-empty networkAllow outright ('not yet supported'); the only non-loopback allow is the fixed api.anthropic.com:443 CONNECT proxy. REPORT ONLY, no changes made.",
+    "evidence": "node net.createServer().listen(4318,'127.0.0.1') then net.connect(4318,...): {\"port\":4318,\"listen\":\"ok\",\"connect\":\"ok\"}. Same probe on port 4319 (arbitrary other port): {\"port\":4319,\"listen\":\"ok\",\"connect\":\"ok\"}. net.connect(80,'93.184.216.34') (external IP): 'error: EPERM'. So this sandbox is loopback-open (minus pre-existing listeners) or closed to the outside world, never narrowed to a single port."
+  },
+  "q3_home_scenario": {
+    "pass": true,
+    "evidence": "Opened index.html ('Home', the main App window) via tests/fakeService.ts + preview-browser Tauri stubs + Vite middleware-mode server, set service.setOrbState('proposal_ready') (-> lampLook 'ready'), then asserted [data-look=\"ready\"] and exact text 'Something needs you' both rendered before screenshotting. Output: 'nav status 200', 'LAMP_OK true', 'TEXT_OK true', 'CONSOLE_ERRORS []', 'PASS true'. Chromium launched via orb/node_modules/playwright (1.63.0, matches installed chromium-1243); desktop-app's own pinned playwright 1.58.2 wanted an uninstalled chromium_headless_shell-1208.",
+    "screenshot": "out/home.png"
+  },
+  "blockers": [
+    "tsx CLI's IPC unix-socket path under the job's scratch TMPDIR exceeded macOS's ~104-char sun_path limit (EINVAL) -> used `node --import tsx/esm` instead of the tsx binary.",
+    "Vite's loadConfigFromFile tried to write a bundled temp file into desktop-app/node_modules/.vite-temp (read-only tree, EPERM) -> passed configFile:false and replicated vite.config.ts's preview-browser branch inline in a scratch script instead; cacheDir pointed at scratch TMPDIR as the task suggested.",
+    "desktop-app's pinned Playwright (1.58.2) expects chromium_headless_shell-1208, not installed; only chromium-1243 is (matches orb's Playwright 1.63.0) -> launched Chromium through orb/node_modules/playwright instead.",
+    "CORS blocked the Vite-origin page from reaching the fake-service origin until a browserOrigin callback was supplied to createFakeService, mirroring scripts/preview-screens.ts's own pattern."
+  ],
+  "commands": [
+    "Read orb/README.md, orb/docs/USAGE.md, orb/docs/VERIFICATION.md, orb/package.json",
+    "Read desktop-app/package.json, vite.config.ts, index.html, src/components/Lamp.tsx, ref/claude-shell.mjs",
+    "grep -rn invoke( desktop-app/src -l  -> quick/QuickApp.tsx, lib/serviceClient.ts, lib/platform.ts, orb/OrbApp.tsx",
+    "Read desktop-app/src/lib/serviceClient.ts, platform.ts, App.tsx, components/lampState.ts, orb/looks.ts",
+    "grep -n 'Something needs you' desktop-app/src -> components/lampState.ts:10",
+    "node -e loopback listen+connect probe on port 4318 -> {\"port\":4318,\"listen\":\"ok\",\"connect\":\"ok\"}",
+    "node -e loopback listen+connect probe on port 4319 -> {\"port\":4319,\"listen\":\"ok\",\"connect\":\"ok\"}",
+    "node -e connect to external IP 93.184.216.34:80 -> error: EPERM",
+    "ln -sfn desktop-app/node_modules scratch/node_modules (module resolution for scratch script)",
+    "node --import tsx/esm home-scenario.mts (attempt 1, tsx CLI IPC path too long) -> EINVAL",
+    "node --import tsx/esm home-scenario.mts (attempt 2, vite EPERM writing node_modules/.vite-temp) -> EPERM",
+    "node --import tsx/esm home-scenario.mts (final, configFile:false + orb's playwright + browserOrigin) -> LAMP_OK true / TEXT_OK true / PASS true"
+  ],
+  "costNote": "Read the 11 required context files plus App.tsx, platform.ts, lampState.ts, looks.ts, fakeService.ts excerpts, runFakeService.ts, tauriStub.ts and preview-screens.ts excerpts; wrote and iterated one scratch Playwright/Vite script through 4 failed attempts before it passed. No orb/desktop-app/ref file was ever edited."
+}

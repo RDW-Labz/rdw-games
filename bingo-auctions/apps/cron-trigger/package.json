@@ -1,0 +1,16 @@
+{
+  "name": "@auction-platform/cron-trigger",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail",
+    "dev": "wrangler dev"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250101.0",
+    "typescript": "~5.9.3",
+    "wrangler": "^4.94.0"
+  }
+}

@@ -1,0 +1,1 @@
+SELECT jsonb_agg(jsonb_build_object('name', p.proname, 'sig', p.oid::regprocedure::text, 'def', pg_get_functiondef(p.oid)) ORDER BY p.oid) FROM pg_proc p WHERE p.pronamespace = 'public'::regnamespace AND p.prokind = 'f' AND NOT EXISTS (SELECT 1 FROM pg_depend d WHERE d.objid = p.oid AND d.deptype = 'e') 

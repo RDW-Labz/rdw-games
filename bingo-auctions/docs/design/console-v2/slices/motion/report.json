@@ -1,0 +1,327 @@
+{
+  "rowTiming": {
+    "dashboardNextToClose16": [
+      {
+        "row": 1,
+        "animationName": "console-v2-row-in",
+        "animationDelay": "0s",
+        "animationDuration": "0.2s"
+      },
+      {
+        "row": 2,
+        "animationName": "console-v2-row-in",
+        "animationDelay": "0.04s",
+        "animationDuration": "0.2s"
+      },
+      {
+        "row": 3,
+        "animationName": "console-v2-row-in",
+        "animationDelay": "0.08s",
+        "animationDuration": "0.2s"
+      },
+      {
+        "row": 4,
+        "animationName": "console-v2-row-in",
+        "animationDelay": "0.12s",
+        "animationDuration": "0.2s"
+      },
+      {
+        "row": 5,
+        "animationName": "console-v2-row-in",
+        "animationDelay": "0.16s",
+        "animationDuration": "0.2s"
+      },
+      {
+        "row": 6,
+        "animationName": "console-v2-row-in",
+        "animationDelay": "0.2s",
+        "animationDuration": "0.2s"
+      },
+      {
+        "row": 7,
+        "animationName": "console-v2-row-in",
+        "animationDelay": "0.24s",
+        "animationDuration": "0.2s"
+      },
+      {
+        "row": 8,
+        "animationName": "console-v2-row-in",
+        "animationDelay": "0.28s",
+        "animationDuration": "0.2s"
+      },
+      {
+        "row": 9,
+        "animationName": "console-v2-row-in",
+        "animationDelay": "0.32s",
+        "animationDuration": "0.2s"
+      },
+      {
+        "row": 10,
+        "animationName": "console-v2-row-in",
+        "animationDelay": "0.36s",
+        "animationDuration": "0.2s"
+      },
+      {
+        "row": 11,
+        "animationName": "console-v2-row-in",
+        "animationDelay": "0.4s",
+        "animationDuration": "0.2s"
+      },
+      {
+        "row": 12,
+        "animationName": "console-v2-row-in",
+        "animationDelay": "0.44s",
+        "animationDuration": "0.2s"
+      },
+      {
+        "row": 13,
+        "animationName": "console-v2-row-in",
+        "animationDelay": "0.44s",
+        "animationDuration": "0.2s"
+      },
+      {
+        "row": 14,
+        "animationName": "console-v2-row-in",
+        "animationDelay": "0.44s",
+        "animationDuration": "0.2s"
+      },
+      {
+        "row": 15,
+        "animationName": "console-v2-row-in",
+        "animationDelay": "0.44s",
+        "animationDuration": "0.2s"
+      }
+    ],
+    "pickupsAtCounter": [
+      {
+        "row": 1,
+        "animationName": "console-v2-row-in",
+        "animationDelay": "0s",
+        "animationDuration": "0.2s"
+      },
+      {
+        "row": 2,
+        "animationName": "console-v2-row-in",
+        "animationDelay": "0.04s",
+        "animationDuration": "0.2s"
+      },
+      {
+        "row": 3,
+        "animationName": "console-v2-row-in",
+        "animationDelay": "0.08s",
+        "animationDuration": "0.2s"
+      },
+      {
+        "row": 4,
+        "animationName": "console-v2-row-in",
+        "animationDelay": "0.12s",
+        "animationDuration": "0.2s"
+      },
+      {
+        "row": 5,
+        "animationName": "console-v2-row-in",
+        "animationDelay": "0.16s",
+        "animationDuration": "0.2s"
+      },
+      {
+        "row": 6,
+        "animationName": "console-v2-row-in",
+        "animationDelay": "0.2s",
+        "animationDuration": "0.2s"
+      },
+      {
+        "row": 7,
+        "animationName": "console-v2-row-in",
+        "animationDelay": "0.24s",
+        "animationDuration": "0.2s"
+      },
+      {
+        "row": 8,
+        "animationName": "console-v2-row-in",
+        "animationDelay": "0.28s",
+        "animationDuration": "0.2s"
+      },
+      {
+        "row": 9,
+        "animationName": "console-v2-row-in",
+        "animationDelay": "0.32s",
+        "animationDuration": "0.2s"
+      },
+      {
+        "row": 10,
+        "animationName": "console-v2-row-in",
+        "animationDelay": "0.36s",
+        "animationDuration": "0.2s"
+      },
+      {
+        "row": 11,
+        "animationName": "console-v2-row-in",
+        "animationDelay": "0.4s",
+        "animationDuration": "0.2s"
+      },
+      {
+        "row": 12,
+        "animationName": "console-v2-row-in",
+        "animationDelay": "0.44s",
+        "animationDuration": "0.2s"
+      },
+      {
+        "row": 13,
+        "animationName": "console-v2-row-in",
+        "animationDelay": "0.44s",
+        "animationDuration": "0.2s"
+      },
+      {
+        "row": 14,
+        "animationName": "console-v2-row-in",
+        "animationDelay": "0.44s",
+        "animationDuration": "0.2s"
+      },
+      {
+        "row": 15,
+        "animationName": "console-v2-row-in",
+        "animationDelay": "0.44s",
+        "animationDuration": "0.2s"
+      }
+    ]
+  },
+  "floorStory": [
+    {
+      "num": "01",
+      "label": "Pickup",
+      "revealDelay": "0.2s",
+      "pulse": {
+        "name": "console-v2-pulse",
+        "duration": "0.6s",
+        "delay": "0.5s",
+        "iterations": "1"
+      }
+    },
+    {
+      "num": "02",
+      "label": "Lotting",
+      "revealDelay": "0.04s",
+      "pulse": null
+    },
+    {
+      "num": "03",
+      "label": "Auction",
+      "revealDelay": "0.08s",
+      "pulse": null
+    },
+    {
+      "num": "04",
+      "label": "Paid",
+      "revealDelay": "0.12s",
+      "pulse": null
+    },
+    {
+      "num": "05",
+      "label": "Intake",
+      "revealDelay": "0.16s",
+      "pulse": null
+    }
+  ],
+  "pages": {
+    "dashboard": {
+      "1024": {
+        "axe": [],
+        "hscroll": 0,
+        "animations": {
+          "total": 0,
+          "infinite": 0,
+          "names": []
+        }
+      },
+      "1440": {
+        "axe": [],
+        "hscroll": 0,
+        "animations": {
+          "total": 0,
+          "infinite": 0,
+          "names": []
+        }
+      },
+      "reduced": {
+        "animations": 0,
+        "running": 0,
+        "elementsWithTransformOrTransformTransition": 0
+      }
+    },
+    "pickups": {
+      "1024": {
+        "axe": [],
+        "hscroll": 0,
+        "animations": {
+          "total": 0,
+          "infinite": 0,
+          "names": []
+        }
+      },
+      "1440": {
+        "axe": [],
+        "hscroll": 0,
+        "animations": {
+          "total": 0,
+          "infinite": 0,
+          "names": []
+        }
+      },
+      "reduced": {
+        "animations": 0,
+        "running": 0,
+        "elementsWithTransformOrTransformTransition": 0
+      }
+    },
+    "inventory": {
+      "1024": {
+        "axe": [],
+        "hscroll": 0,
+        "animations": {
+          "total": 0,
+          "infinite": 0,
+          "names": []
+        }
+      },
+      "1440": {
+        "axe": [],
+        "hscroll": 0,
+        "animations": {
+          "total": 0,
+          "infinite": 0,
+          "names": []
+        }
+      },
+      "reduced": {
+        "animations": 0,
+        "running": 0,
+        "elementsWithTransformOrTransformTransition": 0
+      }
+    },
+    "lot": {
+      "1024": {
+        "axe": [],
+        "hscroll": 0,
+        "animations": {
+          "total": 0,
+          "infinite": 0,
+          "names": []
+        }
+      },
+      "1440": {
+        "axe": [],
+        "hscroll": 0,
+        "animations": {
+          "total": 0,
+          "infinite": 0,
+          "names": []
+        }
+      },
+      "reduced": {
+        "animations": 0,
+        "running": 0,
+        "elementsWithTransformOrTransformTransition": 0
+      }
+    }
+  }
+}

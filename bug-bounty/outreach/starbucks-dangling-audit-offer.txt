@@ -1,0 +1,49 @@
+To: security@starbucks.com
+Subject: 7 dangling DNS records on starbucks.com — a third party can answer them
+
+---
+
+Hello,
+
+I run passive DNS sweeps for a living and starbucks.com came up. 7 hostnames in your zone point at cloud
+resources that no longer exist, so the provider is answering "does not exist" for the name your own
+record still targets:
+
+  jssdev.starbucks.com                         -> jssdev-starbucks.trafficmanager.net
+  wfmnapim.starbucks.com                       -> s00150tmppdpim.trafficmanager.net
+  wfmnapimct.starbucks.com                     -> s00150tmpctpim.trafficmanager.net
+  wfmnapimdv.starbucks.com                     -> s00149tmpdvpim.trafficmanager.net
+  wfmnapimst.starbucks.com                     -> s00149tmpstpim.trafficmanager.net
+  wfmnaposdv.starbucks.com                     -> s00149tmpdvpos.trafficmanager.net
+  wfmnaposps.starbucks.com                     -> s00150tmppspos.trafficmanager.net
+
+Each one is a CNAME whose target has been deleted. Cloud resource names — Azure App Service, Traffic
+Manager profiles — are released when the resource is deleted, so the name becomes available to any
+subscription that creates it. Whoever recreates that name stops being a broken record and starts being
+your hostname: they receive the traffic, and they can obtain a valid certificate for it, because the
+name now points at them.
+
+The fix is to delete the stale records. That is the whole fix, and it is free. I have not published
+anything, there is no deadline, and none of this is conditional on you buying anything.
+
+I also do this as a service. A single-zone sweep covers the entire zone instead of the handful of
+hostnames I happened to find: every hostname discovered from certificate transparency, every CNAME
+recorded and followed, a claimability verdict on each, the remediation step for anything live, and a
+re-test after you fix. Three business days, one flat fee:
+
+    DNS Hygiene Audit — single zone sweep   $1,500
+    https://square.link/u/h41lTw3P
+
+If you would rather have it watched continuously, monitoring is $750 for the first month:
+
+    DNS Hygiene Monitoring — 1 month        $750
+    https://square.link/u/7GnO5RnD
+
+If you want the one-page scope sheet before deciding — zones, what is checked, what is out of scope,
+delivery date — reply and I will send it over.
+
+Regards,
+
+Michael McLuer
+RDW Labz
+security@rdwlabz.com

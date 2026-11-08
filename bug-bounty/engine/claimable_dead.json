@@ -1,0 +1,26 @@
+{
+ "spotify": [
+  [
+   "ellen.withspotify.com",
+   "ellen.withspotify.com.herokudns.com",
+   "NOERROR",
+   "heroku"
+  ]
+ ],
+ "expediagroup": [
+  [
+   "happynextholidays.hotwire.com",
+   "damp-rook-r56tm3ydrsrju6an5ogcma0h.herokudns.com",
+   "NOERROR",
+   "heroku"
+  ]
+ ],
+ "github": [
+  [
+   "nines.githubapp.com",
+   "ninesapp-app-service.azurewebsites.net",
+   "NXDOMAIN",
+   "azure"
+  ]
+ ]
+}

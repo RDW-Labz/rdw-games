@@ -1,0 +1,112 @@
+[
+  {
+    "name": "a required-only rollup",
+    "file": "tools/ship.mjs",
+    "find": "        let selectedRollup = base.requiredContexts ? fullRollup.filter(item => base.requiredContexts.includes(item.name ?? item.context)) : fullRollup;",
+    "replace": "        let selectedRollup = fullRollup;",
+    "check": [
+      "node",
+      "--test",
+      "tests/field-lesson-t81-pipeline.test.mjs"
+    ]
+  },
+  {
+    "name": "b stop at red stage",
+    "file": "tools/pipeline.mjs",
+    "find": "    if (!ok) return failure;",
+    "replace": "    if (false) return failure;",
+    "check": [
+      "node",
+      "--test",
+      "tests/field-lesson-t81-pipeline.test.mjs"
+    ]
+  },
+  {
+    "name": "c skip green stages",
+    "file": "tools/pipeline.mjs",
+    "find": "    if (latest && latest.status === 'ok') continue;",
+    "replace": "    if (false) continue;",
+    "check": [
+      "node",
+      "--test",
+      "tests/field-lesson-t81-pipeline.test.mjs"
+    ]
+  },
+  {
+    "name": "d classify missing environment",
+    "file": "tools/ship.mjs",
+    "find": "    return { code: 'check-env-missing', hint: 'run uv sync --locked / npm ci in this worktree or pass --sync' };",
+    "replace": "    return null;",
+    "check": [
+      "node",
+      "--test",
+      "tests/field-lesson-t81-pipeline.test.mjs"
+    ]
+  },
+  {
+    "name": "e retain stderr stream",
+    "file": "tools/codex-adapter.mjs",
+    "find": "      if (!key) { append(stream, bytes); return; }",
+    "replace": "      if (!key) { if (stream !== 'stderr') append(stream, bytes); return; }",
+    "check": [
+      "node",
+      "--test",
+      "tests/field-lesson-t81-adapters.test.mjs"
+    ]
+  },
+  {
+    "name": "f regex retry guard",
+    "file": "tools/codex-adapter.mjs",
+    "find": "  if (!match) return result;",
+    "replace": "  ",
+    "check": [
+      "node",
+      "--test",
+      "tests/field-lesson-t81-adapters.test.mjs"
+    ]
+  },
+  {
+    "name": "f output-written retry guard",
+    "file": "tools/codex-adapter.mjs",
+    "find": "  if (await hasWrittenOutputs()) return result;",
+    "replace": "  ",
+    "check": [
+      "node",
+      "--test",
+      "tests/field-lesson-t81-adapters.test.mjs"
+    ]
+  },
+  {
+    "name": "g scaffold mutation marker",
+    "file": "tools/scaffold.mjs",
+    "find": "    const body = '## What\\n\\n' + what.join('\\n') + '\\n\\n## Checks\\n\\n<!-- swarm:checks -->\\n\\n## Mutation check\\n\\n<!-- swarm:stub mutation -->\\n\\nSwarm-Run: ' + runId + '\\nSwarm-Jobs: ' + manifest.jobs.map(job => job.id).join(', ') + '\\n';",
+    "replace": "    const body = '## What\\n\\n' + what.join('\\n') + '\\n\\n## Checks\\n\\n<!-- swarm:checks -->\\n\\n## Mutation check\\n\\n\\n\\nSwarm-Run: ' + runId + '\\nSwarm-Jobs: ' + manifest.jobs.map(job => job.id).join(', ') + '\\n';",
+    "check": [
+      "node",
+      "--test",
+      "tests/field-lesson-t81-cli.test.mjs"
+    ]
+  },
+  {
+    "name": "g required-section stub guard",
+    "file": "tools/ship.mjs",
+    "find": "  if (stubSection !== undefined) return { ...base, status: 'refused', code: 'stub-section', section: stubSection, reason: `stub-section: ${stubSection}`, failures: (await collectPreflight()).failures };",
+    "replace": "  if (false) return { ...base, status: 'refused', code: 'stub-section', section: stubSection, reason: `stub-section: ${stubSection}`, failures: (await collectPreflight()).failures };",
+    "check": [
+      "node",
+      "--test",
+      "tests/field-lesson-t81-pipeline.test.mjs"
+    ]
+  },
+  {
+    "name": "h uncovered test list",
+    "file": "tools/scaffold.mjs",
+    "find": "    job.ignoreTests = uncoveredTests;",
+    "replace": "    job.ignoreTests = [];",
+    "check": [
+      "node",
+      "--test",
+      "tests/field-lesson-t81-cli.test.mjs"
+    ]
+  }
+]

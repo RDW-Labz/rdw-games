@@ -1,0 +1,18 @@
+{
+  "id": "photo-003",
+  "image_path": "photo-003-vanity-angled.png",
+  "media_type": "image/png",
+  "photo_quality_label": "angled",
+  "expected": {
+    "title": "KOHLER Damask 24-inch White Single Sink Bathroom Vanity",
+    "brand": "KOHLER",
+    "model": "K-99543-1WA",
+    "upc": "885612779144",
+    "category_slug": "vanities",
+    "category_legacy": "Furniture",
+    "condition": "New/Sealed",
+    "msrp_cents": 64900,
+    "expected_confidence": "low"
+  },
+  "notes": "Box on pallet, photographed at ~45deg, brand label partially out of frame. Cheap models often miss the SKU here."
+}

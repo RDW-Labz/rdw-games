@@ -1,0 +1,69 @@
+name: Hitchhiker
+avatar: hitchhiker
+light:
+  colors:
+    bg: "#eff4f1"
+    surface: "#e5ece8"
+    surface-raised: "#fafcfb"
+    border: "#6e7c77"
+    hairline: "#d1dbd6"
+    text: "#18221f"
+    text-muted: "#4e5e59"
+    accent: "#1d6154"
+    accent-text: "#f1fbf7"
+    focus: "#3a4c98"
+    link: "#3a4c98"
+    ok: "#2b6839"
+    needs-you: "#7b4b08"
+    rim: "#9e610c"
+    lamp: "199 119 0"
+    glow-strength: 0.24
+    error: "#a23339"
+    paused: "#684d9b"
+    scrim: "#18221f52"
+    shadow-1: "0 1px 2px #18221f14"
+    shadow-2: "0 12px 32px -12px #18221f40"
+dark:
+  colors:
+    bg: "#121a24"
+    surface: "#182230"
+    surface-raised: "#202b3b"
+    border: "#7b879a"
+    hairline: "#2c3848"
+    text: "#ecf0f4"
+    text-muted: "#a8b2bf"
+    accent: "#80d4b6"
+    accent-text: "#0b2019"
+    focus: "#abb9ff"
+    link: "#abb9ff"
+    ok: "#95d7a1"
+    needs-you: "#f5c35f"
+    rim: "#e5a73f"
+    lamp: "255 196 86"
+    glow-strength: 0.16
+    error: "#ffa09b"
+    paused: "#cfb8f6"
+    scrim: "#00000080"
+    shadow-1: "0 1px 2px #00000066"
+    shadow-2: "0 16px 40px -12px #00000099"
+type:
+  font: 'Figtree, system-ui, -apple-system, "Segoe UI", sans-serif'
+radius:
+  sm: 8
+  md: 12
+  lg: 16
+  pill: 999
+motion:
+  duration-instant: 80
+  duration-fast: 120
+  duration-base: 200
+  duration-slow: 320
+  duration-light: 480
+  breath: 2400
+  ease-out: "cubic-bezier(0, 0, 0.2, 1)"
+  ease-in: "cubic-bezier(0.4, 0, 1, 1)"
+  ease-standard: "cubic-bezier(0.2, 0, 0, 1)"
+sounds:
+  needs_you: default
+  done: default
+  problem: default

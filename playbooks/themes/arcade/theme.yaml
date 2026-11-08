@@ -1,0 +1,69 @@
+name: Arcade
+avatar: arcade
+light:
+  colors:
+    bg: "#f6f2f8"
+    surface: "#ede8f1"
+    surface-raised: "#fdfbfe"
+    border: "#7c7488"
+    hairline: "#dcd5e3"
+    text: "#1f1a26"
+    text-muted: "#5a5366"
+    accent: "#862a76"
+    accent-text: "#fff5fc"
+    focus: "#0e6570"
+    link: "#0e6570"
+    ok: "#2a6a47"
+    needs-you: "#7f4c06"
+    rim: "#a3620b"
+    lamp: "199 120 0"
+    glow-strength: 0.24
+    error: "#a53139"
+    paused: "#5d4995"
+    scrim: "#1f1a2652"
+    shadow-1: "0 1px 2px #1f1a2614"
+    shadow-2: "0 12px 32px -12px #1f1a2640"
+dark:
+  colors:
+    bg: "#17141f"
+    surface: "#1e1a28"
+    surface-raised: "#272233"
+    border: "#877f96"
+    hairline: "#373045"
+    text: "#f0ecf6"
+    text-muted: "#b2aac1"
+    accent: "#f28bd9"
+    accent-text: "#2b0a25"
+    focus: "#72d6e0"
+    link: "#72d6e0"
+    ok: "#8bd4a3"
+    needs-you: "#f6c15e"
+    rim: "#e5a640"
+    lamp: "255 196 88"
+    glow-strength: 0.16
+    error: "#ff9ba1"
+    paused: "#c4b4f2"
+    scrim: "#00000080"
+    shadow-1: "0 1px 2px #00000066"
+    shadow-2: "0 16px 40px -12px #00000099"
+type:
+  font: 'Figtree, system-ui, -apple-system, "Segoe UI", sans-serif'
+radius:
+  sm: 8
+  md: 12
+  lg: 16
+  pill: 999
+motion:
+  duration-instant: 80
+  duration-fast: 120
+  duration-base: 200
+  duration-slow: 320
+  duration-light: 480
+  breath: 2400
+  ease-out: "cubic-bezier(0, 0, 0.2, 1)"
+  ease-in: "cubic-bezier(0.4, 0, 1, 1)"
+  ease-standard: "cubic-bezier(0.2, 0, 0, 1)"
+sounds:
+  needs_you: default
+  done: default
+  problem: default

@@ -1,0 +1,8 @@
+# Installed as /etc/sudoers.d/hermes-sub (0440), checked with visudo -cf.
+# The SSH entry user may run exactly two root wrappers. The start wrapper
+# takes NO arguments ("" below): the job comes on stdin and is re-validated
+# by root. The stop wrapper validates its one job id itself.
+# No systemctl, no wildcard, no shell, no environment kept.
+# sudo-rs (dev2) rejects unknown settings such as requiretty; this file must parse under sudo-rs 0.2.13.
+Defaults:hermes-sub env_reset, !setenv
+hermes-sub ALL=(root) NOPASSWD: /opt/hermes-dev2/sbin/hermes-job-start "", /opt/hermes-dev2/sbin/hermes-job-stop

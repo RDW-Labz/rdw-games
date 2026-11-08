@@ -1,0 +1,116 @@
+{
+ "areas": [
+  {
+   "area": "t19-ui-onboarding",
+   "ticket": "T19",
+   "goal": "React UI kit pieces for a calm desktop chat app for non-technical staff: accessible primitives, chat thread/composer, first-run onboarding steps, token-based theming.",
+   "queries": [
+    "topic:react-components language:TypeScript stars:>1000 pushed:>2025-09-01",
+    "chat ui react language:TypeScript stars:>300 pushed:>2025-09-01",
+    "onboarding tour react stars:>500 pushed:>2025-06-01"
+   ]
+  },
+  {
+   "area": "t22-t23-avatars-themes",
+   "ticket": "T22/T23",
+   "goal": "Pixel-art/sprite animation playback, design-token pipelines and WCAG contrast checking in CI for light/dark theme packs.",
+   "queries": [
+    "topic:design-tokens stars:>300",
+    "topic:wcag stars:>200",
+    "topic:pixel-art language:TypeScript stars:>200"
+   ]
+  },
+  {
+   "area": "t25-memory",
+   "ticket": "T25",
+   "goal": "Local, per-person agent memory: store/recall facts the person asked to remember, with review and delete, Python, no cloud.",
+   "queries": [
+    "agent memory language:Python stars:>500 pushed:>2025-09-01",
+    "llm long-term memory local language:Python stars:>300 pushed:>2025-09-01"
+   ]
+  },
+  {
+   "area": "t28-permissions-policy",
+   "ticket": "T28",
+   "goal": "Policy engine for agent tool permissions: per-role allow/deny, ask-first rules as data, auditable decisions, embeddable in Python.",
+   "queries": [
+    "policy engine language:Python stars:>500 pushed:>2025-06-01",
+    "authorization rbac abac language:Python stars:>300 pushed:>2025-06-01",
+    "llm agent guardrails tool permissions stars:>300 pushed:>2025-09-01"
+   ]
+  },
+  {
+   "area": "t29-feedback-loop",
+   "ticket": "T29",
+   "goal": "Feedback on LLM replies: thumbs + note storage tied to log entries, turning thumbs-down into candidate eval/test cases, grouping notes for a weekly report. Python backend, React front end.",
+   "queries": [
+    "llm evaluation test cases language:Python stars:>1000 pushed:>2025-09-01",
+    "user feedback llm annotation stars:>300 pushed:>2025-09-01"
+   ]
+  },
+  {
+   "area": "t33-month-end-quickbooks",
+   "ticket": "T33",
+   "goal": "QuickBooks Online API clients and month-end close / reconciliation helpers in Python.",
+   "queries": [
+    "quickbooks api language:Python stars:>50 pushed:>2025-01-01",
+    "bank reconciliation accounting language:Python stars:>100 pushed:>2025-06-01"
+   ]
+  },
+  {
+   "area": "phase3-retrieval",
+   "ticket": "Phase 3",
+   "goal": "Local retrieval for a person's drawer: document parsing, chunking, embedding and hybrid search that runs on a laptop, Python.",
+   "queries": [
+    "topic:rag language:Python stars:>2000 pushed:>2025-09-01",
+    "topic:vector-database stars:>1000 pushed:>2025-09-01",
+    "topic:document-parser stars:>500"
+   ]
+  },
+  {
+   "area": "scrubber-pii-secrets",
+   "ticket": "remote scrubber",
+   "goal": "PII and secret detection/redaction for agent traces before they hit disk, Python, high recall.",
+   "queries": [
+    "topic:pii stars:>200",
+    "topic:secrets-detection stars:>300"
+   ]
+  },
+  {
+   "area": "agent-browser",
+   "ticket": "agent browser",
+   "goal": "Letting an agent read and act in a web browser safely (extension or automation), with untrusted-page isolation.",
+   "queries": [
+    "browser agent automation llm stars:>1000 pushed:>2025-09-01",
+    "browser extension ai agent language:TypeScript stars:>300 pushed:>2025-09-01"
+   ]
+  },
+  {
+   "area": "voice",
+   "ticket": "T18 follow-ups",
+   "goal": "On-device speech-to-text and voice activity detection usable from a Tauri/Python desktop app.",
+   "queries": [
+    "speech to text on-device stars:>1000 pushed:>2025-09-01",
+    "voice activity detection stars:>500 pushed:>2025-06-01"
+   ]
+  },
+  {
+   "area": "packaging-updater",
+   "ticket": "Rig update path",
+   "goal": "Shipping a Tauri app plus a bundled Python service: signed updates, Python bundling, Windows+macOS installers.",
+   "queries": [
+    "tauri updater stars:>200 pushed:>2025-06-01",
+    "bundle python application standalone stars:>1000 pushed:>2025-06-01"
+   ]
+  },
+  {
+   "area": "audit-observability",
+   "ticket": "audit log",
+   "goal": "Append-only audit logs and local LLM-agent tracing/observability (who, what, which data, model, cost).",
+   "queries": [
+    "llm observability tracing language:Python stars:>1000 pushed:>2025-09-01",
+    "append-only audit log language:Python stars:>100 pushed:>2025-01-01"
+   ]
+  }
+ ]
+}

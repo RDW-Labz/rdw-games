@@ -1,0 +1,15 @@
+{
+  "id": "upc-007",
+  "code": "195532102725",
+  "code_type": "upc",
+  "expected": {
+    "title": "EGO POWER+ 56V 880 CFM 200 MPH Cordless Leaf Blower",
+    "brand": "EGO",
+    "model": "LB7654",
+    "category_slug": "outdoor-power",
+    "category_legacy": "Home & Garden",
+    "condition": "",
+    "msrp_cents": 29900
+  },
+  "notes": "Sourced from db/seed/lowes.json."
+}

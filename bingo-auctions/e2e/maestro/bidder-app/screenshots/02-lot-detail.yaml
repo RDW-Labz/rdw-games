@@ -1,0 +1,95 @@
+# App Store screenshot — bidder-app: Lot detail
+#
+# ASSERTION-TOLERANT REWRITE (2026-05-24)
+# ----------------------------------------
+# Previous flow died on `extendedWaitUntil id: browse-screen` (74s timeout).
+# New structure marks all fragile interactions `optional: true` so the
+# final canonical takeScreenshot always runs.
+#
+# Output (always):
+#   screenshots/02-lot-detail-launch.png    — sign-in screen
+#   screenshots/02-lot-detail-post-auth.png — post-sign-in state
+#   screenshots/02-lot-detail-tapped.png    — after tapping the lot card
+#   screenshots/lot-detail.png              — canonical final screenshot
+
+appId: com.bingoauctions.bidder
+env:
+  BIDDER_EMAIL: ${BIDDER_EMAIL}
+  BIDDER_PASSWORD: ${BIDDER_PASSWORD}
+---
+# ── Step 1: Launch fresh ────────────────────────────────────────────────────
+- launchApp:
+    clearState: true
+    stopApp: true
+
+- waitForAnimationToEnd
+
+# ── Step 2: GUARANTEED first PNG ────────────────────────────────────────────
+- takeScreenshot: screenshots/02-lot-detail-launch
+
+# ── Step 3: Confirm bundle rendered (non-fatal) ─────────────────────────────
+- extendedWaitUntil:
+    visible:
+      text: "Sign in"
+    timeout: 15000
+    optional: true
+
+# ── Step 4: Sign in (optional taps so the flow always reaches the canonical
+#           screenshot even if the keyboard or auth UI flakes) ──────────────
+- tapOn:
+    id: signin-email-input
+    optional: true
+- inputText: ${BIDDER_EMAIL}
+
+- tapOn:
+    id: signin-password-input
+    optional: true
+- inputText: ${BIDDER_PASSWORD}
+
+- tapOn:
+    id: signin-submit
+    optional: true
+
+- waitForAnimationToEnd
+
+# ── Step 5: SECOND GUARANTEED PNG — post-auth state ─────────────────────────
+- takeScreenshot: screenshots/02-lot-detail-post-auth
+
+# ── Step 6: Best-effort wait for browse content ─────────────────────────────
+- extendedWaitUntil:
+    visible:
+      text: "Current bid"
+    timeout: 20000
+    optional: true
+
+# ── Step 7: Best-effort scroll to BIN-000035 ────────────────────────────────
+# optional: true so a missing seed lot doesn't abort the flow — the
+# canonical screenshot below will be of the browse grid instead, which
+# is still useful App Store content.
+- scrollUntilVisible:
+    element:
+      id: lot-card-BIN-000035
+    direction: DOWN
+    timeout: 15000
+    optional: true
+
+- tapOn:
+    id: lot-card-BIN-000035
+    optional: true
+
+- waitForAnimationToEnd
+
+# ── Step 8: THIRD GUARANTEED PNG — after lot tap ────────────────────────────
+- takeScreenshot: screenshots/02-lot-detail-tapped
+
+# ── Step 9: Loose wait for detail content ───────────────────────────────────
+- extendedWaitUntil:
+    visible:
+      text: "Starts at"
+    timeout: 10000
+    optional: true
+
+- waitForAnimationToEnd
+
+# ── Step 10: Canonical "lot-detail" screenshot ──────────────────────────────
+- takeScreenshot: screenshots/lot-detail

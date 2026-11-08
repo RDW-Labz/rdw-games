@@ -1,0 +1,138 @@
+{
+  "config": {
+    "BIDDERS": 500,
+    "LOTS": 500,
+    "STAGGER_MS": 1500,
+    "FIRST_CLOSE_IN_MS": 75000,
+    "SOFT_CLOSE_MINUTES": 1,
+    "PREBIDS_PER_LOT_AVG": 8,
+    "STORM_FRACTION": 0.3,
+    "BID_CONNS": 24,
+    "BUYER_PREMIUM_BPS": 1500,
+    "TAX_RATE_BPS": 950,
+    "CHARGE_SUCCESS_RATE": 0.9
+  },
+  "durationSec": 907.3,
+  "bids": {
+    "rpcCalls": 5545,
+    "results": {
+      "ok": 2757,
+      "below_min_increment": 2785,
+      "below_starting_bid": 3
+    },
+    "latencyMs": {
+      "p50": "4.0",
+      "p95": "6.8",
+      "p99": "16.7",
+      "max": "460.8"
+    },
+    "softCloseExtensions": 1154,
+    "bidRows": {
+      "total": 3891,
+      "auto": 1140
+    }
+  },
+  "lots": {
+    "total": 500,
+    "won": 500,
+    "unsold": 0,
+    "other": 0
+  },
+  "closeTail": {
+    "last_finalized": "2026-07-04T14:45:12.063Z",
+    "median_lag_s": 2.528648,
+    "max_lag_s": "4.996188"
+  },
+  "finalizeMaxBacklog": 8,
+  "engineTicks": {
+    "open_due_lots": {
+      "n": 181,
+      "p50": "0.5",
+      "p95": "1.2",
+      "max": "23.2"
+    },
+    "finalize_due_lots": {
+      "n": 181,
+      "p50": "4.1",
+      "p95": "6.9",
+      "max": "25.7"
+    },
+    "drain_build_invoice_jobs": {
+      "n": 31,
+      "p50": "0.3",
+      "p95": "0.7",
+      "max": "103.3"
+    },
+    "advance_auction_lifecycle": {
+      "n": 16,
+      "p50": "2.8",
+      "p95": "3.1",
+      "max": "3.1"
+    }
+  },
+  "invoices": {
+    "invoices": 316,
+    "unique_bidders": 316,
+    "gross_cents": "11655602",
+    "hammer_cents": "9255974",
+    "premium_cents": "1388403",
+    "tax_cents": "1011225",
+    "invoice_lots": 500,
+    "distinct_lots": 500,
+    "winnersExpected": 316,
+    "chargeMix": {
+      "paid": 295,
+      "failed": 21
+    }
+  },
+  "correctness": {
+    "wrongWinners": 0,
+    "badInvoiceMath": 0,
+    "badInvoiceSample": [],
+    "lotsNotTerminal": 0
+  },
+  "rows": [
+    {
+      "relname": "bids",
+      "rows": "3891"
+    },
+    {
+      "relname": "lot_status_history",
+      "rows": "1505"
+    },
+    {
+      "relname": "lots",
+      "rows": "500"
+    },
+    {
+      "relname": "operator_bidder_relations",
+      "rows": "494"
+    },
+    {
+      "relname": "invoice_status_history",
+      "rows": "247"
+    },
+    {
+      "relname": "build_invoice_jobs",
+      "rows": "1"
+    },
+    {
+      "relname": "invoice_lots",
+      "rows": "0"
+    },
+    {
+      "relname": "invoices",
+      "rows": "0"
+    },
+    {
+      "relname": "auto_charge_jobs",
+      "rows": "0"
+    },
+    {
+      "relname": "image_enrichment_jobs",
+      "rows": "0"
+    }
+  ],
+  "dbSize": "20 MB",
+  "errors": []
+}

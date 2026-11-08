@@ -1,0 +1,6 @@
+{
+  "title": "T13: mirror watch answers and keep access_level admin-set",
+  "head": "codex/t13-profile-decisions",
+  "base": "main",
+  "body": "## What\nMakes the approved onboarding decisions (#31, #38) concrete:\n- Yes/No \"Can I watch this page?\" answers mirror into `profile.yaml.watch_answers` through `ProfileStore`. The drawer's existing `watch_answers.yaml` stays as the store used before a profile exists; reads merge both.\n- Not now is never saved, so the page is asked again next visit.\n- Onboarding never asks for or accepts `access_level`. `load_questions` rejects a question for it; new profiles default to `member`; an existing value such as `admin` survives every run.\n- Still only the three fixed YAML formats.\n\n## Checks (rerun by coordinator)\n- `uv run --no-sync pytest -q` \u2192 50 passed\n- `uv run --no-sync ruff check .` \u2192 All checks passed\n- `uv run --no-sync ruff format --check .` \u2192 31 files already formatted\n- `uv run --no-sync mypy --strict src` \u2192 no issues in 9 files (native and `--platform win32`)\n- `git diff --check` \u2192 clean\n\n## Still pending (human)\nThe user-zero Rig walkthrough and profile review.\n\n\ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)"
+}

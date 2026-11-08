@@ -1,0 +1,1 @@
+{"id":"scout-1790612696975","status":"cancelled","model":"sonnet","actualModel":"claude-sonnet-5","modelMismatch":false,"costUsd":null,"report":".swarm/scouts/scout-1790612696975/report.json","reportMarkdown":".swarm/scouts/scout-1790612696975/report.md","picks":0,"rejected":0,"moved":[],"error":"scout returned no report"}

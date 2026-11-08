@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Putt Drop · Three ways to play</title>
+<style>
+@font-face{font-family:Gallery;src:url('../fonts/outfit/Outfit[wght].ttf') format('truetype');font-weight:100 900;font-display:block}
+@font-face{font-family:GalleryDisplay;src:url('../fonts/bricolagegrotesque/BricolageGrotesque[opsz,wdth,wght].ttf') format('truetype');font-weight:100 900;font-display:block}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#f6f3eb,#e8e7df);color:#282b30;font-family:Gallery,sans-serif;-webkit-font-smoothing:antialiased}.gallery-header{padding:36px 32px 25px;display:flex;align-items:flex-end;justify-content:space-between;gap:24px}.eyebrow{font-size:12px;letter-spacing:2px;font-weight:600;color:#666a68;margin:0 0 12px}h1{font:650 40px/1.03 GalleryDisplay,sans-serif;letter-spacing:-1.3px;margin:0}header .description{font-size:16px;line-height:1.5;max-width:350px;margin:0;color:#62665f}.mobile-controls{display:none}.gallery{display:flex;gap:26px;padding:16px 32px 36px;overflow-x:auto;align-items:flex-start}.direction{flex:0 0 484px}.direction-header{min-height:77px}.direction-header h2{font:650 24px GalleryDisplay,sans-serif;margin:0 0 8px;letter-spacing:-.5px}.direction-header h2 span{font:500 12px Gallery,sans-serif;color:#71746c;margin-right:10px;vertical-align:middle}.direction-header p{font-size:14px;color:#666a63;margin:0;line-height:1.4}.screens{display:flex;gap:16px}.screen{margin:0}.screen figcaption{font-size:11px;color:#6b6e68;font-weight:600;letter-spacing:1.4px;padding:0 0 10px 4px}.frame{width:234px;height:506.4px;border-radius:25px;overflow:hidden;box-shadow:0 15px 25px #34382e14,0 0 0 1px #00000013;background:#ddd;position:relative}iframe{width:390px;height:844px;border:0;display:block;transform:scale(.6);transform-origin:top left;background:#eee}.footer{padding:0 32px 35px;font-size:13px;color:#696d67;display:flex;justify-content:space-between;gap:18px}.footer p{margin:0;line-height:1.5}.footer a{color:#393e34;text-underline-offset:4px}button{font:500 14px Gallery,sans-serif;cursor:pointer;min-height:48px;border-radius:30px;border:1px solid #d1d2c8;background:linear-gradient(#fffff5,#eeefe4);color:#4d5349;padding:0 17px;transition:background 160ms,transform 160ms}button[aria-selected=true],button[aria-pressed=true]{background:linear-gradient(#3f4c3b,#293526);color:#fffce8;border-color:#34412e}button:focus-visible,a:focus-visible{outline:3px solid #6d4ebb;outline-offset:3px}button:active{transform:scale(.97)}.motion-button{white-space:nowrap;align-self:center}.motion-note{font-size:12px}.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+@media(min-width:1600px){.gallery,.gallery-header,.footer{max-width:1636px;margin:0 auto}.gallery{justify-content:space-between}.direction{flex-basis:calc((100% - 52px)/3)}.screens{justify-content:space-between}}
+@media(max-width:800px){.gallery-header{padding:25px 20px 20px;display:block}.gallery-header h1{font-size:33px;max-width:330px}.gallery-header .description{font-size:14px;margin-top:12px;max-width:400px}.mobile-controls{display:block;padding:0 18px}.direction-tabs{display:flex;gap:6px}.direction-tabs button{flex:1;padding:0 9px;font-size:13px}.screen-tabs{display:flex;gap:7px;margin-top:10px}.screen-tabs button{flex:1}.gallery{display:block;padding:22px 18px 26px;overflow:visible}.direction{display:none;width:100%}.direction.active{display:block}.direction-header{min-height:72px}.direction-header h2{font-size:23px}.direction-header p{font-size:14px}.screens{display:block}.screen{display:none}.screen.active{display:block}.screen figcaption{display:none}.frame{--scale:.9;width:calc(390px * var(--scale));height:calc(844px * var(--scale));margin:0 auto;border-radius:calc(40px * var(--scale))}iframe{transform:scale(var(--scale))}.footer{padding:0 20px 30px;display:block}.footer .motion-button{margin-top:14px}.footer p{font-size:12px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="gallery-header"><div><p class="eyebrow">PUTT DROP / ART DIRECTION STUDIES</p><h1>Three ways to feel the drop.</h1></div><p class="description">One real course. Three different worlds.<br>Explore the menu, then the moment before a putt.</p></header>
+<nav class="mobile-controls" aria-label="Compare art directions"><div class="direction-tabs" role="tablist" aria-label="Direction"><button id="tab-afterglow" role="tab" aria-controls="afterglow" aria-selected="true" data-direction="afterglow">Afterglow</button><button id="tab-pocket-park" role="tab" aria-controls="pocket-park" aria-selected="false" tabindex="-1" data-direction="pocket-park">Pocket Park</button><button id="tab-rally-club" role="tab" aria-controls="rally-club" aria-selected="false" tabindex="-1" data-direction="rally-club">Rally Club</button></div><div class="screen-tabs" role="group" aria-label="Screen"><button aria-pressed="true" data-screen="menu">Menu</button><button aria-pressed="false" data-screen="play">Aim · Hole 5</button></div></nav>
+<main class="gallery">
+<section class="direction active" id="afterglow" aria-labelledby="name-afterglow"><header class="direction-header"><h2 id="name-afterglow"><span>01</span>Afterglow</h2><p>A luminous night course. Quiet, precise, electric.</p></header><div class="screens"><figure class="screen active" data-kind="menu"><figcaption>THE INVITATION / MENU</figcaption><div class="frame"><iframe src="afterglow/menu.html" title="Afterglow menu" width="390" height="844"></iframe></div></figure><figure class="screen" data-kind="play"><figcaption>THE PUTT / 70% POWER</figcaption><div class="frame"><iframe src="afterglow/play.html" title="Afterglow Moon Pool aim preview" width="390" height="844"></iframe></div></figure></div></section>
+<section class="direction" id="pocket-park" aria-labelledby="name-pocket"><header class="direction-header"><h2 id="name-pocket"><span>02</span>Pocket Park</h2><p>A tiny tactile escape. Warm, soft, quietly playful.</p></header><div class="screens"><figure class="screen active" data-kind="menu"><figcaption>THE INVITATION / MENU</figcaption><div class="frame"><iframe src="pocket-park/menu.html" title="Pocket Park menu" width="390" height="844"></iframe></div></figure><figure class="screen" data-kind="play"><figcaption>THE PUTT / 70% POWER</figcaption><div class="frame"><iframe src="pocket-park/play.html" title="Pocket Park Moon Pool aim preview" width="390" height="844"></iframe></div></figure></div></section>
+<section class="direction" id="rally-club" aria-labelledby="name-rally"><header class="direction-header"><h2 id="name-rally"><span>03</span>Rally Club</h2><p>A graphic sporting club. Big type, clean rhythm, energy.</p></header><div class="screens"><figure class="screen active" data-kind="menu"><figcaption>THE INVITATION / MENU</figcaption><div class="frame"><iframe src="rally-club/menu.html" title="Rally Club menu" width="390" height="844"></iframe></div></figure><figure class="screen" data-kind="play"><figcaption>THE PUTT / 70% POWER</figcaption><div class="frame"><iframe src="rally-club/play.html" title="Rally Club Moon Pool aim preview" width="390" height="844"></iframe></div></figure></div></section>
+</main>
+<footer class="footer"><p>390 × 844 studies · Hole 5: Moon Pool · Exact level geometry<br>Code-drawn artwork and local fonts. Menus move gently; aim previews stay frozen.</p><button class="motion-button" aria-pressed="false">Pause motion</button></footer>
+<script>
+const directionButtons = [...document.querySelectorAll('[data-direction]')];
+function selectDirection(button) {
+  for (const tab of directionButtons) {
+    const selected = tab === button;
+    tab.setAttribute('aria-selected', selected);
+    tab.tabIndex = selected ? 0 : -1;
+    document.getElementById(tab.dataset.direction).classList.toggle('active', selected);
+  }
+}
+for (const button of directionButtons) {
+  button.addEventListener('click', () => selectDirection(button));
+  button.addEventListener('keydown', event => {
+    if (!['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) return;
+    event.preventDefault();
+    const index = directionButtons.indexOf(button);
+    const next = event.key === 'Home' ? 0 : event.key === 'End' ? 2 : (index + (event.key === 'ArrowRight' ? 1 : 2)) % 3;
+    selectDirection(directionButtons[next]); directionButtons[next].focus();
+  });
+}
+for (const button of document.querySelectorAll('[data-screen]')) {
+  button.addEventListener('click', () => {
+    for (const other of document.querySelectorAll('[data-screen]')) other.setAttribute('aria-pressed', other === button);
+    for (const screen of document.querySelectorAll('.screen')) screen.classList.toggle('active', screen.dataset.kind === button.dataset.screen);
+  });
+}
+function fitPhones() {
+  const scale = Math.min(1, (document.documentElement.clientWidth - 36) / 390);
+  for (const frame of document.querySelectorAll('.frame')) frame.style.setProperty('--scale', scale);
+}
+fitPhones(); window.addEventListener('resize', fitPhones);
+const motion = document.querySelector('.motion-button');
+let paused = matchMedia('(prefers-reduced-motion: reduce)').matches;
+function syncMotion() {
+  motion.setAttribute('aria-pressed', paused); motion.textContent = paused ? 'Resume motion' : 'Pause motion';
+  for (const frame of document.querySelectorAll('iframe')) frame.contentDocument?.body?.classList.toggle('motion-paused', paused);
+}
+for (const frame of document.querySelectorAll('iframe')) frame.addEventListener('load', syncMotion);
+motion.addEventListener('click', () => { paused = !paused; syncMotion(); });
+syncMotion();
+</script>
+</body></html>

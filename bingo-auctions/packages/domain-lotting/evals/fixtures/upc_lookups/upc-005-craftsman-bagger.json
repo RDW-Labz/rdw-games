@@ -1,0 +1,15 @@
+{
+  "id": "upc-005",
+  "code": "889021314453",
+  "code_type": "upc",
+  "expected": {
+    "title": "Craftsman 42-inch / 46-inch Lawn Mower Bagger Attachment",
+    "brand": "Craftsman",
+    "model": "CMXGZAM110233",
+    "category_slug": "outdoor-power",
+    "category_legacy": "Home & Garden",
+    "condition": "",
+    "msrp_cents": 24900
+  },
+  "notes": "Sourced from db/seed/lowes.json — real UPC."
+}

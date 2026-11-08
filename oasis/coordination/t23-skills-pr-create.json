@@ -1,0 +1,6 @@
+{
+ "title": "T23 contract: theme packs in the format doc (0.5.0)",
+ "head": "t23-themes",
+ "base": "main",
+ "body": "Theme packs in the format doc (T23, decisions #77, #78) and the cross-repo contract every T23 builder reads.\n\n## What\n- `docs/formats.md`: new \"Theme pack \u2014 theme.yaml\" section (colors with required `light` + `dark`, type, radius, motion, sounds; 34 tokens mapped to the app's real `--oasis-*` properties; WCAG AA pairs) and optional `theme:` in profile.yaml (default `lantern`).\n- `docs/t23/contract.md`: playbooks owns the validator + contrast checker; agent-core profile field, routes mirroring the avatar ones, `~/.oasis/themes/` cache; desktop live token switch, picker on the Coworkers page; tests and mutants per repo. \u00a78 settled provisionally (#159).\n- 0.4.2 \u2192 0.5.0, CHANGELOG.\n\n## Checks\n<!-- swarm:checks -->\n\n## Mutation check\nNo ask-first gate or state mapping: docs and version only. The contrast check, missing-dark, unknown-id and live-switch mutants run in the playbooks, agent-core and desktop-app T23 PRs.\n\n\ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)\n\nhttps://claude.ai/code/session_012QWQRVxJjQx2DsXEAH1iuw"
+}

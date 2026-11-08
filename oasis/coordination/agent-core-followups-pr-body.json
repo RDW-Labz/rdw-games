@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "concurrency": 1,
+  "jobs": [
+    {
+      "id": "agent-core-followups-pr-body",
+      "agent": "claude",
+      "model": "haiku",
+      "tier": "cheap",
+      "prompt": "Write the GitHub PR description for the agent-core T16b follow-ups into coordination/agent-core-followups-pr.md. Inputs: coordination/agent-core-followups-pr-input.md and coordination/agent-core-followups-changelog.md (the first entry only). Plain words, short sentences. Sections: Summary (one bullet each: decision #54 accounting, failed audit stage and reason, ledger settle CLI, vendor path fix, drawer message, version 0.6.0), Why (one or two lines from the Facts), Tests (paste the check block verbatim), Open for Braden (write \"nothing\"). Do not invent facts. Do not claim any ticket is done. End the file with the line: \ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)\nOnly edit the declared output. End with one JSON line {\"files_changed\":[...]}.",
+      "context": [
+        "coordination/agent-core-followups-pr-input.md",
+        "coordination/agent-core-followups-changelog.md"
+      ],
+      "outputs": [
+        "coordination/agent-core-followups-pr.md"
+      ],
+      "timeoutMs": 900000
+    }
+  ]
+}

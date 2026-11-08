@@ -1,0 +1,15 @@
+{
+  "id": "upc-008",
+  "code": "871613009489",
+  "code_type": "upc",
+  "expected": {
+    "title": "Kobalt Quiet Tech 26-Gallon 150 PSI Portable Electric Vertical Air Compressor",
+    "brand": "Kobalt",
+    "model": "3332644",
+    "category_slug": "power-tools",
+    "category_legacy": "Tools & Hardware",
+    "condition": "",
+    "msrp_cents": 44900
+  },
+  "notes": "Sourced from db/seed/lowes.json."
+}

@@ -1,0 +1,421 @@
+{
+  "since": "2026-09-21",
+  "until": "2026-09-28",
+  "generated": "2026-09-28T18:36:43.905798+00:00",
+  "repos": {
+    "agent-core": {
+      "runs": 159,
+      "runMedianS": 118,
+      "runP90S": 490,
+      "byEvent": {
+        "push": {
+          "runs": 67,
+          "medianS": 114
+        },
+        "pull_request": {
+          "runs": 83,
+          "medianS": 109
+        },
+        "schedule": {
+          "runs": 3,
+          "medianS": 2828
+        },
+        "workflow_dispatch": {
+          "runs": 6,
+          "medianS": 1978
+        }
+      },
+      "jobs": {
+        "tests, lint, types (ubuntu-latest)": {
+          "n": 147,
+          "medianS": 39,
+          "p90S": 348,
+          "failRate": 0.05
+        },
+        "tests, lint, types (macos-latest)": {
+          "n": 147,
+          "medianS": 36,
+          "p90S": 238,
+          "failRate": 0.01
+        },
+        "tests, lint, types (windows-latest)": {
+          "n": 147,
+          "medianS": 109,
+          "p90S": 390,
+          "failRate": 0.07
+        },
+        "one-step rig install (offline) (ubuntu-latest)": {
+          "n": 2,
+          "medianS": 13,
+          "p90S": 15,
+          "failRate": 0.0
+        },
+        "one-step rig install (offline) (windows-latest)": {
+          "n": 2,
+          "medianS": 53,
+          "p90S": 87,
+          "failRate": 0.0
+        },
+        "one-step rig install (offline) (macos-latest)": {
+          "n": 2,
+          "medianS": 12,
+          "p90S": 12,
+          "failRate": 0.0
+        },
+        "injection-matrix": {
+          "n": 9,
+          "medianS": 2651,
+          "p90S": 3021,
+          "failRate": 0.0
+        },
+        "tests, lint, types": {
+          "n": 2,
+          "medianS": 9,
+          "p90S": 25,
+          "failRate": 0.0
+        },
+        "test": {
+          "n": 1,
+          "medianS": 9,
+          "p90S": 9,
+          "failRate": 1.0
+        }
+      },
+      "prWallMedianS": 419
+    },
+    "remote": {
+      "runs": 18,
+      "runMedianS": 43,
+      "runP90S": 545,
+      "byEvent": {
+        "push": {
+          "runs": 4,
+          "medianS": 16
+        },
+        "pull_request": {
+          "runs": 14,
+          "medianS": 44
+        }
+      },
+      "jobs": {
+        "tests, lint, types (ubuntu-latest)": {
+          "n": 13,
+          "medianS": 15,
+          "p90S": 24,
+          "failRate": 0.0
+        },
+        "tests, lint, types (windows-latest)": {
+          "n": 13,
+          "medianS": 41,
+          "p90S": 536,
+          "failRate": 0.62
+        },
+        "tests, lint, types": {
+          "n": 4,
+          "medianS": 12,
+          "p90S": 13,
+          "failRate": 0.0
+        },
+        "test": {
+          "n": 1,
+          "medianS": 16,
+          "p90S": 16,
+          "failRate": 1.0
+        }
+      },
+      "prWallMedianS": 1294
+    },
+    "skills": {
+      "runs": 26,
+      "runMedianS": 17,
+      "runP90S": 31,
+      "byEvent": {
+        "pull_request": {
+          "runs": 13,
+          "medianS": 19
+        },
+        "push": {
+          "runs": 13,
+          "medianS": 16
+        }
+      },
+      "jobs": {
+        "tests, lint, types": {
+          "n": 25,
+          "medianS": 13,
+          "p90S": 20,
+          "failRate": 0.0
+        },
+        "test": {
+          "n": 1,
+          "medianS": 9,
+          "p90S": 9,
+          "failRate": 1.0
+        }
+      },
+      "prWallMedianS": 59
+    },
+    "connectors": {
+      "runs": 50,
+      "runMedianS": 24,
+      "runP90S": 30,
+      "byEvent": {
+        "push": {
+          "runs": 20,
+          "medianS": 25
+        },
+        "pull_request": {
+          "runs": 30,
+          "medianS": 24
+        }
+      },
+      "jobs": {
+        "tests, lint, types": {
+          "n": 49,
+          "medianS": 20,
+          "p90S": 26,
+          "failRate": 0.02
+        },
+        "test": {
+          "n": 1,
+          "medianS": 9,
+          "p90S": 9,
+          "failRate": 1.0
+        }
+      },
+      "prWallMedianS": 225
+    },
+    "rag-pipeline": {
+      "runs": 3,
+      "runMedianS": 13,
+      "runP90S": 29,
+      "byEvent": {
+        "push": {
+          "runs": 2,
+          "medianS": 13
+        },
+        "pull_request": {
+          "runs": 1,
+          "medianS": 13
+        }
+      },
+      "jobs": {
+        "tests, lint, types": {
+          "n": 2,
+          "medianS": 9,
+          "p90S": 10,
+          "failRate": 0.0
+        },
+        "test": {
+          "n": 1,
+          "medianS": 13,
+          "p90S": 13,
+          "failRate": 1.0
+        }
+      },
+      "prWallMedianS": 1297
+    },
+    "playbooks": {
+      "runs": 27,
+      "runMedianS": 24,
+      "runP90S": 66,
+      "byEvent": {
+        "pull_request": {
+          "runs": 14,
+          "medianS": 24
+        },
+        "push": {
+          "runs": 13,
+          "medianS": 21
+        }
+      },
+      "jobs": {
+        "tests, lint, types": {
+          "n": 26,
+          "medianS": 15,
+          "p90S": 62,
+          "failRate": 0.0
+        },
+        "test": {
+          "n": 1,
+          "medianS": 10,
+          "p90S": 10,
+          "failRate": 1.0
+        }
+      },
+      "prWallMedianS": 446
+    },
+    "desktop-app": {
+      "runs": 127,
+      "runMedianS": 595,
+      "runP90S": 1110,
+      "byEvent": {
+        "push": {
+          "runs": 66,
+          "medianS": 604
+        },
+        "pull_request": {
+          "runs": 61,
+          "medianS": 587
+        }
+      },
+      "jobs": {
+        "desktop-app (macos-latest)": {
+          "n": 112,
+          "medianS": 210,
+          "p90S": 567,
+          "failRate": 0.04
+        },
+        "desktop-app (windows-latest)": {
+          "n": 112,
+          "medianS": 595,
+          "p90S": 1162,
+          "failRate": 0.06
+        },
+        "vitest timings (windows)": {
+          "n": 14,
+          "medianS": 125,
+          "p90S": 140,
+          "failRate": 0.0
+        },
+        "idle CPU of the real app (windows)": {
+          "n": 5,
+          "medianS": 786,
+          "p90S": 1072,
+          "failRate": 1.0
+        },
+        "test": {
+          "n": 1,
+          "medianS": 24,
+          "p90S": 24,
+          "failRate": 1.0
+        }
+      },
+      "prWallMedianS": 627
+    },
+    "agent-amber": {
+      "runs": 3,
+      "runMedianS": 17,
+      "runP90S": 32,
+      "byEvent": {
+        "push": {
+          "runs": 2,
+          "medianS": 13
+        },
+        "pull_request": {
+          "runs": 1,
+          "medianS": 17
+        }
+      },
+      "jobs": {
+        "tests, lint, types": {
+          "n": 2,
+          "medianS": 9,
+          "p90S": 12,
+          "failRate": 0.0
+        },
+        "test": {
+          "n": 1,
+          "medianS": 6,
+          "p90S": 6,
+          "failRate": 1.0
+        }
+      },
+      "prWallMedianS": 1298
+    },
+    "agent-michael": {
+      "runs": 3,
+      "runMedianS": 17,
+      "runP90S": 32,
+      "byEvent": {
+        "push": {
+          "runs": 2,
+          "medianS": 17
+        },
+        "pull_request": {
+          "runs": 1,
+          "medianS": 15
+        }
+      },
+      "jobs": {
+        "tests, lint, types": {
+          "n": 2,
+          "medianS": 12,
+          "p90S": 13,
+          "failRate": 0.0
+        },
+        "test": {
+          "n": 1,
+          "medianS": 10,
+          "p90S": 10,
+          "failRate": 1.0
+        }
+      },
+      "prWallMedianS": 1299
+    },
+    "project-swarm": {
+      "runs": 213,
+      "runMedianS": 56,
+      "runP90S": 91,
+      "byEvent": {
+        "dynamic": {
+          "runs": 61,
+          "medianS": 73
+        },
+        "push": {
+          "runs": 106,
+          "medianS": 47
+        },
+        "pull_request": {
+          "runs": 46,
+          "medianS": 51
+        }
+      },
+      "jobs": {
+        "Analyze (javascript-typescript)": {
+          "n": 61,
+          "medianS": 68,
+          "p90S": 93,
+          "failRate": 0.0
+        },
+        "Analyze (actions)": {
+          "n": 61,
+          "medianS": 42,
+          "p90S": 48,
+          "failRate": 0.0
+        },
+        "test (ubuntu-latest, 22)": {
+          "n": 128,
+          "medianS": 25,
+          "p90S": 41,
+          "failRate": 0.01
+        },
+        "test (macos-latest, 20)": {
+          "n": 128,
+          "medianS": 40,
+          "p90S": 73,
+          "failRate": 0.05
+        },
+        "test (macos-latest, 22)": {
+          "n": 128,
+          "medianS": 36,
+          "p90S": 66,
+          "failRate": 0.03
+        },
+        "test (ubuntu-latest, 20)": {
+          "n": 128,
+          "medianS": 29,
+          "p90S": 41,
+          "failRate": 0.02
+        },
+        "tag": {
+          "n": 24,
+          "medianS": 7,
+          "p90S": 9,
+          "failRate": 0.0
+        }
+      },
+      "prWallMedianS": 97
+    }
+  }
+}

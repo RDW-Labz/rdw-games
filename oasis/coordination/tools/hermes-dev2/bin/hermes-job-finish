@@ -1,0 +1,28 @@
+#!/usr/bin/python3 -I
+"""Root, from hermes-job-finish@<id>.service, which the job unit starts on
+every end (OnSuccess=/OnFailure=: success, failure, timeout, stop). Copies the reply into a NEW outbox/<id>/ that
+root creates (root:hermes-sub 0750, files 0640), then deletes the job's
+whole work folder. The work lives in hermes_jobs_root.py (shared with the
+start wrapper and the watchdog, which reap jobs whose finish unit never
+ran because a dependency failed).
+"""
+
+from __future__ import annotations
+
+import grp
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)))
+from hermes_dev2_common import load_config  # noqa: E402
+from hermes_jobs_root import ROOT, collect, finish, publish, read_plain  # noqa: E402,F401  (re-exported for tests)
+
+
+def main(argv: list[str]) -> int:
+    config = load_config()
+    finish(argv[1] if len(argv) == 2 else "", ROOT, int(config["MAX_OUTPUT_BYTES"]), grp.getgrnam("hermes-sub").gr_gid)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv))

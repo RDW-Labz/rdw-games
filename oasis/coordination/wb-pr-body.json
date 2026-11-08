@@ -1,0 +1,18 @@
+{
+ "version": 1,
+ "concurrency": 1,
+ "jobs": [
+  {
+   "id": "wb-pr-body",
+   "agent": "claude",
+   "model": "haiku",
+   "tier": "cheap",
+   "prompt": "Write a GitHub PR create payload as JSON to your declared output file: {\"title\":\"...\",\"head\":\"<branch>\",\"base\":\"main\",\"body\":\"<markdown>\"}. Plain words, short lines. Wrap every angle-bracket placeholder, path and identifier in backticks. Sections \"## What\", \"## Checks (rerun by coordinator)\", plus any named below. End the body with a blank line then exactly: \ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code). Use only the facts given. Valid JSON only.\nTitle: \"Windows clean stop is tested: rig-service stops within 5 s on Ctrl+Break (0.6.15)\". Branch: win-ctrl-break.\nFacts: Follow-up Braden approved for decision #62 (Ctrl+C on Windows stops rig-service within 5 s with full cleanup). agent-core#22 skipped both Windows variants of the real-subprocess stop test, so the Windows clean stop was never tested.\n- tests/test_service_cli.py: new Windows-only test test_real_rig_service_subprocess_stops_within_5s_on_ctrl_break starts a real rig-service process with CREATE_NEW_PROCESS_GROUP, sends CTRL_BREAK_EVENT, and asserts it exits within 5 s and removes its port file. The POSIX SIGTERM/SIGINT test and the new test share one helper.\n- Why Ctrl+Break: on Windows, Ctrl+C arrives as a console control event, and CTRL_C_EVENT cannot target a new process group, so Ctrl+Break is the path a test can send. The service already maps SIGINT and SIGBREAK to the same clean stop; src/anorak/service_cli.py is unchanged.\n- The Windows SIGINT skip now points at the new test; the Windows SIGTERM skip stays.\n- docs/local-service.md: one sentence that Ctrl+C and Ctrl+Break both stop cleanly on Windows and CI covers Ctrl+Break.\n- Version 0.6.14 -> 0.6.15 (pyproject.toml, src/anorak/__init__.py, src/anorak/local_service.py, tests/test_local_service.py, tests/test_service_cli.py, uv.lock); CHANGELOG.md Unreleased entry. No leftover Btabor11/ links in this repo.\n- Worker: Codex gpt-6-astra (expensive tier), 65,008 tokens.\nChecks (rerun by coordinator after integrate, macOS): ruff format and ruff check clean; pytest 600 passed, 4 skipped, 1 deselected; mypy --strict src clean natively and with --platform win32; git diff --check clean. The new test runs only on the windows-latest CI job.\nAdd a section \"## Why the test can fail\": if the SIGBREAK handler were missing, Windows's default Ctrl+Break action ends the process at once, so the port file stays behind and the test's port-file assert fails. This was reasoned, not run as a CI mutant.",
+   "context": [],
+   "outputs": [
+    "coordination/agent-core-win-ctrl-break-pr-create.json"
+   ],
+   "timeoutMs": 600000
+  }
+ ]
+}

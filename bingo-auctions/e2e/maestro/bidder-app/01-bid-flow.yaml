@@ -1,0 +1,125 @@
+# Full bid happy path — bidder-app
+#
+# Covers: launch → sign in → browse → tap lot BIN-000035 → place $1 bid →
+# assert high-bidder banner.
+#
+# Prerequisites:
+#   - A running iOS Simulator or Android Emulator with the app installed.
+#   - A seeded Supabase test account with a card on file (the tabs layout
+#     redirects to /profile/payment-method when default_payment_method_id
+#     is NULL, which would break the browse step).
+#   - Lot BIN-000035 must exist in the `live` state with a starting bid
+#     low enough that $1.00 is valid (i.e. starting_bid_cents <= 100).
+#     Run `node scripts/demo-tools/seed-smoke-lots.mjs` to create it.
+#
+# Credentials: read from environment variables so secrets are never committed.
+#   BIDDER_EMAIL    — seeded test bidder email
+#   BIDDER_PASSWORD — seeded test bidder password
+#
+# Run:
+#   BIDDER_EMAIL=bidder@test.local BIDDER_PASSWORD=TestPass1! \
+#     maestro test e2e/maestro/bidder-app/01-bid-flow.yaml
+#
+# NOTE: This flow requires a live Supabase connection. For reliable CI
+# execution, use Maestro Cloud (see docs/qa/maestro-setup.md). Until
+# Maestro Cloud is provisioned, run this manually from your Mac before
+# each release.
+
+appId: com.bingoauctions.bidder
+env:
+  BIDDER_EMAIL: ${BIDDER_EMAIL}
+  BIDDER_PASSWORD: ${BIDDER_PASSWORD}
+---
+# ── Step 1: Launch fresh ────────────────────────────────────────────────────
+- launchApp:
+    clearState: true
+    stopApp: true
+
+# ── Step 2: Wait for login screen ──────────────────────────────────────────
+- extendedWaitUntil:
+    visible:
+      text: "Sign in"
+    timeout: 15000
+
+# ── Step 3: Enter credentials ───────────────────────────────────────────────
+- tapOn:
+    id: signin-email-input
+- inputText: ${BIDDER_EMAIL}
+
+- tapOn:
+    id: signin-password-input
+- inputText: ${BIDDER_PASSWORD}
+
+# ── Step 4: Submit ──────────────────────────────────────────────────────────
+- tapOn:
+    id: signin-submit
+
+# ── Step 5: Wait for the Browse tab to render ───────────────────────────────
+# The tabs layout checks bidder role + payment method before rendering Tabs.
+# Allow up to 20s for the Supabase auth round-trip + role check + PM check.
+- extendedWaitUntil:
+    visible:
+      id: browse-screen
+    timeout: 20000
+
+# ── Step 6: Find lot BIN-000035 in the grid ─────────────────────────────────
+# LotCard renders with testID=lot-card-{lot_code}. If the lot is not
+# visible in the initial 200-lot fetch, scroll down to find it.
+- scrollUntilVisible:
+    element:
+      id: lot-card-BIN-000035
+    direction: DOWN
+    timeout: 15000
+
+# ── Step 7: Tap the lot card ────────────────────────────────────────────────
+- tapOn:
+    id: lot-card-BIN-000035
+
+# ── Step 8: Wait for lot detail to render ───────────────────────────────────
+# The lot detail screen shows "Current bid" or "Starts at" once the lot
+# data loads from Supabase. Allow 10s for the navigation + fetch.
+- extendedWaitUntil:
+    visible:
+      text: "Starts at"
+    timeout: 10000
+
+# ── Step 8b: Open the max-bid entry (BID-1) ─────────────────────────────────
+# BID-1 made the one-tap "Quick bid" the primary CTA and moved the manual
+# max-bid TextInput (PlaceBidSheet) behind a "Set a max bid" expander. Tap it
+# so bid-amount-input / place-bid-button below are mounted.
+- tapOn:
+    text: "Set a max bid"
+
+# ── Step 9: Enter bid amount ─────────────────────────────────────────────────
+# The PlaceBidSheet TextInput has testID=bid-amount-input.
+# Type "1.00" — the flow assumes starting_bid_cents <= 100. If the
+# minimum is higher, the "Bid at least $X.XX" feedback will appear and
+# the place-bid button stays disabled; adjust the seed data accordingly.
+- tapOn:
+    id: bid-amount-input
+- clearText
+- inputText: "1.00"
+
+# ── Step 10: Assert valid bid state ──────────────────────────────────────────
+# The green "You start the bidding" / "You'd lead by $X" text confirms
+# the amount cleared the minimum-bid validation before we submit.
+- assertVisible:
+    text: "You start the bidding"
+
+# ── Step 11: Place the bid ───────────────────────────────────────────────────
+- tapOn:
+    id: place-bid-button
+
+# ── Step 12: Assert high-bidder state ────────────────────────────────────────
+# On a successful place_bid RPC the PlaceBidSheet sets feedback to
+# "Bid placed at $X.XX". The lot detail's Realtime subscription then
+# pushes the winner_bidder_id UPDATE which flips the sticky banner to
+# the high-bidder state (testID=high-bidder-banner, text "You're the
+# high bidder"). Allow 10s for the round-trip.
+- extendedWaitUntil:
+    visible:
+      id: high-bidder-banner
+    timeout: 10000
+
+- assertVisible:
+    text: "You're the high bidder"

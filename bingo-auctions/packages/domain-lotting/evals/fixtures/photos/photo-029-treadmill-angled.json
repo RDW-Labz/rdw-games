@@ -1,0 +1,18 @@
+{
+  "id": "photo-029",
+  "image_path": "photo-029-treadmill-angled.jpg",
+  "media_type": "image/jpeg",
+  "photo_quality_label": "angled",
+  "expected": {
+    "title": "NordicTrack T 6.5 S Folding Treadmill",
+    "brand": "NordicTrack",
+    "model": "NTL17221",
+    "upc": "043619362121",
+    "category_slug": "exercise",
+    "category_legacy": "Sporting Goods",
+    "condition": "New/Sealed",
+    "msrp_cents": 64900,
+    "expected_confidence": "medium"
+  },
+  "notes": "Long narrow treadmill carton on a forklift, photographed from below. Stresses geometric distortion."
+}

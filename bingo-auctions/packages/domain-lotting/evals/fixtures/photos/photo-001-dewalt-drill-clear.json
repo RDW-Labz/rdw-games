@@ -1,0 +1,18 @@
+{
+  "id": "photo-001",
+  "image_path": "photo-001-dewalt-drill-clear.jpg",
+  "media_type": "image/jpeg",
+  "photo_quality_label": "clear",
+  "expected": {
+    "title": "DeWalt DCD771C2 20V MAX 1/2-inch Compact Drill Driver Kit",
+    "brand": "DeWalt",
+    "model": "DCD771C2",
+    "upc": "885911548632",
+    "category_slug": "power-tools",
+    "category_legacy": "Tools & Hardware",
+    "condition": "New/Sealed",
+    "msrp_cents": 19900,
+    "expected_confidence": "high"
+  },
+  "notes": "Sealed retail box, well-lit, model and UPC clearly visible on side panel. Drop a real photo at the same path."
+}

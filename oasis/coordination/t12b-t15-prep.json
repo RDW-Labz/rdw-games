@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "kind": "native-task-boundary-index",
+  "status": "READY",
+  "execution": "native-agent-fallback",
+  "root": "/Users/prime/Documents/repos-projects/oasis",
+  "provider_note": "The Claude adapter is blocked by missing mandatory isolation flags. Use the native agent fallback; do not weaken the runner requirements.",
+  "shared_context": [
+    "AGENTS.md",
+    "coordination/ORCHESTRATOR.md",
+    "coordination/TASK.md",
+    "docs/PLAN.md",
+    "docs/TICKETS.md",
+    "docs/DECISIONS.md",
+    "coordination/updater-key-steps.md",
+    "repos/agent-core/AGENTS.md",
+    "repos/agent-core/AGENTS.workspace.md",
+    "repos/desktop-app/AGENTS.md",
+    "repos/desktop-app/AGENTS.workspace.md",
+    "repos/playbooks/AGENTS.md",
+    "repos/playbooks/AGENTS.workspace.md",
+    "repos/desktop-app/docs/local-api.md"
+  ],
+  "worktrees": [
+    "worktrees/agent-core-t12b",
+    "worktrees/agent-core-t15",
+    "worktrees/desktop-app-auth",
+    "worktrees/playbooks-t13-decisions"
+  ],
+  "manifests": [
+    {
+      "id": "t12b",
+      "manifest": "coordination/t12b-build.json",
+      "model": "gpt-5.6-sol",
+      "worktree": "worktrees/agent-core-t12b",
+      "ticket": "T12b",
+      "scope": "Loopback HTTP/WebSocket Rig service, fake-backed tests, service docs, pyproject only; no uv.lock.",
+      "checks": ["uv sync --locked", "uv run --no-sync pytest -q", "uv run --no-sync ruff check .", "uv run --no-sync mypy --strict src", "git diff --check"]
+    },
+    {
+      "id": "t15",
+      "manifest": "coordination/t15-build.json",
+      "model": "gpt-5.6-sol",
+      "worktree": "worktrees/agent-core-t15",
+      "ticket": "T15",
+      "scope": "Independent schedule clock, task/proposal telemetry, scoreboard producers and tests/docs; never depend on unreleased T12b.",
+      "checks": ["uv sync --locked", "uv run --no-sync pytest -q", "uv run --no-sync ruff check .", "uv run --no-sync mypy --strict src", "git diff --check"]
+    },
+    {
+      "id": "rig-auth",
+      "manifest": "coordination/rig-auth-build.json",
+      "model": "gpt-5.6-sol",
+      "worktree": "worktrees/desktop-app-auth",
+      "ticket": "T12b companion",
+      "scope": "Narrow Rig client/contract authentication update; endpoint paths and payloads stay unchanged.",
+      "checks": ["npm ci", "npm test", "npm run lint", "npm run typecheck", "npm run build", "cargo fmt --manifest-path src-tauri/Cargo.toml -- --check", "cargo clippy --manifest-path src-tauri/Cargo.toml --locked --all-targets -- -D warnings", "cargo test --manifest-path src-tauri/Cargo.toml --locked", "npm run tauri build -- --no-bundle"]
+    },
+    {
+      "id": "t13",
+      "manifest": "coordination/t13-decisions-build.json",
+      "model": "gpt-5.6-sol",
+      "worktree": "worktrees/playbooks-t13-decisions",
+      "ticket": "T13",
+      "scope": "Mirror watch_answers into profile.yaml; onboarding never asks or writes access_level; preserve admin and default new profiles to member.",
+      "checks": ["uv sync --locked", "uv run --no-sync pytest -q", "uv run --no-sync ruff check .", "uv run --no-sync mypy --strict src", "git diff --check"]
+    }
+  ],
+  "integration_rules": [
+    "One writer per declared file; coordinator owns integration, shared __init__.py and root CHANGELOG edits.",
+    "T12b uses service token name rig.service_token in keyring service OASIS (SecretStore username/account rig.service_token), HTTP Authorization Bearer, and WebSocket protocols [bearer, token]; no URL token.",
+    "Use only fake credentials such as sk-FAKE-0000 in tests; never generate or read real updater keys.",
+    "T12b uses injectable real-adapter seams and local fake backends in tests; do not replace T07/T08/T11 with a fake production service.",
+    "T15 must remain independently releasable and must not import or depend on T12b."
+  ]
+}

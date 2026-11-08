@@ -1,0 +1,162 @@
+#!/usr/bin/python3 -I
+"""Root wrapper: start one Hermes job (decision #384).
+
+sudoers lets hermes-sub run this with NO arguments; the job arrives as JSON
+on stdin ({"id", "model", "prompt"}). Root decides everything here, under a
+lock, whatever dispatch already checked (dispatch can't even list work/):
+
+    job id (j-...), model == MODEL, prompt size
+    off-hours window, STOP file, disk floor, work tmpfs mounted,
+    MAX_WORKERS (no race: flock; dead jobs reaped first)
+
+then ROOT creates work/<id>/ itself (mkdir fails if anything is there,
+link or not), writes prompt.txt with O_CREAT|O_EXCL|O_NOFOLLOW, hands the
+folder to hermes-w, and starts hermes-w-job@<id>.service. Nothing hermes-sub
+owns is ever opened, moved, chown'd or chmod'd by root.
+
+Exit codes: 0 with "ok" or "exists" on stdout; 3 with "refused: <why>" on
+stderr (dispatch passes that line to the Mac unchanged).
+"""
+
+from __future__ import annotations
+
+import fcntl
+import grp
+import json
+import os
+import pwd
+import shutil
+import subprocess
+import sys
+from datetime import datetime
+from pathlib import Path
+from zoneinfo import ZoneInfo
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), "bin"))
+from hermes_dev2_common import GIB, in_window, load_config, loads_strict, mount_fstype, valid_job_id  # noqa: E402
+from hermes_jobs_root import reap_orphans  # noqa: E402
+
+ROOT = Path("/var/lib/hermes-jobs")
+SYSTEMCTL = "/usr/bin/systemctl"
+
+
+class Refused(Exception):
+    pass
+
+
+def validate(raw: bytes, config: dict[str, str]) -> dict[str, str]:
+    if len(raw) > int(config["MAX_PROMPT_BYTES"]) + 4096:
+        raise Refused("job too large")
+    try:
+        job = loads_strict(raw)
+    except (ValueError, UnicodeDecodeError):
+        raise Refused("job is not JSON (or repeats a key)") from None
+    if not isinstance(job, dict) or set(job) != {"id", "model", "prompt"}:
+        raise Refused("job must have exactly id, model, prompt")
+    if not isinstance(job["id"], str) or not valid_job_id(job["id"]):
+        raise Refused("bad job id")
+    if job["model"] != config["MODEL"]:
+        raise Refused("model not allowed")
+    if not isinstance(job["prompt"], str) or not job["prompt"].strip():
+        raise Refused("empty prompt")
+    if len(job["prompt"].encode()) > int(config["MAX_PROMPT_BYTES"]):
+        raise Refused("prompt too large")
+    return job
+
+
+def running_jobs(root: Path) -> list[str]:
+    """A job counts while its work folder exists (created here, removed by finish or the reaper)."""
+    work = root / "work"
+    return sorted(p.name for p in work.iterdir() if valid_job_id(p.name)) if work.exists() else []
+
+
+def work_is_tmpfs(root: Path) -> bool:
+    try:
+        return mount_fstype(Path("/proc/self/mountinfo").read_text(), str(root / "work")) == "tmpfs"
+    except OSError:
+        return False
+
+
+def check_can_start(config: dict[str, str], root: Path, now: datetime, disk_free: int, work_tmpfs: bool = True) -> None:
+    local = now.astimezone(ZoneInfo(config["WINDOW_TZ"]))
+    if not in_window(local.hour, int(config["WINDOW_START"]), int(config["WINDOW_END"])):
+        raise Refused(f"outside the off-hours window ({config['WINDOW_START']}:00-{config['WINDOW_END']}:00 {config['WINDOW_TZ']})")
+    if os.path.lexists(root / "STOP"):
+        raise Refused("STOP file present")
+    if disk_free < float(config["MIN_DISK_GB"]) * GIB:
+        raise Refused(f"disk free under {config['MIN_DISK_GB']} GB")
+    if not work_tmpfs:
+        raise Refused("the size-capped work tmpfs is not mounted (systemctl status 'var-lib-hermes\\x2djobs-work.mount')")
+    if len(running_jobs(root)) >= int(config["MAX_WORKERS"]):
+        raise Refused(f"{config['MAX_WORKERS']} jobs already running (MAX_WORKERS)")
+
+
+def _write_new(dir_fd: int, name: str, data: bytes, uid: int, gid: int) -> None:
+    fd = os.open(name, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o600, dir_fd=dir_fd)
+    try:
+        os.fchown(fd, uid, gid)
+        os.write(fd, data)
+    finally:
+        os.close(fd)
+
+
+def create_job(root: Path, job: dict[str, str], uid: int, gid: int, owner_uid: int = 0) -> Path:
+    """Root makes work/<id> (exclusive) and its one input file; no path is followed."""
+    work = root / "work"
+    st = os.lstat(work)
+    if os.path.islink(work) or not os.path.isdir(work) or st.st_uid != owner_uid or st.st_mode & 0o022:
+        raise Refused("work folder is not a root-owned directory")
+    job_dir = work / job["id"]
+    os.mkdir(job_dir, 0o700)  # FileExistsError if anything (file, dir or link) is there
+    dfd = os.open(job_dir, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW)
+    try:
+        _write_new(dfd, "prompt.txt", job["prompt"].encode(), uid, gid)
+        os.fchown(dfd, uid, gid)
+    finally:
+        os.close(dfd)
+    return job_dir
+
+
+def start(raw: bytes, config: dict[str, str], root: Path = ROOT, now=None, disk_free=None,
+          worker=None, systemctl=None, owner_uid: int = 0, work_tmpfs=None, reap=None) -> str:
+    job = validate(raw, config)
+    lock = os.open(root / ".start.lock", os.O_RDWR | os.O_CREAT | os.O_NOFOLLOW, 0o600)
+    try:
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        if os.path.lexists(root / "work" / job["id"]) or os.path.lexists(root / "outbox" / job["id"]):
+            return "exists"  # a retried submit after a dropped link: never run a job twice
+        # Dead jobs (a dependency failed, so its finish unit never ran) stop counting now.
+        (reap or (lambda: reap_orphans(root, int(config["MAX_OUTPUT_BYTES"]), grp.getgrnam("hermes-sub").gr_gid)))()
+        check_can_start(config, root, (now or (lambda: datetime.now(ZoneInfo("UTC"))))(),
+                        (disk_free or (lambda p: shutil.disk_usage(p).free))(root),
+                        work_is_tmpfs(root) if work_tmpfs is None else work_tmpfs)
+        uid, gid = worker or (lambda pw: (pw.pw_uid, pw.pw_gid))(pwd.getpwnam("hermes-w"))
+        try:
+            job_dir = create_job(root, job, uid, gid, owner_uid)
+        except FileExistsError:
+            return "exists"  # a retried submit after a dropped link
+        rc = (systemctl or (lambda argv: subprocess.run(argv).returncode))(
+            [SYSTEMCTL, "start", "--no-block", f"hermes-w-job@{job['id']}.service"])
+        if rc != 0:
+            shutil.rmtree(job_dir, ignore_errors=True)
+            raise Refused("job did not start")
+        return "ok"
+    finally:
+        os.close(lock)
+
+
+def main(argv: list[str]) -> int:
+    if argv[1:]:
+        print("refused: no arguments (the job comes on stdin)", file=sys.stderr)
+        return 2
+    config = load_config()
+    try:
+        print(start(sys.stdin.buffer.read(int(config["MAX_PROMPT_BYTES"]) + 4097), config))
+        return 0
+    except Refused as why:
+        print(f"refused: {why}", file=sys.stderr)
+        return 3
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv))

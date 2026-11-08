@@ -1,0 +1,12 @@
+# Copies one job's reply into a new outbox/<id>/ and deletes its work folder
+# (bin/hermes-job-finish). Started by the job unit's OnSuccess=/OnFailure=, so
+# it runs after every end: success, failure, timeout or hermes-job-stop.
+# A separate unit, not ExecStopPost=+: systemd 259 runs "+" commands inside the
+# job's mount namespace, where /var/lib is a tmpfs and the outbox is not there.
+[Unit]
+Description=Hermes worker job finish %i
+
+[Service]
+Type=oneshot
+RemainAfterExit=no
+ExecStart=/opt/hermes-dev2/bin/hermes-job-finish %i

@@ -1,0 +1,69 @@
+-- 0453 — sq-ft bidding, PR 3/11: the bidding engine. Per-unit place_bid;
+-- old apps refused with an update message; standard bids unchanged.
+--
+-- WHY
+--   Jared's request: tile/flooring pallets bid per square foot, whole pallet
+--   sold as one lot. Spec: docs/state/SQFT-BIDDING-SPEC.md §4 (branch
+--   docs/sqft-bidding-spec). Architecture (Braden): every stored amount stays
+--   the TOTAL pallet price in cents; per-unit = total / lots.unit_qty is
+--   display and entry only. Requires 0451 (auctions.bid_mode, lots.unit_qty).
+--
+-- WHAT (functions only — no table, trigger, index or data change)
+--   1. place_bid(uuid, bigint) — the live body, unchanged, plus ONE block at
+--      the top: a lot whose auction is bid_mode = 'per_unit' is refused with
+--      reason = 'Bidding on this lot needs the latest BinGo app. Please update
+--      to bid.' (owner wording 2026-10-26; old bundles show
+--      "Bid rejected: <reason>"). Standard auctions never enter it.
+--   2. NEW place_bid(uuid, bigint, integer p_unit_qty), NO default on
+--      p_unit_qty (a 2-key PostgREST call can never resolve to it):
+--        standard (or no auction / no lot) → RETURN place_bid(uuid, bigint):
+--          the 2-arg engine itself, nothing copied.
+--        per_unit → the live body plus spec §4: unit_qty_mismatch,
+--          not_whole_cents_per_unit, lot_start_not_multiple,
+--          per_unit_schedule_missing, lot_amounts_not_multiple (defensive);
+--          increment = min_bid_increment_cents(current / q, the AUCTION's own
+--          schedule) * q. Every other guard (auth, card, fees, pre-start,
+--          shill, identity, suspension, unpaid invoice, status/closed, advisory
+--          lock, self-raise GREATEST, proxy duel, auto rows, soft close, outbid
+--          enqueue, relation upsert) is the live code, byte for byte.
+--
+-- BASE BODY PROVENANCE
+--   Live place_bid(uuid,bigint) = 0263's CREATE OR REPLACE with 0350's
+--   GREATEST patch (0350 rewrote one statement of the deployed body in place).
+--   prosrc md5 @PRE_MD5@ (md5 of the body text between the $function$ quotes),
+--   = rig0431's master replay. 0263 itself restated 0221 (0216 self-raise,
+--   0212, 0198, 0194, 0191, 0176, 0111, 0105, 0084, 0078). No migration after
+--   0350 redefines place_bid. Generated, not hand-copied:
+--   scripts/prod-rig/0453-rig/gen-0453.py (anchored edits that must each match
+--   exactly once).
+--
+-- SAFETY
+--   * Preflight refuses to run unless 0451's columns exist AND the live 2-arg
+--     body md5 is @PRE_MD5@ (pre-0453) or @POST_MD5@ (re-apply): it never
+--     overwrites a place_bid it was not built from.
+--   * Postflight checks the 2-arg body md5 is @POST_MD5@, there are exactly
+--     two overloads, and both carry the same EXECUTE grants.
+--   * One transaction: both functions change together or not at all.
+--
+-- GRANTS
+--   Same statement every place_bid migration has made: GRANT EXECUTE ... TO
+--   authenticated. The 3-arg is created by the same role in the same schema,
+--   so it gets the same CREATE FUNCTION defaults as the 2-arg; the postflight
+--   fails the migration if the two ACLs differ.
+--   The function-grants lint (scripts/check-function-grants.cjs) wants
+--   REVOKE ... FROM PUBLIC on new functions. Not here, on purpose: the live
+--   2-arg is {PUBLIC, anon, authenticated, service_role} today, and the
+--   3-arg must match it (postflight). Both refuse a caller with no
+--   auth.uid() ('not_authenticated'). Narrowing place_bid's grants is its own
+--   change (0460, #587), not part of the engine swap.
+-- lint:allow-public-execute public.place_bid same ACL as the live 2-arg; locked down in 0460
+--
+-- LOCKS (Rule 9)
+--   CREATE OR REPLACE FUNCTION locks only the pg_proc row; no table lock.
+--   A bid running during the swap finishes on the old body; the next uses the
+--   new one. Window (owner): Wed 2026-10-28 05:00–07:00 CT, then one
+--   standard-lot test bid by the owner's own test account.
+--
+-- Rollback: scripts/prod-rig/0453_ROLLBACK_sqft_place_bid_per_unit.sql
+--   (drops the 3-arg, restores the exact pre-0453 2-arg body, md5-checked).
+--

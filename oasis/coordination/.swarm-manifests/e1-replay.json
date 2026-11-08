@@ -1,0 +1,40 @@
+{
+ "version": 1,
+ "concurrency": 1,
+ "checks": [
+  {
+   "name": "pytest",
+   "argv": [
+    "/Users/prime/.project-swarm/toolchains/bin/uv",
+    "run",
+    "--no-project",
+    "--with",
+    "pytest",
+    "python",
+    "-m",
+    "pytest",
+    "-q",
+    "coordination/tools/test_e1_replay.py"
+   ]
+  }
+ ],
+ "jobs": [
+  {
+   "id": "e1-replay",
+   "agent": "claude",
+   "model": "sonnet",
+   "tier": "mid",
+   "timeoutMs": 2400000,
+   "prompt": "You are job e1-replay (mid). File tools only; the coordinator runs `uv run --no-project --with pytest python -m pytest -q coordination/tools/test_e1_replay.py` after you. Own exactly: coordination/tools/e1_replay.py and coordination/tools/test_e1_replay.py. Python 3.12, standard library only.\n\nPurpose: controlled replay for swarm experiment E1 (coordination/swarm-metrics.md \u2192 Experiments \u2192 E1; read it). Re-run past swarm runs that integrated red, under two arms that differ in ONE factor: the manifest's top-level `selfCheck` flag (baseline: absent; candidate: {\"maxRetries\": 1}). Same swarm binary for both arms (passed with --swarm).\n\nCLI: `python3 coordination/tools/e1_replay.py --cases coordination/e1-cases.json --arm baseline|candidate --swarm /path/to/tools/swarm.mjs --work /private/tmp/oasis-e1 --results coordination/e1/results.jsonl --max-usd 40 [--only c1,c2] [--dry-run]`.\nCase file: JSON array of {id, root, run, set, failed, model}; `root` is a git worktree/repo; the run dir is <root>/.swarm/runs/<run>/ holding manifest.json and state.json (state has baseCommit).\nPer case and arm:\n1. Budget guard: sum `cost_usd` of every row already in --results (both arms); if that sum >= --max-usd, stop and print {\"stopped\":\"budget\", ...}. Skip a (case, arm) already present in results.\n2. Fresh dir <work>/<case>-<arm>-<unix ts>: `git clone --quiet --no-hardlinks <root> <dir>` then `git -C <dir> checkout --quiet <baseCommit>`. Never write anything into <root>.\n3. For every context/output path in the manifest's jobs that is missing in the clone: copy it from <root>/.swarm/runs/<run>/base/<jobid>/<path> if present, else from <root>/<path> if present; record the path in `copied_from_worktree` (possible drift; the report must say so). If still missing, record the case as {\"status\":\"invalid-missing-context\",\"missing\":[...]} and continue.\n4. Install: if package-lock.json exists run `npm ci --no-audit --no-fund` (cwd dir); if uv.lock exists run `/Users/prime/.project-swarm/toolchains/bin/uv sync --quiet` and, if vendor/runtime-requirements.txt exists, `/Users/prime/.project-swarm/toolchains/bin/uv pip install --quiet --no-deps --require-hashes -r vendor/runtime-requirements.txt`. Install failure \u2192 status \"invalid-install\" with the last 20 lines.\n5. Manifest: load manifest.json, drop any `mutants`/`mutantsFile` keys (jobs and top-level), set each job's `model` to the case's recorded model (unchanged if present), remove top-level `selfCheck`, then for arm candidate set top-level `\"selfCheck\": {\"maxRetries\": 1}`. Write to <dir>/.swarm-manifests/e1-<arm>.json.\n6. Run `node <swarm> --root <dir> run <manifest>` (timeout 3600 s), parse the first stdout JSON line for the run id, then `node <swarm> --root <dir> integrate <id>` (timeout 1800 s) and parse its JSON.\n7. Append ONE JSON line to --results: {case, set, arm, run_id, status:\"ok\"|\"invalid-...\"|\"run-failed\", first_integrate_green: integrate.checksPassed (bool), failed_checks:[names of checks whose status != passed], cost_usd: sum of jobs[].costUsd from <dir>/.swarm/runs/<id>/state.json (missing = 0; also add any `selfCheck`/retry cost fields the state carries \u2014 sum every numeric `costUsd` found anywhere under each job object), wall_s, retries: sum of jobs[].selfCheck.retries if present else 0, test_files_changed: for every integrated file whose path contains \"test\", the count of lines removed vs baseCommit (`git -C <dir> diff --numstat <baseCommit> -- <file>`), copied_from_worktree, started, finished}.\n`--dry-run` does steps 1\u20133 and 5 only, prints what it would run, appends nothing.\nAlso a `summary` subcommand: `e1_replay.py summary --results F` prints one JSON line per arm {arm, cases, ok, green, green_rate, cost_usd, cost_per_green, wall_s_median} plus a `paired` list of cases present in both arms with {case, set, baseline_green, candidate_green}; design and heldout reported separately and together.\nEvery subprocess call goes through one injectable runner function so tests can fake git/npm/uv/node. Tests (tmp_path, fake runner, fake state.json): budget stop; skip already-done pair; missing-context \u2192 invalid; manifest transform for both arms (selfCheck only on candidate, mutants keys dropped); cost summing incl. nested costUsd; test_files_changed parsing; summary math incl. cost_per_green with zero greens (null). Each test must fail on an empty implementation.\nFinal message: one JSON line {\"status\":\"done|blocked\",\"changed\":[...],\"tests_added\":N}.",
+   "context": [
+    "coordination/swarm-metrics.md",
+    "coordination/e1-cases.json",
+    "coordination/tools/session_metrics.py"
+   ],
+   "outputs": [
+    "coordination/tools/e1_replay.py",
+    "coordination/tools/test_e1_replay.py"
+   ]
+  }
+ ]
+}

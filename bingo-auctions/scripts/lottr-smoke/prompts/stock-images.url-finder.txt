@@ -1,0 +1,20 @@
+Find this product on the web. Return 3-5 URLs of the retailer product
+PAGES where it's listed (NOT direct image URLs — we'll fetch the pages
+and extract images ourselves on our side).
+
+Return JSON:
+{
+  "product_urls": [
+    "https://www.amazon.com/dp/B0...",
+    "https://www.walmart.com/ip/...",
+    "https://www.target.com/p/..."
+  ]
+}
+
+Rules:
+- ONLY URLs from your actual search results. No Amazon search/results
+  pages — only specific product pages (/dp/ for Amazon, /ip/ for Walmart,
+  /p/ for Target/Home Depot/Lowe's, etc.).
+- No fabrication. If you can't find a product page, return empty array.
+- Up to 5 URLs. Most relevant first.
+- Just product_urls, no other fields.

@@ -1,0 +1,12 @@
+{
+ "host": "nines.githubapp.com",
+ "target": "ninesapp-app-service.azurewebsites.net",
+ "provider": "azurewebsites",
+ "label": "ninesapp-app-service",
+ "claim_class": "paid",
+ "in_scope": "h1:github via *.githubapp.com",
+ "captured": "2026-11-07T20:59:55Z",
+ "target_resolves": false,
+ "victim_response": "http_code=000 ip= err=Could not resolve host: nines.githubapp.com\n[stderr] curl: (6) Could not resolve host: nines.githubapp.com",
+ "evidence_dir": "/home/cluer/Projects/bug-bounty/evidence-takeover/nines.githubapp.com"
+}

@@ -1,0 +1,22 @@
+# ship-pipeline config (RDW-Labz/ship-pipeline @v1).
+# Schema: actions/load-config/ship.config.schema.json in that repo.
+project: awesome-offline-mobile-games
+
+# Lock #2 of the two-lock publish rule. Unpaused 2026-10-29 (Michael): a push or
+# workflow_dispatch now publishes when the run carries a vX.Y.Z tag. Runs without a
+# tag stay preview/dry — the tag is still the release switch.
+publish: true
+
+build_number_offset: 0
+
+build:
+  # Nothing is compiled — the "build" gate is the repo's own invariants.
+  preset: web
+  command: npm run build
+  artifacts:
+    vercel: dist/
+
+targets:
+  vercel:
+    # Preview deploy by default; prod: true would promote to production.
+    prod: false

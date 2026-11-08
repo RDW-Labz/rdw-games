@@ -1,0 +1,58 @@
+[
+ {
+  "id": "4168910",
+  "program": "github",
+  "team_handle": "github",
+  "scope_id": 92,
+  "weakness_id": 26,
+  "severity": "medium",
+  "title": "Subdomain takeover: `nines.githubapp.com` points at a deleted Azure App Service app",
+  "finding": "nines.githubapp.com -> ninesapp-app-service.azurewebsites.net (NXDOMAIN)",
+  "filed_at": "2026-11-03T02:02:12Z",
+  "filed_via": "engine/h1_api.py report --apply"
+ },
+ {
+  "id": "4169021",
+  "program": "starbucks",
+  "team_handle": "starbucks",
+  "scope_id": 55299,
+  "weakness": "Access Control (cluster)",
+  "severity": "medium",
+  "title": "Subdomain takeover: seven starbucks.com CNAMEs point at deleted Azure Traffic Manager profiles",
+  "finding": "7 CNAMEs -> dead *.trafficmanager.net profiles (all NXDOMAIN)",
+  "filed_at": "2026-11-03T03:20:00Z",
+  "filed_via": "engine/h1_file.py (browser form, required custom fields)"
+ },
+ {
+  "id": "4179852",
+  "program": "playtika",
+  "team_handle": "playtika",
+  "scope_id": "829239",
+  "weakness_id": "26",
+  "severity": "medium",
+  "title": "Subdomain takeover: `shm-playground.playticorp.com` CNAMEs to an unregistered GitHub Pages account",
+  "spec": "reports/specs/playtika-api.json",
+  "state": "duplicate",
+  "state_read_at": "2026-11-07T21:07Z (engine/h1_api.py status, live)",
+  "filed_at": "2026-11-07T05:58:45.272Z",
+  "filed_via": "engine/h1_api.py report --apply",
+  "cname_target": "playtika.github.io",
+  "hosts": [
+   "backoffice-builder-docs.playticorp.com",
+   "backoffice-docs.playticorp.com",
+   "data-workspace.playticorp.com",
+   "feature-registry-docs.playticorp.com",
+   "innersource-marketplace.playticorp.com",
+   "it-docs.playticorp.com",
+   "it-services.playticorp.com",
+   "landscape.playticorp.com",
+   "lynx-documentation.playticorp.com",
+   "pgd-event-extensions.playticorp.com",
+   "pgd-extensions.playticorp.com",
+   "pgd-tools.playticorp.com",
+   "psd-tool.playticorp.com",
+   "quest-trail-generator.playticorp.com",
+   "shm-playground.playticorp.com"
+  ]
+ }
+]

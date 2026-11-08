@@ -1,0 +1,15 @@
+# Braden's list (decision #242)
+references/**/*.mp4
+references/**/4k/
+secrets/
+*.key
+*.pem
+.env*
+# Stricter additions (#159): raw generated art originals (1.2 GB, regenerable; product packs live in playbooks)
+avatars-r1/raw/
+avatars-r1/out/
+# Build scratch and local noise
+scratch-*/
+__pycache__/
+.DS_Store
+# Files over 50 MB: enforced by tools/check-large-files.sh (git has no size pattern); none today

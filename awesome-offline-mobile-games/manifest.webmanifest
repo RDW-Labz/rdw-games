@@ -1,0 +1,17 @@
+{
+  "name": "Awesome Offline Mobile Games",
+  "short_name": "AOMG",
+  "description": "Ten deep offline games for phones. Six open-source ports rebuilt from pinned source, four originals built here. No accounts, no ads, no network.",
+  "id": "/",
+  "start_url": "./shell/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0a0c11",
+  "theme_color": "#0a0c11",
+  "categories": ["games", "entertainment"],
+  "icons": [
+    { "src": "shell/assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "shell/assets/icon-maskable.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}

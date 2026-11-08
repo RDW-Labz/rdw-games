@@ -1,0 +1,2908 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Project Swarm — repository architecture",
+    "output": "docs/_swarm/diagrams/project-swarm.html",
+    "locale": "en",
+    "animation": "none",
+    "quality_profile": "standard",
+    "repository": {
+      "url": "https://github.com/RDW-Labz/project-swarm.git",
+      "revision": "901a4cd847fac71dca84124c32d4bbabe5fd4d3f",
+      "link_mode": "local-only"
+    },
+    "subtitle": "73 sourced components · six regions · static module and command map · project-swarm 1.40.0 / 901a4cd",
+    "views": [
+      {
+        "id": "inputs-and-gates",
+        "label": "Inputs and dispatch gates",
+        "focus": [
+          "manifest",
+          "skills",
+          "gotchas",
+          "privateGuard",
+          "validate",
+          "context",
+          "rungates"
+        ],
+        "note": "Required model, bounded files, private data and pre-dispatch refusal paths."
+      },
+      {
+        "id": "run-records",
+        "label": "Run ownership and records",
+        "focus": [
+          "run",
+          "runfiles",
+          "snapshot",
+          "schedule",
+          "after",
+          "workspace",
+          "execute",
+          "progress",
+          "observe",
+          "cancel",
+          "agentlog",
+          "results"
+        ],
+        "note": "Claim, snapshots, dependencies, proposals, progress and retained evidence."
+      },
+      {
+        "id": "adapter-capabilities",
+        "label": "Adapter capabilities",
+        "focus": [
+          "claude",
+          "codex",
+          "shell",
+          "extra",
+          "worktree",
+          "sandbox",
+          "api",
+          "envelope",
+          "router",
+          "fallback",
+          "reask",
+          "estimates"
+        ],
+        "note": "File tools, shell worktrees and tool-free transport have different boundaries."
+      },
+      {
+        "id": "review-and-ship",
+        "label": "Review, integrate and ship",
+        "focus": [
+          "inspect",
+          "integrate",
+          "apply",
+          "checks",
+          "mutants",
+          "metrics",
+          "ship",
+          "cichecks",
+          "go",
+          "shipchecks",
+          "push",
+          "ciwait",
+          "merge",
+          "hold",
+          "lessons"
+        ],
+        "note": "Hash guards and check classification precede exact-head CI and merge gates."
+      },
+      {
+        "id": "install-and-update",
+        "label": "Install and maintenance",
+        "focus": [
+          "update",
+          "install",
+          "versions",
+          "projects",
+          "migration",
+          "pins",
+          "squash"
+        ],
+        "note": "User install, per-project link and explicit release/project updates are separate operations."
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "seat",
+      "label": "skills/project-swarm/SKILL.md",
+      "sublabel": "Orchestrator: scope, review, acceptance, next job",
+      "type": "external",
+      "pos": [
+        300,
+        100
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "skills/project-swarm/SKILL.md",
+          "line": 7,
+          "end_line": 31
+        }
+      ]
+    },
+    {
+      "id": "cli",
+      "label": "tools/swarm.mjs --root PROJECT",
+      "sublabel": "Explicit root; help / --help lists commands",
+      "type": "frontend",
+      "pos": [
+        810,
+        100
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 4765,
+          "end_line": 4788
+        }
+      ]
+    },
+    {
+      "id": "manifest",
+      "label": "run MANIFEST — JSON inputs",
+      "sublabel": "jobs · context · outputs · contract · ignoreTests",
+      "type": "database",
+      "pos": [
+        1320,
+        100
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 890,
+          "end_line": 1110
+        }
+      ],
+      "tag": "model · tier · checks"
+    },
+    {
+      "id": "skills",
+      "label": "tools/skills.mjs",
+      "sublabel": "skillsDir > config skills.dir; optional feature",
+      "type": "backend",
+      "pos": [
+        300,
+        330
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/skills.mjs",
+          "line": 8,
+          "end_line": 18
+        },
+        {
+          "path": "docs/worker-skills.md",
+          "line": 7,
+          "end_line": 47
+        }
+      ]
+    },
+    {
+      "id": "prompt",
+      "label": "tools/swarm.mjs: message.txt",
+      "sublabel": "Per-job prompt: context, outputs, task, evidence",
+      "type": "messagebus",
+      "pos": [
+        810,
+        330
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 1902,
+          "end_line": 1950
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 2047,
+          "end_line": 2074
+        }
+      ]
+    },
+    {
+      "id": "gotchas",
+      "label": "tools/gotchas.mjs",
+      "sublabel": "Reads .swarm/gotchas.md; main-worktree fallback",
+      "type": "database",
+      "pos": [
+        1320,
+        330
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/gotchas.mjs",
+          "line": 15,
+          "end_line": 59
+        }
+      ]
+    },
+    {
+      "id": "envfile",
+      "label": "env / tools/swarm-env.mjs",
+      "sublabel": "Loads .swarm/env.json; refuses secrets + PATH/HOME",
+      "type": "backend",
+      "pos": [
+        300,
+        560
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm-env.mjs",
+          "line": 14,
+          "end_line": 65
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 5050,
+          "end_line": 5067
+        }
+      ]
+    },
+    {
+      "id": "workerEnv",
+      "label": "tools/swarm.mjs: setup / testEnv",
+      "sublabel": "Toolchain env reaches setup, shell/Codex, checks",
+      "type": "backend",
+      "pos": [
+        810,
+        560
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 1426,
+          "end_line": 1458
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 1504,
+          "end_line": 1517
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 3200,
+          "end_line": 3215
+        }
+      ]
+    },
+    {
+      "id": "ports",
+      "label": "tools/ports.mjs",
+      "sublabel": "SWARM_PORT_BASE: path-derived ten-port block",
+      "type": "backend",
+      "pos": [
+        1320,
+        560
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/ports.mjs",
+          "line": 24,
+          "end_line": 53
+        }
+      ]
+    },
+    {
+      "id": "config",
+      "label": "tools/local-config.mjs",
+      "sublabel": "SWARM_CONFIG > XDG > ~/.config/project-swarm",
+      "type": "database",
+      "pos": [
+        300,
+        790
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/local-config.mjs",
+          "line": 20,
+          "end_line": 65
+        }
+      ]
+    },
+    {
+      "id": "privateGuard",
+      "label": "tools/swarm.mjs: privateNamesDispatchGuard",
+      "sublabel": "Public GitHub: refuses private terms in prompt/contract",
+      "type": "security",
+      "pos": [
+        810,
+        790
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 3553,
+          "end_line": 3581
+        }
+      ]
+    },
+    {
+      "id": "privateNames",
+      "label": "tools/ship.mjs: loadPrivateNames",
+      "sublabel": "Flag/config/list file; public diff + commit scan",
+      "type": "security",
+      "pos": [
+        1320,
+        790
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/ship.mjs",
+          "line": 282,
+          "end_line": 353
+        },
+        {
+          "path": "tools/ship.mjs",
+          "line": 1190,
+          "end_line": 1244
+        }
+      ]
+    },
+    {
+      "id": "validate",
+      "label": "validate / tools/swarm.mjs",
+      "sublabel": "Schema + guarded reads + private-name gate",
+      "type": "security",
+      "pos": [
+        300,
+        1250
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 3593,
+          "end_line": 3610
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 5250,
+          "end_line": 5277
+        }
+      ]
+    },
+    {
+      "id": "schema",
+      "label": "tools/swarm.mjs: validateManifest",
+      "sublabel": "Requires model; tier optional, expensive needs reason",
+      "type": "security",
+      "pos": [
+        810,
+        1250
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 890,
+          "end_line": 993
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 1000,
+          "end_line": 1109
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "label": "tools/context-check.mjs",
+      "sublabel": "Uncovered test references refuse; drift warns",
+      "type": "security",
+      "pos": [
+        1320,
+        1250
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/context-check.mjs",
+          "line": 147,
+          "end_line": 184
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 3770,
+          "end_line": 3804
+        }
+      ]
+    },
+    {
+      "id": "preflight",
+      "label": "preflight / tools/preflight.mjs",
+      "sublabel": "Validates; scope, byte and snapshot advisories",
+      "type": "backend",
+      "pos": [
+        300,
+        1480
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/preflight.mjs",
+          "line": 131,
+          "end_line": 189
+        }
+      ]
+    },
+    {
+      "id": "probe",
+      "label": "tools/preflight.mjs: probeCheckInterpreters",
+      "sublabel": "Missing check program/module refuses validate/preflight",
+      "type": "security",
+      "pos": [
+        810,
+        1480
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/preflight.mjs",
+          "line": 91,
+          "end_line": 137
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 5268,
+          "end_line": 5277
+        }
+      ]
+    },
+    {
+      "id": "packaging",
+      "label": "tools/packaging-check.mjs",
+      "sublabel": "Packaging without build: warns; ship can refuse",
+      "type": "security",
+      "pos": [
+        1320,
+        1480
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/packaging-check.mjs",
+          "line": 8,
+          "end_line": 69
+        },
+        {
+          "path": "tools/ship.mjs",
+          "line": 1380,
+          "end_line": 1384
+        }
+      ]
+    },
+    {
+      "id": "rungates",
+      "label": "run / tools/swarm.mjs",
+      "sublabel": "Provider limit + spend cap + red-base gate",
+      "type": "security",
+      "pos": [
+        300,
+        1710
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 1827,
+          "end_line": 1876
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 5278,
+          "end_line": 5297
+        }
+      ]
+    },
+    {
+      "id": "board",
+      "label": "board / tools/board.mjs",
+      "sublabel": "Shared git-dir key; live writer collision refuses run",
+      "type": "security",
+      "pos": [
+        810,
+        1710
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/board.mjs",
+          "line": 13,
+          "end_line": 108
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 1862,
+          "end_line": 1876
+        }
+      ]
+    },
+    {
+      "id": "providerlimit",
+      "label": ".swarm/claude-provider-limit.json",
+      "sublabel": "Quota reset marker blocks run/ask Claude dispatch",
+      "type": "database",
+      "pos": [
+        1320,
+        1710
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 2240,
+          "end_line": 2249
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 2480,
+          "end_line": 2488
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 4916,
+          "end_line": 4920
+        }
+      ]
+    },
+    {
+      "id": "ask",
+      "label": "ask / tools/swarm.mjs",
+      "sublabel": "One read-only Claude/API job; model + context required",
+      "type": "backend",
+      "pos": [
+        300,
+        1940
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 3968,
+          "end_line": 4011
+        }
+      ]
+    },
+    {
+      "id": "scout",
+      "label": "scout / tools/scout.mjs",
+      "sublabel": "Claude web:true; license gate; .swarm/scouts reports",
+      "type": "backend",
+      "pos": [
+        810,
+        1940
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/scout.mjs",
+          "line": 117,
+          "end_line": 157
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 4025,
+          "end_line": 4071
+        }
+      ]
+    },
+    {
+      "id": "sweep",
+      "label": "sweep / tools/sweep.mjs",
+      "sublabel": "gh API candidates → Claude ranking → shortlist",
+      "type": "backend",
+      "pos": [
+        1320,
+        1940
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/sweep.mjs",
+          "line": 110,
+          "end_line": 200
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 4076,
+          "end_line": 4157
+        }
+      ]
+    },
+    {
+      "id": "doctor",
+      "label": "doctor / onboard / tools/swarm.mjs",
+      "sublabel": "Flags, auth/config and toolchains; liveVerified:false",
+      "type": "backend",
+      "pos": [
+        300,
+        2170
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 4160,
+          "end_line": 4188
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 4351,
+          "end_line": 4398
+        }
+      ]
+    },
+    {
+      "id": "auxcli",
+      "label": "help / next / skills check",
+      "sublabel": "tools/swarm.mjs: usage, queued hint, skill frontmatter",
+      "type": "backend",
+      "pos": [
+        810,
+        2170
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 4778,
+          "end_line": 4784
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 4835,
+          "end_line": 4878
+        }
+      ]
+    },
+    {
+      "id": "verify",
+      "label": "verify --orb / tools/swarm.mjs",
+      "sublabel": "Dispatches tools/verify-orb.mjs; implementation unverified",
+      "type": "backend",
+      "pos": [
+        1320,
+        2170
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 4940,
+          "end_line": 4957
+        }
+      ],
+      "tag": "context-limited"
+    },
+    {
+      "id": "run",
+      "label": "run / tools/swarm.mjs: runManifestBody",
+      "sublabel": "Revalidates; claim opened wx; serial state writes",
+      "type": "backend",
+      "pos": [
+        300,
+        2630
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 1878,
+          "end_line": 1910
+        }
+      ]
+    },
+    {
+      "id": "runfiles",
+      "label": ".swarm/runs/<id>/state.json",
+      "sublabel": "manifest.json · claim · base/<job> · per-job logs",
+      "type": "database",
+      "pos": [
+        810,
+        2630
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 1882,
+          "end_line": 1903
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 1943,
+          "end_line": 1976
+        }
+      ]
+    },
+    {
+      "id": "snapshot",
+      "label": "tools/swarm.mjs: snapshot loop",
+      "sublabel": "Read context + old outputs; save base hashes/modes",
+      "type": "backend",
+      "pos": [
+        1320,
+        2630
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 1936,
+          "end_line": 1976
+        }
+      ]
+    },
+    {
+      "id": "schedule",
+      "label": "tools/swarm.mjs: ready queue",
+      "sublabel": "Concurrency default 2, max 32; up to 256 jobs",
+      "type": "messagebus",
+      "pos": [
+        300,
+        2860
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 1979,
+          "end_line": 2025
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 2253,
+          "end_line": 2265
+        }
+      ]
+    },
+    {
+      "id": "after",
+      "label": "tools/swarm.mjs: after dependencies",
+      "sublabel": "Complete → copy changed outputs; else skip dependents",
+      "type": "backend",
+      "pos": [
+        810,
+        2860
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 1986,
+          "end_line": 2042
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 1075,
+          "end_line": 1083
+        }
+      ]
+    },
+    {
+      "id": "workspace",
+      "label": ".swarm/workspaces/<id>/<job>",
+      "sublabel": "Copied files + proposals; context and outputs only",
+      "type": "database",
+      "pos": [
+        1320,
+        2860
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 1939,
+          "end_line": 1976
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 2080,
+          "end_line": 2090
+        }
+      ]
+    },
+    {
+      "id": "execute",
+      "label": "tools/swarm.mjs: execute / executeApi",
+      "sublabel": "Dispatch selected adapter; default timeout 300 seconds",
+      "type": "backend",
+      "pos": [
+        300,
+        3090
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 1286,
+          "end_line": 1385
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 2053,
+          "end_line": 2080
+        }
+      ]
+    },
+    {
+      "id": "progress",
+      "label": "tools/swarm.mjs: activityRecorder",
+      "sublabel": "CLI output sampled at 1s; API activity unobservable",
+      "type": "messagebus",
+      "pos": [
+        810,
+        3090
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 1168,
+          "end_line": 1232
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 2020,
+          "end_line": 2025
+        }
+      ]
+    },
+    {
+      "id": "observe",
+      "label": "status / monitor / wait",
+      "sublabel": "tools/swarm.mjs → monitor-view.mjs formats --view",
+      "type": "frontend",
+      "pos": [
+        1320,
+        3090
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 2286,
+          "end_line": 2314
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 2490,
+          "end_line": 2510
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 4400,
+          "end_line": 4425
+        }
+      ]
+    },
+    {
+      "id": "cancel",
+      "label": "cancel / tools/swarm.mjs",
+      "sublabel": "Writes cancel marker; owner stops groups/aborts HTTP",
+      "type": "security",
+      "pos": [
+        300,
+        3320
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 1142,
+          "end_line": 1165
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 1286,
+          "end_line": 1325
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 2300,
+          "end_line": 2314
+        }
+      ]
+    },
+    {
+      "id": "agentlog",
+      "label": ".swarm/runs/<id>/<job>/agent.log",
+      "sublabel": "Failure tails + agentError; not an agent-log CLI command",
+      "type": "database",
+      "pos": [
+        810,
+        3320
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 1276,
+          "end_line": 1285
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 2216,
+          "end_line": 2230
+        }
+      ]
+    },
+    {
+      "id": "results",
+      "label": "tools/swarm.mjs: response.txt / provider.jsonl",
+      "sublabel": "Status, warnings, model usage/cost; dropped writes saved",
+      "type": "database",
+      "pos": [
+        1320,
+        3320
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 2105,
+          "end_line": 2128
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 2150,
+          "end_line": 2192
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 2230,
+          "end_line": 2249
+        }
+      ]
+    },
+    {
+      "id": "claude",
+      "label": "claude / tools/swarm.mjs: claudeArgs",
+      "sublabel": "Read/Glob/Grep; +Write/Edit for outputs; no Bash",
+      "type": "backend",
+      "pos": [
+        300,
+        3780
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 1131,
+          "end_line": 1140
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 2057,
+          "end_line": 2062
+        }
+      ]
+    },
+    {
+      "id": "codex",
+      "label": "codex / tools/codex-adapter.mjs",
+      "sublabel": "sandbox-exec → codex exec -m; shell/tests; macOS only",
+      "type": "security",
+      "pos": [
+        810,
+        3780
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/codex-adapter.mjs",
+          "line": 15,
+          "end_line": 95
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 1474,
+          "end_line": 1517
+        }
+      ]
+    },
+    {
+      "id": "shell",
+      "label": "claude shell / tools/claude-shell.mjs",
+      "sublabel": "Bash/tests; seatbelt + worker key + CONNECT proxy",
+      "type": "security",
+      "pos": [
+        1320,
+        3780
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/claude-shell.mjs",
+          "line": 19,
+          "end_line": 132
+        },
+        {
+          "path": "tools/claude-shell.mjs",
+          "line": 234,
+          "end_line": 345
+        }
+      ]
+    },
+    {
+      "id": "extra",
+      "label": "hermes / qwen / tools/cli-adapters.mjs",
+      "sublabel": "Tool-free CLI; serialized context; strict file envelope",
+      "type": "backend",
+      "pos": [
+        300,
+        4010
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/cli-adapters.mjs",
+          "line": 48,
+          "end_line": 78
+        }
+      ]
+    },
+    {
+      "id": "worktree",
+      "label": ".swarm/runs/<id>/worktrees/<job>",
+      "sublabel": "Detached HEAD; declared outputs copied to proposals",
+      "type": "database",
+      "pos": [
+        810,
+        4010
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 1474,
+          "end_line": 1543
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 1623,
+          "end_line": 1648
+        }
+      ]
+    },
+    {
+      "id": "sandbox",
+      "label": "sandbox.sb — Codex / Claude shell",
+      "sublabel": "Codex OS temp; Claude scratch outside repos; setup first",
+      "type": "security",
+      "pos": [
+        1320,
+        4010
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 1495,
+          "end_line": 1517
+        },
+        {
+          "path": "tools/claude-shell.mjs",
+          "line": 178,
+          "end_line": 219
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 1650,
+          "end_line": 1712
+        }
+      ]
+    },
+    {
+      "id": "api",
+      "label": "tools/api-adapters.mjs",
+      "sublabel": "OpenAI / Gemini / Ollama / Lambda / OpenRouter",
+      "type": "backend",
+      "pos": [
+        300,
+        4240
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/api-adapters.mjs",
+          "line": 6,
+          "end_line": 42
+        },
+        {
+          "path": "tools/api-adapters.mjs",
+          "line": 240,
+          "end_line": 277
+        }
+      ]
+    },
+    {
+      "id": "envelope",
+      "label": "tools/api-adapters.mjs: validateEnvelope",
+      "sublabel": "Every output exactly once; files or exact find/replace",
+      "type": "security",
+      "pos": [
+        810,
+        4240
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/api-adapters.mjs",
+          "line": 100,
+          "end_line": 169
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 2080,
+          "end_line": 2093
+        }
+      ]
+    },
+    {
+      "id": "router",
+      "label": "tools/openrouter.mjs",
+      "sublabel": "Privacy routing + pricing; $5/job, $25/UTC-day guards",
+      "type": "security",
+      "pos": [
+        1320,
+        4240
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/openrouter.mjs",
+          "line": 30,
+          "end_line": 32
+        },
+        {
+          "path": "tools/openrouter.mjs",
+          "line": 65,
+          "end_line": 86
+        },
+        {
+          "path": "tools/openrouter.mjs",
+          "line": 125,
+          "end_line": 153
+        }
+      ]
+    },
+    {
+      "id": "fallback",
+      "label": "tools/codex-adapter.mjs: resolveCodexEnvelope",
+      "sublabel": "Reply → result file → dirty declared outputs; keep tree",
+      "type": "security",
+      "pos": [
+        810,
+        4470
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/codex-adapter.mjs",
+          "line": 149,
+          "end_line": 178
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 1544,
+          "end_line": 1572
+        }
+      ]
+    },
+    {
+      "id": "reask",
+      "label": "tools/swarm.mjs: resultMissing",
+      "sublabel": "Plain Claude only: one same-session JSON re-ask",
+      "type": "backend",
+      "pos": [
+        300,
+        4470
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 2171,
+          "end_line": 2188
+        }
+      ]
+    },
+    {
+      "id": "estimates",
+      "label": "tools/rates.mjs",
+      "sublabel": "Missing Claude cost: marked transcript estimate",
+      "type": "backend",
+      "pos": [
+        1320,
+        4470
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/rates.mjs",
+          "line": 1,
+          "end_line": 73
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 1335,
+          "end_line": 1364
+        }
+      ]
+    },
+    {
+      "id": "inspect",
+      "label": "inspect / tools/swarm.mjs",
+      "sublabel": "--results: resultFile, warnings, mismatch, cost, outputs",
+      "type": "frontend",
+      "pos": [
+        300,
+        4930
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 3807,
+          "end_line": 3861
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 3863,
+          "end_line": 3964
+        }
+      ]
+    },
+    {
+      "id": "integrate",
+      "label": "integrate / tools/swarm.mjs",
+      "sublabel": "Lock + job status + hashes/modes + deviations/skills",
+      "type": "security",
+      "pos": [
+        810,
+        4930
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 2966,
+          "end_line": 3022
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 3035,
+          "end_line": 3048
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 3130,
+          "end_line": 3142
+        }
+      ]
+    },
+    {
+      "id": "apply",
+      "label": "tools/swarm.mjs: integration writes",
+      "sublabel": "Declared outputs; snapshot conflicts refuse before write",
+      "type": "backend",
+      "pos": [
+        1320,
+        4930
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 3072,
+          "end_line": 3130
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 3174,
+          "end_line": 3200
+        }
+      ]
+    },
+    {
+      "id": "checks",
+      "label": "tools/swarm.mjs: preChecks / runChecks",
+      "sublabel": "After writes; failure stays on disk; base comparison",
+      "type": "security",
+      "pos": [
+        1320,
+        5160
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 3200,
+          "end_line": 3251
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 2605,
+          "end_line": 2732
+        }
+      ]
+    },
+    {
+      "id": "mutants",
+      "label": "mutants / redcheck / tools/swarm.mjs",
+      "sublabel": "Mutate or restore base; always restore tested bytes",
+      "type": "security",
+      "pos": [
+        810,
+        5160
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 2738,
+          "end_line": 2774
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 2873,
+          "end_line": 2913
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 3404,
+          "end_line": 3504
+        }
+      ]
+    },
+    {
+      "id": "metrics",
+      "label": "tools/session-metrics.mjs",
+      "sublabel": "ask/scout/checks/mutants time + cost windows",
+      "type": "database",
+      "pos": [
+        300,
+        5160
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/session-metrics.mjs",
+          "line": 9,
+          "end_line": 45
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 3981,
+          "end_line": 3984
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 3249,
+          "end_line": 3270
+        }
+      ]
+    },
+    {
+      "id": "ship",
+      "label": "ship RUN / ship --branch",
+      "sublabel": "tools/swarm.mjs → tools/ship.mjs; commit required",
+      "type": "backend",
+      "pos": [
+        1320,
+        5390
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 4563,
+          "end_line": 4616
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 4648,
+          "end_line": 4694
+        },
+        {
+          "path": "tools/ship.mjs",
+          "line": 1273,
+          "end_line": 1282
+        }
+      ]
+    },
+    {
+      "id": "cichecks",
+      "label": "ship --checks-from-ci",
+      "sublabel": "tools/checks-from-ci.mjs: bounded run-step parser",
+      "type": "backend",
+      "pos": [
+        810,
+        5390
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/checks-from-ci.mjs",
+          "line": 142,
+          "end_line": 193
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 4672,
+          "end_line": 4686
+        }
+      ]
+    },
+    {
+      "id": "go",
+      "label": "go / tools/swarm.mjs → tools/go.mjs",
+      "sublabel": "Injected run/wait/integrate/commit/ship callbacks",
+      "type": "backend",
+      "pos": [
+        300,
+        5390
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 5313,
+          "end_line": 5328
+        }
+      ],
+      "tag": "implementation not in context"
+    },
+    {
+      "id": "shipchecks",
+      "label": "tools/ship.mjs: local checks + PR body",
+      "sublabel": "Fills <!-- swarm:checks -->; missing section refuses",
+      "type": "security",
+      "pos": [
+        1320,
+        5620
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/ship.mjs",
+          "line": 1386,
+          "end_line": 1450
+        }
+      ]
+    },
+    {
+      "id": "push",
+      "label": "tools/ship.mjs: git push / gh api",
+      "sublabel": "Push head; create/update PR with checked body",
+      "type": "cloud",
+      "pos": [
+        810,
+        5620
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/ship.mjs",
+          "line": 1496,
+          "end_line": 1545
+        }
+      ]
+    },
+    {
+      "id": "ciwait",
+      "label": "tools/ship.mjs: waitForCi",
+      "sublabel": "Exact SHA; no-ci / timeout / failures stop merge",
+      "type": "security",
+      "pos": [
+        300,
+        5620
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/ship.mjs",
+          "line": 1553,
+          "end_line": 1642
+        }
+      ]
+    },
+    {
+      "id": "merge",
+      "label": "tools/ship.mjs: gh pr merge",
+      "sublabel": "Green + no hold; --match-head-commit; verify MERGED",
+      "type": "cloud",
+      "pos": [
+        300,
+        5850
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/ship.mjs",
+          "line": 1678,
+          "end_line": 1717
+        }
+      ]
+    },
+    {
+      "id": "hold",
+      "label": "tools/ship.mjs: isHeld / buildReviewNote",
+      "sublabel": "First nonblank line starts **needs → held after CI",
+      "type": "security",
+      "pos": [
+        810,
+        5850
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/ship.mjs",
+          "line": 785,
+          "end_line": 816
+        },
+        {
+          "path": "tools/ship.mjs",
+          "line": 1667,
+          "end_line": 1679
+        }
+      ]
+    },
+    {
+      "id": "lessons",
+      "label": "tools/gotchas.mjs / --evidence",
+      "sublabel": "Next prompt gets authored gotchas or prior failures",
+      "type": "messagebus",
+      "pos": [
+        1320,
+        5850
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/gotchas.mjs",
+          "line": 50,
+          "end_line": 55
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 641,
+          "end_line": 666
+        }
+      ],
+      "tag": "coordinator curates"
+    },
+    {
+      "id": "update",
+      "label": "version / update / tools/swarm.mjs",
+      "sublabel": "No --root; fetch tags; refuse dirty tools/skills",
+      "type": "backend",
+      "pos": [
+        300,
+        6310
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 4220,
+          "end_line": 4245
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 4271,
+          "end_line": 4298
+        },
+        {
+          "path": "tools/swarm.mjs",
+          "line": 4794,
+          "end_line": 4821
+        }
+      ]
+    },
+    {
+      "id": "install",
+      "label": "node tools/install.mjs --user",
+      "sublabel": "Snapshots runtime + skill; installs agent-home copies",
+      "type": "backend",
+      "pos": [
+        810,
+        6310
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/install.mjs",
+          "line": 55,
+          "end_line": 87
+        },
+        {
+          "path": "tools/install.mjs",
+          "line": 113,
+          "end_line": 147
+        }
+      ]
+    },
+    {
+      "id": "versions",
+      "label": "versions/<version>-<hash8> / current",
+      "sublabel": "Content-hash snapshot; atomic symlink replacement",
+      "type": "database",
+      "pos": [
+        1320,
+        6310
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/install.mjs",
+          "line": 55,
+          "end_line": 110
+        }
+      ]
+    },
+    {
+      "id": "projects",
+      "label": "node tools/install.mjs PROJECT",
+      "sublabel": "Pointer + coordination seeds + agent blocks + gitignore",
+      "type": "backend",
+      "pos": [
+        810,
+        6540
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/install.mjs",
+          "line": 186,
+          "end_line": 220
+        }
+      ]
+    },
+    {
+      "id": "migration",
+      "label": "update --projects [--yes]",
+      "sublabel": "Reports old copies; --yes backs up and writes pointer",
+      "type": "backend",
+      "pos": [
+        300,
+        6540
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 4314,
+          "end_line": 4348
+        }
+      ]
+    },
+    {
+      "id": "pins",
+      "label": "check-pins / tools/check-pins.mjs",
+      "sublabel": "pyproject/npm pins vs vendor; wheel metadata vs uv.lock",
+      "type": "security",
+      "pos": [
+        1320,
+        6540
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/check-pins.mjs",
+          "line": 221,
+          "end_line": 278
+        }
+      ]
+    },
+    {
+      "id": "squash",
+      "label": "squash --branch / tools/swarm.mjs",
+      "sublabel": "Soft reset to merge-base; refuses unexpected staged files",
+      "type": "backend",
+      "pos": [
+        300,
+        6770
+      ],
+      "size": [
+        360,
+        96
+      ],
+      "sources": [
+        {
+          "path": "tools/swarm.mjs",
+          "line": 4250,
+          "end_line": 4267
+        }
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "01 · Orchestrator seat, explicit inputs and machine-local configuration",
+      "wraps": [
+        "seat",
+        "cli",
+        "manifest",
+        "skills",
+        "prompt",
+        "gotchas",
+        "envfile",
+        "workerEnv",
+        "ports",
+        "config",
+        "privateGuard",
+        "privateNames"
+      ],
+      "pad": 28
+    },
+    {
+      "kind": "region",
+      "label": "02 · CLI validation, dispatch gates and research commands",
+      "wraps": [
+        "validate",
+        "schema",
+        "context",
+        "preflight",
+        "probe",
+        "packaging",
+        "rungates",
+        "board",
+        "providerlimit",
+        "ask",
+        "scout",
+        "sweep",
+        "doctor",
+        "auxcli",
+        "verify"
+      ],
+      "pad": 28
+    },
+    {
+      "kind": "region",
+      "label": "03 · Run ownership, snapshots, scheduling and observable records",
+      "wraps": [
+        "run",
+        "runfiles",
+        "snapshot",
+        "schedule",
+        "after",
+        "workspace",
+        "execute",
+        "progress",
+        "observe",
+        "cancel",
+        "agentlog",
+        "results"
+      ],
+      "pad": 28
+    },
+    {
+      "kind": "region",
+      "label": "04 · Adapter boundaries — tools, tests, transport and result envelopes",
+      "wraps": [
+        "claude",
+        "codex",
+        "shell",
+        "extra",
+        "worktree",
+        "sandbox",
+        "api",
+        "envelope",
+        "router",
+        "fallback",
+        "reask",
+        "estimates"
+      ],
+      "pad": 28
+    },
+    {
+      "kind": "region",
+      "label": "05 · Review, guarded integration, verification, ship and feedback",
+      "wraps": [
+        "inspect",
+        "integrate",
+        "apply",
+        "checks",
+        "mutants",
+        "metrics",
+        "ship",
+        "cichecks",
+        "go",
+        "shipchecks",
+        "push",
+        "ciwait",
+        "merge",
+        "hold",
+        "lessons"
+      ],
+      "pad": 28
+    },
+    {
+      "kind": "region",
+      "label": "06 · Shared install, explicit update and maintenance",
+      "wraps": [
+        "update",
+        "install",
+        "versions",
+        "projects",
+        "migration",
+        "pins",
+        "squash"
+      ],
+      "pad": 28
+    }
+  ],
+  "connections": [
+    {
+      "id": "seat-to-cli",
+      "from": "seat",
+      "to": "cli",
+      "label": "invokes",
+      "variant": "default"
+    },
+    {
+      "id": "cli-to-manifest",
+      "from": "cli",
+      "to": "manifest",
+      "label": "reads JSON",
+      "variant": "default"
+    },
+    {
+      "id": "skills-to-prompt",
+      "from": "skills",
+      "to": "prompt",
+      "label": "index + bodies",
+      "variant": "default"
+    },
+    {
+      "id": "gotchas-to-prompt",
+      "from": "gotchas",
+      "to": "prompt",
+      "label": "appends",
+      "variant": "default"
+    },
+    {
+      "id": "envfile-to-workerEnv",
+      "from": "envfile",
+      "to": "workerEnv",
+      "label": "validated env",
+      "variant": "default"
+    },
+    {
+      "id": "ports-to-workerEnv",
+      "from": "ports",
+      "to": "workerEnv",
+      "label": "port base",
+      "variant": "default"
+    },
+    {
+      "id": "config-to-privateGuard",
+      "from": "config",
+      "to": "privateGuard",
+      "label": "config",
+      "variant": "default"
+    },
+    {
+      "id": "privateGuard-to-privateNames",
+      "from": "privateGuard",
+      "to": "privateNames",
+      "label": "loads list",
+      "variant": "default"
+    },
+    {
+      "id": "config-to-skills",
+      "from": "config",
+      "to": "skills",
+      "label": "skills.dir",
+      "variant": "default",
+      "labelAt": [
+        276,
+        680
+      ]
+    },
+    {
+      "id": "validate-to-schema",
+      "from": "validate",
+      "to": "schema",
+      "label": "validates",
+      "variant": "default"
+    },
+    {
+      "id": "validate-to-context",
+      "from": "validate",
+      "to": "context",
+      "label": "checks references",
+      "variant": "default",
+      "labelAt": [
+        1070,
+        1208
+      ]
+    },
+    {
+      "id": "preflight-to-validate",
+      "from": "preflight",
+      "to": "validate",
+      "label": "validateProject",
+      "variant": "default"
+    },
+    {
+      "id": "preflight-to-probe",
+      "from": "preflight",
+      "to": "probe",
+      "label": "probes",
+      "variant": "default"
+    },
+    {
+      "id": "validate-to-packaging",
+      "from": "validate",
+      "to": "packaging",
+      "label": "warns",
+      "variant": "default"
+    },
+    {
+      "id": "rungates-to-board",
+      "from": "rungates",
+      "to": "board",
+      "label": "checks writers",
+      "variant": "default"
+    },
+    {
+      "id": "rungates-to-providerlimit",
+      "from": "rungates",
+      "to": "providerlimit",
+      "label": "reads marker",
+      "variant": "default",
+      "labelAt": [
+        1100,
+        1830
+      ]
+    },
+    {
+      "id": "ask-to-run",
+      "from": "ask",
+      "to": "run",
+      "label": "runManifest",
+      "variant": "default"
+    },
+    {
+      "id": "scout-to-run",
+      "from": "scout",
+      "to": "run",
+      "label": "runManifest",
+      "variant": "default"
+    },
+    {
+      "id": "sweep-to-run",
+      "from": "sweep",
+      "to": "run",
+      "label": "per-area runManifest",
+      "variant": "default"
+    },
+    {
+      "id": "rungates-to-run",
+      "from": "rungates",
+      "to": "run",
+      "label": "if gates pass",
+      "variant": "default",
+      "labelAt": [
+        684,
+        2380
+      ]
+    },
+    {
+      "id": "run-to-runfiles",
+      "from": "run",
+      "to": "runfiles",
+      "label": "writes",
+      "variant": "default"
+    },
+    {
+      "id": "snapshot-to-runfiles",
+      "from": "snapshot",
+      "to": "runfiles",
+      "label": "writes base files",
+      "variant": "default"
+    },
+    {
+      "id": "run-to-schedule",
+      "from": "run",
+      "to": "schedule",
+      "label": "starts workers",
+      "variant": "default",
+      "labelAt": [
+        480,
+        2790
+      ]
+    },
+    {
+      "id": "schedule-to-after",
+      "from": "schedule",
+      "to": "after",
+      "label": "settles dependencies",
+      "variant": "default"
+    },
+    {
+      "id": "after-to-workspace",
+      "from": "after",
+      "to": "workspace",
+      "label": "changed bytes",
+      "variant": "default"
+    },
+    {
+      "id": "schedule-to-execute",
+      "from": "schedule",
+      "to": "execute",
+      "label": "ready job",
+      "variant": "default",
+      "labelAt": [
+        480,
+        3020
+      ]
+    },
+    {
+      "id": "execute-to-progress",
+      "from": "execute",
+      "to": "progress",
+      "label": "onOutput",
+      "variant": "default"
+    },
+    {
+      "id": "observe-to-runfiles",
+      "from": "observe",
+      "to": "runfiles",
+      "label": "reads",
+      "variant": "default"
+    },
+    {
+      "id": "execute-to-agentlog",
+      "from": "execute",
+      "to": "agentlog",
+      "label": "on CLI failure",
+      "variant": "default",
+      "labelAt": [
+        950,
+        3270
+      ]
+    },
+    {
+      "id": "execute-to-results",
+      "from": "execute",
+      "to": "results",
+      "label": "saves result",
+      "variant": "default"
+    },
+    {
+      "id": "cancel-to-execute",
+      "from": "cancel",
+      "to": "execute",
+      "label": "cancel signal",
+      "variant": "default",
+      "labelAt": [
+        560,
+        3230
+      ]
+    },
+    {
+      "id": "snapshot-to-workspace",
+      "from": "snapshot",
+      "to": "workspace",
+      "label": "copies non-worktree",
+      "variant": "default",
+      "labelAt": [
+        1500,
+        2790
+      ]
+    },
+    {
+      "id": "run-to-prompt",
+      "from": "run",
+      "to": "prompt",
+      "label": "constructs",
+      "variant": "default",
+      "fromSide": "left",
+      "toSide": "bottom",
+      "via": [
+        [
+          210,
+          2678
+        ],
+        [
+          210,
+          490
+        ],
+        [
+          990,
+          490
+        ]
+      ],
+      "labelAt": [
+        540,
+        490
+      ]
+    },
+    {
+      "id": "execute-to-claude",
+      "from": "execute",
+      "to": "claude",
+      "label": "claude",
+      "variant": "default",
+      "labelAt": [
+        185,
+        3540
+      ],
+      "fromSide": "left",
+      "toSide": "left",
+      "via": [
+        [
+          185,
+          3138
+        ],
+        [
+          185,
+          3828
+        ]
+      ]
+    },
+    {
+      "id": "execute-to-codex",
+      "from": "execute",
+      "to": "codex",
+      "label": "codex",
+      "variant": "default"
+    },
+    {
+      "id": "execute-to-shell",
+      "from": "execute",
+      "to": "shell",
+      "label": "shell:true",
+      "variant": "default",
+      "fromSide": "bottom",
+      "toSide": "left",
+      "via": [
+        [
+          480,
+          3250
+        ],
+        [
+          1255,
+          3250
+        ],
+        [
+          1255,
+          3828
+        ]
+      ],
+      "labelAt": [
+        1255,
+        3590
+      ]
+    },
+    {
+      "id": "execute-to-extra",
+      "from": "execute",
+      "to": "extra",
+      "label": "Hermes/Qwen",
+      "variant": "default"
+    },
+    {
+      "id": "execute-to-api",
+      "from": "execute",
+      "to": "api",
+      "label": "API agent",
+      "variant": "default",
+      "fromSide": "left",
+      "toSide": "left",
+      "via": [
+        [
+          140,
+          3138
+        ],
+        [
+          140,
+          4288
+        ]
+      ],
+      "labelAt": [
+        140,
+        4040
+      ]
+    },
+    {
+      "id": "codex-to-worktree",
+      "from": "codex",
+      "to": "worktree",
+      "label": "creates HEAD tree",
+      "variant": "default",
+      "labelAt": [
+        990,
+        3940
+      ]
+    },
+    {
+      "id": "shell-to-worktree",
+      "from": "shell",
+      "to": "worktree",
+      "label": "creates HEAD tree",
+      "variant": "default"
+    },
+    {
+      "id": "shell-to-sandbox",
+      "from": "shell",
+      "to": "sandbox",
+      "label": "writes profile",
+      "variant": "default",
+      "labelAt": [
+        1500,
+        3940
+      ]
+    },
+    {
+      "id": "codex-to-sandbox",
+      "from": "codex",
+      "to": "sandbox",
+      "label": "writes profile",
+      "variant": "default"
+    },
+    {
+      "id": "extra-to-envelope",
+      "from": "extra",
+      "to": "envelope",
+      "label": "validates",
+      "variant": "default"
+    },
+    {
+      "id": "api-to-envelope",
+      "from": "api",
+      "to": "envelope",
+      "label": "validates",
+      "variant": "default",
+      "labelAt": [
+        730,
+        4370
+      ]
+    },
+    {
+      "id": "api-to-router",
+      "from": "api",
+      "to": "router",
+      "label": "OpenRouter only",
+      "variant": "default"
+    },
+    {
+      "id": "codex-to-fallback",
+      "from": "codex",
+      "to": "fallback",
+      "label": "resolves reply",
+      "variant": "default"
+    },
+    {
+      "id": "claude-to-reask",
+      "from": "claude",
+      "to": "reask",
+      "label": "JSON missing",
+      "variant": "default"
+    },
+    {
+      "id": "claude-to-estimates",
+      "from": "claude",
+      "to": "estimates",
+      "label": "no reported cost",
+      "variant": "default",
+      "fromSide": "left",
+      "toSide": "bottom",
+      "via": [
+        [
+          240,
+          3828
+        ],
+        [
+          240,
+          4680
+        ],
+        [
+          1500,
+          4680
+        ]
+      ],
+      "labelAt": [
+        1360,
+        4680
+      ]
+    },
+    {
+      "id": "execute-to-workspace",
+      "from": "execute",
+      "to": "workspace",
+      "label": "applies validated files/edits",
+      "variant": "default",
+      "labelAt": [
+        276,
+        3020
+      ]
+    },
+    {
+      "id": "inspect-to-workspace",
+      "from": "inspect",
+      "to": "workspace",
+      "label": "reads proposals",
+      "variant": "default",
+      "fromSide": "top",
+      "toSide": "right",
+      "via": [
+        [
+          480,
+          4830
+        ],
+        [
+          1790,
+          4830
+        ],
+        [
+          1790,
+          2908
+        ]
+      ],
+      "labelAt": [
+        1804,
+        4610
+      ]
+    },
+    {
+      "id": "inspect-to-results",
+      "from": "inspect",
+      "to": "results",
+      "label": "reads result",
+      "variant": "default",
+      "fromSide": "top",
+      "toSide": "right",
+      "via": [
+        [
+          480,
+          4730
+        ],
+        [
+          1750,
+          4730
+        ],
+        [
+          1750,
+          3368
+        ]
+      ],
+      "labelAt": [
+        1750,
+        4540
+      ]
+    },
+    {
+      "id": "integrate-to-workspace",
+      "from": "integrate",
+      "to": "workspace",
+      "label": "reads proposals",
+      "variant": "default",
+      "fromSide": "top",
+      "toSide": "right",
+      "via": [
+        [
+          990,
+          4780
+        ],
+        [
+          1890,
+          4780
+        ],
+        [
+          1890,
+          2908
+        ]
+      ],
+      "labelAt": [
+        1890,
+        4660
+      ]
+    },
+    {
+      "id": "integrate-to-apply",
+      "from": "integrate",
+      "to": "apply",
+      "label": "preconditions pass",
+      "variant": "default"
+    },
+    {
+      "id": "apply-to-checks",
+      "from": "apply",
+      "to": "checks",
+      "label": "writes then checks",
+      "variant": "default",
+      "labelAt": [
+        1500,
+        5090
+      ]
+    },
+    {
+      "id": "checks-to-mutants",
+      "from": "checks",
+      "to": "mutants",
+      "label": "if requested + green",
+      "variant": "default"
+    },
+    {
+      "id": "checks-to-metrics",
+      "from": "checks",
+      "to": "metrics",
+      "label": "records window",
+      "variant": "default"
+    },
+    {
+      "id": "mutants-to-metrics",
+      "from": "mutants",
+      "to": "metrics",
+      "label": "records mutants",
+      "variant": "default"
+    },
+    {
+      "id": "ship-to-cichecks",
+      "from": "ship",
+      "to": "cichecks",
+      "label": "optional load",
+      "variant": "default"
+    },
+    {
+      "id": "ship-to-shipchecks",
+      "from": "ship",
+      "to": "shipchecks",
+      "label": "rechecks committed tree",
+      "variant": "default",
+      "labelAt": [
+        1500,
+        5550
+      ]
+    },
+    {
+      "id": "shipchecks-to-push",
+      "from": "shipchecks",
+      "to": "push",
+      "label": "all pre-push gates",
+      "variant": "default"
+    },
+    {
+      "id": "push-to-ciwait",
+      "from": "push",
+      "to": "ciwait",
+      "label": "PR created/updated",
+      "variant": "default"
+    },
+    {
+      "id": "ciwait-to-hold",
+      "from": "ciwait",
+      "to": "hold",
+      "label": "green: evaluate body",
+      "variant": "default"
+    },
+    {
+      "id": "ciwait-to-merge",
+      "from": "ciwait",
+      "to": "merge",
+      "label": "green + no hold + merge",
+      "variant": "default",
+      "labelAt": [
+        480,
+        5780
+      ]
+    },
+    {
+      "id": "lessons-to-prompt",
+      "from": "lessons",
+      "to": "prompt",
+      "label": "injects on next run",
+      "variant": "default",
+      "fromSide": "right",
+      "toSide": "bottom",
+      "via": [
+        [
+          2000,
+          5898
+        ],
+        [
+          2000,
+          490
+        ],
+        [
+          990,
+          490
+        ]
+      ],
+      "labelAt": [
+        2000,
+        2380
+      ]
+    },
+    {
+      "id": "go-to-integrate",
+      "from": "go",
+      "to": "integrate",
+      "label": "injected callback",
+      "variant": "default"
+    },
+    {
+      "id": "go-to-ship",
+      "from": "go",
+      "to": "ship",
+      "label": "injected callback",
+      "variant": "default",
+      "labelAt": [
+        1140,
+        5515
+      ]
+    },
+    {
+      "id": "update-to-install",
+      "from": "update",
+      "to": "install",
+      "label": "installUser",
+      "variant": "default"
+    },
+    {
+      "id": "install-to-versions",
+      "from": "install",
+      "to": "versions",
+      "label": "snapshot + repoint",
+      "variant": "default"
+    },
+    {
+      "id": "codex-to-workspace",
+      "from": "codex",
+      "to": "workspace",
+      "label": "copies declared outputs",
+      "variant": "default"
+    },
+    {
+      "id": "shell-to-workspace",
+      "from": "shell",
+      "to": "workspace",
+      "label": "copies declared outputs",
+      "variant": "default",
+      "labelAt": [
+        1640,
+        3600
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Reading the map",
+      "items": [
+        "Six regions group real responsibilities; repeated tools/swarm.mjs labels identify separate functions/commands in the same module, not services.",
+        "SRC references pin the inspected repository commit. Arrows mean the labeled call, read, write or artifact flow; disconnected maintenance commands are independently invoked.",
+        "The orchestrator reviews and invokes integrate/ship; run never automatically approves its own output. go supplies callbacks for selected stages; its internal implementation is outside supplied context."
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Inputs and hard gates",
+      "items": [
+        "Manifest version 1; 1–256 jobs; concurrency 1–32 (default 2). context/outputs are explicit arrays of at most 100 files. contract must be in every context and no output.",
+        "Model is mandatory. tier is optional metadata, never model routing; expensive requires tierReason. Unknown fields, unsafe paths, symlinks, missing/empty context and within-manifest writer collisions refuse.",
+        "validate/preflight probe check interpreters/modules. context-check performs bounded static matching: detected uncovered references refuse with suggestedIgnoreTests; directory/registry drift remains advisory.",
+        "API total declared context is capped at 200,000 bytes; each inlined file is truncated at 60,000 bytes and recorded in contextInlined. maxOutputTokens accepts 256–32,768; outputs × 500 > explicit cap refuses.",
+        "Public-repo prompt/contract private-term check depends on configured terms and GitHub visibility lookup. Private-data path matches require privateData:true. maxCredits requires a readable preflight cost total within cap."
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "Run lifecycle and disk",
+      "items": [
+        "Run claim is an exclusive wx file; live board is a separate per-user registry keyed by shared git directory. It detects matching live output claims; it is not a transactional file-reservation service.",
+        "All job inputs are snapshotted before workers launch; base hashes and modes underpin integrate conflicts. after waits for complete predecessors and copies only changed outputs; Codex rejects after.",
+        "Copied workspaces hold selected files. Codex and Claude shell instead get detached HEAD worktrees, resources and copied skills. Root uncommitted edits are not automatically part of HEAD.",
+        "CLI progress samples stdout/stderr counters and timestamps, not useful-work or GPU activity. API calls return only when settled. Cancellation markers reach the owner, which terminates process groups or aborts fetch.",
+        "The run stores message.txt, provider.jsonl, stderr.log, response.txt, state and invalid-envelope evidence. Failed CLI processes add agent.log. privateData withholds response.txt and agent.log; it is not a claim that every provider log is erased."
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Skills, toolchains and feedback",
+      "items": [
+        "skillsDir (often coordination/skills) overrides config skills.dir; full tree copies into .swarm/skills. Named skills override path matching; every known skill is indexed, attached bodies are prepended.",
+        "Estimated skill tokens = ceil(chars/4): >800 warns, >1200 refuses. Attached skill resultKeys conflicts can refuse dispatch; filesMustChange/resultKeys are checked before integration writes.",
+        "env and gotchas prefer the selected root, then the main worktree. Env denies reserved and secret-looking keys. env --print also materializes .swarm/bin/git with stash/unsafe-restore guards.",
+        "ports.mjs hashes the worktree path, skips the Vite HMR block, probes the base port and tries up to 50 blocks; it does not reserve or prove all ten ports free.",
+        "Coordinator-authored lessons become .swarm/gotchas.md or a --evidence failures block for the next prompt. There is no automatic agent-log→lessons writer in the inspected code."
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "What the adapters can actually do",
+      "items": [
+        "Claude file-tools mode: restricted/safe flags, empty MCP, no Chrome or Bash. It cannot execute tests. web:true adds WebSearch/WebFetch only to read-only jobs. File-tool scope is not an OS sandbox.",
+        "Claude shell: macOS sandbox-exec around the entire CLI, Bash plus file tools, dedicated worker key, scrubbed environment, job-scoped HOME and scratch outside repositories. setup executes first in the parent, outside this sandbox.",
+        "Claude shell internet access is through a localhost CONNECT proxy allowing api.anthropic.com:443 only. Own loopback tests are allowed; existing listening ports are denied unless explicit loopbackAllow is used. Nonempty networkAllow is refused.",
+        "Codex: sandbox-exec around codex exec with explicit -m, ephemeral session and last-message file. Can execute tests. The outer profile restricts files but does not deny network; do not apply Claude shell's network policy to it.",
+        "Codex grants its tree, git metadata, selected caches and scratch. Declared output copy-back remains the integration boundary; fallback results retain the tree. Codex never propagates missing outputs as deletes.",
+        "Hermes/Qwen have no file/shell tools, one turn and strict terminal JSONL; tool activity is rejected. API models have no tools, filesystem, browsing, image viewing or tests; only the parent performs transport and file writes."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Result handling and provider policy",
+      "items": [
+        "Codex resolves the last fenced/top-level object, then rereads the result file, then checks dirty declared outputs; fallback or invalid envelopes retain worktree evidence.",
+        "Plain Claude retries one transient 5xx/429 api_error in the kept workspace. A separate unparsable JSON-demand reply can receive one same-session re-ask. Claude shell is excluded from both unsandboxed paths.",
+        "API envelopes require every output exactly once as files or edits. find must match exactly once. Invalid structured envelopes retain response-invalid.txt. No shell or arbitrary output path is accepted.",
+        "OpenRouter enforces data_collection:deny; anthropic/* pins Anthropic without fallback; deepseek/* is bookkeeping-only. Pricing must be available and estimated request spend must fit $5/job and $25/day.",
+        "OpenRouter alone may retry empty length truncation once at twice the token limit after cap recheck. This is bounded retry, not a guarantee of exactly one HTTP request or a transactional spend reservation.",
+        "Provider-reported costs remain distinct from rates.mjs transcript estimates. Unreported costs stay null, with costNotReported; model mismatch warns rather than failing the job."
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Review and integration exceptions",
+      "items": [
+        "inspect compares base/current/proposed hashes and modes, lists blocked/missing/conflicting/ready files, and shows warnings and reported costs. --results prefers declared resultFile with parse/schema disagreement warnings.",
+        "integrate requires an acceptable completed run by default, acquires .swarm/integration.lock and verifies metadata, outputs, base hashes/modes, skill checks, deviations and dropped writes before writes.",
+        "--accept-blocked, --salvage, --accept-deviation, --accept-dropped and --salvage-dropped are explicit exceptions. The latter can recover saved undeclared writes; ordinary integration copies declared outputs.",
+        "Explicit deletes allow removal of existing outputs; absent-from-base-and-proposal outputs instead warn output-never-written. Codex's own output collector remains stricter and refuses missing files.",
+        "integrateRun has jobs/privateNamesFile parameters, but the inspected CLI does not parse/forward them for integrate. Its private-name scan is conditional on the direct parameter and limited to shared/, fixtures/, tests/. Ship has the wired CLI private-name gate.",
+        "Writes are followed by preChecks on every integration, then checks, then optional mutants on a green base. Checks failure does not roll files back; CLI exits nonzero by default. Partial write-stage failures are marked retryable."
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Checks and ship gates",
+      "items": [
+        "run performs a base check before dispatch; red base needs explicit acceptance/reason except the recorded auto-accept case where all identified failing locations are owned outputs.",
+        "runChecks classifies cannot-run/spawn-error/unrunnable separately, retries after preChecks once, and may compare failures with base. Mutants validate before writes and restore bytes in finally; redcheck tests against base while retaining tests.",
+        "ship requires integrated state for RUN or the selected checked-out branch for --branch, committed tracked files, parsed PR payload, resolved gh/git, pre-push content guards, appropriate lock/build checks, and rerun local checks.",
+        "The PR body's <!-- swarm:checks --> is replaced by check evidence. Missing/blank/leftover required sections refuse before push. Proven pre-existing failures yield held-red-check unless --accept-pre-existing.",
+        "After git push, gh api creates/updates the PR; CI must settle for the exact head SHA. no-ci, timeout or failing checks cannot merge. Limited flaky reruns distinguish changed tests from untouched/platform-only failures.",
+        "After green CI, first nonblank body line starting **needs holds for owner review and prints Changed/Could break/Proof. --no-merge returns ready. Otherwise gh pr merge pins the SHA, rereads MERGED and may wait for a release tag."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Auxiliary commands and installation",
+      "items": [
+        "doctor probes compatibility/configuration, optional local health; onboard renders readiness guidance. Neither is model-access proof. next --from reads a queued ticket hint; skills check validates frontmatter; help lists usage.",
+        "ask runs one read-only job; scout enables Claude web research and normalizes a license-gated report; sweep fetches gh/API candidates first, gates metadata in code and asks Claude to rank. Sweep's observed-cost threshold skips future areas, not in-flight ones.",
+        "verify --orb dispatch is visible, but tools/verify-orb.mjs is outside supplied context. agent-log is not a recognized tools/swarm.mjs command at this revision; per-job agent.log is the verified evidence path.",
+        "installUser snapshots tools/package/skill references to versions/<version>-<hash8>, atomically repoints current and keeps the newest five plus current. Active-version retention across repeated pruning is not guaranteed.",
+        "installProject writes .project-swarm.json, registry, missing coordination seeds, delimited agent pointers and .gitignore. update fetches and validates release tags then installs; update --projects requires --yes before pointer/backup changes.",
+        "packaging-check is used by validate/integrate/ship, not by installUser. check-pins independently compares Python/npm exact pins and vendored metadata. No install→preflight or install→check-pins call is asserted."
+      ]
+    }
+  ]
+}

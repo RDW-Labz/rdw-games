@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "concurrency": 1,
+  "jobs": [
+    {
+      "id": "t98-page",
+      "agent": "codex",
+      "model": "gpt-reserve",
+      "tier": "mid",
+      "timeoutMs": 1200000,
+      "context": [
+        "coordination/research/t98-ctx/scout-report.md",
+        "coordination/research/t98-ctx/rag-pipeline-README.md",
+        "coordination/research/t98-ctx/rag-pipeline-CHANGELOG.md",
+        "coordination/research/t98-ctx/agent-core-memory.md",
+        "coordination/research/t98-ctx/agent-core-scoreboard.md",
+        "coordination/research/t98-ctx/ticket-headers.md",
+        "coordination/research/t98-ctx/plan-lines.md",
+        "coordination/references/t98/INDEX.md"
+      ],
+      "outputs": [
+        "coordination/research/openhuman.md"
+      ],
+      "prompt": "You are job t98-page. Docs-only: do NOT run tests or install anything; no web access needed. Inputs: coordination/research/t98-ctx/scout-report.md (facts about tinyhumansai/openhuman, GPL-3, each with a source link), and our side: coordination/research/t98-ctx/rag-pipeline-README.md + rag-pipeline-CHANGELOG.md (rag-pipeline), coordination/research/t98-ctx/agent-core-memory.md (agent-core memory/drawers), coordination/research/t98-ctx/agent-core-scoreboard.md (Scoreboard), coordination/research/t98-ctx/plan-lines.md (plan lines on retrieval/drawers/traces), coordination/research/t98-ctx/ticket-headers.md (ticket ids). Write coordination/research/openhuman.md: ONE page (at most 55 lines, plain words, short bullets), ideas only. GPL-3 rule: no code, no code-like snippets, no quoted text longer than 8 words from openhuman; describe in your own words and link the source URL from the scout report for each openhuman fact. Sections: title '# openhuman \u2014 memory tree + run journal vs ours (T98, research only)'; a one-line verdict; '## Memory tree vs rag-pipeline + agent-core memory' (3-5 bullets: how theirs works, how ours differs); '## Run journal vs Scoreboard + action log' (3-5 bullets); '## Ideas worth borrowing' (3-6 bullets, each: the idea in our terms, why it helps Amber or the Scoreboard, and the ticket id it would touch from ticket-headers.md or 'new ticket'); '## Do not borrow' (2-4 bullets: things that clash with our rules: untrusted text in system instructions (decision 73), telemetry on by default, secrets handling, hosted memory backend, GPL code); '## Install/connect flow' (2 lines: what it is, pointer to coordination/references/t98/INDEX.md for screenshots, relevance to T77 Coworkers page and T75 updater); '## Sources' (the openhuman commit sha and date from the scout report, plus the links used). Use no names of people. If the scout report lacks a fact, say 'not found' rather than guessing. Do not edit any other file. Return JSON only: {\"status\":\"complete|blocked\",\"filesChanged\":[...],\"reproTest\":\"coordination/research/openhuman.md\",\"notes\":\"<=2 lines\"}"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+name: Import D2L Wayfair Manifest
+
+# Pulls a D2L Wayfair-returns manifest JSON from the shared Google Drive
+# folder ("D2L manifests" — the owner's d2l fetch app drops
+# Harrison_ir_<date>.json there every few days) and imports it into the
+# manifest pool via scripts/import-d2l-manifest.mjs. Dedupe on
+# (operator_id, tracking_number) makes re-runs and overlapping manifests safe.
+#
+# The Drive file must be link-accessible ("Anyone with the link — Viewer" on
+# the file or its folder); the download step fails loudly with instructions
+# if it isn't.
+#
+# Dispatched by the Claude ops session (which watches the Drive folder for
+# new files) or manually with a Drive file id.
+
+on:
+  workflow_dispatch:
+    inputs:
+      file_id:
+        description: 'Google Drive file id of the manifest JSON'
+        required: true
+        type: string
+      filename:
+        description: 'Label for the imports audit row (e.g. Harrison_ir_2026-07-06.json)'
+        required: false
+        type: string
+        default: 'd2l-manifest.json'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: import-d2l
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Download manifest from Google Drive
+        run: |
+          set -euo pipefail
+          # drive.usercontent.google.com serves link-shared files directly,
+          # including >25MB files that the classic uc endpoint gates behind a
+          # virus-scan interstitial.
+          curl -sSL --max-time 120 -o /tmp/manifest.json \
+            "https://drive.usercontent.google.com/download?id=${{ inputs.file_id }}&export=download&confirm=t"
+          # Loud failure when the file isn't link-shared (Drive returns an
+          # HTML sign-in/denied page instead of JSON).
+          if ! head -c 1 /tmp/manifest.json | grep -q '\['; then
+            echo '::error::Download did not return a JSON array. Most likely the file/folder is not link-shared. Fix: in Google Drive, right-click the "D2L manifests" folder → Share → General access → "Anyone with the link" (Viewer), then re-run.'
+            echo '--- first 300 bytes of response ---'
+            head -c 300 /tmp/manifest.json
+            exit 1
+          fi
+          ls -la /tmp/manifest.json
+          # Schema visibility: the first entry's shape, for diagnosing
+          # zero-row imports (e.g. lotting_export.json vs Harrison_ir_*).
+          echo '--- first 2500 bytes of manifest ---'
+          head -c 2500 /tmp/manifest.json || true
+          echo ''
+
+      - name: Import into manifest pool
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: https://npwseclcxcatjhgjrtwe.supabase.co
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: node scripts/import-d2l-manifest.mjs --file /tmp/manifest.json --filename "${{ inputs.filename }}"

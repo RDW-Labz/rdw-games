@@ -1,0 +1,29 @@
+# One Hermes job (decision #384). Started only by /opt/hermes-dev2/sbin/hermes-job-start.
+# The sandbox lives in hermes-w-.service.d/10-sandbox.conf; this job's
+# network namespace is shared with its forwarder hermes-fwd@%i.service.
+#
+# The proxy is only WANTED (not required): restarting the proxy never stops
+# running jobs (the forwarder opens a fresh proxy connection per request).
+# Every end of the job (success, failure, timeout, stop) starts
+# hermes-job-finish@%i.service (root, host namespaces). If a dependency fails
+# (precheck, forwarder or firewall) the job never starts and nothing runs;
+# the watchdog and the next start reap the folder as "failed: dependency".
+[Unit]
+Description=Hermes worker job %i
+Requires=hermes-firewall.service hermes-fwd@%i.service
+Requires=hermes-precheck@job-%i.service
+BindsTo=hermes-fwd@%i.service
+Wants=hermes-proxy.service
+After=hermes-firewall.service hermes-proxy.service hermes-fwd@%i.service
+After=hermes-precheck@job-%i.service
+JoinsNamespaceOf=hermes-fwd@%i.service
+RequiresMountsFor=/var/lib/hermes-jobs/work
+OnSuccess=hermes-job-finish@%i.service
+OnFailure=hermes-job-finish@%i.service
+
+[Service]
+Type=exec
+WorkingDirectory=/var/lib/hermes-jobs/work/%i
+BindPaths=/var/lib/hermes-jobs/work/%i
+ReadWritePaths=/var/lib/hermes-jobs/work/%i
+ExecStart=/opt/hermes-dev2/bin/hermes-job-run %i

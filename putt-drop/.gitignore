@@ -1,0 +1,26 @@
+# dependencies / build output
+node_modules/
+build/
+.vite/
+test-results/
+playwright-report/
+
+# Capacitor native build output
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+
+# secrets and local deploy state (keystore lives outside the repo)
+.env
+.env.*
+.env*
+.secrets/
+*.jks
+*.keystore
+*.p12
+
+.DS_Store
+
+# pipeline secrets file (sync-secrets.sh input; .secrets/ is already ignored)
+.env.ship

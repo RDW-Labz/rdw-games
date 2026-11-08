@@ -1,0 +1,51 @@
+[
+  {
+    "mutant": "a",
+    "file": "src/lib/holoCardState.ts",
+    "change": "Remove visibility gate: const live = seen && !hidden (ignore visible prop)",
+    "failingTests": [
+      "useHoloCardState > visible=false: no animation whatever the pointer does",
+      "HoloCard > visible=false: static fallback img, no 3D tree, hover cannot wake it"
+    ],
+    "survivedFirst": false,
+    "addedTest": null,
+    "reverted": true
+  },
+  {
+    "mutant": "b",
+    "file": "src/lib/holoCardState.ts",
+    "change": "Make card start flipped: useState(true) instead of useState(false)",
+    "failingTests": [
+      "HoloCard > back face shows name, category and the More motion tag only when moreMotion",
+      "HoloCard > key \"Enter\" flips to the back and a second press flips back",
+      "HoloCard > key \" \" flips to the back and a second press flips back",
+      "HoloCard > mutant b: a fresh card shows the front, never the back, until flipped",
+      "HoloCard > visible=false: static fallback img, no 3D tree, hover cannot wake it",
+      "HoloCard > hovered=false: static fallback with no animation; hover swaps in the 3D tree and leave swaps it out",
+      "HoloCard > mutant c: not hovered, or reduced and idle, renders the static img fallback with zero 3D vars",
+      "HoloCard > reduced: flip is instant and tilt and glare never move",
+      "HoloCard > Pick is a real button on the back and onClick flows out without flipping the card",
+      "HoloCard > a hidden page or card drops back to the static fallback",
+      "useHoloCardState > toggleFlip flips and the flip persists across visibility changes",
+      "T50 HoloCard wiring > Clicking Pick button on HoloCard calls parent onPick",
+      "T50 HoloCard wiring > HoloCard category comes from group label"
+    ],
+    "survivedFirst": false,
+    "addedTest": null,
+    "reverted": true
+  },
+  {
+    "mutant": "c",
+    "file": "src/components/HoloCard.tsx",
+    "change": "Always render 3D tree: const fallback = false (remove static fallback)",
+    "failingTests": [
+      "HoloCard > visible=false: static fallback img, no 3D tree, hover cannot wake it",
+      "HoloCard > hovered=false: static fallback with no animation; hover swaps in the 3D tree and leave swaps it out",
+      "HoloCard > mutant c: not hovered, or reduced and idle, renders the static img fallback with zero 3D vars",
+      "HoloCard > a hidden page or card drops back to the static fallback"
+    ],
+    "survivedFirst": false,
+    "addedTest": null,
+    "reverted": true
+  }
+]

@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "kind": "native-task-boundary",
+  "status": "READY",
+  "ticket": "T12b companion",
+  "model": "gpt-5.6-sol",
+  "worktree": "worktrees/desktop-app-auth",
+  "context": [
+    "AGENTS.md",
+    "docs/PLAN.md",
+    "docs/TICKETS.md",
+    "docs/DECISIONS.md",
+    "coordination/TASK.md",
+    "worktrees/desktop-app-auth/AGENTS.md",
+    "worktrees/desktop-app-auth/AGENTS.workspace.md",
+    "worktrees/desktop-app-auth/docs/local-api.md",
+    "worktrees/desktop-app-auth/src/lib/serviceClient.ts",
+    "worktrees/desktop-app-auth/src/App.tsx",
+    "worktrees/desktop-app-auth/src/orb/OrbApp.tsx",
+    "worktrees/desktop-app-auth/src/components/Chat.tsx",
+    "worktrees/desktop-app-auth/tests/fakeService.ts",
+    "worktrees/desktop-app-auth/tests/Chat.test.tsx",
+    "worktrees/desktop-app-auth/tests/App.test.tsx",
+    "worktrees/desktop-app-auth/src-tauri/src/lib.rs",
+    "worktrees/desktop-app-auth/src-tauri/Cargo.toml"
+  ],
+  "ownership": [
+    "src/lib/serviceClient.ts",
+    "src-tauri/src/lib.rs",
+    "src-tauri/Cargo.toml",
+    "src-tauri/Cargo.lock",
+    "tests/fakeService.ts",
+    "tests/serviceClientAuth.test.ts",
+    "tests/Chat.test.tsx",
+    "docs/local-api.md",
+    "docs/changes-T12b-auth.md"
+  ],
+  "prompt": "Implement the approved narrow Rig authentication companion for T12b. Keep every local-api endpoint path, JSON payload and response shape unchanged; document the auth addition in docs/local-api.md. The service token is the existing SecretStore entry username/account rig.service_token in OS keyring service OASIS. Keep token acquisition in the native Tauri boundary, never ask for a token, URL or port in UI, never log or expose token text to app errors, fixtures or responses, and never put it in a URL. Add Authorization: Bearer <token> to HTTP requests. For browser WebSocket auth use new WebSocket(url, [bearer, token]); the service validates the second Sec-WebSocket-Protocol value and echoes bearer only. Use injectable fake token sk-FAKE-0000 in tests, update the fake service and chat/client tests, and cover missing keychain value and malformed auth safely. Preserve endpoint paths/payloads and existing UI behavior. Do not edit agent-core, onboarding or unrelated desktop files; do not generate unrelated features, commit, merge or publish. Return the required ticket JSON report with checks marked unrun until coordinator runs them.",
+  "acceptance": [
+    "npm ci",
+    "npm test",
+    "npm run lint",
+    "npm run typecheck",
+    "npm run build",
+    "cargo fmt --manifest-path src-tauri/Cargo.toml -- --check",
+    "cargo clippy --manifest-path src-tauri/Cargo.toml --locked --all-targets -- -D warnings",
+    "cargo test --manifest-path src-tauri/Cargo.toml --locked",
+    "npm run tauri build -- --no-bundle",
+    "git diff --check"
+  ],
+  "constraints": [
+    "Braden approved this companion PR; paths and payloads must remain unchanged.",
+    "No real keychain access, secrets, updater keys or provider calls in tests.",
+    "One writer per declared file; root integrates shared release/changelog material later."
+  ],
+  "timeoutMs": 3600000
+}

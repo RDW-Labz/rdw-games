@@ -1,0 +1,412 @@
+[
+  {
+    "tot": {
+      "lines": 2428,
+      "hammer_c": 3229569,
+      "with_refund_item_audit": 2422,
+      "counter_marked_missing": 521,
+      "lot_destroyed": 335,
+      "lot_missing_kind": 18,
+      "disposal_flag": 357,
+      "note_nonempty": 759,
+      "no_shelf": 39,
+      "relisted_lot": 635
+    },
+    "by_reason": [
+      {
+        "sr": "defective_item",
+        "counter_missing": false,
+        "n": 1429,
+        "c": 2172098
+      },
+      {
+        "sr": "wrong_item",
+        "counter_missing": true,
+        "n": 499,
+        "c": 393613
+      },
+      {
+        "sr": "other",
+        "counter_missing": false,
+        "n": 220,
+        "c": 379427
+      },
+      {
+        "sr": "wrong_item",
+        "counter_missing": false,
+        "n": 186,
+        "c": 165507
+      },
+      {
+        "sr": "damaged_in_transit",
+        "counter_missing": false,
+        "n": 72,
+        "c": 94457
+      },
+      {
+        "sr": "defective_item",
+        "counter_missing": true,
+        "n": 15,
+        "c": 22267
+      },
+      {
+        "sr": "(no item audit)",
+        "counter_missing": true,
+        "n": 6,
+        "c": 2100
+      },
+      {
+        "sr": "other",
+        "counter_missing": true,
+        "n": 1,
+        "c": 100
+      }
+    ],
+    "by_wh": [
+      {
+        "wh": "?",
+        "refunded": 1346,
+        "sold": 2189,
+        "rate": 0.615
+      },
+      {
+        "wh": "Harrison",
+        "refunded": 1081,
+        "sold": 18150,
+        "rate": 0.06
+      },
+      {
+        "wh": "Dodge City",
+        "refunded": 1,
+        "sold": 1,
+        "rate": 1
+      }
+    ],
+    "by_cat": [
+      {
+        "cat": "Other",
+        "refunded": 1029,
+        "sold": 8591,
+        "rate": 0.12,
+        "c": 1526638
+      },
+      {
+        "cat": "Furniture",
+        "refunded": 628,
+        "sold": 3086,
+        "rate": 0.203,
+        "c": 965527
+      },
+      {
+        "cat": "Home & Garden",
+        "refunded": 199,
+        "sold": 2191,
+        "rate": 0.091,
+        "c": 207694
+      },
+      {
+        "cat": "Electronics",
+        "refunded": 89,
+        "sold": 958,
+        "rate": 0.093,
+        "c": 100309
+      },
+      {
+        "cat": "Home & Kitchen › Furniture",
+        "refunded": 78,
+        "sold": 234,
+        "rate": 0.333,
+        "c": 51621
+      },
+      {
+        "cat": "Tools & Hardware",
+        "refunded": 75,
+        "sold": 770,
+        "rate": 0.097,
+        "c": 59810
+      },
+      {
+        "cat": "Appliances",
+        "refunded": 39,
+        "sold": 383,
+        "rate": 0.102,
+        "c": 88331
+      },
+      {
+        "cat": "Pet Supplies",
+        "refunded": 26,
+        "sold": 351,
+        "rate": 0.074,
+        "c": 23368
+      },
+      {
+        "cat": "Toys & Games",
+        "refunded": 25,
+        "sold": 284,
+        "rate": 0.088,
+        "c": 29411
+      },
+      {
+        "cat": "Bedding & Linens",
+        "refunded": 23,
+        "sold": 219,
+        "rate": 0.105,
+        "c": 19001
+      },
+      {
+        "cat": "Kitchen",
+        "refunded": 16,
+        "sold": 278,
+        "rate": 0.058,
+        "c": 16501
+      },
+      {
+        "cat": "Health & Beauty",
+        "refunded": 15,
+        "sold": 479,
+        "rate": 0.031,
+        "c": 8809
+      },
+      {
+        "cat": "Clothing",
+        "refunded": 15,
+        "sold": 213,
+        "rate": 0.07,
+        "c": 9200
+      },
+      {
+        "cat": "Bath",
+        "refunded": 12,
+        "sold": 175,
+        "rate": 0.069,
+        "c": 14520
+      },
+      {
+        "cat": "Automotive",
+        "refunded": 10,
+        "sold": 162,
+        "rate": 0.062,
+        "c": 5388
+      }
+    ],
+    "by_lotter": [
+      {
+        "lotter": "c482d0",
+        "refunded": 173,
+        "sold": 810,
+        "rate": 0.214
+      },
+      {
+        "lotter": "df069f",
+        "refunded": 122,
+        "sold": 610,
+        "rate": 0.2
+      },
+      {
+        "lotter": "9f5373",
+        "refunded": 367,
+        "sold": 2039,
+        "rate": 0.18
+      },
+      {
+        "lotter": "8ac030",
+        "refunded": 94,
+        "sold": 703,
+        "rate": 0.134
+      },
+      {
+        "lotter": "8cc74a",
+        "refunded": 107,
+        "sold": 848,
+        "rate": 0.126
+      },
+      {
+        "lotter": "f61183",
+        "refunded": 50,
+        "sold": 447,
+        "rate": 0.112
+      },
+      {
+        "lotter": "(no worker)",
+        "refunded": 1134,
+        "sold": 10315,
+        "rate": 0.11
+      },
+      {
+        "lotter": "fe6935",
+        "refunded": 13,
+        "sold": 120,
+        "rate": 0.108
+      },
+      {
+        "lotter": "c9889c",
+        "refunded": 49,
+        "sold": 558,
+        "rate": 0.088
+      },
+      {
+        "lotter": "dc17df",
+        "refunded": 94,
+        "sold": 1087,
+        "rate": 0.086
+      },
+      {
+        "lotter": "b29d65",
+        "refunded": 104,
+        "sold": 1256,
+        "rate": 0.083
+      },
+      {
+        "lotter": "d7b68f",
+        "refunded": 10,
+        "sold": 134,
+        "rate": 0.075
+      },
+      {
+        "lotter": "0138df",
+        "refunded": 62,
+        "sold": 836,
+        "rate": 0.074
+      },
+      {
+        "lotter": "d5169f",
+        "refunded": 11,
+        "sold": 240,
+        "rate": 0.046
+      }
+    ],
+    "by_refunder": [
+      {
+        "refunder": "ab8728",
+        "n": 2422,
+        "wrong_missing": 685,
+        "defective": 1444,
+        "damaged": 72,
+        "other": 221
+      },
+      {
+        "refunder": "(no audit)",
+        "n": 6,
+        "wrong_missing": 0,
+        "defective": 0,
+        "damaged": 0,
+        "other": 0
+      }
+    ],
+    "by_shelf_relist": [
+      {
+        "shelved": false,
+        "relisted": false,
+        "refunded": 24,
+        "sold": 108,
+        "rate": 0.222
+      },
+      {
+        "shelved": true,
+        "relisted": true,
+        "refunded": 620,
+        "sold": 2446,
+        "rate": 0.253
+      },
+      {
+        "shelved": false,
+        "relisted": true,
+        "refunded": 15,
+        "sold": 24,
+        "rate": 0.625
+      },
+      {
+        "shelved": true,
+        "relisted": false,
+        "refunded": 1769,
+        "sold": 17762,
+        "rate": 0.1
+      }
+    ],
+    "by_timing": [
+      {
+        "b": "a <1d",
+        "n": 609
+      },
+      {
+        "b": "b 1-3d",
+        "n": 823
+      },
+      {
+        "b": "c 3-7d",
+        "n": 940
+      },
+      {
+        "b": "d 7d+",
+        "n": 56
+      }
+    ],
+    "by_week": [
+      {
+        "wk": "2026-07-20",
+        "refunded": 55,
+        "sold": 871
+      },
+      {
+        "wk": "2026-07-27",
+        "refunded": 147,
+        "sold": 1571
+      },
+      {
+        "wk": "2026-08-03",
+        "refunded": 212,
+        "sold": 1825
+      },
+      {
+        "wk": "2026-08-10",
+        "refunded": 150,
+        "sold": 1626
+      },
+      {
+        "wk": "2026-08-17",
+        "refunded": 178,
+        "sold": 1434
+      },
+      {
+        "wk": "2026-08-24",
+        "refunded": 206,
+        "sold": 1763
+      },
+      {
+        "wk": "2026-08-31",
+        "refunded": 175,
+        "sold": 1284
+      },
+      {
+        "wk": "2026-09-07",
+        "refunded": 455,
+        "sold": 1590
+      },
+      {
+        "wk": "2026-09-14",
+        "refunded": 227,
+        "sold": 1658
+      },
+      {
+        "wk": "2026-09-21",
+        "refunded": 192,
+        "sold": 1854
+      },
+      {
+        "wk": "2026-09-28",
+        "refunded": 256,
+        "sold": 2003
+      },
+      {
+        "wk": "2026-10-05",
+        "refunded": 151,
+        "sold": 2060
+      },
+      {
+        "wk": "2026-10-12",
+        "refunded": 24,
+        "sold": 801
+      }
+    ]
+  }
+]

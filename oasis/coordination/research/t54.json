@@ -1,0 +1,127 @@
+{
+  "picks": [],
+  "rejected": [
+    {
+      "name": "Kenney: UI Audio",
+      "url": "https://kenney.nl/assets/ui-audio",
+      "license": "CC0 1.0",
+      "licenseEvidence": "Page states license is 'Creative Commons CC0' with link to creativecommons.org/publicdomain/zero/1.0/",
+      "commit": "current pack, page checked 2026-09-28",
+      "stars": 0,
+      "lastCommit": "n/a (static asset page)",
+      "gives": "50 UI sound effects (clicks, switches, tones) suitable for yes/no/pause-resume/click cues",
+      "fit": "drop-in",
+      "where": "assets/audio/ui/ (re-encode WAV→M4A or keep WAV for WebView compatibility)",
+      "risk": "Delivered as WAV/OGG; OGG must be re-encoded for WKWebView support",
+      "reason": "license not allowed: CC0 1.0",
+      "rejectedBy": "license-gate: license not allowed: CC0 1.0"
+    },
+    {
+      "name": "OpenGameArt: UI Sound Effects (Button Clicks, User Feedback, Notifications)",
+      "url": "https://opengameart.org/content/ui-sound-effects-button-clicks-user-feedback-notifications",
+      "license": "CC0",
+      "licenseEvidence": "Page license field set to CC0 with link to CC0 public domain dedication; description notes sounds sourced from public domain VCSL/VSCO2 CE sample libraries",
+      "commit": "page checked 2026-09-28",
+      "stars": 0,
+      "lastCommit": "n/a (static asset page)",
+      "gives": "Chime/notification/attention/error style clips, good fit for the orb 'needs-you' chime",
+      "fit": "drop-in",
+      "where": "assets/audio/ui/needs-you.*",
+      "risk": "Delivered as a zip of many files; must extract and audition to pick the right one",
+      "reason": "license not allowed: CC0",
+      "rejectedBy": "license-gate: license not allowed: CC0"
+    },
+    {
+      "name": "OpenGameArt: 100 CC0 SFX",
+      "url": "https://opengameart.org/content/100-cc0-sfx",
+      "license": "CC0",
+      "licenseEvidence": "Page license field set to CC0 with link to CC0 dedication",
+      "commit": "page checked 2026-09-28",
+      "stars": 0,
+      "lastCommit": "n/a (static asset page)",
+      "gives": "Fallback bell/gong/hit sounds if Kenney's tone doesn't match the orb's character",
+      "fit": "adapt",
+      "where": "assets/audio/ui/ (fallback only)",
+      "risk": "Broad grab-bag pack (doors, explosions, mechanical noise) — most content irrelevant, requires sifting",
+      "reason": "license not allowed: CC0",
+      "rejectedBy": "license-gate: license not allowed: CC0"
+    },
+    {
+      "name": "Pixabay Music: Cinematic Logo (161456)",
+      "url": "https://pixabay.com/sound-effects/musical-cinematic-logo-161456/",
+      "license": "Pixabay Content License (free for commercial use, no attribution required)",
+      "licenseEvidence": "Page states 'Free for use under the Pixabay Content License'; Terms grant 'irrevocable, worldwide, perpetual...non-exclusive and royalty-free right to download, use, copy, modify or adapt the Content for commercial or non-commercial purposes', prohibiting only resale/distribution 'on a Standalone ba…",
+      "commit": "page dated 2023-08-10, checked 2026-09-28",
+      "stars": 0,
+      "lastCommit": "2023-08-10",
+      "gives": "10-second cinematic track to trim into the 8s full splash cut and 2s daily cut",
+      "fit": "adapt",
+      "where": "assets/audio/splash/score.m4a (source edit down from 10s)",
+      "risk": "ToS 'Standalone' distribution clause is not written with embedded-app-asset use explicitly in mind; using it inside the app (not reselling the audio file itself) fits the normal reading but is the one clause to keep in mind",
+      "reason": "license not allowed: Pixabay Content License (free for commercial use, no attribution required)",
+      "rejectedBy": "license-gate: license not allowed: Pixabay Content License (free for commercial use, no attribution required)"
+    },
+    {
+      "name": "Freesound: Orchestral Hit by Rizzard (559391)",
+      "url": "https://freesound.org/people/Rizzard/sounds/559391/",
+      "license": "CC0 1.0",
+      "licenseEvidence": "Page states license as 'Creative Commons 0': 'You can copy, modify, distribute and perform the sound, even for commercial purposes, all without asking permission'",
+      "commit": "sound id 559391, checked 2026-09-28",
+      "stars": 0,
+      "lastCommit": "n/a (static asset page)",
+      "gives": "4-second orchestral hit to accent the splash score's key beat or a decisive confirm sting",
+      "fit": "drop-in",
+      "where": "assets/audio/splash/accent.wav",
+      "risk": "Downloading the actual file requires creating/logging into a free Freesound account (not done during this read-only scout)",
+      "reason": "license not allowed: CC0 1.0",
+      "rejectedBy": "license-gate: license not allowed: CC0 1.0"
+    },
+    {
+      "name": "Zapsplat",
+      "url": "https://www.zapsplat.com/",
+      "reason": "Free tier requires in-app/in-credits attribution; attribution-free use only unlocked via paid Premium upgrade"
+    },
+    {
+      "name": "SilverIllusionist \"Cinematic Stings\" (Freesound pack)",
+      "url": "https://freesound.org/people/SilverIllusionist/packs/35496/",
+      "reason": "Explicit 'you must credit me if you use this' attribution requirement on every sound in the pack"
+    },
+    {
+      "name": "Kevin MacLeod / Incompetech library",
+      "url": "https://incompetech.com/",
+      "reason": "Standard license is CC BY, mandatory attribution — an attribution-only trap the brief asks to avoid"
+    },
+    {
+      "name": "AudioJungle / Envato Elements logo stings",
+      "url": "https://audiojungle.net/search/logo%20sting",
+      "reason": "Paid marketplace, no free-for-commercial tier"
+    },
+    {
+      "name": "Storyblocks",
+      "url": "https://www.storyblocks.com/audio/search/logo-sting",
+      "reason": "Subscription-only access to the audio library"
+    },
+    {
+      "name": "Pond5 logo stings",
+      "url": "https://www.pond5.com/royalty-free-music/tag/logo-sting/",
+      "reason": "Paid royalty-free marketplace, not free"
+    }
+  ],
+  "top": [
+    "Kenney UI Audio — cleanest CC0 fit for all four orb cues in one small pack",
+    "Pixabay 'Cinematic Logo' — best ready-made base for the 8s/2s splash score cuts, no login barrier",
+    "OpenGameArt 'UI Sound Effects (…Notifications)' — best-targeted CC0 source for the needs-you chime"
+  ],
+  "moved": [
+    "Kenney: UI Audio",
+    "OpenGameArt: UI Sound Effects (Button Clicks, User Feedback, Notifications)",
+    "OpenGameArt: 100 CC0 SFX",
+    "Pixabay Music: Cinematic Logo (161456)",
+    "Freesound: Orchestral Hit by Rizzard (559391)"
+  ],
+  "id": "scout-1790630067887-a87ee218",
+  "goal": "T54 sound shortlist: CC0 / free-commercial SFX and music packs for a splash score and orb UI sounds (needs-you chime, yes, no, pause), plus audio bundling rules for a Tauri 2 desktop app.",
+  "model": "sonnet",
+  "actualModel": "claude-sonnet-5",
+  "createdAt": "2026-09-28T21:17:05.238Z"
+}

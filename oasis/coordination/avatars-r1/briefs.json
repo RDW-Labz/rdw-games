@@ -1,0 +1,532 @@
+{
+ "themes": [
+  {
+   "id": "arcade",
+   "name": "Arcade '80s",
+   "characters": [
+    {
+     "id": "arcade-01",
+     "name": "Joss",
+     "brief": "Early 20s, slim, light skin tone, short bleached-blonde mullet. Neon windbreaker over a striped tee, high-top sneakers, a laminated arcade-token badge clipped to a chest pocket. Stands with one hand tucked in a jacket pocket, head tilted, grinning wide, feet planted shoulder-width apart, clearly delighted to be at work today."
+    },
+    {
+     "id": "arcade-02",
+     "name": "Ricki",
+     "brief": "Late 50s, stocky build, deep brown skin, greying box-braids pulled back with a terrycloth headband. Wears a purple satin bomber jacket over a graphic tee, chunky sneakers, holding a clipboard against one hip. Stands square-shouldered, chin up, warm confident smile, other hand resting loosely on a belt loop."
+    },
+    {
+     "id": "arcade-03",
+     "name": "Dex",
+     "brief": "Mid 30s, tall and lanky, medium olive skin, short curly dark hair under a thin headband. Acid-wash jean jacket over a striped polo, mismatched neon socks under sneakers, a coiled keychain of tiny tokens hanging from a belt loop. Arms loosely crossed, easy grin, weight shifted onto one hip."
+    },
+    {
+     "id": "arcade-04",
+     "name": "Marnie",
+     "brief": "70s, short and rounded, very light freckled skin, silver hair permed into tight curls. Bright pink cardigan over a sequined tee, comfortable orthopedic sneakers, a vintage stopwatch on a lanyard around her neck. One hand raised in a small wave, head tilted warmly, standing steady with both feet planted."
+    },
+    {
+     "id": "arcade-05",
+     "name": "Tobin",
+     "brief": "Mid 40s, broad build, tan skin, buzzed dark hair with a thin shaved racing stripe. Track jacket zipped over a tank top, wristbands, joggers tucked into hi-tops, a worn joystick controller hooked to a carabiner at the hip. Thumbs hooked in his waistband, relaxed stance, easy half-smile, feet grounded."
+    },
+    {
+     "id": "arcade-06",
+     "name": "Cass",
+     "brief": "Late 20s, slim, dark brown skin, waist-length box braids dyed with electric-blue tips. Oversized graphic sweatshirt over leggings, leg warmers, chunky trainers, a small tablet held flat against her chest. Head tilted with curiosity, one eyebrow raised, a soft knowing smile, standing relaxed with weight on one leg."
+    },
+    {
+     "id": "arcade-07",
+     "name": "Wendell",
+     "brief": "Early 60s, plus-size, medium-light skin, thinning grey hair combed back, wire-rim glasses. Hawaiian-print shirt tucked into high-waisted trousers, canvas sneakers, a badge reel of retro pin buttons clipped to a breast pocket. Hands clasped in front of him, kindly smile, standing patient and upright, both feet grounded."
+    },
+    {
+     "id": "arcade-08",
+     "name": "Foxy",
+     "brief": "Early 30s, athletic build, medium skin tone, a shaved undercut with a long dyed-green fringe, a hearing aid visible behind one ear. Metallic bomber jacket, bike shorts, leg warmers, sneakers, a coiled wristband console strapped to one forearm. One hand on hip, bright confident smirk, feet planted apart."
+    },
+    {
+     "id": "arcade-09",
+     "name": "Lark",
+     "brief": "Early 20s, short and slight, very light skin, buzzed platinum hair with a pastel undercut design. Puffy vest over a striped turtleneck, jelly bracelets stacked up one arm, holding a handheld game console at chest height. Bouncing slightly on the balls of the feet, wide grin, both feet still grounded."
+    },
+    {
+     "id": "arcade-10",
+     "name": "Benno",
+     "brief": "Mid 50s, tall, heavyset, dark brown skin, salt-and-pepper afro. Varsity jacket with patches over a mock turtleneck, straight-leg jeans, retro sneakers, a large chunky wristwatch. Standing with arms loosely crossed, calm proud posture, subtle amused smile, weight evenly balanced on both feet."
+    },
+    {
+     "id": "arcade-11",
+     "name": "Trix",
+     "brief": "Late 30s, curvy build, medium-dark skin, tight curls dyed magenta at the crown. Neon layered top over a cropped jacket, leggings, leg warmers over sneakers, a fanny pack worn at the hip like a tool belt. Hip cocked, one hand resting on the fanny pack, playful squinting grin."
+    },
+    {
+     "id": "arcade-12",
+     "name": "Odessa",
+     "brief": "70s, slim, very light skin, short silver pixie cut, a cane held in one hand while standing. Sequined cardigan over a collared shirt, wide-leg trousers, orthopedic loafers, a laminated high-score badge pinned to her lapel. Standing tall leaning lightly on the cane, serene proud smile, chin lifted."
+    }
+   ]
+  },
+  {
+   "id": "space",
+   "name": "Deep space",
+   "characters": [
+    {
+     "id": "space-01",
+     "name": "Juno",
+     "brief": "Mid 20s, slim, medium-dark skin, tight black coils cropped short. Quilted utility vest over a fitted turtleneck, magnetic boots, a wrist-mounted scanner. Standing with one hand raised to shield her eyes, head tilted up as if reading a display, easy curious smile, both feet grounded."
+    },
+    {
+     "id": "space-02",
+     "name": "Astrid",
+     "brief": "60s, broad build, very light skin, long silver hair braided over one shoulder. Padded coverall unzipped over a thermal layer, a utility belt hung with small tools, a battered tablet held against her chest. Standing solid and calm, warm knowing smile, one eyebrow raised, feet steady."
+    },
+    {
+     "id": "space-03",
+     "name": "Kwame",
+     "brief": "Early 40s, tall and lean, dark brown skin, close-cropped hair with a neat beard. Fitted jumpsuit with rolled sleeves, fingerless gloves, a coiled cable slung over one shoulder like a satchel strap. Arms loosely crossed, chin lifted, quiet confident half-smile, weight even on both feet."
+    },
+    {
+     "id": "space-04",
+     "name": "Priya",
+     "brief": "Late 20s, short and curvy, medium skin tone, a long thick braid pinned up. Sleeveless padded jacket over a mesh underlayer, a satchel of sample vials strapped across her chest, fingerless gloves. Hand resting on the satchel strap, head tilted with bright curiosity, relaxed grounded stance."
+    },
+    {
+     "id": "space-05",
+     "name": "Nash",
+     "brief": "Early 50s, stocky, tan skin, buzzed grey hair, a prosthetic hand visible below one rolled sleeve. Heavy canvas overalls, a tool belt loaded with small instruments, sturdy boots. Standing squarely, thumbs hooked near the belt, calm weathered smile, feet planted wide and steady."
+    },
+    {
+     "id": "space-06",
+     "name": "Solvei",
+     "brief": "Mid 30s, tall and slim, very light skin, platinum hair shaved on one side. Structured jacket with a stand collar, matte leggings, a slim datapad held at chest height. Standing straight, one hand tucked behind her back, serene composed smile, relaxed shoulders, feet grounded."
+    },
+    {
+     "id": "space-07",
+     "name": "Ezra",
+     "brief": "Early 20s, slight build, light-medium skin, curly red hair tucked under a soft cap. Oversized quilted jacket over a jumpsuit, patched knee pads, a small satchel across the body. Bouncing slightly on his heels, wide grin, one hand giving a small wave, both feet grounded."
+    },
+    {
+     "id": "space-08",
+     "name": "Mireille",
+     "brief": "70s, plus-size, medium-dark skin, cropped white natural hair. Long structured coat over a jumpsuit, a beaded lanyard of mission badges, sturdy flat boots. Standing with hands clasped in front of her, serene proud expression, head held high, calm steady stance."
+    },
+    {
+     "id": "space-09",
+     "name": "Oskar",
+     "brief": "Mid 40s, broad and heavyset, medium-light skin, receding sandy hair, round wire glasses. Heavy work jacket over a turtleneck, tool belt with small gauges, a mug held at chest height with steam curling up. Weight on one hip, relaxed smile, other hand resting on the belt."
+    },
+    {
+     "id": "space-10",
+     "name": "Tamsin",
+     "brief": "Late 30s, athletic build, dark skin, tight coils in a high bun, a visible hearing aid at one ear. Fitted flight suit with reflective piping, a headset looped around her neck, a slim scanner clipped to a chest pocket. Hands loosely at her sides, alert friendly grin, feet grounded."
+    },
+    {
+     "id": "space-11",
+     "name": "Rafik",
+     "brief": "60s, tall and lean, olive skin, salt-and-pepper hair swept back, a trimmed grey beard. Long insulated coat over layered thermals, a walking cane held while standing, a badge of rank pinned to the collar. Leaning lightly on the cane, dignified warm smile, upright posture."
+    },
+    {
+     "id": "space-12",
+     "name": "Corvo",
+     "brief": "An original alien being: slender and four-armed, smooth indigo-grey skin, large amber eyes, no hair, faint bioluminescent freckles on the cheeks. Wears a simple wrap-vest and utility sash, holds a small multitool in one lower hand. Two upper arms crossed loosely, calm friendly gaze, standing tall and steady."
+    }
+   ]
+  },
+  {
+   "id": "hitchhiker",
+   "name": "Galactic hitchhiker",
+   "characters": [
+    {
+     "id": "hitchhiker-01",
+     "name": "Zib",
+     "brief": "An original alien being: short and round, mottled teal-green skin, three small eyes in a triangle, no hair, stubby limbs. Wears a patched poncho over a woven satchel strap, holds a battered star-chart scroll. Standing on two sturdy legs, head tilted with cheerful curiosity, both feet grounded."
+    },
+    {
+     "id": "hitchhiker-02",
+     "name": "Plum",
+     "brief": "Mid 20s, slim, medium skin tone, wild curly auburn hair tied with mismatched ribbons. Patchwork traveling coat over a tank top, cargo pants, a canvas satchel slung across the body. One hand on the satchel strap, other hand raised in a small wave, bright open smile, feet grounded."
+    },
+    {
+     "id": "hitchhiker-03",
+     "name": "Otto",
+     "brief": "Early 60s, stocky, tan weathered skin, a bald head and a long grey braided beard. Layered vest over a linen shirt, patched trousers, sturdy sandals, a worn leather satchel across the chest. Thumbs hooked in suspenders, relaxed knowing smile, feet planted wide apart on the ground."
+    },
+    {
+     "id": "hitchhiker-04",
+     "name": "Fennwick",
+     "brief": "An original alien being: tall and willowy, pale lavender skin with faint darker stripes, long thin antennae instead of hair, large round eyes. Wears a loose tunic and a cross-body satchel, holds a small lit compass. Standing upright, one antenna curled with curiosity, gentle open smile."
+    },
+    {
+     "id": "hitchhiker-05",
+     "name": "Marla",
+     "brief": "Late 30s, plus-size, dark brown skin, short natural curls under a woven headwrap. Flowing patchwork skirt with a fitted vest, layered necklaces, a satchel strap across one shoulder, holding a dog-eared notebook. Head tilted, warm grin, weight shifted onto one hip, feet grounded."
+    },
+    {
+     "id": "hitchhiker-06",
+     "name": "Quill",
+     "brief": "Early 20s, slight build, very light freckled skin, choppy pastel-dyed hair. Oversized patched jacket over overalls, mismatched socks in sandals, a satchel covered in travel patches. Arms loosely crossed, playful smirk, standing with feet apart and steady, both fully visible."
+    },
+    {
+     "id": "hitchhiker-07",
+     "name": "Hobbs",
+     "brief": "Mid 50s, broad build, medium skin tone, greying dreadlocks tied back, a full beard. Long duster coat over a vest, cargo trousers, sturdy boots, a satchel strap across the chest holding a battered star-map case. Hands clasped behind his back, calm easy smile, feet grounded."
+    },
+    {
+     "id": "hitchhiker-08",
+     "name": "Yara",
+     "brief": "70s, short and slim, light-medium skin, thin white hair in a loose bun, a cane held while standing. Layered shawl over a simple dress, soft flat shoes, a small drawstring satchel at her hip. Leaning gently on the cane, serene twinkling smile, upright posture, both feet grounded."
+    },
+    {
+     "id": "hitchhiker-09",
+     "name": "Bramble",
+     "brief": "A cheerful original alien traveller, short and pebble-round, warm sandy-orange complexion, two short antenna stalks topped with little round bobbles, big friendly dark eyes. Wearing a hooded travel poncho in patched blue cloth over a long tunic and boots, a satchel strap across the chest, holding a folded paper star map. Head tilted, happy open smile."
+    },
+    {
+     "id": "hitchhiker-10",
+     "name": "Suki",
+     "brief": "Early 30s, athletic build, medium-dark skin, a high top-knot with shaved sides. Fitted travel jumpsuit under a cropped patched jacket, fingerless gloves, a satchel across the chest with dangling travel pins. One hand on hip, confident grin, weight on one leg, feet grounded."
+    },
+    {
+     "id": "hitchhiker-11",
+     "name": "Dorric",
+     "brief": "Mid 40s, tall and gaunt, pale olive skin, receding dark hair combed back, round tinted glasses. Long coat over a buttoned vest, a satchel strap crossing the chest, holding a battered brass compass. Standing straight, contemplative half-smile, hands loose at his sides, feet grounded."
+    },
+    {
+     "id": "hitchhiker-12",
+     "name": "Wisp",
+     "brief": "An original alien being: very small and slight, pale silvery-blue skin, no hair, large dark eyes. Wears a tiny patched cloak and a miniature satchel. Standing on two thin legs, arms spread slightly in a welcoming gesture, delighted wide smile, feet grounded."
+    }
+   ]
+  },
+  {
+   "id": "desert",
+   "name": "Desert planet",
+   "characters": [
+    {
+     "id": "desert-01",
+     "name": "Idris",
+     "brief": "Mid 30s, lean, deep brown skin, short black hair under a loose wrapped headscarf. Sand-toned linen tunic over cropped trousers, leather sandals, a woven tool belt with small pouches. Hand resting on the belt, head tilted, warm confident smile, feet planted firmly in the sand."
+    },
+    {
+     "id": "desert-02",
+     "name": "Senna",
+     "brief": "Early 20s, slim, tan skin, long dark hair in a loose braid, a wide-brimmed straw hat. Sleeveless linen dress over leggings, dusty boots, a canteen strap across the chest. One hand shading her eyes, other hand on the strap, bright easy grin, both feet grounded."
+    },
+    {
+     "id": "desert-03",
+     "name": "Rook",
+     "brief": "60s, broad and stocky, weathered medium-brown skin, a shaved head and a thick grey beard. Heavy canvas vest over a linen shirt, rolled sleeves, a leather tool belt loaded with small instruments. Arms loosely crossed, steady patient smile, wide stable stance, feet planted."
+    },
+    {
+     "id": "desert-04",
+     "name": "Talia",
+     "brief": "Late 40s, plus-size, olive skin, curly salt-and-pepper hair pulled back with a cloth band. Loose sand-colored duster coat over trousers, sturdy boots, a clipboard held against her hip. Weight on one leg, warm knowing smile, chin lifted, both feet grounded steadily."
+    },
+    {
+     "id": "desert-05",
+     "name": "Bashir",
+     "brief": "Early 60s, tall, medium-dark skin, close-cropped white hair, a trimmed beard, wire glasses. Layered linen vest over a tunic, a woven satchel across the chest, sandals. Hands clasped in front of him, calm dignified smile, upright relaxed posture, feet firmly grounded."
+    },
+    {
+     "id": "desert-06",
+     "name": "Nomi",
+     "brief": "Mid 20s, short and wiry, light-medium skin, a shaved undercut with a long side braid. Cropped utility vest over a tank top, cargo shorts, dusty boots, a coiled rope tool slung at the hip. One hand on hip, playful smirk, weight shifted to one side."
+    },
+    {
+     "id": "desert-07",
+     "name": "Calder",
+     "brief": "50s, heavyset, tan skin, bald with a full grey mustache, a prosthetic leg visible below rolled trousers. Sturdy canvas overalls, a wide-brimmed hat pushed back, a tool belt at the waist. Standing solidly on both feet, warm steady grin, thumbs hooked in overall straps."
+    },
+    {
+     "id": "desert-08",
+     "name": "Amaya",
+     "brief": "Early 30s, athletic build, deep brown skin, tight coils cropped close under a light headwrap. Fitted desert-tan jumpsuit, a satchel strap diagonal across the chest, fingerless gloves. One hand on the strap, head tilted with curiosity, easy confident smile, feet grounded."
+    },
+    {
+     "id": "desert-09",
+     "name": "Drusa",
+     "brief": "An original alien being: tall and slender, sandy-ochre scaled skin, a smooth hairless head with small ridges, large pale eyes suited to bright light. Wears a draped linen wrap and a tool sash, holds a small measuring instrument. Standing tall, calm serene expression, both feet grounded."
+    },
+    {
+     "id": "desert-10",
+     "name": "Imran",
+     "brief": "70s, slim, light-tan skin, thin white hair, a neat white beard, a cane held while standing. Long linen coat over a simple shirt, sandals, a satchel strap across the chest. Leaning lightly on the cane, gentle proud smile, upright dignified posture, both feet visible."
+    },
+    {
+     "id": "desert-11",
+     "name": "Cleo",
+     "brief": "Mid 40s, curvy build, medium skin tone, box braids gathered into a high bun. Sleeveless vest over a fitted tunic, cargo trousers, a tablet held at chest height. Hip cocked slightly, warm relaxed smile, one hand resting on her hip, feet grounded."
+    },
+    {
+     "id": "desert-12",
+     "name": "Sable",
+     "brief": "An original alien being: short and sturdy, deep charcoal-grey skin with fine dust-toned speckles, no hair, small tufted ears. Wears a patched work vest and carries a small satchel of tools. Standing with both feet planted, arms loosely crossed, friendly steady gaze, upright posture."
+    }
+   ]
+  },
+  {
+   "id": "robot",
+   "name": "Retro robot",
+   "characters": [
+    {
+     "id": "robot-01",
+     "name": "Bolt",
+     "brief": "A boxy chrome-and-red robot about human height, a square head with two round dot-eyes, a short antenna on top, blocky arms and legs. A small tool pouch bolted to its side, a badge sticker on its chest plate. Standing with arms at its sides, head tilted, a cheerful light-up grin on its screen face."
+    },
+    {
+     "id": "robot-02",
+     "name": "Nib",
+     "brief": "A small round robot, about waist height, a pale mint-green shell with a single large oval eye, two short stubby antennae. Carries a tiny clipboard clamped in one pincer hand. Standing on two short round-footed legs, leaning slightly forward, curious eager posture, fully visible."
+    },
+    {
+     "id": "robot-03",
+     "name": "Spanner",
+     "brief": "A tall, slender robot with a matte navy-blue body, a narrow rectangular head with a horizontal light-strip eye, long thin arms and legs. A tool belt slung around its waist. Standing very upright, one hand resting on the tool belt, calm composed stance, both feet grounded."
+    },
+    {
+     "id": "robot-04",
+     "name": "Volt",
+     "brief": "A stocky, barrel-shaped robot in faded yellow-and-black panels, a round head with two hexagonal eyes, a thick short antenna. Holds a mug-shaped container at chest height with steam-like lit vents. Standing wide and solid, warm blinking-light smile, both feet firmly planted."
+    },
+    {
+     "id": "robot-05",
+     "name": "Pinion",
+     "brief": "A tiny robot, only chest-height, a cream-colored rounded shell, one big round eye, two whisker-like antennae. A small satchel strap crosses its body. Standing on small tracked-looking feet that plant flat on the ground, head tilted way up, delighted open expression, fully visible."
+    },
+    {
+     "id": "robot-06",
+     "name": "Cassette",
+     "brief": "A retro boxy robot with a warm orange-and-cream body styled like an old tape deck, a rectangular screen face showing two simple eyes, a short coiled antenna. A notebook clipped to its front panel. Standing straight, one arm raised in a small wave, cheerful posture."
+    },
+    {
+     "id": "robot-07",
+     "name": "Dot",
+     "brief": "A round, egg-shaped robot in soft lavender, a single bright dot for an eye, no antenna, a smooth featureless dome head. Carries a small toolkit case in one claw-hand. Standing on two short legs, slight forward lean, calm friendly stillness, both feet grounded."
+    },
+    {
+     "id": "robot-08",
+     "name": "Bucket",
+     "brief": "A wide, squat robot shaped like a rounded drum, weathered teal paint with rivets, two small round eyes set close together, a stubby bent antenna. A tool belt of small parts around its middle. Standing solidly, clamp-hands hooked at its sides, patient steady posture, feet planted."
+    },
+    {
+     "id": "robot-09",
+     "name": "Fuse",
+     "brief": "A tall, angular robot with brushed-silver panels, a narrow trapezoidal head with a single horizontal visor-eye, two long antennae swept back. A lanyard of small badges hangs from its neck joint. Standing very tall and straight, calm alert posture, both feet planted wide apart."
+    },
+    {
+     "id": "robot-10",
+     "name": "Toast",
+     "brief": "A compact rectangular robot, warm copper-toned panels slightly rusted at the edges, a square head with two round friendly eyes, one bent antenna. Holds a clipboard in both small claw-hands. Standing slightly hunched with age, gentle worn-in smile, feet steady on the ground below."
+    },
+    {
+     "id": "robot-11",
+     "name": "Chip",
+     "brief": "A small, rounded robot in glossy pink, a heart-shaped light on its chest, big round eyes, two curly spring antennae. A tiny tablet held up in one hand. Standing on tip-like round feet, bouncy eager posture, both feet still touching the ground firmly."
+    },
+    {
+     "id": "robot-12",
+     "name": "Relay",
+     "brief": "A broad-shouldered, boxy robot in faded military-green panels, a rectangular head with two square eyes, a short thick antenna, a visible dent in one shoulder plate like a service scar. A headset draped over its head. Standing at ease, arms loosely at its sides, calm steady gaze."
+    }
+   ]
+  },
+  {
+   "id": "pets",
+   "name": "Pets",
+   "characters": [
+    {
+     "id": "pets-01",
+     "name": "Otis",
+     "brief": "A barred owl, about knee-height, mottled brown-and-cream feathers, large round amber eyes. Wears a cozy knit sweater with a small round collar tag, tiny spectacles perched on his beak. Standing upright on two feet, head tilted, warm blinking smile, wings tucked softly at his sides, fully visible."
+    },
+    {
+     "id": "pets-02",
+     "name": "Marge",
+     "brief": "A giant tortoise, standing upright on sturdy hind legs, a mottled green-brown shell, a weathered tan neck and face. Wears a soft bandana knotted at the neck. One front leg relaxed at her side, calm patient smile, steady wide stance, whole body clearly visible."
+    },
+    {
+     "id": "pets-03",
+     "name": "Finn",
+     "brief": "A red fox, slim and lean, rust-orange fur with a white chest and black-tipped ears. Wears a fitted knit vest and a small bell collar. Standing upright, one paw raised in a wave, sly friendly grin, tail relaxed behind him, both feet grounded."
+    },
+    {
+     "id": "pets-04",
+     "name": "Beatrix",
+     "brief": "A European badger, stocky and broad, a black-and-white striped face, grey-brown body fur. Wears a cozy plaid sweater and a bow at the neck. Standing solidly upright on two feet, warm gentle smile, feet planted wide apart, whole body clearly visible."
+    },
+    {
+     "id": "pets-05",
+     "name": "Percy",
+     "brief": "An emperor penguin, tall and rounded, glossy black-and-white feathers with a yellow throat patch. Wears a snug knit sweater with a little collar tag. Standing upright, flippers loose at his sides, cheerful open beak-smile, feet flat on the ground, fully visible."
+    },
+    {
+     "id": "pets-06",
+     "name": "Nadia",
+     "brief": "A reticulated giraffe, tall, a patterned tan-and-cream coat, short soft horns. Wears a soft ribbon collar tied in a bow. Standing upright on two legs, head tilted down warmly, gentle smile, both feet grounded, whole body clearly visible in frame."
+    },
+    {
+     "id": "pets-07",
+     "name": "Gustaf",
+     "brief": "A brown bear, broad and heavyset, thick shaggy brown fur, a graying muzzle. Wears a cozy cardigan and a woven collar. Standing upright, paws resting at his sides, warm gruff smile, wide steady stance, both feet planted, whole body visible."
+    },
+    {
+     "id": "pets-08",
+     "name": "Wanda",
+     "brief": "A grey crowned crane, tall and slender, soft grey feathers with a golden crest, long thin legs. Wears a delicate ribbon bow at the neck. Standing upright with elegant poise, head tilted, serene composed smile, whole body clearly visible, feet grounded."
+    },
+    {
+     "id": "pets-09",
+     "name": "Theo",
+     "brief": "A raccoon, small and wiry, grey-brown fur with a dark mask marking, a ringed tail. Wears a soft knit sweater and a little bandana. Standing upright, one paw raised in a small wave, mischievous friendly grin, both feet grounded, whole body visible."
+    },
+    {
+     "id": "pets-10",
+     "name": "Lupe",
+     "brief": "A grey wolf, athletic and lean, silver-grey fur with darker markings, amber eyes, one ear notched. Wears a cozy knit collar scarf and a small woven charm. Standing upright, paws loosely at her sides, calm confident half-smile, feet planted evenly, whole body clearly visible in frame."
+    },
+    {
+     "id": "pets-11",
+     "name": "Kimo",
+     "brief": "A green iguana, medium-sized, scaly bright-green skin with a soft dewlap, a spiny ridge along the back. Wears a small woven collar. Standing upright on sturdy hind legs, one hand resting at his side, calm easy smile, tail curled loosely behind, fully visible."
+    },
+    {
+     "id": "pets-12",
+     "name": "Sorrel",
+     "brief": "A red panda, small and round, rust-red fur with a pale face and a ringed tail, plush build. Wears a cropped cozy sweater and a bow at the neck. Standing upright, both paws held gently at her chest, delighted wide-eyed smile, feet firmly grounded."
+    }
+   ]
+  },
+  {
+   "id": "fantasy",
+   "name": "Fantasy",
+   "characters": [
+    {
+     "id": "fantasy-01",
+     "name": "Elowen",
+     "brief": "Mid 20s, slim, light skin with a faint dusting of silver freckles, long wavy copper hair with small braided sections. Wears an embroidered tunic over leggings, a satchel of dried herbs at her hip, a wooden pendant. One hand resting on the satchel strap, gentle knowing smile, feet grounded."
+    },
+    {
+     "id": "fantasy-02",
+     "name": "Bram",
+     "brief": "50s, broad and stocky, tan weathered skin, a thick greying beard, bald head. Wears a leather apron over a linen shirt, forearm guards, a hammer-shaped tool hooked at his belt. Arms loosely crossed, warm gruff grin, wide steady stance, both feet planted firmly."
+    },
+    {
+     "id": "fantasy-03",
+     "name": "Thessaly",
+     "brief": "An original fantasy being: a small woodland sprite-like figure with pale green-tinted skin, leaf-patterned freckles, short curly moss-green hair, delicate translucent wings folded flat against her back. Wears a woven vest, holds a tiny wooden staff. Standing on two feet, playful tilted grin, both feet grounded."
+    },
+    {
+     "id": "fantasy-04",
+     "name": "Orin",
+     "brief": "Early 30s, tall and lean, deep brown skin, close-cropped black hair, a short trimmed beard. Wears a fitted tabard over a linen shirt, a satchel strap across the chest, fingerless gloves. Standing straight, one hand on the strap, calm confident half-smile, feet grounded."
+    },
+    {
+     "id": "fantasy-05",
+     "name": "Maribel",
+     "brief": "70s, short and rounded, very light skin, long silver hair in a loose braid over one shoulder, half-moon spectacles. Wears a shawl over a long dress, a notebook held against her chest. Standing steady, warm crinkled smile, chin lifted with quiet authority."
+    },
+    {
+     "id": "fantasy-06",
+     "name": "Cael",
+     "brief": "An original fantasy being: a broad-shouldered figure with textured stone-grey skin, faint moss growing along the shoulders, no hair, small blunt horns. Wears a simple woven tunic and a tool satchel. Standing solidly, arms loosely at sides, calm gentle expression, both feet planted wide."
+    },
+    {
+     "id": "fantasy-07",
+     "name": "Sigrun",
+     "brief": "Mid 40s, athletic build, tan skin, a long braid of ash-blonde hair, a weathered face with laugh lines. Wears a fitted leather vest over a tunic, a satchel of scrolls at her hip. One hand on the satchel, confident easy grin, weight on one leg."
+    },
+    {
+     "id": "fantasy-08",
+     "name": "Perrin",
+     "brief": "Late 20s, slight build, medium skin tone, curly black hair tucked under a soft cap, a prosthetic hand of carved pale wood and brass fittings. Wears a patched tunic and apron, a small toolkit satchel. Standing upright, prosthetic hand resting on the satchel, bright cheerful smile."
+    },
+    {
+     "id": "fantasy-09",
+     "name": "Mireio",
+     "brief": "An original fantasy being: a tall, willowy figure with pale blue-grey skin, faint constellation-like freckles, long silvery hair in a high knot, large luminous eyes. Wears a draped robe-vest over simple trousers, holds a slender wooden staff. Standing tall, serene composed expression, both feet grounded."
+    },
+    {
+     "id": "fantasy-10",
+     "name": "Dagny",
+     "brief": "Early 20s, plus-size, medium skin tone, short curly auburn hair with a small flower tucked behind one ear. Wears an embroidered vest over a blouse, a satchel of seed pouches, a small trowel tucked at her belt. Standing relaxed, warm open smile, hand on hip."
+    },
+    {
+     "id": "fantasy-11",
+     "name": "Rowan",
+     "brief": "60s, tall and lean, olive skin, long grey hair tied back, a neat beard, wire spectacles. Wears a long coat over a vest, a satchel strap across the chest, a wooden cane held while standing. Leaning lightly on the cane, dignified warm smile, upright posture."
+    },
+    {
+     "id": "fantasy-12",
+     "name": "Ysbel",
+     "brief": "An original fantasy being: a compact figure with warm amber-toned scaled skin along the arms fading to smooth skin elsewhere, short curly dark hair, small delicate points to the ears. Wears a fitted tunic and tool belt. Standing with both feet grounded, arms loosely crossed, friendly confident smile."
+    }
+   ]
+  },
+  {
+   "id": "office",
+   "name": "Office / professional",
+   "characters": [
+    {
+     "id": "office-01",
+     "name": "Denise",
+     "brief": "Mid 30s, curvy build, dark brown skin, shoulder-length box braids. Tailored blazer over a blouse, pencil skirt, low heels, a lanyard with an ID badge. Standing with one hand on her hip, warm confident smile, weight evenly balanced, both feet grounded."
+    },
+    {
+     "id": "office-02",
+     "name": "Carlos",
+     "brief": "Early 50s, stocky, tan skin, salt-and-pepper hair combed back, a trimmed mustache. Button-down shirt with rolled sleeves under a vest, slacks, a tablet held at chest height. Standing relaxed, easy grin, other hand tucked in a pocket, feet planted evenly."
+    },
+    {
+     "id": "office-03",
+     "name": "Grace",
+     "brief": "70s, slim, very light skin, short silver curls, reading glasses on a beaded chain. Cardigan over a blouse, tailored trousers, a notebook held against her chest, a slim pen tucked in a buttonhole. Standing steady, warm crinkled smile, chin lifted with quiet ease, both feet grounded."
+    },
+    {
+     "id": "office-04",
+     "name": "Walter",
+     "brief": "Mid 40s, broad and heavyset, medium-dark skin, a shaved head, thin-framed glasses. Fitted dress shirt with a loosened tie, suspenders, a coffee mug held at chest height. Standing with feet apart, relaxed proud stance, warm steady smile, shoulders at ease."
+    },
+    {
+     "id": "office-05",
+     "name": "Fatima",
+     "brief": "Early 20s, slim, olive skin, a fitted hijab in soft navy. Blazer over a blouse, tailored trousers, a laptop bag strap across her chest, a small badge clipped to the strap. Standing with a small wave, bright eager smile, both feet grounded, posture open and welcoming."
+    },
+    {
+     "id": "office-06",
+     "name": "Leon",
+     "brief": "Late 20s, slight build, medium skin tone, curly dark hair, a visible cochlear implant behind one ear. Fitted cardigan over a collared shirt, chinos, a badge clipped to his belt. Arms loosely crossed, relaxed confident smile, weight on one leg, feet grounded."
+    },
+    {
+     "id": "office-07",
+     "name": "Marjorie",
+     "brief": "60s, plus-size, light skin, a silver bob with a soft fringe, pearl stud earrings. Structured blazer over a blouse, tailored slacks, a clipboard held against her hip, a pen tucked behind one ear. Standing solidly, warm no-nonsense smile, chin lifted, both feet planted firmly."
+    },
+    {
+     "id": "office-08",
+     "name": "Tobias",
+     "brief": "Mid 30s, tall and lean, dark brown skin, short locs tied back. Fitted suit vest over a crisp shirt, no tie, a tablet tucked under one arm. Standing straight, calm confident half-smile, other hand resting loosely at his side, feet grounded."
+    },
+    {
+     "id": "office-09",
+     "name": "Aisha",
+     "brief": "Early 40s, athletic build, deep brown skin, a short natural afro. Tailored jumpsuit-style suit, low block heels, a headset looped around her neck, a slim tablet held at her side. One hand on hip, sharp warm smile, weight shifted onto one leg, both feet grounded."
+    },
+    {
+     "id": "office-10",
+     "name": "Gerald",
+     "brief": "70s, short and rounded, medium-light skin, thinning white hair, a hearing aid visible at one ear. Cardigan over a shirt and tie, pressed trousers, a briefcase-style satchel held by its strap. Standing steady, gentle proud smile, both feet planted firmly."
+    },
+    {
+     "id": "office-11",
+     "name": "Simone",
+     "brief": "Mid 20s, slim, very light skin, long straight dark hair in a low ponytail, a prosthetic leg visible below a knee-length skirt. Fitted blazer over a blouse, a notebook held at chest height. Standing confidently, bright easy grin, weight balanced evenly, feet grounded."
+    },
+    {
+     "id": "office-12",
+     "name": "Andre",
+     "brief": "50s, broad build, medium skin tone, greying buzzed hair, a neat goatee. Shirt sleeves rolled over a vest, suspenders, a lanyard with several badges, a pen clipped to the breast pocket. Standing with thumbs hooked in the suspenders, warm steady smile, feet planted wide, shoulders relaxed."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "upc-010",
+  "code": "B0CHWRXH8B",
+  "code_type": "asin",
+  "expected": {
+    "title": "Apple AirPods Pro (2nd Generation) with MagSafe Charging Case (USB-C)",
+    "brand": "Apple",
+    "model": "MTJV3AM/A",
+    "category_slug": "audio",
+    "category_legacy": "Electronics",
+    "condition": "",
+    "msrp_cents": 24900
+  },
+  "notes": "AirPods Pro 2 USB-C variant ASIN."
+}

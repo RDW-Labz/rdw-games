@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "concurrency": 3,
+  "jobs": [
+    {
+      "id": "pr-connectors",
+      "agent": "claude",
+      "model": "haiku",
+      "tier": "cheap",
+      "prompt": "Write a GitHub PR create payload as JSON to your declared output file: {\"title\":\"...\",\"head\":\"<branch>\",\"base\":\"main\",\"body\":\"<markdown>\"}. Plain words, short lines. Wrap every angle-bracket placeholder, path and identifier in backticks. Sections \"## What\", \"## Checks (rerun by coordinator)\", plus any named below. End the body with a blank line then exactly: \ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code). Use only the facts given. Valid JSON only.\nTitle: \"T16b: read Outlook calendar and unread mail through Microsoft Graph\". Branch: codex/t16b-outlook-read.\nFacts: Part of T16b (make daily-summary real on Braden's Mac; decisions #48-#51). New `gates.graph_read`: async `calendar_today` (connector `outlook-calendar`, today's events, drops cancelled and declined, all-day marked, `truncated` if more pages) and `unread_mail` (connector `outlook`: inbox `unreadItemCount` plus up to 10 newest unread headers: subject, sender, received time; bodies and `bodyPreview` are never requested or kept). Subjects and titles are sanitized (control characters stripped, 200-char cap) and treated as data. Audit lines use new actions `read_calendar` / `read_mail` and hold no content (no subjects, senders, tokens, URLs). Async token refresh (`oauth_http`), one retry on 401, HTTPS Graph host only, no redirects, 15 s timeout, 64 KiB cap. `catalog/outlook/connector.yaml` notes subjects/senders are `internal`, bodies stay `restricted`. `docs/registrations.md` corrected: Microsoft admin consent granted 2026-09-22. Version 0.3.0 (`pyproject.toml`, `gates.__version__`, `uv.lock`). New `docs/graph-read.md`, `tests/test_graph_read.py` (all via `httpx.MockTransport`).\nExtra section \"## Not yet proven\": Graph query syntax and field names are written from API knowledge; workers had no network. Braden's live Mac run is the real proof. After merge, the coordinator builds the 0.3.0 wheel from the merge commit and vendors it into agent-core with its SHA256.\nChecks: `pytest -q` \u2192 214 passed; `ruff check .` \u2192 All checks passed; `ruff format --check` on changed files \u2192 formatted (4 older files in `scripts/` and `tests/test_registration.py` were already unformatted on main and are untouched); `mypy --strict src` \u2192 no issues in 13 files (native and `--platform win32`); `git diff --check` \u2192 clean.",
+      "context": [],
+      "outputs": [
+        "coordination/t16b-connectors-pr-create.json"
+      ],
+      "timeoutMs": 600000
+    },
+    {
+      "id": "pr-skills",
+      "agent": "claude",
+      "model": "haiku",
+      "tier": "cheap",
+      "prompt": "Write a GitHub PR create payload as JSON to your declared output file: {\"title\":\"...\",\"head\":\"<branch>\",\"base\":\"main\",\"body\":\"<markdown>\"}. Plain words, short lines. Wrap every angle-bracket placeholder, path and identifier in backticks. Sections \"## What\", \"## Checks (rerun by coordinator)\", plus any named below. End the body with a blank line then exactly: \ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code). Use only the facts given. Valid JSON only.\nTitle: \"T16b: daily-summary 1.1.0 with a model-written summary\". Branch: codex/t16b-daily-summary.\nFacts: Decisions #48-#52. `shared/daily-summary/skill.yaml` \u2192 version 1.1.0: new `summarize` step (`model.daily_summary`) between `get_unread` and `write_summary`; the agent's default model writes at most three lines from the two read steps' data only, and never reads more (#51). `schedule: \"30 7 * * 1-5\"`. Budget `max_usd: 0.05`, `max_seconds: 60`. `resources: {shared: [connector:outlook, connector:outlook-calendar]}`. New done_when: \"A note for today exists with a short summary and today's meeting and unread counts\". `SKILL.md` explains the flow: subjects go to the model, never to logs; no email bodies. Fixtures case-1..3 updated with fake data. `docs/formats.md` documents the optional `resources` field. `src/almanac/runner.py`: fixture replay now gives the scheduler connector limits for the skill's declared connector resources (otherwise every case ended `resource_unavailable`); new test for that. Pairs with the agent-core T16b PR (real tools) and the connectors T16b PR (Graph reads).\nChecks: `pytest -q` \u2192 12 passed; `ruff check .` \u2192 All checks passed; `ruff format --check .` \u2192 13 files already formatted; `mypy --strict src` \u2192 no issues (native and `--platform win32`); `git diff --check` \u2192 clean.",
+      "context": [],
+      "outputs": [
+        "coordination/t16b-skills-pr-create.json"
+      ],
+      "timeoutMs": 600000
+    },
+    {
+      "id": "pr-desktop",
+      "agent": "claude",
+      "model": "haiku",
+      "tier": "cheap",
+      "prompt": "Write a GitHub PR create payload as JSON to your declared output file: {\"title\":\"...\",\"head\":\"<branch>\",\"base\":\"main\",\"body\":\"<markdown>\"}. Plain words, short lines. Wrap every angle-bracket placeholder, path and identifier in backticks. Sections \"## What\", \"## Checks (rerun by coordinator)\", plus any named below. End the body with a blank line then exactly: \ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code). Use only the facts given. Valid JSON only.\nTitle: \"Document POST /skills/<name>/run in the local API contract\". Branch: codex/run-now-contract.\nFacts: Decision #52. Docs only (`docs/local-api.md`, `CHANGELOG.md`). Adds `POST /skills/<name>/run`: same Bearer auth; 202 `{\"status\":\"queued\",\"skill\":\"<name>\"}`, 404 `{\"error\":\"unknown_skill\"}`, 409 `{\"error\":\"paused\"}`, 401 like the other endpoints; runs go through the scheduler, so pause, resources and ask-first still apply. No Rig button yet; the Mac guide uses curl for testing. Also notes decision #46: when the service token is missing, the service logs \"no token found\" and the Rig shows \"Not connected yet\". The endpoint count goes from 10 to 11. Matches the agent-core implementation (T16b job J7, whose tests cover 202/404/409/401 and bad names).\nChecks: docs only; `git diff --check` \u2192 clean.",
+      "context": [],
+      "outputs": [
+        "coordination/t16b-run-now-contract-pr-create.json"
+      ],
+      "timeoutMs": 600000
+    }
+  ]
+}

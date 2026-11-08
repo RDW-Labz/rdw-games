@@ -1,0 +1,18 @@
+{
+  "id": "photo-016",
+  "image_path": "photo-016-headphones-blurry.jpg",
+  "media_type": "image/jpeg",
+  "photo_quality_label": "blurry",
+  "expected": {
+    "title": "Sony WH-1000XM4 Wireless Noise Cancelling Over-Ear Headphones (Black)",
+    "brand": "Sony",
+    "model": "WH-1000XM4",
+    "upc": "027242920057",
+    "category_slug": "audio",
+    "category_legacy": "Electronics",
+    "condition": "Like New",
+    "msrp_cents": 34800,
+    "expected_confidence": "low"
+  },
+  "notes": "Phone-cam shot of headphones in a Ziploc bag with retail box behind it. Stresses cluttered framing."
+}

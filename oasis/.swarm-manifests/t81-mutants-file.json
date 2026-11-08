@@ -1,0 +1,32 @@
+{
+ "version": 1,
+ "concurrency": 1,
+ "contract": "docs/_swarm/t81-contract.md",
+ "jobs": [
+  {
+   "id": "t81-mutants-file",
+   "agent": "codex",
+   "model": "gpt-6-astra",
+   "tier": "expensive",
+   "timeoutMs": 1800000,
+   "tierReason": "needs a shell to read source and pick byte-exact unique find strings; Codex-only path",
+   "context": [
+    "docs/_swarm/t81-contract.md",
+    "tools/ship.mjs",
+    "tools/pipeline.mjs",
+    "tools/codex-adapter.mjs",
+    "tools/claude-shell.mjs",
+    "tools/scaffold.mjs",
+    "tools/swarm.mjs",
+    "tests/field-lesson-t81-pipeline.test.mjs",
+    "tests/field-lesson-t81-adapters.test.mjs",
+    "tests/field-lesson-t81-cli.test.mjs",
+    "tests/lessons120-checks.test.mjs"
+   ],
+   "outputs": [
+    "docs/_swarm/t81-mutants.json"
+   ],
+   "prompt": "Bookkeeping job for project-swarm 1.42.0 (decision #341): write docs/_swarm/t81-mutants.json, the input file for `swarm mutants --mutants-file`: a JSON array with one entry per mutant listed in \u00a74 of docs/_swarm/t81-contract.md, each `{\"name\": \"<letter and short title>\", \"file\": \"<tools file>\", \"find\": \"<byte-exact source text that occurs exactly once in that file>\", \"replace\": \"<the mutated text>\", \"check\": [\"node\", \"--test\", \"<the one test file whose test the contract names as the killer>\"]}`. Rules: `find` must be copied verbatim from the current file (use your shell to grep it and confirm it occurs exactly once; widen it with surrounding text until unique); `replace` must apply the \u00a74 mutation and nothing more (a single operator, condition, constant or call change) and must leave the file syntactically valid; `check` names the test file holding the killing test (grep the test files for the test name the contract gives; if the contract names no test, pick the test file that asserts the behaviour and say so in findings). Do not edit any other file and do not run the mutants or tests. Return JSON only, under 500 characters, after the file: {\"status\":\"complete|partial\",\"filesChanged\":[\"docs/_swarm/t81-mutants.json\"],\"reproTest\":\"tests/field-lesson-t81-cli.test.mjs\",\"mutants\":<count>,\"findings\":[\"<\u22643 one-liners>\"]}"
+  }
+ ]
+}

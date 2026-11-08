@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "concurrency": 1,
+  "jobs": [
+    {
+      "id": "t16b-plan",
+      "agent": "claude",
+      "model": "opus",
+      "tier": "expensive",
+      "tierReason": "New cross-repo design with no written contract: loop data passing, Graph reads, wheel pinning.",
+      "prompt": "You are the design planner for OASIS ticket T16b. Read-only: write ONLY the declared plan file. Read AGENTS.md, docs/PLAN.md, docs/TICKETS.md (T11, T12b, T15, T16), docs/DECISIONS.md.\n\nGoal (Braden, Phase 0 finish line): make the shared \"daily summary\" skill run for real, end to end, on Braden's Mac: the T15 clock (or a manual trigger through rig-service) runs it; it reads Braden's Outlook calendar for today and his unread mail through the T11 connector (connectors repo, Python package `gates`; Microsoft Entra admin consent is granted); it writes a short note to his drawer through agent-core's NoteStore; its done_when checker passes. T16 (worktrees/agent-core-t16, open PR) already binds skill steps to a tool registry in `anorak.skill_tools`, but the registry is empty and `anorak.loop` has no way to pass one step's output to the next.\n\nProduce coordination/t16b-plan.md (\u2264250 lines) with:\n1. Current state: exactly which pieces exist and which are missing, with file:line evidence (e.g. do T11 tokens give us a Microsoft Graph access token with Calendars.Read and Mail.Read scopes? which scopes does catalog/outlook*.yaml request? how does agent-core load `gates` \u2014 is it a pinned vendored wheel or missing?).\n2. Design: (a) step-to-step data passing in anorak.loop \u2014 smallest change that keeps tool results as untrusted data (AGENTS.md hard rule) and keeps the loop contract; (b) Graph read client in connectors (calendar today, unread mail, fields kept minimal: subject/from/time \u2014 no bodies unless needed), with httpx and injectable transport for tests; (c) agent-core tool bindings `connectors.calendar.today`, `connectors.email.unread`, `notes.write` and the `daily_summary_matches` checker in skill_tools; (d) how the summary text is produced (a model call through the T08 client? or deterministic formatting?) \u2014 pick what the skill.yaml and PLAN imply and say why; (e) how the pinned connectors wheel reaches agent-core (vendored wheel + provenance, per memory rule in AGENTS/PLAN).\n3. Work split into jobs with ONE writer per file: job id, repo/worktree, exact output files, exact context files, tier (cheap|mid|expensive by difficulty), dependencies/order (workers see snapshots; dependent jobs need a later run).\n4. Acceptance: tests per job (fakes only, sk-FAKE-0000), plus the human Mac check (exact commands Braden runs).\n5. \"Design choices NOT in the plan\" \u2014 list anything that needs Braden's decision (be strict; do not decide these yourself). E.g. whether the summary uses an LLM, how many emails, whether mail subjects are sensitive data under PLAN's data rules.\nEvidence over guesses: mark anything you could not confirm as UNCONFIRMED.",
+      "context": [
+        "AGENTS.md",
+        "docs/PLAN.md",
+        "docs/TICKETS.md",
+        "docs/DECISIONS.md",
+        "worktrees/agent-core-t16/AGENTS.md",
+        "worktrees/agent-core-t16/pyproject.toml",
+        "worktrees/agent-core-t16/docs/loop.md",
+        "worktrees/agent-core-t16/docs/memory.md",
+        "worktrees/agent-core-t16/docs/skill-tools.md",
+        "worktrees/agent-core-t16/docs/local-service.md",
+        "worktrees/agent-core-t16/src/anorak/loop.py",
+        "worktrees/agent-core-t16/src/anorak/skill_tools.py",
+        "worktrees/agent-core-t16/src/anorak/service_cli.py",
+        "worktrees/agent-core-t16/src/anorak/local_service_adapters.py",
+        "worktrees/agent-core-t16/src/anorak/clock.py",
+        "worktrees/agent-core-t16/src/anorak/memory/notes.py",
+        "worktrees/agent-core-t16/src/anorak/memory/drawer.py",
+        "worktrees/agent-core-t16/src/anorak/memory/profile.py",
+        "worktrees/agent-core-t16/src/anorak/secrets.py",
+        "worktrees/agent-core-t16/tests/test_skill_tools.py",
+        "worktrees/agent-core-t16/tests/fixtures/skills/daily-summary/skill.yaml",
+        "worktrees/connectors-t16b/AGENTS.md",
+        "worktrees/connectors-t16b/pyproject.toml",
+        "worktrees/connectors-t16b/docs/connect.md",
+        "worktrees/connectors-t16b/docs/registrations.md",
+        "worktrees/connectors-t16b/catalog/outlook/connector.yaml",
+        "worktrees/connectors-t16b/catalog/outlook-calendar/connector.yaml",
+        "worktrees/connectors-t16b/src/gates/__init__.py",
+        "worktrees/connectors-t16b/src/gates/connect.py",
+        "worktrees/connectors-t16b/src/gates/tokens.py",
+        "worktrees/connectors-t16b/src/gates/oauth_http.py",
+        "worktrees/connectors-t16b/src/gates/secrets_port.py",
+        "worktrees/connectors-t16b/src/gates/catalog.py",
+        "worktrees/connectors-t16b/src/gates/status.py",
+        "repos/skills/docs/formats.md",
+        "repos/skills/shared/daily-summary/SKILL.md",
+        "repos/skills/shared/daily-summary/skill.yaml",
+        "repos/skills/shared/daily-summary/fixtures/case-1.yaml"
+      ],
+      "outputs": [
+        "coordination/t16b-plan.md"
+      ],
+      "timeoutMs": 2400000
+    }
+  ]
+}

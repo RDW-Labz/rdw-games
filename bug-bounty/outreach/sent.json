@@ -1,0 +1,151 @@
+{
+ "security@celemi.com": {
+  "id": "01a19919-7fa0-78a2-a190-ca7495e0be51",
+  "subject": "dig.sim.celemi.com \u2014 dangling Elastic Beanstalk record, still unfixed",
+  "draft": "celemi-audit-offer.txt",
+  "kind": "paid-audit-offer",
+  "sent_at": "2026-11-01T22:31:00+00:00",
+  "domain": "celemi.com",
+  "count": 1,
+  "followup_at": "2026-11-04T00:00:39+00:00",
+  "followup_id": "01a1a3db-99c1-7967-9b47-569a8d09f267"
+ },
+ "security@differential.com": {
+  "id": "01a19919-80d6-7235-9155-e433b1be4d9b",
+  "subject": "the two dangling Elastic Beanstalk records on differential.com",
+  "draft": "differential-audit-offer.txt",
+  "kind": "paid-audit-offer",
+  "sent_at": "2026-11-01T22:31:00+00:00",
+  "domain": "differential.com",
+  "count": 3,
+  "followup_at": "2026-11-04T00:00:39+00:00",
+  "followup_id": "01a1a3db-9c28-7055-90cd-3ea918b9e57c"
+ },
+ "secops@stewart.com": {
+  "id": "01a19919-8212-7cef-814d-d2e21971343d",
+  "subject": "ind-dev / ind-uat on stewart.com are still pointing at a deleted Traffic Manager profile",
+  "draft": "stewart-audit-offer.txt",
+  "kind": "paid-audit-offer",
+  "sent_at": "2026-11-01T22:31:00+00:00",
+  "domain": "stewart.com",
+  "count": 3,
+  "followup_at": "2026-11-04T00:00:39+00:00",
+  "followup_id": "01a1a3db-9891-786a-ad22-b4f97a92a9b0"
+ },
+ "security@xola.com": {
+  "id": "01a19919-8332-7e21-bb6f-11ab1f16e894",
+  "subject": "wixdemo.xola.com is still a dangling Wix record",
+  "draft": "xola-audit-offer.txt",
+  "kind": "paid-audit-offer",
+  "sent_at": "2026-11-01T22:31:00+00:00",
+  "domain": "xola.com",
+  "count": 1,
+  "followup_at": "2026-11-04T00:00:39+00:00",
+  "followup_id": "01a1a3db-a1e6-7578-9cda-98699f9f636c"
+ },
+ "security@chipotle.com": {
+  "id": "01a19a5c-a534-7302-99f5-3303645466a0",
+  "subject": "1 dangling DNS record on chipotle.com \u2014 a third party can answer them",
+  "draft": "chipotle-dangling-audit-offer.txt",
+  "kind": "paid-audit-offer",
+  "sent_at": "2026-11-02T03:52:00+00:00",
+  "followup_at": "2026-11-04T00:00:39+00:00",
+  "followup_id": "01a1a3db-9af1-79d2-8bec-a07935681810"
+ },
+ "security@harman.com": {
+  "id": "01a19a5c-a618-74fb-b3c1-28add3fd8ed8",
+  "subject": "4 dangling DNS records on harman.com \u2014 a third party can answer them",
+  "draft": "harman-dangling-audit-offer.txt",
+  "kind": "paid-audit-offer",
+  "sent_at": "2026-11-02T03:52:00+00:00",
+  "followup_at": "2026-11-04T00:00:39+00:00",
+  "followup_id": "01a1a3db-9d66-7373-bc37-60286228c39e"
+ },
+ "security@starbucks.com": {
+  "id": "01a19a5c-a716-7327-a8bb-79ccdf1e32e3",
+  "subject": "7 dangling DNS records on starbucks.com \u2014 a third party can answer them",
+  "draft": "starbucks-dangling-audit-offer.txt",
+  "kind": "paid-audit-offer",
+  "sent_at": "2026-11-02T03:52:00+00:00",
+  "followup_at": "2026-11-04T00:00:39+00:00",
+  "followup_id": "01a1a3db-9e7c-7691-9af5-33e93dc7b5f0"
+ },
+ "security@vfsglobal.com": {
+  "id": "01a19a5c-a7f5-7896-9404-d5e8f1a87b20",
+  "subject": "2 dangling DNS records on tasheer.com \u2014 a third party can answer them",
+  "draft": "tasheer-dangling-audit-offer.txt",
+  "kind": "paid-audit-offer",
+  "sent_at": "2026-11-02T03:52:00+00:00",
+  "status": "bounced"
+ },
+ "security@teamviewer.com": {
+  "id": "01a19a5c-a90c-7025-8d25-9d9c64415942",
+  "subject": "6 dangling DNS records on teamviewer.com \u2014 a third party can answer them",
+  "draft": "teamviewer-dangling-audit-offer.txt",
+  "kind": "paid-audit-offer",
+  "sent_at": "2026-11-02T03:52:00+00:00",
+  "followup_at": "2026-11-04T00:00:39+00:00",
+  "followup_id": "01a1a3db-9f97-7851-8e1a-8356eaa9679a"
+ },
+ "security@unifysquare.com": {
+  "id": "01a19a5c-a9e8-7854-9c7e-56c1d1c10ca3",
+  "subject": "21 dangling DNS records on unifysquare.com \u2014 a third party can answer them",
+  "draft": "unifysquare-dangling-audit-offer.txt",
+  "kind": "paid-audit-offer",
+  "sent_at": "2026-11-02T03:52:00+00:00",
+  "followup_at": "2026-11-04T00:00:39+00:00",
+  "followup_id": "01a1a3db-a0c2-7191-8c60-c977a62da658"
+ },
+ "security@bpost.be": {
+  "id": "01a19d1a-23df-736f-a0c8-bbd3c245ea9b",
+  "subject": "2 dangling DNS records on bpost.be \u2014 the Traffic Manager profiles are gone",
+  "draft": "bpost-ac-dangling-audit-offer.txt",
+  "kind": "paid-audit-offer",
+  "sent_at": "2026-11-02T16:31:38+00:00",
+  "followup_at": "2026-11-04T18:00:07+00:00",
+  "followup_id": "01a1a7b7-de14-74af-8c18-baf0c062098b"
+ },
+ "security@luva.bet.br": {
+  "id": "01a19d1a-24a8-71b7-9414-5d3607b49d81",
+  "subject": "1 dangling DNS record on luva.bet.br \u2014 the name is unclaimed",
+  "draft": "luva-dangling-audit-offer.txt",
+  "kind": "paid-audit-offer",
+  "sent_at": "2026-11-02T16:31:38+00:00",
+  "status": "bounced"
+ },
+ "security@safaricom.co.ke": {
+  "id": "01a19d1a-2564-7b53-8ad1-3b5dac398745",
+  "subject": "1 dangling DNS record on safaricom.co.ke \u2014 the name is unclaimed",
+  "draft": "safaricom-dangling-audit-offer.txt",
+  "kind": "paid-audit-offer",
+  "sent_at": "2026-11-02T16:31:38+00:00",
+  "followup_at": "2026-11-04T18:00:07+00:00",
+  "followup_id": "01a1a7b7-df66-7a5d-89b5-f4c278629bba"
+ },
+ "security@unit4cloud.com": {
+  "id": "01a19d1a-2622-73fe-bc39-05041a5af495",
+  "subject": "1 dangling DNS record on unit4cloud.com \u2014 the name is unclaimed",
+  "draft": "unit4-dangling-audit-offer.txt",
+  "kind": "paid-audit-offer",
+  "sent_at": "2026-11-02T16:31:39+00:00",
+  "status": "bounced"
+ },
+ "security@unit4.com": {
+  "id": "01a19d1a-4f58-7781-a6af-1fd269a493eb",
+  "kind": "paid-audit-offer",
+  "draft": "unit4-dangling-audit-offer.txt",
+  "sent_at": "2026-11-02T16:31:49+00:00",
+  "subject": "1 dangling DNS record on unit4cloud.com \u2014 the name is unclaimed",
+  "followup_at": "2026-11-04T18:00:07+00:00",
+  "followup_id": "01a1a7b7-e009-79e1-93df-f51418f0e643"
+ },
+ "security@luva.bet": {
+  "id": "01a19d1a-9529-7a5c-9c5f-0bb6e9d4b377",
+  "kind": "paid-audit-offer",
+  "draft": "luva-dangling-audit-offer.txt",
+  "sent_at": "2026-11-02T16:32:07+00:00",
+  "subject": "1 dangling DNS record on luva.bet.br \u2014 the name is unclaimed",
+  "followup_at": "2026-11-04T18:00:07+00:00",
+  "followup_id": "01a1a7b7-dec1-7818-ab4a-33f294e9e377"
+ }
+}

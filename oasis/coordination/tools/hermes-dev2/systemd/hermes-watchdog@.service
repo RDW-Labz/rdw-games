@@ -1,0 +1,18 @@
+# Hermes worker watchdog (decision #384). A template so the pre-flight can
+# prove THIS sandbox can write the work tmpfs:
+#   hermes-watchdog@run.service          every 30 s via hermes-watchdog.timer: stop rules, reaping
+#   hermes-watchdog@check-write.service  the pre-flight: write + remove a marker in work/
+[Unit]
+Description=Hermes worker watchdog (%i)
+RequiresMountsFor=/var/lib/hermes-jobs/work
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 -I /opt/hermes-dev2/bin/watchdog.py --%i
+SuccessExitStatus=1
+ProtectSystem=strict
+# The work area is its own tmpfs mounted under /var/lib/hermes-jobs: name it too.
+ReadWritePaths=/var/lib/hermes-jobs /var/lib/hermes-jobs/work
+ProtectHome=yes
+PrivateTmp=yes
+NoNewPrivileges=yes

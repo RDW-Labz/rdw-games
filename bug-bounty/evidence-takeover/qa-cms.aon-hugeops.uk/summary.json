@@ -1,0 +1,12 @@
+{
+ "host": "qa-cms.aon-hugeops.uk",
+ "target": "aon-sitecore-qa-xp-scaled-176730-cm.azurewebsites.net",
+ "provider": "azurewebsites",
+ "label": "aon-sitecore-qa-xp-scaled-176730-cm",
+ "claim_class": "paid",
+ "in_scope": "h1:aon via qa-cms.aon-hugeops.uk/",
+ "captured": "2026-11-07T20:59:55Z",
+ "target_resolves": false,
+ "victim_response": "http_code=000 ip= err=Could not resolve host: qa-cms.aon-hugeops.uk\n[stderr] curl: (6) Could not resolve host: qa-cms.aon-hugeops.uk",
+ "evidence_dir": "/home/cluer/Projects/bug-bounty/evidence-takeover/qa-cms.aon-hugeops.uk"
+}

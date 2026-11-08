@@ -1,0 +1,49 @@
+{
+  "menuInteractiveMs": 347,
+  "fpsPutt": {
+    "avg": 20.9,
+    "p5": 13.4
+  },
+  "fpsMenuTransition": {
+    "avg": 11.3,
+    "p5": 6.3
+  },
+  "fpsResult": {
+    "avg": 11.6,
+    "p5": 7.7
+  },
+  "bundle": {
+    "totalJs": {
+      "bytes": 1761981,
+      "gzip": 409812
+    },
+    "jsChunks": {
+      "assets/index-I1zyEKWd.js": {
+        "bytes": 1759796,
+        "gzip": 408761
+      },
+      "assets/web-Bg5D2IL7.js": {
+        "bytes": 940,
+        "gzip": 465
+      },
+      "assets/web-GETB06jQ.js": {
+        "bytes": 1245,
+        "gzip": 586
+      }
+    },
+    "fonts": {
+      "bytes": 436116,
+      "gzip": 233711
+    },
+    "total": {
+      "bytes": 2208174,
+      "gzip": 648026
+    }
+  },
+  "heapMB": {
+    "afterHole1": 17.74,
+    "after10Holes": 28.3,
+    "growthMB": 10.57
+  },
+  "layoutJumps": 0
+}

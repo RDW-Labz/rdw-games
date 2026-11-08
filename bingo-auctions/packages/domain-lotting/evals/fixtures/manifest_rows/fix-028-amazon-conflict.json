@@ -1,0 +1,23 @@
+{
+  "id": "manifest-028",
+  "source": "amazon",
+  "raw": {
+    "description": "Apple AirPods Pro (1st Generation) — wireless earbuds Renewed Premium",
+    "retailer_category": "gl_wireless_accessories",
+    "upc": "190199098572",
+    "model_number": "MWP22AM/A",
+    "quantity": 1,
+    "retail_price": 149.99
+  },
+  "expected": {
+    "title": "Apple AirPods Pro (1st Gen) Wireless Earbuds (MWP22AM/A)",
+    "brand": "Apple",
+    "model": "MWP22AM/A",
+    "category_slug": "audio",
+    "category_legacy": "Electronics",
+    "condition": "Like New",
+    "msrp_cents": 14999,
+    "expected_confidence": "high"
+  },
+  "notes": "Adversarial — 'Renewed Premium' is Amazon's term for refurb. Should map to 'Like New' condition, not 'New/Sealed'. Also tests that the model resolves AirPods Pro to 'audio' rather than the more generic 'electronics'."
+}

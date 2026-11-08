@@ -1,0 +1,18 @@
+{
+  "id": "photo-012",
+  "image_path": "photo-012-lego-clear.jpg",
+  "media_type": "image/jpeg",
+  "photo_quality_label": "clear",
+  "expected": {
+    "title": "LEGO Star Wars Millennium Falcon 75257 Building Kit (1,351 Pieces)",
+    "brand": "LEGO",
+    "model": "75257",
+    "upc": "673419303316",
+    "category_slug": "toys-figures",
+    "category_legacy": "Toys & Games",
+    "condition": "New/Sealed",
+    "msrp_cents": 16999,
+    "expected_confidence": "high"
+  },
+  "notes": "LEGO box, set number prominent in bottom-right corner."
+}

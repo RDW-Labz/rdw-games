@@ -1,0 +1,6 @@
+{
+  "title": "Document POST /skills/<name>/run in the local API contract",
+  "head": "codex/run-now-contract",
+  "base": "main",
+  "body": "## What\n\nDocuments the `POST /skills/<name>/run` endpoint in the local API contract per decision #52.\n\nAdds new endpoint with:\n- Same Bearer authentication as other endpoints\n- Returns `202` with `{\"status\":\"queued\",\"skill\":\"<name>\"}`\n- Returns `404` with `{\"error\":\"unknown_skill\"}`\n- Returns `409` with `{\"error\":\"paused\"}`\n- Returns `401` like other endpoints\n\nRuns go through the scheduler, so pause, resources, and ask-first constraints still apply.\n\nUpdates `docs/local-api.md` and `CHANGELOG.md`. No Rig button yet; Mac guide uses curl for testing.\n\nAlso notes decision #46: when service token is missing, service logs \"no token found\" and Rig shows \"Not connected yet\".\n\nEndpoint count increases from 10 to 11. Matches agent-core implementation (`T16b` job `J7`).\n\n## Checks (rerun by coordinator)\n\nDocs only. `git diff --check` \u2192 clean.\n\n\ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)"
+}

@@ -1,0 +1,147 @@
+#!/usr/bin/env python3
+"""hermes-remote: project-swarm's `hermes` agent, run on dev2 (decision #384).
+
+Put this folder first on PATH only for the test run:
+
+    PATH="$PWD/coordination/tools/hermes-dev2/mac/bin:$PATH" node ~/.project-swarm/current/tools/swarm.mjs ...
+
+swarm then spawns this file as `hermes` with the argument list from
+tools/cli-adapters.mjs extraCliArgs and the prompt on stdin. We send ONLY
+{id, model, prompt} to dev2 over the dedicated key (no env, no files, no
+agent forwarding), then poll until the job is done and print dev2's Hermes
+stream-json unchanged, so swarm's parser sees exactly what a local Hermes
+would print. Each SSH call is short and retried with backoff, so a dropped
+link loses nothing: the job runs in a systemd unit on dev2, not in the SSH
+session. Total wait: 25 minutes, then cancel.
+
+Also answers `--version` and `chat --help` for `swarm doctor hermes`.
+"""
+
+from __future__ import annotations
+
+import json
+import os
+import re
+import subprocess
+import sys
+import time
+import uuid
+
+HOST = os.environ.get("HERMES_DEV2_HOST", "10.10.10.220")
+KEY = os.path.expanduser(os.environ.get("HERMES_DEV2_KEY", "~/.ssh/hermes-dev2"))
+USER = "hermes-sub"
+CONFIG = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__)))), "config.conf")
+
+
+def config_model(path: str = CONFIG) -> str:
+    """MODEL from this folder's config.conf: the same file dev2 installs."""
+    with open(path) as fh:
+        for line in fh:
+            m = re.fullmatch(r"MODEL=(\S+)", line.strip())
+            if m:
+                return m.group(1)
+    raise SystemExit(f"hermes-remote: no MODEL in {path}")
+
+
+MODEL = config_model()
+MAX_PROMPT = 2_000_000
+TIMEOUT_S = 25 * 60
+POLL_S = 5
+RETRIES = 8
+VERSION = "Hermes Agent v0.21.5 (pinned 1ac3f97, remote on dev2 via hermes-remote)"
+# Flags swarm's doctor looks for in `hermes chat --help` (cli-adapters.mjs extraCliDoctor).
+HELP = ("usage: hermes chat [--safe-mode] [--ignore-user-config] [--ignore-rules] [--toolsets TOOLSETS]\n"
+        "                   [--query-file PATH] [--oneshot] [--format {text,stream-json}] [--max-turns N]\n"
+        "                   [--model MODEL]\n"
+        f"Runs the query on dev2 ({MODEL}) through hermes-remote.\n")
+# The exact shape swarm sends; anything else is refused rather than guessed at.
+REQUIRED = ["chat", "--safe-mode", "--ignore-user-config", "--ignore-rules", "--toolsets", "none",
+            "--query-file", "-", "--oneshot", "--format", "stream-json", "--max-turns", "1"]
+
+
+def ssh_argv(*words: str) -> list[str]:
+    return ["ssh", "-F", "/dev/null", "-i", KEY, "-o", "IdentitiesOnly=yes", "-o", "BatchMode=yes",
+            "-o", "StrictHostKeyChecking=yes", "-o", f"UserKnownHostsFile={os.path.expanduser('~/.ssh/known_hosts')}",
+            "-o", "ConnectTimeout=10", "-o", "ServerAliveInterval=15", "-o", "ServerAliveCountMax=3",
+            "-o", "ForwardAgent=no", "-o", "ClearAllForwardings=yes", "-T", f"{USER}@{HOST}", *words]
+
+
+class Remote:
+    """One dev2 job. `run` and `sleep` are injectable for tests."""
+
+    def __init__(self, run=subprocess.run, sleep=time.sleep, clock=time.monotonic, err=sys.stderr):
+        self.run, self.sleep, self.clock, self.err = run, sleep, clock, err
+
+    def call(self, words: list[str], stdin: bytes = b"") -> tuple[int, bytes, bytes]:
+        """One SSH call, retried with backoff while the link itself fails (exit 255)."""
+        delay = 2
+        for attempt in range(RETRIES):
+            p = self.run(ssh_argv(*words), input=stdin, capture_output=True, timeout=120)
+            if p.returncode != 255:
+                return p.returncode, p.stdout, p.stderr
+            print(f"hermes-remote: link dropped ({' '.join(words[:1])}), retry {attempt + 1}", file=self.err)
+            self.sleep(delay)
+            delay = min(delay * 2, 60)
+        raise SystemExit("hermes-remote: dev2 unreachable")
+
+    def job(self, model: str, prompt: str, out) -> int:
+        job_id = "j-" + uuid.uuid4().hex[:20]
+        payload = json.dumps({"id": job_id, "model": model, "prompt": prompt}).encode()
+        rc, so, se = self.call(["submit"], payload)
+        if rc != 0 or so.strip() not in (b"ok", b"exists"):
+            print(se.decode(errors="replace").strip() or f"hermes-remote: submit failed ({rc})", file=self.err)
+            return 3
+        deadline = self.clock() + TIMEOUT_S
+        while self.clock() < deadline:
+            rc, so, _ = self.call(["status", job_id])
+            state = so.decode(errors="replace").split()
+            if state[:1] == ["done"]:
+                if len(state) > 2:  # e.g. "done 125 failed: the job's forwarder or the proxy did not start"
+                    print("hermes-remote: dev2 says: " + " ".join(state[2:]), file=self.err)
+                rc, stream, se = self.call(["fetch", job_id])
+                if rc != 0:
+                    print(se.decode(errors="replace").strip(), file=self.err)
+                    return 1
+                out.write(stream)
+                out.flush()
+                return int(state[1]) if len(state) > 1 and state[1].isdigit() else 1
+            if state[:1] == ["unknown"]:
+                print("hermes-remote: dev2 lost the job", file=self.err)
+                return 1
+            self.sleep(POLL_S)
+        self.call(["cancel", job_id])
+        print("hermes-remote: timed out after 25 min; job cancelled", file=self.err)
+        return 124
+
+
+def parse_args(argv: list[str]) -> str:
+    """The requested model, or SystemExit for an argument list swarm would not send."""
+    rest = list(argv)
+    model = MODEL
+    if "--model" in rest:
+        i = rest.index("--model")
+        model = rest[i + 1] if i + 1 < len(rest) else ""
+        del rest[i:i + 2]
+    if rest != REQUIRED:
+        raise SystemExit(f"hermes-remote: unexpected arguments {argv!r}")
+    if model != MODEL:
+        raise SystemExit(f"hermes-remote: only {MODEL} runs on dev2")
+    return model
+
+
+def main(argv: list[str]) -> int:
+    if argv == ["--version"]:
+        print(VERSION)
+        return 0
+    if argv == ["chat", "--help"]:
+        print(HELP, end="")
+        return 0
+    model = parse_args(argv)
+    prompt = sys.stdin.buffer.read(MAX_PROMPT + 1)
+    if len(prompt) > MAX_PROMPT:
+        raise SystemExit("hermes-remote: prompt over 2 MB")
+    return Remote().job(model, prompt.decode(), sys.stdout.buffer)
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))

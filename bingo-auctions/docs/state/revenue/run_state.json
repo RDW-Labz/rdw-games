@@ -1,0 +1,260 @@
+{
+  "run_id": "rev-2026-10-15-a",
+  "mission": "TBD at Phase 3 (revenue stream + named buyer + price)",
+  "revenue_baseline": {
+    "file": "docs/state/revenue/baseline.md",
+    "data": "docs/state/revenue/baseline.json",
+    "as_of": "2026-10-15"
+  },
+  "pre_registered_metric": null,
+  "phase": "2-data-gathering (option c)",
+  "gates": {
+    "0-audit": {
+      "status": "passed",
+      "artifact": "docs/state/revenue/capability_matrix.json + baseline.md",
+      "evidence": "docs/state/revenue/queries/b1-b5 (GH runs listed in capability_matrix.json); node docs/state/revenue/compute_baseline.mjs reproduces baseline.json",
+      "checker": "maker"
+    },
+    "1-research": {
+      "status": "passed",
+      "artifact": "docs/state/revenue/research.md",
+      "evidence": "14 external refs (E1-E14, 5 fetched, rest search snippets flagged), 9 internal signals (S1-S9) with query files; snapshot dated 2026-10-15",
+      "checker": "maker"
+    },
+    "2-list-and-score": {
+      "status": "failed",
+      "artifact": "docs/state/revenue/candidates.json + scores.json + top5.md",
+      "evidence": "node docs/state/revenue/score.mjs \u2192 passes >= 70: NONE",
+      "checker": "maker"
+    }
+  },
+  "capability_matrix": [
+    {
+      "tool": "prod read-only SQL via workflow",
+      "verified": true,
+      "cost_per_unit": 0.0,
+      "allowed_data": "production"
+    },
+    {
+      "tool": "typecheck/test/preflight",
+      "verified": true,
+      "cost_per_unit": 0.0,
+      "allowed_data": "repo"
+    },
+    {
+      "tool": "post-deploy-check.yml",
+      "verified": true,
+      "cost_per_unit": 0.0,
+      "allowed_data": "production"
+    },
+    {
+      "tool": "Maestro e2e",
+      "verified": false,
+      "cost_per_unit": 0.0,
+      "allowed_data": "repo"
+    },
+    {
+      "tool": "Square sandbox",
+      "verified": false,
+      "cost_per_unit": 0.0,
+      "allowed_data": "test"
+    },
+    {
+      "tool": "Codex CLI",
+      "verified": true,
+      "cost_per_unit": 0.0,
+      "allowed_data": "repo"
+    },
+    {
+      "tool": "Cursor CLI composer-2.5",
+      "verified": true,
+      "cost_per_unit": 0.0,
+      "allowed_data": "repo"
+    },
+    {
+      "tool": "Hermes direct ssh",
+      "verified": true,
+      "cost_per_unit": 0.0,
+      "allowed_data": "public"
+    },
+    {
+      "tool": "Hermes via swarm",
+      "verified": false,
+      "cost_per_unit": 0.0,
+      "allowed_data": "public"
+    },
+    {
+      "tool": "OpenRouter",
+      "verified": false,
+      "cost_per_unit": null,
+      "allowed_data": "public"
+    },
+    {
+      "tool": "Web research (Claude WebSearch/WebFetch)",
+      "verified": true,
+      "cost_per_unit": 0.0,
+      "allowed_data": "public"
+    }
+  ],
+  "candidates": {
+    "scores_file": "docs/state/revenue/scores.json",
+    "rubric": "docs/state/revenue/rubric.json (commit ca7789d, before scoring)",
+    "top": "C05 reseller bulk lots (69)",
+    "runner_up": "C04 buyer's premium 17% on selected auctions (68)"
+  },
+  "operator_signoffs": [
+    {
+      "what": "Option (c): no revenue build; gather data; refunds-before-pickup investigation; refund-reason proposal (write-up only)",
+      "who": "Braden",
+      "date": "2026-10-15"
+    }
+  ],
+  "feature_flags": [],
+  "spend": {
+    "per_task": [
+      {
+        "task": "P0-audit",
+        "worker": "claude (orchestrator) + codex/cursor/hermes smoke calls",
+        "cost": 0.0
+      },
+      {
+        "task": "P1-research",
+        "worker": "claude (WebSearch/WebFetch) + 1 prod query",
+        "cost": 0.0
+      },
+      {
+        "task": "P2-score",
+        "worker": "claude (orchestrator) + 1 prod query",
+        "cost": 0.0
+      },
+      {
+        "task": "P2c-refund-breakdown",
+        "worker": "claude (orchestrator) + 2 prod queries",
+        "cost": 0.0
+      }
+    ],
+    "total": 0.0,
+    "ceiling": 0.0,
+    "ceiling_note": "Braden 2026-10-15: $0 beyond existing subscriptions."
+  },
+  "decisions": [
+    {
+      "phase": 0,
+      "decision": "Gross revenue baseline uses invoices.subtotal/buyer_premium/total and refunded_cash_cents over 11 full weeks",
+      "basis": "queries/b2.json weekly"
+    },
+    {
+      "phase": 0,
+      "decision": "Customer Feedback is NOT a usable demand source (4 non-staff rows); behaviour data is used instead",
+      "basis": "queries/b4.json fb_kinds/fb_kw"
+    },
+    {
+      "phase": 0,
+      "decision": "OpenRouter not used: memory no-idle-routing says OFF for BinGo, run prompt allows $5/day \u2014 stricter rule wins until Braden says otherwise",
+      "basis": "conflict log"
+    },
+    {
+      "phase": 1,
+      "decision": "Public research done by orchestrator WebSearch, not OpenRouter (OFF per memory) or Hermes (no web; swarm adapter failing)",
+      "basis": "capability_matrix.json"
+    },
+    {
+      "phase": 2,
+      "decision": "Refund leakage excluded from scoring: not a new stream; 98.5% of refunds are pre-pickup (Missing Items work)",
+      "basis": "queries/b7.json refunds.never_picked=2426 of 2464"
+    },
+    {
+      "phase": 2,
+      "decision": "Assumption A1: mandatory buyer fees 50% offset by lower bids since BinGo is sole seller",
+      "basis": "candidates.json assumptions; ESTIMATE"
+    },
+    {
+      "phase": 2,
+      "decision": "Braden chose (c): no build; data first",
+      "basis": "Braden 2026-10-15"
+    },
+    {
+      "phase": 2,
+      "decision": "Correction: refund reasons are recorded (after_state.sub_reason, 2,422/2,428) but default-biased (staff app defaults defective_item, console wrong_item)",
+      "basis": "queries/r1.json, RefundItemsSheet.tsx:146, RefundButton.tsx:41"
+    },
+    {
+      "phase": 2,
+      "decision": "Hermes may be called by direct ssh (swarm adapter broken)",
+      "basis": "Braden 2026-10-15"
+    }
+  ],
+  "conflicts": [
+    {
+      "rule_a": "Run prompt: OpenRouter allowed for public research, $5/day",
+      "rule_b": "Memory no-idle-routing: OpenRouter OFF for BinGo",
+      "resolution": "not used"
+    },
+    {
+      "rule_a": "Run prompt: route Hermes through cheapest tier",
+      "rule_b": "Memory hermes-via-project-swarm: Hermes only via swarm",
+      "resolution": "swarm Hermes adapter fails today; Hermes unused until fixed or Braden allows direct ssh"
+    },
+    {
+      "rule_a": "Run prompt: customer deploys any time except 6-10 PM",
+      "rule_b": "CLAUDE.md Rule 9 table: customer changes 09-16, DB locks 05-07",
+      "resolution": "follow the stricter CLAUDE.md windows"
+    }
+  ],
+  "blockers": [
+    {
+      "id": "B6",
+      "phase": 3,
+      "what": "C05 reseller bulk-lot trial parked on file",
+      "operator_action_needed": "Jared: yes/no on a staff-only, no-code bulk-lot trial."
+    },
+    {
+      "id": "B2",
+      "phase": 0,
+      "what": "No Square sandbox; Braden 2026-10-15: don't create one, skip payment changes",
+      "operator_action_needed": "None \u2014 payment-path candidates (C01,C02,C03,C14,C15) are parked."
+    },
+    {
+      "id": "B3",
+      "phase": 0,
+      "what": "Maestro Smoke is failing on master (field-mobile Android emulator, adb exit 1) \u2014 runs 38778373007, 38772450997",
+      "operator_action_needed": "Backlog: issue #519 (Braden: don't fix now)."
+    }
+  ],
+  "iterations": [
+    {
+      "phase": 0,
+      "count": 2,
+      "new_info": true,
+      "note": "b2 query failed once (ambiguous column), fixed and rerun"
+    },
+    {
+      "phase": 2,
+      "count": 1,
+      "new_info": true,
+      "note": "No candidate reached 70. Scores not edited. Two ways forward need Braden: accept a below-mark pilot, or gather data to firm the estimates."
+    },
+    {
+      "phase": 2,
+      "count": 2,
+      "new_info": true,
+      "note": "r1/r2 refund breakdown; corrected Phase 0 claim"
+    }
+  ],
+  "result": null,
+  "retro": {
+    "costliest_phase": null,
+    "closest_gate_failure": null,
+    "unverified_at_start": [
+      "Maestro e2e",
+      "Square sandbox",
+      "Hermes via swarm",
+      "OpenRouter",
+      "Cloudflare deploy/rollback"
+    ]
+  },
+  "artifacts_extra": [
+    "docs/audits/refunds-before-pickup-2026-10-15.md",
+    "docs/plans/PROPOSAL-refund-reason-required-2026-10-15.md"
+  ]
+}

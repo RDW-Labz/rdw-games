@@ -1,0 +1,21 @@
+{
+  "id": "manifest-006",
+  "source": "lowes",
+  "raw": {
+    "description": "POWER+ 56-volt 880-CFM 200-MPH",
+    "retailer_category": "leaf blowers",
+    "upc": "195532102725",
+    "quantity": 1
+  },
+  "expected": {
+    "title": "EGO POWER+ 56V 880 CFM 200 MPH Cordless Leaf Blower",
+    "brand": "EGO",
+    "model": "LB7654",
+    "category_slug": "outdoor-power",
+    "category_legacy": "Home & Garden",
+    "condition": "New/Sealed",
+    "msrp_cents": 29900,
+    "expected_confidence": "medium"
+  },
+  "notes": "EGO POWER+ branding stripped to just 'POWER+' in Lowes department feed. Tests cross-retailer brand normalization."
+}

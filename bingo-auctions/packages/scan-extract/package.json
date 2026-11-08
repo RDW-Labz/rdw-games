@@ -1,0 +1,23 @@
+{
+  "name": "@auction-platform/scan-extract",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Format-coupled barcode candidate extractor — converts a raw scan + symbology into a deduped candidate array for multi-field RPC lookup.",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "lint": "echo 'no-op'",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.17",
+    "typescript": "~5.9.3",
+    "vitest": "^2.1.0"
+  }
+}

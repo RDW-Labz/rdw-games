@@ -1,0 +1,69 @@
+name: Office
+avatar: office
+light:
+  colors:
+    bg: "#f4f4f1"
+    surface: "#eaebe7"
+    surface-raised: "#fcfcfa"
+    border: "#767872"
+    hairline: "#d7d8d2"
+    text: "#1b1d22"
+    text-muted: "#555961"
+    accent: "#243c6e"
+    accent-text: "#f5f8ff"
+    focus: "#24519c"
+    link: "#24519c"
+    ok: "#2c6944"
+    needs-you: "#794c0a"
+    rim: "#9c640f"
+    lamp: "200 120 0"
+    glow-strength: 0.24
+    error: "#a1322c"
+    paused: "#614f89"
+    scrim: "#1b1d2252"
+    shadow-1: "0 1px 2px #1b1d2214"
+    shadow-2: "0 12px 32px -12px #1b1d2240"
+dark:
+  colors:
+    bg: "#16181d"
+    surface: "#1c1f25"
+    surface-raised: "#242830"
+    border: "#80858f"
+    hairline: "#33373f"
+    text: "#eceef2"
+    text-muted: "#abb1bc"
+    accent: "#9fb9ee"
+    accent-text: "#0e1a33"
+    focus: "#9fc1ff"
+    link: "#9fc1ff"
+    ok: "#90d4a1"
+    needs-you: "#f3c25f"
+    rim: "#dfa63e"
+    lamp: "255 199 90"
+    glow-strength: 0.16
+    error: "#ff9e95"
+    paused: "#c7b7eb"
+    scrim: "#00000080"
+    shadow-1: "0 1px 2px #00000066"
+    shadow-2: "0 16px 40px -12px #00000099"
+type:
+  font: 'Figtree, system-ui, -apple-system, "Segoe UI", sans-serif'
+radius:
+  sm: 8
+  md: 12
+  lg: 16
+  pill: 999
+motion:
+  duration-instant: 80
+  duration-fast: 120
+  duration-base: 200
+  duration-slow: 320
+  duration-light: 480
+  breath: 2400
+  ease-out: "cubic-bezier(0, 0, 0.2, 1)"
+  ease-in: "cubic-bezier(0.4, 0, 1, 1)"
+  ease-standard: "cubic-bezier(0.2, 0, 0, 1)"
+sounds:
+  needs_you: default
+  done: default
+  problem: default

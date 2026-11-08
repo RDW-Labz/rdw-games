@@ -1,0 +1,18 @@
+{
+  "id": "photo-014",
+  "image_path": "photo-014-shoe-box-angled.jpg",
+  "media_type": "image/jpeg",
+  "photo_quality_label": "angled",
+  "expected": {
+    "title": "Nike Men's Air Monarch IV Cross Trainer (White/Black, 10.5 Wide)",
+    "brand": "Nike",
+    "model": "416355-101",
+    "upc": "884497145228",
+    "category_slug": "shoes",
+    "category_legacy": "Clothing",
+    "condition": "New/Sealed",
+    "msrp_cents": 6999,
+    "expected_confidence": "medium"
+  },
+  "notes": "Top-down view of a Nike shoe box on its side. Style number sticker is partially readable."
+}

@@ -1,0 +1,63 @@
+{
+ "version": 1,
+ "concurrency": 2,
+ "contract": ".swarm-manifests/t50-contract.md",
+ "jobs": [
+  {
+   "id": "t50-card-a",
+   "agent": "openrouter",
+   "model": "anthropic/claude-sonnet-5.5",
+   "tier": "mid",
+   "maxOutputTokens": 32768,
+   "timeoutMs": 1800000,
+   "context": [
+    ".swarm-manifests/t50-contract.md",
+    "src/design/tokens.ts",
+    "src/components/CoworkerGrid.tsx",
+    "src/components/useCoworkers.ts",
+    "tests/Coworkers.test.tsx",
+    "tests/setup.ts",
+    "package.json"
+   ],
+   "outputs": [
+    "src/components/HoloCard.tsx",
+    "src/components/holoCard.css",
+    "src/lib/holoCardState.ts"
+   ],
+   "prompt": "T50 (decision #159, contract \u00a71 job t50-card): build HoloCard component, holoCard.css styles, holoCardState.ts state logic, (code only; tests come in the next job).\nBuild exactly what \u00a72\u2013\u00a74 specifies. Key picks: (1) No new npm dependencies; tilt is custom pointer math in holoCardState (\u00b112\u00b0 hover clamp, zero-crossing snap); (2) drag-to-rotate in v1 (left-mouse Y-axis \u00b1180\u00b0, snap back if not flipped); (3) foil = CSS-only (linear + conic gradients, glare-x/glare-y custom properties, sparkle from ONE 2D canvas rendered at module load, data-URL ~50KB, no per-frame work); (4) gold border = CSS engraved (inset box-shadows, Lantern tokens); (5) IntersectionObserver threshold 0.25; (6) portrait fallback when !visible || !hovered (static <img>, no animation); (7) reduced-motion: no tilt/glare, flip instant, no sparkle; (8) keyboard focus = hover visual, Enter/Space flip, Tab reaches Pick; (9) three mutants killed: card animates while page hidden, back shows before flip, static fallback missing.\nHoloCard.tsx: React component, ~140\u2013180 lines. Props: portrait (CoworkerImage | undefined), name (string), category (string | null), moreMotion (boolean), onPick (() => void), visible (boolean), reduced (boolean from matchMedia). Renders front (portrait + foil + border) and back (name, category, More-motion tag if moreMotion, Pick button) faces. Calls useHoloCardState to track pointer/visibility/reduced-motion. Applies data attributes [data-hovered], [data-visible], [data-reduced], [data-flipped] driven by holoCardState return values. ARIA: role=\"article\", aria-label on card and Pick button.\nholoCard.css: ~200 lines. 3D perspective, preserve-3d. Front/back faces rotateY for flip. Foil = linear + conic gradients, opacity layers, mask by --glare-x/--glare-y (0\u2013100 custom properties). Gold border = 2\u20133 inset box-shadows with --oasis-needs-you and --oasis-rim. Tilt = rotateX/rotateY from --tilt-x/--tilt-y (degrees, 0 when not hovered or not visible). Flip transition 400\u2013600ms. Reduced-motion: no transition, no tilt, no glare, no sparkle. Static fallback class holo-card__fallback (no 3D).\nholoCardState.ts: ~140 lines, pure module, no React, no external dependencies. Export useHoloCardState(element: HTMLElement | null, visible: boolean, reduced: boolean) => { flipped: boolean, hovered: boolean, tiltX: number, tiltY: number, dragRotY: number, toggleFlip: () => void }. Track IntersectionObserver (visible gate), matchMedia prefers-reduced-motion (reduced gate), pointermove/enter/leave (tilt math: clamp (x - center.x) / width to \u00b112\u00b0, same Y), pointerdown+move with primary button (drag: (x_move - x_down) / width * 180 for dragRotY, up to \u00b1180\u00b0, snap back on leave if not flipped), visibilitychange (page hidden = stop animation). CSS custom properties --tilt-x, --tilt-y (degrees), --glare-x, --glare-y (0\u2013100), --drag-rot-y (degrees). Animation gates: set all to 0 if !visible || !hovered || reduced. Sparkle: at module load, create 2D canvas (64\u00d764), render tiny circles in a glitter pattern (procedural, deterministic), convert to data-URL, export as sparkleDataUrl (reused by CSS).\nTests are NOT part of this job (a later job writes tests/holoCard.test.tsx and tests/holoCardState.test.ts against your exports); make every export, data attribute and CSS variable in \u00a73 exact so those tests can target them.\nOUTPUT SIZE RULES: HoloCard.tsx and holoCard.css compact (no long docstrings, comments inline). holoCardState.ts under 140 lines. Total reply under 20k tokens.\nENVELOPE RULES: every declared output path appears EXACTLY ONCE in `files`, never in `edits`. All 3 files are new, go in `files` with complete content.\nReturn JSON only, max 12 lines: {\"status\": \"done|partial|blocked\", \"summary\": \"<one line>\", \"files\": [\"<every output path written>\"], \"crossJobNames\": [\"<any export name>\"], \"reproTest\": \"none: tests come in the next job\", \"findings\": [\"<\u22643 one-liners>\"]}\nignoreTests note: tests/Coworkers.test.tsx is in context for the jsdom/RTL conventions only; this job edits no existing file.",
+   "ignoreTests": []
+  },
+  {
+   "id": "t50-wire",
+   "agent": "openrouter",
+   "model": "anthropic/claude-sonnet-5.5",
+   "tier": "mid",
+   "maxOutputTokens": 32768,
+   "timeoutMs": 1800000,
+   "context": [
+    ".swarm-manifests/t50-contract.md",
+    "src/components/CoworkerGrid.tsx",
+    "src/styles/coworkers.css",
+    "CHANGELOG.md",
+    "src/components/useCoworkers.ts",
+    "tests/Coworkers.test.tsx",
+    "tests/Onboarding.test.tsx",
+    "package.json",
+    "tests/bundledMotionPack.test.tsx",
+    "tests/livePacksCsp.test.tsx",
+    "tests/themePacks.test.tsx"
+   ],
+   "outputs": [
+    "src/components/CoworkerGrid.tsx",
+    "src/styles/coworkers.css",
+    "CHANGELOG.md",
+    "tests/holoCardWire.test.tsx"
+   ],
+   "prompt": "T50 (decision #159, contract \u00a71 job t50-wire): wire HoloCard into CoworkerGrid and onboarding; edit existing components and tests; add one CHANGELOG line.\nBuild exactly what \u00a72\u2013\u00a74 specifies. HoloCard component will exist at src/components/HoloCard.tsx (from t50-card job) with props: portrait (CoworkerImage | undefined), name (string), category (string | null), moreMotion (boolean), onPick (() => void), visible (boolean), reduced (boolean). Import it without creating it.\nCoworkerGrid.tsx edits (~10\u201320 lines added): Wrap each card (currently .coworker__card div with role=\"radio\") in <HoloCard visible={isInViewport} portrait={images[pack.id]} name={pack.name} category={pack.category} moreMotion={pack.tier === 'animated'} onPick={() => onPick(pack.id)} reduced={prefersReducedMotion} />. Track visible state per card using IntersectionObserver (create one observer per grid, callback updates visible for each pack.id). StatusLine (progress bar, cancel, retry) remains below/outside HoloCard. Remove or override conflicting .coworker__card styles (fixed height, static image size). Preserve .coworkers__grid grid-template-columns and gap. PickCoworkerStep.tsx is NOT an output of this job (no change needed: CoworkerChoices \u2192 CoworkerGrid is already wired); do not write it. Verify HoloCard renders in onboarding-story container (coworkers.css applies). coworkers.css edits (~20\u201330 lines): Remove or override styles from .coworker__card that conflict with HoloCard 3D (e.g., fixed dimensions, border rules). Ensure HoloCard container takes grid space (width: 100%). Adjust spacing if foil + border are slightly larger than 96px portrait. Preserve grid layout and gap. StatusLine placement below HoloCard unaffected.\nCHANGELOG.md: One line at the top of ## Unreleased section (above existing entries, merged into same heading if ## Unreleased exists, else create it above the newest section). Line: \"T50: Holo coworker cards with tilt, flip, and static fallback on Coworkers page and onboarding pick step (#232).\"\nholoCardWire.test.tsx (new, ~120\u2013160 lines): Integration tests. (1) CoworkerGrid renders HoloCard for each pack (check DOM for HoloCard or data-testid=\"holo-card-<packId>\"). (2) Clicking Pick button on HoloCard calls parent's onPick (event callback fires with pack.id). (3) IntersectionObserver fires visible=true/false; visible card renders animation-capable state, off-screen renders static PNG. (4) PickCoworkerStep renders CoworkerChoices \u2192 CoworkerGrid with HoloCards (integration, fake coworkers from fakeAvatarClient, no service calls). (5) StatusLine (progress, cancel, retry) renders below HoloCard without interference. Use vitest + jsdom + RTL. Mock IntersectionObserver, matchMedia, pointer events. Fake CoworkerImage data.\nEXISTING TESTS (Coworkers.test.tsx, Onboarding.test.tsx): no edits needed if HoloCard exports role=\"article\" or wraps the radio semantics without changing aria-checked/role. Verify by running `npm test` after edits \u2014 if radio tests fail (e.g., getByRole('radio', { name }) not found), add IntersectionObserver mock to tests/setup.ts or per-test. Existing \"Pick\" flow should still work (onPick callback unchanged). If tests need updates, keep them minimal (mock IntersectionObserver, no structural edits to existing test cases).\nOUTPUT SIZE RULES: CoworkerGrid.tsx and coworkers.css edits compact (only necessary changes). CHANGELOG.md: one line inserted, no other changes. holoCardWire.test.tsx under 160 lines. Total reply under 30k tokens.\nENVELOPE RULES: CoworkerGrid.tsx, coworkers.css, CHANGELOG.md go in `edits` (objects with EXACTLY the keys path, find, replace and nothing else; `find` non-empty and occurring exactly once in the current file) with exact find strings from the current file. holoCardWire.test.tsx (new) goes in `files`. Existing tests (Coworkers.test.tsx, Onboarding.test.tsx) are not declared outputs; if they need changes, mention in `findings` and the next job will edit them. Do not write paths not declared.\nReturn JSON only, max 12 lines: {\"status\": \"done|partial|blocked\", \"summary\": \"<one line>\", \"files\": [\"<every path you wrote or edited>\"], \"crossJobNames\": [\"<any new export from wire job>\"], \"reproTest\": \"<test covering IntersectionObserver gate or StatusLine placement>\", \"findings\": [\"<\u22643 one-liners: anything in contract not honoured or blocking edits>\"]}\nignoreTests note: Coworkers.test.tsx and Onboarding.test.tsx are not edited by this job; they stay in the existing test suite. If they fail after wire edits, that is a test-failure follow-up.\n\nignoreTests note: tests/preview/Gallery.tsx and tests/readStyles.ts are preview-gallery helpers that only read src/styles/coworkers.css as text; they are not in context because your css change is additive (new rules appended, no existing selector renamed or removed), which keeps them passing. tests/bundledMotionPack.test.tsx, tests/livePacksCsp.test.tsx and tests/themePacks.test.tsx ARE in context: keep every assertion in them passing (the coworker card's existing role=radio, name, artist, badge and picture rendering must survive the HoloCard wrap).\nENVELOPE SHAPE REMINDER: the top-level reply is the envelope the adapter expects: {\"files\":[{\"path\",\"content\"}...], \"edits\":[{\"path\",\"find\",\"replace\"}...], \"result\": {<the Return JSON above>}}. Never put a string list under the envelope's `edits`.",
+   "ignoreTests": [
+    "tests/preview/Gallery.tsx",
+    "tests/readStyles.ts"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,33 @@
+{
+ "areas": [
+  {
+   "area": "t22-t23-avatars-themes",
+   "ticket": "T22/T23",
+   "goal": "Pixel-art/sprite animation playback, design-token pipelines and WCAG contrast checking in CI for light/dark theme packs.",
+   "queries": [
+    "topic:design-tokens stars:>300",
+    "topic:wcag stars:>200",
+    "topic:pixel-art language:TypeScript stars:>200"
+   ]
+  },
+  {
+   "area": "phase3-retrieval",
+   "ticket": "Phase 3",
+   "goal": "Local retrieval for a person's drawer: document parsing, chunking, embedding and hybrid search that runs on a laptop, Python.",
+   "queries": [
+    "topic:rag language:Python stars:>2000 pushed:>2025-09-01",
+    "topic:vector-database stars:>1000 pushed:>2025-09-01",
+    "topic:document-parser stars:>500"
+   ]
+  },
+  {
+   "area": "scrubber-pii-secrets",
+   "ticket": "remote scrubber",
+   "goal": "PII and secret detection/redaction for agent traces before they hit disk, Python, high recall.",
+   "queries": [
+    "topic:pii stars:>200",
+    "topic:secrets-detection stars:>300"
+   ]
+  }
+ ]
+}

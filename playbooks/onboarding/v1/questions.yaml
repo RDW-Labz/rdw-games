@@ -1,0 +1,63 @@
+# The onboarding question set. Each question's `field` names exactly where
+# its answer lands in profile.yaml (a dotted field reaches into
+# `preferences`). Loaded by garage.onboarding.data.load_questions.
+#
+# Answers themselves are supplied by the Rig's own UI -- this file only
+# says what to ask and where the answer goes. Follow-ups are asked right
+# after their parent question and extend the same field.
+#
+# access_level is never a question here (DECISIONS.md #31, #38): it is an
+# admin-set data-role decision, not something onboarding asks a person.
+# New profiles default access_level to member; Braden sets admin during
+# provisioning, outside this file. garage.onboarding.data.load_questions
+# refuses a questions.yaml that tries to add one back.
+questions:
+  - id: q_name
+    field: name
+    kind: text
+    prompt: "What should I call you?"
+  - id: q_title
+    field: title
+    kind: text
+    prompt: "What's your job title?"
+  - id: q_reports_to
+    field: reports_to
+    kind: text
+    prompt: "Who do you report to?"
+  - id: q_ventures
+    field: ventures
+    kind: list
+    prompt: "Which parts of the company do you work on?"
+  - id: q_tools
+    field: tools
+    kind: list
+    prompt: "What apps or tools do you use for work?"
+    follow_ups:
+      - id: q_tools_more
+        prompt: "Any other tools worth mentioning?"
+  - id: q_day
+    field: day
+    kind: list
+    prompt: "Walk me through a normal day."
+    follow_ups:
+      - id: q_day_more
+        prompt: "Anything that happens weekly or monthly, like payroll?"
+  - id: q_people
+    field: people
+    kind: people
+    prompt: "Who do you work with regularly?"
+    follow_ups:
+      - id: q_people_more
+        prompt: "Anyone else you work with often?"
+  - id: q_pref_tone
+    field: preferences.tone
+    kind: text
+    prompt: "How should I talk to you — short and direct, or more detail?"
+  - id: q_pref_ask_before
+    field: preferences.ask_before
+    kind: list
+    prompt: "What should I always ask you before doing?"
+  - id: q_pref_quiet_hours
+    field: preferences.quiet_hours
+    kind: text
+    prompt: "Any hours you'd like me to stay quiet?"

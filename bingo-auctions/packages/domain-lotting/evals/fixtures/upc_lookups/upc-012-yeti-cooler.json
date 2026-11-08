@@ -1,0 +1,15 @@
+{
+  "id": "upc-012",
+  "code": "888830002704",
+  "code_type": "upc",
+  "expected": {
+    "title": "YETI Tundra 45 Hard Cooler (Tan)",
+    "brand": "YETI",
+    "model": "Tundra 45",
+    "category_slug": "camping",
+    "category_legacy": "Sporting Goods",
+    "condition": "",
+    "msrp_cents": 32500
+  },
+  "notes": "Common YETI variant. Tests the 'camping' slug under sports-fitness top-level."
+}

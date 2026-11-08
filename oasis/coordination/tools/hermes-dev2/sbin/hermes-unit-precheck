@@ -1,0 +1,69 @@
+#!/usr/bin/python3 -I
+"""Root precheck for every worker unit (job, forwarder, probe).
+
+Refuses (non-zero exit, so the unit fails; a dead job's folder is then
+reaped by the watchdog or the next start) unless:
+
+  - the hermes-w firewall table is loaded with its drop rule and no accept.
+    Jobs, forwarders and probes run in private network namespaces where
+    host nftables rules don't apply; the table is the wall for any hermes-w
+    process on the host network. A `systemctl reload nftables` that flushed
+    it therefore stops new work until setup reloads it, instead of going
+    unnoticed;
+  - for jobs: no STOP file, and the size-capped work tmpfs is mounted.
+
+    hermes-unit-precheck job|fwd|probe
+    hermes-unit-precheck job-<job-id>|fwd-<instance>|probe-<instance>
+"""
+
+from __future__ import annotations
+
+import os
+import pwd
+import subprocess
+import sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), "bin"))
+from hermes_dev2_common import firewall_ok, mount_fstype, valid_job_id  # noqa: E402
+
+
+KINDS = ("job", "fwd", "probe")
+
+
+def parse_kind(argument: str) -> str | None:
+    """Return the worker kind for a bare kind or a validated instance."""
+    if argument in KINDS:
+        return argument
+    kind, separator, rest = argument.partition("-")
+    if not separator or kind not in KINDS or not rest:
+        return None
+    if len(rest) > 64 or any(char not in "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-" for char in rest):
+        return None
+    if kind == "job" and not valid_job_id(rest):
+        return None
+    return kind
+
+
+def main(argv: list[str]) -> int:
+    if len(argv) != 2 or parse_kind(argv[1]) is None:
+        print("usage: hermes-unit-precheck job|fwd|probe", file=sys.stderr)
+        return 2
+    listing = subprocess.run(["/usr/sbin/nft", "list", "chain", "inet", "hermes_w", "output"],
+                             capture_output=True, text=True).stdout
+    if not firewall_ok(listing, pwd.getpwnam("hermes-w").pw_uid):
+        print("refused: the hermes-w firewall table or its drop rule is missing", file=sys.stderr)
+        return 1
+    kind = parse_kind(argv[1])
+    if kind == "job" and os.path.lexists("/var/lib/hermes-jobs/STOP"):
+        print("refused: STOP file present", file=sys.stderr)
+        return 1
+    if kind == "job":
+        with open("/proc/self/mountinfo") as fh:
+            if mount_fstype(fh.read(), "/var/lib/hermes-jobs/work") != "tmpfs":
+                print("refused: the size-capped work tmpfs is not mounted", file=sys.stderr)
+                return 1
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv))

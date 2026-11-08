@@ -1,0 +1,12 @@
+{
+ "host": "donauchem-pl.devweb.emakina.at",
+ "target": "donauchemie-dev.azurewebsites.net",
+ "provider": "azurewebsites",
+ "label": "donauchemie-dev",
+ "claim_class": "paid",
+ "in_scope": "bc:EPAM Systems Managed Bug Bounty Program via *.emakina.at",
+ "captured": "2026-11-07T20:59:55Z",
+ "target_resolves": false,
+ "victim_response": "http_code=000 ip= err=Could not resolve host: donauchem-pl.devweb.emakina.at\n[stderr] curl: (6) Could not resolve host: donauchem-pl.devweb.emakina.at",
+ "evidence_dir": "/home/cluer/Projects/bug-bounty/evidence-takeover/donauchem-pl.devweb.emakina.at"
+}

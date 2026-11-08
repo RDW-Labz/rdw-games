@@ -1,0 +1,6 @@
+{
+ "title": "T46 contract: animated tier in the avatar pack format (0.4.1)",
+ "head": "t46-animated-tier",
+ "base": "main",
+ "body": "Adds the animated tier to the avatar pack format (T46, decisions #194, #195, #197) and the cross-repo contract every T46 builder reads.\n\n## What\n- `docs/formats.md`: optional `tier` (`standard`|`animated`), `frames` 4\u201312, `fps` 6\u201312, extra rows `idle_variant_N` then `celebrate` (animated tier only), fallbacks, budgets unchanged. Old packs validate unchanged.\n- `docs/t46/contract.md`: manifest keys, validator codes, agent-core `tier` on `GET /avatars`, orb timing (30\u201390 s, reduced motion = still), \"More motion\" tag/heading rule, per-repo tests and mutants. \u00a78 settled provisionally (#159).\n- 0.4.0 \u2192 0.4.1, CHANGELOG.\n\n## Checks\n<!-- swarm:checks -->\n\n## Mutation check\nNo ask-first gate or state mapping: docs and version only. The rules are mutation-checked in the playbooks, agent-core and desktop-app T46 PRs.\n\n\ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)\n\nhttps://claude.ai/code/session_012QWQRVxJjQx2DsXEAH1iuw"
+}

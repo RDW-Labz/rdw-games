@@ -1,0 +1,20 @@
+{
+  "generated": "2026-11-04T22:45:33+00:00",
+  "companies": [
+    {
+      "domain": "stewart.com",
+      "org": "Stewart",
+      "contact": "secops@stewart.com",
+      "records": [
+        {
+          "host": "ind-dev.stewart.com",
+          "target": "ind-dev.trafficmanager.net",
+          "status": "NXDOMAIN",
+          "provider": "trafficmanager.net",
+          "claimable": true
+        }
+      ],
+      "count": 1
+    }
+  ]
+}

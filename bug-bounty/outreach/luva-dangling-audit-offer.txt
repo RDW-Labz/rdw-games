@@ -1,0 +1,37 @@
+To: security@luva.bet.br
+Subject: 1 dangling DNS record on luva.bet.br — the name is unclaimed
+
+---
+
+Hello,
+
+I run passive DNS sweeps and luva.bet.br came up: 1 hostname in your zone is still pointing at a cloud
+resource that no longer exists.
+
+  blog.luva.bet.br
+    -> app-luvabet-blog-brc2e9axcjewcrcj.eastus-01.azurewebsites.net
+
+That target is deleted, so the provider now answers "does not exist" for the name your own record
+still uses. Cloud resource names are released on deletion, which means anyone who creates a resource
+with that name inherits your hostname — traffic, cookies scoped to your parent domain, and a
+certificate they can obtain for it legitimately, because the name points at them. This is the
+subdomain-takeover class, and it is silent until someone uses it.
+
+The fix is deleting the stale record, or recreating the resource and keeping it. That is free and
+needs nothing from me.
+
+I also sweep zones as a service — every hostname from certificate transparency, every CNAME followed,
+a claimability verdict on each, remediation for the live ones, and a re-test after your fix. Three
+business days, one flat fee:
+
+    DNS Hygiene Audit, single zone    $1,500    https://square.link/u/h41lTw3P
+    DNS Hygiene Monitoring, 1 month   $750      https://square.link/u/7GnO5RnD
+
+If you would rather just have the full list for this zone, reply and I will send it — no charge for
+that, it is the same sweep.
+
+Regards,
+
+Michael McLuer
+RDW Labz
+security@rdwlabz.com

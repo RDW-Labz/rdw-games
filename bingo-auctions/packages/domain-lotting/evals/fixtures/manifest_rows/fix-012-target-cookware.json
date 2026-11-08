@@ -1,0 +1,23 @@
+{
+  "id": "manifest-012",
+  "source": "target",
+  "raw": {
+    "description": "Lodge Pre-Seasoned 12 Inch Cast Iron Skillet - L10SK3",
+    "retailer_category": "Cookware > Skillets",
+    "upc": "075536100036",
+    "model_number": "L10SK3",
+    "quantity": 1,
+    "retail_price": 32.99
+  },
+  "expected": {
+    "title": "Lodge L10SK3 Pre-Seasoned 12-inch Cast Iron Skillet",
+    "brand": "Lodge",
+    "model": "L10SK3",
+    "category_slug": "cookware",
+    "category_legacy": "Kitchen",
+    "condition": "New/Sealed",
+    "msrp_cents": 3299,
+    "expected_confidence": "high"
+  },
+  "notes": "Lodge cast iron — easy SKU resolution."
+}

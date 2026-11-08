@@ -1,0 +1,20 @@
+{
+ "version": 1,
+ "concurrency": 1,
+ "jobs": [
+  {
+   "id": "os-orb-sketches",
+   "agent": "claude",
+   "model": "sonnet",
+   "tier": "mid",
+   "prompt": "You are job OS (OASIS, T17 Orb v2 character sketches). You cannot run code or see images; the coordinator runs your script with Python 3.12 + Pillow and looks at the PNGs.\nBraden's direction: a pixel-art coworker with a SCREEN FACE, on a transparent background, with a two-button bar under it (a pencil/write icon and a voice waveform placeholder icon, in one rounded dark pill with a thin divider). It must be an ORIGINAL OASIS character: NOT a robot with a cloud head (the style reference is a blue robot whose head is a puffy cloud with a '>_' screen face; do not reuse that silhouette), not a copy of any other product's assistant or mascot (no Clippy-like paperclip, no Android-like robot, no known game or brand character). Friendly and calm; it lives in the corner of the screen of a non-technical office worker at Cluer Holdings. OASIS means a small green refuge in a desert: you may use that idea, but no palm-tree clich\u00e9s required.\nWrite exactly one file: coordination/references/orb-sketches/make_sketches.py. It defines THREE clearly different characters (different silhouettes, not recolors), each as a list of equal-length strings (one char per pixel, '.' = transparent) plus a palette dict char -> '#RRGGBB'. Canvas per character: 32 wide x 36 tall for the body, then the button bar drawn below it as pixel art too (about 26 x 9 px, same palette style), total at most 32 x 48. Each screen face shows a simple expression made of lit pixels (eyes/prompt glyph). Use crisp outlines (1 px darker edge), 2-3 shades per material, a limited palette (max 10 colours per character).\nThe script, when run from the oasis root: for each character writes coordination/references/orb-sketches/sketch-<n>-<slug>.png upscaled 8x with nearest-neighbour on a TRANSPARENT background (RGBA), and also writes contact-sheet.png: the three side by side at 6x, each shown once on #1E1E1E and once on #F2F2F2 (two rows), with a 16 px gap. It asserts every row of a grid has the same width and every char is in the palette, and prints one line per file written. Standard library + Pillow only. No network.\nAlso include at the top of the script a docstring with one line per sketch: number, name, slug, one-sentence idea, why it is not a cloud-head robot or a known mascot.\nEnd with one JSON line: {\"files_changed\":[...],\"sketches\":[{\"n\":1,\"name\":\"...\",\"idea\":\"...\"}, ...]}.",
+   "context": [
+    "docs/TICKETS.md"
+   ],
+   "outputs": [
+    "coordination/references/orb-sketches/make_sketches.py"
+   ],
+   "timeoutMs": 1800000
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "upc-022",
+  "code": "12345",
+  "code_type": "upc",
+  "expected": {
+    "title": "",
+    "brand": "",
+    "model": "",
+    "category_slug": "other-misc",
+    "category_legacy": "Other",
+    "condition": "",
+    "msrp_cents": 0
+  },
+  "notes": "NEGATIVE — malformed UPC (5 digits, too short to be a real GTIN). Tests rejection of obviously-bad codes."
+}

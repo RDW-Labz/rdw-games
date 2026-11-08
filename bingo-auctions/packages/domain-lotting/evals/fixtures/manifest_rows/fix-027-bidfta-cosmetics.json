@@ -1,0 +1,22 @@
+{
+  "id": "manifest-027",
+  "source": "other",
+  "raw": {
+    "description": "Maybelline Instant Age Rewind Eraser Dark Circles Treatment Multi-Use Concealer, 120 Light, 0.2 Fl Oz",
+    "retailer_category": "5000 mass cosmetics",
+    "upc": "041554239485",
+    "quantity": 24,
+    "retail_price": 9.99
+  },
+  "expected": {
+    "title": "Maybelline Instant Age Rewind Eraser Dark Circles Concealer (120 Light, 0.2 fl oz)",
+    "brand": "Maybelline",
+    "model": "",
+    "category_slug": "beauty",
+    "category_legacy": "Health & Beauty",
+    "condition": "New/Sealed",
+    "msrp_cents": 999,
+    "expected_confidence": "high"
+  },
+  "notes": "BidFTA cosmetics. Quantity 24 — pallet/case lot. No model number on consumables."
+}

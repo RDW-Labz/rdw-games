@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <title>Putt Drop</title>
+    <link rel="preload" href="/fonts/Fredoka-Variable.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="/fonts/Nunito-Variable.ttf" as="font" type="font/ttf" crossorigin />
+    <style>
+      @font-face {
+        font-family: "Fredoka";
+        src: url("/fonts/Fredoka-Variable.ttf") format("truetype");
+        font-weight: 500 700;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Nunito";
+        src: url("/fonts/Nunito-Variable.ttf") format("truetype");
+        font-weight: 600 800;
+        font-style: normal;
+        font-display: swap;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: #faf3df;
+        overflow: hidden;
+        touch-action: none;
+      }
+      #game {
+        width: 100vw;
+        height: 100vh;
+        font-family: Nunito, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="game"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

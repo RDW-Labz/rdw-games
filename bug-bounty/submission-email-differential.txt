@@ -1,0 +1,48 @@
+To: security@differential.com
+Subject: [VDP] Subdomain takeover — bas-facility-layout-tool-api-{dev,staging}.differential.com (dangling Elastic Beanstalk CNAME)
+
+Hello Differential security team,
+
+Reporting under your Vulnerability Disclosure Policy (www.differential.com/security/
+vulnerability-disclosure-policy, also in /.well-known/security.txt).
+
+Summary
+-------
+Two records in your DNS zone still CNAME to Elastic Beanstalk environments that no longer
+exist, and the targets return NXDOMAIN:
+
+  bas-facility-layout-tool-api-dev.differential.com
+    -> bas-facility-layout-tool-api-dev.us-east-2.elasticbeanstalk.com   [NXDOMAIN]
+  bas-facility-layout-tool-api-staging.differential.com
+    -> bas-facility-layout-tool-api-staging.us-east-2.elasticbeanstalk.com [NXDOMAIN]
+
+AWS says this is claimable by someone else — from the docs for the feature itself:
+"If you terminate an environment, you must also delete any CNAME mappings that you created,
+as other customers can reuse an available hostname ... A dangling DNS entry can expose
+internet traffic destined for your domain to security vulnerabilities."
+(docs.aws.amazon.com/elasticbeanstalk/latest/dg/customdomains.html)
+
+Because the released hostnames are the plain regional form <prefix>.us-east-2.elasticbeanstalk.com
+with no random id segment, any AWS customer can create an environment with that DNS name in
+us-east-2 and inherit the record:
+  aws elasticbeanstalk check-dns-availability --cname-prefix bas-facility-layout-tool-api-dev
+
+Impact
+------
+Attacker-controlled responses at an https://*.differential.com address with a valid certificate;
+any client, tool or integration still configured for those hostnames sends its requests (and any
+tokens in them) to the attacker; usable as a phishing origin inside your brand's domain.
+CVSS 3.1 6.1 (AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N).
+
+Remediation
+-----------
+Delete both CNAMEs from the zone. That is sufficient — the exposure ends the moment the records
+go. Worth adding "delete the DNS records" to your environment teardown checklist, and sweeping the
+zone once for any other CNAME whose target no longer resolves.
+
+I did not create an environment or claim either hostname; the check above is read-only and all my
+testing was passive DNS plus single HTTP probes. Evidence attached/copied below. Happy to retest
+once the records are gone.
+
+Best regards,
+Michael Cluer

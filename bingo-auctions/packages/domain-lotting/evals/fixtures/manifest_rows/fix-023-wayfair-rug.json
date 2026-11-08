@@ -1,0 +1,22 @@
+{
+  "id": "manifest-023",
+  "source": "wayfair",
+  "raw": {
+    "description": "Andover Mills Stuart Geometric Power Loom Gray/Cream Rug 5'3\" x 7'7\"",
+    "retailer_category": "Decor & Pillows > Rugs",
+    "model_number": "AMIL5527-GRYCRM-5377",
+    "quantity": 1,
+    "retail_price": 178.99
+  },
+  "expected": {
+    "title": "Andover Mills Stuart Geometric Power-Loom Rug (Gray/Cream, 5'3\" x 7'7\")",
+    "brand": "Andover Mills",
+    "model": "AMIL5527-GRYCRM-5377",
+    "category_slug": "rugs-mats",
+    "category_legacy": "Furniture",
+    "condition": "New/Sealed",
+    "msrp_cents": 17899,
+    "expected_confidence": "medium"
+  },
+  "notes": "Wayfair house brand rug. No UPC — manifest classifier should fall back to the title query path."
+}

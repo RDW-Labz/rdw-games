@@ -1,0 +1,15 @@
+{
+  "id": "upc-004",
+  "code": "703113001017",
+  "code_type": "upc",
+  "expected": {
+    "title": "Vitamix 5200 Standard Blender (Black, 64oz)",
+    "brand": "Vitamix",
+    "model": "5200",
+    "category_slug": "small-appliances",
+    "category_legacy": "Appliances",
+    "condition": "",
+    "msrp_cents": 44995
+  },
+  "notes": "Real Vitamix UPC. 'Black' variant. Tests color/variant disambiguation."
+}

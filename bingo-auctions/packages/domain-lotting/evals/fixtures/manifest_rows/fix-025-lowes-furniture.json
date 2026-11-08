@@ -1,0 +1,23 @@
+{
+  "id": "manifest-025",
+  "source": "lowes",
+  "raw": {
+    "description": "allen + roth 36-in W x 72-in H x 18.5-in D Freestanding Steel Garage Cabinet in Silver",
+    "retailer_category": "garage organization",
+    "upc": "194767190019",
+    "model_number": "19001",
+    "quantity": 1,
+    "retail_price": 379.0
+  },
+  "expected": {
+    "title": "allen + roth 36-inch x 72-inch x 18.5-inch Steel Freestanding Garage Cabinet (Silver)",
+    "brand": "allen + roth",
+    "model": "19001",
+    "category_slug": "storage-organization",
+    "category_legacy": "Home & Garden",
+    "condition": "New/Sealed",
+    "msrp_cents": 37900,
+    "expected_confidence": "medium"
+  },
+  "notes": "Lowes house brand 'allen + roth' with the lower-case styled name — tests case-preservation in titles."
+}

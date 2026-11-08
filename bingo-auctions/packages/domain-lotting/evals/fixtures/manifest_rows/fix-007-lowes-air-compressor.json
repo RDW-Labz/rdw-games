@@ -1,0 +1,23 @@
+{
+  "id": "manifest-007",
+  "source": "lowes",
+  "raw": {
+    "description": "Kobalt QUIET TECH 26-Gallon Portable Electric 150 PSI Vertical Air Compressor",
+    "retailer_category": "compressors diy and stationary",
+    "upc": "871613009489",
+    "model_number": "3332644",
+    "quantity": 1,
+    "retail_price": 449.0
+  },
+  "expected": {
+    "title": "Kobalt Quiet Tech 26-Gallon 150 PSI Portable Electric Vertical Air Compressor",
+    "brand": "Kobalt",
+    "model": "3332644",
+    "category_slug": "power-tools",
+    "category_legacy": "Tools & Hardware",
+    "condition": "New/Sealed",
+    "msrp_cents": 44900,
+    "expected_confidence": "high"
+  },
+  "notes": "Lowes house brand (Kobalt) — should resolve cleanly with the all-numeric model SKU."
+}

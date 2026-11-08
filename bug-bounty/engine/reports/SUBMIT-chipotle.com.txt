@@ -1,0 +1,9 @@
+chipotle.com is inside a published programme — submit through it, do not email the target.
+
+Programme: Chipotle Managed Bug Bounty Engagement
+Platform:  Bugcrowd
+Policy:    https://bugcrowd.com/engagements/chipotle-mbb-og
+Programme scope gate: passed for account-link.chipotle.com
+
+Report bodies: the per-host .md files in this directory. Consolidate the hosts that share a
+target into one report (they are one root cause), and say plainly that nothing was claimed.

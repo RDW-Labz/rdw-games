@@ -1,0 +1,23 @@
+{
+ "version": 1,
+ "concurrency": 1,
+ "jobs": [
+  {
+   "id": "t53-merge",
+   "agent": "claude",
+   "model": "haiku",
+   "tier": "cheap",
+   "timeoutMs": 600000,
+   "context": [
+    "coordination/research/t53-a.md",
+    "coordination/research/t53-b.md",
+    "coordination/research/threejs-shortlist.md"
+   ],
+   "outputs": [
+    "coordination/research/animation-shortlist.md"
+   ],
+   "prompt": "T53 bookkeeping: merge two scout reports (context: coordination/research/t53-a.md, t53-b.md) into ONE file coordination/research/animation-shortlist.md. Layout like threejs-shortlist.md (context, first 25 lines are the pattern): title line '# Animation shortlist for OASIS (2026-09-28)', a 'Source files:' line naming t53-a.json and t53-b.json, then one bold-numbered section per question: **1. Choreographed sequences (T31: splash dissolve, lamp ignite, title reveal)**, **2. Hover/idle motion (T49 Orb, T50 holo cards)**, **3. Sprite-sheet playback (T46 More-motion packs)**, **4. Free motion asset sources** . Each a table: Pick | License | Pin | Size | What it's for | Example. Use only facts in the two reports; unknown -> 'unknown'. IMPORTANT: GSAP is a named license exception (decision #252, gsap@3.15.0, Webflow Standard 'No Charge' GSAP License): put it as the FIRST row of table 1 with license 'GSAP Standard No Charge (named exception #252)', even though a scout listed it under rejected. Theatre.js is excluded (#247). Then '## Rejected' (name - reason, one line each, merged, no GSAP), then '## Asset rule' one line: any asset pulled needs a CREDITS.md line (name, source URL, license, date pulled) (#237). Then '## For Braden to pick' : 3 lines, one per question 1-3, naming the scouts' top pick. Max 90 lines. Plain words.",
+   "tierReason": "research merge; swarm bars DeepSeek from non-bookkeeping outputs"
+  }
+ ]
+}

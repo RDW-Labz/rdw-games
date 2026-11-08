@@ -1,0 +1,30 @@
+/**
+ * Cloudflare Workers config for the bingo-cron scheduler.
+ *
+ * Deploy from the repo root or from this directory:
+ *   cd apps/cron-trigger
+ *   npx wrangler deploy
+ *
+ * Required env vars (set via Cloudflare dashboard or `wrangler secret put`):
+ *   CRON_SECRET       — shared secret matched by /api/cron/* route auth
+ *   CRON_TARGET_URL   — base URL of the main Worker, e.g.
+ *                       https://bingoauctions.com
+ */
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "bingo-cron",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-04-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": false,
+  "preview_urls": false,
+  "observability": {
+    "enabled": true
+  },
+  "triggers": {
+    // 0 0 * * * added with migration 0106 for the daily operator-sub-lapse
+    // sweep. 0 14 * * * added with mig 0230 for the (self-gated) marketing
+    // digest — 9am warehouse time. See SCHEDULES in src/index.ts.
+    "crons": ["* * * * *", "*/2 * * * *", "*/5 * * * *", "*/30 * * * *", "0 * * * *", "0 0 * * *", "0 14 * * *"]
+  }
+}

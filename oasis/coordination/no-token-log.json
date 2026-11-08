@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "concurrency": 1,
+  "jobs": [
+    {
+      "id": "no-token-log",
+      "agent": "claude",
+      "model": "haiku",
+      "tier": "cheap",
+      "prompt": "Small follow-up in agent-core (decision #46): when the local Rig service starts and the OS keychain has no service token (SecretStore name `rig.service_token`, read by `read_service_token` in src/anorak/local_service_auth.py), the service must write one plain technical line to the activity log (the same append-only log.jsonl the service already writes \"watcher: not connected\" to at startup; follow that exact code path and record shape): the reason, e.g. \"no token found: rig.service_token is not set in the OS keychain (service OASIS)\". Never write any token value or partial value. Then behave as today (if startup currently refuses to run without the token, keep refusing, but log first; the CLI's user-facing stderr stays generic).\n\nRules: read AGENTS.md. Tests first: add a test in tests/test_service_cli.py (or tests/test_local_service.py, whichever already covers startup/logging) where the fake SecretStore has no token \u2192 the log gets exactly one entry with that reason and no token-shaped text; and the existing token-present tests still pass unchanged. Fake values only (sk-FAKE-0000). Keep the change minimal. Update docs/local-service.md (one sentence) and add one line at the top of CHANGELOG.md's Unreleased section: \"- Service logs \\\"no token found\\\" to the activity log when the Rig service token is missing (decision #46).\" You cannot run tests; write code carefully so pytest, ruff, ruff format, and mypy --strict (native and win32) pass. Only edit your declared output files. End your reply with a JSON line: {\"files_changed\":[...],\"log_line\":\"...\",\"behavior_without_token\":\"...\"}",
+      "context": [
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "docs/local-service.md",
+        "src/anorak/local_service.py",
+        "src/anorak/local_service_auth.py",
+        "src/anorak/service_cli.py",
+        "src/anorak/secrets.py",
+        "tests/test_local_service.py",
+        "tests/test_service_cli.py"
+      ],
+      "outputs": [
+        "src/anorak/local_service.py",
+        "src/anorak/local_service_auth.py",
+        "src/anorak/service_cli.py",
+        "tests/test_local_service.py",
+        "tests/test_service_cli.py",
+        "docs/local-service.md",
+        "CHANGELOG.md"
+      ],
+      "timeoutMs": 1800000
+    }
+  ]
+}

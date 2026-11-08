@@ -1,0 +1,214 @@
+{
+  "generated": "2026-11-05T00:06:23+00:00",
+  "probed": 3000,
+  "alive": 655,
+  "catchall": 159,
+  "by_class": {
+    "git-config": 0,
+    "dotenv": 0,
+    "ds-store": 0,
+    "svn": 0,
+    "apache-status": 0,
+    "spring-env": 0,
+    "spring-health": 1,
+    "swagger": 6,
+    "swagger-2": 0,
+    "openapi": 1,
+    "wp-users": 1,
+    "go-expvar": 0,
+    "phpinfo": 0,
+    "crossdomain": 10
+  },
+  "hits": [
+    {
+      "host": "do.co",
+      "path": "/crossdomain.xml",
+      "kind": "crossdomain",
+      "len": 278,
+      "sha": "9c2d062e9645c5b0",
+      "scope": "do.co",
+      "platform": "it",
+      "handle": "digitalocean"
+    },
+    {
+      "host": "moonpay.com",
+      "path": "/swagger-ui/index.html",
+      "kind": "swagger",
+      "len": 39598,
+      "sha": "1177c5ff34d27f8a",
+      "scope": "moonpay.com",
+      "platform": "h1",
+      "handle": "moonpay"
+    },
+    {
+      "host": "moonpay.com",
+      "path": "/openapi.json",
+      "kind": "openapi",
+      "len": 116686,
+      "sha": "c3ce3716886311ad",
+      "scope": "moonpay.com",
+      "platform": "h1",
+      "handle": "moonpay"
+    },
+    {
+      "host": "m.flickr.com",
+      "path": "/swagger-ui/index.html",
+      "kind": "swagger",
+      "len": 2626,
+      "sha": "ad925b329ddf673c",
+      "scope": "flickr.com",
+      "platform": "h1",
+      "handle": "flickr"
+    },
+    {
+      "host": "api.karwei.nl",
+      "path": "/actuator/health",
+      "kind": "spring-health",
+      "len": 49,
+      "sha": "f5d81755935209a3",
+      "scope": "karwei.nl",
+      "platform": "it",
+      "handle": "intergamma"
+    },
+    {
+      "host": "go.insider.in",
+      "path": "/crossdomain.xml",
+      "kind": "crossdomain",
+      "len": 278,
+      "sha": "9c2d062e9645c5b0",
+      "scope": "insider.in",
+      "platform": "h1",
+      "handle": "eternal"
+    },
+    {
+      "host": "www.4njbets.com",
+      "path": "/swagger-ui/index.html",
+      "kind": "swagger",
+      "len": 2998438,
+      "sha": "0df54555cdb13023",
+      "scope": "www.4njbets.com",
+      "platform": "h1",
+      "handle": "fanduel"
+    },
+    {
+      "host": "link2.shein.com",
+      "path": "/crossdomain.xml",
+      "kind": "crossdomain",
+      "len": 1751,
+      "sha": "70bce0a70360c385",
+      "scope": "shein.com",
+      "platform": "h1",
+      "handle": "shein"
+    },
+    {
+      "host": "www.seoquake.com",
+      "path": "/crossdomain.xml",
+      "kind": "crossdomain",
+      "len": 611,
+      "sha": "0354393a655775f7",
+      "scope": "seoquake.com",
+      "platform": "h1",
+      "handle": "semrush"
+    },
+    {
+      "host": "books.shopify.io",
+      "path": "/crossdomain.xml",
+      "kind": "crossdomain",
+      "len": 223,
+      "sha": "62abf59698af27bf",
+      "scope": "shopify.io",
+      "platform": "h1",
+      "handle": "shopify"
+    },
+    {
+      "host": "www.doaction.org",
+      "path": "/wp-json/wp/v2/users",
+      "kind": "wp-users",
+      "len": 7718,
+      "sha": "f153b50e9151267d",
+      "scope": "doaction.org",
+      "platform": "h1",
+      "handle": "wordpress"
+    },
+    {
+      "host": "link-ru.shein.com",
+      "path": "/crossdomain.xml",
+      "kind": "crossdomain",
+      "len": 1751,
+      "sha": "70bce0a70360c385",
+      "scope": "shein.com",
+      "platform": "h1",
+      "handle": "shein"
+    },
+    {
+      "host": "net-cpm.nadex.com",
+      "path": "/crossdomain.xml",
+      "kind": "crossdomain",
+      "len": 611,
+      "sha": "71be22f877bf8096",
+      "scope": "nadex.com",
+      "platform": "h1",
+      "handle": "crypto"
+    },
+    {
+      "host": "ko.chaturbate.com",
+      "path": "/swagger-ui/index.html",
+      "kind": "swagger",
+      "len": 202318,
+      "sha": "f19258a1dffc0040",
+      "scope": "chaturbate.com",
+      "platform": "h1",
+      "handle": "chaturbate"
+    },
+    {
+      "host": "metabase.krisp.ai",
+      "path": "/swagger-ui/index.html",
+      "kind": "swagger",
+      "len": 131543,
+      "sha": "d693b04210728c2a",
+      "scope": "krisp.ai",
+      "platform": "h1",
+      "handle": "krisp"
+    },
+    {
+      "host": "image-il.shein.com",
+      "path": "/crossdomain.xml",
+      "kind": "crossdomain",
+      "len": 1751,
+      "sha": "70bce0a70360c385",
+      "scope": "shein.com",
+      "platform": "h1",
+      "handle": "shein"
+    },
+    {
+      "host": "use-tor.adsrvr.org",
+      "path": "/crossdomain.xml",
+      "kind": "crossdomain",
+      "len": 93,
+      "sha": "f27b7bcd1826e513",
+      "scope": "adsrvr.org",
+      "platform": "bc",
+      "handle": "The Trade Desk"
+    },
+    {
+      "host": "ie1-bid.adsrvr.org",
+      "path": "/crossdomain.xml",
+      "kind": "crossdomain",
+      "len": 93,
+      "sha": "f27b7bcd1826e513",
+      "scope": "adsrvr.org",
+      "platform": "bc",
+      "handle": "The Trade Desk"
+    },
+    {
+      "host": "gc2.chaturbate.com",
+      "path": "/swagger-ui/index.html",
+      "kind": "swagger",
+      "len": 205005,
+      "sha": "915a5dc492720973",
+      "scope": "chaturbate.com",
+      "platform": "h1",
+      "handle": "chaturbate"
+    }
+  ]
+}

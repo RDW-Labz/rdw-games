@@ -1,0 +1,214 @@
+# Apply a single DB migration to BinGo prod from CI — no laptop needed.
+#
+# Exists because prod DB credentials live only on the author machine, which
+# made every migration apply a laptop-bound chore (and blocked cloud sessions
+# from finishing migration work end-to-end — e.g. mig 0217, 2026-07-04).
+#
+# Auth (either secret unlocks it; PAT preferred):
+#   SUPABASE_ACCESS_TOKEN   Personal Access Token (sbp_…) from
+#                           https://supabase.com/dashboard/account/tokens —
+#                           uses the Management API, no DB password needed.
+#   SUPABASE_POSTGRES_URL   Fallback: full pooler URL
+#                           postgresql://postgres.npwseclcxcatjhgjrtwe:<pwd>@aws-1-us-east-1.pooler.supabase.com:6543/postgres
+#
+# SAFETY: mode defaults to `status` (read-only). `rerun` applies exactly ONE
+# named file — never use a blanket apply against BinGo prod; its
+# _schema_migrations only tracks a fraction of history (SESSION-HANDOFF-2026-07-01).
+
+name: Apply DB Migration (BinGo prod)
+
+# One line that makes a query run impossible to confuse with an apply run.
+# Runbooks must match on this run-name AND created-after-trigger time.
+run-name: "apply-migration | mode=${{ inputs.mode }} | file=${{ inputs.file || 'none' }} | by=${{ github.actor }}"
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'status = read-only report; rerun = force-apply the named file'
+        required: true
+        type: choice
+        default: status
+        options:
+          - status
+          - rerun
+          - query
+          # auth-config: read-only dump of the project's auth email settings
+          # (SMTP host, autoconfirm, send-rate limit) with secrets redacted.
+          - auth-config
+          # auth-smtp: point Supabase auth emails (confirmation, recovery,
+          # magic link) at Resend SMTP using the RESEND_API_KEY repo secret,
+          # sender no-reply@bingoauctions.com, and raise the send-rate limit.
+          # Built 2026-07-04 after launch-day signups hit "email rate limit
+          # exceeded" (Supabase's built-in sender is capped at a handful/hour).
+          - auth-smtp
+          # email-confirm-off / email-confirm-on: toggle mailer_autoconfirm.
+          # OFF = signups get a session immediately and NO confirmation email
+          # is sent, which sidesteps the built-in 2-emails/hour cap without
+          # SMTP credentials. Launch-day emergency lever (2026-07-04) —
+          # email-confirm-on restores verification once real SMTP exists.
+          - email-confirm-off
+          - email-confirm-on
+      file:
+        description: 'Migration filename (required for rerun), e.g. 0217_partial_invoice_pickup.sql'
+        required: false
+        type: string
+        default: ''
+      sql:
+        description: 'Read-only SQL for mode=query. Must start with SELECT or WITH — anything else is rejected.'
+        required: false
+        type: string
+        default: ''
+
+concurrency:
+  group: apply-migration
+  cancel-in-progress: false
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Guard inputs + secrets
+        env:
+          HAS_PAT: ${{ secrets.SUPABASE_ACCESS_TOKEN != '' }}
+          HAS_URL: ${{ secrets.SUPABASE_POSTGRES_URL != '' }}
+          HAS_RESEND: ${{ secrets.RESEND_API_KEY != '' }}
+        run: |
+          if [ "$HAS_PAT" != "true" ] && [ "$HAS_URL" != "true" ]; then
+            echo "::error::Neither SUPABASE_ACCESS_TOKEN nor SUPABASE_POSTGRES_URL repo secret is set. Add one at Settings → Secrets and variables → Actions."
+            exit 1
+          fi
+          if [ "${{ inputs.mode }}" = "rerun" ] && [ -z "${{ inputs.file }}" ]; then
+            echo "::error::mode=rerun requires the 'file' input (e.g. 0217_partial_invoice_pickup.sql)."
+            exit 1
+          fi
+          if [ "${{ inputs.mode }}" = "query" ] && [ -z "${{ inputs.sql }}" ]; then
+            echo "::error::mode=query requires the 'sql' input."
+            exit 1
+          fi
+          case "${{ inputs.mode }}" in
+            auth-config|auth-smtp|email-confirm-off|email-confirm-on)
+              if [ "$HAS_PAT" != "true" ]; then
+                echo "::error::mode=${{ inputs.mode }} requires the SUPABASE_ACCESS_TOKEN secret (Management API)."
+                exit 1
+              fi
+              ;;
+          esac
+          if [ "${{ inputs.mode }}" = "auth-smtp" ] && [ "$HAS_RESEND" != "true" ]; then
+            echo "::error::mode=auth-smtp requires the RESEND_API_KEY repo secret (same key the Workers use — Resend SMTP password IS the API key)."
+            exit 1
+          fi
+      - name: Install pg driver (only needed for the POSTGRES_URL fallback)
+        if: inputs.mode == 'status' || inputs.mode == 'rerun'
+        run: npm install --no-save --no-audit --no-fund pg
+      - name: Run migration script
+        if: inputs.mode == 'status' || inputs.mode == 'rerun'
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          # BinGo prod ref. Required, not an override: the script has no default
+          # project ref and exits 1 without this, so that a missing value can
+          # never silently target ClovrBid (this repo's upstream) instead.
+          SUPABASE_PROJECT_REF: npwseclcxcatjhgjrtwe
+          POSTGRES_URL: ${{ secrets.SUPABASE_POSTGRES_URL }}
+        run: |
+          if [ "${{ inputs.mode }}" = "status" ]; then
+            node scripts/apply-migrations.js --status
+          else
+            node scripts/apply-migrations.js --rerun "${{ inputs.file }}"
+          fi
+      - name: Run read-only diagnostic query
+        if: inputs.mode == 'query'
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          DIAG_SQL: ${{ inputs.sql }}
+        # Accident guard, not a security boundary (the PAT can already do
+        # anything): only SELECT/WITH statements pass, so a mistyped dispatch
+        # can't mutate prod. Output prints as JSON rows.
+        run: |
+          node -e '
+            const sql = process.env.DIAG_SQL ?? "";
+            if (!/^\s*(select|with)\b/i.test(sql)) {
+              console.error("::error::mode=query only accepts SELECT/WITH statements.");
+              process.exit(1);
+            }
+            const ref = "npwseclcxcatjhgjrtwe";
+            fetch(`https://api.supabase.com/v1/projects/${ref}/database/query`, {
+              method: "POST",
+              headers: {
+                authorization: `Bearer ${process.env.SUPABASE_ACCESS_TOKEN}`,
+                "content-type": "application/json",
+              },
+              body: JSON.stringify({ query: sql }),
+            }).then(async (r) => {
+              const body = await r.text();
+              if (!r.ok) { console.error("::error::query failed:", r.status, body); process.exit(1); }
+              console.log(JSON.stringify(JSON.parse(body), null, 2));
+            }).catch((e) => { console.error("::error::", e.message); process.exit(1); });
+          '
+      # Shared by auth-config (report only) and auth-smtp (patch, then report).
+      # Secrets never print: smtp_pass is reported as set/unset only.
+      - name: Inspect / update auth email settings
+        if: inputs.mode == 'auth-config' || inputs.mode == 'auth-smtp' || inputs.mode == 'email-confirm-off' || inputs.mode == 'email-confirm-on'
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          MODE: ${{ inputs.mode }}
+        run: |
+          node -e '
+            const ref = "npwseclcxcatjhgjrtwe";
+            const base = `https://api.supabase.com/v1/projects/${ref}/config/auth`;
+            const headers = {
+              authorization: `Bearer ${process.env.SUPABASE_ACCESS_TOKEN}`,
+              "content-type": "application/json",
+            };
+            const REPORT_KEYS = [
+              "mailer_autoconfirm", "external_email_enabled",
+              "smtp_host", "smtp_port", "smtp_user", "smtp_admin_email",
+              "smtp_sender_name", "smtp_max_frequency", "rate_limit_email_sent",
+            ];
+            function report(label, cfg) {
+              const out = {};
+              for (const k of REPORT_KEYS) out[k] = cfg[k] ?? null;
+              out.smtp_pass = cfg.smtp_pass ? "(set)" : "(not set)";
+              console.log(`${label}:`, JSON.stringify(out, null, 2));
+            }
+            async function main() {
+              let r = await fetch(base, { headers });
+              if (!r.ok) { console.error("::error::GET config/auth failed:", r.status, await r.text()); process.exit(1); }
+              const before = await r.json();
+              report("current", before);
+              const mode = process.env.MODE;
+              if (mode === "auth-config") return;
+              let patch;
+              if (mode === "auth-smtp") {
+                // Resend SMTP: user is the literal string "resend", password is
+                // the API key. Sender domain (bingoauctions.com) is already
+                // verified in Resend — invoice email uses the same identity.
+                patch = {
+                  smtp_host: "smtp.resend.com",
+                  smtp_port: "465",
+                  smtp_user: "resend",
+                  smtp_pass: process.env.RESEND_API_KEY,
+                  smtp_admin_email: "no-reply@bingoauctions.com",
+                  smtp_sender_name: "BinGo Auctions",
+                  // Per-hour project-wide auth-email budget. 360/h rides out a
+                  // viral-post spike (launch day peaked at ~38 signups/2h).
+                  rate_limit_email_sent: 360,
+                };
+              } else {
+                // email-confirm-off => autoconfirm true (no email sent on
+                // signup); email-confirm-on => autoconfirm false.
+                patch = { mailer_autoconfirm: mode === "email-confirm-off" };
+              }
+              r = await fetch(base, { method: "PATCH", headers, body: JSON.stringify(patch) });
+              if (!r.ok) { console.error("::error::PATCH config/auth failed:", r.status, await r.text()); process.exit(1); }
+              const after = await r.json();
+              report("updated", after);
+            }
+            main().catch((e) => { console.error("::error::", e.message); process.exit(1); });
+          '

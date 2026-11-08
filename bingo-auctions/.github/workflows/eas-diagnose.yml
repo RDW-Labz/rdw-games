@@ -1,0 +1,103 @@
+# EAS diagnostics — READ ONLY.
+#
+# 2026-08-14: three OTAs were published to fix an Android camera crash and none
+# of them visibly reached the warehouse phones. Two competing explanations —
+# (a) the fix is wrong, (b) the updates are not reaching those devices — and no
+# way to tell them apart from inside the repo, because the answer lives in EAS:
+# which channel the installed Android builds listen on, and which branch each
+# channel is actually pointed at.
+#
+# Guessing that from eas.json was already wrong once (the profile table says
+# what a NEW build would use, not what the INSTALLED apk uses). This asks EAS.
+#
+# Every command here is a list/read. Nothing is published, built or submitted.
+name: EAS Diagnose (read-only)
+
+on:
+  workflow_dispatch:
+    inputs:
+      app:
+        description: 'Which app to inspect'
+        required: true
+        type: choice
+        default: staff
+        options:
+          - staff
+          - bidder
+
+jobs:
+  diagnose:
+    name: EAS diagnose — ${{ inputs.app }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      # REQUIRED. app.config.ts is TypeScript and pulls in workspace packages;
+      # without this every EAS command dies with "Error reading Expo config ...
+      # Cannot read properties of undefined (reading 'CommonJS')". Mirrors
+      # eas-build.yml, which has always installed deps before invoking eas.
+      - name: Install workspace dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Install EAS CLI
+        run: npm install -g eas-cli@latest
+
+      - name: Authenticate with EAS
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: eas whoami
+
+      - name: Channels — which branch each channel points at
+        working-directory: apps/${{ inputs.app == 'staff' && 'field-mobile' || 'bidder-app' }}
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: |
+          set -o pipefail   # else `eas ... | tee` reports tee's exit 0
+          echo "## Channels" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          eas channel:list --non-interactive 2>&1 | tee -a $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Branches — where updates were actually published
+        working-directory: apps/${{ inputs.app == 'staff' && 'field-mobile' || 'bidder-app' }}
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: |
+          set -o pipefail
+          echo "## Branches" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          eas branch:list --non-interactive 2>&1 | tee -a $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Recent ANDROID builds — profile, channel, runtime, version
+        working-directory: apps/${{ inputs.app == 'staff' && 'field-mobile' || 'bidder-app' }}
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: |
+          set -o pipefail
+          # THE decisive one: the installed apk's channel + runtimeVersion. An
+          # expo-updates client only reads its own channel, and only accepts an
+          # update whose runtimeVersion matches its own exactly.
+          echo "## Recent Android builds" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          eas build:list --platform android --limit 10 --non-interactive 2>&1 | tee -a $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Recent updates per branch — runtimeVersion of what we published
+        working-directory: apps/${{ inputs.app == 'staff' && 'field-mobile' || 'bidder-app' }}
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: |
+          echo "## Recent updates" >> $GITHUB_STEP_SUMMARY
+          for b in preview production development; do
+            echo "### branch: $b" >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+            eas update:list --branch "$b" --limit 5 --non-interactive 2>&1 \
+              | tee -a $GITHUB_STEP_SUMMARY || echo "(no such branch)" >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+          done

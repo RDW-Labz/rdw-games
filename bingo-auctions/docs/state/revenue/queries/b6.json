@@ -1,0 +1,45 @@
+[
+  {
+    "json_agg": [
+      {
+        "s": "heavy60",
+        "buyers": 31,
+        "lines": 10262,
+        "hammer_c": 9799033,
+        "avg_line_c": 955,
+        "forfeit_rate": 0.032,
+        "refund_rate": 0.129,
+        "p50_pickup_days": 2.65,
+        "p90_pickup_days": 5.63,
+        "pickup_days_total": 84,
+        "visits": 785
+      },
+      {
+        "s": "light",
+        "buyers": 358,
+        "lines": 1737,
+        "hammer_c": 2088281,
+        "avg_line_c": 1202,
+        "forfeit_rate": 0.083,
+        "refund_rate": 0.139,
+        "p50_pickup_days": 1.84,
+        "p90_pickup_days": 4.81,
+        "pickup_days_total": 83,
+        "visits": 590
+      },
+      {
+        "s": "mid10_59",
+        "buyers": 187,
+        "lines": 8341,
+        "hammer_c": 7593645,
+        "avg_line_c": 910,
+        "forfeit_rate": 0.035,
+        "refund_rate": 0.108,
+        "p50_pickup_days": 1.85,
+        "p90_pickup_days": 4.83,
+        "pickup_days_total": 84,
+        "visits": 1602
+      }
+    ]
+  }
+]

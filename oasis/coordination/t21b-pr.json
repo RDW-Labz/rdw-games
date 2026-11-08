@@ -1,0 +1,18 @@
+{
+ "version": 1,
+ "concurrency": 1,
+ "jobs": [
+  {
+   "id": "t21b-pr-body",
+   "agent": "claude",
+   "model": "haiku",
+   "tier": "cheap",
+   "prompt": "Write coordination/t21b-pr-create.json: valid JSON with keys title, head, base, body. title: \"Chat threads: whole thread to the model up to 64 KB, then a logged summary; auto-title (0.6.13, T21 PR 2)\". head: \"t21-chat-context\". base: \"main\". body in GitHub markdown, short plain words, sections:\n## Summary \u2014 bullets: the model gets the whole thread (only that thread) until it passes 64 KB, then the oldest turns are summarized until it is under 32 KB, measured in UTF-8 bytes (decision #72); summarized turns stay in the thread file, the summary is its own drawer file (chats/<id>.summary.json), deleted with the thread; every summary is logged with no message text, and a failed summary still gets a reply using the newest turns that fit; auto-title: one call after the first reply, given only the first exchange as data, never for a renamed thread, logged; summaries and titles use the profile's `small` route if defined, else `default`; WS/REST shapes unchanged.\n## Note for review \u2014 one bullet: the summary is appended to the system message under a label saying it is data, not instructions (the worker kept the existing single-system-message shape) rather than sent as a separate message.\n## Tests \u2014 bullets: summary kicks in at the budget (ticket test); no re-summarize under budget; summary survives restart; title only first exchange; chat model never sees another thread's text; coordinator mutation checks: raising the budget, raising the target, titling every turn, titling renamed threads, and leaking another thread's text into the title each fail a test.\n## Checks \u2014 paste exactly: \"ruff format --check: 83 files already formatted / ruff check: All checks passed! / mypy --strict src (native and win32): no issues in 39 source files / pytest: 597 passed, 3 skipped, 1 deselected\"\n## Next \u2014 \"T21 PR 3: desktop-app left rail\".\nEnd body with exactly: \ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)\nEnd with one JSON line: {\"files_changed\":[...]}.",
+   "context": [],
+   "outputs": [
+    "coordination/t21b-pr-create.json"
+   ],
+   "timeoutMs": 600000
+  }
+ ]
+}

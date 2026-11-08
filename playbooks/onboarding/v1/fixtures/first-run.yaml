@@ -1,0 +1,26 @@
+# Fake, recorded fixture for onboarding-v1 test case "first-run": a brand
+# new person with no profile.yaml yet. No real names or client data.
+steps:
+  show_intro:
+    value: {screens_shown: 4}
+  collect_answers:
+    value:
+      asked_ids:
+        - q_name
+        - q_title
+        - q_reports_to
+        - q_ventures
+        - q_tools
+        - q_tools_more
+        - q_day
+        - q_day_more
+        - q_people
+        - q_people_more
+        - q_pref_tone
+        - q_pref_ask_before
+        - q_pref_quiet_hours
+  write_profile:
+    value: {status: onboarded, missing_fields: []}
+    confirm: true
+  ask_watch_page:
+    value: {status: onboarded, missing_fields: []}

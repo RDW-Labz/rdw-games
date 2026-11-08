@@ -1,0 +1,102 @@
+<div class="wrap">
+  <div class="hd">
+    <div>
+      <div class="kick">RDW Labz · security research pipeline</div>
+      <div class="ttl">Committed work in paying programmes</div>
+    </div>
+    <div class="ts">status 2026-11-03 05:20 UTC<br>2026-11-02 23:20 CST</div>
+  </div>
+
+  <div class="commit">
+    <div><span class="cn">2</span><span class="ck">reports filed, in triage</span></div>
+    <div><span class="cn">9</span><span class="ck">dangling records verified live</span></div>
+    <div><span class="cn">3</span><span class="ck">owners: Starbucks · GitHub · eToro</span></div>
+  </div>
+
+  <div class="row">
+    <div class="card">
+      <div class="lbl">HackerOne · 4168910</div>
+      <div class="big">GitHub</div>
+      <div class="sub"><code>nines.githubapp.com</code> → deleted target, claimable by any third party</div>
+      <div class="tag ok">filed 02:02Z · state new · programme open, pays USD</div>
+    </div>
+    <div class="card">
+      <div class="lbl">HackerOne · 4169021</div>
+      <div class="big">Starbucks</div>
+      <div class="sub">7 <code>starbucks.com</code> CNAMEs → deleted Azure Traffic Manager targets</div>
+      <div class="tag ok">filed 03:20Z · state new · triage active</div>
+    </div>
+  </div>
+
+  <div class="sec">Re-verified live at filing time — evidence timestamped 05:0xZ</div>
+  <table>
+    <tr><th>Owner</th><th>Records</th><th>Evidence</th><th>Status</th></tr>
+    <tr><td>Starbucks</td><td>7 CNAMEs</td><td>target NXDOMAIN, record still present</td><td class="ok">7 / 7 valid</td></tr>
+    <tr><td>eToro</td><td><code>candle-src.etoro.com</code></td><td><code>prod-candle.trafficmanager.net</code> NXDOMAIN</td><td class="ok">valid · ready to file</td></tr>
+    <tr><td>GitHub</td><td><code>nines.githubapp.com</code></td><td>target deleted, scope <code>*.githubapp.com</code></td><td class="ok">filed</td></tr>
+    <tr><td>Bentley</td><td><code>dev-connect-…</code></td><td>host itself NXDOMAIN — owner already removed it</td><td class="bad">retracted</td></tr>
+  </table>
+
+  <div class="sec">Pipeline capacity — the machine behind the filings</div>
+  <div class="stats">
+    <div class="stat"><div class="n">540,859</div><div class="k">hostnames under watch</div></div>
+    <div class="stat"><div class="n">80,170</div><div class="k">CNAME edges resolved</div></div>
+    <div class="stat"><div class="n">52</div><div class="k">claimable right now</div></div>
+    <div class="stat"><div class="n">570</div><div class="k">programmes watched</div></div>
+  </div>
+  <div class="note">Full sweep daily · rotating re-check every 15 min (96 shards/day, ~900 targets per pass) · every draft gated by a live re-check before it can be sent · scope matching against HackerOne live scope data.</div>
+
+  <div class="sec">Gates — each one is a hand on a specific door</div>
+  <table>
+    <tr><th>Item</th><th>Value</th><th>Gate</th><th>Owner</th></tr>
+    <tr><td>HackerOne payout</td><td>both filed reports</td><td>account <code>rdwlabz</code> is <em>verification pending</em>; bounty programmes require ID verification (VDPs exempt)</td><td>Michael — one-time ID upload</td></tr>
+    <tr><td>eToro (Bugcrowd)</td><td>programme max <b>$15,000</b></td><td>account password rejected; reset mail never arrives — support ticket delivered 05:0xZ</td><td>Bugcrowd support</td></tr>
+    <tr><td>EPAM (Bugcrowd)</td><td>14 hostnames · tier-4 ≈ $150</td><td>same account block</td><td>Bugcrowd support</td></tr>
+    <tr><td>eToro fallback (H1)</td><td>—</td><td>programme <code>submission_state: paused</code></td><td>eToro</td></tr>
+    <tr><td>PoC build</td><td>proves takeover live</td><td>no Azure subscription on the account</td><td>Michael — card, $1 reversible hold</td></tr>
+    <tr><td>Outbound mail from rdwlabz.com</td><td>reporting credibility</td><td>one CNAME missing → <code>partially_verified</code></td><td>Michael — Cloudflare, 30s</td></tr>
+  </table>
+
+  <div class="sec">Honest timing</div>
+  <div class="tl">
+    <div class="step done"><div class="d">now</div><div>Filed, queued, awaiting triage</div></div>
+    <div class="step"><div class="d">1–7 days</div><div>Triager validates · severity assigned</div></div>
+    <div class="step"><div class="d">7–30 days</div><div>Resolution and bounty award</div></div>
+  </div>
+  <div class="note">No bounty programme pays inside 24 hours. The committed position is: nine verified takeovers, two of them already sitting in paying programmes with the evidence re-checked minutes before filing.</div>
+</div>
+
+<style>
+  .wrap { max-width: 780px; color: var(--foreground); }
+  .hd { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+  .kick { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted-foreground); }
+  .ttl { font-size: 26px; font-weight: 650; margin-top: 4px; letter-spacing: -.01em; }
+  .ts { font-size: 11px; color: var(--muted-foreground); text-align: right; line-height: 1.6; white-space: nowrap; }
+  .commit { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 14px; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--border); }
+  .commit > div { background: var(--card); padding: 10px 14px; display: flex; align-items: baseline; gap: 9px; }
+  .cn { font-size: 24px; font-weight: 640; color: var(--accent); letter-spacing: -.02em; }
+  .ck { font-size: 11px; color: var(--muted-foreground); line-height: 1.35; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+  .card { border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; background: var(--card); }
+  .lbl { font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-foreground); }
+  .big { font-size: 19px; font-weight: 620; margin: 3px 0 4px; }
+  .sub { font-size: 12px; line-height: 1.5; color: var(--muted-foreground); }
+  .tag { display: inline-block; margin-top: 8px; font-size: 11px; padding: 2px 7px; border-radius: 999px; border: 1px solid var(--border); }
+  .tag.ok { color: var(--accent); border-color: var(--accent); }
+  .sec { margin-top: 22px; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-foreground); }
+  table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12.5px; }
+  th { text-align: left; font-weight: 550; font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted-foreground); border-bottom: 1px solid var(--border); padding: 4px 8px 5px 0; }
+  td { padding: 6px 8px 6px 0; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.45; }
+  code { font-size: 11.5px; padding: 1px 4px; border-radius: 4px; background: color-mix(in srgb, var(--foreground) 8%, transparent); }
+  td.ok { color: var(--accent); white-space: nowrap; }
+  td.bad { color: var(--muted-foreground); text-decoration: line-through; white-space: nowrap; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 10px; }
+  .stat { border: 1px solid var(--border); border-radius: 9px; padding: 10px 12px; background: var(--card); }
+  .n { font-size: 21px; font-weight: 630; letter-spacing: -.01em; }
+  .k { font-size: 10.5px; color: var(--muted-foreground); margin-top: 2px; }
+  .note { font-size: 11.5px; line-height: 1.55; color: var(--muted-foreground); margin-top: 9px; }
+  .tl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; }
+  .step { border-left: 2px solid var(--border); padding: 2px 0 2px 10px; font-size: 12px; line-height: 1.45; color: var(--muted-foreground); }
+  .step.done { border-left-color: var(--accent); color: var(--foreground); }
+  .d { font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted-foreground); margin-bottom: 2px; }
+</style>

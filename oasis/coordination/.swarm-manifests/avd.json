@@ -1,0 +1,28 @@
+{
+ "version": 1,
+ "concurrency": 1,
+ "jobs": [
+  {
+   "id": "avatar-draft",
+   "agent": "claude",
+   "model": "sonnet",
+   "tier": "mid",
+   "prompt": "You are drafting a ticket proposal for OASIS (no code). Braden's idea (2026-09-24): after T17, turn what worked on Beacon into a reusable skill that generates many avatar variations, styles and themes quickly, scored against the real results of the first one or two avatars. It feeds T22 (six themed sets, six candidates each, Braden picks) and T23. What worked: Higgsfield image prompts (gpt_image_2_5, 1:1, high, transparent; find the prompts and settings in the session logs), the beacon_v2.py pixel pass, the grid/palette/anchor rules (decision #75: 128 px frames, 8 state rows in fixed order, 4 frames, 6 fps), the 64 px readability check, the depth pass (#79), and the pack validator (avatarPack.ts). Rules: original art only, never a recognizable character, name, logo or catchphrase (#75, #76); no company data; do not build ahead.\n\nWrite coordination/avatar-skill-ticket-draft.md, at most 120 lines, plain words, with these sections:\n1. `## T26 \u2014 Avatar generator skill (<repos>)`, in the exact shape of docs/TICKETS.md tickets (Repo, When, Build, Tests, Done when). Say where it runs (a build-time tool the orchestrator and workers use, not something employees see), what it takes in (a theme brief), what it produces (candidates + contact sheet, then a full pack on the T17 grid for a pick), and which steps are scripts vs model calls.\n2. `## Success scoring`: a small table of measurable checks, each scored against Beacon's real results (validator pass, 64 px silhouette/contrast check, palette size, anchor consistency, frame-to-frame drift, generation time and Higgsfield credits per candidate, Braden's pick rate). Give a pass bar for each and where the Beacon baseline number comes from (say \"measure on Beacon first\" when it isn't in the files).\n3. `## Cost`: rough Higgsfield credits and minutes per theme (six candidates, one full pack), from the logs where possible.\n4. `## Questions for Braden`: at most 5, each answerable in one line, only decisions the plan doesn't already make (for example: which repo owns it, whether it is a Claude Code skill or a script in playbooks, whether T22 waits for it).\nBase every fact on the context files; mark any guess as a guess. End with ONE JSON line: {\"files_changed\":[...],\"notes\":[...]} (max 5 notes), no backticks around it.",
+   "context": [
+    "docs/TICKETS.md",
+    "docs/DECISIONS.md",
+    "coordination/references/orb-sketches/beacon_v2.py",
+    "coordination/references/orb-sketches/higgsfield/make_sheet.py",
+    "coordination/references/orb-sketches/beacon-v2/manifest.yaml",
+    "repos/desktop-app/src/orb/avatarPack.ts",
+    "repos/skills/docs/formats.md",
+    "coordination/TASK-session8-log.md",
+    "coordination/TASK-session9-log.md"
+   ],
+   "outputs": [
+    "coordination/avatar-skill-ticket-draft.md"
+   ],
+   "timeoutMs": 1800000
+  }
+ ]
+}

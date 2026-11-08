@@ -1,0 +1,48 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  desktop:
+    name: desktop-app (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri
+
+      - run: npm ci
+
+      - run: npm run lint
+      - run: npm test
+      - run: npm run typecheck
+      - run: npm run build
+
+      - run: cargo fmt --all --check
+        working-directory: src-tauri
+      - run: cargo clippy --locked --all-targets -- -D warnings
+        working-directory: src-tauri
+      - run: cargo test --locked
+        working-directory: src-tauri
+
+      - run: npm run tauri build -- --no-bundle

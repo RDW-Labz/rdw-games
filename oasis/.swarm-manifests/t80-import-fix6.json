@@ -1,0 +1,28 @@
+{
+ "version": 1,
+ "concurrency": 1,
+ "jobs": [
+  {
+   "id": "t80-import-fix6",
+   "agent": "codex",
+   "model": "gpt-6-astra",
+   "tier": "expensive",
+   "timeoutMs": 3000000,
+   "context": [
+    "tests/field-lesson-t80-cli.test.mjs",
+    "tests/field-lesson-t80-ship.test.mjs",
+    "tests/field-lesson-t80-import.test.mjs",
+    "tools/lessons-publish.mjs",
+    "tools/lessons.mjs",
+    "package.json"
+   ],
+   "outputs": [
+    "tests/field-lesson-t80-cli.test.mjs",
+    "tests/field-lesson-t80-ship.test.mjs"
+   ],
+   "ignoreTests": [],
+   "prompt": "T80 fix job `t80-import-fix6` for project-swarm 1.41.0 (decision #340): two test expectations lag the lenient `lesson import` (tools/lessons.mjs parseLegacyLessons pads short rows and reports padded/overflow; tools/lessons-publish.mjs importLessons skips a private-name row individually, listing it under skipped as {id, line, reason:'private-name', field}, writes the clean rows and answers status ok). Change only these expectations, nothing else in either file: (1) tests/field-lesson-t80-cli.test.mjs, the subtest 'publish and import route their file flags correctly and are idempotent' near lines 250 and 252: the deep-equal import results gain `padded: []` and `overflow: []` (add whichever keys the actual result now carries, keeping the existing keys and order style of the file). (2) tests/field-lesson-t80-ship.test.mjs, the subtest 'import preflights every new row, preserves existing ids, and refuses malformed input without writes' at the assertion near line 382: the fixture holds rows 9003 (clean) and 9004 (private term in its fix cell), both short rows; the command now exits 0 with stdout exactly {\"status\":\"ok\",\"imported\":[9003],\"skipped\":[{\"id\":9004,\"line\":4,\"reason\":\"private-name\",\"field\":\"fix\"}],\"padded\":[9003,9004],\"overflow\":[]} and empty stderr; assert that, then assert the store holds 9003 and not 9004 and that the private term appears nowhere in stdout or the store (keep the test's existing helpers and fixture names). Keep every other assertion of both files as is; no reformatting. Use your shell to read the context files and edit the two test files in place; do not run tests, installs or network commands; re-read your files once for syntax before returning.\n\nReturn JSON only, under 500 characters, after the files: {\"status\":\"complete|partial\",\"filesChanged\":[...],\"reproTest\":\"tests/field-lesson-t80-ship.test.mjs\",\"findings\":[\"<\u22643 one-liners>\"]}",
+   "tierReason": "two-file expectation edit on the Codex-only path"
+  }
+ ]
+}

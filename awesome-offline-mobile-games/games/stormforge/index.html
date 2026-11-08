@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<link rel="icon" href="../../shell/assets/icon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0a0d14">
+<meta name="description" content="Stormforge — a battle royale where the build is a factory: mine, belt it, fabricate, and let turrets hold your circle. Fully offline.">
+<title>Stormforge</title>
+<style>
+  :root {
+    --bg:#0a0d14; --steel:#121a26; --storm:#7fe3ff; --forge:#ffb64d;
+    --bone:#e6edf7; --grey:#b9c0cc; --green:#4ade80; --blue:#38bdf8;
+    --purple:#a855f7; --gold:#fbbf24; --blood:#ef4444;
+  }
+  html, body {
+    margin:0; padding:0; height:100%; width:100%;
+    background:var(--bg); overflow:hidden;
+    -webkit-user-select:none; user-select:none;
+    -webkit-tap-highlight-color:transparent;
+    overscroll-behavior:none;
+  }
+  #stage { position:fixed; inset:0; }
+  canvas#game, canvas#hud {
+    position:absolute; top:0; left:0;
+    display:block; width:100%; height:100%;
+    touch-action:none; outline:none;
+  }
+  canvas#game { background:#0a0d14; }
+  /* the HUD canvas sits above the WebGL scene and takes the touches; it is transparent
+     everywhere except the parts it paints, and pointer-events pass through where it is clear */
+  canvas#hud { pointer-events:none; }
+  /* Storm rain streaks live above the canvas but under the UI so the HUD stays legible. */
+  #veil {
+    position:fixed; inset:0; pointer-events:none; z-index:20;
+    background:
+      radial-gradient(120% 90% at 50% 40%, rgba(127,227,255,0) 40%, rgba(90,40,160,.18) 78%, rgba(40,12,70,.42) 100%);
+    mix-blend-mode:screen; opacity:.55;
+  }
+  #boot {
+    position:fixed; inset:0; z-index:60; display:flex; align-items:center; justify-content:center;
+    background:radial-gradient(80% 60% at 50% 42%, #16202f 0%, #0a0d14 70%);
+    color:var(--bone); font:600 13px/1.5 ui-monospace, Menlo, Consolas, monospace;
+    letter-spacing:.18em; text-transform:uppercase; transition:opacity .45s ease;
+  }
+  #boot.hide { opacity:0; pointer-events:none; }
+  #boot .bar { width:180px; height:2px; background:rgba(230,237,247,.14); margin-top:14px; overflow:hidden; }
+  #boot .bar i { display:block; height:100%; width:0%; background:linear-gradient(90deg,var(--storm),var(--forge)); transition:width .25s ease; }
+  /* GameKit thumb-pad, re-skinned to the forge palette (used for the build wheel buttons). */
+  .gk-pad .gk-btn {
+    font:700 11px/64px ui-monospace, Menlo, Consolas, monospace !important;
+    letter-spacing:.08em;
+    background:rgba(255,182,77,.10) !important;
+    border:1px solid rgba(255,182,77,.52) !important;
+    color:#ffe6c2 !important;
+    box-shadow:0 0 16px rgba(255,182,77,.16), inset 0 0 14px rgba(255,182,77,.06);
+  }
+  .gk-pad .gk-btn.gk-btn-dash {
+    background:rgba(127,227,255,.10) !important;
+    border-color:rgba(127,227,255,.56) !important;
+    color:#dcf6ff !important;
+  }
+</style>
+</head>
+<body>
+<div id="stage">
+  <canvas id="game" tabindex="0" aria-label="Stormforge"></canvas>
+  <canvas id="hud" aria-hidden="true"></canvas>
+  <div id="veil"></div>
+</div>
+<div id="boot"><div>Stormforge<div class="bar"><i id="bootbar"></i></div></div></div>
+<script src="../../vendor/vendor.js"></script>
+<script src="../../vendor/three/three.min.js"></script>
+<script src="../../shell/lib/gamekit.js"></script>
+<script src="js/world.js"></script>
+<script src="js/factory.js"></script>
+<script src="js/combat.js"></script>
+<script src="js/render.js"></script>
+<script src="js/scene3d.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

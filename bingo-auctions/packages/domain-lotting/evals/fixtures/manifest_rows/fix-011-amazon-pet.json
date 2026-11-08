@@ -1,0 +1,23 @@
+{
+  "id": "manifest-011",
+  "source": "amazon",
+  "raw": {
+    "description": "PetSafe Drinkwell 360 Pet Fountain - Stainless Steel - 128oz Capacity Cat & Dog Water Dispenser",
+    "retailer_category": "gl_pet_products",
+    "upc": "729849133563",
+    "model_number": "PWW00-13556",
+    "quantity": 1,
+    "retail_price": 89.95
+  },
+  "expected": {
+    "title": "PetSafe Drinkwell 360 Stainless Steel Pet Fountain (128oz)",
+    "brand": "PetSafe",
+    "model": "PWW00-13556",
+    "category_slug": "pet-supplies",
+    "category_legacy": "Other",
+    "condition": "New/Sealed",
+    "msrp_cents": 8995,
+    "expected_confidence": "high"
+  },
+  "notes": "Pet supplies — legacy enum has no 'Pet' entry, falls to 'Other'. Common gap."
+}

@@ -1,0 +1,24 @@
+[
+  {
+    "host": "nines.githubapp.com",
+    "program": "github",
+    "program_name": "GitHub",
+    "scope_id": "92",
+    "asset": "*.githubapp.com",
+    "asset_type": "URL",
+    "bounty": true,
+    "submission_state": "open",
+    "max_severity": "critical"
+  },
+  {
+    "host": "candle-src.etoro.com",
+    "program": "etoro_bbp",
+    "program_name": "eToro BBP",
+    "scope_id": "18313",
+    "asset": "candle-src.etoro.com",
+    "asset_type": "URL",
+    "bounty": false,
+    "submission_state": "paused",
+    "max_severity": "critical"
+  }
+]

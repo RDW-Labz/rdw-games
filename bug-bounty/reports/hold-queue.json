@@ -1,0 +1,24 @@
+[
+ {
+  "target": "eg-internal.github.io",
+  "team": "expediagroup_bbp",
+  "apex": "expedia.biz",
+  "hosts": [
+   "developer-ai-radar.eg-internal.ghpages.expedia.biz",
+   "devex-mcp-registry.eg-internal.ghpages.expedia.biz",
+   "egds-components-android.eg-internal.ghpages.expedia.biz"
+  ],
+  "submission_state": "paused",
+  "checked_at": "2026-11-07T07:01:19+00:00"
+ },
+ {
+  "target": "ellen.withspotify.com.herokudns.com",
+  "team": "spotify",
+  "apex": "withspotify.com",
+  "hosts": [
+   "ellen.withspotify.com"
+  ],
+  "submission_state": "refused-403",
+  "checked_at": "2026-11-07T23:47:26+00:00"
+ }
+]

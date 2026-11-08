@@ -1,0 +1,30 @@
+{
+ "version": 1,
+ "concurrency": 1,
+ "contract": ".swarm-manifests/t50-contract.md",
+ "jobs": [
+  {
+   "id": "t50-card-b",
+   "agent": "openrouter",
+   "model": "anthropic/claude-sonnet-5.5",
+   "tier": "mid",
+   "maxOutputTokens": 32768,
+   "timeoutMs": 1800000,
+   "context": [
+    ".swarm-manifests/t50-contract.md",
+    "src/components/HoloCard.tsx",
+    "src/components/holoCard.css",
+    "src/lib/holoCardState.ts",
+    "src/components/useCoworkers.ts",
+    "tests/Coworkers.test.tsx",
+    "tests/setup.ts",
+    "package.json"
+   ],
+   "outputs": [
+    "tests/holoCard.test.tsx",
+    "tests/holoCardState.test.ts"
+   ],
+   "prompt": "T50 (contract \u00a71 job t50-card, tests half; \u00a74 mutants): write the two test files for the HoloCard component and holoCardState module that already exist in context. Do not change any src file; if an export, prop, data attribute or CSS variable you need is missing, say so in `findings` and test what exists.\nTests: vitest + jsdom + RTL. Mock IntersectionObserver (vi.stubGlobal), matchMedia (vi.mocked), requestAnimationFrame (jsdom default), pointer events (fireEvent.pointerenter, pointerdown, pointermove, pointerup, pointerleave). Fake CoworkerImage with thumb kind. Tests in holoCard.test.tsx: (1) front face renders (portrait, name, badge, More-motion tag if present); (2) Space/Enter flips to back; (3) Space/Enter again flips back; (4) visible=false \u2192 static PNG fallback rendered; (5) hovered=false \u2192 no animation, static falls back; (6) reduced=true \u2192 no transition, instant flip, no tilt/glare classes; (7) focus shows hover visual; (8) Pick button is real <button>, onClick flows out. Tests in holoCardState.test.ts: (1) visible=true, hovered=true \u2192 tilt/glare x,y in range; (2) visible=true, hovered=false \u2192 tilt/glare zeros; (3) visible=false \u2192 no animation; (4) reduced=true \u2192 disabled; (5) toggleFlip state persists across visibility; (6) pointermove updates tilt/glare CSS vars; (7) document.hidden stops animation; (8) IntersectionObserver entry.isIntersecting controls visible gate. Every test fakes matchMedia, IntersectionObserver, pointer events.\nMutant coverage (\u00a74) \u2014 name in `reproTest` the test that kills each: (a) card animates while the page or card is hidden (visibilitychange / IntersectionObserver false \u2192 tilt/glare vars are 0 and no animation class); (b) back face shows before flip (fresh render \u2192 front visible, back aria-hidden / not rendered); (c) static fallback missing (hovered=false or reduced=true \u2192 the static <img> fallback renders, no 3D transform).\nUse the conventions in tests/Coworkers.test.tsx and tests/setup.ts (render from @testing-library/react, vi from vitest). Mock IntersectionObserver with vi.stubGlobal, matchMedia with a stub returning {matches, addEventListener, removeEventListener}, pointer events via fireEvent. Fake CoworkerImage of kind thumb with url 'data:,x'. No company data; names are fakes like 'Sample Coworker'.\nOUTPUT SIZE RULES: each test file under 200 lines; total reply under 20k tokens.\nENVELOPE RULES: both declared output paths are new and go EXACTLY ONCE in `files` with complete content; `edits` stays empty; do not write any other path.\nReturn JSON only, max 12 lines: {\"status\": \"done|partial|blocked\", \"summary\": \"<one line>\", \"files\": [\"<every output path written>\"], \"crossJobNames\": [\"<any name you needed that the code does not export>\"], \"reproTest\": \"<three test names: mutant a / b / c>\", \"findings\": [\"<\u22643 one-liners>\"]}"
+  }
+ ]
+}

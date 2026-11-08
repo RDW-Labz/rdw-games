@@ -1,0 +1,23 @@
+[
+  {
+    "engagement": "epam-mbb-og",
+    "draft_id": "fb947741-703e-419b-870a-fac8322092ad",
+    "target": "*.emakina.at",
+    "report": "reports/bc-EPAM Systems Managed Bug Bounty Program-generic-1hosts.md",
+    "host": "devweb.emakina.at"
+  },
+  {
+    "engagement": "etoro-mbb-og",
+    "draft_id": "b579ea10-02da-4320-b40c-eaa76292569f",
+    "target": "*.etoro.com",
+    "report": "",
+    "host": ""
+  },
+  {
+    "engagement": "volkswagen-og",
+    "draft_id": "5568e678-80f9-4c0d-b14a-cd3ccc6665f0",
+    "target": "*.volkswagen.de",
+    "report": "",
+    "host": ""
+  }
+]

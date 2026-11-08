@@ -1,0 +1,27 @@
+.env
+*.env
+repos/*/.git/
+__pycache__/
+node_modules/
+# Workspace repo root (decision #244): product repos and worktrees have their own git
+repos/
+worktrees/
+.swarm/
+.claude/
+.codex/
+*.tgz
+.pytest_cache/
+.ruff_cache/
+.DS_Store
+# Braden's list, workspace-wide (#242); coordination/.gitignore adds the art/scratch rules
+.env*
+secrets/
+*.key
+*.pem
+# Build and scratch folders at any depth (s46 check)
+.venv/
+venv/
+target/
+dist/
+.mypy_cache/
+scratch-*/

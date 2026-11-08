@@ -1,0 +1,186 @@
+name: Pre-Submit Robo Crawl (Android)
+
+# ─────────────────────────────────────────────────────────────────────────────
+# WHAT THIS IS
+# ───────────
+# Firebase Test Lab **Robo crawl** of the Android apps on real + virtual devices
+# — the same automated UI crawl Google runs in its Play "pre-launch report".
+# Robo launches the app and auto-taps its way through the UI on a device matrix;
+# if the app CRASHES (or ANRs) on any device, the Test Lab run fails and so does
+# this job. This is the gate that catches the class of crash that got an early
+# Android build REJECTED ("rejected due to crashing") — which our static CI
+# (typecheck/lint) and the shallow Maestro launch-smoke (login screen only) can
+# NOT catch.
+#
+# Run this BEFORE every Play Store submission. workflow_dispatch only — it costs
+# Test Lab device-minutes + an EAS build, so it never runs on push.
+#
+# Coverage note: this v1 crawls UNAUTHENTICATED (placeholder backend, no login),
+# so it exercises the launch + login surface across devices. To crawl PAST login
+# (browse/bid/pickup/checkout), add a Robo login script + a seeded test backend
+# (Tier 1 — pairs with finalizing the payment processor). See
+# memory/auction_mobile_test_gate.md.
+#
+# ─────────────────────────────────────────────────────────────────────────────
+# ONE-TIME PROVISIONING (required before this workflow can run)
+# ─────────────────────────────────────────────────────────────
+# GCP project: cluer-auctions  (the project the Play service account lives in)
+#
+# 1. Enable the Test Lab APIs on the project (Console → APIs, or gcloud):
+#       gcloud services enable testing.googleapis.com toolresults.googleapis.com \
+#         --project cluer-auctions
+#
+# 2. Grant the service account the Test Lab admin role (reuse the existing
+#    play-publisher SA, or make a dedicated one):
+#       gcloud projects add-iam-policy-binding cluer-auctions \
+#         --member "serviceAccount:play-publisher@cluer-auctions.iam.gserviceaccount.com" \
+#         --role   "roles/cloudtestservice.testAdmin"
+#       gcloud projects add-iam-policy-binding cluer-auctions \
+#         --member "serviceAccount:play-publisher@cluer-auctions.iam.gserviceaccount.com" \
+#         --role   "roles/serviceusage.serviceUsageConsumer"
+#    (Test Lab writes results to an auto-created gs://test-lab-* bucket; the
+#     testAdmin role covers it. If your org blocks that, pass --results-bucket.)
+#
+# 3. Add the SA JSON as a GitHub Actions secret named GCP_SA_KEY:
+#       gh secret set GCP_SA_KEY < .secrets/google-play-service-account.json
+#    (EXPO_TOKEN is already configured for the EAS build.)
+#
+# Discover device models/versions any time with:
+#   gcloud firebase test android models list --project cluer-auctions
+# ─────────────────────────────────────────────────────────────────────────────
+
+on:
+  workflow_dispatch:
+    inputs:
+      app:
+        description: 'Which app to crawl'
+        type: choice
+        default: both
+        options: [both, bidder, staff]
+      devices:
+        description: 'Semicolon-separated Test Lab devices (model,version). Default = ARM virtual devices on API 34 + 30.'
+        type: string
+        default: 'MediumPhone.arm,version=34;MediumPhone.arm,version=30'
+      timeout:
+        description: 'Per-device crawl timeout (e.g. 240s, 5m).'
+        type: string
+        default: '240s'
+
+concurrency:
+  group: robo-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  GCP_PROJECT: cluer-auctions
+  EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+  EXPO_NO_TELEMETRY: 1
+  CI: true
+
+jobs:
+  robo:
+    name: Robo crawl (${{ matrix.label }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - app: bidder-app
+            label: bidder
+            appKey: bidder
+          - app: field-mobile
+            label: staff
+            appKey: staff
+    steps:
+      - name: Skip if not selected
+        id: gate
+        run: |
+          if [ "${{ inputs.app }}" = "both" ] || [ "${{ inputs.app }}" = "${{ matrix.appKey }}" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "Skipping ${{ matrix.appKey }} (input app=${{ inputs.app }})."
+          fi
+
+      - uses: actions/checkout@v4
+        if: steps.gate.outputs.run == 'true'
+
+      - uses: actions/setup-node@v4
+        if: steps.gate.outputs.run == 'true'
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        if: steps.gate.outputs.run == 'true'
+        run: npm ci
+
+      # ── Build a standalone APK on EAS (same profile the Maestro Android
+      #    smoke uses — placeholder backend, JS-bundled, universal APK). ──────
+      - name: Build APK on EAS
+        if: steps.gate.outputs.run == 'true'
+        working-directory: apps/${{ matrix.app }}
+        run: |
+          set -euo pipefail
+          npx eas-cli@latest build \
+            --platform android \
+            --profile smoke-apk \
+            --non-interactive \
+            --wait \
+            --json > /tmp/eas-build.json
+          URL=$(jq -r '.[0].artifacts.applicationArchiveUrl // .[0].artifacts.buildUrl // empty' /tmp/eas-build.json)
+          test -n "$URL" && test "$URL" != "null"
+          echo "APK_URL=$URL" >> "$GITHUB_ENV"
+          echo "Resolved APK URL: $URL"
+
+      - name: Download APK
+        if: steps.gate.outputs.run == 'true'
+        run: |
+          set -euo pipefail
+          curl -fSL "$APK_URL" -o /tmp/app.apk
+          ls -la /tmp/app.apk
+
+      # ── Authenticate to GCP / Firebase Test Lab ─────────────────────────────
+      - name: Authenticate to Google Cloud
+        if: steps.gate.outputs.run == 'true'
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Set up gcloud
+        if: steps.gate.outputs.run == 'true'
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: cluer-auctions
+
+      # ── Run the Robo crawl across the device matrix ─────────────────────────
+      # gcloud exits NON-ZERO if the app crashes/ANRs on any device → fails CI.
+      - name: Robo crawl on Test Lab
+        if: steps.gate.outputs.run == 'true'
+        run: |
+          set -euo pipefail
+          DEVICE_ARGS=""
+          IFS=';' read -ra DEVS <<< "${{ inputs.devices }}"
+          for d in "${DEVS[@]}"; do
+            d_trim="$(echo "$d" | xargs)"
+            [ -z "$d_trim" ] && continue
+            DEVICE_ARGS="$DEVICE_ARGS --device model=$d_trim,locale=en_US,orientation=portrait"
+          done
+          echo "Devices: $DEVICE_ARGS"
+          # --type robo: auto-crawl. --timeout: per-device cap. Results land in
+          # the project's default test-lab bucket; the run URL is printed.
+          gcloud firebase test android run \
+            --project "$GCP_PROJECT" \
+            --type robo \
+            --app /tmp/app.apk \
+            --timeout "${{ inputs.timeout }}" \
+            $DEVICE_ARGS \
+            2>&1 | tee /tmp/robo-${{ matrix.appKey }}.log
+
+      - name: Upload Robo log
+        if: ${{ always() && steps.gate.outputs.run == 'true' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: robo-${{ matrix.appKey }}-log
+          path: /tmp/robo-${{ matrix.appKey }}.log
+          retention-days: 14

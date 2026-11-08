@@ -1,0 +1,4 @@
+# Shell scripts must keep LF line endings so they run on Linux (e.g.
+# scripts/eas-local.sh on the x86 Ubuntu build box) regardless of the
+# committer's platform — CRLF breaks the `#!/usr/bin/env bash` shebang.
+*.sh text eol=lf

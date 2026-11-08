@@ -1,0 +1,165 @@
+{
+  "dashboard@1440": {
+    "axe": [],
+    "hscroll": 0,
+    "geom": {
+      "mainLeft": 240,
+      "mainWidth": 1200,
+      "pageLeft": 240,
+      "pageRight": 1440,
+      "pageWidth": 1200,
+      "navWidth": 240,
+      "under44": [
+        "Skip to main content"
+      ]
+    },
+    "tabOrder": [
+      "shell:Skip to main content",
+      "nav:BinGoAuctions",
+      "nav:Dashboard",
+      "nav:Worker productivity"
+    ],
+    "focusRing": "solid 3px",
+    "arrows": [
+      "Dashboard",
+      "Worker productivity",
+      "Bidder policies",
+      "BinGoAuctions"
+    ],
+    "collapse": {
+      "hiddenNow": true,
+      "afterReload": {
+        "hidden": true,
+        "expanded": "false",
+        "stored": "[\"lotting\"]"
+      }
+    },
+    "active": {
+      "text": "Dashboard",
+      "stage": "neutral",
+      "rule": "rgb(218, 201, 244)"
+    }
+  },
+  "dashboard@1024": {
+    "axe": [],
+    "hscroll": 0,
+    "geom": {
+      "mainLeft": 0,
+      "mainWidth": 1024,
+      "pageLeft": 0,
+      "pageRight": 1024,
+      "pageWidth": 1024,
+      "navWidth": 320,
+      "under44": [
+        "Skip to main content"
+      ]
+    },
+    "tabOrder": [
+      "shell:Skip to main content",
+      "header:Menu",
+      "header:Switch back to v1",
+      "header:Sign out"
+    ],
+    "focusRing": "solid 3px",
+    "drawer": {
+      "opened": {
+        "expanded": "true",
+        "navVisible": "visible",
+        "focusInNav": true
+      },
+      "closed": {
+        "expanded": "false",
+        "navVisible": "hidden",
+        "focusOnMenu": true
+      },
+      "axe": [],
+      "hscroll": 0,
+      "under44": [
+        "Skip to main content"
+      ]
+    }
+  },
+  "pickups@1440": {
+    "axe": [],
+    "hscroll": 0,
+    "geom": {
+      "mainLeft": 240,
+      "mainWidth": 1200,
+      "pageLeft": 240,
+      "pageRight": 1440,
+      "pageWidth": 1200,
+      "navWidth": 240,
+      "under44": [
+        "Skip to main content"
+      ]
+    },
+    "tabOrder": [
+      "shell:Skip to main content",
+      "nav:BinGoAuctions",
+      "nav:Dashboard",
+      "nav:Worker productivity"
+    ],
+    "focusRing": "solid 3px",
+    "arrows": [
+      "Dashboard",
+      "Worker productivity",
+      "Bidder policies",
+      "BinGoAuctions"
+    ],
+    "collapse": {
+      "hiddenNow": true,
+      "afterReload": {
+        "hidden": true,
+        "expanded": "false",
+        "stored": "[\"lotting\"]"
+      }
+    },
+    "active": {
+      "text": "Pickups",
+      "stage": "pickup",
+      "rule": "rgb(200, 250, 122)"
+    }
+  },
+  "pickups@1024": {
+    "axe": [],
+    "hscroll": 0,
+    "geom": {
+      "mainLeft": 0,
+      "mainWidth": 1024,
+      "pageLeft": 0,
+      "pageRight": 1024,
+      "pageWidth": 1024,
+      "navWidth": 320,
+      "under44": [
+        "Skip to main content"
+      ]
+    },
+    "tabOrder": [
+      "shell:Skip to main content",
+      "header:Menu",
+      "header:Switch back to v1",
+      "header:Sign out"
+    ],
+    "focusRing": "solid 3px",
+    "drawer": {
+      "opened": {
+        "expanded": "true",
+        "navVisible": "visible",
+        "focusInNav": true
+      },
+      "closed": {
+        "expanded": "false",
+        "navVisible": "hidden",
+        "focusOnMenu": true
+      },
+      "axe": [],
+      "hscroll": 0,
+      "under44": [
+        "Skip to main content"
+      ]
+    }
+  },
+  "dashboard.reducedRunning": 0,
+  "pickups.reducedRunning": 0,
+  "errors": []
+}

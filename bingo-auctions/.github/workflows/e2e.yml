@@ -1,0 +1,187 @@
+name: E2E — operator-web (Playwright)
+
+# Full E2E runs against PROD only on trusted master pushes/deploys. Its
+# setup mutates a synthetic account; PRs use credential-free GET smoke only.
+# Trusted full tests sign in as a synthetic bidder
+# (playwright-e2e@clovrbid.test) seeded by the global-setup helper and
+# never mutate prod billing/payment state.
+#
+# The PRIMARY purpose at launch is to lock the 2026-05-22 lockout class:
+# verify the bidder card page renders the form (not "Payments
+# unavailable") and that a Stripe publishable key is present in the
+# rendered page payload.
+#
+# We INTENTIONALLY run this as a SEPARATE workflow (not a job inside
+# deploy-cloudflare.yml) so:
+#   1. A failing e2e doesn't block a hotfix deploy — we get the signal
+#      via PR / commit status without coupling the deploy pipeline to a
+#      red e2e.
+#   2. We can run the suite ad-hoc via workflow_dispatch when needed.
+#   3. Future expansion (mobile viewports, auctions, ClovrRush realtime)
+#      doesn't bloat the deploy timing.
+#
+# Required repo secrets:
+#   E2E_BASE_URL                       — e.g. https://bingoauctions.com
+#                                         (defaults to that if unset; this is
+#                                         the BinGo fork — never clovrbid.com)
+#   E2E_SUPABASE_URL                   — Supabase project URL
+#   E2E_SUPABASE_SERVICE_ROLE_KEY      — service-role key for the e2e setup
+#   E2E_TEST_USER_PASSWORD             — synthetic bidder password (16+ chars
+#                                         recommended)
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master, main]
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
+      - '.github/workflows/ci.yml'
+      - '.github/workflows/eas-build.yml'
+  # Run again once a deploy has actually landed.
+  #
+  # The push trigger above fires at MERGE, but deploying is a separate,
+  # manually-dispatched workflow — so a spec asserting freshly merged
+  # behaviour runs against the PREVIOUS build and fails for a reason that has
+  # nothing to do with the code. On 2026-09-15 the MOB-01 suite finished at
+  # 16:18:08 and the deploy that made it pass finished at 16:22:17; all three
+  # specs went red and the fix was nearly reverted off a live site where it
+  # was working correctly.
+  #
+  # The push run is kept — it is still the fastest signal that master did not
+  # break anything ALREADY deployed, and it now logs which build it tested
+  # (e2e/setup/wait-for-build.ts) so a red run explains itself. This run is
+  # the authoritative one for newly shipped behaviour: it waits for the
+  # deployed commit before starting.
+  workflow_run:
+    workflows: ['Deploy Cloudflare Workers (BinGo)']
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      base_url:
+        description: 'Target base URL (defaults to https://bingoauctions.com)'
+        required: false
+        type: string
+
+concurrency:
+  # One e2e run at a time per branch to avoid the synthetic-bidder
+  # password fight in global-setup.
+  #
+  # Keyed on the event as well as the ref so the post-deploy run and the
+  # push run do not cancel each other: they test DIFFERENT builds on purpose
+  # (push = what was already live, workflow_run = what was just shipped), and
+  # losing the post-deploy one to a cancellation would put us straight back to
+  # having no signal for newly shipped behaviour.
+  group: e2e-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pr-read-only:
+    name: PR read-only smoke
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 3
+    steps:
+      # No checkout or project code: this job cannot execute modified PR code.
+      - name: Read public deployed build and robots only
+        run: |
+          set -euo pipefail
+          curl --fail --silent --show-error --max-time 30 --proto '=https' --request GET https://bingoauctions.com/api/version -o /tmp/bingo-version.json
+          python3 -c 'import json; v=json.load(open("/tmp/bingo-version.json")); assert isinstance(v.get("build"), str) and v["build"], "Missing public build ID"'
+          curl --fail --silent --show-error --max-time 30 --proto '=https' --request GET https://bingoauctions.com/robots.txt -o /dev/null
+
+  e2e:
+    name: Playwright (chromium)
+    # Pinned (2026-10-28): ubuntu-latest moved to 26.04, and Playwright 1.60
+    # cannot install chromium there ("Playwright does not support chromium on
+    # ubuntu26.04-x64"), so every E2E run failed at install before any test.
+    # Unpin once Playwright supports 26.04.
+    runs-on: ubuntu-24.04
+    # A failed deploy still emits `completed`. Testing prod after one would
+    # measure the build the deploy did NOT replace and report failures that
+    # are not real — the exact class of false red this trigger exists to end.
+    if: >-
+      ${{
+        (github.event_name == 'push' && github.ref == 'refs/heads/master') ||
+        (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/master') ||
+        (github.event_name == 'workflow_run' &&
+         github.event.workflow_run.conclusion == 'success' &&
+         github.event.workflow_run.head_branch == 'master' &&
+         github.event.workflow_run.head_repository.full_name == github.repository)
+      }}
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # For a post-deploy run, test the specs AS OF the commit that was
+          # deployed — not whatever master has drifted to since. Empty for
+          # every other trigger, which checks out the usual ref.
+          ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || '' }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install workspace dependencies
+        # `npm install` instead of `npm ci` because the lockfile is
+        # maintained by the deploy workflow and we don't want to force a
+        # lockfile regen for every Playwright bump. The e2e workflow is
+        # isolated (its own job, separate from deploy) so a permissive
+        # install here doesn't affect prod artifacts.
+        run: npm install --no-audit --no-fund
+
+      - name: Install Playwright browser (chromium only)
+        working-directory: apps/operator-web
+        # --with-deps installs the apt packages chromium needs on CI.
+        run: npx playwright install --with-deps chromium
+
+      - name: Run e2e
+        working-directory: apps/operator-web
+        env:
+          E2E_BASE_URL: ${{ inputs.base_url || secrets.E2E_BASE_URL || 'https://bingoauctions.com' }}
+          E2E_SUPABASE_URL: ${{ secrets.E2E_SUPABASE_URL || secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          E2E_SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.E2E_SUPABASE_SERVICE_ROLE_KEY || secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          # global-setup's self-check needs the anon key to verify
+          # password-signin via gotrue /token. Same fallback pattern as
+          # the URL/service-role pair above.
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.E2E_SUPABASE_ANON_KEY || secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+          E2E_TEST_USER_PASSWORD: ${{ secrets.E2E_TEST_USER_PASSWORD }}
+          # Post-deploy only: block until prod actually serves the commit that
+          # was just deployed, then test it. Empty for every other trigger, and
+          # that is deliberate — deploys are workflow_dispatch-only, so most
+          # merges to master are never deployed at all and requiring the pushed
+          # SHA would hang every one of them until the timeout. Unset, the
+          # setup just LOGS which build it tested, which is enough to stop a
+          # red run being mistaken for a broken feature.
+          E2E_REQUIRE_BUILD: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || '' }}
+          # The deploy has already finished by the time this fires, so a match
+          # is expected on the first probe. Capped well below the job's 15m so
+          # a genuine mismatch fails fast and legibly instead of hanging.
+          #
+          # NOTE for the first post-deploy run after this ships: the build
+          # being deployed is the one that ADDS /api/version, so it will
+          # answer. Any deploy of an older commit than this one cannot, and
+          # will fail here with "never served build …" — re-run it against a
+          # commit that includes this change rather than debugging prod.
+          E2E_REQUIRE_BUILD_TIMEOUT_MS: '300000'
+          # Surfaced by wait-for-build.ts when the served build differs, so a
+          # red run names the build it actually tested.
+          GITHUB_SHA: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}
+        run: npx playwright test
+
+      - name: Upload trace + report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report-${{ github.run_id }}
+          path: |
+            apps/operator-web/playwright-report
+            apps/operator-web/test-results
+          retention-days: 7
+          if-no-files-found: ignore

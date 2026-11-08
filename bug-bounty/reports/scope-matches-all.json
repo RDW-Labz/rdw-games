@@ -1,0 +1,222 @@
+[
+  {
+    "host": "donau-carbon-us.devweb.emakina.at",
+    "platform": "bc",
+    "handle": "EPAM Systems Managed Bug Bounty Program",
+    "asset": "*.emakina.at",
+    "asset_type": "website",
+    "bounty": true,
+    "basis": "wildcard",
+    "program_url": "https://bugcrowd.com/EPAM Systems Managed Bug Bounty Program"
+  },
+  {
+    "host": "donau-carbon.devweb.emakina.at",
+    "platform": "bc",
+    "handle": "EPAM Systems Managed Bug Bounty Program",
+    "asset": "*.emakina.at",
+    "asset_type": "website",
+    "bounty": true,
+    "basis": "wildcard",
+    "program_url": "https://bugcrowd.com/EPAM Systems Managed Bug Bounty Program"
+  },
+  {
+    "host": "donau-chemie-group.devweb.emakina.at",
+    "platform": "bc",
+    "handle": "EPAM Systems Managed Bug Bounty Program",
+    "asset": "*.emakina.at",
+    "asset_type": "website",
+    "bounty": true,
+    "basis": "wildcard",
+    "program_url": "https://bugcrowd.com/EPAM Systems Managed Bug Bounty Program"
+  },
+  {
+    "host": "donau-chemie-ro.devweb.emakina.at",
+    "platform": "bc",
+    "handle": "EPAM Systems Managed Bug Bounty Program",
+    "asset": "*.emakina.at",
+    "asset_type": "website",
+    "bounty": true,
+    "basis": "wildcard",
+    "program_url": "https://bugcrowd.com/EPAM Systems Managed Bug Bounty Program"
+  },
+  {
+    "host": "donau-chemie.devweb.emakina.at",
+    "platform": "bc",
+    "handle": "EPAM Systems Managed Bug Bounty Program",
+    "asset": "*.emakina.at",
+    "asset_type": "website",
+    "bounty": true,
+    "basis": "wildcard",
+    "program_url": "https://bugcrowd.com/EPAM Systems Managed Bug Bounty Program"
+  },
+  {
+    "host": "donau-products.devweb.emakina.at",
+    "platform": "bc",
+    "handle": "EPAM Systems Managed Bug Bounty Program",
+    "asset": "*.emakina.at",
+    "asset_type": "website",
+    "bounty": true,
+    "basis": "wildcard",
+    "program_url": "https://bugcrowd.com/EPAM Systems Managed Bug Bounty Program"
+  },
+  {
+    "host": "donau-realitaeten.devweb.emakina.at",
+    "platform": "bc",
+    "handle": "EPAM Systems Managed Bug Bounty Program",
+    "asset": "*.emakina.at",
+    "asset_type": "website",
+    "bounty": true,
+    "basis": "wildcard",
+    "program_url": "https://bugcrowd.com/EPAM Systems Managed Bug Bounty Program"
+  },
+  {
+    "host": "donau-umweltinformation.devweb.emakina.at",
+    "platform": "bc",
+    "handle": "EPAM Systems Managed Bug Bounty Program",
+    "asset": "*.emakina.at",
+    "asset_type": "website",
+    "bounty": true,
+    "basis": "wildcard",
+    "program_url": "https://bugcrowd.com/EPAM Systems Managed Bug Bounty Program"
+  },
+  {
+    "host": "donau.devweb.emakina.at",
+    "platform": "bc",
+    "handle": "EPAM Systems Managed Bug Bounty Program",
+    "asset": "*.emakina.at",
+    "asset_type": "website",
+    "bounty": true,
+    "basis": "wildcard",
+    "program_url": "https://bugcrowd.com/EPAM Systems Managed Bug Bounty Program"
+  },
+  {
+    "host": "donauchem-hu.devweb.emakina.at",
+    "platform": "bc",
+    "handle": "EPAM Systems Managed Bug Bounty Program",
+    "asset": "*.emakina.at",
+    "asset_type": "website",
+    "bounty": true,
+    "basis": "wildcard",
+    "program_url": "https://bugcrowd.com/EPAM Systems Managed Bug Bounty Program"
+  },
+  {
+    "host": "donauchem-pl.devweb.emakina.at",
+    "platform": "bc",
+    "handle": "EPAM Systems Managed Bug Bounty Program",
+    "asset": "*.emakina.at",
+    "asset_type": "website",
+    "bounty": true,
+    "basis": "wildcard",
+    "program_url": "https://bugcrowd.com/EPAM Systems Managed Bug Bounty Program"
+  },
+  {
+    "host": "donauchem-rs.devweb.emakina.at",
+    "platform": "bc",
+    "handle": "EPAM Systems Managed Bug Bounty Program",
+    "asset": "*.emakina.at",
+    "asset_type": "website",
+    "bounty": true,
+    "basis": "wildcard",
+    "program_url": "https://bugcrowd.com/EPAM Systems Managed Bug Bounty Program"
+  },
+  {
+    "host": "donauchem-sk.devweb.emakina.at",
+    "platform": "bc",
+    "handle": "EPAM Systems Managed Bug Bounty Program",
+    "asset": "*.emakina.at",
+    "asset_type": "website",
+    "bounty": true,
+    "basis": "wildcard",
+    "program_url": "https://bugcrowd.com/EPAM Systems Managed Bug Bounty Program"
+  },
+  {
+    "host": "ganterdevweb.emakina.at",
+    "platform": "bc",
+    "handle": "EPAM Systems Managed Bug Bounty Program",
+    "asset": "*.emakina.at",
+    "asset_type": "website",
+    "bounty": true,
+    "basis": "wildcard",
+    "program_url": "https://bugcrowd.com/EPAM Systems Managed Bug Bounty Program"
+  },
+  {
+    "host": "api.qa.whatsup.volkswagen.de",
+    "platform": "bc",
+    "handle": "Volkswagen",
+    "asset": "*.volkswagen.de",
+    "asset_type": "website",
+    "bounty": true,
+    "basis": "wildcard",
+    "program_url": "https://bugcrowd.com/Volkswagen"
+  },
+  {
+    "host": "candle-src.etoro.com",
+    "platform": "bc",
+    "handle": "eToro Managed Bug Bounty Engagement",
+    "asset": "https://*.etoro.com",
+    "asset_type": "website",
+    "bounty": true,
+    "basis": "wildcard",
+    "program_url": "https://bugcrowd.com/eToro Managed Bug Bounty Engagement"
+  },
+  {
+    "host": "nines.githubapp.com",
+    "platform": "h1",
+    "handle": "github",
+    "asset": "*.githubapp.com",
+    "asset_type": "URL",
+    "bounty": true,
+    "basis": "wildcard",
+    "program_url": "https://hackerone.com/github"
+  },
+  {
+    "host": "ellen.withspotify.com",
+    "platform": "h1",
+    "handle": "spotify",
+    "asset": "*.withspotify.com",
+    "asset_type": "WILDCARD",
+    "bounty": true,
+    "basis": "wildcard",
+    "program_url": "https://hackerone.com/spotify"
+  },
+  {
+    "host": "owl.twilio.com",
+    "platform": "h1",
+    "handle": "twilio",
+    "asset": "twilio.com",
+    "asset_type": "URL",
+    "bounty": true,
+    "basis": "apex-suffix",
+    "program_url": "https://hackerone.com/twilio"
+  },
+  {
+    "host": "combomobile-1.acbpost.be",
+    "platform": "it",
+    "handle": "bpost",
+    "asset": "*.acbpost.be",
+    "asset_type": "wildcard",
+    "bounty": true,
+    "basis": "wildcard",
+    "program_url": "https://app.intigriti.com/programs/bpost/detail"
+  },
+  {
+    "host": "combomobile-1.stbpost.be",
+    "platform": "it",
+    "handle": "bpost",
+    "asset": "*.stbpost.be",
+    "asset_type": "wildcard",
+    "bounty": true,
+    "basis": "wildcard",
+    "program_url": "https://app.intigriti.com/programs/bpost/detail"
+  },
+  {
+    "host": "upload.sporza.be",
+    "platform": "it",
+    "handle": "vrtnv",
+    "asset": "sporza.be",
+    "asset_type": "url",
+    "bounty": true,
+    "basis": "apex-suffix",
+    "program_url": "https://app.intigriti.com/programs/vrtnv/detail"
+  }
+]

@@ -1,0 +1,61 @@
+<canvas id="gl"></canvas>
+<div id="hud" class="hidden">
+  <div id="hudL"><div class="act" id="actName">ACT I &middot; GOLDEN VALLEY</div><div id="shards"></div><div class="act" id="shardDist" style="font-size:clamp(9px,1.1vw,12px);opacity:.85"></div><div id="coins"><i></i><span id="coinN">0</span></div></div>
+  <div id="hudR"><b id="timeN">0:00</b><br><span id="qTag">HIGH</span> &nbsp;<span id="muteTag"></span></div>
+  <svg id="hp" viewBox="-50 -50 100 100"></svg>
+  <div id="toast"></div>
+  <div id="talk"><b id="talkWho">TWIN</b><span id="talkTxt"></span></div>
+  <div id="prompt"></div>
+  <div id="rew"></div>
+  <div id="vig"></div>
+  <div id="flash"></div>
+</div>
+<div id="menu" class="ovl">
+  <div class="mwrap">
+    <div id="vrPrompt" class="hidden">VR MODE &middot; PUT ON YOUR HEADSET, THEN PRESS ENTER VR</div>
+    <canvas id="logo" width="1400" height="300"></canvas>
+    <div class="tag">A REALISTIC WORLD. SHATTERED INTO BLOCKS. REBUILT STRANGER.</div>
+    <div class="best" id="best"></div>
+    <button id="cta">BEGIN</button>
+    <button id="ctaVR" class="hidden">ENTER VR</button>
+    <div class="vrstat" id="vrStatus"></div>
+    <div id="rpgMenu"></div>
+    <div class="cheat">
+      <div><kbd>W A S D</kbd> move</div><div><kbd>SPACE</kbd> jump (chain x3)</div><div><kbd>SHIFT</kbd> sprint</div>
+      <div><kbd>Z</kbd> crouch / pound in air</div><div><kbd>LMB</kbd> punch / dive</div><div><kbd>RMB</kbd> hold: REWIND</div>
+      <div><kbd>Z + SPACE</kbd> long jump / backflip</div><div><kbd>E</kbd> talk / flip pad</div><div><kbd>Q</kbd> recentre camera</div>
+      <div><kbd>MOUSE</kbd> look</div><div><kbd>J</kbd> camera mode</div><div><kbd>M</kbd> mute &nbsp; <kbd>P</kbd> quality</div>
+      <div class="wide"><kbd>CONTROLLER</kbd> <span data-pad="L-stick move, R-stick look, A jump, RT punch/dive, LT hold = rewind, X = J camera, B = Z crouch/pound, Y = E, LB/R3 = Q, RB/L3 = Shift, Start = confirm / pause">L-stick move, R-stick look, A jump, RT punch/dive, LT hold = rewind, X = J camera, B = Z crouch/pound, Y = E, LB/R3 = Q, RB/L3 = Shift, Start = confirm / pause</span></div>
+      <div class="wide"><kbd>VR TOUCH</kbd> L-stick move (relative to your head), R-stick snap-turn the table 30&deg;, A jump, B crouch / pound, trigger punch / dive, grip (hold) REWIND, X table size (hold = recentre), Y tap pause, Y HOLD (0.4 s) inventory &amp; perks, L-stick click sprint, R-stick click talk / flip pad. In the inventory / perk pick the sticks move the cursor, A equip / pick, B back, X salvage (twice), Y lock (hold = close), grips switch tab, trigger clicks what the laser points at. A Bluetooth pad works in VR too.</div>
+    </div>
+    <div class="qrow">QUALITY <button data-q="high">HIGH</button><button data-q="medium">MEDIUM</button><button data-q="low">LOW</button><button id="autoQ" title="Automatically lower quality when frames are slow (for weak devices). Off keeps exactly the quality you pick.">AUTO: OFF</button></div>
+  </div>
+</div>
+<div id="dead" class="ovl hidden"><h1 id="deadT">TRY AGAIN</h1><div id="deadS"></div><button id="cta2">RETRY</button></div>
+<div id="pause" class="ovl hidden"><div>PAUSED</div><small>click, Esc or Start to resume</small><div id="pauseBtns"><button id="toMenuBtn" style="font:inherit;letter-spacing:.2em;font-size:12px;color:#eaf6ff;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:.4em 1.4em;cursor:pointer">BACK TO MENU</button></div></div>
+<!-- <rpg> in-game layer: HUD, nameplates, damage numbers, inventory + perk-pick overlays -->
+<div id="rpgRoot" class="hidden">
+  <div id="rpgChill"></div><div id="rpgHit"></div>
+  <div id="rpgRift"><div class="rt" id="rpgRiftT">3:30</div><div class="rs" id="rpgRiftS">SHATTER RIFT &middot; TIER 1 &middot; SEED 000000</div><div class="rb"><i id="rpgRiftBar"></i></div><div class="rm" id="rpgRiftM"></div></div>
+  <div id="rpgBoss"><b id="rpgBossN">GUARDIAN</b><div class="bb"><i id="rpgBossBar"></i></div></div>
+  <div id="rpgVitals"><div id="rpgHP"><div id="rpgHPfill"></div><div id="rpgHPshield"></div><div id="rpgHPtxt">100 / 100</div></div><div id="rpgXProw"><span id="rpgLv">LV 1</span><div id="rpgXP"><div id="rpgXPfill"></div></div></div><div id="rpgRW"></div><div id="rpgBuff"></div></div>
+  <div id="rpgPlates"></div><div id="rpgFloat"></div><div id="rpgLog"></div>
+  <div id="rpgBanner"><h2 id="rpgBanH">LEVEL UP</h2><p id="rpgBanP"></p></div>
+</div>
+<div id="inv" class="ovl hidden"><div class="invWrap">
+  <div class="invHead"><span class="padkey" data-pad="LB">LB</span><div id="invTabs"></div><span class="padkey" data-pad="RB">RB</span><div class="invRes"><span class="lv" id="invLv">LV 1</span><span class="gold"><i></i><b id="invGold">0</b></span><span class="dust"><i></i><b id="invDust">0</b></span></div></div>
+  <div class="invBody" id="invBody"></div>
+  <div class="invFoot" id="invFoot"></div>
+</div></div>
+<div id="perkpick" class="ovl hidden"><h1 id="pkTitle">LEVEL 2</h1><p id="pkSub">CHOOSE A PERK</p><div id="perkCards"></div><p id="pkHint"></p></div>
+<!-- </rpg> -->
+<!-- <gem> hotbar / Spark / Star HUD, form badge, Star Power overlay, character select -->
+<div id="gemHud" class="hidden"><div id="gmSpark"><i id="gmSparkFill"></i><b id="gmSparkTxt">100 / 100</b></div><div id="gmRow"><div id="gmBar"></div><div id="gmStar"><svg viewBox="-24 -24 48 48"><circle r="18" fill="rgba(8,14,22,.7)" stroke="rgba(255,230,160,.35)" stroke-width="4"/><circle id="gmStarArc" r="18" fill="none" stroke="#ffd45a" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="113" stroke-dashoffset="113"/></svg><b id="gmStarPct">0%</b></div></div></div>
+<div id="gmForm" class="hidden"><b></b></div>
+<div id="starFx"></div>
+<div id="chars" class="ovl hidden"><div class="chWrap">
+  <div class="chHead"><span class="padkey" data-pad="B">B</span><h2>CHOOSE YOUR CHARACTER</h2><span id="chAnim" class="chAnim">IDLE</span><small data-pad="ARROWS / STICK move &middot; A play &middot; B back">ARROWS / STICK move &middot; A play &middot; B back</small></div>
+  <div class="chBody"><div class="chGrid" id="chGrid"></div><div class="pnl chDetailWrap"><div id="chDetail"></div><button id="chGo" class="btn go">PLAY</button><button id="chBack" class="btn">BACK</button></div></div>
+</div></div>
+<!-- </gem> -->
+<div id="boot">SHATTERWORLD</div>

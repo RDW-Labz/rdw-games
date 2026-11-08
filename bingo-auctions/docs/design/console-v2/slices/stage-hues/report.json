@@ -1,0 +1,154 @@
+{
+ "dashboard@1440": {
+  "axe": [],
+  "hscroll": 0,
+  "cards": [
+   "Pickup edge=rgb(200, 250, 122) w=5px title=rgb(214, 245, 174) current=true",
+   "Lotting edge=rgb(237, 191, 121) w=3px title=rgb(244, 215, 169) current=false",
+   "Auction edge=rgb(242, 156, 152) w=3px title=rgb(255, 196, 188) current=false",
+   "Paid edge=rgb(135, 215, 164) w=3px title=rgb(179, 233, 197) current=false",
+   "Intake edge=rgb(131, 218, 206) w=3px title=rgb(178, 236, 229) current=false"
+  ],
+  "titles": [
+   "Next to close = rgb(255, 196, 188)",
+   "Decisions waiting = rgb(230, 224, 238)",
+   "The last seven days = rgb(230, 224, 238)"
+  ],
+  "search": null
+ },
+ "dashboard@1024": {
+  "axe": [],
+  "hscroll": 0,
+  "cards": [
+   "Pickup edge=rgb(200, 250, 122) w=5px title=rgb(214, 245, 174) current=true",
+   "Lotting edge=rgb(237, 191, 121) w=3px title=rgb(244, 215, 169) current=false",
+   "Auction edge=rgb(242, 156, 152) w=3px title=rgb(255, 196, 188) current=false",
+   "Paid edge=rgb(135, 215, 164) w=3px title=rgb(179, 233, 197) current=false",
+   "Intake edge=rgb(131, 218, 206) w=3px title=rgb(178, 236, 229) current=false"
+  ],
+  "titles": [
+   "Next to close = rgb(255, 196, 188)",
+   "Decisions waiting = rgb(230, 224, 238)",
+   "The last seven days = rgb(230, 224, 238)"
+  ],
+  "search": null
+ },
+ "dashboard@reduced": 0,
+ "lot-sold@1440": {
+  "axe": [],
+  "hscroll": 0,
+  "cards": [
+   "Intake edge=rgb(131, 218, 206) w=3px title=rgb(178, 236, 229) current=false",
+   "Lotting edge=rgb(237, 191, 121) w=3px title=rgb(244, 215, 169) current=false",
+   "Auction edge=rgb(242, 156, 152) w=3px title=rgb(255, 196, 188) current=false",
+   "Paid Current section edge=rgb(135, 215, 164) w=5px title=rgb(179, 233, 197) current=true",
+   "Pickup edge=rgb(200, 250, 122) w=3px title=rgb(214, 245, 174) current=false"
+  ],
+  "titles": [
+   "Choose the next step = rgb(244, 215, 169)",
+   "What is on record = rgb(244, 215, 169)",
+   "Invoice and handoff = rgb(179, 233, 197)",
+   "Bid history (1) = rgb(255, 196, 188)",
+   "Timeline (1) = rgb(230, 224, 238)"
+  ],
+  "search": null
+ },
+ "lot-sold@1024": {
+  "axe": [],
+  "hscroll": 0,
+  "cards": [
+   "Intake edge=rgb(131, 218, 206) w=3px title=rgb(178, 236, 229) current=false",
+   "Lotting edge=rgb(237, 191, 121) w=3px title=rgb(244, 215, 169) current=false",
+   "Auction edge=rgb(242, 156, 152) w=3px title=rgb(255, 196, 188) current=false",
+   "Paid Current section edge=rgb(135, 215, 164) w=5px title=rgb(179, 233, 197) current=true",
+   "Pickup edge=rgb(200, 250, 122) w=3px title=rgb(214, 245, 174) current=false"
+  ],
+  "titles": [
+   "Choose the next step = rgb(244, 215, 169)",
+   "What is on record = rgb(244, 215, 169)",
+   "Invoice and handoff = rgb(179, 233, 197)",
+   "Bid history (1) = rgb(255, 196, 188)",
+   "Timeline (1) = rgb(230, 224, 238)"
+  ],
+  "search": null
+ },
+ "lot-sold@reduced": 0,
+ "lot-inventory@1440": {
+  "axe": [],
+  "hscroll": 0,
+  "cards": [
+   "Intake edge=rgb(131, 218, 206) w=3px title=rgb(178, 236, 229) current=false",
+   "Lotting Current section edge=rgb(237, 191, 121) w=5px title=rgb(244, 215, 169) current=true",
+   "Auction edge=rgb(242, 156, 152) w=3px title=rgb(255, 196, 188) current=false",
+   "Paid edge=rgb(135, 215, 164) w=3px title=rgb(179, 233, 197) current=false",
+   "Pickup edge=rgb(200, 250, 122) w=3px title=rgb(214, 245, 174) current=false"
+  ],
+  "titles": [
+   "Choose the next step = rgb(244, 215, 169)",
+   "What is on record = rgb(244, 215, 169)",
+   "Invoice and handoff = rgb(179, 233, 197)",
+   "Bid history (0) = rgb(255, 196, 188)",
+   "Timeline (0) = rgb(230, 224, 238)"
+  ],
+  "search": null
+ },
+ "lot-inventory@1024": {
+  "axe": [],
+  "hscroll": 0,
+  "cards": [
+   "Intake edge=rgb(131, 218, 206) w=3px title=rgb(178, 236, 229) current=false",
+   "Lotting Current section edge=rgb(237, 191, 121) w=5px title=rgb(244, 215, 169) current=true",
+   "Auction edge=rgb(242, 156, 152) w=3px title=rgb(255, 196, 188) current=false",
+   "Paid edge=rgb(135, 215, 164) w=3px title=rgb(179, 233, 197) current=false",
+   "Pickup edge=rgb(200, 250, 122) w=3px title=rgb(214, 245, 174) current=false"
+  ],
+  "titles": [
+   "Choose the next step = rgb(244, 215, 169)",
+   "What is on record = rgb(244, 215, 169)",
+   "Invoice and handoff = rgb(179, 233, 197)",
+   "Bid history (0) = rgb(255, 196, 188)",
+   "Timeline (0) = rgb(230, 224, 238)"
+  ],
+  "search": null
+ },
+ "lot-inventory@reduced": 0,
+ "pickups@1440": {
+  "axe": [],
+  "hscroll": 0,
+  "cards": [
+   "Intake edge=rgb(131, 218, 206) w=3px title=rgb(178, 236, 229) current=false",
+   "Lotting edge=rgb(237, 191, 121) w=3px title=rgb(244, 215, 169) current=false",
+   "Auction edge=rgb(242, 156, 152) w=3px title=rgb(255, 196, 188) current=false",
+   "Paid edge=rgb(135, 215, 164) w=3px title=rgb(179, 233, 197) current=false",
+   "Pickup Current section edge=rgb(200, 250, 122) w=5px title=rgb(214, 245, 174) current=true"
+  ],
+  "titles": [
+   "At the counter (24) = rgb(214, 245, 174)",
+   "Today (18) = rgb(214, 245, 174)",
+   "Waiting (40) = rgb(214, 245, 174)",
+   "Missing items awaiting refund (2) = rgb(230, 224, 238)",
+   "Recently done (10) = rgb(230, 224, 238)"
+  ],
+  "search": "none | Find customer"
+ },
+ "pickups@1024": {
+  "axe": [],
+  "hscroll": 0,
+  "cards": [
+   "Intake edge=rgb(131, 218, 206) w=3px title=rgb(178, 236, 229) current=false",
+   "Lotting edge=rgb(237, 191, 121) w=3px title=rgb(244, 215, 169) current=false",
+   "Auction edge=rgb(242, 156, 152) w=3px title=rgb(255, 196, 188) current=false",
+   "Paid edge=rgb(135, 215, 164) w=3px title=rgb(179, 233, 197) current=false",
+   "Pickup Current section edge=rgb(200, 250, 122) w=5px title=rgb(214, 245, 174) current=true"
+  ],
+  "titles": [
+   "At the counter (24) = rgb(214, 245, 174)",
+   "Today (18) = rgb(214, 245, 174)",
+   "Waiting (40) = rgb(214, 245, 174)",
+   "Missing items awaiting refund (2) = rgb(230, 224, 238)",
+   "Recently done (10) = rgb(230, 224, 238)"
+  ],
+  "search": "none | Find customer"
+ },
+ "pickups@reduced": 0
+}

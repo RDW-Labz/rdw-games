@@ -1,0 +1,24 @@
+Subject: dangling DNS record on bentley.com — dev-connect-lumenrt360projecttours-staging.bentley.com (free heads-up, no strings)
+
+Hello,
+
+I monitor certificate transparency logs for DNS hygiene problems. One record in your zone points
+at a hostname that no longer exists:
+
+  dev-connect-lumenrt360projecttours-staging.bentley.com -> dev-lumenrt360projecttours-eus-staging.azurewebsites.net   (target returns NXDOMAIN)
+
+What that means: the hostname is in a namespace a third party can register once it is released
+(azurewebsites.net; Azure subscription), and whoever takes it can serve content at https://dev-connect-lumenrt360projecttours-staging.bentley.com. Your record has
+been dead for a while, which also means anything still configured to call it is failing silently.
+
+The fix is one DNS deletion. I am not asking anything for the finding — it is yours, and the full
+technical write-up is attached.
+
+If it is useful, I also run a sweep of the rest of your estate (every subdomain, every CNAME, every
+dead vendor target) and hand back the same kind of report with a fix list. That is a paid piece of
+work; the thing above is free either way.
+
+Either way: please delete the record.
+
+Regards,
+Michael Cluer

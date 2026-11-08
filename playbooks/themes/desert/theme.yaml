@@ -1,0 +1,69 @@
+name: Desert
+avatar: desert
+light:
+  colors:
+    bg: "#f6efe4"
+    surface: "#ede4d6"
+    surface-raised: "#fcf8f2"
+    border: "#827260"
+    hairline: "#ddd0bd"
+    text: "#251c13"
+    text-muted: "#5f5241"
+    accent: "#96462a"
+    accent-text: "#fff7f0"
+    focus: "#35665a"
+    link: "#35665a"
+    ok: "#3b6630"
+    needs-you: "#7a4b0a"
+    rim: "#9e640f"
+    lamp: "195 117 0"
+    glow-strength: 0.24
+    error: "#a1332b"
+    paused: "#6b5180"
+    scrim: "#251c1352"
+    shadow-1: "0 1px 2px #251c1314"
+    shadow-2: "0 12px 32px -12px #251c1340"
+dark:
+  colors:
+    bg: "#1d1814"
+    surface: "#241e19"
+    surface-raised: "#2d261f"
+    border: "#8b7e6e"
+    hairline: "#3e352c"
+    text: "#f2eadf"
+    text-muted: "#baac99"
+    accent: "#e89c70"
+    accent-text: "#2a1308"
+    focus: "#9ecab5"
+    link: "#9ecab5"
+    ok: "#a8d29b"
+    needs-you: "#f2c267"
+    rim: "#dea242"
+    lamp: "255 198 90"
+    glow-strength: 0.16
+    error: "#ffa08f"
+    paused: "#ccb5dd"
+    scrim: "#00000080"
+    shadow-1: "0 1px 2px #00000066"
+    shadow-2: "0 16px 40px -12px #00000099"
+type:
+  font: 'Figtree, system-ui, -apple-system, "Segoe UI", sans-serif'
+radius:
+  sm: 8
+  md: 12
+  lg: 16
+  pill: 999
+motion:
+  duration-instant: 80
+  duration-fast: 120
+  duration-base: 200
+  duration-slow: 320
+  duration-light: 480
+  breath: 2400
+  ease-out: "cubic-bezier(0, 0, 0.2, 1)"
+  ease-in: "cubic-bezier(0.4, 0, 1, 1)"
+  ease-standard: "cubic-bezier(0.2, 0, 0, 1)"
+sounds:
+  needs_you: default
+  done: default
+  problem: default

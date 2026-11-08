@@ -1,0 +1,8 @@
+# 0445 proof on the Docker prod copy (rig0431). Copy the migration, its rollback and these files into the container as /w7/, then: docker exec rig0431 bash /w7/run.sh
+P() { psql -U postgres -At -v ON_ERROR_STOP=1 "$@"; }
+fresh() { psql -q -U postgres -c "DROP DATABASE IF EXISTS s0445" -c "CREATE DATABASE s0445 TEMPLATE postgres" && P -q -d s0445 -c "ALTER TABLE auth.users ADD COLUMN IF NOT EXISTS email text" >/dev/null && P -q -d s0445 -f /w7/seed.sql; }
+echo "===== BEFORE 0445 (prod today)"; fresh || exit 1; psql -U postgres -At -d s0445 -f /w7/cases.sql 2>&1 | grep -v "^$"
+echo "===== AFTER 0445"; fresh || exit 1; P -q -d s0445 -f /w7/0445_missing_item_found_follows_relist.sql || exit 1; P -q -d s0445 -f /w7/0445_missing_item_found_follows_relist.sql || exit 1; echo "(applied twice)"; psql -U postgres -At -d s0445 -f /w7/cases.sql 2>&1 | grep -v "^$"
+P -d s0445 -c "SELECT 'grants since anon/auth/service', has_function_privilege('anon','public.missing_item_found_since(uuid,timestamptz)','EXECUTE'), has_function_privilege('authenticated','public.missing_item_found_since(uuid,timestamptz)','EXECUTE'), has_function_privilege('service_role','public.missing_item_found_since(uuid,timestamptz)','EXECUTE')" -c "SELECT 'grants found anon/auth', has_function_privilege('anon','public.missing_item_found(uuid,uuid,text)','EXECUTE'), has_function_privilege('authenticated','public.missing_item_found(uuid,uuid,text)','EXECUTE')"
+echo "===== ROLLBACK"; s=$(date +%s%N); P -q -d s0445 -f /w7/0445_ROLLBACK_missing_item_found_follows_relist.sql && echo "rollback ok $(( ($(date +%s%N)-s)/1000000 ))ms"
+P -d s0445 -c "SELECT 'since is 0426 again', pg_get_functiondef('public.missing_item_found_since(uuid,timestamptz)'::regprocedure) NOT LIKE '%fam%'"

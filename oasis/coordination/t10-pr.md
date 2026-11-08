@@ -1,0 +1,19 @@
+T10 defines the three foundational YAML formats (`profile.yaml`, `skill.yaml`, `connector.yaml`) in `docs/formats.md` and adds `src/almanac/runner.py`, a test runner that loads a skill folder and replays each of its recorded test cases through the T07 loop (anorak.loop.LoopRunner). Three shared starter skills are included with SKILL.md, skill.yaml, and three passing test cases each: `daily-summary` (calendar + unread mail into a short note), `file-filing` (move a downloaded file to the right folder by profile rules), and `meeting-prep` (next meeting outline from notes and email).
+
+The runner uses fixture data standing in for live models and connectors; every step outputs are replayed from YAML files recorded once and checked into the skill folder with obvious fake values. Ask-first gates (risky_steps and always_ask) go through the loop's real confirmation callback, so the runner records the gate request before answering from the fixture, proving the gate is enforced not bypassed. A skill folder with no test_cases is refused outright and never reported as passing.
+
+Validation:
+```
+.venv/bin/pytest -q
+11 passed in 0.14s
+.venv/bin/ruff check .
+All checks passed!
+.venv/bin/ruff format --check .
+13 files already formatted
+.venv/bin/mypy --strict src/
+Success: no issues found in 2 source files
+```
+
+The runner replays fixtures through the actual T07 loop machinery; no live model or connector is called, so behaviour remains unverified until real models are used. File-filing's move_file step is marked risky_step; tests prove the ask-first gate is recorded in the confirmation callback, not silently bypassed. agent-core is pinned to 0.3.0 through a vendored wheel (commit 3e49df8, sha256 recorded in vendor/provenance.json) because agent-core is not yet published to a package index; this pin will move to 0.4.0 in a later ticket once T08 merges. Package version is 0.2.0 with no release published.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)

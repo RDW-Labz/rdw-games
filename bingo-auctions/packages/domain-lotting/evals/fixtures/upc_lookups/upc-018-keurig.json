@@ -1,0 +1,15 @@
+{
+  "id": "upc-018",
+  "code": "611247373842",
+  "code_type": "upc",
+  "expected": {
+    "title": "Keurig K-Classic Single Serve K-Cup Pod Coffee Maker (Black)",
+    "brand": "Keurig",
+    "model": "K-Classic",
+    "category_slug": "small-appliances",
+    "category_legacy": "Appliances",
+    "condition": "",
+    "msrp_cents": 11999
+  },
+  "notes": "K-Classic — model name doubles as the product line name. Tests dash-handling in model field."
+}

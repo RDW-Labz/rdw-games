@@ -1,0 +1,20 @@
+{
+ "version": 1,
+ "concurrency": 1,
+ "jobs": [
+  {
+   "id": "or1-beacon-v1",
+   "agent": "claude",
+   "model": "sonnet",
+   "tier": "mid",
+   "prompt": "You are job OR1 (OASIS T17 Orb v2, character revision 1 of at most 2). You cannot run code or see images; the coordinator runs your script with Python 3.12 + Pillow and checks the PNGs.\nBraden picked sketch 3 'Beacon' from coordination/references/orb-sketches/make_sketches.py (read it: its palette and grid are the starting point). Keep Beacon's identity: blue-grey hexagonal lantern head, handle loop on top, dark screen face, the amber stripe. It must stay ORIGINAL: never a robot with a cloud head, never like any other product's assistant or mascot.\nRefine per Braden:\n1. BODY / STANCE: give it a small body so it reads as a coworker, not an object: e.g. a short lantern-like torso, two small arms, two short legs or a stable base with feet, standing in a relaxed, friendly stance. Head stays the biggest part (about 55-60% of height).\n2. FACE: soften it: warm and calm, not a grin. Gentle rounded eyes (e.g. 2x2 or soft arcs), a small soft mouth or none; slight cheek glow is fine. No wide smile.\n3. STATUS LIGHT: the amber stripe becomes the status light. Eight states (a proposal Braden will confirm): idle = dim amber #B07A2A, slow breathe; working = blue #4AA3FF, a lit segment sweeping left to right; asking (needs a yes) = bright amber #FFB020, pulse; proposal ready = green #3FCF8E, gentle pulse; done = green #3FCF8E, one flash then dim; needs attention (error) = red #FF5A4F, slow blink; paused = grey #8A9199, steady, no motion; offline = dark #3A4048 with a rare single blink. Colours must be distinct from each other and readable on dark and light backgrounds.\n4. POSES: draw four poses: idle (relaxed standing, light breathing), working (leaning in, one arm busy as if typing or holding a tiny tablet), asking (one hand raised, head slightly tilted, face attentive), paused (eyes closed or half-closed, arms down, settled). Each pose uses its matching status light.\n5. SIZES: design each pose on a native 64x64 pixel grid (transparent '.'), so it shows 1:1 at 64 px and at exactly 2x at 128 px. Build grids by composing layers in code (base body + pose arms + face + stripe) rather than writing four full grids by hand, but the final result must be pixel-exact grids. Keep the two-button bar (pencil/write, voice waveform placeholder) as a separate 48x14 grid drawn under the character in previews only.\nWrite exactly one file: coordination/references/orb-sketches/beacon_v1.py. When run from the oasis root it writes into coordination/references/orb-sketches/beacon-v1/:\n- pose-<idle|working|asking|paused>-64.png (1:1) and -128.png (2x nearest-neighbour), RGBA transparent;\n- status-<state>.gif for all eight states: the 64 px idle character at 2x with the stripe animated (6-12 frames, looping, transparent background, sensible frame durations that match the motion described), and status-strip.png: all eight stripes' key frames (no text) as a grid 8 columns x 3 frames at 8x on #1E1E1E;\n- sheet-v1.png: row 1 the four poses at 128 px on #1E1E1E with the bar under each, row 2 the same on #F2F2F2, row 3 the four poses at 64 px on both backgrounds; 16 px gaps.\nAssert every grid is rectangular and every char is in the palette; print one line per file. Standard library + Pillow only; no network, no file writes outside that folder. Top docstring: what changed from the sketch, and the eight states with colour and motion.\nEnd with one JSON line: {\"files_changed\":[...],\"notes\":[...\u22648]}.",
+   "context": [
+    "coordination/references/orb-sketches/make_sketches.py"
+   ],
+   "outputs": [
+    "coordination/references/orb-sketches/beacon_v1.py"
+   ],
+   "timeoutMs": 2400000
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+== collected 2026-11-02T00:15:52Z
+--- dig CNAME devex-mcp-registry.eg-internal.ghpages.expedia.biz
+eg-internal.github.io.
+--- dig A devex-mcp-registry.eg-internal.ghpages.expedia.biz
+eg-internal.github.io.
+185.199.108.153
+185.199.110.153
+185.199.111.153
+185.199.109.153
+--- dig CNAME eg-internal.ghpages.expedia.biz
+--- dig NS expedia.biz
+pdns3.ultradns.org.
+pdns5.ultradns.info.
+pdns6.ultradns.co.uk.
+pdns4.ultradns.org.
+pdns2.ultradns.net.
+pdns1.ultradns.net.
+--- dig SOA expedia.biz
+pdns1.ultradns.net. domains.expediagroup.com. 2019115903 43200 7200 1209600 3600

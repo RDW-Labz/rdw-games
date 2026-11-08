@@ -1,0 +1,46 @@
+# One term per line, case-insensitive. ship refuses any added diff line containing one (decision #238).
+oasis
+cluer
+braden
+amber
+rdw-labz
+rdw labz
+agent-core
+agent-amber
+agent-michael
+anorak
+playbooks
+rag-pipeline
+desktop-app
+beacon
+lantern
+
+# Ventures (decision #61) and RPO codenames (docs/CODENAMES.md), added s46 (Braden).
+# Fine while oasis is private; must come out before any public copy.
+cluer holdings
+rdw llc
+bin-there
+bin there bought that
+alpena trucking
+alpena-trucking
+wayne kelley
+wk-trucking
+jmac
+gold run
+gold-run
+glory road
+glory-road
+evage
+zemeckis
+art3mis
+parzival
+gunters
+# Generic-word codenames kept as comments only (substring match would block most diffs, like "connectors" in #238):
+# rig, gates, keys, journals, curator, scoreboard, garage, almanac, the stacks
+
+# Local swarm config (Braden, s49): lives only at ~/.config/project-swarm/config.json, outside every repo.
+# Its absolute paths must never appear in any diff; `path:` lines refuse a diff that adds a file at that path
+# (path: syntax is enforced from swarm 1.26.1; older ship reads the line as a plain term, which is harmless).
+/Users/prime/.config/project-swarm/config.json
+/Users/prime/.project-swarm/config.json
+path:config.json

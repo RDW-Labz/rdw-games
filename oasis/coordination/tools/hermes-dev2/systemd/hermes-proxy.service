@@ -1,0 +1,46 @@
+# The key-holding model proxy (decision #384). Listens ONLY on a Unix socket
+# (/run/hermes-proxy/proxy.sock, hermes-proxy:hermes-sock 0660) and accepts
+# only hermes-w and root (SO_PEERCRED). The key is a root-only file passed
+# in as a systemd credential. /run/hermes-proxy is preserved across
+# restarts, so forwarders that bind it keep a live view of the new socket.
+[Unit]
+Description=Hermes worker model proxy (unix socket -> 127.0.0.1:8000)
+After=network.target
+
+[Service]
+Type=exec
+User=hermes-proxy
+Group=hermes-proxy
+# Only so the socket file can be group hermes-sock (a process can chgrp only
+# to its own groups). hermes-sock holds no files of anyone else.
+SupplementaryGroups=hermes-sock
+RuntimeDirectory=hermes-proxy
+RuntimeDirectoryMode=0755
+RuntimeDirectoryPreserve=yes
+LoadCredential=model.key:/etc/hermes-proxy/model.key
+ExecStart=/usr/bin/python3 -I /opt/hermes-dev2/bin/hermes_proxy.py
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=yes
+CapabilityBoundingSet=
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictNamespaces=yes
+RestrictSUIDSGID=yes
+LockPersonality=yes
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+RestrictAddressFamilies=AF_INET AF_UNIX
+IPAddressDeny=any
+IPAddressAllow=127.0.0.1
+LimitCORE=0
+MemoryMax=256M
+TasksMax=32
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,9 @@
+{
+  "sql_sha256": "143970c64c5cf9ee62270060e9c7d18b7e318e6fd931656941cf8feede66cc98",
+  "operation": "schema",
+  "reviewer": "Claude (author, not independent); owner to confirm before apply",
+  "scope": "One partial btree index on lots (relisted_from_lot_id) WHERE relisted_from_lot_id IS NOT NULL, about 5,093 of 31,941 rows on 2026-09-23. No row mutation, no trigger, no function.",
+  "physical_impact": "None. No lot, sticker, location or claim row changes; nothing staff see or print changes.",
+  "active_work": "Not CONCURRENTLY (the runner's transaction forbids it), so the build holds SHARE on lots and blocks writes, bids included, for its duration. Expected under a second. Apply after the 18:00 close.",
+  "rollback": "DROP INDEX IF EXISTS public.lots_relisted_from_lot_id_idx; no data to restore, and the lineage walk falls back to a sequential scan."
+}

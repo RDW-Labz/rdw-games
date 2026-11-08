@@ -1,0 +1,170 @@
+# Hermes bundle for dev2 (decision #384, round 4). Builds the pinned
+# NousResearch/hermes-agent OFF dev2, so no downloaded build code ever runs
+# there: setup-dev2.sh only checks this artifact's sha256 and architecture,
+# then unpacks it (coordination/tools/hermes-dev2/bin/hermes_bundle.py).
+#
+# Manual only (Braden runs it). The result is a workflow artifact in this
+# private repo; nothing is published anywhere public.
+#
+# Pins (change them together, in one held PR):
+#   hermes-agent  HERMES_PIN, the same commit as setup-dev2.sh and the RUNBOOK
+#   CPython       python-build-standalone PBS_TAG + asset + sha256 from that
+#                 release's SHA256SUMS. The lockfile at HERMES_PIN supports
+#                 only python_full_version >= 3.14, so 3.14.7.
+#   uv            UV_VERSION, installed by astral-sh/setup-uv at a full SHA
+name: hermes-bundle
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  HERMES_PIN: 1ac3f97fbe0958aa2743c0c26202b20b3b4e760e
+  HERMES_REPO: https://github.com/NousResearch/hermes-agent
+  PBS_TAG: "20260929"
+  PBS_ASSET: cpython-3.14.7+20260929-x86_64-unknown-linux-gnu-install_only.tar.gz
+  PBS_SHA256: 0056208b5fdfcec939bc5b3908f5e7c89d11c6e2f1fdf02c9cc6aa98d10c5d05
+  UV_VERSION: 0.12.17
+  # The bundle is built AT the path it runs from on dev2, so the venv's
+  # absolute paths (python symlink, script shebangs, the editable finder)
+  # are already right there.
+  DEST: /opt/hermes-w/hermes-agent
+
+jobs:
+  bundle:
+    name: hermes bundle (x86_64 Linux)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Refuse anything but x86_64
+        run: test "$(uname -m)" = x86_64
+
+      - uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e  # v6
+        with:
+          version: ${{ env.UV_VERSION }}
+          enable-cache: false
+
+      - name: The destination folder, owned by the runner for the build
+        run: |
+          sudo install -d -o "$(id -u)" -g "$(id -g)" -m 0755 /opt/hermes-w "$DEST"
+
+      - name: hermes-agent source at the pinned commit (git archive, no .git)
+        run: |
+          set -euo pipefail
+          src="$RUNNER_TEMP/src"
+          git init -q "$src"
+          git -C "$src" fetch -q --depth 1 "$HERMES_REPO" "$HERMES_PIN"
+          git -C "$src" -c advice.detachedHead=false checkout -q FETCH_HEAD
+          test "$(git -C "$src" rev-parse HEAD)" = "$HERMES_PIN"
+          git -C "$src" archive --format=tar "$HERMES_PIN" | tar -x -C "$DEST"
+          test ! -e "$DEST/.git"
+
+      - name: CPython from python-build-standalone, pinned by tag and sha256
+        run: |
+          set -euo pipefail
+          curl --fail --silent --show-error --location --retry 3 \
+            --output "$RUNNER_TEMP/python.tar.gz" \
+            "https://github.com/astral-sh/python-build-standalone/releases/download/${PBS_TAG}/${PBS_ASSET}"
+          echo "${PBS_SHA256}  $RUNNER_TEMP/python.tar.gz" | sha256sum --check --strict -
+          install -d "$DEST/.python"
+          tar -xzf "$RUNNER_TEMP/python.tar.gz" --strip-components=1 -C "$DEST/.python"
+          "$DEST/.python/bin/python3.14" -c 'import sys; assert sys.version_info[:2] == (3, 14), sys.version'
+
+      - name: uv sync --locked --no-build (every dependency must be a prebuilt wheel)
+        working-directory: ${{ env.DEST }}
+        env:
+          UV_PYTHON_DOWNLOADS: never
+          UV_LINK_MODE: copy
+          UV_CACHE_DIR: ${{ runner.temp }}/uv-cache
+          # No UV_NO_CONFIG here: it also drops the pinned pyproject's own
+          # [tool.uv] (exclude-newer, overrides), so --locked re-resolves and
+          # fails (run 38612709654). That config is pinned by HERMES_PIN; the
+          # runner has no user or system uv.toml.
+        run: |
+          set -euo pipefail
+          # --no-build: no dependency's sdist build code ever runs. The
+          # project itself is installed editable (its setup.py refuses a
+          # non-editable wheel), so its own build backend runs here, on the
+          # runner, never on dev2.
+          uv sync --locked --no-build --python "$DEST/.python/bin/python3.14"
+          test "$(readlink -f .venv/bin/python)" = "$(readlink -f "$DEST/.python/bin/python3.14")"
+
+      - name: Every installed package came from pypi.org (only hermes-agent itself is local)
+        run: |
+          set -euo pipefail
+          "$DEST/.python/bin/python3.14" \
+            "$GITHUB_WORKSPACE/coordination/tools/hermes-dev2/bin/bundle_sources_check.py" \
+            "$DEST/.venv/lib/python3.14/site-packages" "$DEST/uv.lock" "$DEST"
+
+      - name: Smoke test
+        run: |
+          set -euo pipefail
+          home=$(mktemp -d)
+          HOME="$home" HERMES_HOME="$home" "$DEST/.venv/bin/hermes" --version
+
+      - name: Nothing a careful unpacker would refuse
+        run: |
+          set -euo pipefail
+          cd "$DEST"
+          # uv writes a build timestamp (secs_since_epoch) into each dist-info's
+          # uv_cache.json, which made two builds of the same pin produce different
+          # tarball sha256 (runs 38615546661 and 38618248632). Drop it, and its
+          # RECORD line, so the bundle is reproducible.
+          "$DEST/.python/bin/python3.14" \
+            "$GITHUB_WORKSPACE/coordination/tools/hermes-dev2/bin/drop_uv_build_timestamps.py" \
+            "$DEST/.venv/lib/python3.14/site-packages"
+          rm -rf -- .pytest_cache .ruff_cache
+          find . -name __pycache__ -type d -prune -exec rm -rf {} +
+          bad=$(find . \( -type b -o -type c -o -type p -o -type s \) -print)
+          test -z "$bad" || { echo "special files: $bad"; exit 1; }
+          bad=$(find . -perm /6000 -print)
+          test -z "$bad" || { echo "setuid/setgid: $bad"; exit 1; }
+          bad=$(find . -type f -links +1 -print)
+          test -z "$bad" || { echo "hard links: $bad"; exit 1; }
+          # The same checks setup runs on dev2, here first.
+          python3 - "$DEST" <<'PY'
+          import os, sys
+          dest = sys.argv[1]
+          for root, dirs, files in os.walk(dest):
+              for n in dirs + files:
+                  p = os.path.join(root, n)
+                  if os.path.islink(p):
+                      t = os.readlink(p)
+                      r = os.path.normpath(t if t.startswith("/") else os.path.join(root, t))
+                      assert r == dest or r.startswith(dest + "/"), f"symlink {p} -> {t} leaves the bundle"
+          PY
+
+      - name: Deterministic tarball and its sha256
+        run: |
+          set -euo pipefail
+          short=${HERMES_PIN:0:7}
+          name="hermes-bundle-${short}-x86_64.tar.gz"
+          tar --sort=name --mtime='@0' --owner=0 --group=0 --numeric-owner \
+              --pax-option=exthdr.name=%d/PaxHeaders/%f,delete=atime,delete=ctime \
+              -C /opt/hermes-w -cf - hermes-agent | gzip -n -9 > "$RUNNER_TEMP/$name"
+          (cd "$RUNNER_TEMP" && sha256sum "$name" | tee "$name.sha256")
+          echo "BUNDLE_NAME=$name" >> "$GITHUB_ENV"
+          {
+            echo "### Hermes bundle"
+            echo
+            echo "Paste into coordination/tools/hermes-dev2/config.conf:"
+            echo
+            echo '```'
+            echo "BUNDLE_SHA256=$(cut -d' ' -f1 "$RUNNER_TEMP/$name.sha256")"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02  # v4
+        with:
+          name: hermes-bundle
+          path: |
+            ${{ runner.temp }}/${{ env.BUNDLE_NAME }}
+            ${{ runner.temp }}/${{ env.BUNDLE_NAME }}.sha256
+          if-no-files-found: error
+          retention-days: 30

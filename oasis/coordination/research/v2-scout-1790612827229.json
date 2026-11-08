@@ -1,0 +1,48 @@
+{
+  "picks": [],
+  "rejected": [
+    {
+      "name": "Poly Haven — Studio Small 08 HDRI",
+      "url": "https://polyhaven.com/a/studio_small_08",
+      "reason": "license not allowed: CC0 1.0 Universal (Public Domain)"
+    },
+    {
+      "name": "ambientCG — Foil 002",
+      "url": "https://ambientcg.com/view?id=Foil002",
+      "reason": "license not allowed: CC0 1.0 Universal (Public Domain)"
+    },
+    {
+      "name": "ambientCG — Metal 007",
+      "url": "https://ambientcg.com/view?id=Metal007",
+      "reason": "license not allowed: CC0 1.0 Universal (Public Domain)"
+    },
+    {
+      "name": "Quaternius 3D models",
+      "url": "https://quaternius.com",
+      "reason": "Not CC0 as commonly assumed — governed by a custom 'Quaternius Asset License (QAL) v1.0' that prohibits redistributing assets (original or modified) as a standalone asset and retains all IP rights to Quaternius; this is a source-available/custom license, not on the allowed list (MIT/Apache-2.0/BSD/C…"
+    },
+    {
+      "name": "Kenney game assets",
+      "url": "https://kenney.nl",
+      "reason": "Widely reported as CC0 in third-party posts/forums, but every direct license-page URL tried (kenney.nl/docs/license, kenney.nl/about, GitHub mirror LICENSE files) returned 404 during verification — could not confirm the license from Kenney's own LICENSE/license page as required, so dropped per the '…"
+    },
+    {
+      "name": "Three.js example assets (examples/textures, examples/models in mrdoob/three.js)",
+      "url": "https://github.com/mrdoob/three.js",
+      "reason": "Repo code itself is MIT (verified via raw LICENSE file), but individual bundled example textures/HDRIs/models are sourced from many third parties with mixed/per-file licensing not uniformly declared in one place — couldn't verify a single consistent license for the specific assets needed (gold/foil/…"
+    }
+  ],
+  "top": [
+    "Poly Haven and ambientCG are both fully CC0 (verified on their own license pages) and directly cover OASIS's HDRI/env-map and gold-foil-metal PBR texture needs, but every downloaded asset must be resized/recompressed before bundling to fit the 2 MB per-asset ceiling."
+  ],
+  "moved": [
+    "Poly Haven — Studio Small 08 HDRI",
+    "ambientCG — Foil 002",
+    "ambientCG — Metal 007"
+  ],
+  "id": "scout-1790612827229",
+  "goal": "Free asset sources for our own builds: 3D models, HDRIs/environment maps, PBR textures (gold, metal, foil); e.g. Poly Haven, ambientCG, Kenney, Quaternius, Three.js example assets; license page per source",
+  "model": "sonnet",
+  "actualModel": "claude-sonnet-5",
+  "createdAt": "2026-09-28T16:29:23.896Z"
+}

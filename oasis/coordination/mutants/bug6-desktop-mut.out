@@ -1,0 +1,11 @@
+KILLED card-top rule off (hook)
+KILLED card top uses scrollHeight (no scrollTop offset)
+KILLED card-top for short cards too
+SURVIVED card never consumed (stale card reused)
+KILLED quick: preview key never set
+SURVIVED chat: preview key never set
+KILLED hint only when pending again
+KILLED old hint wording
+SURVIVED hint in quick box too
+KILLED harness exit 0 on failure
+KILLED harness summary empty

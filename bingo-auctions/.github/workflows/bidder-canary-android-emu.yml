@@ -1,0 +1,414 @@
+name: Bidder canary rehearsal (Android emulator, runtime 0.1.1)
+# Rehearses the #331 rescue: an OTA published under runtime 0.1.1 for the
+# Android bidders stuck on Play 0.1.1 — before any of them can receive it.
+#
+# ── WHY ──────────────────────────────────────────────────────────────────────
+# 2026-09-24: Play production serves bidder 0.1.1, versionCode 10, 100% (build
+# f359c591, built 2026-08-09 from 4c3402b). No 1.0.1 Android binary has ever
+# existed, so no OTA stamped 1.0.1 can reach these phones. The rescue publishes
+# the same JS iOS customers got (master@1624774, group 6ac0d0de) under runtime
+# 0.1.1, Android only. 4c3402b's native layer matches master's (no dependency or
+# lockfile version change), but no Android device has run this JS yet.
+#
+# Same shape as bidder-canary-ios-sim.yml, including its lesson: BUILD FIRST,
+# then publish. expo-updates ignores a server update older than the bundle it is
+# running, and a fresh build's embedded bundle is dated at build time.
+#
+# ── SAFETY ───────────────────────────────────────────────────────────────────
+# - Publishes to the literal branch `bidder-canary`, Android only, runtime
+#   0.1.1. Play installs read `production`; nothing customer-facing reads this.
+# - No sign-in, no bids: the proof is the watchdog's telemetry row.
+# - Prod writes: the few non-fatal telemetry rows this app posts.
+#
+# ── ON MASTER (2026-09-28) ───────────────────────────────────────────────────
+# Moved from braden/bidder-canary-ios-rehearsal, where each run meant editing a
+# pinned BUNDLE_REF and pushing (run 36457200262). Like bidder-canary-ios-sim
+# (#387), the bundle is now a dispatch input and must be a full sha already on
+# master: the group this rehearses is the one later republished to production.
+# Known open issue: in runs 36457200262 (both attempts) the app handed Chrome the
+# Supabase authorize URL but Chrome's IntentDispatcher never raised the Custom
+# Tab (it did on 2026-09-24, run 36067919425, same APK and flags). Cause not
+# found; a real Google sign-in on a phone is the gate before customers anyway.
+
+on:
+  workflow_dispatch:
+    inputs:
+      bundle_ref:
+        description: 'Full 40-character master commit sha whose bidder bundle to rehearse under runtime 0.1.1 (the exact commit you will later publish to production)'
+        required: true
+        type: string
+
+concurrency:
+  group: bidder-canary-android-emu
+  cancel-in-progress: false
+
+env:
+  EXPO_NO_TELEMETRY: 1
+  CI: true
+  CANARY_BRANCH: bidder-canary
+  # Play 0.1.1 / versionCode 10 (EAS build f359c591, run 31326736750).
+  PLAY_0_1_1_COMMIT: 4c3402bd369083df12932652a5fd40ca08918e98
+  RESCUE_RUNTIME: '0.1.1'
+  PACKAGE: com.bingoauctions.bidder
+  # The commit whose bundle is rehearsed, given per run (guarded below: full
+  # sha, on master). JS only: expo-web-browser and the bingo scheme are in
+  # 4c3402b's native layer.
+  BUNDLE_REF: ${{ inputs.bundle_ref }}
+  PROD_REF: npwseclcxcatjhgjrtwe
+
+jobs:
+  # Fails in seconds, before the ~40 min native build, on a bad bundle_ref.
+  guard:
+    name: Guard — bundle_ref is a full sha on master
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Full sha
+        run: |
+          [[ "$BUNDLE_REF" =~ ^[0-9a-f]{40}$ ]] || { echo "::error::bundle_ref must be a full commit sha, got '$BUNDLE_REF'"; exit 1; }
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.BUNDLE_REF }}
+          fetch-depth: 0
+      - name: On master
+        run: |
+          set -euo pipefail
+          [[ "$(git rev-parse HEAD)" == "$BUNDLE_REF" ]] || { echo "::error::checked out $(git rev-parse HEAD), expected $BUNDLE_REF"; exit 1; }
+          git merge-base --is-ancestor "$BUNDLE_REF" origin/master || { echo "::error::$BUNDLE_REF is not on master"; exit 1; }
+          echo "Rehearsing master@$BUNDLE_REF ($(git log -1 --format=%s)) under runtime $RESCUE_RUNTIME" | tee -a "$GITHUB_STEP_SUMMARY"
+
+  build:
+    needs: guard
+    name: Build Play 0.1.1's native (4c3402b) as a release APK
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      EAS_BUILD_PROFILE: production
+    steps:
+      - name: Free disk space
+        uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: false
+          android: false
+          dotnet: true
+          haskell: true
+          large-packages: true
+          docker-images: true
+          swap-storage: false
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.PLAY_0_1_1_COMMIT }}
+          path: old
+      - uses: actions/setup-node@v4
+        with:
+          # f359c591 was built by EAS on node 22.11.0 (eas.json at 4c3402b).
+          node-version: 22.11.0
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: gradle
+          cache-dependency-path: old/apps/bidder-app/package.json
+      - name: Load 4c3402b's production env
+        working-directory: old/apps/bidder-app
+        run: |
+          set -euo pipefail
+          jq -r '.build.production.env | to_entries[] | "\(.key)=\(.value)"' eas.json >> "$GITHUB_ENV"
+          jq -r '.build.production.env | keys[]' eas.json
+      - name: Install dependencies (4c3402b)
+        working-directory: old
+        run: npm ci
+      - name: Point the binary at bidder-canary
+        working-directory: old/apps/bidder-app
+        run: |
+          set -euo pipefail
+          # EAS Build injects the channel header; a local build sets it in config.
+          grep -c '^  updates: {$' app.config.ts | grep -qx 1
+          sed -i "s|^  updates: {$|  updates: {\n    requestHeaders: { 'expo-channel-name': '$CANARY_BRANCH' },|" app.config.ts
+          grep -n -A2 '^  updates: {$' app.config.ts
+      - name: Prebuild android/
+        working-directory: old/apps/bidder-app
+        run: npx expo prebuild --platform android --clean --no-install
+      - name: Check the manifest is the rehearsal we want
+        working-directory: old/apps/bidder-app
+        run: |
+          set -euo pipefail
+          M=android/app/src/main/AndroidManifest.xml
+          grep -E 'expo\.modules\.updates' "$M"
+          # Inline, or a @string/ reference into res/values/strings.xml.
+          RT=$(grep -oE 'EXPO_RUNTIME_VERSION" android:value="[^"]+"' "$M" | sed 's/.*value="//; s/"$//')
+          if [[ "$RT" == @string/* ]]; then
+            RT=$(grep -oE "name=\"${RT#@string/}\"[^>]*>[^<]+" android/app/src/main/res/values/strings.xml | sed 's/.*>//')
+          fi
+          echo "binary runtime: $RT"
+          [[ "$RT" == "$RESCUE_RUNTIME" ]] || { echo "::error::binary runtime is '$RT', not $RESCUE_RUNTIME"; exit 1; }
+          grep -q "expo-channel-name" "$M" || { echo "::error::no channel header in the manifest"; exit 1; }
+          mkdir -p /tmp/apk && cp "$M" /tmp/apk/AndroidManifest.xml
+      - name: Install the NDK 4c3402b's React Native needs
+        run: |
+          # No pipefail: `yes` dies of SIGPIPE when sdkmanager stops reading,
+          # which failed run 36027630692 even though the install itself ran.
+          set -eu
+          # Run 36025573432: Gradle's own auto-install of this NDK failed on the
+          # runner ("Failed to install the following SDK components").
+          SDKM="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
+          NDK="$ANDROID_HOME/ndk/27.1.12297006"
+          yes | "$SDKM" --install "ndk;27.1.12297006" >/dev/null || true
+          [ -d "$NDK" ] || { yes | sudo "$SDKM" --install "ndk;27.1.12297006" >/dev/null || true; }
+          ls "$ANDROID_HOME/ndk"
+          [ -f "$NDK/source.properties" ] || { echo "::error::NDK 27.1.12297006 is not installed"; exit 1; }
+      - name: Gradle release build (x86_64 only, for the emulator)
+        working-directory: old/apps/bidder-app/android
+        # Run 36029055617 hung for 50 min after an OOM; fail fast instead.
+        timeout-minutes: 50
+        run: |
+          set -euo pipefail
+          # Prebuild's defaults (-Xmx2048m, MaxMetaspaceSize=512m) ran out:
+          # run 36029055617 died of java.lang.OutOfMemoryError: Metaspace at
+          # :app:createBundleReleaseJsAndAssets and then hung. The runner has 16 GB.
+          sed -i '/^org.gradle.jvmargs=/d; /^kotlin.daemon.jvmargs=/d' gradle.properties
+          {
+            echo 'org.gradle.jvmargs=-Xmx6g -XX:MaxMetaspaceSize=1g -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8'
+            echo 'kotlin.daemon.jvmargs=-Xmx2g'
+          } >> gradle.properties
+          grep -E 'jvmargs' gradle.properties
+          ./gradlew assembleRelease -PreactNativeArchitectures=x86_64 --no-daemon --console=plain
+          cp app/build/outputs/apk/release/app-release.apk /tmp/apk/bidder-0.1.1-canary.apk
+          ls -la /tmp/apk
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bidder-0.1.1-canary-apk
+          path: /tmp/apk
+          retention-days: 3
+
+  publish:
+    name: Publish master's bundle to bidder-canary (Android, runtime 0.1.1)
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      android_update_id: ${{ steps.pub.outputs.android_update_id }}
+      group_id: ${{ steps.pub.outputs.group_id }}
+      created_at: ${{ steps.pub.outputs.created_at }}
+    defaults:
+      run:
+        working-directory: apps/bidder-app
+    env:
+      EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.BUNDLE_REF }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install workspace dependencies
+        working-directory: .
+        run: npm ci
+      - name: Install EAS CLI
+        run: npm install -g eas-cli@latest
+      - run: eas whoami
+      - name: Publish (Android only, runtime 0.1.1, bidder-canary only)
+        id: pub
+        run: |
+          set -euo pipefail
+          [[ "$CANARY_BRANCH" == "bidder-canary" ]] || { echo "::error::branch must be bidder-canary"; exit 1; }
+          [[ "$(git rev-parse HEAD)" == "$BUNDLE_REF" ]] || { echo "::error::not on $BUNDLE_REF"; exit 1; }
+          # The republish guard compares these two; refuse now rather than then.
+          diff <(jq -S '.build["bidder-canary"].env' eas.json) <(jq -S '.build.production.env' eas.json) \
+            || { echo "::error::build.bidder-canary.env differs from build.production.env"; exit 1; }
+          eval "$(jq -r '.build["bidder-canary"].env | to_entries[] | "export \(.key)=\(.value | @sh)"' eas.json)"
+          [[ -n "${EXPO_PUBLIC_SUPABASE_URL:-}" && -n "${EXPO_PUBLIC_SUPABASE_ANON_KEY:-}" ]] \
+            || { echo "::error::no Supabase URL/key"; exit 1; }
+          export OTA_RUNTIME_VERSION="$RESCUE_RUNTIME"
+          MSG="android 0.1.1 rehearsal of master@$(git rev-parse --short HEAD) (#384 #388 #389) on Play 0.1.1 native"
+          eas update --branch "$CANARY_BRANCH" --platform android --message "$MSG" --json --non-interactive > /tmp/update.json
+          cat /tmp/update.json
+          ID=$(jq -r '.[] | select(.platform=="android") | .id' /tmp/update.json)
+          RT=$(jq -r '.[] | select(.platform=="android") | .runtimeVersion' /tmp/update.json)
+          [[ "$RT" == "$RESCUE_RUNTIME" ]] || { echo "::error::update runtime is $RT, expected $RESCUE_RUNTIME"; exit 1; }
+          [[ "$(jq -r '[.[].platform] | unique | join(",")' /tmp/update.json)" == "android" ]] \
+            || { echo "::error::published more than android"; exit 1; }
+          echo "android_update_id=$ID" >> "$GITHUB_OUTPUT"
+          echo "group_id=$(jq -r '.[0].group' /tmp/update.json)" >> "$GITHUB_OUTPUT"
+          echo "created_at=$(jq -r '.[] | select(.platform=="android") | .createdAt' /tmp/update.json)" >> "$GITHUB_OUTPUT"
+          echo "### Published to \`$CANARY_BRANCH\`: Android \`$ID\` (group \`$(jq -r '.[0].group' /tmp/update.json)\`, runtime $RT)" >> "$GITHUB_STEP_SUMMARY"
+
+  emulator:
+    name: Run the rescue on the emulator
+    needs: [build, publish]
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      ANDROID_UPDATE_ID: ${{ needs.publish.outputs.android_update_id }}
+      CANARY_CREATED_AT: ${{ needs.publish.outputs.created_at }}
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: bidder-0.1.1-canary-apk
+          path: /tmp/apk
+      - name: Guard — the canary is newer than the built-in bundle
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/canary && cp /tmp/apk/AndroidManifest.xml /tmp/canary/
+          EMBED_MS=$(unzip -p /tmp/apk/bidder-0.1.1-canary.apk assets/app.manifest | jq -r '.commitTime')
+          CANARY_MS=$(python3 -c "import sys,datetime;print(int(datetime.datetime.fromisoformat(sys.argv[1].replace('Z','+00:00')).timestamp()*1000))" "$CANARY_CREATED_AT")
+          echo "built-in bundle: $EMBED_MS ms, canary: $CANARY_MS ms"
+          (( CANARY_MS > EMBED_MS )) || { echo "::error::canary is older than the built-in bundle"; exit 1; }
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | \
+            sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Write the launch script
+        run: |
+          cat > /tmp/launches.sh <<'EOS'
+          set -u
+          adb install -r -t /tmp/apk/bidder-0.1.1-canary.apk
+          date -u +%Y-%m-%dT%H:%M:%SZ > /tmp/canary/started_at
+          # Launch 1 runs the built-in 0.1.1 bundle and downloads the canary; the
+          # next applies it; the watchdog marks that session; the one after
+          # reports it. am force-stop = a kill while in the foreground.
+          for i in 1 2 3 4; do
+            adb shell monkey -p "$PACKAGE" -c android.intent.category.LAUNCHER 1 >/dev/null
+            sleep 45
+            adb exec-out screencap -p > /tmp/canary/launch-$i.png || true
+            adb shell am force-stop "$PACKAGE"
+            sleep 5
+          done
+          adb shell monkey -p "$PACKAGE" -c android.intent.category.LAUNCHER 1 >/dev/null
+          sleep 30
+          adb exec-out screencap -p > /tmp/canary/launch-5.png || true
+          adb logcat -d > /tmp/canary/logcat.txt || true
+          grep -iE 'expo.?updates|EXUpdates|ReactNativeJS|FATAL|AndroidRuntime' /tmp/canary/logcat.txt | tail -150 || true
+          # Launch 1's built-in 0.1.1 bundle crashes by design (androidClientId);
+          # judge the rescue from here on only.
+          adb logcat -c || true
+          bash /tmp/google.sh
+          EOS
+      - name: Write the Google sign-in checks
+        # No real Google login in CI. Proves: the button shows on Android, a tap
+        # opens a browser on Supabase's authorize URL / Google, a
+        # bingo://auth-callback redirect brings the app back to Sign in with the
+        # error shown (not an Unmatched Route), a cold-start callback lands on
+        # Sign in, and nothing crashes.
+        run: |
+          cat > /tmp/google.sh <<'EOS'
+          set -u
+          OUT=/tmp/canary/google-checks.txt; : > "$OUT"
+          ok()  { echo "PASS $*" | tee -a "$OUT"; }
+          bad() { echo "FAIL $*" | tee -a "$OUT"; }
+          dump() { adb shell uiautomator dump /sdcard/ui.xml >/dev/null 2>&1; adb exec-out cat /sdcard/ui.xml > "/tmp/canary/$1.xml" 2>/dev/null || true; }
+          front() { adb shell dumpsys activity activities | grep -E 'topResumedActivity|mResumedActivity' | head -2; }
+          # Chrome's first-run screens would sit in front of the Custom Tab.
+          adb root >/dev/null 2>&1 || true; sleep 3
+          adb shell 'echo "_ --disable-fre --no-default-browser-check --no-first-run" > /data/local/tmp/chrome-command-line' || true
+          adb shell am set-debug-app --persistent com.android.chrome >/dev/null 2>&1 || true
+          SIZE=$(adb shell wm size | tail -1 | sed 's/.*: //; s/\r//')
+          W=${SIZE%x*}; H=${SIZE#*x}
+          XY=""
+          for try in 1 2 3 4; do
+            dump "ui-login-$try"
+            # The button renders its label upper-case (run 36056139081).
+            B=$(grep -oiE 'text="Continue with Google"[^>]*bounds="\[[0-9]+,[0-9]+\]\[[0-9]+,[0-9]+\]"' "/tmp/canary/ui-login-$try.xml" | grep -oE '\[[0-9]+,[0-9]+\]\[[0-9]+,[0-9]+\]' | tr -c '0-9\n' ' ')
+            if [ -n "$B" ]; then
+              set -- $B
+              XY="$(( ($1 + $3) / 2 )) $(( ($2 + $4) / 2 ))"
+              break
+            fi
+            adb shell input swipe $((W / 2)) $((H * 3 / 4)) $((W / 2)) $((H / 4)) 300; sleep 2
+          done
+          if [ -z "$XY" ]; then bad "no Continue with Google button on the sign-in screen"; exit 0; fi
+          ok "Continue with Google button shown (tap at $XY)"
+          adb exec-out screencap -p > /tmp/canary/google-0-button.png || true
+          adb shell input tap $XY
+          sleep 15
+          adb exec-out screencap -p > /tmp/canary/google-1-browser.png || true
+          front | tee /tmp/canary/google-front-browser.txt
+          dump ui-browser
+          adb shell dumpsys activity activities > /tmp/canary/activities-browser.txt || true
+          if grep -qE 'supabase\.co/auth/v1/authorize|accounts\.google\.com' /tmp/canary/activities-browser.txt /tmp/canary/ui-browser.xml; then
+            ok "browser opened on Supabase authorize / accounts.google.com"
+          else
+            bad "no browser on Supabase authorize / accounts.google.com"
+          fi
+          grep -ohE '(supabase\.co/auth/v1/authorize|accounts\.google\.com)[^ "}]{0,160}' /tmp/canary/activities-browser.txt /tmp/canary/ui-browser.xml | head -3 || true
+          # Supabase's redirect, as the browser would fire it.
+          adb shell "am start -a android.intent.action.VIEW -d 'bingo://auth-callback#error=access_denied&error_description=rehearsal-callback'" || true
+          sleep 8
+          adb exec-out screencap -p > /tmp/canary/google-2-returned.png || true
+          front | tee /tmp/canary/google-front-returned.txt
+          dump ui-returned
+          if grep -q 'com.bingoauctions.bidder' /tmp/canary/google-front-returned.txt; then ok "app back in front after the callback"; else bad "app not in front after the callback"; fi
+          if grep -q 'rehearsal-callback' /tmp/canary/ui-returned.xml; then ok "callback error shown on the sign-in screen"; else bad "callback error not shown"; fi
+          if grep -qi 'unmatched' /tmp/canary/ui-returned.xml; then bad "router showed Unmatched Route"; else ok "no Unmatched Route after the callback"; fi
+          # Cold start straight into the callback (Android killed the app mid-tab).
+          adb shell am force-stop "$PACKAGE"; sleep 3
+          adb shell "am start -a android.intent.action.VIEW -d 'bingo://auth-callback#error=access_denied&error_description=cold'" || true
+          sleep 25
+          adb exec-out screencap -p > /tmp/canary/google-3-coldstart.png || true
+          dump ui-coldstart
+          if grep -qi 'unmatched' /tmp/canary/ui-coldstart.xml; then bad "cold-start callback showed Unmatched Route"; else ok "no Unmatched Route on a cold-start callback"; fi
+          if grep -q 'text="Sign in"' /tmp/canary/ui-coldstart.xml; then ok "cold-start callback lands on Sign in"; else bad "cold-start callback did not land on Sign in"; fi
+          adb logcat -d > /tmp/canary/logcat-google.txt || true
+          if grep -qE 'FATAL EXCEPTION' /tmp/canary/logcat-google.txt; then
+            bad "crash after the rescue started (logcat-google.txt)"
+            grep -E -A3 'FATAL EXCEPTION' /tmp/canary/logcat-google.txt | head -20
+          else
+            ok "no crash from the rescue onward"
+          fi
+          EOS
+      - name: Launch five times in the emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          target: google_apis
+          arch: x86_64
+          force-avd-creation: false
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: true
+          script: bash /tmp/launches.sh
+      - name: Proof — Google browser sign-in checks
+        run: |
+          set -euo pipefail
+          [ -s /tmp/canary/google-checks.txt ] || { echo "::error::Google checks never ran"; exit 1; }
+          { echo "### Google browser sign-in"; echo '```'; cat /tmp/canary/google-checks.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          cat /tmp/canary/google-checks.txt
+          if grep -q '^FAIL' /tmp/canary/google-checks.txt; then echo "::error::Google browser sign-in check failed"; exit 1; fi
+      - name: Proof — bidder Android telemetry row with the canary update id
+        if: always()
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+        run: |
+          set -euo pipefail
+          STARTED_AT=$(cat /tmp/canary/started_at)
+          SQL="SELECT created_at, ota_update, app_version, is_fatal, left(message,200) AS message FROM client_crash_reports WHERE app = 'bidder' AND platform = 'android' AND created_at > '$STARTED_AT' ORDER BY created_at"
+          for attempt in 1 2 3 4 5 6; do
+            jq -n --arg q "$SQL" '{query: $q}' | curl -fsS -X POST \
+              "https://api.supabase.com/v1/projects/$PROD_REF/database/query" \
+              -H "Authorization: Bearer $SUPABASE_ACCESS_TOKEN" -H 'Content-Type: application/json' \
+              --data @- > /tmp/canary/telemetry.json || true
+            if jq -e --arg id "$ANDROID_UPDATE_ID" 'any(.[]; .ota_update == $id)' /tmp/canary/telemetry.json >/dev/null 2>&1; then break; fi
+            sleep 20
+          done
+          jq . /tmp/canary/telemetry.json || cat /tmp/canary/telemetry.json
+          {
+            echo "### Telemetry since $STARTED_AT (bidder, Android)"
+            echo '```'; jq -r '.[] | "\(.created_at)  \(.ota_update)  fatal=\(.is_fatal)  \(.message)"' /tmp/canary/telemetry.json || true; echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          if jq -e 'any(.[]; (.message | test("^ota (refused|emergency)")))' /tmp/canary/telemetry.json >/dev/null; then
+            echo "::error::expo-updates refused or emergency-launched the canary"; exit 1
+          fi
+          if ! jq -e --arg id "$ANDROID_UPDATE_ID" 'any(.[]; .ota_update == $id)' /tmp/canary/telemetry.json >/dev/null; then
+            echo "::error::no bidder Android row reports $ANDROID_UPDATE_ID"; exit 1
+          fi
+          echo "### PASS: a session ran rescue update \`$ANDROID_UPDATE_ID\` on Play 0.1.1's native code" >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bidder-android-canary-evidence
+          path: /tmp/canary
+          retention-days: 14

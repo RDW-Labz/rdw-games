@@ -1,0 +1,329 @@
+{
+ "schema": 1,
+ "collection": "Awesome Offline Mobile Games",
+ "updated": "2026-10-30",
+ "source_repo": "https://github.com/RDW-Labz/cloned-free-games",
+ "source_commit": "3c061cc",
+ "policy": {
+  "network_at_play": "none",
+  "telemetry": "none",
+  "ads": "none",
+  "accounts": "none",
+  "gate": "docs/SCOPE-GATE.md"
+ },
+ "lanes": {
+  "port": "Lineage record only — the upstream project a hybrid borrows systems or assets from. No clone ships as a title (SCOPE-GATE decision 9).",
+  "forge": "New title authored in this repo, hybridizing mechanics/tech from two or more cloned-free-games entries.",
+  "hybrid": "New title authored in this repo that merges one clone's systems with another clone's systems AND shipped assets, then renamed — the cross-hybrid lane (SCOPE-GATE decision 8)."
+ },
+ "games": [
+  {
+   "id": "vaultbreak",
+   "rank": 1,
+   "title": "Vaultbreak",
+   "score": 8.6,
+   "lane": "forge",
+   "genre": [
+    "roguelike",
+    "turn-based",
+    "crafting"
+   ],
+   "tagline": "Turn-based vault diving where loot is also your ammo.",
+   "delivery": "bundled-web",
+   "offline": "Perfect offline: single HTML bundle + localStorage saves, zero requests.",
+   "size_mb": 0.07,
+   "license": "MIT (this repo)",
+   "upstream": null,
+   "commit": null,
+   "source_path": "games/vaultbreak",
+   "artifact": "games/vaultbreak/index.html",
+   "controls": "touch d-pad + tap-to-act, keyboard WASD/arrows for desktop",
+   "hybrid_note": "SPD's turn economy and permadeath on 11 real Shattered Pixel Dungeon sprite sheets and its sound set, looted from 169 Cataclysm: DDA items with their real prices, weights and descriptions, plus 4 real C:DDA recipes in the fabricator. Mindustry's scrap->craft->upgrade loop shapes the economy. Procedural BSP dungeon, shadowcast FOV.",
+   "verified": "see evidence/verification.md"
+  },
+  {
+   "id": "tessera",
+   "rank": 2,
+   "title": "Tessera",
+   "score": 8.4,
+   "lane": "forge",
+   "genre": [
+    "4x",
+    "strategy",
+    "hex",
+    "ai-opponent"
+   ],
+   "tagline": "A whole 4X in your pocket, versus an AI that actually expands.",
+   "delivery": "bundled-web",
+   "offline": "Perfect offline; deterministic seeded maps.",
+   "size_mb": 0.12,
+   "license": "MIT (this repo)",
+   "upstream": null,
+   "commit": null,
+   "source_path": "games/tessera",
+   "artifact": "games/tessera/index.html",
+   "controls": "tap hex to select, tap again to act; pinch-free zoom buttons",
+   "hybrid_note": "The actual Civ V technology tree from Unciv — 74 techs, 18 columns, 7 eras, real costs and quotes — gating 31 real units and 50 real buildings, with 23 real nations and leaders at the table. OpenTTD's route-and-throughput economy crosses it: tiles produce, roads carry, cities consume.",
+   "verified": "see evidence/verification.md"
+  },
+  {
+   "id": "ember-drift",
+   "rank": 3,
+   "title": "Ember Drift",
+   "score": 8.3,
+   "lane": "forge",
+   "genre": [
+    "space-sim",
+    "trading",
+    "combat",
+    "sandbox"
+   ],
+   "tagline": "Newtonian dogfights in a procedural galaxy you can actually get rich in.",
+   "delivery": "bundled-web",
+   "offline": "Perfect offline; galaxy generated from a seed on first launch.",
+   "size_mb": 0.12,
+   "license": "MIT (this repo)",
+   "upstream": null,
+   "commit": null,
+   "source_path": "games/ember-drift",
+   "artifact": "games/ember-drift/index.html",
+   "controls": "virtual stick + fire; arrow keys on desktop",
+   "hybrid_note": "Endless Sky's hulls, sprites and commodity market: 13 real ship sprites, 6 buyable hulls built from the 120-hull table, and the 10 ES commodities at their real base prices. Crossed with DarkPlaces weapon feel (screen kick, muzzle flash, tracer spread) and Quake-style strafe acceleration.",
+   "verified": "see evidence/verification.md"
+  },
+  {
+   "id": "rift-nine",
+   "rank": 4,
+   "title": "Rift Nine",
+   "score": 8.2,
+   "lane": "forge",
+   "genre": [
+    "platformer",
+    "speedrun",
+    "grappling"
+   ],
+   "tagline": "Nine procedurally-built rooms, one grapple, and a stopwatch that judges you.",
+   "delivery": "bundled-web",
+   "offline": "Perfect offline; per-seed level layouts, local leaderboard.",
+   "size_mb": 0.1,
+   "license": "MIT (this repo)",
+   "upstream": null,
+   "commit": null,
+   "source_path": "games/rift-nine",
+   "artifact": "games/rift-nine/index.html",
+   "controls": "left half = move, right half = jump/grapple, or keyboard",
+   "hybrid_note": "SuperTuxKart's audio driving seven mapped cues plus a looped soundtrack, Shattered Pixel Dungeon sprites as graded scenery, and DDNet's momentum-first movement (air control, hook physics) crossed with STK's drift/boost feel.",
+   "verified": "see evidence/verification.md"
+  },
+  {
+   "id": "siegehaus",
+   "rank": 5,
+   "title": "Siegehaus",
+   "score": 8.6,
+   "lane": "hybrid",
+   "genre": [
+    "roguelike",
+    "automation",
+    "tower-defense",
+    "turn-based"
+   ],
+   "tagline": "Shattered Pixel Dungeon's turn economy, crossed with Mindustry's belts.",
+   "delivery": "bundled-web",
+   "offline": "Perfect offline; single-file game, no first-run download.",
+   "size_mb": 0.14,
+   "license": "MIT (this repo) + upstream art (see docs/LICENSING.md)",
+   "upstream": null,
+   "commit": null,
+   "source_path": "games/siegehaus",
+   "artifact": "games/siegehaus/index.html",
+   "controls": "tap a tile to walk or step; BUILD button places drill/belt/fabricator/turret; 1-4 picks the structure",
+   "hybrid_note": "Vaultbreak's engine — SPD turn economy, permadeath, six sectors, shadowcast FOV, tap-to-path, SPD's three dungeon atlases, 11 creature sheets, the C:DDA item and recipe tables — with Mindustry's production model grafted on: ore veins seeded into every floor, drills that mine them, conveyors that carry tokens, fabricators that turn tokens into plates, and turrets that spend them. Every turn is also a production tick, so descending means choosing between fighting and feeding the line. Art: 36 Mindustry item/belt/drill/turret sprites, drawn at their native 32 px.",
+   "lineage": {
+    "codebase": "games/vaultbreak"
+   },
+   "verified": "see evidence/verification.md"
+  },
+  {
+   "id": "charterline",
+   "rank": 6,
+   "title": "Charterline",
+   "score": 8.5,
+   "lane": "hybrid",
+   "genre": [
+    "4x",
+    "strategy",
+    "trade",
+    "hex"
+   ],
+   "tagline": "Tessera's 4X with a real commodity market between your own cities.",
+   "delivery": "bundled-web",
+   "offline": "Perfect offline; single-file game, no first-run download.",
+   "size_mb": 0.13,
+   "license": "MIT (this repo) + upstream art (see docs/LICENSING.md)",
+   "upstream": null,
+   "commit": null,
+   "source_path": "games/charterline",
+   "artifact": "games/charterline/index.html",
+   "controls": "tap hex to select, tap again to act; TRADE charts a route from the selected city",
+   "hybrid_note": "Tessera's hex 4X — Unciv's 74-tech tree, 31 units, 50 buildings, 23 nations, one expanding AI — with Endless Sky's ten-commodity table pricing chartered trade routes between your cities. Each city exports one good cheap and imports another dear, decided deterministically from its id and re-drifted every turn, so a route pays the live spread rather than a flat +2. The map itself is textured with Luanti's node materials (grass, dirt, stone, sand, leaves, water).",
+   "lineage": {
+    "codebase": "games/tessera"
+   },
+   "verified": "see evidence/verification.md"
+  },
+  {
+   "id": "nulltrace",
+   "rank": 7,
+   "title": "Nulltrace",
+   "score": 8.5,
+   "lane": "hybrid",
+   "genre": [
+    "platformer",
+    "speedrun",
+    "movement",
+    "grapple"
+   ],
+   "tagline": "Quake's movement constants driving a nine-room speedrun course.",
+   "delivery": "bundled-web",
+   "offline": "Perfect offline; single-file game, no first-run download.",
+   "size_mb": 0.11,
+   "license": "MIT (this repo) + upstream art (see docs/LICENSING.md)",
+   "upstream": null,
+   "commit": null,
+   "source_path": "games/nulltrace",
+   "artifact": "games/nulltrace/index.html",
+   "controls": "left/right + jump; HOOK to grab a wall; instant respawn, no penalty",
+   "hybrid_note": "Rift Nine's nine grapple rooms and its run structure, with horizontal movement replaced by id's own PM_Friction / PM_Accelerate / PM_AirAccelerate at the shipped constants (sv_maxspeed 320, sv_friction 6, sv_stopspeed 100, sv_accelerate 10, sv_airaccelerate 10, 30-unit air wishspeed). Speed is only bled by friction, so a fast line stays fast. DDNet's framing wraps it: a run clock that never pauses, per-room splits, a bronze/silver/gold medal ladder against par, no-death credit, and a ghost of your best run.",
+   "lineage": {
+    "codebase": "games/rift-nine"
+   },
+   "verified": "see evidence/verification.md"
+  },
+  {
+   "id": "lanternfall",
+   "rank": 8,
+   "title": "Lanternfall",
+   "score": 8.4,
+   "lane": "hybrid",
+   "genre": [
+    "arena",
+    "dogfight",
+    "fps-feel",
+    "roguelite"
+   ],
+   "tagline": "Endless Sky hulls in a deathmatch where the item timers decide the round.",
+   "delivery": "bundled-web",
+   "offline": "Perfect offline; single-file game, no first-run download.",
+   "size_mb": 0.13,
+   "license": "MIT (this repo) + upstream art (see docs/LICENSING.md)",
+   "upstream": null,
+   "commit": null,
+   "source_path": "games/lanternfall",
+   "artifact": "games/lanternfall/index.html",
+   "controls": "drag left half to thrust, right half to aim and fire; ARM/WPN clocks in the top-right",
+   "hybrid_note": "Ember Drift's Endless Sky core — the 120-hull table, ten commodities, the market and Newtonian flight — inside a Quake-era arena: a ten-frag limit, two armour shards on 25-second respawns and a weapon crate on 40, all counted down in the HUD. Holding the timers is how a round is won, and the credits the arena pays buy your next hull between rounds.",
+   "lineage": {
+    "codebase": "games/ember-drift"
+   },
+   "verified": "see evidence/verification.md"
+  },
+  {
+   "id": "cinderhold",
+   "rank": 9,
+   "title": "Cinderhold",
+   "score": 8.6,
+   "lane": "hybrid",
+   "genre": [
+    "arpg",
+    "dungeon-crawl",
+    "loot",
+    "isometric"
+   ],
+   "tagline": "Descend a vault that never repeats; only what you carry out survives.",
+   "delivery": "bundled-web",
+   "offline": "Perfect offline; single-file game, no first-run download.",
+   "size_mb": 0.2,
+   "license": "MIT (this repo) + upstream art and data (see docs/LICENSING.md)",
+   "upstream": null,
+   "commit": null,
+   "source_path": "games/cinderhold",
+   "artifact": "games/cinderhold/index.html",
+   "controls": "tap a tile to step, hold the ATTACK pad to swing, swipe to dodge; three skills on cooldowns along the bottom",
+   "hybrid_note": "Dungeon Crawl Stone Soup's hand-authored vault geometry — 420 room layouts out of the .des corpus, each with its depth band and tags — crossed with Flare's painted monster sheets and its 140 real item records. Floors are cut from DCSS layouts rather than generated by hand, and every drop is a Flare item carrying Flare's own level, price and damage numbers.",
+   "lineage": {
+    "codebase": null,
+    "systems": [
+     "dcss",
+     "flare-game"
+    ]
+   },
+   "verified": "see evidence/verification.md"
+  },
+  {
+   "id": "wardenmarch",
+   "rank": 10,
+   "title": "Wardenmarch",
+   "score": 8.5,
+   "lane": "hybrid",
+   "genre": [
+    "tactics",
+    "turn-based",
+    "skirmish",
+    "campaign"
+   ],
+   "tagline": "Wesnoth's unit rules, fighting over arenas cut from Dungeon Crawl's vaults.",
+   "delivery": "bundled-web",
+   "offline": "Perfect offline; single-file game, no first-run download.",
+   "size_mb": 0.2,
+   "license": "MIT (this repo) + upstream art and data (see docs/LICENSING.md)",
+   "upstream": null,
+   "commit": null,
+   "source_path": "games/wardenmarch",
+   "artifact": "games/wardenmarch/index.html",
+   "controls": "tap a unit to select it, tap a highlighted tile to move, tap an enemy to attack; END TURN ends the phase",
+   "hybrid_note": "Battle for Wesnoth's rule set — hit points, movement, cost, alignment and each attack's damage/number/type read out of 22 of its own unit definitions — played on arenas cut from Dungeon Crawl's .des vaults instead of hand-drawn boards. Terrain tiles, unit sprites and portraits are Wesnoth's; the arena shapes are DCSS's.",
+   "lineage": {
+    "codebase": null,
+    "systems": [
+     "wesnoth",
+     "dcss"
+    ]
+   },
+   "verified": "see evidence/verification.md"
+  },
+  {
+   "id": "stormforge",
+   "rank": 11,
+   "title": "Stormforge",
+   "score": 8.8,
+   "lane": "hybrid",
+   "genre": [
+    "battle-royale",
+    "3d",
+    "shooter",
+    "loot",
+    "factory",
+    "base-building"
+   ],
+   "tagline": "A 3D battle royale where the build is a factory: mine, belt, smelt, and let turrets hold your circle.",
+   "delivery": "bundled-web",
+   "offline": "Perfect offline; WebGL scene and all art load from disk, no first-run download.",
+   "size_mb": 7.4,
+   "license": "MIT (this repo) + upstream art, audio and data (see docs/LICENSING.md)",
+   "upstream": null,
+   "commit": null,
+   "source_path": "games/stormforge",
+   "artifact": "games/stormforge/index.html",
+   "controls": "left thumb drags to move, right thumb drags to look and taps to fire; FIRE/RLD/BUILD/HEAL/JUMP/SWAP buttons on the right, B opens the build wheel, 1-5 pick a block",
+   "hybrid_note": "Suroi's battle-royale loop — 69 guns with its own ballistics numbers (damage, spread, fire delay, reload, range, tier), 10 armour pieces, 5 healing items, its structure and prop art and its gun audio — crossed with Mindustry's build economy: drills, conveyor belts, fabricators, nine turrets and six wall types, carrying ore to turrets that shoot for you. Fortnite's instant build is replaced by a supply line you have to mine, route and defend.",
+   "lineage": {
+    "codebase": null,
+    "systems": [
+     "suroi",
+     "mindustry"
+    ]
+   },
+   "verified": "see evidence/verification.md"
+  }
+ ]
+}

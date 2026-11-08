@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "concurrency": 1,
+  "jobs": [
+    {
+      "id": "agent-core-t16b-pr-body",
+      "agent": "claude",
+      "model": "haiku",
+      "tier": "cheap",
+      "prompt": "Write the GitHub PR description for agent-core T16b into coordination/agent-core-t16b-pr.md. Inputs: coordination/agent-core-t16b-pr-input.md (commits, stat, check output, facts) and coordination/agent-core-t16b-changelog.md (use only the first T16b entry under Unreleased). Plain words, short sentences. Sections: Summary (<=6 bullets, one per J1/J4/J5/J7 plus vendor), Ticket (T16b, done-when: daily-summary runs for real in rig-service; this PR is the agent-core part), Tests (paste the check block verbatim), Open for Braden (the unproven Graph query syntax, checked in the live Mac run). Do not invent facts. End the file with the line: \ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)\nOnly edit the declared output. End with one JSON line {\"files_changed\":[...]}.",
+      "context": [
+        "coordination/agent-core-t16b-pr-input.md",
+        "coordination/agent-core-t16b-changelog.md"
+      ],
+      "outputs": [
+        "coordination/agent-core-t16b-pr.md"
+      ],
+      "timeoutMs": 900000
+    }
+  ]
+}

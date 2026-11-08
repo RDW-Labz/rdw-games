@@ -1,0 +1,23 @@
+{
+  "id": "manifest-009",
+  "source": "amazon",
+  "raw": {
+    "description": "LEGO Star Wars: A New Hope Millennium Falcon 75257 Building Kit, New 2019 (1,351 Pieces)",
+    "retailer_category": "gl_toy",
+    "upc": "673419303316",
+    "model_number": "75257",
+    "quantity": 1,
+    "retail_price": 169.99
+  },
+  "expected": {
+    "title": "LEGO Star Wars Millennium Falcon 75257 Building Kit (1,351 Pieces)",
+    "brand": "LEGO",
+    "model": "75257",
+    "category_slug": "toys-figures",
+    "category_legacy": "Toys & Games",
+    "condition": "New/Sealed",
+    "msrp_cents": 16999,
+    "expected_confidence": "high"
+  },
+  "notes": "LEGO set — distinctive 5-digit set number. Easy ground-truth."
+}

@@ -1,0 +1,24 @@
+=== 2026-11-01T20:02:40Z dig.sim.celemi.com CNAME
+dig.sim.celemi.com.	3221	IN	CNAME	mup-env-celemi-prod-app-central.txpey7hhzg.eu-central-1.elasticbeanstalk.com.
+
+=== target A status
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 55928
+;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+
+=== zone apex NS / SOA
+ns-1129.awsdns-13.org.
+ns-1899.awsdns-45.co.uk.
+ns-752.awsdns-30.net.
+ns-63.awsdns-07.com.
+ns-63.awsdns-07.com. awsdns-hostmaster.amazon.com. 1 7200 900 1209600 86400
+
+=== parent sim.celemi.com
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 6115
+3.170.115.9
+3.170.115.55
+3.170.115.11
+3.170.115.109

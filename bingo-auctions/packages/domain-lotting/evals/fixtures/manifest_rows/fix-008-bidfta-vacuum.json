@@ -1,0 +1,23 @@
+{
+  "id": "manifest-008",
+  "source": "other",
+  "raw": {
+    "description": "Shark IZ363HT Vertex Pro Cordless Stick Vacuum with DuoClean PowerFins",
+    "retailer_category": "9500 hair care and beauty appliances",
+    "upc": "622356583367",
+    "model_number": "IZ363HT",
+    "quantity": 1,
+    "retail_price": 399.99
+  },
+  "expected": {
+    "title": "Shark Vertex Pro IZ363HT Cordless Stick Vacuum with DuoClean PowerFins",
+    "brand": "Shark",
+    "model": "IZ363HT",
+    "category_slug": "small-appliances",
+    "category_legacy": "Appliances",
+    "condition": "New/Sealed",
+    "msrp_cents": 39999,
+    "expected_confidence": "high"
+  },
+  "notes": "BidFTA numeric-prefix Sub-Category — and the prefix is misleadingly labeled 'hair care' even though the product is a vacuum. Tests whether the model trusts the description over the category."
+}

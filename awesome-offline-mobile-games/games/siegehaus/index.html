@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<link rel="icon" href="../../shell/assets/icon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0b0d12">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Siegehaus</title>
+<style>
+  html,body{margin:0;height:100%;background:#0b0d12;overflow:hidden;
+    font:14px/1.35 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#e8eaf0;
+    -webkit-text-size-adjust:100%;overscroll-behavior:none;touch-action:none;}
+  #wrap{position:fixed;inset:0;display:flex;flex-direction:column}
+  #stage{position:relative;flex:1;min-height:0}
+  canvas{display:block;width:100%;height:100%;touch-action:none}
+  #bar{display:flex;gap:7px;padding:9px 9px;padding-bottom:calc(9px + env(safe-area-inset-bottom));
+    background:linear-gradient(180deg,#141821,#0e1117);
+    border-top:1px solid rgba(255,255,255,.07);justify-content:center;flex-wrap:wrap;
+    box-shadow:0 -1px 0 rgba(0,0,0,.6)}
+  .btn{flex:1 1 0;min-width:58px;max-width:150px;padding:12px 6px 11px;border-radius:11px;text-align:center;
+    background:linear-gradient(180deg,#242b39 0%,#1a1f2a 55%,#161a23 100%);
+    border:1px solid rgba(255,255,255,.09);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 2px 6px rgba(0,0,0,.45);
+    font-weight:700;font-size:11px;letter-spacing:.11em;text-transform:uppercase;
+    color:#dfe4ee;line-height:1.1;
+    user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent;
+    transition:transform .06s ease-out,filter .06s ease-out,box-shadow .06s ease-out}
+  .btn:active{transform:translateY(1px);
+    background:linear-gradient(180deg,#1b212c 0%,#161a24 100%);
+    box-shadow:inset 0 1px 3px rgba(0,0,0,.55);filter:brightness(.9)}
+  .btn.primary{background:linear-gradient(180deg,#3a2d13 0%,#2a2110 55%,#241c0d 100%);
+    border-color:rgba(255,207,107,.35);color:#ffd68a;
+    box-shadow:inset 0 1px 0 rgba(255,214,138,.22),0 2px 10px rgba(240,180,41,.16)}
+  .btn.primary:active{filter:brightness(.88)}
+  .btn[disabled]{opacity:.35}
+</style>
+</head>
+<body>
+<div id="wrap">
+  <div id="stage"><canvas id="c"></canvas></div>
+  <div id="bar">
+    <div class="btn primary" id="bFire">FIRE</div>
+    <div class="btn" id="bWait">WAIT</div>
+    <div class="btn" id="bBuild">BUILD</div>
+    <div class="btn" id="bCraft">CRAFT</div>
+    <div class="btn" id="bHelp">?</div>
+  </div>
+</div>
+<script src="../../vendor/vendor.js"></script>
+<script src="../../shell/lib/gamekit.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

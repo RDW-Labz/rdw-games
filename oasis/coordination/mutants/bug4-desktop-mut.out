@@ -1,0 +1,19 @@
+KILLED 48 px threshold ignored
+KILLED pill never shows
+KILLED pill click does nothing (chat)
+KILLED pill click keeps pill
+KILLED own send doesn't scroll (chat)
+KILLED own send doesn't scroll (quick)
+KILLED reduced motion ignored
+KILLED tall-card rule off
+KILLED scrolled-up still auto-scrolls
+KILLED intermediate programmatic events unstick
+KILLED programmatic never ends
+KILLED programmatic timeout never clears
+KILLED scrollend ignored
+KILLED card rendered after text (chat)
+KILLED card rendered after text (quick)
+KILLED plan_report de-dup broken (chat)
+KILLED plan_report de-dup broken (quick)
+KILLED report rendered before text (chat)
+KILLED streaming text doesn't count (quick)

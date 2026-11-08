@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "T64 Watcher v1 (Windows) — components and data flow",
+    "output": "t64-watcher.html",
+    "quality_profile": "showcase"
+  },
+  "lanes": [
+    { "id": "apps", "label": "Apps on the machine" },
+    { "id": "fallback", "label": "Fallback (pinned cert or ignored proxy)", "variant": "exception" },
+    { "id": "pipeline", "label": "Local capture pipeline" },
+    { "id": "replay", "label": "Replay" },
+    { "id": "approve", "label": "Person" }
+  ],
+  "mainPath": ["client_apps", "proxy_capture", "scrubber", "raw_trace", "macro_extraction", "macro_file", "replay", "approve"],
+  "nodes": [
+    { "id": "client_apps", "lane": "apps", "col": 0, "type": "frontend", "label": "Edge/Chrome/desktop Outlook", "sublabel": "apps on the machine", "width": 190 },
+    { "id": "fallback", "lane": "fallback", "col": 1, "type": "external", "label": "Fallback: ext. + connector", "sublabel": "browser + per-app, apps that pin their own cert", "width": 234 },
+    { "id": "log_unseen", "lane": "fallback", "col": 2, "type": "security", "label": "Log \"unseen: host\"", "sublabel": "T05 done-when", "width": 150 },
+    { "id": "proxy_capture", "lane": "pipeline", "col": 1, "type": "backend", "label": "mitmproxy capture", "sublabel": "#267", "width": 140 },
+    { "id": "scrubber", "lane": "pipeline", "col": 2, "type": "security", "label": "In-process scrubber", "sublabel": "scrub_trace, scrubber.py", "width": 170 },
+    { "id": "raw_trace", "lane": "pipeline", "col": 3, "type": "database", "label": "HAR-shaped raw trace", "sublabel": "written after scrubbing (#267)", "width": 190 },
+    { "id": "macro_extraction", "lane": "pipeline", "col": 4, "type": "backend", "label": "Macro extraction", "sublabel": "infer_macro / validate_macro", "width": 165 },
+    { "id": "macro_file", "lane": "pipeline", "col": 5, "type": "database", "label": ".remote macro file", "sublabel": "save_macro, drawer/macros/", "width": 200 },
+    { "id": "replay", "lane": "replay", "col": 5, "type": "backend", "label": "Replay behind ask-first", "sublabel": "replay_macro + HttpTransport", "width": 200 },
+    { "id": "approve", "lane": "approve", "col": 5, "type": "external", "label": "Person approves or pauses", "sublabel": "confirm(index, summary) per step", "width": 200 }
+  ],
+  "edges": [
+    { "id": "apps-to-proxy", "from": "client_apps", "to": "proxy_capture", "label": "system proxy 127.0.0.1:7788", "role": "main" },
+    { "id": "apps-to-fallback", "from": "client_apps", "to": "fallback", "label": "pins its own cert or ignores the proxy", "role": "branch", "variant": "dashed" },
+    { "id": "fallback-to-log", "from": "fallback", "to": "log_unseen", "role": "branch" },
+    { "id": "proxy-to-scrubber", "from": "proxy_capture", "to": "scrubber", "role": "main" },
+    { "id": "scrubber-to-trace", "from": "scrubber", "to": "raw_trace", "role": "main" },
+    { "id": "trace-to-extraction", "from": "raw_trace", "to": "macro_extraction", "role": "main" },
+    { "id": "extraction-to-file", "from": "macro_extraction", "to": "macro_file", "role": "main" },
+    { "id": "file-to-replay", "from": "macro_file", "to": "replay", "role": "main" },
+    { "id": "replay-to-approve", "from": "replay", "to": "approve", "label": "confirm(index, summary) per step", "role": "main" }
+  ],
+  "cards": [
+    { "dot": "slate", "title": "Service watcher state (#41)", "items": ["watcher: not connected", "T64 wiring lands -> watcher: connected, real local pause/glow state"] },
+    { "dot": "amber", "title": "Not built yet", "items": ["Capture (proxy.py, proxy_cli.py) is the one new piece; everything from scrub onward already exists and is tested"] }
+  ]
+}

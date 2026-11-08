@@ -1,0 +1,63 @@
+# Per-job forwarder (decision #384), started with hermes-w-job@%i.service
+# (or hermes-w-probe@<name>.service for %i = probe-<name>) and stopped with
+# it. It owns the job's PRIVATE network namespace (the job joins it) and
+# relays 127.0.0.1:JOB_PROXY_PORT there to the proxy's Unix socket, the only
+# host path bound in. Runs as hermes-w (member of hermes-sock), so the
+# proxy's peer check sees hermes-w. Its name does not start with
+# "hermes-w-": the job drop-in (AF_INET only) must not apply here.
+#
+# Wants= (not Requires=) on the proxy: a proxy restart doesn't stop the
+# forwarder or its job; each relay opens a new connection to the socket in
+# the preserved /run/hermes-proxy.
+[Unit]
+Description=Hermes worker forwarder %i
+Requires=hermes-firewall.service
+Requires=hermes-precheck@fwd-%i.service
+Wants=hermes-proxy.service
+After=hermes-firewall.service hermes-proxy.service
+After=hermes-precheck@fwd-%i.service
+StopWhenUnneeded=yes
+
+[Service]
+Type=exec
+User=hermes-w
+Group=hermes-w
+UMask=0077
+ExecStart=/usr/bin/python3 -I /opt/hermes-dev2/bin/hermes_fwd.py
+PrivateNetwork=yes
+RestrictAddressFamilies=AF_INET AF_UNIX
+IPAddressDeny=any
+IPAddressAllow=127.0.0.1
+PrivatePIDs=yes
+ProtectProc=invisible
+PrivateIPC=yes
+NoNewPrivileges=yes
+CapabilityBoundingSet=
+AmbientCapabilities=
+RestrictSUIDSGID=yes
+ProtectSystem=strict
+ProtectHome=tmpfs
+PrivateDevices=yes
+# The same /etc allow-list as a job: an empty tmpfs with only what Python
+# and our config need bound back, read-only.
+TemporaryFileSystem=/run /var/lib /opt /srv /mnt /media /etc:size=4M,mode=0755 /tmp:size=16M,mode=1777 /var/tmp:size=16M,mode=1777 /dev/shm:size=4M,mode=1777
+BindReadOnlyPaths=/run/hermes-proxy /opt/hermes-dev2/bin /etc/hermes-dev2
+BindReadOnlyPaths=/etc/passwd /etc/group /etc/nsswitch.conf /etc/hosts /etc/ld.so.cache /etc/ld.so.conf
+BindReadOnlyPaths=-/etc/ld.so.conf.d -/etc/localtime
+InaccessiblePaths=-/etc/hermes-proxy -/root -/var/log -/var/www -/var/snap -/var/backups -/var/cache -/var/mail -/var/spool -/dev/mqueue
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectKernelLogs=yes
+ProtectControlGroups=yes
+ProtectClock=yes
+ProtectHostname=yes
+RestrictNamespaces=yes
+RestrictRealtime=yes
+LockPersonality=yes
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+MemoryMax=128M
+TasksMax=16
+LimitCORE=0
+RuntimeMaxSec=25min
+TimeoutStopSec=5s

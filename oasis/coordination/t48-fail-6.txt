@@ -1,0 +1,30 @@
+>           raise ServiceDependencyError("chat did not complete")
+E           anorak.local_service.ServiceDependencyError: chat did not complete
+src/anorak/local_service_adapters.py:865: ServiceDependencyError
+        assert renamed.title == "Renamed"
+        assert renamed.id == thread.id
+        assert renamed.message_count == 1
+>       assert store.list_threads()[0].title == "Renamed"
+E       AssertionError: assert 'New chat' == 'Renamed'
+E         
+E         - Renamed
+E         + New chat
+tests/test_chat_store.py:77: AssertionError
+        assert len(infos) == 1
+>       assert infos[0].title == "Kickoff"
+E       AssertionError: assert 'New chat' == 'Kickoff'
+E         
+E         - Kickoff
+E         + New chat
+tests/test_chat_store.py:132: AssertionError
+>       assert store.list_threads()[0].title == "Original"
+E       AssertionError: assert 'New chat' == 'Original'
+E         
+E         - Original
+E         + New chat
+tests/test_chat_store.py:191: AssertionError
+>       assert set(tools) == {
+E       AssertionError: assert {'notes_read'...ch_mail', ...} == {'notes_read'...nd_mail', ...}
+E         
+E         Extra items in the left set:
+E         'outlook_recent_mail'

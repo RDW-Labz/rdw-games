@@ -1,0 +1,5 @@
+# captured 2026-11-07T20:59:55Z
+# $ curl-result.txt
+http_code=000 ip= err=Could not resolve host: combomobile-1.stbpost.be
+[stderr] curl: (6) Could not resolve host: combomobile-1.stbpost.be
+

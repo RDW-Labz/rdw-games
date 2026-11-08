@@ -1,0 +1,23 @@
+{
+  "id": "manifest-022",
+  "source": "amazon",
+  "raw": {
+    "description": "Ring Spotlight Cam Battery HD Security Camera, Two-Way Talk, White",
+    "retailer_category": "gl_camera",
+    "upc": "841710125534",
+    "model_number": "8SB1S7-WEN0",
+    "quantity": 1,
+    "retail_price": 199.99
+  },
+  "expected": {
+    "title": "Ring Spotlight Cam Battery HD Security Camera with Two-Way Talk (White)",
+    "brand": "Ring",
+    "model": "8SB1S7-WEN0",
+    "category_slug": "smart-home",
+    "category_legacy": "Electronics",
+    "condition": "New/Sealed",
+    "msrp_cents": 19999,
+    "expected_confidence": "medium"
+  },
+  "notes": "Smart-home doorbell/cam — Amazon GLDesc gl_camera but we taxonomize under smart-home. Adversarial: tests whether the model picks the more-specific platform slug over the generic GLDesc mapping."
+}

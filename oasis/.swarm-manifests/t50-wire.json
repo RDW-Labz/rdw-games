@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "concurrency": 1,
+  "jobs": [
+    {
+      "id": "t50-wire",
+      "agent": "openrouter",
+      "model": "anthropic/claude-sonnet-5.5",
+      "tier": "mid",
+      "maxOutputTokens": 32768,
+      "timeoutMs": 1800000,
+      "context": [
+        ".swarm-manifests/t50-contract.md",
+        "src/components/CoworkerGrid.tsx",
+        "src/components/PickCoworkerStep.tsx",
+        "src/styles/coworkers.css",
+        "CHANGELOG.md",
+        "src/components/useCoworkers.ts",
+        "tests/Coworkers.test.tsx",
+        "tests/Onboarding.test.tsx",
+        "package.json"
+      ],
+      "outputs": [
+        "src/components/CoworkerGrid.tsx",
+        "src/components/PickCoworkerStep.tsx",
+        "src/styles/coworkers.css",
+        "CHANGELOG.md",
+        "tests/holoCardWire.test.tsx"
+      ],
+      "prompt": "T50 (decision #159, contract §1 job t50-wire): wire HoloCard into CoworkerGrid and onboarding; edit existing components and tests; add one CHANGELOG line.\nBuild exactly what §2–§4 specifies. HoloCard component will exist at src/components/HoloCard.tsx (from t50-card job) with props: portrait (CoworkerImage | undefined), name (string), category (string | null), moreMotion (boolean), onPick (() => void), visible (boolean), reduced (boolean). Import it without creating it.\nCoworkerGrid.tsx edits (~10–20 lines added): Wrap each card (currently .coworker__card div with role=\"radio\") in <HoloCard visible={isInViewport} portrait={images[pack.id]} name={pack.name} category={pack.category} moreMotion={pack.tier === 'animated'} onPick={() => onPick(pack.id)} reduced={prefersReducedMotion} />. Track visible state per card using IntersectionObserver (create one observer per grid, callback updates visible for each pack.id). StatusLine (progress bar, cancel, retry) remains below/outside HoloCard. Remove or override conflicting .coworker__card styles (fixed height, static image size). Preserve .coworkers__grid grid-template-columns and gap. PickCoworkerStep.tsx: no changes needed (CoworkerChoices → CoworkerGrid already wired). Verify HoloCard renders in onboarding-story container (coworkers.css applies). coworkers.css edits (~20–30 lines): Remove or override styles from .coworker__card that conflict with HoloCard 3D (e.g., fixed dimensions, border rules). Ensure HoloCard container takes grid space (width: 100%). Adjust spacing if foil + border are slightly larger than 96px portrait. Preserve grid layout and gap. StatusLine placement below HoloCard unaffected.\nCHANGELOG.md: One line at the top of ## Unreleased section (above existing entries, merged into same heading if ## Unreleased exists, else create it above the newest section). Line: \"T50: Holo coworker cards with tilt, flip, and static fallback on Coworkers page and onboarding pick step (#232).\"\nholoCardWire.test.tsx (new, ~120–160 lines): Integration tests. (1) CoworkerGrid renders HoloCard for each pack (check DOM for HoloCard or data-testid=\"holo-card-<packId>\"). (2) Clicking Pick button on HoloCard calls parent's onPick (event callback fires with pack.id). (3) IntersectionObserver fires visible=true/false; visible card renders animation-capable state, off-screen renders static PNG. (4) PickCoworkerStep renders CoworkerChoices → CoworkerGrid with HoloCards (integration, fake coworkers from fakeAvatarClient, no service calls). (5) StatusLine (progress, cancel, retry) renders below HoloCard without interference. Use vitest + jsdom + RTL. Mock IntersectionObserver, matchMedia, pointer events. Fake CoworkerImage data.\nEXISTING TESTS (Coworkers.test.tsx, Onboarding.test.tsx): no edits needed if HoloCard exports role=\"article\" or wraps the radio semantics without changing aria-checked/role. Verify by running `npm test` after edits — if radio tests fail (e.g., getByRole('radio', { name }) not found), add IntersectionObserver mock to tests/setup.ts or per-test. Existing \"Pick\" flow should still work (onPick callback unchanged). If tests need updates, keep them minimal (mock IntersectionObserver, no structural edits to existing test cases).\nOUTPUT SIZE RULES: CoworkerGrid.tsx and coworkers.css edits compact (only necessary changes). CHANGELOG.md: one line inserted, no other changes. holoCardWire.test.tsx under 160 lines. Total reply under 30k tokens.\nENVELOPE RULES: CoworkerGrid.tsx, PickCoworkerStep.tsx, coworkers.css, CHANGELOG.md go in `edits` with exact find strings from the current file. holoCardWire.test.tsx (new) goes in `files`. Existing tests (Coworkers.test.tsx, Onboarding.test.tsx) are not declared outputs; if they need changes, mention in `findings` and the next job will edit them. Do not write paths not declared.\nReturn JSON only, max 12 lines: {\"status\": \"done|partial|blocked\", \"summary\": \"<one line>\", \"files\": [\"<new file>\"], \"edits\": [\"<each edited path>\"], \"crossJobNames\": [\"<any new export from wire job>\"], \"reproTest\": \"<test covering IntersectionObserver gate or StatusLine placement>\", \"findings\": [\"<≤3 one-liners: anything in contract not honoured or blocking edits>\"]}\nignoreTests note: Coworkers.test.tsx and Onboarding.test.tsx are not edited by this job; they stay in the existing test suite. If they fail after wire edits, that is a test-failure follow-up.",
+      "ignoreTests": []
+    }
+  ],
+  "contract": ".swarm-manifests/t50-contract.md"
+}

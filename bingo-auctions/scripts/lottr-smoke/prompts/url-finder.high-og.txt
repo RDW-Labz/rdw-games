@@ -1,0 +1,35 @@
+Find this product on US retailer websites. Return up to 6 specific
+product PAGE URLs (NOT image URLs, NOT search-result pages).
+
+**Priority order** — these retailers reliably expose `og:image` meta tags
+on their product pages, so they're the best targets:
+  1. walmart.com    (/ip/<title>/<id>)
+  2. target.com     (/p/<title>/-/A-<id>)
+  3. homedepot.com  (/p/<title>/<id>)
+  4. lowes.com      (/pd/<title>/<id>)
+  5. bestbuy.com    (/site/<title>/<id>.p)
+  6. costco.com     (/<title>.product.<id>)
+  7. bhphotovideo.com  (/c/product/<id>)
+  8. newegg.com     (/p/<id>)
+  9. acehardware.com / tractorsupply.com / cvs.com / walgreens.com / ulta.com
+     / sephora.com / bathandbodyworks.com — also work for specific categories
+
+Return JSON only:
+{
+  "product_urls": [
+    "https://www.walmart.com/ip/...",
+    "https://www.target.com/p/..."
+  ]
+}
+
+Rules:
+- US retailers ONLY. NO noon.com, ubuy.com, alibaba.com, amazon.co.uk,
+  amazon.de, amazon.ca, amazon.com.au.
+- SKIP amazon.com — we cannot fetch their pages server-side.
+- SKIP ebay.com — eBay also blocks server-side fetches.
+- Specific product page URLs only. /ip/, /p/, /pd/, /site/, /dp/ patterns.
+  No /search?q=, no category index pages, no homepages.
+- Up to 6 URLs, most product-relevant first.
+- ONLY URLs you literally saw in search results — no fabrication.
+- Empty array if you can't find any:  { "product_urls": [] }
+- No other fields.

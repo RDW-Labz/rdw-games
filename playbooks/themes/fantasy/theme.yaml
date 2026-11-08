@@ -1,0 +1,69 @@
+name: Fantasy
+avatar: fantasy
+light:
+  colors:
+    bg: "#f5f1e6"
+    surface: "#ece6d6"
+    surface-raised: "#fcfaf3"
+    border: "#7a7462"
+    hairline: "#dbd4c0"
+    text: "#1f1d15"
+    text-muted: "#595545"
+    accent: "#3b5829"
+    accent-text: "#f7fbef"
+    focus: "#2c5a60"
+    link: "#2c5a60"
+    ok: "#2d6734"
+    needs-you: "#794b0a"
+    rim: "#9b630f"
+    lamp: "197 118 0"
+    glow-strength: 0.24
+    error: "#a1332a"
+    paused: "#664e85"
+    scrim: "#1f1d1552"
+    shadow-1: "0 1px 2px #1f1d1514"
+    shadow-2: "0 12px 32px -12px #1f1d1540"
+dark:
+  colors:
+    bg: "#151a14"
+    surface: "#1b2119"
+    surface-raised: "#232a20"
+    border: "#828b7b"
+    hairline: "#333b2f"
+    text: "#ecefe4"
+    text-muted: "#abb49f"
+    accent: "#aacf8b"
+    accent-text: "#13200b"
+    focus: "#90d1c9"
+    link: "#90d1c9"
+    ok: "#90d7a7"
+    needs-you: "#f4c25e"
+    rim: "#e0a63e"
+    lamp: "255 198 88"
+    glow-strength: 0.16
+    error: "#ffa090"
+    paused: "#ccb8e4"
+    scrim: "#00000080"
+    shadow-1: "0 1px 2px #00000066"
+    shadow-2: "0 16px 40px -12px #00000099"
+type:
+  font: 'Figtree, system-ui, -apple-system, "Segoe UI", sans-serif'
+radius:
+  sm: 8
+  md: 12
+  lg: 16
+  pill: 999
+motion:
+  duration-instant: 80
+  duration-fast: 120
+  duration-base: 200
+  duration-slow: 320
+  duration-light: 480
+  breath: 2400
+  ease-out: "cubic-bezier(0, 0, 0.2, 1)"
+  ease-in: "cubic-bezier(0.4, 0, 1, 1)"
+  ease-standard: "cubic-bezier(0.2, 0, 0, 1)"
+sounds:
+  needs_you: default
+  done: default
+  problem: default

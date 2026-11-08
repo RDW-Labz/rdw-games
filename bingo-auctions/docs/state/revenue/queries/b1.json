@@ -1,0 +1,248 @@
+##[group]Operating System
+Ubuntu
+24.04.5
+LTS
+##[group]Runner Image
+Image: ubuntu-24.04
+Version: 20261004.327.1
+Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+##[group]GITHUB_TOKEN Permissions
+Contents: read
+Metadata: read
+Packages: read
+Secret source: Actions
+Cache mode: write
+Prepare workflow directory
+Prepare all required actions
+Getting action download info
+Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+Complete job name: apply
+﻿2026-10-15T18:14:47.5691236Z ##[group]Run actions/checkout@v4
+with:
+  repository: jmacluer-design/bingo-auctions
+  token: ***
+  ssh-strict: true
+  ssh-user: git
+  persist-credentials: true
+  clean: true
+  sparse-checkout-cone-mode: true
+  fetch-depth: 1
+  fetch-tags: false
+  show-progress: true
+  lfs: false
+  submodules: false
+  set-safe-directory: true
+  allow-unsafe-pr-checkout: false
+Syncing repository: jmacluer-design/bingo-auctions
+##[group]Getting Git version info
+Working directory is '/home/runner/work/bingo-auctions/bingo-auctions'
+[command]/usr/bin/git version
+git version 2.55.0
+Temporarily overriding HOME='/home/runner/work/_temp/7effc71c-3257-4fde-acc8-c65579bbc923' before making global git config changes
+Adding repository directory to the temporary git global config as a safe directory
+[command]/usr/bin/git config --global --add safe.directory /home/runner/work/bingo-auctions/bingo-auctions
+Deleting the contents of '/home/runner/work/bingo-auctions/bingo-auctions'
+##[group]Initializing the repository
+[command]/usr/bin/git init /home/runner/work/bingo-auctions/bingo-auctions
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: will change to "main" in Git 3.0. To configure the initial branch name
+hint: to use in all of your new repositories, which will suppress this warning,
+hint: call:
+hint:
+hint: 	git config --global init.defaultBranch <name>
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint: 	git branch -m <name>
+hint:
+hint: Disable this message with "git config set advice.defaultBranchName false"
+Initialized empty Git repository in /home/runner/work/bingo-auctions/bingo-auctions/.git/
+[command]/usr/bin/git remote add origin https://github.com/jmacluer-design/bingo-auctions
+##[group]Disabling automatic garbage collection
+[command]/usr/bin/git config --local gc.auto 0
+##[group]Setting up auth
+[command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+[command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+[command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+[command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+[command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+[command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+[command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+##[group]Fetching the repository
+[command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +e13712dacb5ff4f87630e2226a446602b9b709c6:refs/remotes/origin/master
+From https://github.com/jmacluer-design/bingo-auctions
+ * [new ref]         e13712dacb5ff4f87630e2226a446602b9b709c6 -> origin/master
+##[group]Determining the checkout info
+[command]/usr/bin/git sparse-checkout disable
+[command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+##[group]Checking out the ref
+[command]/usr/bin/git checkout --progress --force -B master refs/remotes/origin/master
+Reset branch 'master'
+branch 'master' set up to track 'origin/master'.
+[command]/usr/bin/git log -1 --format=%H
+e13712dacb5ff4f87630e2226a446602b9b709c6
+﻿2026-10-15T18:14:53.1558835Z ##[group]Run actions/setup-node@v4
+with:
+  node-version: 20
+  always-auth: false
+  check-latest: false
+  token: ***
+Attempting to download 20...
+(node:2073) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Acquiring 20.20.2 - x64 from https://github.com/actions/node-versions/releases/download/20.20.2-23521894959/node-20.20.2-linux-x64.tar.gz
+Extracting ...
+[command]/usr/bin/tar xz --strip 1 --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/ed646ba5-cdc4-43d7-a282-7e18ddab295b -f /home/runner/work/_temp/003c9da7-edc3-4edc-9d5f-111e79f350ac
+Adding to the cache ...
+##[group]Environment details
+node: v20.20.2
+npm: 10.8.2
+yarn: 1.22.22
+﻿2026-10-15T18:14:57.9774257Z ##[group]Run if [ "$HAS_PAT" != "true" ] && [ "$HAS_URL" != "true" ]; then
+^[[36;1mif [ "$HAS_PAT" != "true" ] && [ "$HAS_URL" != "true" ]; then^[[0m
+^[[36;1m  echo "::error::Neither SUPABASE_ACCESS_TOKEN nor SUPABASE_POSTGRES_URL repo secret is set. Add one at Settings → Secrets and variables → Actions."^[[0m
+^[[36;1m  exit 1^[[0m
+^[[36;1mfi^[[0m
+^[[36;1mif [ "query" = "rerun" ] && [ -z "" ]; then^[[0m
+^[[36;1m  echo "::error::mode=rerun requires the 'file' input (e.g. 0217_partial_invoice_pickup.sql)."^[[0m
+^[[36;1m  exit 1^[[0m
+^[[36;1mfi^[[0m
+^[[36;1mif [ "query" = "query" ] && [ -z "SELECT (SELECT json_agg(x) FROM (SELECT o.slug, o.is_demo, o.default_buyer_premium_bps, o.application_fee_bps, o.membership_fee_bps, o.pro_enabled, o.pro_monthly_cents, o.auto_charge_grace_hours, o.pickup_grace_extension_hours, o.offers_shipping, o.offers_pickup, o.tax_mode, o.tax_rate_bps, o.subscription_tier FROM operators o) x) ops, (SELECT json_agg(x) FROM (SELECT status::text s, count(*) n FROM invoices GROUP BY 1) x) inv_status, (SELECT json_agg(x) FROM (SELECT buyer_premium_bps, count(*) n FROM auctions GROUP BY 1) x) auc_bp, (SELECT json_agg(x) FROM (SELECT reason, count(*) n, sum(amount_cents) c, count(paid_at) paid FROM bidder_fee_ledger GROUP BY 1) x) fees, (SELECT json_agg(x) FROM (SELECT fulfillment_method::text m, count(*) n FROM invoices GROUP BY 1) x) fulfil, (SELECT json_agg(x) FROM (SELECT status::text s, count(*) n FROM bidder_subscriptions GROUP BY 1) x) subs, (SELECT min(created_at) FROM invoices) first_invoice " ]; then^[[0m
+^[[36;1m  echo "::error::mode=query requires the 'sql' input."^[[0m
+^[[36;1m  exit 1^[[0m
+^[[36;1mfi^[[0m
+^[[36;1mcase "query" in^[[0m
+^[[36;1m  auth-config|auth-smtp|email-confirm-off|email-confirm-on)^[[0m
+^[[36;1m    if [ "$HAS_PAT" != "true" ]; then^[[0m
+^[[36;1m      echo "::error::mode=query requires the SUPABASE_ACCESS_TOKEN secret (Management API)."^[[0m
+^[[36;1m      exit 1^[[0m
+^[[36;1m    fi^[[0m
+^[[36;1m    ;;^[[0m
+^[[36;1mesac^[[0m
+^[[36;1mif [ "query" = "auth-smtp" ] && [ "$HAS_RESEND" != "true" ]; then^[[0m
+^[[36;1m  echo "::error::mode=auth-smtp requires the RESEND_API_KEY repo secret (same key the Workers use — Resend SMTP password IS the API key)."^[[0m
+^[[36;1m  exit 1^[[0m
+^[[36;1mfi^[[0m
+shell: /usr/bin/bash -e {0}
+env:
+  HAS_PAT: true
+  HAS_URL: false
+  HAS_RESEND: true
+﻿2026-10-15T18:14:58.0205965Z ##[group]Run node -e '
+^[[36;1mnode -e '^[[0m
+^[[36;1m  const sql = process.env.DIAG_SQL ?? "";^[[0m
+^[[36;1m  if (!/^\s*(select|with)\b/i.test(sql)) {^[[0m
+^[[36;1m    console.error("::error::mode=query only accepts SELECT/WITH statements.");^[[0m
+^[[36;1m    process.exit(1);^[[0m
+^[[36;1m  }^[[0m
+^[[36;1m  const ref = "npwseclcxcatjhgjrtwe";^[[0m
+^[[36;1m  fetch(`https://api.supabase.com/v1/projects/${ref}/database/query`, {^[[0m
+^[[36;1m    method: "POST",^[[0m
+^[[36;1m    headers: {^[[0m
+^[[36;1m      authorization: `***
+^[[36;1m      "content-type": "application/json",^[[0m
+^[[36;1m    },^[[0m
+^[[36;1m    body: JSON.stringify({ query: sql }),^[[0m
+^[[36;1m  }).then(async (r) => {^[[0m
+^[[36;1m    const body = await r.text();^[[0m
+^[[36;1m    if (!r.ok) { console.error("::error::query failed:", r.status, body); process.exit(1); }^[[0m
+^[[36;1m    console.log(JSON.stringify(JSON.parse(body), null, 2));^[[0m
+^[[36;1m  }).catch((e) => { console.error("::error::", e.message); process.exit(1); });^[[0m
+^[[36;1m'^[[0m
+shell: /usr/bin/bash -e {0}
+env:
+  SUPABASE_ACCESS_TOKEN: ***
+  DIAG_SQL: SELECT (SELECT json_agg(x) FROM (SELECT o.slug, o.is_demo, o.default_buyer_premium_bps, o.application_fee_bps, o.membership_fee_bps, o.pro_enabled, o.pro_monthly_cents, o.auto_charge_grace_hours, o.pickup_grace_extension_hours, o.offers_shipping, o.offers_pickup, o.tax_mode, o.tax_rate_bps, o.subscription_tier FROM operators o) x) ops, (SELECT json_agg(x) FROM (SELECT status::text s, count(*) n FROM invoices GROUP BY 1) x) inv_status, (SELECT json_agg(x) FROM (SELECT buyer_premium_bps, count(*) n FROM auctions GROUP BY 1) x) auc_bp, (SELECT json_agg(x) FROM (SELECT reason, count(*) n, sum(amount_cents) c, count(paid_at) paid FROM bidder_fee_ledger GROUP BY 1) x) fees, (SELECT json_agg(x) FROM (SELECT fulfillment_method::text m, count(*) n FROM invoices GROUP BY 1) x) fulfil, (SELECT json_agg(x) FROM (SELECT status::text s, count(*) n FROM bidder_subscriptions GROUP BY 1) x) subs, (SELECT min(created_at) FROM invoices) first_invoice 
+[
+  {
+    "ops": [
+      {
+        "slug": "demo",
+        "is_demo": true,
+        "default_buyer_premium_bps": 1500,
+        "application_fee_bps": 250,
+        "membership_fee_bps": 500,
+        "pro_enabled": false,
+        "pro_monthly_cents": 0,
+        "auto_charge_grace_hours": 48,
+        "pickup_grace_extension_hours": 0,
+        "offers_shipping": false,
+        "offers_pickup": true,
+        "tax_mode": "self_managed",
+        "tax_rate_bps": 0,
+        "subscription_tier": "starter"
+      },
+      {
+        "slug": "bingo-auctions",
+        "is_demo": false,
+        "default_buyer_premium_bps": 1500,
+        "application_fee_bps": 200,
+        "membership_fee_bps": 500,
+        "pro_enabled": false,
+        "pro_monthly_cents": 499,
+        "auto_charge_grace_hours": 48,
+        "pickup_grace_extension_hours": 0,
+        "offers_shipping": false,
+        "offers_pickup": true,
+        "tax_mode": "self_managed",
+        "tax_rate_bps": 950,
+        "subscription_tier": "starter"
+      }
+    ],
+    "inv_status": [
+      {
+        "s": "canceled",
+        "n": 3
+      },
+      {
+        "s": "paid",
+        "n": 8830
+      },
+      {
+        "s": "payment_failed_grace",
+        "n": 5
+      },
+      {
+        "s": "partially_refunded",
+        "n": 1351
+      },
+      {
+        "s": "refunded",
+        "n": 835
+      },
+      {
+        "s": "payment_failed_relisted",
+        "n": 102
+      }
+    ],
+    "auc_bp": [
+      {
+        "buyer_premium_bps": 1500,
+        "n": 356
+      }
+    ],
+    "fees": [
+      {
+        "reason": "relot_fee",
+        "n": 102,
+        "c": 51000,
+        "paid": 31
+      }
+    ],
+    "fulfil": [
+      {
+        "m": null,
+        "n": 11121
+      },
+      {
+        "m": "pickup",
+        "n": 5
+      }
+    ],
+    "subs": null,
+    "first_invoice": "2026-06-29 20:30:44.289854+00"
+  }
+]

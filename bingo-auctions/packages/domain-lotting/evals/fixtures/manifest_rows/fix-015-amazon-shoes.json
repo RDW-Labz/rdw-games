@@ -1,0 +1,23 @@
+{
+  "id": "manifest-015",
+  "source": "amazon",
+  "raw": {
+    "description": "Nike Men's Air Monarch IV Cross Trainer, White/Black-Mtllc Silver, 10.5 Wide US",
+    "retailer_category": "gl_shoes",
+    "upc": "884497145228",
+    "model_number": "416355-101",
+    "quantity": 1,
+    "retail_price": 69.99
+  },
+  "expected": {
+    "title": "Nike Men's Air Monarch IV Cross Trainer (White/Black, 10.5 Wide)",
+    "brand": "Nike",
+    "model": "416355-101",
+    "category_slug": "shoes",
+    "category_legacy": "Clothing",
+    "condition": "New/Sealed",
+    "msrp_cents": 6999,
+    "expected_confidence": "high"
+  },
+  "notes": "Apparel/Shoes — variant SKU embeds size + colorway. Easy."
+}

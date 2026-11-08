@@ -1,0 +1,18 @@
+{
+  "id": "photo-025",
+  "image_path": "photo-025-hose-reel-text-heavy.jpg",
+  "media_type": "image/jpeg",
+  "photo_quality_label": "clear",
+  "expected": {
+    "title": "Suncast 175-foot Capacity Hose Hideaway Hose Reel (PowerWind, Mocha)",
+    "brand": "Suncast",
+    "model": "PWA175",
+    "upc": "044365031132",
+    "category_slug": "garden-tools",
+    "category_legacy": "Home & Garden",
+    "condition": "New/Sealed",
+    "msrp_cents": 9999,
+    "expected_confidence": "medium"
+  },
+  "notes": "Heavy text on box — full feature bullet list, SKU on a small white sticker. Tests reading the SKU sticker over the marketing text."
+}

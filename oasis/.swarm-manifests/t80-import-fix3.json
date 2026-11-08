@@ -1,0 +1,35 @@
+{
+ "version": 1,
+ "concurrency": 1,
+ "jobs": [
+  {
+   "id": "t80-import-lenient-3",
+   "agent": "codex",
+   "model": "gpt-6-astra",
+   "tier": "expensive",
+   "timeoutMs": 3000000,
+   "context": [
+    "docs/_swarm/lessons-sample-rows.md",
+    "package.json",
+    "tests/_isolate-config.mjs",
+    "tests/field-lesson-t80-core.test.mjs",
+    "tests/field-lesson-t80-ship.test.mjs",
+    "tools/lessons-publish.mjs",
+    "tools/lessons.mjs"
+   ],
+   "outputs": [
+    "tools/lessons.mjs",
+    "tools/lessons-publish.mjs",
+    "tests/field-lesson-t80-import.test.mjs"
+   ],
+   "ignoreTests": [
+    "tests/field-lesson-t80-cli.test.mjs",
+    "tests/field-lesson-t80-ship.test.mjs",
+    "tests/field-lesson-t80-core.test.mjs",
+    "tests/field-lessons-batch-x.test.mjs"
+   ],
+   "prompt": "T80 fix job `t80-import-lenient` for project-swarm 1.41.0 (decision #340). `swarm lesson import` must convert the project's existing markdown lessons table (header `| # | Date | What happened | Evidence | Proposed swarm fix | Status |`, written by hand over many weeks) into the JSONL store, (the `import` command handler is importLessons in tools/lessons-publish.mjs, which calls parseLegacyLessons from tools/lessons.mjs and builds the result envelope; both files are your outputs) but today parseLegacyLessons answers lesson-import-invalid on the first irregular row and imports nothing. The real table has: rows with fewer than six cells (65 of them), rows whose cells hold `\\|` or a `|` inside backticks, rows whose cell text spans several physical lines (a literal newline inside a cell, so the continuation lines do not start with `| <id> |`), and a few ids with a letter suffix such as `263r` (a reopened lesson). Make the parser lenient and total: a row starts at a line matching `| <integer><optional letters> |` and runs until the next such line or the end of the table; continuation lines join the open cell with a newline; `\\|` and pipes inside backticks are never separators; a row with fewer than six cells is padded with empty strings and its id listed under `padded`; cells beyond the sixth are appended to the sixth with ` | ` and the id listed under `overflow`; an id with a suffix keeps its integer part and the suffix goes into a new field `reopen` (string) on that lesson, so `263r` becomes id 263 with reopen 'r' when no plain row 263 exists in the same file, otherwise the suffixed row is listed under `skipped` as {line, reason:'duplicate-id'} and does not abort; a status cell the existing parser cannot read falls back to 'queued'. Never answer lesson-import-invalid for a row; keep it only for a file with no table header. The import result keeps every existing key and adds `padded`, `overflow` and `skipped` (empty arrays when nothing happened). Keep every existing export, flag, command, error code and behaviour of tools/lessons.mjs (the other commands, the private-names check at write time, the store format) and no reformatting of untouched code. Use your shell to read the context files and write your outputs (edit tools/lessons.mjs and tools/lessons-publish.mjs in place, create the new test file); do not run tests, installs or network commands; re-read your files once for syntax before returning.\n\nTests: a new file tests/field-lesson-t80-import.test.mjs, node:test in the shape of tests/field-lesson-t80-core.test.mjs via tests/_isolate-config.mjs, calling parseLegacyLessons directly and the `lesson import` command through the same fixture helper; fixtures with fake ids (9001 and up), dates in 2000, no names, repos, URLs, run ids or prompt text. One test per rule above, each asserting the exact result so a mutant that drops the rule fails: short row padded; multi-line cell joined with a newline; backtick pipe and escaped pipe kept inside the cell; seven-cell row overflowed; suffix id kept as reopen; suffix id skipped as duplicate when the plain id exists; unreadable status falls back to queued; a header-less file still answers lesson-import-invalid; and one test with a twelve-row fixture mixing all shapes that asserts twelve lessons come back in order. No new npm dependency.\n\nReturn JSON only, under 700 characters, after the files: {\"status\":\"complete|partial\",\"filesChanged\":[...],\"reproTest\":\"tests/field-lesson-t80-import.test.mjs\",\"newFields\":[...],\"newResultKeys\":[...],\"findings\":[\"<\u22643 one-liners>\"]}\n\n(ignoreTests: existing tests that mention the two tools files are not inlined; keep every existing behaviour so they stay green; the orchestrator runs the whole suite after integrate.)",
+   "tierReason": "OpenRouter Sonnet 5.5 truncated the whole-file return at the 32768 output cap (run 1790898307350, lesson #325); Codex edits in place"
+  }
+ ]
+}

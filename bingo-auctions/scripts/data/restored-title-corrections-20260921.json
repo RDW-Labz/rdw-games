@@ -1,0 +1,29 @@
+[
+  {
+    "id": "829a283d-9b9d-433a-bc0f-c013f2aca7ee",
+    "operator_id": "05775af4-adb7-4f0f-943e-94a91e17f60d",
+    "lot_code": "BIN-025206",
+    "title": "Caely Portobello Hand Made Rug",
+    "sticker_code": "BIN:RUG159562",
+    "photo_urls": [
+      "https://npwseclcxcatjhgjrtwe.supabase.co/storage/v1/object/public/lot-photos/05775af4-adb7-4f0f-943e-94a91e17f60d/rehost/829a283d-9b9d-433a-bc0f-c013f2aca7ee/0.webp",
+      "https://npwseclcxcatjhgjrtwe.supabase.co/storage/v1/object/public/lot-photos/05775af4-adb7-4f0f-943e-94a91e17f60d/BIN-025206/1790002924771-0.jpg"
+    ],
+    "status": "pending_intake",
+    "new_title": "Calix by Nikki Chu CNU04 Powerloomed Rug"
+  },
+  {
+    "id": "e64277dd-a518-449a-9c04-98a6840b2def",
+    "operator_id": "05775af4-adb7-4f0f-943e-94a91e17f60d",
+    "lot_code": "BIN-025221",
+    "title": "Unbranded Faux Fur Item - Brown - Model RB8856",
+    "sticker_code": "BIN:PNK4999298",
+    "photo_urls": [
+      "https://npwseclcxcatjhgjrtwe.supabase.co/storage/v1/object/public/lot-photos/05775af4-adb7-4f0f-943e-94a91e17f60d/BIN-025221/1790003328803-0.jpg",
+      "https://npwseclcxcatjhgjrtwe.supabase.co/storage/v1/object/public/lot-photos/05775af4-adb7-4f0f-943e-94a91e17f60d/BIN-025221/1790003328135.jpg",
+      "https://npwseclcxcatjhgjrtwe.supabase.co/storage/v1/object/public/lot-photos/05775af4-adb7-4f0f-943e-94a91e17f60d/BIN-025221/1790003328206.jpg"
+    ],
+    "status": "pending_intake",
+    "new_title": "Unbranded Faux Fur Item - Brown - Model RBB856"
+  }
+]

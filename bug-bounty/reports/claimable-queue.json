@@ -1,0 +1,156 @@
+[
+ {
+  "host": "donauchem-rs.devweb.emakina.at",
+  "target": "donauchemie-dev.azurewebsites.net",
+  "kind": "azureweb",
+  "label": "donauchemie-dev",
+  "scope": "bc:EPAM Systems Managed Bug Bounty Program via *.emakina.at"
+ },
+ {
+  "host": "donau.devweb.emakina.at",
+  "target": "donauchemie-dev.azurewebsites.net",
+  "kind": "azureweb",
+  "label": "donauchemie-dev",
+  "scope": "bc:EPAM Systems Managed Bug Bounty Program via *.emakina.at"
+ },
+ {
+  "host": "donau-umweltinformation.devweb.emakina.at",
+  "target": "donauchemie-dev.azurewebsites.net",
+  "kind": "azureweb",
+  "label": "donauchemie-dev",
+  "scope": "bc:EPAM Systems Managed Bug Bounty Program via *.emakina.at"
+ },
+ {
+  "host": "donauchem-sk.devweb.emakina.at",
+  "target": "donauchemie-dev.azurewebsites.net",
+  "kind": "azureweb",
+  "label": "donauchemie-dev",
+  "scope": "bc:EPAM Systems Managed Bug Bounty Program via *.emakina.at"
+ },
+ {
+  "host": "donau-realitaeten.devweb.emakina.at",
+  "target": "donauchemie-dev.azurewebsites.net",
+  "kind": "azureweb",
+  "label": "donauchemie-dev",
+  "scope": "bc:EPAM Systems Managed Bug Bounty Program via *.emakina.at"
+ },
+ {
+  "host": "donau-carbon.devweb.emakina.at",
+  "target": "donauchemie-dev.azurewebsites.net",
+  "kind": "azureweb",
+  "label": "donauchemie-dev",
+  "scope": "bc:EPAM Systems Managed Bug Bounty Program via *.emakina.at"
+ },
+ {
+  "host": "donau-chemie-group.devweb.emakina.at",
+  "target": "donauchemie-dev.azurewebsites.net",
+  "kind": "azureweb",
+  "label": "donauchemie-dev",
+  "scope": "bc:EPAM Systems Managed Bug Bounty Program via *.emakina.at"
+ },
+ {
+  "host": "ganterdevweb.emakina.at",
+  "target": "lsgganterdev.azurewebsites.net",
+  "kind": "azureweb",
+  "label": "lsgganterdev",
+  "scope": "bc:EPAM Systems Managed Bug Bounty Program via *.emakina.at"
+ },
+ {
+  "host": "donau-chemie.devweb.emakina.at",
+  "target": "donauchemie-dev.azurewebsites.net",
+  "kind": "azureweb",
+  "label": "donauchemie-dev",
+  "scope": "bc:EPAM Systems Managed Bug Bounty Program via *.emakina.at"
+ },
+ {
+  "host": "donauchem-hu.devweb.emakina.at",
+  "target": "donauchemie-dev.azurewebsites.net",
+  "kind": "azureweb",
+  "label": "donauchemie-dev",
+  "scope": "bc:EPAM Systems Managed Bug Bounty Program via *.emakina.at"
+ },
+ {
+  "host": "donauchem-pl.devweb.emakina.at",
+  "target": "donauchemie-dev.azurewebsites.net",
+  "kind": "azureweb",
+  "label": "donauchemie-dev",
+  "scope": "bc:EPAM Systems Managed Bug Bounty Program via *.emakina.at"
+ },
+ {
+  "host": "donau-carbon-us.devweb.emakina.at",
+  "target": "donauchemie-dev.azurewebsites.net",
+  "kind": "azureweb",
+  "label": "donauchemie-dev",
+  "scope": "bc:EPAM Systems Managed Bug Bounty Program via *.emakina.at"
+ },
+ {
+  "host": "donau-products.devweb.emakina.at",
+  "target": "donauchemie-dev.azurewebsites.net",
+  "kind": "azureweb",
+  "label": "donauchemie-dev",
+  "scope": "bc:EPAM Systems Managed Bug Bounty Program via *.emakina.at"
+ },
+ {
+  "host": "donau-chemie-ro.devweb.emakina.at",
+  "target": "donauchemie-dev.azurewebsites.net",
+  "kind": "azureweb",
+  "label": "donauchemie-dev",
+  "scope": "bc:EPAM Systems Managed Bug Bounty Program via *.emakina.at"
+ },
+ {
+  "host": "api.qa.whatsup.volkswagen.de",
+  "target": "whatsup-backend-qa.azurewebsites.net",
+  "kind": "azureweb",
+  "label": "whatsup-backend-qa",
+  "scope": "bc:Volkswagen  via *.volkswagen.de"
+ },
+ {
+  "host": "qa-cms.aon-hugeops.uk",
+  "target": "aon-sitecore-qa-xp-scaled-176730-cm.azurewebsites.net",
+  "kind": "azureweb",
+  "label": "aon-sitecore-qa-xp-scaled-176730-cm",
+  "scope": "h1:aon via qa-cms.aon-hugeops.uk/"
+ },
+ {
+  "host": "scorecard.prod.cbreapps.com",
+  "target": "gws-scorecard-prod-uks-app.azurewebsites.net",
+  "kind": "azureweb",
+  "label": "gws-scorecard-prod-uks-app",
+  "scope": "h1:cbre via *.cbreapps.com"
+ },
+ {
+  "host": "test.angulardemo.emerald.cbre.com",
+  "target": "testemeraldangulardemo.azurewebsites.net",
+  "kind": "azureweb",
+  "label": "testemeraldangulardemo",
+  "scope": "h1:cbre via test.angulardemo.emerald.cbre.com"
+ },
+ {
+  "host": "nines.githubapp.com",
+  "target": "ninesapp-app-service.azurewebsites.net",
+  "kind": "azureweb",
+  "label": "ninesapp-app-service",
+  "scope": "h1:github via *.githubapp.com"
+ },
+ {
+  "host": "candle-src.etoro.com",
+  "target": "prod-candle.trafficmanager.net",
+  "kind": "tm",
+  "label": "prod-candle",
+  "scope": "bc:eToro Managed Bug Bounty Engagement via https://*.etoro.com"
+ },
+ {
+  "host": "combomobile-1.acbpost.be",
+  "target": "combomobile-ac.trafficmanager.net",
+  "kind": "tm",
+  "label": "combomobile-ac",
+  "scope": "it:bpost via *.acbpost.be"
+ },
+ {
+  "host": "combomobile-1.stbpost.be",
+  "target": "combomobile-st.trafficmanager.net",
+  "kind": "tm",
+  "label": "combomobile-st",
+  "scope": "it:bpost via *.stbpost.be"
+ }
+]

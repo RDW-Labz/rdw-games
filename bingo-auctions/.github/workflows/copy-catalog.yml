@@ -1,0 +1,73 @@
+name: Copy Product Catalog (ClovrBid → BinGo)
+
+# One-time (re-runnable) migration of the platform product catalog
+# (product_lookups) from the old ClovrBid Supabase project into BinGo's.
+# The fork brought the code but not the ~187k-row catalog, so barcode scans
+# miss and QuickLot falls through to bare lots (owner report 2026-07-08).
+#
+# Uses the account-level SUPABASE_ACCESS_TOKEN PAT (same secret
+# apply-migration.yml uses) against the Management API for BOTH projects —
+# no ClovrBid-specific key needed as long as both projects are on the same
+# Supabase account.
+#
+# Defaults to a DRY RUN (counts only). Set apply=true to actually copy.
+# ON CONFLICT (upc) DO NOTHING makes it safe to re-run.
+
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: 'false = dry-run counts only; true = perform the copy'
+        required: true
+        type: choice
+        default: 'false'
+        options:
+          - 'false'
+          - 'true'
+      source_ref:
+        description: 'Source project ref (ClovrBid catalog)'
+        required: false
+        type: string
+        default: 'xgsujdzicnjenhqihovk'
+      batch:
+        description: 'Rows per round-trip'
+        required: false
+        type: string
+        default: '500'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: copy-catalog
+  cancel-in-progress: false
+
+jobs:
+  copy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Guard secret
+        env:
+          HAS_PAT: ${{ secrets.SUPABASE_ACCESS_TOKEN != '' }}
+        run: |
+          if [ "$HAS_PAT" != "true" ]; then
+            echo "::error::SUPABASE_ACCESS_TOKEN repo secret is not set."
+            exit 1
+          fi
+      - name: Copy catalog
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SOURCE_REF: ${{ inputs.source_ref }}
+          DEST_REF: npwseclcxcatjhgjrtwe
+          BATCH: ${{ inputs.batch }}
+        run: |
+          if [ "${{ inputs.apply }}" = "true" ]; then
+            node scripts/copy-catalog.mjs --apply
+          else
+            node scripts/copy-catalog.mjs
+          fi

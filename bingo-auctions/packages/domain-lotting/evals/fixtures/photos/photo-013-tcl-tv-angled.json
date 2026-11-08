@@ -1,0 +1,18 @@
+{
+  "id": "photo-013",
+  "image_path": "photo-013-tcl-tv-angled.jpg",
+  "media_type": "image/jpeg",
+  "photo_quality_label": "angled",
+  "expected": {
+    "title": "TCL 55-inch Class 4-Series 4K UHD HDR Smart Roku TV (55S451)",
+    "brand": "TCL",
+    "model": "55S451",
+    "upc": "00190559002871",
+    "category_slug": "tvs",
+    "category_legacy": "Electronics",
+    "condition": "New/Sealed",
+    "msrp_cents": 39999,
+    "expected_confidence": "medium"
+  },
+  "notes": "Large TV box leaning against a wall, photographed from below at an angle. SKU is on a small sticker near the bottom corner."
+}

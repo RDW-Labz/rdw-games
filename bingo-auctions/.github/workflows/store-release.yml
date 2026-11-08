@@ -1,0 +1,115 @@
+# Store Release — push submitted builds LIVE.
+#
+# eas-build.yml with submit=true ends with the binary UPLOADED, not released:
+# the Android draft sits on the Play production track until someone promotes
+# it, and the iOS build sits in ASC until someone attaches it to a version and
+# submits for review. This workflow is that last mile, so a release doesn't
+# stall on a Console/ASC login (owner request 2026-08-09).
+#
+#   android job — flips the newest DRAFT release on the production track to
+#     completed (100%). Idempotent: no draft -> no-op.
+#   ios job — waits for the newest build of the given version to finish ASC
+#     processing, attaches it to an editable App Store version (creating one
+#     if needed), sets releaseType=AFTER_APPROVAL, writes "What's New", and
+#     submits for review. Apple review still gates the actual go-live.
+#
+# Secrets used (all already configured for eas-build.yml):
+#   GOOGLE_PLAY_SERVICE_ACCOUNT_KEY, ASC_API_KEY, ASC_API_KEY_ID,
+#   ASC_API_KEY_ISSUER_ID
+
+name: Store Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      app:
+        description: 'Which app to release'
+        required: true
+        type: choice
+        default: bidder
+        options:
+          - bidder
+          - staff
+      platforms:
+        description: 'Which store(s) to push live'
+        required: true
+        type: choice
+        default: both
+        options:
+          - android
+          - ios
+          - both
+      whats_new:
+        description: 'iOS "What''s New" release notes (required by App Review on updates)'
+        required: false
+        type: string
+        default: 'Bug fixes and performance improvements: faster item scanning, clearer pickup information, and reliability fixes.'
+
+concurrency:
+  group: store-release-${{ inputs.app }}
+  cancel-in-progress: false
+
+jobs:
+  resolve:
+    name: resolve app coordinates
+    runs-on: ubuntu-latest
+    outputs:
+      package: ${{ steps.co.outputs.package }}
+      asc_app_id: ${{ steps.co.outputs.asc_app_id }}
+      version: ${{ steps.co.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: co
+        run: |
+          set -euo pipefail
+          if [ "${{ inputs.app }}" = "bidder" ]; then
+            DIR=apps/bidder-app
+          else
+            DIR=apps/field-mobile
+          fi
+          # Both apps ship to Play (bidder AND staff), so read the package from
+          # the app's own config instead of assuming.
+          PKG=$(grep -oP "package:\s*'\K[^']+" "$DIR/app.config.ts" | head -1)
+          ASC_ID=$(python3 -c "import json;print(json.load(open('$DIR/eas.json'))['submit']['production']['ios']['ascAppId'])")
+          VERSION=$(grep -oP "version:\s*'\K[^']+" "$DIR/app.config.ts" | head -1)
+          echo "package=$PKG" >> "$GITHUB_OUTPUT"
+          echo "asc_app_id=$ASC_ID" >> "$GITHUB_OUTPUT"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "app=${{ inputs.app }} package/version/asc: $PKG $VERSION $ASC_ID"
+
+  android:
+    name: promote Play draft to live
+    if: ${{ inputs.platforms == 'android' || inputs.platforms == 'both' }}
+    needs: resolve
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Guard — app has an Android package
+        if: ${{ needs.resolve.outputs.package == '' }}
+        run: |
+          echo "::error::could not resolve an Android package for ${{ inputs.app }}."
+          exit 1
+      - run: pip install --quiet PyJWT cryptography
+      - name: Promote draft release
+        env:
+          GOOGLE_PLAY_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT_KEY }}
+        run: python3 scripts/store-release/play_promote.py "${{ needs.resolve.outputs.package }}" production
+
+  ios:
+    name: submit App Store version for review (auto-release)
+    if: ${{ inputs.platforms == 'ios' || inputs.platforms == 'both' }}
+    needs: resolve
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install --quiet PyJWT cryptography
+      - name: Attach newest build + submit for review
+        env:
+          ASC_API_KEY: ${{ secrets.ASC_API_KEY }}
+          ASC_API_KEY_ID: ${{ secrets.ASC_API_KEY_ID }}
+          ASC_API_KEY_ISSUER_ID: ${{ secrets.ASC_API_KEY_ISSUER_ID }}
+        run: |
+          python3 scripts/store-release/asc_release.py \
+            "${{ needs.resolve.outputs.asc_app_id }}" \
+            "${{ needs.resolve.outputs.version }}" \
+            "${{ inputs.whats_new }}"

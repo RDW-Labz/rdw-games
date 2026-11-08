@@ -1,0 +1,15 @@
+{
+  "id": "upc-025",
+  "code": "00190559002871",
+  "code_type": "upc",
+  "expected": {
+    "title": "TCL 55-inch Class 4-Series 4K UHD HDR Smart Roku TV (55S451)",
+    "brand": "TCL",
+    "model": "55S451",
+    "category_slug": "tvs",
+    "category_legacy": "Electronics",
+    "condition": "",
+    "msrp_cents": 39999
+  },
+  "notes": "13-digit GTIN (with leading zero pad). Tests handling of EAN/GTIN-13 format vs. 12-digit UPC."
+}

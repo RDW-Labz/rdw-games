@@ -1,0 +1,56 @@
+# Ops Probe — read-only diagnostics from a GitHub runner.
+#
+# The remote Claude Code sandbox can't reach bingoauctions.com or public DNS
+# (egress proxy 403s them), so post-deploy verification ("is the JSON-LD
+# live?", "did the Google site-verification TXT record land?") needs a
+# vantage point with real internet access. This workflow is that vantage
+# point: dispatch it with a URL and/or a domain and read the run log.
+#
+# Read-only by construction — it fetches and prints; it has no repo
+# checkout, no secrets, and no write permissions.
+
+name: Ops Probe
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: 'URL to GET (prints response headers + first 20 KB of body)'
+        required: false
+        default: ''
+      dns_domain:
+        description: 'Domain to query (prints TXT / A / NS records)'
+        required: false
+        default: ''
+
+permissions: {}
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: DNS records
+        if: inputs.dns_domain != ''
+        env:
+          DOMAIN: ${{ inputs.dns_domain }}
+        run: |
+          echo "== TXT =="
+          dig +short TXT "$DOMAIN"
+          echo "== A =="
+          dig +short A "$DOMAIN"
+          echo "== NS =="
+          dig +short NS "$DOMAIN"
+
+      - name: Fetch URL
+        if: inputs.url != ''
+        env:
+          URL: ${{ inputs.url }}
+        run: |
+          echo "== headers =="
+          curl -sSL -D - -o /tmp/body.txt --max-time 30 "$URL" | sed -n '1,40p'
+          echo "== body (first 20 KB) =="
+          head -c 20000 /tmp/body.txt
+          echo
+          echo "== body size =="
+          wc -c < /tmp/body.txt

@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "OASIS architecture overview",
+    "output": "architecture.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "rig", "type": "frontend", "label": "Desktop app (Rig)", "sublabel": "orb, side panel, full app, browser extension", "pos": [380, 40], "size": [220, 64] },
+    { "id": "agent_core", "type": "backend", "label": "Local service (Anorak)", "sublabel": "agent-core, rig-service", "pos": [380, 300], "size": [220, 70] },
+    { "id": "skills", "type": "database", "label": "Skills (Almanac)", "sublabel": "shared & personal skills", "pos": [60, 180], "size": [200, 60] },
+    { "id": "playbooks", "type": "database", "label": "Playbooks (Garage)", "sublabel": "playbooks, agent template", "pos": [60, 300], "size": [200, 60] },
+    { "id": "drawer", "type": "database", "label": "Drawer", "sublabel": "macros, chats, logs (per person, private)", "pos": [60, 420], "size": [200, 60] },
+    { "id": "remote", "type": "backend", "label": "Remote (Zemeckis)", "sublabel": "watcher, macros, scrubber", "tag": "planned", "pos": [700, 180], "size": [200, 60] },
+    { "id": "rag_pipeline", "type": "database", "label": "Rag pipeline (Journals)", "sublabel": "company memory, retrieval", "tag": "planned", "pos": [700, 300], "size": [200, 60] },
+    { "id": "nightly_loop", "type": "backend", "label": "Nightly loop (Scoreboard)", "sublabel": "logs to proposals", "tag": "planned", "pos": [380, 560], "size": [220, 60] },
+    { "id": "ask_first_gate", "type": "security", "label": "Ask-first gate", "sublabel": "Yes card before any risky action", "pos": [700, 420], "size": [200, 60] },
+    { "id": "connectors", "type": "backend", "label": "Connectors (Gates)", "sublabel": "one-click connector catalog", "pos": [1040, 400], "size": [200, 110] },
+    { "id": "outlook_mail", "type": "external", "label": "Outlook mail", "tag": "live", "pos": [1420, 40], "size": [190, 56] },
+    { "id": "outlook_cal", "type": "external", "label": "Outlook calendar", "tag": "live", "pos": [1420, 140], "size": [190, 56] },
+    { "id": "teams", "type": "external", "label": "Teams", "sublabel": "read-only until v2", "tag": "live", "pos": [1420, 240], "size": [190, 56] },
+    { "id": "onedrive", "type": "external", "label": "OneDrive", "tag": "catalog-only", "pos": [1420, 340], "size": [190, 56] },
+    { "id": "google_drive_cal", "type": "external", "label": "Google Drive & Calendar", "tag": "catalog-only", "pos": [1420, 440], "size": [190, 56] },
+    { "id": "quickbooks", "type": "external", "label": "QuickBooks", "sublabel": "read-only by design", "tag": "catalog-only", "pos": [1420, 540], "size": [190, 56] }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "On the person's Mac", "wraps": ["rig", "agent_core", "skills", "playbooks", "drawer", "remote", "rag_pipeline", "nightly_loop", "ask_first_gate", "connectors"], "pad": 28 },
+    { "kind": "region", "label": "Outside tools", "wraps": ["outlook_mail", "outlook_cal", "teams", "onedrive", "google_drive_cal", "quickbooks"], "pad": 24 }
+  ],
+  "connections": [
+    { "id": "rig-to-service", "from": "rig", "to": "agent_core", "label": "local HTTP / WebSocket", "variant": "emphasis", "fromSide": "bottom", "toSide": "top" },
+    { "id": "service-to-skills", "from": "agent_core", "to": "skills", "label": "uses skills" },
+    { "id": "service-to-playbooks", "from": "agent_core", "to": "playbooks", "label": "uses playbooks" },
+    { "id": "service-to-drawer", "from": "agent_core", "to": "drawer", "label": "reads / writes" },
+    { "id": "service-to-remote", "from": "agent_core", "to": "remote", "label": "records", "variant": "dashed" },
+    { "id": "service-to-rag", "from": "agent_core", "to": "rag_pipeline", "label": "retrieval", "variant": "dashed" },
+    { "id": "service-to-nightly", "from": "agent_core", "to": "nightly_loop", "label": "logs to proposals", "variant": "dashed" },
+    { "id": "service-to-gate", "from": "agent_core", "to": "ask_first_gate", "label": "risky step", "variant": "security" },
+    { "id": "gate-to-connectors", "from": "ask_first_gate", "to": "connectors", "label": "Yes card approved", "variant": "security" },
+    { "id": "connectors-to-outlook-mail", "from": "connectors", "to": "outlook_mail", "label": "read; send after Yes" },
+    { "id": "connectors-to-outlook-cal", "from": "connectors", "to": "outlook_cal", "label": "read; edits after Yes" },
+    { "id": "connectors-to-teams", "from": "connectors", "to": "teams", "label": "read-only" },
+    { "id": "connectors-to-onedrive", "from": "connectors", "to": "onedrive", "label": "catalog only", "variant": "dashed" },
+    { "id": "connectors-to-google", "from": "connectors", "to": "google_drive_cal", "label": "catalog only", "variant": "dashed" },
+    { "id": "connectors-to-quickbooks", "from": "connectors", "to": "quickbooks", "label": "catalog only", "variant": "dashed" }
+  ],
+  "cards": [
+    { "dot": "emerald", "title": "Working today", "items": ["The Rig, the local service, and the ask-first gate", "Outlook mail and calendar reads; Teams reads"] },
+    { "dot": "cyan", "title": "Live connectors", "items": ["Outlook mail: read; send, reply, move after a Yes card", "Outlook calendar: read; changes after a Yes card", "Teams: read-only until v2, cannot send"] },
+    { "dot": "slate", "title": "Catalog only, not yet live", "items": ["OneDrive", "Google Drive and Google Calendar", "QuickBooks: read-only by design, tested on fake data only"] },
+    { "dot": "violet", "title": "Planned", "items": ["Remote (Zemeckis): the watcher, macros, and scrubber; its macros land in the drawer and can be promoted to personal skills", "Rag pipeline (Journals): company-wide searchable memory, Phase 3", "Nightly loop (Scoreboard): reads logs, writes proposals"] }
+  ]
+}

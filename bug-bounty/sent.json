@@ -1,0 +1,26 @@
+{
+  "security@xola.com": {
+    "id": "01a198d0-6d23-7817-870c-7dda6fbe185c",
+    "subject": "[VDP] Subdomain takeover \u2014 wixdemo.xola.com (dangling CNAME to unclaimed Wix edge)",
+    "draft": "submission-email-xola.txt",
+    "report": "report-xola-wixdemo-subdomain-takeover.md"
+  },
+  "security@differential.com": {
+    "id": "01a198d0-6e6e-72c8-bfaa-9b72756c9b21",
+    "subject": "[VDP] Subdomain takeover \u2014 bas-facility-layout-tool-api-{dev,staging}.differential.com (dangling Elastic Beanstalk CNAME)",
+    "draft": "submission-email-differential.txt",
+    "report": "report-differential-elasticbeanstalk-takeover.md"
+  },
+  "secops@stewart.com": {
+    "id": "01a198d0-6f90-73e1-b8be-86861c559e86",
+    "subject": "[VDP] Dangling DNS records - ind-dev.stewart.com / ind-uat.stewart.com (Azure Traffic Manager)",
+    "draft": "submission-email-stewart.txt",
+    "report": "report-stewart-trafficmanager-dangling.md"
+  },
+  "security@celemi.com": {
+    "id": "01a198d0-70dd-725e-9497-1d38264c49cd",
+    "subject": "[VDP] Dangling DNS record \u2014 dig.sim.celemi.com CNAMEs to a terminated Elastic Beanstalk environment",
+    "draft": "submission-email-celemi.txt",
+    "report": "report-celemi-elasticbeanstalk-takeover.md"
+  }
+}

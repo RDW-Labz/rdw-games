@@ -1,0 +1,44 @@
+# ASC Status — read-only poll of an app's App Store review state.
+#
+# Apple sends no webhook when review approves or rejects a version, so the
+# only way to know is to ask. This workflow is the pollable endpoint: it runs
+# scripts/store-release/asc_status.py and the job log ends with one
+# `STATUS <version> <state>` line per App Store version. Dispatched on a
+# schedule by the owner's assistant session watching a submission
+# (bidder 1.0.1, 2026-08-09).
+
+name: ASC Status
+
+on:
+  workflow_dispatch:
+    inputs:
+      app:
+        description: 'Which app to check'
+        required: true
+        type: choice
+        default: bidder
+        options:
+          - bidder
+          - staff
+
+jobs:
+  status:
+    name: App Store review state
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install --quiet PyJWT cryptography
+      - name: Query App Store Connect
+        env:
+          ASC_API_KEY: ${{ secrets.ASC_API_KEY }}
+          ASC_API_KEY_ID: ${{ secrets.ASC_API_KEY_ID }}
+          ASC_API_KEY_ISSUER_ID: ${{ secrets.ASC_API_KEY_ISSUER_ID }}
+        run: |
+          set -euo pipefail
+          if [ "${{ inputs.app }}" = "bidder" ]; then
+            DIR=apps/bidder-app
+          else
+            DIR=apps/field-mobile
+          fi
+          ASC_ID=$(python3 -c "import json;print(json.load(open('$DIR/eas.json'))['submit']['production']['ios']['ascAppId'])")
+          python3 scripts/store-release/asc_status.py "$ASC_ID"

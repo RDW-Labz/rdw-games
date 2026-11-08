@@ -1,0 +1,22 @@
+{
+  "id": "manifest-013",
+  "source": "amazon",
+  "raw": {
+    "description": "Olay Regenerist Micro-Sculpting Cream Face Moisturizer 1.7 oz",
+    "retailer_category": "gl_beauty",
+    "upc": "075609001963",
+    "quantity": 1,
+    "retail_price": 28.99
+  },
+  "expected": {
+    "title": "Olay Regenerist Micro-Sculpting Cream Face Moisturizer (1.7 oz)",
+    "brand": "Olay",
+    "model": "",
+    "category_slug": "beauty",
+    "category_legacy": "Health & Beauty",
+    "condition": "New/Sealed",
+    "msrp_cents": 2899,
+    "expected_confidence": "high"
+  },
+  "notes": "Beauty — no model number. Tests graceful handling of products that don't have a SKU."
+}

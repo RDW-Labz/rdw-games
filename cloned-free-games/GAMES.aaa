@@ -1,0 +1,54 @@
+# GAMES.aaa — AAA-scale targets, cloned onto the T7 Shield (/mnt/models).
+#
+# Same TSV shape as GAMES.queue: name, url, stars, license, est_size_kb, source, summary
+# so scripts/queue-fetch.sh can walk it unchanged:
+#
+#   scripts/queue-fetch.sh --queue GAMES.aaa --target /mnt/models/cloned-free-games/games
+#
+# Why a separate queue: these are 100 MB - 9 GB trees. Cloning them into games/ on the
+# 950 GB btrfs would eat the volume the builds need; the shield has 1.6 TB free and is
+# cold storage. Builds and runs stay on btrfs (exfat is case-insensitive and has no POSIX
+# permissions, so a build tree there would fail in ways that look like source bugs).
+#
+# Three tiers, and the tier is the whole legal story:
+#
+#   A. AAA-scale games that are fully open source — code and (mostly) art.
+#   B. Reimplementations of AAA commercial engines. Source is genuinely free, but the
+#      game DATA is not: these boot to a menu and then ask for files you must own.
+#      Cloning and shipping the source is fine; claiming a working game is not.
+#   C. Decompilation ports. Source derives from copyrighted binaries and Nintendo in
+#      particular has issued takedowns. Kept commented out — see the note at the bottom.
+#
+# name	url	stars	license	est_size_kb	source	summary
+0ad	https://gitea.wildfiregames.com/0ad/0ad.git	2828	GPL-2.0+	8697856	gitea	AAA-scale RTS in development since 2001: full 3D art pipeline, 13 civilisations, real sound design. The biggest genuinely open game that exists.
+Beyond-All-Reason	https://github.com/beyond-all-reason/Beyond-All-Reason.git	4335	GPL-2.0 engine + CC-BY-NC-ND art	4390912	github	Total Annihilation successor on the Spring/Recoil engine. AAA in scope (hundreds of units, full campaign art) but the art licence is non-commercial — cloneable, not redistributable.
+freeciv	https://github.com/freeciv/freeciv.git	1625	GPL-2.0	1106944	github	Civilization clone with 30 years of rulesets, AI and tilesets — the deepest turn-based strategy in the free world.
+OpenTTD	https://github.com/OpenTTD/OpenTTD.git	8446	NOASSERTION(GPL-2.0)	731136	github	Transport Tycoon Deluxe, reimplemented and extended for 20 years. Small install, absurd depth, runs on anything.
+freeorion	https://github.com/freeorion/freeorion.git	1058	none-detected	666624	github	Master of Orion style 4X space strategy. Repo carries no LICENSE file even though the project states GPL-2.0 — verify before redistributing.
+endless-sky	https://github.com/endless-sky/endless-sky.git	7688	GPL-3.0	591872	github	2D space trading/combat sandbox with a huge hand-authored galaxy and plugin ecosystem.
+unknown-horizons	https://github.com/unknown-horizons/unknown-horizons.git	1559	none-detected	502784	github	The Settlers-style economy RTS on a custom engine; no LICENSE file detected, verify before redistributing.
+supertuxkart	https://github.com/supertuxkart/stk-code.git	5460	NOASSERTION(GPL-2.0 + CC-BY-SA art)	388096	github	Polished 3D kart racer with 20+ tracks, story mode and online play — the most "AAA feel" free racer.
+OpenRA	https://github.com/OpenRA/OpenRA.git	17707	GPL-3.0	352256	github	Tiberian Dawn / Red Alert / Dune 2000 rebuilt on a modern C# engine. Ships free assets for some mods, needs original media for the rest.
+xonotic	https://github.com/xonotic/xonotic.git	549	GPL-3.0 + CC-BY-SA art	274432	github	Arena FPS with AAA-grade map and weapon art, Quake-lineage movement. Art is genuinely open, unlike most "free" shooters.
+Unvanquished	https://github.com/Unvanquished/Unvanquished.git	1131	GPL-3.0 + CC-BY-SA art	210944	github	FPS/RTS hybrid with alien/insectoid art and a modern engine port; active art community.
+daggerfall-unity	https://github.com/Interkarma/daggerfall-unity.git	3552	MIT	144384	github	Daggerfall rebuilt in Unity. Code MIT; the game data is freeware from Bethesda but not in the repo.
+luanti	https://github.com/luanti-org/luanti.git	13803	NOASSERTION(LGPL-2.1)	143360	github	Voxel game platform (ex-Minetest) — the engine plus thousands of community games, scales from phone to server.
+vcmi	https://github.com/vcmi/vcmi.git	6004	GPL-2.0	122880	github	Heroes of Might and Magic III engine reimplementation with full HD, higher AI and networked play. Needs the original GOG/retail data.
+OpenMW	https://github.com/OpenMW/openmw.git	6701	GPL-3.0	112640	github	Morrowind reimplemented — the reference example of a legal AAA engine rebuild. Needs Morrowind data.
+jak-project	https://github.com/open-goal/jak-project.git	3625	ISC	410624	github	OpenGOAL: Jak & Daxter compiled from the original PS2 code. Toolchain is ISC, but it needs a PS2 disc image you own.
+RBDOOM-3-BFG	https://github.com/RobertBeckebans/RBDOOM-3-BFG.git	1866	GPL-3.0	86016	github	Doom 3 BFG source port with Vulkan/DX12 renderers — modernised id Tech 4.
+CorsixTH	https://github.com/CorsixTH/CorsixTH.git	4629	NOASSERTION(GPL-2.0)	45056	github	Theme Hospital rebuilt in Lua/C++; needs the original game files (sold cheaply, often free on Origin).
+OpenXcom	https://github.com/OpenXcom/OpenXcom.git	2247	GPL-3.0	34816	github	X-COM UFO Defense/TFTD with mods, higher resolutions and bugfixes. Needs the original data.
+xoreos	https://github.com/xoreos/xoreos.git	1195	GPL-3.0	30720	github	Aurora engine (Neverwinter Nights, KOTOR, The Witcher) reimplementation — engine only, data required.
+OpenLoco	https://github.com/OpenLoco/OpenLoco.git	1960	MIT	25600	github	Chris Sawyer's Locomotion reimplemented in C++20; needs the original game.
+dhewm3	https://github.com/dhewm/dhewm3.git	2193	GPL-3.0	14336	github	Doom 3 source port (SDL2, 64-bit, widescreen). Needs Doom 3 data.
+openblack	https://github.com/openblack/openblack.git	11	GPL-3.0	11264	github	Black & White engine reimplementation, early but the only one. Needs the original data.
+SFTtech-openage	https://github.com/SFTtech/openage.git	1300	NOASSERTION(GPL-3.0)	19456	github	Age of Empires II engine reimplementation. Conversion pipeline only — no game data, no ready-to-play build.
+#
+# --- tier C: decompilation ports, deliberately NOT queued --------------------
+#
+# zeldaret/oot, zeldaret/mm, n64decomp/sm64, HarbourMasters/Shipwright (Ocarina of Time),
+# 2ship2harkinian (Majora's Mask) are technically impressive and 100% AAA, but their
+# source is mechanically derived from copyrighted binaries. Nintendo has DMCA'd these
+# repeatedly, which makes a public repo that pins them a liability rather than a catalog.
+# Uncomment only with an explicit decision to carry that risk.

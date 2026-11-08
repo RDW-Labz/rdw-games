@@ -1,0 +1,25 @@
+# The collection's own gates, on every push and PR: catalog in sync with the
+# games, invariants, and the vendored payload byte-for-byte. Browser tests are
+# local-only (they need a Chromium), so CI stops at the pure-node checks.
+name: verify
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node tools/sync-catalog.mjs --check
+      - run: node tests/smoke.mjs
+      - run: node tests/vendor.mjs

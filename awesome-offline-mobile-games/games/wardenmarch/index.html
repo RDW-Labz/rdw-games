@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<link rel="icon" href="../../shell/assets/icon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0d1013">
+<meta name="description" content="Wardenmarch — a turn-based skirmish campaign where every unit fights by Battle for Wesnoth's own rules on arenas cut from Dungeon Crawl vaults. Fully offline.">
+<title>Wardenmarch</title>
+<style>
+  :root { --bg:#0d1013; --steel:#9fb8c8; --banner:#d24b3f; --gold:#e8c168; }
+  html, body {
+    margin:0; padding:0; height:100%; width:100%;
+    background:var(--bg); overflow:hidden;
+    -webkit-user-select:none; user-select:none;
+    -webkit-tap-highlight-color:transparent;
+    overscroll-behavior:none;
+  }
+  #stage { position:fixed; inset:0; }
+  canvas#game {
+    display:block; width:100%; height:100%;
+    background:#0d1013; touch-action:none; outline:none;
+  }
+  /* GameKit thumb-pad, re-skinned to Wardenmarch's banner-and-steel palette. */
+  .gk-pad .gk-btn {
+    font:700 11px/64px ui-monospace, Menlo, Consolas, monospace !important;
+    letter-spacing:.08em;
+    background:rgba(159,184,200,.10) !important;
+    border:1px solid rgba(159,184,200,.52) !important;
+    color:#dbe9f2 !important;
+    box-shadow:0 0 16px rgba(159,184,200,.16), inset 0 0 14px rgba(159,184,200,.06);
+  }
+  .gk-pad .gk-btn.gk-btn-dash {
+    background:rgba(210,75,63,.12) !important;
+    border-color:rgba(210,75,63,.60) !important;
+    color:#f6d7d2 !important;
+  }
+  .gk-pad .gk-btn.gk-btn-use {
+    background:rgba(232,193,104,.10) !important;
+    border-color:rgba(232,193,104,.55) !important;
+    color:#f7e9c6 !important;
+  }
+</style>
+</head>
+<body>
+  <div id="stage"><canvas id="game" aria-label="Wardenmarch"></canvas></div>
+  <script src="../../vendor/vendor.js"></script>
+  <script src="../../shell/lib/gamekit.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

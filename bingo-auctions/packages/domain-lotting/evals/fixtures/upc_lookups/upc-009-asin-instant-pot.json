@@ -1,0 +1,15 @@
+{
+  "id": "upc-009",
+  "code": "B00FLYWNYQ",
+  "code_type": "asin",
+  "expected": {
+    "title": "Instant Pot Duo 7-in-1 Electric Pressure Cooker (6-Quart, Stainless Steel)",
+    "brand": "Instant Pot",
+    "model": "Duo 60 V3",
+    "category_slug": "small-appliances",
+    "category_legacy": "Appliances",
+    "condition": "",
+    "msrp_cents": 9999
+  },
+  "notes": "Famous Amazon ASIN. ~3M reviews — the model should have high confidence."
+}

@@ -1,0 +1,23 @@
+{
+  "id": "manifest-020",
+  "source": "amazon",
+  "raw": {
+    "description": "Insignia 50-inch Class F30 Series LED 4K UHD Smart Fire TV (NS-50F301NA22)",
+    "retailer_category": "gl_home_entertainment",
+    "upc": "600603272875",
+    "model_number": "NS-50F301NA22",
+    "quantity": 1,
+    "retail_price": 299.99
+  },
+  "expected": {
+    "title": "Insignia 50-inch F30 Series 4K UHD Smart Fire TV (NS-50F301NA22)",
+    "brand": "Insignia",
+    "model": "NS-50F301NA22",
+    "category_slug": "tvs",
+    "category_legacy": "Electronics",
+    "condition": "New/Open Box",
+    "msrp_cents": 29999,
+    "expected_confidence": "high"
+  },
+  "notes": "Best Buy house brand TV — common return manifest item."
+}

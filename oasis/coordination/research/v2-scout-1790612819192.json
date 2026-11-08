@@ -1,0 +1,71 @@
+{
+  "picks": [
+    {
+      "name": "holocloth",
+      "url": "https://github.com/dmitrykurash/holocloth",
+      "license": "MIT",
+      "licenseEvidence": "LICENSE file: 'MIT License \\u2014 Copyright (c) 2026 Dmitry Kurash ... Permission is hereby granted, free of charge, to any person obtaining a copy of this software...'",
+      "commit": "a6078ba698a53cbf18be870cea555c1971f84103",
+      "stars": 198,
+      "lastCommit": "2026-07-22",
+      "gives": "Custom GLSL iridescent/holographic foil shader with sparkle/glitter and bump-map handling, written directly against Three.js WebGL2 + React + TS — use as reference source (extract shader chunks) for the T50 foil-portrait effect.",
+      "fit": "reference-only",
+      "where": "Port the fragment shader (fresnel + rainbow diffraction + sparkle noise) into OASIS's own ShaderMaterial for the T50 card foil layer.",
+      "risk": "Very new repo (4 commits, 2 months old) with no releases/tags to pin beyond commit SHA; treat as a study/reference, re-review the shader math before adopting verbatim; repo includes cloth-physics code not needed for OASIS (extract only the shader)."
+    },
+    {
+      "name": "guillocheJS",
+      "url": "https://github.com/stabla/guillocheJS",
+      "license": "MIT",
+      "licenseEvidence": "LICENSE file: 'MIT License. Copyright (c) 2017 Guillaume Bonnet ... permission is hereby granted...'",
+      "commit": "8e1d3fb17820d83999f3b1ab8bfe6c4ce1061128",
+      "stars": 16,
+      "lastCommit": "2026-03-04",
+      "gives": "Dependency-free vanilla-JS Canvas generator for hypotrochoid/epitrochoid/hypocycloid guilloche curves with HiDPI + PNG export — exactly the engraved gold-border pattern technique needed for T50.",
+      "fit": "drop-in",
+      "where": "Run offline at build time (or once at runtime) to bake a guilloche PNG/canvas texture, then map it onto the card border geometry/material in Three.js.",
+      "risk": "Repo size ~36KB, no formal npm package or tags — vendor the ~500-line JS file directly and pin by commit SHA; no build tooling to verify beyond manual read."
+    },
+    {
+      "name": "vanilla-tilt.js",
+      "url": "https://github.com/micku7zu/vanilla-tilt.js",
+      "license": "MIT",
+      "licenseEvidence": "LICENSE file: 'MIT License \\u2014 Copyright (c) 2017 \\u0218andor Sergiu ... Permission is hereby granted, free of charge...'",
+      "commit": "967ab1accf4fdf5ce8a67eeac146e3035a7fe5be",
+      "stars": 4016,
+      "lastCommit": null,
+      "gives": "Zero-dependency pointer-driven 3D tilt + glare micro-library (~6.8KB minified) for the card tilt/drag/flip and pointer-light-sweep interaction on the DOM-layer card face.",
+      "fit": "drop-in",
+      "where": "Wrap as the pointer/tilt input driver for the T50 card container, feeding its computed tilt angles into the WebGL shader uniforms for the specular sweep.",
+      "risk": "No commits since Nov 2023 (outside the 12-month freshness preference) — stable/tiny/widely-used so low churn risk, but confirm it still behaves correctly under Tauri's WebKit/WebView2 pointer events before relying on it long-term; easy to fork given its size if abandoned."
+    }
+  ],
+  "rejected": [
+    {
+      "name": "pokemon-cards-css (simeydotme)",
+      "url": "https://github.com/simeydotme/pokemon-cards-css",
+      "reason": "LICENSE file is GPLv3 (verified directly), not MIT as often assumed from its popularity/badges — disallowed license for OASIS."
+    },
+    {
+      "name": "daniel-ilett/shaders-holo-card",
+      "url": "https://github.com/daniel-ilett/shaders-holo-card",
+      "reason": "Unity/HLSL shader project, not Three.js/WebGL — wrong stack for a drop-in pick; would require a full rewrite rather than porting, so not scouted as a license-verified pick."
+    },
+    {
+      "name": "react-flip-tilt",
+      "url": "https://github.com/rashidshamloo/react-flip-tilt",
+      "reason": "MIT but effectively unmaintained (last push 2023-11-07, only 1 star) and pulls in Framer Motion as a hard dependency, adding weight against the low-idle-CPU/offline-bundle constraints; vanilla-tilt.js covers the same need with zero dependencies."
+    }
+  ],
+  "top": [
+    "Use holocloth's Three.js/WebGL2 shader source as a reference for the T50 foil+sparkle fragment shader (MIT, very active, but pin by commit and vet the math yourself).",
+    "Use guillocheJS to bake the engraved gold guilloche border as a texture offline (MIT, active, dependency-free, tiny).",
+    "Use vanilla-tilt.js to drive the pointer-based tilt/glare interaction on the card (MIT, tiny, ubiquitous, though its last commit is ~2.5 years old)."
+  ],
+  "moved": [],
+  "id": "scout-1790612819192",
+  "goal": "Holo/foil trading-card shaders and techniques for T50 (iridescent foil, glitter, engraved/guilloche gold border, pointer-driven specular sweep, card tilt/flip) usable in Three.js or WebGL",
+  "model": "sonnet",
+  "actualModel": "claude-sonnet-5",
+  "createdAt": "2026-09-28T16:30:32.900Z"
+}

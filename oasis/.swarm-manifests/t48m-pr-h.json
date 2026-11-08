@@ -1,0 +1,20 @@
+{
+ "version": 1,
+ "concurrency": 1,
+ "jobs": [
+  {
+   "id": "t48m-pr-h",
+   "agent": "claude",
+   "model": "haiku",
+   "tier": "cheap",
+   "timeoutMs": 300000,
+   "context": [
+    "coordination/t48m-changelog-0731.md"
+   ],
+   "outputs": [
+    "coordination/t48m-0731-pr-create.json"
+   ],
+   "prompt": "Write coordination/t48m-0731-pr-create.json: a JSON object {\"title\": \"agent-core 0.7.31: T48 Mac-check fixes\", \"head\": \"t48-mac-fix\", \"base\": \"main\", \"body\": \"...\"} built from coordination/t48m-changelog-0731.md (the only source of facts). The body must be exactly: first line `**needs Braden**` (the Teams-send gate changed); blank line; `## Summary` with one bullet per fix, plain words, max 8 bullets, each <= 25 words; `## Checks` with the single line `<!-- swarm:checks -->`; `## Mutation check` with the single line `<!-- mutants -->`; `## Rig` with the line `Rig not restarted: Braden restarts it.`; then a blank line and `\ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)`. No other sections, no invented facts. Result JSON: {written: true}."
+  }
+ ]
+}

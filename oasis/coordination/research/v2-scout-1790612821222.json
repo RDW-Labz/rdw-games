@@ -1,0 +1,63 @@
+{
+  "picks": [
+    {
+      "name": "three.quarks",
+      "url": "https://github.com/Alchemist0823/three.quarks",
+      "license": "MIT",
+      "licenseEvidence": "LICENSE file: 'Permission is hereby granted, free of charge...' Copyright (c) 2019 Forrest Sun — standard MIT text, verified at raw.githubusercontent.com/Alchemist0823/three.quarks/master/LICENSE",
+      "commit": "7cb6388b478fea6ffcd31c4154f35d45d6a53f0e",
+      "stars": 1000,
+      "lastCommit": null,
+      "gives": "GPU-instanced general-purpose particle/VFX system for three.js (emitters, curves, GPU update) — for embers/sparks in the splash and load-in",
+      "fit": "drop-in",
+      "where": "OASIS splash + load-in ember/spark particle layer",
+      "risk": "Source file ~100-110KB unminified (observed); gzip size not independently verified — measure after bundling to confirm it fits offline/bundle-size budget. No official GitHub Releases page, only git tags."
+    },
+    {
+      "name": "three.js Lensflare (examples/jsm/objects/Lensflare.js)",
+      "url": "https://github.com/mrdoob/three.js/blob/master/examples/jsm/objects/Lensflare.js",
+      "license": "MIT",
+      "licenseEvidence": "three.js repo LICENSE file: standard MIT text, 'Copyright © 2010-2026 three.js authors', verified at raw.githubusercontent.com/mrdoob/three.js/dev/LICENSE",
+      "commit": null,
+      "stars": 116000,
+      "lastCommit": null,
+      "gives": "Small (~9.8KB source), dependency-free additive-sprite lens-flare/glow technique already part of your three.js dependency — cheapest way to fake volumetric light shafts/glow around light sources",
+      "fit": "reference-only",
+      "where": "Splash screen 'god-ray'-style glow behind the OASIS logo/light source, load-in glow accents",
+      "risk": "Not true screen-space volumetric god rays (no raymarching) — purely a billboard/sprite trick, so it will look flatter than raymarched god-ray libraries, but avoids the zlib-licensed alternatives entirely."
+    }
+  ],
+  "rejected": [
+    {
+      "name": "Kenney Particle Pack",
+      "url": "https://kenney.nl/assets/particle-pack",
+      "reason": "license not allowed: CC0 1.0 / Public Domain"
+    },
+    {
+      "name": "pmndrs/postprocessing (GodRaysEffect, BloomEffect)",
+      "url": "https://github.com/pmndrs/postprocessing",
+      "reason": "LICENSE.md is the zlib license (not MIT as commonly assumed) — zlib is not on the allowed license list."
+    },
+    {
+      "name": "three-good-godrays",
+      "url": "https://github.com/Ameobea/three-good-godrays",
+      "reason": "Own LICENSE file is zlib-licensed (Copyright Casey Primozic), and it hard-depends on the zlib-licensed pmndrs/postprocessing package — not allowed."
+    },
+    {
+      "name": "jeromeetienne/threex.volumetricspotlight",
+      "url": "https://github.com/jeromeetienne/threex.volumetricspotlight",
+      "reason": "MIT-licensed but abandoned since 2013 (only 9 commits, pre-dates modern three.js APIs) — too stale/high-risk to integrate, fails the 'active' preference badly."
+    }
+  ],
+  "top": [
+    "three.quarks (MIT) for GPU embers/sparks, Kenney Particle Pack (CC0) for glow/ember textures, and three.js's own MIT-licensed Lensflare.js for cheap fake volumetric glow — since every real god-ray library in the three.js ecosystem turned out to be zlib-licensed and had to be rejected."
+  ],
+  "moved": [
+    "Kenney Particle Pack"
+  ],
+  "id": "scout-1790612821222",
+  "goal": "Particles and light for the OASIS splash and load-in: GPU particle systems, light shafts/god rays, glow sprites, embers, volumetric-looking light that is cheap in Three.js",
+  "model": "sonnet",
+  "actualModel": "claude-sonnet-5",
+  "createdAt": "2026-09-28T16:31:17.839Z"
+}

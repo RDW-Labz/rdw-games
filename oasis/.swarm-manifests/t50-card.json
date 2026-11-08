@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "concurrency": 1,
+  "jobs": [
+    {
+      "id": "t50-card",
+      "agent": "openrouter",
+      "model": "anthropic/claude-sonnet-5.5",
+      "tier": "mid",
+      "maxOutputTokens": 32768,
+      "timeoutMs": 1800000,
+      "context": [
+        ".swarm-manifests/t50-contract.md",
+        "src/design/tokens.ts",
+        "src/components/CoworkerGrid.tsx",
+        "src/components/useCoworkers.ts",
+        "tests/Coworkers.test.tsx",
+        "tests/setup.ts",
+        "package.json"
+      ],
+      "outputs": [
+        "src/components/HoloCard.tsx",
+        "src/components/holoCard.css",
+        "src/lib/holoCardState.ts",
+        "tests/holoCard.test.tsx",
+        "tests/holoCardState.test.ts"
+      ],
+      "prompt": "T50 (decision #159, contract §1 job t50-card): build HoloCard component, holoCard.css styles, holoCardState.ts state logic, plus unit and component tests.\nBuild exactly what §2–§4 specifies. Key picks: (1) No new npm dependencies; tilt is custom pointer math in holoCardState (±12° hover clamp, zero-crossing snap); (2) drag-to-rotate in v1 (left-mouse Y-axis ±180°, snap back if not flipped); (3) foil = CSS-only (linear + conic gradients, glare-x/glare-y custom properties, sparkle from ONE 2D canvas rendered at module load, data-URL ~50KB, no per-frame work); (4) gold border = CSS engraved (inset box-shadows, Lantern tokens); (5) IntersectionObserver threshold 0.25; (6) portrait fallback when !visible || !hovered (static <img>, no animation); (7) reduced-motion: no tilt/glare, flip instant, no sparkle; (8) keyboard focus = hover visual, Enter/Space flip, Tab reaches Pick; (9) three mutants killed: card animates while page hidden, back shows before flip, static fallback missing.\nHoloCard.tsx: React component, ~140–180 lines. Props: portrait (CoworkerImage | undefined), name (string), category (string | null), moreMotion (boolean), onPick (() => void), visible (boolean), reduced (boolean from matchMedia). Renders front (portrait + foil + border) and back (name, category, More-motion tag if moreMotion, Pick button) faces. Calls useHoloCardState to track pointer/visibility/reduced-motion. Applies data attributes [data-hovered], [data-visible], [data-reduced], [data-flipped] driven by holoCardState return values. ARIA: role=\"article\", aria-label on card and Pick button.\nholoCard.css: ~200 lines. 3D perspective, preserve-3d. Front/back faces rotateY for flip. Foil = linear + conic gradients, opacity layers, mask by --glare-x/--glare-y (0–100 custom properties). Gold border = 2–3 inset box-shadows with --oasis-needs-you and --oasis-rim. Tilt = rotateX/rotateY from --tilt-x/--tilt-y (degrees, 0 when not hovered or not visible). Flip transition 400–600ms. Reduced-motion: no transition, no tilt, no glare, no sparkle. Static fallback class holo-card__fallback (no 3D).\nholoCardState.ts: ~140 lines, pure module, no React, no external dependencies. Export useHoloCardState(element: HTMLElement | null, visible: boolean, reduced: boolean) => { flipped: boolean, hovered: boolean, tiltX: number, tiltY: number, dragRotY: number, toggleFlip: () => void }. Track IntersectionObserver (visible gate), matchMedia prefers-reduced-motion (reduced gate), pointermove/enter/leave (tilt math: clamp (x - center.x) / width to ±12°, same Y), pointerdown+move with primary button (drag: (x_move - x_down) / width * 180 for dragRotY, up to ±180°, snap back on leave if not flipped), visibilitychange (page hidden = stop animation). CSS custom properties --tilt-x, --tilt-y (degrees), --glare-x, --glare-y (0–100), --drag-rot-y (degrees). Animation gates: set all to 0 if !visible || !hovered || reduced. Sparkle: at module load, create 2D canvas (64×64), render tiny circles in a glitter pattern (procedural, deterministic), convert to data-URL, export as sparkleDataUrl (reused by CSS).\nTests: vitest + jsdom + RTL. Mock IntersectionObserver (vi.stubGlobal), matchMedia (vi.mocked), requestAnimationFrame (jsdom default), pointer events (fireEvent.pointerenter, pointerdown, pointermove, pointerup, pointerleave). Fake CoworkerImage with thumb kind. Tests in holoCard.test.tsx: (1) front face renders (portrait, name, badge, More-motion tag if present); (2) Space/Enter flips to back; (3) Space/Enter again flips back; (4) visible=false → static PNG fallback rendered; (5) hovered=false → no animation, static falls back; (6) reduced=true → no transition, instant flip, no tilt/glare classes; (7) focus shows hover visual; (8) Pick button is real <button>, onClick flows out. Tests in holoCardState.test.ts: (1) visible=true, hovered=true → tilt/glare x,y in range; (2) visible=true, hovered=false → tilt/glare zeros; (3) visible=false → no animation; (4) reduced=true → disabled; (5) toggleFlip state persists across visibility; (6) pointermove updates tilt/glare CSS vars; (7) document.hidden stops animation; (8) IntersectionObserver entry.isIntersecting controls visible gate. Every test fakes matchMedia, IntersectionObserver, pointer events.\nOUTPUT SIZE RULES: HoloCard.tsx and holoCard.css compact (no long docstrings, comments inline). holoCardState.ts under 140 lines. Tests under 200 lines each. Total reply under 30k tokens.\nENVELOPE RULES: every declared output path appears EXACTLY ONCE in `files`, never in `edits`. All 5 files are new, go in `files` with complete content.\nReturn JSON only, max 12 lines: {\"status\": \"done|partial|blocked\", \"summary\": \"<one line>\", \"files\": [\"<every output path written>\"], \"crossJobNames\": [\"<any export name>\"], \"reproTest\": \"<test covering sparkle or static fallback>\", \"findings\": [\"<≤3 one-liners>\"]}\nignoreTests note: existing Coworkers.test.tsx is not edited; new holoCard.test.tsx and holoCardState.test.ts are independent.",
+      "ignoreTests": []
+    }
+  ],
+  "contract": ".swarm-manifests/t50-contract.md"
+}

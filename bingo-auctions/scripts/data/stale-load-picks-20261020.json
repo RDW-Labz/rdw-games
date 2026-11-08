@@ -1,0 +1,65 @@
+[
+ {
+  "id": "7a76ab40-84ce-40e7-b41f-4f0db48b3a81",
+  "lot_code": "BIN-036548",
+  "operator_id": "05775af4-adb7-4f0f-943e-94a91e17f60d",
+  "old_load_id": "e82bc44a-774b-4bb1-ab68-a0b67f15a5b3",
+  "new_load_id": null
+ },
+ {
+  "id": "6e174fbb-514c-4ed2-a007-abc7e96b7963",
+  "lot_code": "BIN-036549",
+  "operator_id": "05775af4-adb7-4f0f-943e-94a91e17f60d",
+  "old_load_id": "e82bc44a-774b-4bb1-ab68-a0b67f15a5b3",
+  "new_load_id": null
+ },
+ {
+  "id": "df9695c0-cffb-4c4e-a563-094f5b06a8ef",
+  "lot_code": "BIN-036550",
+  "operator_id": "05775af4-adb7-4f0f-943e-94a91e17f60d",
+  "old_load_id": "e82bc44a-774b-4bb1-ab68-a0b67f15a5b3",
+  "new_load_id": null
+ },
+ {
+  "id": "9c04e2fb-ba2e-4d85-9584-93025de77da1",
+  "lot_code": "BIN-036551",
+  "operator_id": "05775af4-adb7-4f0f-943e-94a91e17f60d",
+  "old_load_id": "e82bc44a-774b-4bb1-ab68-a0b67f15a5b3",
+  "new_load_id": null
+ },
+ {
+  "id": "ab31717c-008c-4d59-a6ab-ba0cd0d259a9",
+  "lot_code": "BIN-036552",
+  "operator_id": "05775af4-adb7-4f0f-943e-94a91e17f60d",
+  "old_load_id": "e82bc44a-774b-4bb1-ab68-a0b67f15a5b3",
+  "new_load_id": null
+ },
+ {
+  "id": "5b0122ef-c52b-47b9-ad98-1d230d82e14e",
+  "lot_code": "BIN-036553",
+  "operator_id": "05775af4-adb7-4f0f-943e-94a91e17f60d",
+  "old_load_id": "e82bc44a-774b-4bb1-ab68-a0b67f15a5b3",
+  "new_load_id": null
+ },
+ {
+  "id": "12d91d4f-f54b-4603-a6d9-3f2474fc9d65",
+  "lot_code": "BIN-036554",
+  "operator_id": "05775af4-adb7-4f0f-943e-94a91e17f60d",
+  "old_load_id": "e82bc44a-774b-4bb1-ab68-a0b67f15a5b3",
+  "new_load_id": null
+ },
+ {
+  "id": "24a59a35-9d04-47ac-97f4-3e91a961dbb1",
+  "lot_code": "BIN-036555",
+  "operator_id": "05775af4-adb7-4f0f-943e-94a91e17f60d",
+  "old_load_id": "e82bc44a-774b-4bb1-ab68-a0b67f15a5b3",
+  "new_load_id": null
+ },
+ {
+  "id": "a8a5e550-05bc-4dc3-92cf-74c11126e0d9",
+  "lot_code": "BIN-036566",
+  "operator_id": "05775af4-adb7-4f0f-943e-94a91e17f60d",
+  "old_load_id": "e82bc44a-774b-4bb1-ab68-a0b67f15a5b3",
+  "new_load_id": null
+ }
+]

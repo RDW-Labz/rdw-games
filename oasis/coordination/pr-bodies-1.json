@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "concurrency": 2,
+  "jobs": [
+    {
+      "id": "t16-pr-body",
+      "agent": "claude",
+      "model": "haiku",
+      "tier": "cheap",
+      "prompt": "Write a GitHub PR create payload as JSON to your declared output file. Shape: {\"title\":\"...\",\"head\":\"<branch>\",\"base\":\"main\",\"body\":\"<markdown>\"}. Plain words, short lines. Wrap every angle-bracket placeholder, path and identifier in backticks. Sections: \"## What\", \"## Checks (rerun by coordinator)\", and any extra section named below. End the body with a blank line then exactly: \ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code). Use only the facts given. The file must be valid JSON.\nTitle: \"T16: bind skill steps to registered tools in rig-service\". Branch: codex/t16-skill-tools.\nFacts: Decision #47. New module `anorak.skill_tools` is the one place that builds the tool and `done_when` checker registries for the `LoopRunner` that `rig-service` gives the T15 clock. Steps bind to registered tools by the action names in `skill.yaml` `do` (decision #33). Unknown actions fail closed with a plain log line. Resources, pause and ask-first stay in the T07 scheduler (not bypassed). Tests: starter-skill fixture copies (`tests/fixtures/skills/daily-summary`, `file-filing`) run end to end through the real clock \u2192 scheduler \u2192 runner path with fake connectors; unknown action fails closed and logs; a `risky_steps` step still pauses for ask-first; a paused clock dispatches nothing. Files: `src/anorak/skill_tools.py`, `src/anorak/service_cli.py`, `tests/test_skill_tools.py`, the two fixtures, `docs/skill-tools.md`, `docs/local-service.md`, `CHANGELOG.md`.\nExtra section \"## Scope: hookup only (approved by Braden)\": the production registry is empty today, because none of the starter skills' actions has a real implementation yet (`connectors.calendar.today`, `connectors.email.unread`, `notes.write` and others; no step-to-step data passing in `anorak.loop`). T16b follows right after and makes \"daily summary\" real on Braden's Mac: Outlook calendar and unread mail through the T11 connector, a short note written to the drawer.\nChecks on commit 7e39954 (main a2\u2026 rebased): `pytest -q` \u2192 377 passed, 2 skipped, 1 deselected; `ruff check .` \u2192 All checks passed; `ruff format --check .` \u2192 65 files already formatted; `mypy --strict src` \u2192 no issues in 32 files (native and `--platform win32`); `git diff --check` \u2192 clean.",
+      "context": [],
+      "outputs": [
+        "coordination/t16-pr-create.json"
+      ],
+      "timeoutMs": 600000
+    },
+    {
+      "id": "no-token-pr-body",
+      "agent": "claude",
+      "model": "haiku",
+      "tier": "cheap",
+      "prompt": "Write a GitHub PR create payload as JSON to your declared output file. Shape: {\"title\":\"...\",\"head\":\"<branch>\",\"base\":\"main\",\"body\":\"<markdown>\"}. Plain words, short lines. Wrap every angle-bracket placeholder, path and identifier in backticks. Sections: \"## What\", \"## Checks (rerun by coordinator)\", and any extra section named below. End the body with a blank line then exactly: \ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code). Use only the facts given. The file must be valid JSON.\nTitle: \"Log \\\"no token found\\\" when the Rig service token is missing\". Branch: codex/no-token-log.\nFacts: Decision #46. When `rig.service_token` is missing from the OS keychain, the service writes one line to the activity log: action `token`, outcome `no token found: rig.service_token is not set in the OS keychain (service OASIS)`. When the token has an invalid shape: `invalid token: rig.service_token in the OS keychain has an invalid shape (service OASIS)`. Typed errors `ServiceTokenMissing` and `ServiceTokenInvalid` in `local_service_auth.py`, caught by type. Startup still refuses to run; the error the user or CLI sees stays generic (\"the Rig service token is unavailable\" / \"is invalid\"), so keychain detail lives only in the log. No token value is ever logged. Pairs with merged desktop-app#4, whose screen shows only \"Not connected yet\". Files: `src/anorak/local_service.py`, `src/anorak/local_service_auth.py`, `tests/test_local_service.py`, `docs/local-service.md`, `CHANGELOG.md`. Built by two swarm-CLI Haiku jobs; the coordinator's review caught that the first version picked log text by matching error words and leaked keychain detail into stderr; the second job fixed both.\nChecks: `pytest -q` \u2192 375 passed, 2 skipped, 1 deselected; `ruff check .` \u2192 All checks passed; `ruff format --check .` \u2192 62 files already formatted; `mypy --strict src` \u2192 no issues in 31 files (native and `--platform win32`); `git diff --check` \u2192 clean.",
+      "context": [],
+      "outputs": [
+        "coordination/no-token-pr-create.json"
+      ],
+      "timeoutMs": 600000
+    }
+  ]
+}

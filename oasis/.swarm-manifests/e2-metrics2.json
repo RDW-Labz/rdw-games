@@ -1,0 +1,32 @@
+{
+ "version": 1,
+ "concurrency": 1,
+ "jobs": [
+  {
+   "id": "e2-metrics2",
+   "agent": "claude",
+   "model": "sonnet",
+   "tier": "mid",
+   "shell": true,
+   "timeoutMs": 1800000,
+   "context": [
+    "coordination/tools/session_metrics.py",
+    "coordination/tools/test_ci_baseline.py",
+    "worktrees/swarm-w-ship.log",
+    "worktrees/swarm-w-ship2.log",
+    "worktrees/swarm-w-ship3.log",
+    "worktrees/swarm-w-ship4.log",
+    "worktrees/swarm-w-ship5.log",
+    "worktrees/swarm-w-ship6.log",
+    "coordination/swarm-metrics.md",
+    "coordination/tools/test_session_metrics.py"
+   ],
+   "outputs": [
+    "coordination/tools/session_metrics.py",
+    "coordination/tools/test_session_metrics_ship.py",
+    ".swarm-manifests/e2-metrics-result.json"
+   ],
+   "prompt": "Experiment E2 measurement (swarm-metrics.md \u2192 Experiments \u2192 E2, 'Measurement first'). Add a `ship` block to coordination/tools/session_metrics.py: a new flag `--ship-logs <glob or files>` (also read automatically when a root's worktrees/*-ship*.log files are given) that parses swarm ship log files (each line or file is one JSON object with fields branch, status \u2208 refused|held|ci-failed|merged|..., reason, code, timing) and reports per branch: attempts (number of ship records), refusals by code, and minutes from the first attempt to the first record whose status is held or merged or that carries a pushed sha (use file mtimes when the record has no timestamp; say so in the output). Print it inside the existing JSON/text output as `ship: {branches:[{branch, attempts, refusedCodes:{code:n}, minutesToFirstPush}]}` and add `--ship-only`. Keep every existing flag and output unchanged. Tests in coordination/tools/test_session_metrics_ship.py (pytest, fake log files with fake branch names, no real names): 3 refusals then held \u2192 attempts 4, minutes computed from given mtimes; a merged-first branch \u2192 attempts 1, 0 minutes; a missing/garbled line is skipped with a count. Run `python3 -m pytest coordination/tools -q` and make it green. Then run the tool on the six real worktrees/swarm-w-ship*.log files (context) with --ship-only and write the result to .swarm-manifests/e2-metrics-result.json (this is the E2 baseline row: batch W attempts and minutes to first push). Do not edit swarm-metrics.md. Return JSON only, max 7 lines: {\"status\":\"done|blocked\",\"filesChanged\":[\"...\"],\"findings\":[\"...\"],\"reproTest\":\"coordination/tools/test_session_metrics_ship.py::<name>\",\"batchW\":{\"attempts\":N,\"minutesToFirstPush\":N},\"pytest\":\"N passed\",\"open\":[]}"
+  }
+ ]
+}

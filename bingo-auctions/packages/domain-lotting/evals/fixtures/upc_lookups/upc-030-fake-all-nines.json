@@ -1,0 +1,15 @@
+{
+  "id": "upc-030",
+  "code": "999999999999",
+  "code_type": "upc",
+  "expected": {
+    "title": "",
+    "brand": "",
+    "model": "",
+    "category_slug": "other-misc",
+    "category_legacy": "Other",
+    "condition": "",
+    "msrp_cents": 0
+  },
+  "notes": "NEGATIVE — all-nines synthetic UPC. Pairs with the all-zeros fixture (upc-003) — together they probe whether the model has a 'too-uniform' rejection heuristic."
+}

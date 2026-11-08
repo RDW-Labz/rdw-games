@@ -1,0 +1,334 @@
+# One-shot Resend email setup for BinGo — runs entirely from CI.
+#
+# Built 2026-07-04 (launch night): prod had NO email sender wired at all —
+# 21 transactional emails (won/outbid/pickup) queued since 06-29 with zero
+# sent, and Supabase auth email was on the built-in 2/hour trial sender.
+# The owner had never created the Resend account; this workflow turns a
+# fresh Resend API key into a fully wired email pipeline without a laptop.
+#
+# Phases (run 'setup' first, then 'activate' once the domain verifies):
+#   setup    — register bingoauctions.com in Resend, push the DNS records
+#              it demands into Cloudflare (falls back to printing them if
+#              the CF token lacks DNS-edit scope), kick verification.
+#   status   — re-check domain verification state.
+#   activate — GUARDED on domain=verified. Pushes RESEND_API_KEY to the
+#              bingo-web Worker (starts the notification email drain),
+#              points Supabase auth email at Resend SMTP @ 360/hour,
+#              turns email confirmation back on, and tombstones stale
+#              (>48h) queued emails so nobody gets a week-late "outbid".
+#
+# The key is a dispatch INPUT, not a secret — it shows in the run's input
+# metadata (private repo). Rotate it into the RESEND_API_KEY repo secret
+# once the rush is over; deploy-cloudflare.yml reads the secret on every
+# deploy, so the secret is the durable home.
+
+name: Email setup (Resend)
+
+on:
+  workflow_dispatch:
+    inputs:
+      phase:
+        description: 'setup = register domain + DNS; status = check; activate = wire everything (needs verified domain)'
+        required: true
+        type: choice
+        default: status
+        options:
+          - setup
+          - status
+          - activate
+          # drain-test: POST the live /api/cron/email-drain endpoint with the
+          # CRON_SECRET and print its JSON result. {scanned:0} while rows are
+          # queued means the Worker can't see RESEND_API_KEY at runtime.
+          - drain-test
+          # smtp-test: trigger a real password-recovery email to the super
+          # admin through GoTrue — the only true end-to-end probe of the
+          # custom SMTP config that doesn't involve a customer.
+          - smtp-test
+          # debug-logs: pull GoTrue's own error lines from the Supabase
+          # analytics API + Resend's recent send list — the two sides of a
+          # failing SMTP handshake.
+          - debug-logs
+          # smtp-cred-test: send via smtp.resend.com from THIS runner with
+          # the same user/pass GoTrue was given. Splits the fault line:
+          # runner-send works => Supabase side; runner-send fails => the
+          # key/account.
+          - smtp-cred-test
+          # probe-urls: HEAD/GET a list of URLs (logs_sql input, one per
+          # line) from the runner's unrestricted network and print status +
+          # content-type + bytes. The dev sandbox proxy blocks most image
+          # CDNs, so hotlink/dead-host diagnosis has to run here.
+          - probe-urls
+      resend_key:
+        description: 'Resend API key (re_…)'
+        required: true
+        type: string
+      smtp_port:
+        description: 'SMTP port for phase=activate. 587/STARTTLS default; Resend also answers on 2587/465/2465 for hosts that block it.'
+        required: false
+        type: string
+        default: '587'
+      logs_sql:
+        description: 'Override the analytics SQL for phase=debug-logs.'
+        required: false
+        type: string
+        default: ''
+
+concurrency:
+  group: email-setup
+  cancel-in-progress: false
+
+env:
+  DOMAIN: bingoauctions.com
+
+jobs:
+  email-setup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Mask key + guard secrets
+        env:
+          KEY: ${{ inputs.resend_key }}
+          HAS_PAT: ${{ secrets.SUPABASE_ACCESS_TOKEN != '' }}
+        run: |
+          echo "::add-mask::$KEY"
+          case "$KEY" in re_*) ;; *) echo "::error::resend_key must start with re_"; exit 1;; esac
+          if [ "${{ inputs.phase }}" = "activate" ] && [ "$HAS_PAT" != "true" ]; then
+            echo "::error::activate needs the SUPABASE_ACCESS_TOKEN repo secret."
+            exit 1
+          fi
+
+      - name: Resend domain — register / check / DNS
+        if: inputs.phase == 'setup' || inputs.phase == 'status'
+        env:
+          RESEND_KEY: ${{ inputs.resend_key }}
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          PHASE: ${{ inputs.phase }}
+        run: |
+          node -e '
+            const DOMAIN = process.env.DOMAIN;
+            const rHeaders = { authorization: `Bearer ${process.env.RESEND_KEY}`, "content-type": "application/json" };
+            const cfHeaders = { authorization: `Bearer ${process.env.CF_TOKEN}`, "content-type": "application/json" };
+            const die = (msg) => { console.error("::error::" + msg); process.exit(1); };
+
+            async function resend(path, init) {
+              const r = await fetch(`https://api.resend.com${path}`, { headers: rHeaders, ...init });
+              const body = await r.json().catch(() => ({}));
+              return { ok: r.ok, status: r.status, body };
+            }
+
+            function fqdn(name) {
+              if (!name || name === "@") return DOMAIN;
+              return name.endsWith(DOMAIN) ? name : `${name}.${DOMAIN}`;
+            }
+
+            async function main() {
+              // 1. Find or create the domain in Resend.
+              let list = await resend("/domains");
+              if (!list.ok) die(`Resend /domains failed (${list.status}): ${JSON.stringify(list.body)} — is the key valid?`);
+              let dom = (list.body.data ?? []).find((d) => d.name === DOMAIN);
+              if (!dom && process.env.PHASE === "setup") {
+                const created = await resend("/domains", { method: "POST", body: JSON.stringify({ name: DOMAIN }) });
+                if (!created.ok) die(`Resend create domain failed (${created.status}): ${JSON.stringify(created.body)}`);
+                dom = created.body;
+                console.log(`Registered ${DOMAIN} in Resend.`);
+              }
+              if (!dom) die(`${DOMAIN} is not registered in Resend yet — run phase=setup.`);
+
+              // Detail fetch has the records array + status.
+              const detail = await resend(`/domains/${dom.id}`);
+              if (!detail.ok) die(`Resend domain detail failed: ${JSON.stringify(detail.body)}`);
+              const records = detail.body.records ?? [];
+              console.log(`Domain status: ${detail.body.status}`);
+              for (const rec of records) {
+                console.log(`  needs ${rec.record} ${rec.type} ${fqdn(rec.name)} -> ${String(rec.value).slice(0, 60)}… [${rec.status}]`);
+              }
+              if (detail.body.status === "verified") { console.log("VERIFIED — ready for phase=activate."); return; }
+              if (process.env.PHASE !== "setup") { console.log("Not verified yet. If DNS was just added, wait a few minutes and re-run phase=status."); return; }
+
+              // 2. Try to push the records into Cloudflare DNS.
+              const zr = await fetch(`https://api.cloudflare.com/client/v4/zones?name=${DOMAIN}`, { headers: cfHeaders });
+              const zb = await zr.json().catch(() => ({}));
+              const zone = zb.result?.[0]?.id;
+              if (!zr.ok || !zone) {
+                console.log("::warning::Cloudflare token cannot list zones — add these DNS records manually in the Cloudflare dashboard:");
+                for (const rec of records) console.log(`  ${rec.type}  ${fqdn(rec.name)}  ${rec.value}  ${rec.priority ? `priority ${rec.priority}` : ""}`);
+                return;
+              }
+              const existing = await (await fetch(`https://api.cloudflare.com/client/v4/zones/${zone}/dns_records?per_page=100`, { headers: cfHeaders })).json();
+              const have = new Set((existing.result ?? []).map((x) => `${x.type}|${x.name}|${x.content}`));
+              let added = 0, failed = 0;
+              for (const rec of records) {
+                const name = fqdn(rec.name);
+                const payload = { type: rec.type, name, content: String(rec.value), ttl: 1, proxied: false };
+                if (rec.priority != null) payload.priority = rec.priority;
+                if (have.has(`${rec.type}|${name}|${payload.content}`)) { console.log(`  exists: ${rec.type} ${name}`); continue; }
+                const cr = await fetch(`https://api.cloudflare.com/client/v4/zones/${zone}/dns_records`, { method: "POST", headers: cfHeaders, body: JSON.stringify(payload) });
+                const cb = await cr.json().catch(() => ({}));
+                if (cr.ok && cb.success) { console.log(`  added: ${rec.type} ${name}`); added++; }
+                else { console.log(`::warning::  FAILED ${rec.type} ${name}: ${JSON.stringify(cb.errors ?? cb)}`); failed++; }
+              }
+              console.log(`DNS: ${added} added, ${failed} failed.`);
+              if (failed) { console.log("Add the failed records manually, then re-run phase=status."); }
+
+              // 3. Ask Resend to verify (async on their side).
+              const v = await resend(`/domains/${dom.id}/verify`, { method: "POST" });
+              console.log(v.ok ? "Verification kicked — re-run phase=status in a few minutes." : `Verify call: ${JSON.stringify(v.body)}`);
+            }
+            main().catch((e) => die(e.message));
+          '
+
+      - name: Drain test — call the live email-drain endpoint
+        if: inputs.phase == 'drain-test'
+        env:
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+        run: |
+          for url in https://bingoauctions.com/api/cron/email-drain; do
+            echo "POST $url"
+            curl -sS -X POST "$url" -H "x-cron-secret: $CRON_SECRET" -w '\nHTTP %{http_code}\n' || true
+          done
+
+      - name: Activate — Worker secret + Supabase SMTP + confirm-on + stale sweep
+        if: inputs.phase == 'activate'
+        env:
+          RESEND_KEY: ${{ inputs.resend_key }}
+          SMTP_PORT: ${{ inputs.smtp_port }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+        run: |
+          set -euo pipefail
+          # Guard: domain must be verified in Resend, otherwise auth emails
+          # would switch to a sender that rejects every send.
+          node -e '
+            const rHeaders = { authorization: `Bearer ${process.env.RESEND_KEY}` };
+            fetch("https://api.resend.com/domains", { headers: rHeaders }).then(async (r) => {
+              const b = await r.json();
+              const dom = (b.data ?? []).find((d) => d.name === process.env.DOMAIN);
+              if (!dom || dom.status !== "verified") {
+                console.error(`::error::${process.env.DOMAIN} is not verified in Resend (status: ${dom?.status ?? "missing"}). Run phase=setup / wait for DNS, then retry.`);
+                process.exit(1);
+              }
+              console.log("Domain verified — proceeding.");
+            });
+          '
+          # 1. Worker secret: the notification email drain (cron, every 30s)
+          #    picks it up immediately — the 21 queued emails start sending.
+          printf '%s' "$RESEND_KEY" | npx wrangler secret put RESEND_API_KEY --name bingo-web
+          echo "pushed RESEND_API_KEY to bingo-web"
+          # 2. Supabase auth email -> Resend SMTP @ 360/h.
+          #    Port 587 (STARTTLS): the first attempt (2026-07-04) used 465
+          #    implicit-TLS and GoTrue failed every send — customers saw
+          #    "Error sending confirmation email" on the live signup form.
+          #    mailer_autoconfirm is deliberately NOT touched here — restore
+          #    confirmation with apply-migration mode email-confirm-on ONLY
+          #    after phase=smtp-test passes.
+          node -e '
+            const ref = "npwseclcxcatjhgjrtwe";
+            const headers = { authorization: `Bearer ${process.env.SUPABASE_ACCESS_TOKEN}`, "content-type": "application/json" };
+            const patch = {
+              smtp_host: "smtp.resend.com",
+              smtp_port: process.env.SMTP_PORT || "587",
+              smtp_user: "resend",
+              smtp_pass: process.env.RESEND_KEY,
+              smtp_admin_email: "no-reply@bingoauctions.com",
+              smtp_sender_name: "BinGo Auctions",
+              rate_limit_email_sent: 360,
+            };
+            fetch(`https://api.supabase.com/v1/projects/${ref}/config/auth`, { method: "PATCH", headers, body: JSON.stringify(patch) })
+              .then(async (r) => {
+                const b = await r.json();
+                if (!r.ok) { console.error("::error::Supabase PATCH failed:", JSON.stringify(b)); process.exit(1); }
+                console.log("Supabase auth email:", JSON.stringify({
+                  smtp_host: b.smtp_host, rate_limit_email_sent: b.rate_limit_email_sent,
+                  mailer_autoconfirm: b.mailer_autoconfirm, smtp_admin_email: b.smtp_admin_email,
+                }, null, 2));
+              });
+          '
+          # (The one-time stale-email tombstone sweep that used to live here
+          # was run manually on 2026-07-04 — 8 rows — and removed after its
+          # embedded quoting broke the step.)
+
+      - name: SMTP test — send a real recovery email via GoTrue
+        if: inputs.phase == 'smtp-test'
+        env:
+          ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+        # /auth/v1/recover makes GoTrue send an actual email through the
+        # configured SMTP right now. 200 = the SMTP pipeline works end to
+        # end; an error body = exactly what a signing-up customer would hit.
+        run: |
+          curl -sS -X POST "https://npwseclcxcatjhgjrtwe.supabase.co/auth/v1/recover" \
+            -H "apikey: $ANON_KEY" -H "content-type: application/json" \
+            -d '{"email":"jmacluer@gmail.com"}' -w '\nHTTP %{http_code}\n'
+
+      - name: Probe URLs — status/content-type/bytes from unrestricted egress
+        if: inputs.phase == 'probe-urls'
+        env:
+          URLS: ${{ inputs.logs_sql }}
+        run: |
+          while IFS= read -r u; do
+            [ -z "$u" ] && continue
+            printf '%s\n  ' "$u"
+            curl -sL -m 15 -o /dev/null -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" \
+              -w 'HTTP %{http_code}  bytes=%{size_download}  type=%{content_type}\n' "$u" || echo "curl failed"
+          done <<< "$URLS"
+
+      - name: SMTP credential test — send from the runner via smtp.resend.com
+        if: inputs.phase == 'smtp-cred-test'
+        env:
+          RESEND_KEY: ${{ inputs.resend_key }}
+          PORT: ${{ inputs.smtp_port }}
+        run: |
+          npm install --no-save --no-audit --no-fund nodemailer
+          node -e '
+            const nodemailer = require("nodemailer");
+            const port = Number(process.env.PORT || 587);
+            const t = nodemailer.createTransport({
+              host: "smtp.resend.com",
+              port,
+              secure: port === 465 || port === 2465,
+              auth: { user: "resend", pass: process.env.RESEND_KEY },
+              connectionTimeout: 15000,
+            });
+            t.sendMail({
+              from: "BinGo Auctions <no-reply@bingoauctions.com>",
+              to: "jmacluer@gmail.com",
+              subject: "SMTP credential test (BinGo email-setup)",
+              text: "If you can read this, smtp.resend.com works with these credentials from outside Supabase.",
+            }).then((info) => {
+              console.log("SENT OK:", JSON.stringify(info.response ?? info.messageId ?? info));
+            }).catch((e) => {
+              console.error("::error::SMTP send failed:", e.message);
+              process.exit(1);
+            });
+          '
+
+      - name: Debug logs — provoke a send, then read GoTrue's real error
+        if: inputs.phase == 'debug-logs'
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          RESEND_KEY: ${{ inputs.resend_key }}
+          LOGS_SQL: ${{ inputs.logs_sql }}
+          ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+        # The logs.all endpoint defaults to a now-ish window — querying after
+        # the fact returns nothing. Provoke the failure, then query with an
+        # explicit iso_timestamp_start covering the last 15 minutes.
+        run: |
+          echo "== provoke: POST /auth/v1/recover"
+          curl -sS -X POST "https://npwseclcxcatjhgjrtwe.supabase.co/auth/v1/recover" \
+            -H "apikey: $ANON_KEY" -H "content-type: application/json" \
+            -d '{"email":"jmacluer@gmail.com"}' -w '\nHTTP %{http_code}\n' || true
+          sleep 25
+          node -e '
+            const ref = "npwseclcxcatjhgjrtwe";
+            async function main() {
+              const sql = process.env.LOGS_SQL || ("select timestamp, event_message from auth_logs where event_message like " + JSON.stringify("%error%") + " order by timestamp desc limit 15");
+              const start = new Date(Date.now() - 15 * 60 * 1000).toISOString();
+              const u = `https://api.supabase.com/v1/projects/${ref}/analytics/endpoints/logs.all?sql=${encodeURIComponent(sql)}&iso_timestamp_start=${encodeURIComponent(start)}`;
+              const r = await fetch(u, { headers: { authorization: `Bearer ${process.env.SUPABASE_ACCESS_TOKEN}` } });
+              const b = await r.text();
+              console.log("auth logs:", r.status, b.slice(0, 6000));
+              const r2 = await fetch("https://api.resend.com/emails?limit=4", { headers: { authorization: `Bearer ${process.env.RESEND_KEY}` } });
+              console.log("resend emails:", r2.status, (await r2.text()).slice(0, 1200));
+            }
+            main().catch((e) => { console.error(e.message); process.exit(1); });
+          '

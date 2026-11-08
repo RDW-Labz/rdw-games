@@ -1,0 +1,66 @@
+# Canary look-around — bidder-app. Used by bidder-canary-ios-sim.yml.
+#
+# Signs in as the synthetic e2e bidder, opens one live lot by deep link, and
+# takes screenshots. It NEVER places a bid: no tap on any bid control, and the
+# workflow's Guard step fails the run if one is ever added here.
+#
+# Does not clear state: the app must keep the canary update it already applied.
+#
+# Env: BIDDER_EMAIL, BIDDER_PASSWORD, LOT_ID (a lot uuid, or "none").
+
+appId: com.bingoauctions.bidder
+---
+- launchApp:
+    stopApp: true
+- takeScreenshot: canary-01-launch
+
+- runFlow:
+    when:
+      visible:
+        id: signin-email-input
+    commands:
+      - tapOn:
+          id: signin-email-input
+      - inputText: ${BIDDER_EMAIL}
+      - tapOn:
+          id: signin-password-input
+      - inputText: ${BIDDER_PASSWORD}
+      # Return on the password field submits: login.tsx wires
+      # onSubmitEditing={onSubmit}. Don't use hideKeyboard here: on the
+      # simulator it failed with "Couldn't hide the keyboard" (run
+      # 36011409973), so the flow never got past sign-in.
+      - pressKey: Enter
+      - extendedWaitUntil:
+          notVisible:
+            id: signin-email-input
+          timeout: 15000
+          optional: true
+      # Fallback if Return didn't submit: tapping static copy dismisses the
+      # keyboard (the screen wraps its ScrollView in a Keyboard.dismiss
+      # touchable), which uncovers the Sign in button.
+      - runFlow:
+          when:
+            visible:
+              id: signin-submit
+          commands:
+            - tapOn:
+                text: "BinGo Auctions"
+            - tapOn:
+                id: signin-submit
+
+- extendedWaitUntil:
+    visible:
+      id: browse-screen
+    timeout: 30000
+- takeScreenshot: canary-02-browse
+
+- runFlow:
+    when:
+      true: ${LOT_ID != 'none'}
+    commands:
+      - openLink: bingo://lot/${LOT_ID}
+      - waitForAnimationToEnd:
+          timeout: 10000
+      - takeScreenshot: canary-03-lot
+
+- stopApp

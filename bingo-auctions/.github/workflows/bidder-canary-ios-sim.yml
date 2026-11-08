@@ -1,0 +1,428 @@
+name: Bidder canary rehearsal (iOS simulator)
+# Rehearses the first bidder OTA against the native layer customers actually
+# run, without any customer able to receive it.
+#
+# ── WHY ──────────────────────────────────────────────────────────────────────
+# 2026-09-23: the only customers who can take a 1.0.1 bidder update are iPhones
+# on App Store build 21 (commit 6dcfb7f, runtime 1.0.1). Android customers are
+# on Play 0.1.1 and can't. No bidder OTA has ever been proven to run on build
+# 21's native code. A TestFlight canary is off the table: 1.0.1 is already
+# approved on the App Store, so Apple refuses new 1.0.1 builds, and 1.0.2 would
+# be a different runtime.
+#
+# So this builds 6dcfb7f for the simulator with the production profile's env,
+# points it at the `bidder-canary` channel, THEN publishes master's bundle to
+# that channel, and relaunches the app until #366's watchdog reports a session
+# that ran the canary update.
+#
+# Order matters: expo-updates ignores a server update older than the bundle it
+# is running (run 35942917323: "NoUpdateAvailable" five times, because the
+# simulator's built-in bundle was created 21 minutes after the canary). Build
+# 21's real built-in bundle dates from 2026-08-09, so on customer phones any
+# update published now is newer. Here the publish must follow the build. That telemetry row is the proof: a bundle that throws
+# at import is silently rolled back and never reports under its own id.
+#
+# ── SAFETY ───────────────────────────────────────────────────────────────────
+# - The branch is the literal `bidder-canary`, hard-coded on purpose (no input).
+#   eas-update.yml defaults to preview + production; this workflow can't reach
+#   either. The only binary reading `bidder-canary` is the one built here.
+# - The optional Maestro step signs in as the synthetic e2e bidder
+#   (playwright-e2e@clovrbid.test, no card on file) and opens one lot. It never
+#   taps a bid control; the "Guard" step fails the run if the flow ever does.
+# - Prod writes: the telemetry rows this app posts (non-fatal) and whatever
+#   signing in and viewing a lot records. No bids, no invoices, no charges.
+
+on:
+  workflow_dispatch:
+    inputs:
+      bundle_ref:
+        description: 'Full 40-character master commit sha whose bidder bundle to rehearse (the exact commit you will later publish to production)'
+        required: true
+        type: string
+
+concurrency:
+  group: bidder-canary-ios-sim
+  cancel-in-progress: false
+
+env:
+  EXPO_NO_TELEMETRY: 1
+  CI: true
+  CANARY_BRANCH: bidder-canary
+  BUILD_21_COMMIT: 6dcfb7f19275654cdb43b8747c00008f6cca41b1  # actions/checkout needs the full sha
+  BUNDLE_ID: com.bingoauctions.bidder
+  # The commit whose bundle is rehearsed, given per run. The guards below
+  # require a full sha that is already on master, so the group this run tests
+  # is the one later republished to production, byte for byte.
+  BUNDLE_REF: ${{ inputs.bundle_ref }}
+  PROD_REF: npwseclcxcatjhgjrtwe
+
+jobs:
+  build:
+    name: Build 21 native for the simulator
+    runs-on: macos-15
+    timeout-minutes: 75
+    env:
+      EAS_BUILD_PROFILE: production
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check out build 21's commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.BUILD_21_COMMIT }}
+          path: old
+      - uses: actions/setup-node@v4
+        with:
+          # Build 21 was built by EAS on node 22.11.0 (eas.json at 6dcfb7f).
+          node-version: 22.11.0
+      - name: Select newest Xcode
+        run: |
+          NEWEST=$(ls -d /Applications/Xcode_*.app 2>/dev/null | sort -V | tail -1)
+          echo "DEVELOPER_DIR=${NEWEST:-/Applications/Xcode.app}/Contents/Developer" >> "$GITHUB_ENV"
+      - run: xcodebuild -version
+
+      - name: Load build 21's production env
+        working-directory: old/apps/bidder-app
+        run: |
+          set -euo pipefail
+          jq -r '.build.production.env | to_entries[] | "\(.key)=\(.value)"' eas.json >> "$GITHUB_ENV"
+          jq -r '.build.production.env | keys[]' eas.json
+
+      - name: Install dependencies (6dcfb7f)
+        working-directory: old
+        run: npm ci
+
+      - name: Cache Pods
+        uses: actions/cache@v4
+        with:
+          path: old/apps/bidder-app/ios/Pods
+          key: canary-pods-${{ env.BUILD_21_COMMIT }}
+      - name: Cache DerivedData
+        uses: actions/cache@v4
+        with:
+          path: ~/Library/Developer/Xcode/DerivedData
+          key: canary-derived-${{ env.BUILD_21_COMMIT }}
+
+      - name: Prebuild ios/
+        working-directory: old/apps/bidder-app
+        run: npx expo prebuild --platform ios --clean --no-install
+
+      - name: Point the binary at bidder-canary
+        working-directory: old/apps/bidder-app
+        run: |
+          set -euo pipefail
+          # EAS Build normally injects the channel header; a local build must set it.
+          PLIST=$(find ios -name Expo.plist -not -path '*/Pods/*' | head -1)
+          PB=/usr/libexec/PlistBuddy
+          $PB -c 'Delete :EXUpdatesRequestHeaders' "$PLIST" 2>/dev/null || true
+          $PB -c 'Add :EXUpdatesRequestHeaders dict' "$PLIST"
+          $PB -c "Add :EXUpdatesRequestHeaders:expo-channel-name string $CANARY_BRANCH" "$PLIST"
+          cat "$PLIST"
+          RT=$($PB -c 'Print :EXUpdatesRuntimeVersion' "$PLIST")
+          [[ "$RT" == "1.0.1" ]] || { echo "::error::binary runtime is $RT, expected 1.0.1"; exit 1; }
+          [[ "$($PB -c 'Print :EXUpdatesEnabled' "$PLIST")" == "true" ]] || { echo "::error::updates disabled"; exit 1; }
+          mkdir -p /tmp/canary && cp "$PLIST" /tmp/canary/Expo.plist
+
+      - name: Pod install
+        working-directory: old/apps/bidder-app/ios
+        run: pod install --repo-update
+
+      - name: Build Release .app for the simulator
+        working-directory: old/apps/bidder-app
+        run: |
+          set -euo pipefail
+          WORKSPACE=$(ls -d ios/*.xcworkspace | head -1)
+          SCHEME=$(basename "$WORKSPACE" .xcworkspace)
+          xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -configuration Release \
+            -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath ~/Library/Developer/Xcode/DerivedData \
+            CODE_SIGNING_ALLOWED=NO 2>&1 | xcbeautify --renderer github-actions
+
+      - name: Package the .app
+        run: |
+          set -euo pipefail
+          APP_PATH=$(find ~/Library/Developer/Xcode/DerivedData -path '*Release-iphonesimulator*' -name '*.app' -not -name '*.appex' | head -1)
+          echo "Packaging $APP_PATH"
+          mkdir -p /tmp/app && ditto -c -k --keepParent "$APP_PATH" /tmp/app/BinGoAuctions.app.zip
+          cp /tmp/canary/Expo.plist /tmp/app/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bidder-canary-app
+          path: /tmp/app
+          retention-days: 3
+
+  publish:
+    name: Publish master's bundle to bidder-canary
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      ios_update_id: ${{ steps.pub.outputs.ios_update_id }}
+      group_id: ${{ steps.pub.outputs.group_id }}
+      created_at: ${{ steps.pub.outputs.created_at }}
+    defaults:
+      run:
+        working-directory: apps/bidder-app
+    env:
+      EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+    steps:
+      - name: Guard — bundle ref is a full sha
+        working-directory: .
+        run: |
+          [[ "$BUNDLE_REF" =~ ^[0-9a-f]{40}$ ]] || { echo "::error::BUNDLE_REF must be a full commit sha, got '$BUNDLE_REF'"; exit 1; }
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.BUNDLE_REF }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Guard — this is the bundle customers will get
+        working-directory: .
+        run: |
+          set -euo pipefail
+          [[ "$(git rev-parse HEAD)" == "$BUNDLE_REF" ]] || { echo "::error::checked out $(git rev-parse HEAD), expected $BUNDLE_REF"; exit 1; }
+          git merge-base --is-ancestor "$BUNDLE_REF" origin/master || { echo "::error::$BUNDLE_REF is not on master"; exit 1; }
+          # #372: reports queued until the server accepts them.
+          test -f apps/bidder-app/lib/telemetry-outbox.ts || { echo "::error::bundle lacks the telemetry outbox (#372)"; exit 1; }
+          echo "Bundling master@$BUNDLE_REF ($(git log -1 --format=%s))" | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Install workspace dependencies
+        working-directory: .
+        run: npm ci
+      - name: Install EAS CLI
+        run: npm install -g eas-cli@latest
+      - run: eas whoami
+
+      - name: Ensure the bidder-canary channel exists
+        run: |
+          set -uo pipefail
+          if ! eas channel:view "$CANARY_BRANCH" --json --non-interactive >/dev/null 2>&1; then
+            eas channel:create "$CANARY_BRANCH" --json --non-interactive
+          fi
+          eas channel:view "$CANARY_BRANCH" --json --non-interactive | jq '{name, branch: [.updateBranches[]?.name]}'
+
+      - name: Publish (iOS only, production env, bidder-canary only)
+        id: pub
+        run: |
+          set -euo pipefail
+          [[ "$CANARY_BRANCH" == "bidder-canary" ]] || { echo "::error::branch must be bidder-canary"; exit 1; }
+          # Same env rule as eas-update.yml: eas update ignores eas.json env.
+          # The bidder-canary profile must carry production's env exactly, or
+          # the republish to production would be refused (and rightly).
+          diff <(jq -S '.build["bidder-canary"].env' eas.json) <(jq -S '.build.production.env' eas.json) \
+            || { echo "::error::build.bidder-canary.env differs from build.production.env"; exit 1; }
+          eval "$(jq -r '.build["bidder-canary"].env | to_entries[] | "export \(.key)=\(.value | @sh)"' eas.json)"
+          if [[ -z "${EXPO_PUBLIC_SUPABASE_URL:-}" || -z "${EXPO_PUBLIC_SUPABASE_ANON_KEY:-}" ]]; then
+            echo "::error::production env has no Supabase URL/key"; exit 1
+          fi
+          unset OTA_RUNTIME_VERSION
+          MSG="canary rehearsal of master@$(git rev-parse --short HEAD) on build-21 native"
+          eas update --branch "$CANARY_BRANCH" --platform ios --message "$MSG" --json --non-interactive > /tmp/update.json
+          cat /tmp/update.json
+          IOS_ID=$(jq -r '.[] | select(.platform=="ios") | .id' /tmp/update.json)
+          GROUP=$(jq -r '.[0].group' /tmp/update.json)
+          RUNTIME=$(jq -r '.[] | select(.platform=="ios") | .runtimeVersion' /tmp/update.json)
+          [[ "$RUNTIME" == "1.0.1" ]] || { echo "::error::update runtime is $RUNTIME, build 21 is 1.0.1"; exit 1; }
+          echo "ios_update_id=$IOS_ID" >> "$GITHUB_OUTPUT"
+          echo "group_id=$GROUP" >> "$GITHUB_OUTPUT"
+          echo "created_at=$(jq -r '.[] | select(.platform=="ios") | .createdAt' /tmp/update.json)" >> "$GITHUB_OUTPUT"
+          echo "### Published to \`$CANARY_BRANCH\`: iOS \`$IOS_ID\` (group \`$GROUP\`, runtime $RUNTIME)" >> "$GITHUB_STEP_SUMMARY"
+
+  simulator:
+    name: Run the canary on the simulator
+    needs: [build, publish]
+    runs-on: macos-15
+    timeout-minutes: 60
+    env:
+      IOS_UPDATE_ID: ${{ needs.publish.outputs.ios_update_id }}
+      CANARY_CREATED_AT: ${{ needs.publish.outputs.created_at }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Select newest Xcode
+        run: |
+          NEWEST=$(ls -d /Applications/Xcode_*.app 2>/dev/null | sort -V | tail -1)
+          echo "DEVELOPER_DIR=${NEWEST:-/Applications/Xcode.app}/Contents/Developer" >> "$GITHUB_ENV"
+      - uses: actions/download-artifact@v4
+        with:
+          name: bidder-canary-app
+          path: /tmp/app
+      - name: Unpack the .app
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/canary && cp /tmp/app/Expo.plist /tmp/canary/
+          ditto -x -k /tmp/app/BinGoAuctions.app.zip /tmp/app
+          APP_PATH=$(ls -d /tmp/app/*.app | head -1)
+          echo "APP_PATH=$APP_PATH" >> "$GITHUB_ENV"
+      - name: Guard — the canary is newer than the built-in bundle
+        run: |
+          set -euo pipefail
+          EMBED_MS=$(python3 -c "import json,sys;print(json.load(open(sys.argv[1]))['commitTime'])" "$APP_PATH/EXUpdates.bundle/app.manifest")
+          CANARY_MS=$(python3 -c "import sys,datetime;print(int(datetime.datetime.fromisoformat(sys.argv[1].replace('Z','+00:00')).timestamp()*1000))" "$CANARY_CREATED_AT")
+          echo "built-in bundle: $EMBED_MS ms, canary: $CANARY_MS ms ($CANARY_CREATED_AT)"
+          (( CANARY_MS > EMBED_MS )) || { echo "::error::canary is older than the built-in bundle; expo-updates would ignore it"; exit 1; }
+      - name: Boot simulator and install
+        run: |
+          set -euo pipefail
+          SIM_UDID=$(xcrun simctl list devices available --json | jq -r '
+            [.devices | to_entries[] | .key as $rt | .value[] | select(.name | startswith("iPhone")) | . + {rt: $rt}]
+            | sort_by(.rt) | last | .udid')
+          echo "SIM_UDID=$SIM_UDID" >> "$GITHUB_ENV"
+          xcrun simctl boot "$SIM_UDID" || true
+          xcrun simctl bootstatus "$SIM_UDID" -b
+          echo "Installing $APP_PATH"
+          xcrun simctl install "$SIM_UDID" "$APP_PATH"
+          echo "STARTED_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_ENV"
+
+      - name: Launch four times (download, apply, run, report)
+        run: |
+          set -uo pipefail
+          # Launch 1 runs build 21's embedded bundle and downloads the canary.
+          # The next launch applies it; #366's watchdog marks that session; the
+          # launch after reports it as a "silent exit" carrying the canary id.
+          # Four launches leave margin for a slow first download.
+          for i in 1 2 3 4; do
+            xcrun simctl launch "$SIM_UDID" "$BUNDLE_ID"
+            sleep 45
+            xcrun simctl io "$SIM_UDID" screenshot "/tmp/canary/launch-$i.png" || true
+            xcrun simctl terminate "$SIM_UDID" "$BUNDLE_ID" || true
+            sleep 5
+          done
+          # Launch 5 only exists to send the report about launch 4.
+          xcrun simctl launch "$SIM_UDID" "$BUNDLE_ID"
+          sleep 30
+          xcrun simctl io "$SIM_UDID" screenshot /tmp/canary/launch-5.png || true
+
+      - name: Diagnostics — what expo-updates downloaded and launched
+        if: always()
+        continue-on-error: true
+        # No -e: one failed probe must not hide the others.
+        shell: bash {0}
+        run: |
+          DATA=$(xcrun simctl get_app_container "$SIM_UDID" "$BUNDLE_ID" data)
+          APP=$(xcrun simctl get_app_container "$SIM_UDID" "$BUNDLE_ID" app)
+          SUP="$DATA/Library/Application Support"
+          EXEC=$(/usr/libexec/PlistBuddy -c 'Print :CFBundleExecutable' "$APP/Info.plist")
+          echo "embedded update id: $(python3 -c "import json,sys;print(json.load(open(sys.argv[1]))['id'])" "$APP/EXUpdates.bundle/app.manifest")"
+          echo "canary update id:   $IOS_UPDATE_ID"
+          echo "== bundles on disk (one per update expo-updates has stored)"
+          ls -la "$SUP/.expo-internal" | grep -iE 'bundle|\.db' || true
+          echo "== expo-updates persistent log (tail)"
+          cp "$SUP/dev.expo.modules.core.logging.expo-updates.txt" /tmp/canary/expo-updates-persistent.log 2>/dev/null
+          tail -120 /tmp/canary/expo-updates-persistent.log 2>/dev/null || echo "(no persistent log)"
+          echo "== updates table"
+          DB=$(ls "$SUP/.expo-internal"/expo-v*.db 2>/dev/null | head -1)
+          if [[ -n "$DB" ]]; then
+            cp "$DB" /tmp/canary/
+            sqlite3 "$DB" '.tables'
+            sqlite3 -header "$DB" "SELECT lower(hex(id)) AS id, status, runtime_version, commit_time, last_accessed, successful_launch_count, failed_launch_count FROM updates" \
+              || sqlite3 "$DB" '.schema updates'
+          fi
+          echo "== can this runner fetch the canary manifest?"
+          curl -sS -o /dev/null -D - 'https://u.expo.dev/6d34c17b-125e-44ac-88e3-54896df54b69' \
+            -H "expo-channel-name: $CANARY_BRANCH" -H 'expo-runtime-version: 1.0.1' -H 'expo-platform: ios' \
+            -H 'expo-protocol-version: 1' -H 'accept: multipart/mixed' | grep -iE '^HTTP|expo-update-id'
+          xcrun simctl spawn "$SIM_UDID" log show --last 30m --info --debug --style compact \
+            --predicate "process == \"$EXEC\"" > /tmp/canary/app-process.log 2>&1
+          echo "== app log lines about updates / errors"
+          grep -iE 'expo.?updates|EXUpdates|update|rollback|emergency|fatal|exception|error|ReactNativeJS' /tmp/canary/app-process.log \
+            | grep -viE 'CFNetwork|nw_|tcp_|boringssl|quic' | tail -120
+          exit 0
+
+      - name: Proof — bidder telemetry row with the canary update id
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+        run: |
+          set -euo pipefail
+          SQL="SELECT created_at, ota_update, is_fatal, left(message,200) AS message FROM client_crash_reports WHERE app = 'bidder' AND platform = 'ios' AND created_at > '$STARTED_AT' ORDER BY created_at"
+          for attempt in 1 2 3 4 5 6; do
+            jq -n --arg q "$SQL" '{query: $q}' | curl -fsS -X POST \
+              "https://api.supabase.com/v1/projects/$PROD_REF/database/query" \
+              -H "Authorization: Bearer $SUPABASE_ACCESS_TOKEN" -H 'Content-Type: application/json' \
+              --data @- > /tmp/canary/telemetry.json || true
+            if jq -e --arg id "$IOS_UPDATE_ID" 'any(.[]; .ota_update == $id)' /tmp/canary/telemetry.json >/dev/null 2>&1; then break; fi
+            sleep 20
+          done
+          jq . /tmp/canary/telemetry.json || cat /tmp/canary/telemetry.json
+          {
+            echo "### Telemetry since $STARTED_AT (bidder, iOS)"
+            echo '```'; jq -r '.[] | "\(.created_at)  \(.ota_update)  fatal=\(.is_fatal)  \(.message)"' /tmp/canary/telemetry.json || true; echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          if jq -e 'any(.[]; (.message | test("^ota (refused|emergency)")))' /tmp/canary/telemetry.json >/dev/null; then
+            echo "::error::expo-updates refused or emergency-launched the canary"; exit 1
+          fi
+          if ! jq -e --arg id "$IOS_UPDATE_ID" 'any(.[]; .ota_update == $id)' /tmp/canary/telemetry.json >/dev/null; then
+            echo "::error::no bidder row reports $IOS_UPDATE_ID — the canary never ran a session (or telemetry is not arriving)"; exit 1
+          fi
+          echo "### PASS: a session ran canary update \`$IOS_UPDATE_ID\` on build 21's native code" >> "$GITHUB_STEP_SUMMARY"
+
+      # ── Nice to have: sign in, open a lot, screenshots. Never bids. ────────
+      - name: Guard — the Maestro flow has no bid action
+        run: |
+          F=e2e/maestro/bidder-app/02-canary-look.yaml
+          if grep -nE '^\s*-?\s*(tapOn|inputText|pressKey|doubleTapOn|longPressOn)' -A3 "$F" | grep -iE '(^|[^a-z_])bid([^a-z_]|$)|place|max'; then
+            echo "::error::$F touches a bid control"; exit 1
+          fi
+
+      - name: Pick a live lot to open (read-only)
+        continue-on-error: true
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+        run: |
+          SQL="SELECT id FROM lots WHERE status::text = 'live' AND close_at > now() + interval '2 hours' ORDER BY close_at LIMIT 1"
+          ID=$(jq -n --arg q "$SQL" '{query: $q}' | curl -fsS -X POST \
+            "https://api.supabase.com/v1/projects/$PROD_REF/database/query" \
+            -H "Authorization: Bearer $SUPABASE_ACCESS_TOKEN" -H 'Content-Type: application/json' \
+            --data @- | jq -r '.[0].id // empty')
+          echo "LOT_ID=${ID:-none}" >> "$GITHUB_ENV"
+          echo "Lot: ${ID:-none}"
+
+      - name: Install Maestro
+        continue-on-error: true
+        run: |
+          curl -fsSL https://get.maestro.mobile.dev | bash
+          echo "$HOME/.maestro/bin" >> "$GITHUB_PATH"
+
+      - name: Sign in and open a lot (Maestro)
+        id: maestro
+        continue-on-error: true
+        timeout-minutes: 15
+        env:
+          MAESTRO_DRIVER_STARTUP_TIMEOUT: '300000'
+          MAESTRO_CLI_NO_ANALYTICS: '1'
+          BIDDER_EMAIL: playwright-e2e@clovrbid.test
+          BIDDER_PASSWORD: ${{ secrets.E2E_TEST_USER_PASSWORD }}
+        run: |
+          maestro --version
+          maestro --device "$SIM_UDID" test \
+            -e BIDDER_EMAIL="$BIDDER_EMAIL" -e BIDDER_PASSWORD="$BIDDER_PASSWORD" -e LOT_ID="$LOT_ID" \
+            --test-output-dir /tmp/canary/maestro \
+            e2e/maestro/bidder-app/02-canary-look.yaml
+
+      # continue-on-error keeps a flaky Maestro run from failing the canary,
+      # but it also made a broken sign-in invisible: run 36011409973 reported
+      # success while the flow died at the keyboard. Say so on the run page.
+      - name: Report the sign-in result
+        if: always()
+        run: |
+          if [ "${{ steps.maestro.outcome }}" = "success" ]; then
+            echo "Sign in + open a lot: passed" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "::warning::Sign in + open a lot did not pass (${{ steps.maestro.outcome }}). The update ran, but sign-in and Browse are unverified."
+            echo "Sign in + open a lot: **did not pass** (${{ steps.maestro.outcome }}). See the Maestro screenshots in the evidence artifact." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Simulator logs (expo-updates)
+        if: always()
+        run: |
+          xcrun simctl spawn "$SIM_UDID" log show --last 30m --style compact \
+            --predicate 'subsystem BEGINSWITH "dev.expo" OR eventMessage CONTAINS[c] "expo-updates"' \
+            > /tmp/canary/expo-updates.log 2>&1 || true
+          tail -60 /tmp/canary/expo-updates.log || true
+
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bidder-canary-evidence
+          path: /tmp/canary
+          retention-days: 14

@@ -1,0 +1,82 @@
+/**
+ * Cloudflare Workers config for the operator-web app via @opennextjs/cloudflare.
+ *
+ * Worker name: bingo-web
+ *
+ * Build is two steps run by GitHub Actions (.github/workflows/deploy-cloudflare.yml)
+ * or by deploy-cf.sh locally (WSL only — workerd has no win32-arm64 binary):
+ *
+ *   1. npx next build --webpack    — produces .next/ via Next.js webpack
+ *   2. npx opennextjs-cloudflare build
+ *                                  — converts .next/ to .open-next/ Worker bundle
+ *
+ * Then:
+ *   cd apps/operator-web
+ *   npx wrangler deploy
+ *
+ * Node compat: enabled by default in the OpenNext adapter so most
+ * Node-only deps (pdfkit, node:fs, ioredis) work without code changes.
+ * The Workers runtime emulates Node 22 surface area via nodejs_compat.
+ */
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "bingo-web",
+  "compatibility_date": "2026-04-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": ".open-next/worker.js",
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  /* Custom-domain binding (bingoauctions.com → bingo-web Worker) is currently
+     managed via the Cloudflare dashboard, not via a `routes` block here.
+     Trying to declare routes from the deploy script failed at the
+     /zones/{id}/workers/routes API because the CLOUDFLARE_API_TOKEN we
+     have only carries Workers Scripts:Edit, not Zone:Edit. To pin the
+     binding in IaC, either:
+       1. Expand the API token to include Zone:Edit on bingoauctions.com, OR
+       2. Switch to wrangler's Custom Domains API (different permission)
+     Until one of those is done, the hostname mapping lives only in the
+     Cloudflare dashboard. */
+  /* Disable the auto-generated *.workers.dev URL now that we have a
+     real custom domain (bingoauctions.com). Removes the ugly account-default
+     URL from public access; only the custom hostname serves traffic.
+     The Worker can still be reached via the dashboard for debugging,
+     just not via workers.dev. */
+  "workers_dev": false,
+  "preview_urls": false,
+  /* Observability: send Workers analytics + logs to Cloudflare's dashboard.
+     Free tier includes basic metrics + 24h log retention. */
+  "observability": {
+    "enabled": true
+  },
+  /* SECRETS are NOT defined here — set them in the Cloudflare Workers
+     dashboard under Settings → Variables, or via `wrangler secret put`.
+     We keep them out of wrangler.jsonc so secrets never get committed.
+     See docs/CLOUDFLARE_CUTOVER.md for the env-var copy checklist.
+
+     `vars` below is for NON-secret configuration only. Anything added here
+     is committed to the repo and readable by anyone with checkout access,
+     so it must be values that are already public. */
+  "vars": {
+    /* SHA-256 of the Google Play APP SIGNING key for com.bingoauctions.bidder,
+       served at /.well-known/assetlinks.json. Public by definition — the whole
+       point is that Google fetches it from our domain in the clear — so it
+       belongs in `vars`, not in a secret.
+
+       Retrieved 2026-08-07 from the Play Developer API (versionCode 9) via the
+       "Get Play App Signing SHA-256" workflow, which wraps
+       scripts/get-play-app-signing-sha.mjs. Do NOT hand-copy this from Play
+       Console: that page shows both the app signing key and the upload key,
+       and the upload key is the wrong one — Google re-signs the AAB with the
+       app signing key, so the upload key never reaches the device.
+
+       To rotate: re-run that workflow and replace this value. The route reads
+       it per request, so nothing else needs to change.
+
+       (The previous value, 8E:0C:D7:…, was the fingerprint of the
+       never-published com.cluerholdings.auctionplatform — a different app
+       entirely, which is why App Links verification could never succeed.) */
+    "ANDROID_APP_SIGNING_SHA256": "F7:12:96:53:F9:9D:25:2B:F0:D5:63:66:6D:BC:E0:92:AB:E1:0B:07:B2:96:BD:6C:F5:38:E3:E0:BA:AB:E2:91"
+  }
+}

@@ -1,0 +1,8 @@
+www.cbn.com.bo -> waredirect-prd.azurewebsites.net (NXDOMAIN)
+
+No published programme covers cbn.com.bo. The earlier "submit through the programme" note was a
+false pass caused by apex collapse (`cbn.com.bo` was stored as `com.bo`, which carries a Visa scope
+nobody had applied to this host). Verified against all 43,365 scope assets with the Public Suffix
+List: no exact asset and no wildcard reaches this host.
+
+Channel: direct outreach only — a free disclosure to CBN's own security contact, no programme gate.

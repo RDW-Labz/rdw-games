@@ -1,0 +1,187 @@
+[
+  {
+    "weekly": [
+      {
+        "wk": "2026-07-20",
+        "invoices": 364,
+        "buyers": 117,
+        "hammer_c": 699239,
+        "bp_c": 104883,
+        "tax_c": 60567,
+        "total_c": 864689,
+        "sq_fee_c": 35003,
+        "refund_cash_c": 55113,
+        "credit_c": 0
+      },
+      {
+        "wk": "2026-07-27",
+        "invoices": 745,
+        "buyers": 169,
+        "hammer_c": 1086637,
+        "bp_c": 162990,
+        "tax_c": 92756,
+        "total_c": 1342383,
+        "sq_fee_c": 60574,
+        "refund_cash_c": 185430,
+        "credit_c": 504
+      },
+      {
+        "wk": "2026-08-03",
+        "invoices": 816,
+        "buyers": 189,
+        "hammer_c": 1812804,
+        "bp_c": 271914,
+        "tax_c": 164603,
+        "total_c": 2249321,
+        "sq_fee_c": 88253,
+        "refund_cash_c": 336952,
+        "credit_c": 0
+      },
+      {
+        "wk": "2026-08-10",
+        "invoices": 773,
+        "buyers": 176,
+        "hammer_c": 1439120,
+        "bp_c": 215859,
+        "tax_c": 130822,
+        "total_c": 1785801,
+        "sq_fee_c": 74512,
+        "refund_cash_c": 229232,
+        "credit_c": 0
+      },
+      {
+        "wk": "2026-08-17",
+        "invoices": 727,
+        "buyers": 164,
+        "hammer_c": 1113928,
+        "bp_c": 167081,
+        "tax_c": 107120,
+        "total_c": 1388129,
+        "sq_fee_c": 61932,
+        "refund_cash_c": 246929,
+        "credit_c": 0
+      },
+      {
+        "wk": "2026-08-24",
+        "invoices": 732,
+        "buyers": 171,
+        "hammer_c": 1752333,
+        "bp_c": 262845,
+        "tax_c": 155479,
+        "total_c": 2170657,
+        "sq_fee_c": 83570,
+        "refund_cash_c": 473652,
+        "credit_c": 6264
+      },
+      {
+        "wk": "2026-08-31",
+        "invoices": 662,
+        "buyers": 162,
+        "hammer_c": 1244530,
+        "bp_c": 186679,
+        "tax_c": 107105,
+        "total_c": 1538314,
+        "sq_fee_c": 63598,
+        "refund_cash_c": 308441,
+        "credit_c": 5744
+      },
+      {
+        "wk": "2026-09-07",
+        "invoices": 815,
+        "buyers": 194,
+        "hammer_c": 1499771,
+        "bp_c": 224959,
+        "tax_c": 142399,
+        "total_c": 1867129,
+        "sq_fee_c": 76576,
+        "refund_cash_c": 622792,
+        "credit_c": 4874
+      },
+      {
+        "wk": "2026-09-14",
+        "invoices": 806,
+        "buyers": 186,
+        "hammer_c": 1643687,
+        "bp_c": 246546,
+        "tax_c": 167111,
+        "total_c": 2057344,
+        "sq_fee_c": 83284,
+        "refund_cash_c": 361131,
+        "credit_c": 1748
+      },
+      {
+        "wk": "2026-09-21",
+        "invoices": 923,
+        "buyers": 209,
+        "hammer_c": 1686032,
+        "bp_c": 252896,
+        "tax_c": 166918,
+        "total_c": 2105846,
+        "sq_fee_c": 87620,
+        "refund_cash_c": 272988,
+        "credit_c": 878
+      },
+      {
+        "wk": "2026-09-28",
+        "invoices": 893,
+        "buyers": 199,
+        "hammer_c": 2424374,
+        "bp_c": 363648,
+        "tax_c": 237993,
+        "total_c": 3026015,
+        "sq_fee_c": 113952,
+        "refund_cash_c": 752426,
+        "credit_c": 1874
+      },
+      {
+        "wk": "2026-10-05",
+        "invoices": 934,
+        "buyers": 185,
+        "hammer_c": 2313453,
+        "bp_c": 347011,
+        "tax_c": 229422,
+        "total_c": 2889886,
+        "sq_fee_c": 111615,
+        "refund_cash_c": 306972,
+        "credit_c": 1748
+      },
+      {
+        "wk": "2026-10-12",
+        "invoices": 368,
+        "buyers": 132,
+        "hammer_c": 765051,
+        "bp_c": 114749,
+        "tax_c": 77722,
+        "total_c": 957522,
+        "sq_fee_c": 37913,
+        "refund_cash_c": 46831,
+        "credit_c": 374
+      }
+    ],
+    "lots84": {
+      "closed_lots": 24198,
+      "sold": 20187,
+      "avg_hammer_c": 956,
+      "median_hammer_c": 500,
+      "avg_msrp_sold_c": 20385,
+      "relisted_children": 3923,
+      "auctions": 253,
+      "zero_bid": 3858
+    },
+    "buyers84": {
+      "buyers": 576,
+      "buyers_2plus_weeks": 390,
+      "relisted_unpaid": 86,
+      "refunded_full": 695,
+      "part_refund": 1191
+    },
+    "lines84": {
+      "lines": 20340,
+      "picked": 16256,
+      "refunded": 2464,
+      "forfeited": 767
+    },
+    "bidders_total": 1350,
+    "bidders_with_card": 1005
+  }
+]

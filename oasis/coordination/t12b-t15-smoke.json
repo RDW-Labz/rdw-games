@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "kind": "native-task-boundary-smoke",
+  "status": "SKIPPED",
+  "reason": "The external Claude provider is unused because its required isolation flags are unavailable. Native fallback is authorized; no smoke exchange is needed.",
+  "would_have_run": [
+    {
+      "id": "reader",
+      "model": "haiku",
+      "context": ["docs/TICKETS.md"],
+      "outputs": [],
+      "timeoutMs": 120000,
+      "result_shape": "tiny JSON acknowledgement"
+    },
+    {
+      "id": "writer",
+      "model": "haiku",
+      "context": ["docs/TICKETS.md"],
+      "outputs": ["coordination/t12b-smoke.md"],
+      "timeoutMs": 120000,
+      "result_shape": "tiny JSON acknowledgement"
+    }
+  ]
+}

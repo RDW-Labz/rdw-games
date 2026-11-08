@@ -1,0 +1,12 @@
+{
+ "host": "test.angulardemo.emerald.cbre.com",
+ "target": "testemeraldangulardemo.azurewebsites.net",
+ "provider": "azurewebsites",
+ "label": "testemeraldangulardemo",
+ "claim_class": "paid",
+ "in_scope": "h1:cbre via test.angulardemo.emerald.cbre.com",
+ "captured": "2026-11-07T20:59:55Z",
+ "target_resolves": false,
+ "victim_response": "http_code=000 ip= err=Could not resolve host: test.angulardemo.emerald.cbre.com\n[stderr] curl: (6) Could not resolve host: test.angulardemo.emerald.cbre.com",
+ "evidence_dir": "/home/cluer/Projects/bug-bounty/evidence-takeover/test.angulardemo.emerald.cbre.com"
+}

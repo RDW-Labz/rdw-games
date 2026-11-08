@@ -1,0 +1,277 @@
+[
+  {
+    "by_wh_invoice": [
+      {
+        "wh": "Harrison",
+        "refunded": 2427,
+        "sold": 20339,
+        "rate": 0.119
+      },
+      {
+        "wh": "Dodge City",
+        "refunded": 1,
+        "sold": 1,
+        "rate": 1
+      }
+    ],
+    "lot_auction_drift": {
+      "refunded_lot_auction_null": 1346,
+      "refunded_lot_auction_differs": 1082
+    },
+    "note_buckets": {
+      "notes": 759,
+      "missing_cant_find": 97,
+      "broken_damaged": 182,
+      "parts_incomplete": 166,
+      "wrong_desc": 75,
+      "defect_not_work": 25,
+      "sold_twice_dup": 0,
+      "customer_req": 7,
+      "trash_dispose": 3
+    },
+    "reason_vs_note": [
+      {
+        "sr": "defective_item",
+        "n": 1444,
+        "with_note": 523,
+        "note_missing": 59,
+        "note_broken": 130
+      },
+      {
+        "sr": "wrong_item",
+        "n": 685,
+        "with_note": 9,
+        "note_missing": 0,
+        "note_broken": 0
+      },
+      {
+        "sr": "other",
+        "n": 221,
+        "with_note": 220,
+        "note_missing": 38,
+        "note_broken": 47
+      },
+      {
+        "sr": "damaged_in_transit",
+        "n": 72,
+        "with_note": 7,
+        "note_missing": 0,
+        "note_broken": 5
+      },
+      {
+        "sr": "none",
+        "n": 6,
+        "with_note": 0,
+        "note_missing": 0,
+        "note_broken": 0
+      }
+    ],
+    "furniture_vs_reason": [
+      {
+        "furn": false,
+        "sr": "defective_item",
+        "n": 1018
+      },
+      {
+        "furn": false,
+        "sr": "wrong_item",
+        "n": 488
+      },
+      {
+        "furn": false,
+        "sr": "other",
+        "n": 152
+      },
+      {
+        "furn": false,
+        "sr": "damaged_in_transit",
+        "n": 48
+      },
+      {
+        "furn": false,
+        "sr": "none",
+        "n": 4
+      },
+      {
+        "furn": true,
+        "sr": "defective_item",
+        "n": 426
+      },
+      {
+        "furn": true,
+        "sr": "wrong_item",
+        "n": 197
+      },
+      {
+        "furn": true,
+        "sr": "other",
+        "n": 69
+      },
+      {
+        "furn": true,
+        "sr": "damaged_in_transit",
+        "n": 24
+      },
+      {
+        "furn": true,
+        "sr": "none",
+        "n": 2
+      }
+    ],
+    "by_relist_origin": [
+      {
+        "origin": "desk_relist",
+        "refunded": 536,
+        "sold": 2034,
+        "rate": 0.264
+      },
+      {
+        "origin": "first listing",
+        "refunded": 1793,
+        "sold": 17870,
+        "rate": 0.1
+      },
+      {
+        "origin": "human_relot",
+        "refunded": 99,
+        "sold": 436,
+        "rate": 0.227
+      }
+    ],
+    "lotter_first_listing_by_furn": [
+      {
+        "lotter": "c482d0",
+        "furn": false,
+        "refunded": 165,
+        "sold": 777,
+        "rate": 0.212
+      },
+      {
+        "lotter": "9f5373",
+        "furn": false,
+        "refunded": 159,
+        "sold": 979,
+        "rate": 0.162
+      },
+      {
+        "lotter": "df069f",
+        "furn": false,
+        "refunded": 60,
+        "sold": 403,
+        "rate": 0.149
+      },
+      {
+        "lotter": "8ac030",
+        "furn": false,
+        "refunded": 83,
+        "sold": 647,
+        "rate": 0.128
+      },
+      {
+        "lotter": "eb2793",
+        "furn": false,
+        "refunded": 10,
+        "sold": 83,
+        "rate": 0.12
+      },
+      {
+        "lotter": "8cc74a",
+        "furn": false,
+        "refunded": 69,
+        "sold": 617,
+        "rate": 0.112
+      },
+      {
+        "lotter": "c9889c",
+        "furn": false,
+        "refunded": 38,
+        "sold": 453,
+        "rate": 0.084
+      },
+      {
+        "lotter": "dc17df",
+        "furn": false,
+        "refunded": 81,
+        "sold": 986,
+        "rate": 0.082
+      },
+      {
+        "lotter": "f61183",
+        "furn": false,
+        "refunded": 26,
+        "sold": 340,
+        "rate": 0.076
+      },
+      {
+        "lotter": "d7b68f",
+        "furn": false,
+        "refunded": 10,
+        "sold": 133,
+        "rate": 0.075
+      },
+      {
+        "lotter": "0138df",
+        "furn": false,
+        "refunded": 54,
+        "sold": 779,
+        "rate": 0.069
+      },
+      {
+        "lotter": "b29d65",
+        "furn": false,
+        "refunded": 68,
+        "sold": 1015,
+        "rate": 0.067
+      },
+      {
+        "lotter": "(no worker)",
+        "furn": false,
+        "refunded": 443,
+        "sold": 7416,
+        "rate": 0.06
+      },
+      {
+        "lotter": "d5169f",
+        "furn": false,
+        "refunded": 11,
+        "sold": 239,
+        "rate": 0.046
+      },
+      {
+        "lotter": "df069f",
+        "furn": true,
+        "refunded": 36,
+        "sold": 147,
+        "rate": 0.245
+      },
+      {
+        "lotter": "9f5373",
+        "furn": true,
+        "refunded": 206,
+        "sold": 1054,
+        "rate": 0.195
+      },
+      {
+        "lotter": "(no worker)",
+        "furn": true,
+        "refunded": 155,
+        "sold": 858,
+        "rate": 0.181
+      },
+      {
+        "lotter": "8cc74a",
+        "furn": true,
+        "refunded": 27,
+        "sold": 197,
+        "rate": 0.137
+      },
+      {
+        "lotter": "dc17df",
+        "furn": true,
+        "refunded": 13,
+        "sold": 98,
+        "rate": 0.133
+      }
+    ]
+  }
+]

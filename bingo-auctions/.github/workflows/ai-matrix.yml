@@ -1,0 +1,100 @@
+# AI lotting matrix — run the prompt-A/B vision harness in CI.
+#
+# Owner ask 2026-07-09: "test the matrix like we done back at the beginning" —
+# re-run the image × prompt × model comparison against REAL staff intake
+# photos, without needing a laptop with the OpenRouter key. Uses the same
+# scripts/lottr-smoke/prompt-ab.mjs harness; the report lands in the run's
+# step summary AND as a downloadable artifact.
+#
+# image_urls: newline- or comma-separated https image URLs (e.g. lot-photos
+# public URLs from prod — query recent lots' photo_urls). Downloaded into
+# fixtures/intake/ before the run.
+
+name: AI Lotting Matrix
+
+on:
+  workflow_dispatch:
+    inputs:
+      image_urls:
+        description: 'Image URLs (newline or comma separated)'
+        required: true
+        type: string
+      models:
+        description: 'model[:label] list, comma-separated'
+        required: false
+        type: string
+        default: 'anthropic/claude-haiku-4-5:Haiku-4.5,anthropic/claude-sonnet-4-6:Sonnet-4.6,google/gemini-3.1-flash-lite:Flash-Lite-OLD'
+      prompts:
+        description: 'prompt file[:label] list (repo paths), comma-separated'
+        required: false
+        type: string
+        default: 'scripts/lottr-smoke/prompts/photo-identify.live.txt:Live'
+
+jobs:
+  matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Download test images
+        env:
+          IMAGE_URLS: ${{ inputs.image_urls }}
+        run: |
+          mkdir -p scripts/lottr-smoke/fixtures/intake
+          i=0
+          # split on commas and newlines
+          echo "$IMAGE_URLS" | tr ',' '\n' | while IFS= read -r u; do
+            u=$(echo "$u" | xargs)
+            [ -z "$u" ] && continue
+            case "$u" in https://*) ;; *) echo "skip non-https: $u"; continue;; esac
+            i=$((i+1))
+            ext="${u##*.}"
+            case "$ext" in jpg|jpeg|png|webp) ;; *) ext=jpg;; esac
+            curl -sfL "$u" -o "scripts/lottr-smoke/fixtures/intake/img$i.$ext" \
+              && echo "img$i.$ext <- $u" \
+              || echo "::warning::failed to download $u"
+          done
+          ls -la scripts/lottr-smoke/fixtures/intake/
+
+      - name: Run matrix
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          MODELS: ${{ inputs.models }}
+          PROMPTS: ${{ inputs.prompts }}
+        run: |
+          ARGS=""
+          for f in scripts/lottr-smoke/fixtures/intake/*; do
+            [ -f "$f" ] || continue
+            ARGS="$ARGS --image $f"
+          done
+          if [ -z "$ARGS" ]; then echo "::error::no images downloaded"; exit 1; fi
+          IFS=',' read -ra MS <<< "$MODELS"
+          for m in "${MS[@]}"; do ARGS="$ARGS --model $(echo "$m" | xargs)"; done
+          IFS=',' read -ra PS <<< "$PROMPTS"
+          for p in "${PS[@]}"; do ARGS="$ARGS --prompt $(echo "$p" | xargs)"; done
+          echo "running: prompt-ab.mjs $ARGS"
+          node scripts/lottr-smoke/prompt-ab.mjs $ARGS
+
+      - name: Publish report to step summary
+        if: always()
+        run: |
+          for f in scripts/lottr-smoke/results/prompt-ab-*.md; do
+            [ -f "$f" ] || continue
+            cat "$f" >> "$GITHUB_STEP_SUMMARY"
+            # Also echo to the job log so the report is retrievable via the
+            # logs API (step summaries aren't).
+            echo "===== REPORT: $f ====="
+            cat "$f"
+          done
+
+      - name: Upload report artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-matrix-report
+          path: scripts/lottr-smoke/results/
+          if-no-files-found: warn

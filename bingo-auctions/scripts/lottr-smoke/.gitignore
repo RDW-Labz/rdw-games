@@ -1,0 +1,11 @@
+# Test fixtures (real photos) and per-run results are gitignored —
+# they're operator-specific and would bloat the repo. The manifest
+# example and prompts are tracked; the actual photos + reports aren't.
+fixtures/*.jpg
+fixtures/*.jpeg
+fixtures/*.png
+fixtures/*.webp
+fixtures/*.heic
+fixtures/manifest.json
+results/
+!fixtures/manifest.example.json

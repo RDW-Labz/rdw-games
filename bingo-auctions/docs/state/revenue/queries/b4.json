@@ -1,0 +1,311 @@
+[
+  {
+    "refunds84": null,
+    "policy": [
+      {
+        "version": 2,
+        "published": true,
+        "payment_window_hours": 0,
+        "pickup_window_days": 7,
+        "refund_window_post_pickup_hours": 0,
+        "no_show_policy": "full_forfeit",
+        "restock_fee_cents": 500,
+        "relist_fee_cents": 500
+      },
+      {
+        "version": 1,
+        "published": true,
+        "payment_window_hours": 0,
+        "pickup_window_days": 7,
+        "refund_window_post_pickup_hours": 0,
+        "no_show_policy": "full_forfeit",
+        "restock_fee_cents": 500,
+        "relist_fee_cents": 500
+      }
+    ],
+    "wh": [
+      {
+        "name": "Harrison",
+        "city": "Harrison",
+        "state": "AR",
+        "pickup_slot_minutes": 30,
+        "pickup_slot_capacity": 5,
+        "pickup_mode": "counter_pickup",
+        "pickup_hours": {
+          "fri": [
+            {
+              "open": "10:30",
+              "close": "18:00"
+            }
+          ],
+          "mon": [
+            {
+              "open": "10:30",
+              "close": "18:00"
+            }
+          ],
+          "sat": [
+            {
+              "open": "10:30",
+              "close": "18:00"
+            }
+          ],
+          "sun": [
+            {
+              "open": "10:30",
+              "close": "18:00"
+            }
+          ],
+          "thu": [
+            {
+              "open": "10:30",
+              "close": "18:00"
+            }
+          ],
+          "tue": [
+            {
+              "open": "10:30",
+              "close": "18:00"
+            }
+          ],
+          "wed": [
+            {
+              "open": "10:30",
+              "close": "18:00"
+            }
+          ]
+        }
+      },
+      {
+        "name": "Dodge City",
+        "city": "Dodge City",
+        "state": "KS",
+        "pickup_slot_minutes": 30,
+        "pickup_slot_capacity": 5,
+        "pickup_mode": "counter_pickup",
+        "pickup_hours": {
+          "fri": [
+            {
+              "open": "10:30",
+              "close": "17:30"
+            }
+          ],
+          "mon": [
+            {
+              "open": "10:30",
+              "close": "17:30"
+            }
+          ],
+          "sat": [
+            {
+              "open": "10:30",
+              "close": "17:30"
+            }
+          ],
+          "sun": [
+            {
+              "open": "10:30",
+              "close": "17:30"
+            }
+          ],
+          "thu": [],
+          "tue": [
+            {
+              "open": "10:30",
+              "close": "17:30"
+            }
+          ],
+          "wed": [
+            {
+              "open": "10:30",
+              "close": "17:30"
+            }
+          ]
+        }
+      },
+      {
+        "name": "Springdale",
+        "city": "Springdale",
+        "state": "AR",
+        "pickup_slot_minutes": 30,
+        "pickup_slot_capacity": 5,
+        "pickup_mode": "staff_assisted",
+        "pickup_hours": {}
+      },
+      {
+        "name": "Crandall",
+        "city": "Harrison",
+        "state": "AR",
+        "pickup_slot_minutes": 30,
+        "pickup_slot_capacity": 5,
+        "pickup_mode": "counter_pickup",
+        "pickup_hours": {
+          "sat": [
+            {
+              "open": "12:00",
+              "close": "16:00"
+            }
+          ],
+          "sun": [
+            {
+              "open": "12:00",
+              "close": "16:00"
+            }
+          ]
+        }
+      }
+    ],
+    "pickup_lag": {
+      "n": 8497,
+      "p50_days": 1.88971493700231,
+      "p90_days": 4.91215690965741,
+      "over3d": 2663,
+      "over7d": 27
+    },
+    "forfeits84": {
+      "lines": 823,
+      "hammer_c": 421468
+    },
+    "topcats": [
+      {
+        "cat": "Other",
+        "sold": 8536,
+        "hammer_c": 8593402
+      },
+      {
+        "cat": "Furniture",
+        "sold": 3052,
+        "hammer_c": 4189155
+      },
+      {
+        "cat": "Home & Garden",
+        "sold": 2180,
+        "hammer_c": 1558059
+      },
+      {
+        "cat": "Electronics",
+        "sold": 945,
+        "hammer_c": 1009114
+      },
+      {
+        "cat": "Appliances",
+        "sold": 382,
+        "hammer_c": 613635
+      },
+      {
+        "cat": "Tools & Hardware",
+        "sold": 761,
+        "hammer_c": 457928
+      },
+      {
+        "cat": "Pet Supplies",
+        "sold": 351,
+        "hammer_c": 243074
+      },
+      {
+        "cat": "Health & Beauty",
+        "sold": 478,
+        "hammer_c": 222906
+      },
+      {
+        "cat": "Home & Kitchen › Bedding",
+        "sold": 146,
+        "hammer_c": 212337
+      },
+      {
+        "cat": "Toys & Games",
+        "sold": 280,
+        "hammer_c": 206698
+      },
+      {
+        "cat": "Kitchen",
+        "sold": 278,
+        "hammer_c": 193255
+      },
+      {
+        "cat": "Bedding & Linens",
+        "sold": 218,
+        "hammer_c": 179689
+      }
+    ],
+    "fb_kinds": [
+      {
+        "app": "staff",
+        "kind": "bug",
+        "n": 43
+      },
+      {
+        "app": "staff",
+        "kind": "idea",
+        "n": 8
+      },
+      {
+        "app": "web",
+        "kind": "bug",
+        "n": 3
+      },
+      {
+        "app": "bidder",
+        "kind": "idea",
+        "n": 1
+      }
+    ],
+    "fb_kw": {
+      "total": 4,
+      "pickup": 1,
+      "ship_deliver": 0,
+      "fee_premium": 0,
+      "hold_extend_storage": 0,
+      "pallet_bulk": 0,
+      "missing_damaged": 0,
+      "alert_notify": 1,
+      "refund": 1
+    },
+    "ss": {
+      "saved": 36,
+      "notify": 36,
+      "bidders": 21
+    },
+    "wl": {
+      "rows": 26126,
+      "bidders": 656
+    },
+    "auc_dow": [
+      {
+        "dow": 0,
+        "n": 43,
+        "pickup_days": 5.3
+      },
+      {
+        "dow": 1,
+        "n": 40,
+        "pickup_days": 5.3
+      },
+      {
+        "dow": 2,
+        "n": 45,
+        "pickup_days": 5.4
+      },
+      {
+        "dow": 3,
+        "n": 38,
+        "pickup_days": 5.3
+      },
+      {
+        "dow": 4,
+        "n": 39,
+        "pickup_days": 5.2
+      },
+      {
+        "dow": 5,
+        "n": 42,
+        "pickup_days": 5
+      },
+      {
+        "dow": 6,
+        "n": 39,
+        "pickup_days": 5.3
+      }
+    ]
+  }
+]

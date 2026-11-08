@@ -1,0 +1,18 @@
+{
+  "id": "photo-026",
+  "image_path": "photo-026-bicycle-clear.jpg",
+  "media_type": "image/jpeg",
+  "photo_quality_label": "clear",
+  "expected": {
+    "title": "Schwinn Sycamore 700c Mens Hybrid Bike (Step-Over, Multiple Sizes)",
+    "brand": "Schwinn",
+    "model": "S5418WMC",
+    "upc": "038675541801",
+    "category_slug": "cycling",
+    "category_legacy": "Sporting Goods",
+    "condition": "New/Sealed",
+    "msrp_cents": 49999,
+    "expected_confidence": "medium"
+  },
+  "notes": "Bike still in carton, photo taken with side flap open. Half the bike visible."
+}

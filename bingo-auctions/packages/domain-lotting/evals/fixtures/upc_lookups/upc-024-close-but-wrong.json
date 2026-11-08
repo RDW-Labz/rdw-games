@@ -1,0 +1,15 @@
+{
+  "id": "upc-024",
+  "code": "885911548633",
+  "code_type": "upc",
+  "expected": {
+    "title": "",
+    "brand": "",
+    "model": "",
+    "category_slug": "other-misc",
+    "category_legacy": "Other",
+    "condition": "",
+    "msrp_cents": 0
+  },
+  "notes": "NEGATIVE — last digit of the DeWalt DCD771C2 UPC (885911548632) is changed by 1, breaking the GTIN check digit. Tests whether the model returns the *real* DeWalt drill (BAD — that's a fingerprint of an LLM matching on prefix not the full code) or correctly returns nothing. This is the hardest negative case in the suite."
+}

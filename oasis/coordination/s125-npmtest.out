@@ -1,0 +1,4319 @@
+
+> project-swarm@1.24.1 test
+> node --test tests/*.test.mjs
+
+TAP version 13
+# Subtest: openai sends fixed tool-free requests and accepts structured files
+ok 1 - openai sends fixed tool-free requests and accepts structured files
+  ---
+  duration_ms: 19.169416
+  ...
+# Subtest: gemini sends fixed tool-free requests and accepts structured files
+ok 2 - gemini sends fixed tool-free requests and accepts structured files
+  ---
+  duration_ms: 0.980708
+  ...
+# Subtest: ollama sends fixed tool-free requests and accepts structured files
+ok 3 - ollama sends fixed tool-free requests and accepts structured files
+  ---
+  duration_ms: 2.370917
+  ...
+# Subtest: lambda sends fixed tool-free requests and accepts structured files
+ok 4 - lambda sends fixed tool-free requests and accepts structured files
+  ---
+  duration_ms: 1.496709
+  ...
+# Subtest: API jobs copy only assigned text and integrate after review without Claude
+ok 5 - API jobs copy only assigned text and integrate after review without Claude
+  ---
+  duration_ms: 431.308458
+  ...
+# Subtest: structured output rejects undeclared, missing, duplicate and invalid files
+ok 6 - structured output rejects undeclared, missing, duplicate and invalid files
+  ---
+  duration_ms: 0.612
+  ...
+# Subtest: invalid API output writes nothing and cannot integrate
+ok 7 - invalid API output writes nothing and cannot integrate
+  ---
+  duration_ms: 298.66075
+  ...
+# Subtest: a self-hosted Lambda origin disables thinking by default and honours an explicit opt-in
+ok 8 - a self-hosted Lambda origin disables thinking by default and honours an explicit opt-in
+  ---
+  duration_ms: 2.663292
+  ...
+# Subtest: refusals, truncation, tool calls, malformed transport and output fail closed
+ok 9 - refusals, truncation, tool calls, malformed transport and output fail closed
+  ---
+  duration_ms: 5.601083
+  ...
+# Subtest: HTTP, transport, stream errors and echoed credentials never persist secrets
+ok 10 - HTTP, transport, stream errors and echoed credentials never persist secrets
+  ---
+  duration_ms: 2.999292
+  ...
+# Subtest: large chunked response is bounded without accepting partial output
+ok 11 - large chunked response is bounded without accepting partial output
+  ---
+  duration_ms: 1.257583
+  ...
+# Subtest: timeout and external cancellation abort the owned HTTP request
+ok 12 - timeout and external cancellation abort the owned HTTP request
+  ---
+  duration_ms: 86.229666
+  ...
+# Subtest: four concurrent API requests cancel together and queued jobs never start
+ok 13 - four concurrent API requests cancel together and queued jobs never start
+  ---
+  duration_ms: 405.741291
+  ...
+# Subtest: configuration is honest without network calls and endpoint overrides are bounded
+ok 14 - configuration is honest without network calls and endpoint overrides are bounded
+  ---
+  duration_ms: 0.857917
+  ...
+# Subtest: API validation requires a model, bounds tokens and rejects binary context before spending
+ok 15 - API validation requires a model, bounds tokens and rejects binary context before spending
+  ---
+  duration_ms: 373.874583
+  ...
+# Subtest: cancellation while reading a response body rejects partial output
+ok 16 - cancellation while reading a response body rejects partial output
+  ---
+  duration_ms: 31.248625
+  ...
+# Subtest: openai rejects decoded credential echoes before retaining output
+ok 17 - openai rejects decoded credential echoes before retaining output
+  ---
+  duration_ms: 5.160208
+  ...
+# Subtest: gemini rejects decoded credential echoes before retaining output
+ok 18 - gemini rejects decoded credential echoes before retaining output
+  ---
+  duration_ms: 2.800375
+  ...
+# Subtest: ollama rejects decoded credential echoes before retaining output
+ok 19 - ollama rejects decoded credential echoes before retaining output
+  ---
+  duration_ms: 2.338416
+  ...
+# Subtest: lambda rejects decoded credential echoes before retaining output
+ok 20 - lambda rejects decoded credential echoes before retaining output
+  ---
+  duration_ms: 3.84575
+  ...
+# Subtest: credential checks inspect retained metadata without treating JSON field names as echoes
+ok 21 - credential checks inspect retained metadata without treating JSON field names as echoes
+  ---
+  duration_ms: 0.891625
+  ...
+# Subtest: Lambda sessions are unique for repeated and concurrent same-ID requests
+ok 22 - Lambda sessions are unique for repeated and concurrent same-ID requests
+  ---
+  duration_ms: 1.961792
+  ...
+# Subtest: Lambda sessions remain distinct across manifest runs in one process
+ok 23 - Lambda sessions remain distinct across manifest runs in one process
+  ---
+  duration_ms: 726.843125
+  ...
+# Subtest: escaped credential rejection fails the manifest without persisting or integrating output
+ok 24 - escaped credential rejection fails the manifest without persisting or integrating output
+  ---
+  duration_ms: 396.280792
+  ...
+# Subtest: ask ids carry a random suffix: <prefix>-<ms>-<8 hex>, unlike the old ask-<ms> that two runs could share
+ok 25 - ask ids carry a random suffix: <prefix>-<ms>-<8 hex>, unlike the old ask-<ms> that two runs could share
+  ---
+  duration_ms: 389.713667
+  ...
+# Subtest: a claim collision on the first id is retried once with a fresh id, and the run still completes
+ok 26 - a claim collision on the first id is retried once with a fresh id, and the run still completes
+  ---
+  duration_ms: 376.948958
+  ...
+# Subtest: \#184: an API agent whose summary is plain prose returns {status:"ok", answer, parsed:false} instead of an error
+ok 27 - \#184: an API agent whose summary is plain prose returns {status:"ok", answer, parsed:false} instead of an error
+  ---
+  duration_ms: 289.919458
+  ...
+# Subtest: \#184: an API agent whose summary already ends in a parsable JSON line is returned as a normal parsed result, not the prose fallback
+ok 28 - \#184: an API agent whose summary already ends in a parsable JSON line is returned as a normal parsed result, not the prose fallback
+  ---
+  duration_ms: 359.906166
+  ...
+# Subtest: \#184: the claude agent keeps its existing "no parsable JSON" error shape (the fallback is API-agent only)
+ok 29 - \#184: the claude agent keeps its existing "no parsable JSON" error shape (the fallback is API-agent only)
+  ---
+  duration_ms: 373.287625
+  ...
+# Subtest: two worktrees of one git repo conflict on a shared file, and not on disjoint files
+ok 30 - two worktrees of one git repo conflict on a shared file, and not on disjoint files
+  ---
+  duration_ms: 543.641625
+  ...
+# Subtest: different repos never conflict
+ok 31 - different repos never conflict
+  ---
+  duration_ms: 364.164083
+  ...
+# Subtest: a stale pid is pruned from the registry
+ok 32 - a stale pid is pruned from the registry
+  ---
+  duration_ms: 54.010917
+  ...
+# Subtest: SWARM_LIVE_DIR overrides the default live directory
+ok 33 - SWARM_LIVE_DIR overrides the default live directory
+  ---
+  duration_ms: 0.239292
+  ...
+# Subtest: registerLiveRun writes atomically and leaves no temp file
+ok 34 - registerLiveRun writes atomically and leaves no temp file
+  ---
+  duration_ms: 50.198666
+  ...
+# Subtest: boardSummary reads each run's state.json, defaulting to unknown/[] when missing
+ok 35 - boardSummary reads each run's state.json, defaulting to unknown/[] when missing
+  ---
+  duration_ms: 102.992958
+  ...
+# Subtest: a run never conflicts with its own record
+ok 36 - a run never conflicts with its own record
+  ---
+  duration_ms: 414.419917
+  ...
+# Subtest: compareVersions orders dotted versions numerically, not lexically
+ok 37 - compareVersions orders dotted versions numerically, not lexically
+  ---
+  duration_ms: 1.875834
+  ...
+# Subtest: parseRequirement: exact pin vs range vs extras
+ok 38 - parseRequirement: exact pin vs range vs extras
+  ---
+  duration_ms: 0.946708
+  ...
+# Subtest: satisfiesRequirement checks every clause
+ok 39 - satisfiesRequirement checks every clause
+  ---
+  duration_ms: 0.39125
+  ...
+# Subtest: parseWheelFilename and parseTarballFilename normalize underscores to hyphens
+ok 40 - parseWheelFilename and parseTarballFilename normalize underscores to hyphens
+  ---
+  duration_ms: 3.124875
+  ...
+# Subtest: parseUvLockVersions reads repeated [[package]] blocks
+ok 41 - parseUvLockVersions reads repeated [[package]] blocks
+  ---
+  duration_ms: 0.707667
+  ...
+# Subtest: parseRequiresDist skips conditional (extras/markers) requirements
+ok 42 - parseRequiresDist skips conditional (extras/markers) requirements
+  ---
+  duration_ms: 0.773417
+  ...
+# Subtest: exactNpmVersion accepts a plain version, rejects ranges
+ok 43 - exactNpmVersion accepts a plain version, rejects ranges
+  ---
+  duration_ms: 0.270625
+  ...
+# library-exact-agent-core: pyproject.toml: connectors pins agent-core with == (0.4.0); libraries must use a range, not an exact pin
+# pin-not-vendored-version: pyproject.toml: agent-core is pinned to 0.4.0 but the vendored copy is 0.5.1
+# pin-older-than-vendored: pyproject.toml: agent-core is pinned to 0.4.0 but a newer vendored copy 0.5.1 exists
+# Subtest: runCheckPins: a library (connectors) exact-pinning agent-core older than the vendored wheel fails three rules
+ok 44 - runCheckPins: a library (connectors) exact-pinning agent-core older than the vendored wheel fails three rules
+  ---
+  duration_ms: 27.33275
+  ...
+# library-exact-agent-core: pyproject.toml: playbooks pins agent-core with == (0.4.0); libraries must use a range, not an exact pin
+# pin-not-vendored-version: pyproject.toml: agent-core is pinned to 0.4.0 but the vendored copy is 0.5.1
+# pin-older-than-vendored: pyproject.toml: agent-core is pinned to 0.4.0 but a newer vendored copy 0.5.1 exists
+# Subtest: runCheckPins: playbooks reproduces the same stale agent-core pin as connectors
+ok 45 - runCheckPins: playbooks reproduces the same stale agent-core pin as connectors
+  ---
+  duration_ms: 7.024958
+  ...
+# wheel-requirement-unsatisfied: vendor/skills-0.3.0-py3-none-any.whl: vendored wheel skills-0.3.0-py3-none-any.whl requires agent-core==0.4.0 but uv.lock has agent-core==0.5.1
+# Subtest: runCheckPins: skills stale pin one layer down, inside a wheel vendored by agent-core, unsatisfied by uv.lock
+ok 46 - runCheckPins: skills stale pin one layer down, inside a wheel vendored by agent-core, unsatisfied by uv.lock
+  ---
+  duration_ms: 11.556417
+  ...
+# check-pins: ok, no stale internal pins found
+# Subtest: runCheckPins: a fixed tree (pin matches the vendored version, satisfied wheel requirement) passes clean
+ok 47 - runCheckPins: a fixed tree (pin matches the vendored version, satisfied wheel requirement) passes clean
+  ---
+  duration_ms: 8.064542
+  ...
+# check-pins: ok, no stale internal pins found
+# Subtest: runCheckPins: agent-core repo with a satisfied wheel requirement passes clean
+ok 48 - runCheckPins: agent-core repo with a satisfied wheel requirement passes clean
+  ---
+  duration_ms: 7.775292
+  ...
+# pin-older-than-vendored: pyproject.toml: agent-core is pinned to 0.4.0 but a newer vendored copy 0.5.1 exists
+# Subtest: runCheckPins: pin matches an older vendored copy exactly, but a newer vendored copy also exists
+ok 49 - runCheckPins: pin matches an older vendored copy exactly, but a newer vendored copy also exists
+  ---
+  duration_ms: 4.999625
+  ...
+# check-pins: ok, no stale internal pins found
+# Subtest: runCheckPins: an agent repo (agent-amber) may exact-pin agent-core without tripping library-exact-agent-core
+ok 50 - runCheckPins: an agent repo (agent-amber) may exact-pin agent-core without tripping library-exact-agent-core
+  ---
+  duration_ms: 4.794
+  ...
+# pin-not-vendored-version: package.json: connectors is pinned to 0.4.0 but the vendored copy is 0.5.0
+# pin-older-than-vendored: package.json: connectors is pinned to 0.4.0 but a newer vendored copy 0.5.0 exists
+# Subtest: runCheckPins: desktop-app package.json exact-pins connectors older than the vendored tarball
+ok 51 - runCheckPins: desktop-app package.json exact-pins connectors older than the vendored tarball
+  ---
+  duration_ms: 4.802416
+  ...
+# check-pins: ok, no stale internal pins found
+# Subtest: runCheckPins: desktop-app package.json matching the vendored tarball passes clean
+ok 52 - runCheckPins: desktop-app package.json matching the vendored tarball passes clean
+  ---
+  duration_ms: 7.287916
+  ...
+# Subtest: runCheckPins: json:true prints exactly one JSON line matching the returned result
+ok 53 - runCheckPins: json:true prints exactly one JSON line matching the returned result
+  ---
+  duration_ms: 14.500084
+  ...
+# check-pins: ok, no stale internal pins found
+# Subtest: runCheckPins: a repo with no pyproject.toml and no package.json is clean, not an error
+ok 54 - runCheckPins: a repo with no pyproject.toml and no package.json is clean, not an error
+  ---
+  duration_ms: 1.631166
+  ...
+# Subtest: extractRunLines: a documented, line-based reader of a workflow's run: steps
+    # Subtest: reads a one-line "- run: ..." step and an indented "run: ..." step under name:
+    ok 1 - reads a one-line "- run: ..." step and an indented "run: ..." step under name:
+      ---
+      duration_ms: 2.9365
+      ...
+    # Subtest: reads a "|" block scalar as separate lines, stopping at the first line indented back to the key's own level
+    ok 2 - reads a "|" block scalar as separate lines, stopping at the first line indented back to the key's own level
+      ---
+      duration_ms: 0.207584
+      ...
+    # Subtest: a quoted one-line scalar has its outer quotes stripped
+    ok 3 - a quoted one-line scalar has its outer quotes stripped
+      ---
+      duration_ms: 1.649
+      ...
+    # Subtest: a blank or non-run: line is ignored
+    ok 4 - a blank or non-run: line is ignored
+      ---
+      duration_ms: 0.065208
+      ...
+    1..4
+ok 55 - extractRunLines: a documented, line-based reader of a workflow's run: steps
+  ---
+  duration_ms: 5.534917
+  type: 'suite'
+  ...
+# Subtest: splitArgv: a minimal argv splitter for a single-command run: line
+    # Subtest: splits on whitespace and keeps a quoted group as one token
+    ok 1 - splits on whitespace and keeps a quoted group as one token
+      ---
+      duration_ms: 0.934458
+      ...
+    1..1
+ok 56 - splitArgv: a minimal argv splitter for a single-command run: line
+  ---
+  duration_ms: 0.999667
+  type: 'suite'
+  ...
+# Subtest: ciChecksFromWorkflowText: (a) keeps known-program run: lines as checks, skips shell-operator lines
+    # Subtest: keeps a plain checker/test-runner invocation as a check, in order, deduplicated
+    ok 1 - keeps a plain checker/test-runner invocation as a check, in order, deduplicated
+      ---
+      duration_ms: 1.294125
+      ...
+    # Subtest: skips a shell-chained line (&&, |, >, ;) and names the reason, instead of splitting it
+    ok 2 - skips a shell-chained line (&&, |, >, ;) and names the reason, instead of splitting it
+      ---
+      duration_ms: 1.528166
+      ...
+    # Subtest: ignores a run: line whose program is not a known checker/test-runner (e.g. a deploy script)
+    ok 3 - ignores a run: line whose program is not a known checker/test-runner (e.g. a deploy script)
+      ---
+      duration_ms: 0.215375
+      ...
+    1..3
+ok 57 - ciChecksFromWorkflowText: (a) keeps known-program run: lines as checks, skips shell-operator lines
+  ---
+  duration_ms: 3.462084
+  type: 'suite'
+  ...
+# Subtest: loadChecksFromCi: reads the workflow file relative to root, or reports it missing
+    # Subtest: reads the default path (.github/workflows/ci.yml) when present
+    ok 1 - reads the default path (.github/workflows/ci.yml) when present
+      ---
+      duration_ms: 31.694416
+      ...
+    # Subtest: reports missing:true (not a throw) when the workflow file does not exist
+    ok 2 - reports missing:true (not a throw) when the workflow file does not exist
+      ---
+      duration_ms: 3.250292
+      ...
+    # Subtest: reads a custom path when given one
+    ok 3 - reads a custom path when given one
+      ---
+      duration_ms: 9.197417
+      ...
+    1..3
+ok 58 - loadChecksFromCi: reads the workflow file relative to root, or reports it missing
+  ---
+  duration_ms: 44.508958
+  type: 'suite'
+  ...
+# Subtest: checkNotInCiWarnings: (b) a hand check whose program+subcommand is not among CI's checks warns check-not-in-ci
+    # Subtest: warns for a hand check with no matching program+subcommand in CI, ignoring trailing args
+    ok 1 - warns for a hand check with no matching program+subcommand in CI, ignoring trailing args
+      ---
+      duration_ms: 0.474042
+      ...
+    # Subtest: no warnings when every hand check's program+subcommand is also in CI
+    ok 2 - no warnings when every hand check's program+subcommand is also in CI
+      ---
+      duration_ms: 0.148708
+      ...
+    1..2
+ok 59 - checkNotInCiWarnings: (b) a hand check whose program+subcommand is not among CI's checks warns check-not-in-ci
+  ---
+  duration_ms: 0.779083
+  type: 'suite'
+  ...
+# Subtest: non-shell claude argv, env and prompt stay byte-identical to 1.18.0
+ok 60 - non-shell claude argv, env and prompt stay byte-identical to 1.18.0
+  ---
+  duration_ms: 421.793708
+  ...
+# Subtest: shell argv: exactly the six tools, all pre-approved, no MCP, explicit model
+ok 61 - shell argv: exactly the six tools, all pre-approved, no MCP, explicit model
+  ---
+  duration_ms: 0.336667
+  ...
+# Subtest: shell profile: whole-process seatbelt, writes only worktree + job dir, deny list, network only to the proxy
+ok 62 - shell profile: whole-process seatbelt, writes only worktree + job dir, deny list, network only to the proxy
+  ---
+  duration_ms: 1.596667
+  ...
+# Subtest: shell env: allowlist only, worker key only as ANTHROPIC_API_KEY, spend label, testEnv
+ok 63 - shell env: allowlist only, worker key only as ANTHROPIC_API_KEY, spend label, testEnv
+  ---
+  duration_ms: 0.92275
+  ...
+# Subtest: tier presets expand to the real model, shell: true and their tier
+ok 64 - tier presets expand to the real model, shell: true and their tier
+  ---
+  duration_ms: 0.635042
+  ...
+# Subtest: validate refuses shell on non-claude agents and gates shell-only fields
+ok 65 - validate refuses shell on non-claude agents and gates shell-only fields
+  ---
+  duration_ms: 0.547041
+  ...
+# Subtest: validate warns (not refuses) when a claude job without shell writes tests
+ok 66 - validate warns (not refuses) when a claude job without shell writes tests
+  ---
+  duration_ms: 587.374125
+  ...
+# Subtest: worker key: env wins, else the existing OASIS keychain item via the parent, else a clear failure
+ok 67 - worker key: env wins, else the existing OASIS keychain item via the parent, else a clear failure
+  ---
+  duration_ms: 0.366084
+  ...
+# Subtest: shell jobs refuse before any work without macOS, sandbox-exec or a worker key
+ok 68 - shell jobs refuse before any work without macOS, sandbox-exec or a worker key
+  ---
+  duration_ms: 88.612791
+  ...
+# Subtest: a shell job runs the whole claude process under sandbox-exec in a worktree and inspect shows shell + checksRun
+ok 69 - a shell job runs the whole claude process under sandbox-exec in a worktree and inspect shows shell + checksRun
+  ---
+  duration_ms: 1415.699833
+  ...
+# Subtest: a shell worktree starts from the current bytes of declared files, uncommitted edits included
+ok 70 - a shell worktree starts from the current bytes of declared files, uncommitted edits included
+  ---
+  duration_ms: 687.30625
+  ...
+# Subtest: a key echoed by the worker is redacted from logs, flagged, and integrate refuses the run
+ok 71 - a key echoed by the worker is redacted from logs, flagged, and integrate refuses the run
+  ---
+  duration_ms: 822.66675
+  ...
+# Subtest: an output holding the key fails the job and is never copied for integration
+ok 72 - an output holding the key fails the job and is never copied for integration
+  ---
+  duration_ms: 870.91025
+  ...
+# Subtest: integrate and ship refuse a run whose saved files hold the key, checked before any write
+ok 73 - integrate and ship refuse a run whose saved files hold the key, checked before any write
+  ---
+  duration_ms: 789.435083
+  ...
+# Subtest: ask never gets a shell
+ok 74 - ask never gets a shell
+  ---
+  duration_ms: 332.73925
+  ...
+# Subtest: proxy tunnels only api.anthropic.com:443 and records refused hosts only
+ok 75 - proxy tunnels only api.anthropic.com:443 and records refused hosts only
+  ---
+  duration_ms: 14.578709
+  ...
+# Subtest: generated profile confines a real shell: worktree writes only, denied reads, no network, no env secrets
+ok 76 - generated profile confines a real shell: worktree writes only, denied reads, no network, no env secrets
+  ---
+  duration_ms: 95.078792
+  ...
+# Subtest: hermes fresh process consumes serialized context and returns validated files
+ok 77 - hermes fresh process consumes serialized context and returns validated files
+  ---
+  duration_ms: 476.18925
+  ...
+# Subtest: qwen fresh process consumes serialized context and returns validated files
+ok 78 - qwen fresh process consumes serialized context and returns validated files
+  ---
+  duration_ms: 453.341875
+  ...
+# Subtest: CLI arguments keep no-tools restrictions and avoid resume, yolo, shell and schema exemptions
+ok 79 - CLI arguments keep no-tools restrictions and avoid resume, yolo, shell and schema exemptions
+  ---
+  duration_ms: 0.411917
+  ...
+# Subtest: parseExtraCli derives actualModel from assistant events (not just init) and flags a mismatch against the requested model
+ok 80 - parseExtraCli derives actualModel from assistant events (not just init) and flags a mismatch against the requested model
+  ---
+  duration_ms: 0.888292
+  ...
+# Subtest: parseExtraCli reports no mismatch for a matching model, and a short alias matches any id containing it
+ok 81 - parseExtraCli reports no mismatch for a matching model, and a short alias matches any id containing it
+  ---
+  duration_ms: 0.389333
+  ...
+# Subtest: CLI result parser fails closed on tools, duplicate/missing results, nonzero exit and malformed output
+ok 82 - CLI result parser fails closed on tools, duplicate/missing results, nonzero exit and malformed output
+  ---
+  duration_ms: 0.994791
+  ...
+# Subtest: compatibility rejects missing restrictions and never treats help as live authentication
+ok 83 - compatibility rejects missing restrictions and never treats help as live authentication
+  ---
+  duration_ms: 1.454792
+  ...
+# Subtest: extraCliDoctor retries a truncated help read once and accepts a complete second read
+ok 84 - extraCliDoctor retries a truncated help read once and accepts a complete second read
+  ---
+  duration_ms: 0.382458
+  ...
+# Subtest: extraCliDoctor reports a probe failure, not a flags failure, when help output stays empty after retry
+ok 85 - extraCliDoctor reports a probe failure, not a flags failure, when help output stays empty after retry
+  ---
+  duration_ms: 0.264125
+  ...
+# Subtest: extraCliDoctor still reports missing flags when help output is complete both times
+ok 86 - extraCliDoctor still reports missing flags when help output is complete both times
+  ---
+  duration_ms: 0.378875
+  ...
+# Subtest: monitor reports real queue states, elapsed durations and numeric provider usage
+ok 87 - monitor reports real queue states, elapsed durations and numeric provider usage
+  ---
+  duration_ms: 0.146042
+  ...
+# Subtest: larger scheduler limits remain explicit and reject excessive workers/jobs
+ok 88 - larger scheduler limits remain explicit and reject excessive workers/jobs
+  ---
+  duration_ms: 1.283708
+  ...
+# Subtest: both new CLI adapters time out owned children and never expose partial files
+ok 89 - both new CLI adapters time out owned children and never expose partial files
+  ---
+  duration_ms: 858.518083
+  ...
+# Subtest: eight active jobs drain a larger queue with consistent observed counts
+ok 90 - eight active jobs drain a larger queue with consistent observed counts
+  ---
+  duration_ms: 1224.507667
+  ...
+# Subtest: Codex argv always includes explicit model, all required flags, prompt and result path
+ok 91 - Codex argv always includes explicit model, all required flags, prompt and result path
+  ---
+  duration_ms: 3.128583
+  ...
+# Subtest: codexMessage with no contract includes the blocked rule
+ok 92 - codexMessage with no contract includes the blocked rule
+  ---
+  duration_ms: 0.238292
+  ...
+# Subtest: codexMessage with contract includes section before prompt with text verbatim
+ok 93 - codexMessage with contract includes section before prompt with text verbatim
+  ---
+  duration_ms: 0.501791
+  ...
+# Subtest: profile grants exact scopes and ends with sensitive path and keychain service denies
+ok 94 - profile grants exact scopes and ends with sensitive path and keychain service denies
+  ---
+  duration_ms: 0.694208
+  ...
+# Subtest: readPaths is Codex-only, absolute, safe and cannot name denied directories
+ok 95 - readPaths is Codex-only, absolute, safe and cannot name denied directories
+  ---
+  duration_ms: 0.641542
+  ...
+# Subtest: doctor checks platform, executable, version, login, and exact help flags with no model call
+ok 96 - doctor checks platform, executable, version, login, and exact help flags with no model call
+  ---
+  duration_ms: 19.169625
+  ...
+# Subtest: TLS environment uses certificate file when present and preserves environment otherwise
+ok 97 - TLS environment uses certificate file when present and preserves environment otherwise
+  ---
+  duration_ms: 0.161459
+  ...
+# Subtest: the reply envelope accepts any object (lesson \#64) and the token parser invents no usage
+ok 98 - the reply envelope accepts any object (lesson \#64) and the token parser invents no usage
+  ---
+  duration_ms: 0.362166
+  ...
+# Subtest: HEAD worktree runs with null stdin, collects only declared outputs, integrates and removes checkout
+ok 99 - HEAD worktree runs with null stdin, collects only declared outputs, integrates and removes checkout
+  ---
+  duration_ms: 897.517917
+  ...
+# Subtest: Codex removes worktree and blocks proposals after failed, except a malformed envelope with no worktree evidence, which is kept (lessons \#41, \#64)
+ok 100 - Codex removes worktree and blocks proposals after failed, except a malformed envelope with no worktree evidence, which is kept (lessons \#41, \#64)
+  ---
+  duration_ms: 976.668958
+  ...
+# Subtest: Codex removes worktree and blocks proposals after timeout, except a malformed envelope with no worktree evidence, which is kept (lessons \#41, \#64)
+ok 101 - Codex removes worktree and blocks proposals after timeout, except a malformed envelope with no worktree evidence, which is kept (lessons \#41, \#64)
+  ---
+  duration_ms: 1007.146875
+  ...
+# Subtest: Codex removes worktree and blocks proposals after cancelled, except a malformed envelope with no worktree evidence, which is kept (lessons \#41, \#64)
+ok 102 - Codex removes worktree and blocks proposals after cancelled, except a malformed envelope with no worktree evidence, which is kept (lessons \#41, \#64)
+  ---
+  duration_ms: 931.253
+  ...
+# Subtest: Codex removes worktree and blocks proposals after malformed, except a malformed envelope with no worktree evidence, which is kept (lessons \#41, \#64)
+ok 103 - Codex removes worktree and blocks proposals after malformed, except a malformed envelope with no worktree evidence, which is kept (lessons \#41, \#64)
+  ---
+  duration_ms: 1195.217541
+  ...
+# Subtest: Codex removes worktree and blocks proposals after missing-output, except a malformed envelope with no worktree evidence, which is kept (lessons \#41, \#64)
+ok 104 - Codex removes worktree and blocks proposals after missing-output, except a malformed envelope with no worktree evidence, which is kept (lessons \#41, \#64)
+  ---
+  duration_ms: 854.954
+  ...
+# Subtest: Codex removes worktree and blocks proposals after symlink-output, except a malformed envelope with no worktree evidence, which is kept (lessons \#41, \#64)
+ok 105 - Codex removes worktree and blocks proposals after symlink-output, except a malformed envelope with no worktree evidence, which is kept (lessons \#41, \#64)
+  ---
+  duration_ms: 836.237042
+  ...
+# Subtest: Codex removes worktree and blocks proposals after launch-error, except a malformed envelope with no worktree evidence, which is kept (lessons \#41, \#64)
+ok 106 - Codex removes worktree and blocks proposals after launch-error, except a malformed envelope with no worktree evidence, which is kept (lessons \#41, \#64)
+  ---
+  duration_ms: 963.085667
+  ...
+# Subtest: Codex proposals retain ordinary conflict detection
+ok 107 - Codex proposals retain ordinary conflict detection
+  ---
+  duration_ms: 1022.780375
+  ...
+# Subtest: a reply with extra final-JSON keys beyond files_changed/notes completes cleanly, not just with a warning (lesson \#64)
+ok 108 - a reply with extra final-JSON keys beyond files_changed/notes completes cleanly, not just with a warning (lesson \#64)
+  ---
+  duration_ms: 1591.115208
+  ...
+# Subtest: a reply with no parseable JSON but worktree changes to declared outputs falls back to a worktree result and keeps the worktree (lesson \#64)
+ok 109 - a reply with no parseable JSON but worktree changes to declared outputs falls back to a worktree result and keeps the worktree (lesson \#64)
+  ---
+  duration_ms: 1034.714916
+  ...
+# Subtest: validate and preflight warn about staged, unstaged, untracked and ignored declared paths only
+ok 110 - validate and preflight warn about staged, unstaged, untracked and ignored declared paths only
+  ---
+  duration_ms: 1379.285625
+  ...
+# Subtest: cancellation marker removes running Codex worktree and never creates queued worktree
+ok 111 - cancellation marker removes running Codex worktree and never creates queued worktree
+  ---
+  duration_ms: 1266.333083
+  ...
+# Subtest: resolved readPaths aliases cannot grant a forbidden directory
+ok 112 - resolved readPaths aliases cannot grant a forbidden directory
+  ---
+  duration_ms: 581.378125
+  ...
+# Subtest: both evidence-shaped replies parse as bare top-level objects (no files_changed/notes schema required)
+ok 113 - both evidence-shaped replies parse as bare top-level objects (no files_changed/notes schema required)
+  ---
+  duration_ms: 10.234959
+  ...
+# Subtest: the last fenced block wins over an earlier one (Braden's rule)
+ok 114 - the last fenced block wins over an earlier one (Braden's rule)
+  ---
+  duration_ms: 0.342625
+  ...
+# Subtest: prose with a trailing bare object still parses when there is no fence
+ok 115 - prose with a trailing bare object still parses when there is no fence
+  ---
+  duration_ms: 0.203666
+  ...
+# Subtest: a reply with no fenced or bare JSON returns null
+ok 116 - a reply with no fenced or bare JSON returns null
+  ---
+  duration_ms: 0.171875
+  ...
+# Subtest: missing reply JSON falls back to the worktree's result file when it parses as an object
+ok 117 - missing reply JSON falls back to the worktree's result file when it parses as an object
+  ---
+  duration_ms: 15.816542
+  ...
+# Subtest: missing reply JSON and no result file falls back to the worktree's changed outputs, excluding non-output files
+ok 118 - missing reply JSON and no result file falls back to the worktree's changed outputs, excluding non-output files
+  ---
+  duration_ms: 113.096917
+  ...
+# Subtest: no reply JSON, no result file, and no changed outputs resolves to nothing (the job stays failed)
+ok 119 - no reply JSON, no result file, and no changed outputs resolves to nothing (the job stays failed)
+  ---
+  duration_ms: 359.398458
+  ...
+# Subtest: worktree fallback is scoped to outputs only: a dirty context file alone resolves to nothing
+ok 120 - worktree fallback is scoped to outputs only: a dirty context file alone resolves to nothing
+  ---
+  duration_ms: 291.066333
+  ...
+# Subtest: worktree fallback with both a dirty output and a dirty context file reports exactly the output
+ok 121 - worktree fallback with both a dirty output and a dirty context file reports exactly the output
+  ---
+  duration_ms: 134.880125
+  ...
+# Subtest: an unfenced reply with two top-level objects returns the later one, not the first (lastTopLevelObject)
+ok 122 - an unfenced reply with two top-level objects returns the later one, not the first (lastTopLevelObject)
+  ---
+  duration_ms: 0.207292
+  ...
+# Subtest: an unfenced reply where the last top-level candidate is invalid JSON falls back to the earlier valid one
+ok 123 - an unfenced reply where the last top-level candidate is invalid JSON falls back to the earlier valid one
+  ---
+  duration_ms: 0.221083
+  ...
+# Subtest: isTestFile recognizes test directories, JS/TS suffixes, Python and Go conventions
+ok 124 - isTestFile recognizes test directories, JS/TS suffixes, Python and Go conventions
+  ---
+  duration_ms: 0.794292
+  ...
+# Subtest: referencePatterns: path form matches quoted/backtick references bounded by separators
+ok 125 - referencePatterns: path form matches quoted/backtick references bounded by separators
+  ---
+  duration_ms: 0.255041
+  ...
+# Subtest: referencePatterns: a bare quoted stem with no leading slash and no extension does not match
+ok 126 - referencePatterns: a bare quoted stem with no leading slash and no extension does not match
+  ---
+  duration_ms: 0.116833
+  ...
+# Subtest: referencePatterns: no false positive on a longer word or different case
+ok 127 - referencePatterns: no false positive on a longer word or different case
+  ---
+  duration_ms: 0.404875
+  ...
+# Subtest: referencePatterns: short stems produce no patterns
+ok 128 - referencePatterns: short stems produce no patterns
+  ---
+  duration_ms: 0.420916
+  ...
+# Subtest: referencePatterns: generic stems use the parent directory name
+ok 129 - referencePatterns: generic stems use the parent directory name
+  ---
+  duration_ms: 0.472333
+  ...
+# Subtest: referencePatterns: Python module forms for .py outputs
+ok 130 - referencePatterns: Python module forms for .py outputs
+  ---
+  duration_ms: 0.733625
+  ...
+# Subtest: referencePatterns: Rust mod/crate/super forms for .rs outputs
+ok 131 - referencePatterns: Rust mod/crate/super forms for .rs outputs
+  ---
+  duration_ms: 0.489
+  ...
+# Subtest: findUncoveredTests: reports a test that references an existing output not in context/outputs/ignoreTests
+ok 132 - findUncoveredTests: reports a test that references an existing output not in context/outputs/ignoreTests
+  ---
+  duration_ms: 35.029
+  ...
+# Subtest: findUncoveredTests: covered by context, outputs, or ignoreTests removes the pair
+ok 133 - findUncoveredTests: covered by context, outputs, or ignoreTests removes the pair
+  ---
+  duration_ms: 86.1005
+  ...
+# Subtest: findUncoveredTests: a non-existing output is skipped
+ok 134 - findUncoveredTests: a non-existing output is skipped
+  ---
+  duration_ms: 54.227125
+  ...
+# Subtest: findUncoveredTests: an oversized test file is skipped
+ok 135 - findUncoveredTests: an oversized test file is skipped
+  ---
+  duration_ms: 54.176333
+  ...
+# Subtest: listProjectFiles: lists tracked files in a git work tree via git ls-files
+ok 136 - listProjectFiles: lists tracked files in a git work tree via git ls-files
+  ---
+  duration_ms: 146.498875
+  ...
+# Subtest: listProjectFiles: walks a plain directory and skips reserved/build directories
+ok 137 - listProjectFiles: walks a plain directory and skips reserved/build directories
+  ---
+  duration_ms: 29.738333
+  ...
+# Subtest: findUncoveredTests: package.json output with test importing the package is not refused
+ok 138 - findUncoveredTests: package.json output with test importing the package is not refused
+  ---
+  duration_ms: 36.152208
+  ...
+# Subtest: findUncoveredTests: pyproject.toml output with test is not refused
+ok 139 - findUncoveredTests: pyproject.toml output with test is not refused
+  ---
+  duration_ms: 33.224125
+  ...
+# Subtest: findUncoveredTests: __init__.py output with test is not refused
+ok 140 - findUncoveredTests: __init__.py output with test is not refused
+  ---
+  duration_ms: 31.432708
+  ...
+# Subtest: findUncoveredTests: real module output still refuses uncovered test
+ok 141 - findUncoveredTests: real module output still refuses uncovered test
+  ---
+  duration_ms: 25.087292
+  ...
+# Subtest: suggestIgnoreTests: groups uncovered tests by job id exactly and sorts
+ok 142 - suggestIgnoreTests: groups uncovered tests by job id exactly and sorts
+  ---
+  duration_ms: 0.5855
+  ...
+# Subtest: validateProject refusal carries suggestedIgnoreTests grouped by job (lesson \#47)
+ok 143 - validateProject refusal carries suggestedIgnoreTests grouped by job (lesson \#47)
+  ---
+  duration_ms: 109.914584
+  ...
+# Subtest: fresh projects with no tracked files still discover tests, including inside an ignored parent
+ok 144 - fresh projects with no tracked files still discover tests, including inside an ignored parent
+  ---
+  duration_ms: 156.988708
+  ...
+# Subtest: L183: missing lockfile names the manifest and explicitly says the lock check did not run
+ok 145 - L183: missing lockfile names the manifest and explicitly says the lock check did not run
+  ---
+  duration_ms: 11.971625
+  ...
+# Subtest: L183: a present lockfile runs npm ci --dry-run in the project root
+ok 146 - L183: a present lockfile runs npm ci --dry-run in the project root
+  ---
+  duration_ms: 6.452125
+  ...
+# Subtest: L183: a stale lockfile still refuses before push
+ok 147 - L183: a stale lockfile still refuses before push
+  ---
+  duration_ms: 9.90475
+  ...
+# Subtest: L183: real npm accepts a generated lock and refuses a local dependency missing from it
+ok 148 - L183: real npm accepts a generated lock and refuses a local dependency missing from it
+  ---
+  duration_ms: 1288.255417
+  ...
+# Real npm accepted the generated lock, then refused the missing local-extra dependency as out of sync.
+# Subtest: a web:true job message uses the contract web sentence, not "network tools"
+ok 149 - a web:true job message uses the contract web sentence, not "network tools"
+  ---
+  duration_ms: 336.222792
+  ...
+# Subtest: a job without web keeps the exact non-web sentence "No shell commands, delegation, network tools, or MCP."
+ok 150 - a job without web keeps the exact non-web sentence "No shell commands, delegation, network tools, or MCP."
+  ---
+  duration_ms: 503.473209
+  ...
+# Subtest: scoutRun: the job message uses the web sentence and claude argv still offers WebSearch/WebFetch
+ok 151 - scoutRun: the job message uses the web sentence and claude argv still offers WebSearch/WebFetch
+  ---
+  duration_ms: 354.813209
+  ...
+# Subtest: L106: warn when a named tool path or check argv binary resolves under /tmp
+    # Subtest: flags a checks argv[0] under /tmp
+    ok 1 - flags a checks argv[0] under /tmp
+      ---
+      duration_ms: 0.657459
+      ...
+    # Subtest: flags a mutantCheck argv[0] under /private/tmp
+    ok 2 - flags a mutantCheck argv[0] under /private/tmp
+      ---
+      duration_ms: 0.137833
+      ...
+    # Subtest: flags a job readPaths entry under /tmp
+    ok 3 - flags a job readPaths entry under /tmp
+      ---
+      duration_ms: 0.058541
+      ...
+    # Subtest: does not flag an ordinary path
+    ok 4 - does not flag an ordinary path
+      ---
+      duration_ms: 0.099791
+      ...
+    # Subtest: validateProject surfaces the tmp-tool-path warning
+    ok 5 - validateProject surfaces the tmp-tool-path warning
+      ---
+      duration_ms: 207.167291
+      ...
+    1..5
+ok 152 - L106: warn when a named tool path or check argv binary resolves under /tmp
+  ---
+  duration_ms: 208.705334
+  type: 'suite'
+  ...
+# Subtest: L107: outputs touching this runner's own core module warn when the agent has no shell; inspect shows cost per 1k output tokens
+    # Subtest: warns for a non-codex job whose outputs include tools/swarm.mjs
+    ok 1 - warns for a non-codex job whose outputs include tools/swarm.mjs
+      ---
+      duration_ms: 0.104083
+      ...
+    # Subtest: is silent for codex (has shell) and for unrelated outputs
+    ok 2 - is silent for codex (has shell) and for unrelated outputs
+      ---
+      duration_ms: 0.297084
+      ...
+    # Subtest: validateProject surfaces the core-module-no-shell warning
+    ok 3 - validateProject surfaces the core-module-no-shell warning
+      ---
+      duration_ms: 367.5985
+      ...
+    # Subtest: costPer1kOutputTokens divides cost by output tokens per 1k, else null
+    ok 4 - costPer1kOutputTokens divides cost by output tokens per 1k, else null
+      ---
+      duration_ms: 0.711125
+      ...
+    # Subtest: inspect reports costPer1kOutputTokens when both cost and output tokens are reported
+    ok 5 - inspect reports costPer1kOutputTokens when both cost and output tokens are reported
+      ---
+      duration_ms: 619.16125
+      ...
+    1..5
+ok 153 - L107: outputs touching this runner's own core module warn when the agent has no shell; inspect shows cost per 1k output tokens
+  ---
+  duration_ms: 988.981209
+  type: 'suite'
+  ...
+# Subtest: L109: manifest preChecks run before checks when an integrated file is a lockfile
+    # Subtest: warns when a lockfile changed and no preChecks is declared
+    ok 1 - warns when a lockfile changed and no preChecks is declared
+      ---
+      duration_ms: 664.510958
+      ...
+    # Subtest: runs declared preChecks in order before checks, and adds no warning
+    ok 2 - runs declared preChecks in order before checks, and adds no warning
+      ---
+      duration_ms: 557.213167
+      ...
+    # Subtest: does not run when no lockfile is among the integrated files
+    ok 3 - does not run when no lockfile is among the integrated files
+      ---
+      duration_ms: 854.200042
+      ...
+    1..3
+ok 154 - L109: manifest preChecks run before checks when an integrated file is a lockfile
+  ---
+  duration_ms: 2076.503375
+  type: 'suite'
+  ...
+# Subtest: L110: integrate reports a compact failures array; --evidence appends prior failures to every job prompt
+    # Subtest: integrate reports a compact failures array for a failed check
+    ok 1 - integrate reports a compact failures array for a failed check
+      ---
+      duration_ms: 718.617875
+      ...
+    # Subtest: integrate reports an empty failures array when every check passes
+    ok 2 - integrate reports an empty failures array when every check passes
+      ---
+      duration_ms: 623.361
+      ...
+    # Subtest: evidenceBlock formats a fixed heading with each failure's lines verbatim
+    ok 3 - evidenceBlock formats a fixed heading with each failure's lines verbatim
+      ---
+      duration_ms: 0.220542
+      ...
+    # Subtest: applyEvidence appends the block to every job prompt and is a no-op with no failures
+    ok 4 - applyEvidence appends the block to every job prompt and is a no-op with no failures
+      ---
+      duration_ms: 0.325459
+      ...
+    1..4
+ok 155 - L110: integrate reports a compact failures array; --evidence appends prior failures to every job prompt
+  ---
+  duration_ms: 1342.825333
+  type: 'suite'
+  ...
+# Subtest: L113: warn when a job prompt quotes a runtime-check failure and the agent has no shell
+    # Subtest: fires for a check-name style failure (harness/e2e/playwright/preview)
+    ok 1 - fires for a check-name style failure (harness/e2e/playwright/preview)
+      ---
+      duration_ms: 0.078167
+      ...
+    # Subtest: fires when both "Timeout" and "waitFor" appear
+    ok 2 - fires when both "Timeout" and "waitFor" appear
+      ---
+      duration_ms: 0.141875
+      ...
+    # Subtest: is silent for codex (has shell) and for unrelated prompts
+    ok 3 - is silent for codex (has shell) and for unrelated prompts
+      ---
+      duration_ms: 0.5165
+      ...
+    # Subtest: validateProject surfaces the runtime-check-no-shell warning
+    ok 4 - validateProject surfaces the runtime-check-no-shell warning
+      ---
+      duration_ms: 218.939958
+      ...
+    1..4
+ok 156 - L113: warn when a job prompt quotes a runtime-check failure and the agent has no shell
+  ---
+  duration_ms: 219.848042
+  type: 'suite'
+  ...
+# Subtest: L115: contextGlob accepts a filename prefix; validate echoes the expanded count per pattern
+    # Subtest: parseContextGlob accepts dir/prefix*.ext alongside dir/*.ext
+    ok 1 - parseContextGlob accepts dir/prefix*.ext alongside dir/*.ext
+      ---
+      duration_ms: 0.243917
+      ...
+    # Subtest: validateManifest accepts a prefixed contextGlob and still rejects **
+    ok 2 - validateManifest accepts a prefixed contextGlob and still rejects **
+      ---
+      duration_ms: 0.322417
+      ...
+    # Subtest: validate expands only prefix-matching files and echoes the match count per pattern
+    ok 3 - validate expands only prefix-matching files and echoes the match count per pattern
+      ---
+      duration_ms: 220.643833
+      ...
+    1..3
+ok 157 - L115: contextGlob accepts a filename prefix; validate echoes the expanded count per pattern
+  ---
+  duration_ms: 221.509166
+  type: 'suite'
+  ...
+# Subtest: L116: an unparsable JSON-only reply is marked resultMissing, with one cheap same-session re-ask for claude
+    # Subtest: sets resultMissing when the prompt demands JSON, the reply is unparsable, and no session id was observed
+    ok 1 - sets resultMissing when the prompt demands JSON, the reply is unparsable, and no session id was observed
+      ---
+      duration_ms: 589.65975
+      ...
+    # Subtest: does not set resultMissing when the prompt has no JSON demand, even with a prose reply
+    ok 2 - does not set resultMissing when the prompt has no JSON demand, even with a prose reply
+      ---
+      duration_ms: 644.620125
+      ...
+    # Subtest: recovers via one cheap re-ask on the same session and clears resultMissing
+    ok 3 - recovers via one cheap re-ask on the same session and clears resultMissing
+      ---
+      duration_ms: 541.529292
+      ...
+    1..3
+ok 158 - L116: an unparsable JSON-only reply is marked resultMissing, with one cheap same-session re-ask for claude
+  ---
+  duration_ms: 1776.150333
+  type: 'suite'
+  ...
+# Subtest: L117: mutants runs killed/survived/invalid mutation testing directly on the current tree
+    # Subtest: reports killed, survived, invalid, and the first failing test line, restoring the file afterward
+    ok 1 - reports killed, survived, invalid, and the first failing test line, restoring the file afterward
+      ---
+      duration_ms: 234.186334
+      ...
+    # Subtest: stops before the next mutant once interrupted, but still restores the one in flight
+    ok 2 - stops before the next mutant once interrupted, but still restores the one in flight
+      ---
+      duration_ms: 107.281291
+      ...
+    # Subtest: refuses with no mutants and refuses with no mutant check
+    ok 3 - refuses with no mutants and refuses with no mutant check
+      ---
+      duration_ms: 7.237917
+      ...
+    1..3
+ok 159 - L117: mutants runs killed/survived/invalid mutation testing directly on the current tree
+  ---
+  duration_ms: 348.933625
+  type: 'suite'
+  ...
+# Subtest: L108: SKILL.md UI-job guidance covers intended HTTP errors on a harness view
+ok 160 - L108: SKILL.md UI-job guidance covers intended HTTP errors on a harness view
+  ---
+  duration_ms: 8.623875
+  ...
+# Subtest: L111: resolveBriefPath (scout) resolves a relative path against root but passes an absolute path through unchanged
+ok 161 - L111: resolveBriefPath (scout) resolves a relative path against root but passes an absolute path through unchanged
+  ---
+  duration_ms: 0.450791
+  ...
+# Subtest: L111: resolveBriefPath (sweep) resolves a relative path against root but passes an absolute path through unchanged
+ok 162 - L111: resolveBriefPath (sweep) resolves a relative path against root but passes an absolute path through unchanged
+  ---
+  duration_ms: 0.285125
+  ...
+# Subtest: L111: an absolute brief path is never joined under root (the old path.join bug this replaces)
+ok 163 - L111: an absolute brief path is never joined under root (the old path.join bug this replaces)
+  ---
+  duration_ms: 0.078416
+  ...
+# Subtest: L118: resolveGhAndGit resolves ok when both git and gh report a zero exit code
+ok 164 - L118: resolveGhAndGit resolves ok when both git and gh report a zero exit code
+  ---
+  duration_ms: 0.80225
+  ...
+# Subtest: L118: resolveGhAndGit refuses with "<bin> not found on PATH" when a spawn produces no detail
+ok 165 - L118: resolveGhAndGit refuses with "<bin> not found on PATH" when a spawn produces no detail
+  ---
+  duration_ms: 0.293542
+  ...
+# Subtest: L118: resolveGhAndGit refuses with the spawn error text when exec throws (e.g. ENOENT)
+ok 166 - L118: resolveGhAndGit refuses with the spawn error text when exec throws (e.g. ENOENT)
+  ---
+  duration_ms: 0.5955
+  ...
+# Subtest: L118: resolveGhAndGit checks git before gh, and never calls gh once git already failed
+ok 167 - L118: resolveGhAndGit checks git before gh, and never calls gh once git already failed
+  ---
+  duration_ms: 0.44625
+  ...
+# Subtest: L118: a pr-list non-zero exit with empty stderr reports "(empty)", not the raw stdout body
+ok 168 - L118: a pr-list non-zero exit with empty stderr reports "(empty)", not the raw stdout body
+  ---
+  duration_ms: 18.457333
+  ...
+# Subtest: L118: an unparsable pr-list JSON body with empty stderr reports "(empty)", not the stdout body
+ok 169 - L118: an unparsable pr-list JSON body with empty stderr reports "(empty)", not the stdout body
+  ---
+  duration_ms: 10.327834
+  ...
+# Subtest: L118: a pr-list failure with real stderr still reports that stderr line, unchanged
+ok 170 - L118: a pr-list failure with real stderr still reports that stderr line, unchanged
+  ---
+  duration_ms: 8.616416
+  ...
+# Subtest: L118: ship refuses at once when gh/git is missing, before any check runs
+    # Subtest: a PATH lacking gh refuses before touching any check, readState, or exec beyond the preflight
+    ok 1 - a PATH lacking gh refuses before touching any check, readState, or exec beyond the preflight
+      ---
+      duration_ms: 984.224791
+      ...
+    1..1
+ok 171 - L118: ship refuses at once when gh/git is missing, before any check runs
+  ---
+  duration_ms: 985.049542
+  type: 'suite'
+  ...
+# Subtest: L111: scout --brief accepts any readable path outside root, copied in for provenance
+    # Subtest: an absolute --brief path outside root is accepted and copied in as brief.md
+    ok 1 - an absolute --brief path outside root is accepted and copied in as brief.md
+      ---
+      duration_ms: 429.143125
+      ...
+    # Subtest: an unreadable --brief path refuses at once, before anything is spawned
+    ok 2 - an unreadable --brief path refuses at once, before anything is spawned
+      ---
+      duration_ms: 137.848625
+      ...
+    1..2
+ok 172 - L111: scout --brief accepts any readable path outside root, copied in for provenance
+  ---
+  duration_ms: 567.342333
+  type: 'suite'
+  ...
+# Subtest: L119: validate warns when a job output looks like a mutants file but is not declared as its mutantsFile
+    # Subtest: undeclaredMutantsFileWarnings flags an undeclared match and is quiet once declared
+    ok 1 - undeclaredMutantsFileWarnings flags an undeclared match and is quiet once declared
+      ---
+      duration_ms: 1.989375
+      ...
+    # Subtest: validateProject surfaces the warning for a real manifest job
+    ok 2 - validateProject surfaces the warning for a real manifest job
+      ---
+      duration_ms: 295.2325
+      ...
+    # Subtest: worker preamble states the exact mutantsFile shape for a job that declares one
+    ok 3 - worker preamble states the exact mutantsFile shape for a job that declares one
+      ---
+      duration_ms: 623.090375
+      ...
+    1..3
+ok 173 - L119: validate warns when a job output looks like a mutants file but is not declared as its mutantsFile
+  ---
+  duration_ms: 922.532792
+  type: 'suite'
+  ...
+# Subtest: L120/L122: integrate parses and validates every mutants source before writing anything; a bad .json output is flagged at job completion
+    # Subtest: a job's own invalid mutantsFile output is flagged at completion and refuses integrate before any project file is written
+    ok 1 - a job's own invalid mutantsFile output is flagged at completion and refuses integrate before any project file is written
+      ---
+      duration_ms: 497.661875
+      ...
+    # Subtest: an unrelated --mutants-file with trailing JSON data also refuses before any write
+    ok 2 - an unrelated --mutants-file with trailing JSON data also refuses before any write
+      ---
+      duration_ms: 637.441959
+      ...
+    # Subtest: a run left integrationStatus "partial" can be retried without a false snapshot conflict
+    ok 3 - a run left integrationStatus "partial" can be retried without a false snapshot conflict
+      ---
+      duration_ms: 804.36475
+      ...
+    1..3
+ok 174 - L120/L122: integrate parses and validates every mutants source before writing anything; a bad .json output is flagged at job completion
+  ---
+  duration_ms: 1939.850417
+  type: 'suite'
+  ...
+# Subtest: L121: validate warns when a job's contextGlob entries for one directory cover only some of its filename prefixes
+    # Subtest: 30 covered + 8 uncovered of the same extension in one directory: warns naming both
+    ok 1 - 30 covered + 8 uncovered of the same extension in one directory: warns naming both
+      ---
+      duration_ms: 286.760416
+      ...
+    # Subtest: a second contextGlob entry for the same directory (multiple entries already work) closes the gap
+    ok 2 - a second contextGlob entry for the same directory (multiple entries already work) closes the gap
+      ---
+      duration_ms: 316.486083
+      ...
+    # Subtest: a plain (non-glob) context naming just 2 of a numbered series still warns when the directory holds more of the same prefix
+    ok 3 - a plain (non-glob) context naming just 2 of a numbered series still warns when the directory holds more of the same prefix
+      ---
+      duration_ms: 247.911708
+      ...
+    1..3
+ok 175 - L121: validate warns when a job's contextGlob entries for one directory cover only some of its filename prefixes
+  ---
+  duration_ms: 851.641792
+  type: 'suite'
+  ...
+# Subtest: dropped writes: inspect/integrate warn when a job's own report, or its actual workspace diff, names a path outside its declared outputs
+    # Subtest: a file the worker actually wrote outside its outputs is caught by the workspace diff, in both inspect and integrate
+    ok 1 - a file the worker actually wrote outside its outputs is caught by the workspace diff, in both inspect and integrate
+      ---
+      duration_ms: 557.53725
+      ...
+    # Subtest: a self-reported "changed" path outside outputs also warns via inspect --results, even with no real workspace file
+    ok 2 - a self-reported "changed" path outside outputs also warns via inspect --results, even with no real workspace file
+      ---
+      duration_ms: 600.903792
+      ...
+    # Subtest: the worker preamble states that edits outside outputs are discarded
+    ok 3 - the worker preamble states that edits outside outputs are discarded
+      ---
+      duration_ms: 607.560375
+      ...
+    1..3
+ok 176 - dropped writes: inspect/integrate warn when a job's own report, or its actual workspace diff, names a path outside its declared outputs
+  ---
+  duration_ms: 1766.411833
+  type: 'suite'
+  ...
+# Subtest: outputs before integrate: inspect --results lists, per job, where each declared output sits on disk and, for .json outputs, whether it parses
+    # Subtest: an absolute workspace path per output, and jsonValid only for .json outputs
+    ok 1 - an absolute workspace path per output, and jsonValid only for .json outputs
+      ---
+      duration_ms: 511.133833
+      ...
+    1..1
+ok 177 - outputs before integrate: inspect --results lists, per job, where each declared output sits on disk and, for .json outputs, whether it parses
+  ---
+  duration_ms: 511.42
+  type: 'suite'
+  ...
+# Subtest: L123: integrate --mutants skips mutants against a red base; ship refuses a required Mutation check section for one
+    # Subtest: a failed check turns every declared mutant into skipped-red-base, not a killed/survived verdict
+    ok 1 - a failed check turns every declared mutant into skipped-red-base, not a killed/survived verdict
+      ---
+      duration_ms: 759.214667
+      ...
+    # Subtest: ship refuses a required "Mutation check" section when the run's mutants came from a red base
+    ok 2 - ship refuses a required "Mutation check" section when the run's mutants came from a red base
+      ---
+      duration_ms: 5.890292
+      ...
+    1..2
+ok 178 - L123: integrate --mutants skips mutants against a red base; ship refuses a required Mutation check section for one
+  ---
+  duration_ms: 765.485208
+  type: 'suite'
+  ...
+# Subtest: L158: a shell job grants the venv interpreter it really runs and smoke-starts the first check
+    # Subtest: resolveVenvInterpreterDirs follows .venv/bin/python through a symlinked install dir to its real home
+    ok 1 - resolveVenvInterpreterDirs follows .venv/bin/python through a symlinked install dir to its real home
+      ---
+      duration_ms: 39.098625
+      ...
+    # Subtest: a venv whose recorded home is outside $HOME but whose python symlinks into a hidden $HOME path is granted
+    ok 2 - a venv whose recorded home is outside $HOME but whose python symlinks into a hidden $HOME path is granted
+      ---
+      duration_ms: 949.678334
+      ...
+    # Subtest: a venv python link that resolves nowhere refuses the job before the worker starts
+    ok 3 - a venv python link that resolves nowhere refuses the job before the worker starts
+      ---
+      duration_ms: 523.453
+      ...
+    # Subtest: a first check that cannot start inside the sandbox refuses the job with sandbox-cannot-run-check
+    ok 4 - a first check that cannot start inside the sandbox refuses the job with sandbox-cannot-run-check
+      ---
+      duration_ms: 880.950542
+      ...
+    # Subtest: a first check that starts and fails (red before the work) does not refuse the job
+    ok 5 - a first check that starts and fails (red before the work) does not refuse the job
+      ---
+      duration_ms: 829.893458
+      ...
+    # Subtest: the swarm toolchains dir and uv managed-python dir are granted, and uv is pointed at the real one
+    ok 6 - the swarm toolchains dir and uv managed-python dir are granted, and uv is pointed at the real one
+      ---
+      duration_ms: 714.148
+      ...
+    1..6
+ok 179 - L158: a shell job grants the venv interpreter it really runs and smoke-starts the first check
+  ---
+  duration_ms: 3939.854375
+  type: 'suite'
+  ...
+# Subtest: L159: packaging config that no check builds is flagged
+    # Subtest: packagingKeyChanges names a hatch build section edit, not a version bump
+    ok 1 - packagingKeyChanges names a hatch build section edit, not a version bump
+      ---
+      duration_ms: 2.373209
+      ...
+    # Subtest: validate warns packaging-change-without-build-check for a job writing pyproject.toml with no build check
+    ok 2 - validate warns packaging-change-without-build-check for a job writing pyproject.toml with no build check
+      ---
+      duration_ms: 228.700917
+      ...
+    # Subtest: integrate warns and ship refuses a packaging-key change with no build check
+    ok 3 - integrate warns and ship refuses a packaging-key change with no build check
+      ---
+      duration_ms: 622.788833
+      ...
+    1..3
+ok 180 - L159: packaging config that no check builds is flagged
+  ---
+  duration_ms: 854.178292
+  type: 'suite'
+  ...
+# Subtest: L160: .swarm/env.json reaches every check, mutant and worker; env --print pastes it
+    # Subtest: integrate checks see PLAYWRIGHT_BROWSERS_PATH from the root env file
+    ok 1 - integrate checks see PLAYWRIGHT_BROWSERS_PATH from the root env file
+      ---
+      duration_ms: 596.897375
+      ...
+    # Subtest: current-tree mutants and a shell worker get it too; a linked worktree falls back to its main root
+    ok 2 - current-tree mutants and a shell worker get it too; a linked worktree falls back to its main root
+      ---
+      duration_ms: 257.397708
+      ...
+    # Subtest: validate refuses a secret-looking or reserved key and warns check-needs-env with no file
+    ok 3 - validate refuses a secret-looking or reserved key and warns check-needs-env with no file
+      ---
+      duration_ms: 257.276125
+      ...
+    # Subtest: swarm env --print prints export lines, the port block and the no-stash rule
+    ok 4 - swarm env --print prints export lines, the port block and the no-stash rule
+      ---
+      duration_ms: 215.9015
+      ...
+    1..4
+ok 181 - L160: .swarm/env.json reaches every check, mutant and worker; env --print pastes it
+  ---
+  duration_ms: 1327.865959
+  type: 'suite'
+  ...
+# Subtest: L161: mutants refuses a find that is missing, duplicated or a no-op before anything runs
+    # Subtest: three distinct refusals, nothing mutated, the check never ran
+    ok 1 - three distinct refusals, nothing mutated, the check never ran
+      ---
+      duration_ms: 13.704917
+      ...
+    # Subtest: --dry-run only validates: valid mutants are listed and no check runs
+    ok 2 - --dry-run only validates: valid mutants are listed and no check runs
+      ---
+      duration_ms: 85.324917
+      ...
+    1..2
+ok 182 - L161: mutants refuses a find that is missing, duplicated or a no-op before anything runs
+  ---
+  duration_ms: 99.545625
+  type: 'suite'
+  ...
+# Subtest: L162: a mutant may carry its own check argv, overriding the shared mutant check
+    # Subtest: two mutants, one with its own check: each runs only its own check, and the report names it
+    ok 1 - two mutants, one with its own check: each runs only its own check, and the report names it
+      ---
+      duration_ms: 280.294333
+      ...
+    # Subtest: with every mutant carrying its own check, --mutant-check is not required; a bad check shape is refused
+    ok 2 - with every mutant carrying its own check, --mutant-check is not required; a bad check shape is refused
+      ---
+      duration_ms: 94.056708
+      ...
+    1..2
+ok 183 - L162: a mutant may carry its own check argv, overriding the shared mutant check
+  ---
+  duration_ms: 374.591375
+  type: 'suite'
+  ...
+# Subtest: L163: workers are told never to git stash, and a shell worker cannot
+    # Subtest: the git guard refuses stash (after global options) with a plain message and passes anything else through
+    ok 1 - the git guard refuses stash (after global options) with a plain message and passes anything else through
+      ---
+      duration_ms: 55.776167
+      ...
+    # Subtest: shell and codex prompts carry the rule; a shell worker gets the guard first on PATH
+    ok 2 - shell and codex prompts carry the rule; a shell worker gets the guard first on PATH
+      ---
+      duration_ms: 939.970834
+      ...
+    1..2
+ok 184 - L163: workers are told never to git stash, and a shell worker cannot
+  ---
+  duration_ms: 996.095167
+  type: 'suite'
+  ...
+# Subtest: L164: ship --branch ships a finished branch that has no swarm run
+    # Subtest: a branch with no .swarm/runs ships: its --check runs, fills the checks section, pushes, opens the PR and merges
+    ok 1 - a branch with no .swarm/runs ships: its --check runs, fills the checks section, pushes, opens the PR and merges
+      ---
+      duration_ms: 414.486208
+      ...
+    # Subtest: the needs-a-human hold, required sections, a failing check and a wrong checkout all apply
+    ok 2 - the needs-a-human hold, required sections, a failing check and a wrong checkout all apply
+      ---
+      duration_ms: 812.187
+      ...
+    1..2
+ok 185 - L164: ship --branch ships a finished branch that has no swarm run
+  ---
+  duration_ms: 1226.925541
+  type: 'suite'
+  ...
+# Subtest: L165: validate warns shared-output-across-open-jobs against an already-open run of the same repo
+    # Subtest: an already-open run in a sibling worktree listing the same output file is named; no warning for a different file, a different repo, or a dead process
+    ok 1 - an already-open run in a sibling worktree listing the same output file is named; no warning for a different file, a different repo, or a dead process
+      ---
+      duration_ms: 961.113
+      ...
+    1..1
+ok 186 - L165: validate warns shared-output-across-open-jobs against an already-open run of the same repo
+  ---
+  duration_ms: 962.346583
+  type: 'suite'
+  ...
+# Subtest: L166: shipRun wires integratedFiles into ship(), so the \#147 lock check runs on a real ship
+    # Subtest: CLI `ship <id>` refuses on a stale lockfile via the \#147 lock check (not a push failure), proving integratedFiles reached ship()
+    ok 1 - CLI `ship <id>` refuses on a stale lockfile via the \#147 lock check (not a push failure), proving integratedFiles reached ship()
+      ---
+      duration_ms: 1496.285667
+      ...
+    1..1
+ok 187 - L166: shipRun wires integratedFiles into ship(), so the \#147 lock check runs on a real ship
+  ---
+  duration_ms: 1496.687875
+  type: 'suite'
+  ...
+# Subtest: L167: .swarm/gotchas.md reaches every job prompt and env --print
+    # Subtest: loadGotchas: the root's own file wins; a linked worktree with none falls back to its main root's file; missing is null
+    ok 1 - loadGotchas: the root's own file wins; a linked worktree with none falls back to its main root's file; missing is null
+      ---
+      duration_ms: 194.327208
+      ...
+    # Subtest: gotchasPromptBlock is appended to a codex and a shell job prompt; empty with no file
+    ok 2 - gotchasPromptBlock is appended to a codex and a shell job prompt; empty with no file
+      ---
+      duration_ms: 0.892667
+      ...
+    # Subtest: a real run appends the project's own gotchas.md to a plain claude job's saved prompt
+    ok 3 - a real run appends the project's own gotchas.md to a plain claude job's saved prompt
+      ---
+      duration_ms: 466.803625
+      ...
+    # Subtest: env --print includes the gotchas block (from its source); the plain env JSON carries it too
+    ok 4 - env --print includes the gotchas block (from its source); the plain env JSON carries it too
+      ---
+      duration_ms: 379.569541
+      ...
+    # Subtest: validate warns windows-ci-no-gotchas for a repo with a Windows CI workflow and no gotchas file; quiet once one exists or CI never mentions Windows
+    ok 5 - validate warns windows-ci-no-gotchas for a repo with a Windows CI workflow and no gotchas file; quiet once one exists or CI never mentions Windows
+      ---
+      duration_ms: 243.349916
+      ...
+    1..5
+ok 188 - L167: .swarm/gotchas.md reaches every job prompt and env --print
+  ---
+  duration_ms: 1285.378167
+  type: 'suite'
+  ...
+# Subtest: L168: env / env --print materializes a stable per-root git-stash guard for outside agents
+    # Subtest: env --print carries a PATH export for the materialized wrapper; the wrapper refuses stash and passes everything else to the real git
+    ok 1 - env --print carries a PATH export for the materialized wrapper; the wrapper refuses stash and passes everything else to the real git
+      ---
+      duration_ms: 629.664417
+      ...
+    # Subtest: materializeGitGuard resolves the real git even when the wrapper dir is already first on PATH, so the wrapper never execs itself
+    ok 2 - materializeGitGuard resolves the real git even when the wrapper dir is already first on PATH, so the wrapper never execs itself
+      ---
+      duration_ms: 272.815042
+      ...
+    1..2
+ok 189 - L168: env / env --print materializes a stable per-root git-stash guard for outside agents
+  ---
+  duration_ms: 902.704375
+  type: 'suite'
+  ...
+# Subtest: L169: a relative path flag is tried against the cwd first, then --root
+    # Subtest: briefPathCandidates: cwd and root differ -> both, in cwd-first order; equal -> one; absolute -> one, unchanged
+    ok 1 - briefPathCandidates: cwd and root differ -> both, in cwd-first order; equal -> one; absolute -> one, unchanged
+      ---
+      duration_ms: 0.743
+      ...
+    # Subtest: scout --brief resolves against the cwd the user is sitting in, not only against --root
+    ok 2 - scout --brief resolves against the cwd the user is sitting in, not only against --root
+      ---
+      duration_ms: 360.334416
+      ...
+    # Subtest: scout --brief not found names every path actually tried (cwd, then root)
+    ok 3 - scout --brief not found names every path actually tried (cwd, then root)
+      ---
+      duration_ms: 4.346667
+      ...
+    # Subtest: resolvePathCwdThenRoot: finds a relative path at the cwd first, falls back to root, passes an absolute path through, and names every path tried when none exist
+    ok 4 - resolvePathCwdThenRoot: finds a relative path at the cwd first, falls back to root, passes an absolute path through, and names every path tried when none exist
+      ---
+      duration_ms: 8.757333
+      ...
+    # Subtest: ship --branch resolves --pr against the cwd first: a decoy payload at --root is ignored in favor of the one at the cwd
+    ok 5 - ship --branch resolves --pr against the cwd first: a decoy payload at --root is ignored in favor of the one at the cwd
+      ---
+      duration_ms: 283.856583
+      ...
+    1..5
+ok 190 - L169: a relative path flag is tried against the cwd first, then --root
+  ---
+  duration_ms: 659.84925
+  type: 'suite'
+  ...
+# Subtest: L170: the git guard refuses git checkout/restore of a path with uncommitted changes ("commit WIP first"), and job boilerplate says never to hand-revert
+    # Subtest: git checkout <path> / git checkout -- <path> / git restore <path> are each refused, with "commit WIP first", when that path has uncommitted changes
+    ok 1 - git checkout <path> / git checkout -- <path> / git restore <path> are each refused, with "commit WIP first", when that path has uncommitted changes
+      ---
+      duration_ms: 541.923041
+      ...
+    # Subtest: a staged-only change is refused too, and a clean path or a plain branch checkout passes through to the real git
+    ok 2 - a staged-only change is refused too, and a clean path or a plain branch checkout passes through to the real git
+      ---
+      duration_ms: 749.126917
+      ...
+    # Subtest: git stash is still refused (regression, lesson \#163) and --version still passes through
+    ok 3 - git stash is still refused (regression, lesson \#163) and --version still passes through
+      ---
+      duration_ms: 345.652791
+      ...
+    # Subtest: a global -C is honored by the diff check itself, so a clean path reached through -C is never a false refusal
+    ok 4 - a global -C is honored by the diff check itself, so a clean path reached through -C is never a false refusal
+      ---
+      duration_ms: 313.500417
+      ...
+    # Subtest: job boilerplate: a shell or codex worker (both can run git) is told to run `swarm mutants`, never hand-revert one; a plain worker (no shell tool at all) carries no such line
+    ok 5 - job boilerplate: a shell or codex worker (both can run git) is told to run `swarm mutants`, never hand-revert one; a plain worker (no shell tool at all) carries no such line
+      ---
+      duration_ms: 0.539292
+      ...
+    # Subtest: env --print carries the same rule
+    ok 6 - env --print carries the same rule
+      ---
+      duration_ms: 0.208083
+      ...
+    1..6
+ok 191 - L170: the git guard refuses git checkout/restore of a path with uncommitted changes ("commit WIP first"), and job boilerplate says never to hand-revert
+  ---
+  duration_ms: 1951.753083
+  type: 'suite'
+  ...
+# Subtest: L171: a worker-written mutants file may use "id" for "name" (aliased, with a warning); env --print states the exact shape
+    # Subtest: runMutantsCurrentTree accepts a mutants file whose entries use "id" instead of "name", aliasing it with a warning
+    ok 1 - runMutantsCurrentTree accepts a mutants file whose entries use "id" instead of "name", aliasing it with a warning
+      ---
+      duration_ms: 124.441417
+      ...
+    # Subtest: a mutants file already shaped with "name" produces no aliasing warning
+    ok 2 - a mutants file already shaped with "name" produces no aliasing warning
+      ---
+      duration_ms: 80.357833
+      ...
+    # Subtest: env --print includes the exact mutants file shape line, byte-identical to a job's own mutantsFile preamble
+    ok 3 - env --print includes the exact mutants file shape line, byte-identical to a job's own mutantsFile preamble
+      ---
+      duration_ms: 458.78975
+      ...
+    1..3
+ok 192 - L171: a worker-written mutants file may use "id" for "name" (aliased, with a warning); env --print states the exact shape
+  ---
+  duration_ms: 663.930458
+  type: 'suite'
+  ...
+# Subtest: L172: the uv lock check resolves uv (toolchains dir, then PATH) before spawning it, and reports every path tried when it cannot start
+    # Subtest: resolveUv: finds uv in the toolchains dir before PATH, falls back to PATH, and reports null + every path tried when missing
+    ok 1 - resolveUv: finds uv in the toolchains dir before PATH, falls back to PATH, and reports null + every path tried when missing
+      ---
+      duration_ms: 0.772083
+      ...
+    # Subtest: ship reports lock-check-cannot-run with every path tried when uv cannot be resolved, and never spawns it
+    ok 2 - ship reports lock-check-cannot-run with every path tried when uv cannot be resolved, and never spawns it
+      ---
+      duration_ms: 4.953584
+      ...
+    1..2
+ok 193 - L172: the uv lock check resolves uv (toolchains dir, then PATH) before spawning it, and reports every path tried when it cannot start
+  ---
+  duration_ms: 6.060625
+  type: 'suite'
+  ...
+# Subtest: L174: a required section matches "\#\# <name>" by prefix (end of line, space, or "(") and names the nearest heading when truly missing
+    # Subtest: missingSections: a heading with a trailing parenthetical satisfies the required section
+    ok 1 - missingSections: a heading with a trailing parenthetical satisfies the required section
+      ---
+      duration_ms: 1.573833
+      ...
+    # Subtest: missingSections: a heading that only shares a word prefix ("Mutation checks") does not satisfy "Mutation check"
+    ok 2 - missingSections: a heading that only shares a word prefix ("Mutation checks") does not satisfy "Mutation check"
+      ---
+      duration_ms: 0.336041
+      ...
+    # Subtest: ship: a PR body whose Mutation check heading carries a parenthetical is no longer refused for a missing section
+    ok 3 - ship: a PR body whose Mutation check heading carries a parenthetical is no longer refused for a missing section
+      ---
+      duration_ms: 13.461292
+      ...
+    # Subtest: ship: refuses a genuinely missing required section, naming the nearest (near-miss) heading found in the body
+    ok 4 - ship: refuses a genuinely missing required section, naming the nearest (near-miss) heading found in the body
+      ---
+      duration_ms: 4.429833
+      ...
+    1..4
+ok 194 - L174: a required section matches "\#\# <name>" by prefix (end of line, space, or "(") and names the nearest heading when truly missing
+  ---
+  duration_ms: 21.13125
+  type: 'suite'
+  ...
+# Subtest: L175: ship --check resolves a bare check argv[0] (toolchains dir, then PATH) before spawning it, and reports every path tried when it cannot start
+    # Subtest: resolveToolchainBin: finds a program in the toolchains dir before PATH, falls back to PATH, and reports null + every path tried when missing
+    ok 1 - resolveToolchainBin: finds a program in the toolchains dir before PATH, falls back to PATH, and reports null + every path tried when missing
+      ---
+      duration_ms: 0.524542
+      ...
+    # Subtest: resolveUv still works, now backed by the shared resolver (lesson \#172 stays green)
+    ok 2 - resolveUv still works, now backed by the shared resolver (lesson \#172 stays green)
+      ---
+      duration_ms: 0.14475
+      ...
+    # Subtest: ship --branch --check with a bare, unresolvable program reports cannot-run naming every path tried, not spawn-error with nothing shown
+    ok 3 - ship --branch --check with a bare, unresolvable program reports cannot-run naming every path tried, not spawn-error with nothing shown
+      ---
+      duration_ms: 306.001
+      ...
+    1..3
+ok 195 - L175: ship --check resolves a bare check argv[0] (toolchains dir, then PATH) before spawning it, and reports every path tried when it cannot start
+  ---
+  duration_ms: 307.071417
+  type: 'suite'
+  ...
+# Subtest: L176: ask names a claimed absence as context-only, reports contextFiles, and warns on an absence claim
+    # Subtest: hasAbsenceClaim: hit — matches the words an absence claim is made of, case-insensitively, as whole words
+    ok 1 - hasAbsenceClaim: hit — matches the words an absence claim is made of, case-insensitively, as whole words
+      ---
+      duration_ms: 1.582625
+      ...
+    # Subtest: hasAbsenceClaim: non-hit — ordinary answer text with none of those words does not match
+    ok 2 - hasAbsenceClaim: non-hit — ordinary answer text with none of those words does not match
+      ---
+      duration_ms: 0.073875
+      ...
+    # Subtest: ask prompt tells the worker any absence claim must carry basis:context-only and name what it searched
+    ok 3 - ask prompt tells the worker any absence claim must carry basis:context-only and name what it searched
+      ---
+      duration_ms: 409.305917
+      ...
+    # Subtest: ask returns the exact contextFiles the worker was given
+    ok 4 - ask returns the exact contextFiles the worker was given
+      ---
+      duration_ms: 404.188125
+      ...
+    # Subtest: ask warns absence-claim-limited-context when the worker answer reads as an absence claim (this is the behavior the unfixed code lacks)
+    ok 5 - ask warns absence-claim-limited-context when the worker answer reads as an absence claim (this is the behavior the unfixed code lacks)
+      ---
+      duration_ms: 503.24025
+      ...
+    # Subtest: ask reports no warning for an ordinary answer with no absence claim
+    ok 6 - ask reports no warning for an ordinary answer with no absence claim
+      ---
+      duration_ms: 320.128333
+      ...
+    1..6
+ok 196 - L176: ask names a claimed absence as context-only, reports contextFiles, and warns on an absence claim
+  ---
+  duration_ms: 1640.362959
+  type: 'suite'
+  ...
+# Subtest: L177(a)/(b): ship --checks-from-ci reads CI's own run: steps as checks and warns on hand-check drift
+    # Subtest: shipBranch: --checks-from-ci merges CI-derived checks and warns check-not-in-ci for a hand check CI does not also run
+    ok 1 - shipBranch: --checks-from-ci merges CI-derived checks and warns check-not-in-ci for a hand check CI does not also run
+      ---
+      duration_ms: 999.794083
+      ...
+    # Subtest: shipBranch: --checks-from-ci warns (does not throw) when the CI file is missing
+    ok 2 - shipBranch: --checks-from-ci warns (does not throw) when the CI file is missing
+      ---
+      duration_ms: 333.456333
+      ...
+    1..2
+ok 197 - L177(a)/(b): ship --checks-from-ci reads CI's own run: steps as checks and warns on hand-check drift
+  ---
+  duration_ms: 1334.553916
+  type: 'suite'
+  ...
+# Subtest: L177(c): a failing check is verified against the base commit's tree and reported pre-existing when it fails there too
+    # Subtest: ship: a check that also fails on the base tree is reported pre-existing and does not block the ship
+    ok 1 - ship: a check that also fails on the base tree is reported pre-existing and does not block the ship
+      ---
+      duration_ms: 7.305334
+      ...
+    # Subtest: ship: a check that only fails on the new tree (passes on base) is a genuine failure and still blocks the ship
+    ok 2 - ship: a check that only fails on the new tree (passes on base) is a genuine failure and still blocks the ship
+      ---
+      duration_ms: 6.995042
+      ...
+    1..2
+ok 198 - L177(c): a failing check is verified against the base commit's tree and reported pre-existing when it fails there too
+  ---
+  duration_ms: 14.704917
+  type: 'suite'
+  ...
+# Subtest: L178: ship --rerun-flaky reruns CI's failed jobs when the failing tests are not in the PR diff
+    # Subtest: ship: reruns once and reports flakyRerun on success when the failing test is not in the diff
+    ok 1 - ship: reruns once and reports flakyRerun on success when the failing test is not in the diff
+      ---
+      duration_ms: 4.847209
+      ...
+    # Subtest: ship: never reruns when a failing test file is in the PR's own diff
+    ok 2 - ship: never reruns when a failing test file is in the PR's own diff
+      ---
+      duration_ms: 7.8485
+      ...
+    1..2
+ok 199 - L178: ship --rerun-flaky reruns CI's failed jobs when the failing tests are not in the PR diff
+  ---
+  duration_ms: 12.885042
+  type: 'suite'
+  ...
+# Subtest: L179: the test-file guard judges only lines this change ADDS to a test file
+    # Subtest: a spawn call already on the base (untouched by this diff) does not refuse
+    ok 1 - a spawn call already on the base (untouched by this diff) does not refuse
+      ---
+      duration_ms: 14.430334
+      ...
+    # Subtest: a spawn call this diff itself ADDS still refuses, with a --exempt hint
+    ok 2 - a spawn call this diff itself ADDS still refuses, with a --exempt hint
+      ---
+      duration_ms: 4.723042
+      ...
+    # Subtest: ps is a documented POSIX binary and never refuses on its own
+    ok 3 - ps is a documented POSIX binary and never refuses on its own
+      ---
+      duration_ms: 0.362667
+      ...
+    1..3
+ok 200 - L179: the test-file guard judges only lines this change ADDS to a test file
+  ---
+  duration_ms: 20.632
+  type: 'suite'
+  ...
+# Subtest: L179: --exempt <guard>:<file>=<reason> excuses one file from one guard
+    # Subtest: a valid exemption passes, appears in the result, is logged, and lands in the PR body's \#\# Exemptions section
+    ok 1 - a valid exemption passes, appears in the result, is logged, and lands in the PR body's \#\# Exemptions section
+      ---
+      duration_ms: 17.273625
+      ...
+    # Subtest: an exemption with no reason, or a reason under 10 characters, refuses at parse time
+    ok 2 - an exemption with no reason, or a reason under 10 characters, refuses at parse time
+      ---
+      duration_ms: 0.926625
+      ...
+    # Subtest: an unknown guard id refuses at parse time, naming the valid ids
+    ok 3 - an unknown guard id refuses at parse time, naming the valid ids
+      ---
+      duration_ms: 0.354792
+      ...
+    # Subtest: an exemption that matches nothing warns unused-exemption and is not written into the PR body
+    ok 4 - an exemption that matches nothing warns unused-exemption and is not written into the PR body
+      ---
+      duration_ms: 4.383125
+      ...
+    # Subtest: an exemption for file A does not skip file B, which still refuses
+    ok 5 - an exemption for file A does not skip file B, which still refuses
+      ---
+      duration_ms: 13.677959
+      ...
+    1..5
+ok 201 - L179: --exempt <guard>:<file>=<reason> excuses one file from one guard
+  ---
+  duration_ms: 37.647125
+  type: 'suite'
+  ...
+# Subtest: appendExemptionsSection: appends to an existing "\#\# Exemptions" section or creates one
+    # Subtest: creates a fresh section at the end of the body when none exists
+    ok 1 - creates a fresh section at the end of the body when none exists
+      ---
+      duration_ms: 0.411542
+      ...
+    # Subtest: appends to an existing "\#\# Exemptions" section instead of creating a second one
+    ok 2 - appends to an existing "\#\# Exemptions" section instead of creating a second one
+      ---
+      duration_ms: 0.238667
+      ...
+    # Subtest: an empty exemptions list leaves the body untouched
+    ok 3 - an empty exemptions list leaves the body untouched
+      ---
+      duration_ms: 0.089375
+      ...
+    1..3
+ok 202 - appendExemptionsSection: appends to an existing "\#\# Exemptions" section or creates one
+  ---
+  duration_ms: 0.930708
+  type: 'suite'
+  ...
+# Subtest: L181: resolveToolchainBin skips a directory sharing the program's own name
+    # Subtest: a real directory named like the program at the toolchains root is skipped in favor of bin/<prog>
+    ok 1 - a real directory named like the program at the toolchains root is skipped in favor of bin/<prog>
+      ---
+      duration_ms: 17.153083
+      ...
+    # Subtest: with no bin/ binary either, a same-named directory is reported not found (never returned as the path)
+    ok 2 - with no bin/ binary either, a same-named directory is reported not found (never returned as the path)
+      ---
+      duration_ms: 5.014125
+      ...
+    1..2
+ok 203 - L181: resolveToolchainBin skips a directory sharing the program's own name
+  ---
+  duration_ms: 22.677
+  type: 'suite'
+  ...
+# Subtest: L181: a lock check that fails to spawn never produces an empty reason
+    # Subtest: ship: a spawnError from exec becomes lock-check-cannot-run: <path> (<errno>), never an empty "<name> failed: "
+    ok 1 - ship: a spawnError from exec becomes lock-check-cannot-run: <path> (<errno>), never an empty "<name> failed: "
+      ---
+      duration_ms: 12.829375
+      ...
+    1..1
+ok 204 - L181: a lock check that fails to spawn never produces an empty reason
+  ---
+  duration_ms: 13.092166
+  type: 'suite'
+  ...
+# Subtest: L179/L181: proof these are real regressions — the pre-fix module fails these exact assertions
+    # Subtest: pre-fix ship.mjs does not have `ps` documented, and refuses on the pre-existing (already-on-base) spawn call
+    ok 1 - pre-fix ship.mjs does not have `ps` documented, and refuses on the pre-existing (already-on-base) spawn call
+      ---
+      duration_ms: 47.345417
+      ...
+    # Subtest: pre-fix ship.mjs has no --exempt/exemptions support at all
+    ok 2 - pre-fix ship.mjs has no --exempt/exemptions support at all
+      ---
+      duration_ms: 54.431458
+      ...
+    # Subtest: proof: --exempt is entirely new — absent from the pre-fix SHIP_FLAGS_WITH_VALUE set
+    ok 3 - proof: --exempt is entirely new — absent from the pre-fix SHIP_FLAGS_WITH_VALUE set
+      ---
+      duration_ms: 33.13875
+      ...
+    # Subtest: pre-fix resolveToolchainBin picks a directory that shares the program's name over the real bin/<prog> binary
+    ok 4 - pre-fix resolveToolchainBin picks a directory that shares the program's name over the real bin/<prog> binary
+      ---
+      duration_ms: 42.306458
+      ...
+    # Subtest: pre-fix ship.mjs produces the empty "<name> failed: " reason on a spawn failure, ignoring spawnError
+    ok 5 - pre-fix ship.mjs produces the empty "<name> failed: " reason on a spawn failure, ignoring spawnError
+      ---
+      duration_ms: 38.750208
+      ...
+    1..5
+ok 205 - L179/L181: proof these are real regressions — the pre-fix module fails these exact assertions
+  ---
+  duration_ms: 216.306083
+  type: 'suite'
+  ...
+# Subtest: a plain final JSON line after prose still parses (unchanged behavior)
+ok 206 - a plain final JSON line after prose still parses (unchanged behavior)
+  ---
+  duration_ms: 2.23775
+  ...
+# Subtest: a final line wrapped in single backticks parses (lesson \#54)
+ok 207 - a final line wrapped in single backticks parses (lesson \#54)
+  ---
+  duration_ms: 0.144875
+  ...
+# Subtest: a pretty-printed object in a ```json fence parses when no line does (lesson \#58)
+ok 208 - a pretty-printed object in a ```json fence parses when no line does (lesson \#58)
+  ---
+  duration_ms: 0.0715
+  ...
+# Subtest: the last fenced object wins over an earlier one
+ok 209 - the last fenced object wins over an earlier one
+  ---
+  duration_ms: 0.1825
+  ...
+# Subtest: a fenced object with a nested array of objects returns the whole object, not the last inner one (lesson \#146)
+ok 210 - a fenced object with a nested array of objects returns the whole object, not the last inner one (lesson \#146)
+  ---
+  duration_ms: 0.392792
+  ...
+# Subtest: a bare (unfenced) object with a nested array of objects returns the whole object, not the last inner one (lesson \#146)
+ok 211 - a bare (unfenced) object with a nested array of objects returns the whole object, not the last inner one (lesson \#146)
+  ---
+  duration_ms: 0.232292
+  ...
+# Subtest: a closing brace inside a string value does not break top-level object matching
+ok 212 - a closing brace inside a string value does not break top-level object matching
+  ---
+  duration_ms: 0.1585
+  ...
+# Subtest: two bare top-level objects: the last one wins
+ok 213 - two bare top-level objects: the last one wins
+  ---
+  duration_ms: 0.339708
+  ...
+# Subtest: prose with no JSON object, an array, or empty input gives null
+ok 214 - prose with no JSON object, an array, or empty input gives null
+  ---
+  duration_ms: 0.317
+  ...
+# Subtest: validate in a non-git root prints nothing from git on stderr (lesson \#57)
+ok 215 - validate in a non-git root prints nothing from git on stderr (lesson \#57)
+  ---
+  duration_ms: 229.256292
+  ...
+# Subtest: go: a manifest path runs run, wait, integrate, commit, ship in order
+ok 216 - go: a manifest path runs run, wait, integrate, commit, ship in order
+  ---
+  duration_ms: 2.329
+  ...
+# Subtest: go: a run id skips the run stage entirely
+ok 217 - go: a run id skips the run stage entirely
+  ---
+  duration_ms: 0.22675
+  ...
+# Subtest: go: a manifest run that never completes fails at the run stage before integrate
+ok 218 - go: a manifest run that never completes fails at the run stage before integrate
+  ---
+  duration_ms: 0.264
+  ...
+# Subtest: go: stops at integrate when checks fail, naming the stage, the failing checks, and never reaching commit/ship
+ok 219 - go: stops at integrate when checks fail, naming the stage, the failing checks, and never reaching commit/ship
+  ---
+  duration_ms: 0.191333
+  ...
+# Subtest: go: a surviving/errored mutant with --mutants also stops at integrate
+ok 220 - go: a surviving/errored mutant with --mutants also stops at integrate
+  ---
+  duration_ms: 0.152875
+  ...
+# Subtest: go: a surviving mutant from the manifest stops at integrate even without --mutants
+ok 221 - go: a surviving mutant from the manifest stops at integrate even without --mutants
+  ---
+  duration_ms: 0.474333
+  ...
+# Subtest: go: an integrate stage that throws becomes a failed result naming the integrate stage
+ok 222 - go: an integrate stage that throws becomes a failed result naming the integrate stage
+  ---
+  duration_ms: 1.639292
+  ...
+# Subtest: go: with no --commit-message, commit is skipped and a dirty tree is reported as a failure at ship
+ok 223 - go: with no --commit-message, commit is skipped and a dirty tree is reported as a failure at ship
+  ---
+  duration_ms: 1.061083
+  ...
+# Subtest: go: the commit stage receives exactly the integrate stage's file list, never a wildcard
+ok 224 - go: the commit stage receives exactly the integrate stage's file list, never a wildcard
+  ---
+  duration_ms: 0.745333
+  ...
+# Subtest: go: a failing commit stage stops before ship
+ok 225 - go: a failing commit stage stops before ship
+  ---
+  duration_ms: 0.466583
+  ...
+# Subtest: go: ship never runs without both --repo and --pr; status stays integrated or committed
+ok 226 - go: ship never runs without both --repo and --pr; status stays integrated or committed
+  ---
+  duration_ms: 0.165875
+  ...
+# Subtest: go: held and ready both pass through as their own status with exit code 0
+ok 227 - go: held and ready both pass through as their own status with exit code 0
+  ---
+  duration_ms: 0.406958
+  ...
+# Subtest: goExitCode: 0 for every non-failed status, 1 only for failed
+ok 228 - goExitCode: 0 for every non-failed status, 1 only for failed
+  ---
+  duration_ms: 0.225833
+  ...
+# Subtest: go: the result always serializes to exactly one JSON line, even with a multi-line reason
+ok 229 - go: the result always serializes to exactly one JSON line, even with a multi-line reason
+  ---
+  duration_ms: 1.02025
+  ...
+# Subtest: commitOutputs: stages exactly the given files with git add -- (never -A), then commits the message verbatim
+ok 230 - commitOutputs: stages exactly the given files with git add -- (never -A), then commits the message verbatim
+  ---
+  duration_ms: 1.132209
+  ...
+# Subtest: commitOutputs: a failing git add reports the failure and never attempts the commit
+ok 231 - commitOutputs: a failing git add reports the failure and never attempts the commit
+  ---
+  duration_ms: 0.203042
+  ...
+# Subtest: installUser writes both agent skill targets with the runner path substituted and skips a missing home
+ok 232 - installUser writes both agent skill targets with the runner path substituted and skips a missing home
+  ---
+  duration_ms: 633.331625
+  ...
+# Subtest: installUser writes into both agent homes when both exist
+ok 233 - installUser writes into both agent homes when both exist
+  ---
+  duration_ms: 440.810708
+  ...
+# Subtest: installUser snapshots tools/ and package.json into versions/<version>-<hash8>, atomically repoints current, and records versionDir/runner
+ok 234 - installUser snapshots tools/ and package.json into versions/<version>-<hash8>, atomically repoints current, and records versionDir/runner
+  ---
+  duration_ms: 474.158875
+  ...
+# Subtest: re-installing with unchanged tools/ and package.json content reuses the same version dir
+ok 235 - re-installing with unchanged tools/ and package.json content reuses the same version dir
+  ---
+  duration_ms: 466.292458
+  ...
+# Subtest: a module resolved through current/ keeps its own realpath after a later install repoints current
+ok 236 - a module resolved through current/ keeps its own realpath after a later install repoints current
+  ---
+  duration_ms: 142.896416
+  ...
+# Subtest: re-installing identical tools/ reuses the existing snapshot and never rewrites it under a live run
+ok 237 - re-installing identical tools/ reuses the existing snapshot and never rewrites it under a live run
+  ---
+  duration_ms: 118.642542
+  ...
+# Subtest: pruneVersions keeps the 5 newest version dirs and never removes the one current points to
+ok 238 - pruneVersions keeps the 5 newest version dirs and never removes the one current points to
+  ---
+  duration_ms: 17.353458
+  ...
+# Subtest: installProject writes a pointer and the registry, and copies no runner
+ok 239 - installProject writes a pointer and the registry, and copies no runner
+  ---
+  duration_ms: 208.243334
+  ...
+# Subtest: installProject seeds missing coordination examples when the project already has some, and dedupes the registry
+ok 240 - installProject seeds missing coordination examples when the project already has some, and dedupes the registry
+  ---
+  duration_ms: 290.2135
+  ...
+# Subtest: installProject rejects a symlinked destination component
+ok 241 - installProject rejects a symlinked destination component
+  ---
+  duration_ms: 240.529125
+  ...
+# Subtest: installUser provides a resolved shared skill with references even without supported agent homes
+ok 242 - installUser provides a resolved shared skill with references even without supported agent homes
+  ---
+  duration_ms: 379.654209
+  ...
+# Subtest: installed guide references include the sweep goals JSON example
+ok 243 - installed guide references include the sweep goals JSON example
+  ---
+  duration_ms: 536.522958
+  ...
+# Subtest: adapter counts in every guide agree with the executable adapter list
+ok 244 - adapter counts in every guide agree with the executable adapter list
+  ---
+  duration_ms: 45.14925
+  ...
+# Subtest: doctor probes only opt-in loopback endpoints and distinguishes configured from reachable
+ok 245 - doctor probes only opt-in loopback endpoints and distinguishes configured from reachable
+  ---
+  duration_ms: 67.92825
+  ...
+# Subtest: doctor never probes cloud credentials or remote origins even with local probe opt-in
+ok 246 - doctor never probes cloud credentials or remote origins even with local probe opt-in
+  ---
+  duration_ms: 1.857
+  ...
+# Subtest: local probe has a short timeout and refuses redirects out of localhost
+ok 247 - local probe has a short timeout and refuses redirects out of localhost
+  ---
+  duration_ms: 107.63225
+  ...
+# Subtest: doctor and preflight warn about root tool configs without swarm exclusions
+ok 248 - doctor and preflight warn about root tool configs without swarm exclusions
+  ---
+  duration_ms: 204.045042
+  ...
+# Subtest: explicit tool exclusions suppress warnings; unrelated swarm strings do not
+ok 249 - explicit tool exclusions suppress warnings; unrelated swarm strings do not
+  ---
+  duration_ms: 89.580958
+  ...
+# Subtest: kickoff supplies generic seats, provider consent, budget, and exact handoff
+ok 250 - kickoff supplies generic seats, provider consent, budget, and exact handoff
+  ---
+  duration_ms: 1.422291
+  ...
+# Subtest: wait returns immediately for an already-terminal run and reports per-job cost/notes
+ok 251 - wait returns immediately for an already-terminal run and reports per-job cost/notes
+  ---
+  duration_ms: 341.284583
+  ...
+# Subtest: wait polls saved status until a running job reaches a terminal status
+ok 252 - wait polls saved status until a running job reaches a terminal status
+  ---
+  duration_ms: 602.010583
+  ...
+# Subtest: wait exits 2 on --timeout expiry with status still running, and rejects an unknown run id
+ok 253 - wait exits 2 on --timeout expiry with status still running, and rejects an unknown run id
+  ---
+  duration_ms: 661.584375
+  ...
+# Subtest: wait CLI exits 1 when the run failed and 0 with summed cost when it completed
+ok 254 - wait CLI exits 1 when the run failed and 0 with summed cost when it completed
+  ---
+  duration_ms: 1000.6205
+  ...
+# Subtest: inspect exposes a worker's parsed final JSON result and reported cost, capping notes at 20 items of 500 chars
+ok 255 - inspect exposes a worker's parsed final JSON result and reported cost, capping notes at 20 items of 500 chars
+  ---
+  duration_ms: 657.502666
+  ...
+# Subtest: inspect reports a null result and null cost when no line parses as a JSON object
+ok 256 - inspect reports a null result and null cost when no line parses as a JSON object
+  ---
+  duration_ms: 382.207875
+  ...
+# Subtest: inspect and wait pick the last line that parses as a JSON object, skipping trailing prose
+ok 257 - inspect and wait pick the last line that parses as a JSON object, skipping trailing prose
+  ---
+  duration_ms: 554.152333
+  ...
+# Subtest: validate refuses a codex job whose context file is untracked by git
+ok 258 - validate refuses a codex job whose context file is untracked by git
+  ---
+  duration_ms: 239.249291
+  ...
+# Subtest: validate refuses a codex job whose context file is git-ignored
+ok 259 - validate refuses a codex job whose context file is git-ignored
+  ---
+  duration_ms: 262.72325
+  ...
+# Subtest: validate keeps a tracked but uncommitted codex context file as a warning, not a refusal
+ok 260 - validate keeps a tracked but uncommitted codex context file as a warning, not a refusal
+  ---
+  duration_ms: 348.073792
+  ...
+# Subtest: the codex tracked-file refusal never applies to a non-codex job
+ok 261 - the codex tracked-file refusal never applies to a non-codex job
+  ---
+  duration_ms: 185.769875
+  ...
+# Subtest: run refuses the same untracked codex context before dispatching any worker
+ok 262 - run refuses the same untracked codex context before dispatching any worker
+  ---
+  duration_ms: 286.781416
+  ...
+# Subtest: validateProject accepts an injected exec, calling it with the expected git argv
+ok 263 - validateProject accepts an injected exec, calling it with the expected git argv
+  ---
+  duration_ms: 230.2915
+  ...
+# Subtest: an injected exec that reports a file untracked drives the refusal even for a genuinely tracked file
+ok 264 - an injected exec that reports a file untracked drives the refusal even for a genuinely tracked file
+  ---
+  duration_ms: 315.236875
+  ...
+# Subtest: validateManifest accepts a well-formed mutants/mutantCheck pair
+ok 265 - validateManifest accepts a well-formed mutants/mutantCheck pair
+  ---
+  duration_ms: 0.377334
+  ...
+# Subtest: validateManifest rejects malformed mutants entries
+ok 266 - validateManifest rejects malformed mutants entries
+  ---
+  duration_ms: 0.365792
+  ...
+# Subtest: validateManifest rejects malformed mutantCheck
+ok 267 - validateManifest rejects malformed mutantCheck
+  ---
+  duration_ms: 0.117375
+  ...
+# Subtest: integrate --mutants applies, checks, and always restores a mutant, reporting killed on a failing check
+ok 268 - integrate --mutants applies, checks, and always restores a mutant, reporting killed on a failing check
+  ---
+  duration_ms: 479.765875
+  ...
+# Subtest: a mutant that a check cannot detect is reported survived and fails --require-checks
+ok 269 - a mutant that a check cannot detect is reported survived and fails --require-checks
+  ---
+  duration_ms: 1254.478958
+  ...
+# Subtest: a mutant whose find text does not occur exactly once refuses integrate before any write
+ok 270 - a mutant whose find text does not occur exactly once refuses integrate before any write
+  ---
+  duration_ms: 320.427375
+  ...
+# Subtest: a mutant whose find text occurs twice (in the proposed bytes) refuses integrate and no check runs
+ok 271 - a mutant whose find text occurs twice (in the proposed bytes) refuses integrate and no check runs
+  ---
+  duration_ms: 585.585416
+  ...
+# Subtest: a mutation check timeout is reported as an error and still restores the original file
+ok 272 - a mutation check timeout is reported as an error and still restores the original file
+  ---
+  duration_ms: 1405.958708
+  ...
+# Subtest: integrate --mutants without a mutants field in the manifest is a clear error
+ok 273 - integrate --mutants without a mutants field in the manifest is a clear error
+  ---
+  duration_ms: 253.833958
+  ...
+# Subtest: integrate --mutants without mutantCheck declared is a clear error
+ok 274 - integrate --mutants without mutantCheck declared is a clear error
+  ---
+  duration_ms: 276.49825
+  ...
+# Subtest: mutants never execute during run, only during integrate --mutants
+ok 275 - mutants never execute during run, only during integrate --mutants
+  ---
+  duration_ms: 338.767834
+  ...
+# Subtest: integrate --mutants expands {root} inside a mutantCheck argv item to the run's absolute project root
+ok 276 - integrate --mutants expands {root} inside a mutantCheck argv item to the run's absolute project root
+  ---
+  duration_ms: 277.440084
+  ...
+# Subtest: denial-only success completes, warns in run and inspect results, and integrates
+ok 277 - denial-only success completes, warns in run and inspect results, and integrates
+  ---
+  duration_ms: 309.817291
+  ...
+# Subtest: denials never mask a nonzero exit, error result, or malformed provider stream
+ok 278 - denials never mask a nonzero exit, error result, or malformed provider stream
+  ---
+  duration_ms: 885.379584
+  ...
+# Subtest: failed workers retain changed declared outputs but unchanged failures do not claim retained work
+ok 279 - failed workers retain changed declared outputs but unchanged failures do not claim retained work
+  ---
+  duration_ms: 481.126625
+  ...
+# Subtest: denials without a response or changed output fail; a written output alone suffices
+ok 280 - denials without a response or changed output fail; a written output alone suffices
+  ---
+  duration_ms: 606.079875
+  ...
+# Subtest: redcheck runs regression tests against base, preserves every test naming pattern, restores new and existing outputs
+ok 281 - redcheck runs regression tests against base, preserves every test naming pattern, restores new and existing outputs
+  ---
+  duration_ms: 338.589541
+  ...
+# Subtest: redcheck green means the command did not detect the old implementation and caps output
+ok 282 - redcheck green means the command did not detect the old implementation and caps output
+  ---
+  duration_ms: 194.066708
+  ...
+# Subtest: redcheck restores all job outputs on spawn errors, timeouts, and signal termination
+ok 283 - redcheck restores all job outputs on spawn errors, timeouts, and signal termination
+  ---
+  duration_ms: 298.412875
+  ...
+# Subtest: redcheck refuses unrelated edits before any mutation or command execution
+ok 284 - redcheck refuses unrelated edits before any mutation or command execution
+  ---
+  duration_ms: 250.942875
+  ...
+# Subtest: redcheck accepts a complete unintegrated run and restores job versions afterward
+ok 285 - redcheck accepts a complete unintegrated run and restores job versions afterward
+  ---
+  duration_ms: 179.271
+  ...
+# Subtest: redcheck uses verified git base bytes for hash-only records
+ok 286 - redcheck uses verified git base bytes for hash-only records
+  ---
+  duration_ms: 297.925
+  ...
+# Subtest: redcheck CLI prints one JSON line, exits 0 on red and 1 on green or error, and passes argv literally
+ok 287 - redcheck CLI prints one JSON line, exits 0 on red and 1 on green or error, and passes argv literally
+  ---
+  duration_ms: 436.0565
+  ...
+# Subtest: redcheck refuses failed runs, altered metadata, and an active integration lock
+ok 288 - redcheck refuses failed runs, altered metadata, and an active integration lock
+  ---
+  duration_ms: 299.381125
+  ...
+# Subtest: failed Codex jobs keep a changed declared output in their actual worktree
+ok 289 - failed Codex jobs keep a changed declared output in their actual worktree
+  ---
+  duration_ms: 404.999125
+  ...
+# Subtest: Codex output-validation failures preserve other completed declared files
+ok 290 - Codex output-validation failures preserve other completed declared files
+  ---
+  duration_ms: 458.983084
+  ...
+# Subtest: L1 mutation section warns without manifest mutants and still ships
+ok 291 - L1 mutation section warns without manifest mutants and still ships
+  ---
+  duration_ms: 805.531333
+  ...
+# Subtest: L2 derives GitHub origins, warns for mismatch and diagnoses every HTTP redirect
+ok 292 - L2 derives GitHub origins, warns for mismatch and diagnoses every HTTP redirect
+  ---
+  duration_ms: 1436.482917
+  ...
+# Subtest: L3 waits for a version tag, times out with warning, and supports disabling the wait
+ok 293 - L3 waits for a version tag, times out with warning, and supports disabling the wait
+  ---
+  duration_ms: 380.1365
+  ...
+# Subtest: L3 update reports pending main version instead of upToDate using a local bare origin
+ok 294 - L3 update reports pending main version instead of upToDate using a local bare origin
+  ---
+  duration_ms: 1070.387417
+  ...
+# Subtest: L4 all CLI prompts forbid workarounds and inspect flags only existing outside outputs
+ok 295 - L4 all CLI prompts forbid workarounds and inspect flags only existing outside outputs
+  ---
+  duration_ms: 657.108083
+  ...
+# Subtest: L5 spawn failure gives argv hint and explicit base can remove absent output then restore it
+ok 296 - L5 spawn failure gives argv hint and explicit base can remove absent output then restore it
+  ---
+  duration_ms: 1138.981125
+  ...
+# Subtest: L5 suggests actual default branch only when run base is not its ancestor
+ok 297 - L5 suggests actual default branch only when run base is not its ancestor
+  ---
+  duration_ms: 891.443542
+  ...
+# Subtest: L6 validates testEnv and injects it into the actual codex child and prompt
+ok 298 - L6 validates testEnv and injects it into the actual codex child and prompt
+  ---
+  duration_ms: 1095.828084
+  ...
+# Subtest: L6 doctor sandbox probe uses the worker seatbelt mode and reports EPERM through an injected runner
+ok 299 - L6 doctor sandbox probe uses the worker seatbelt mode and reports EPERM through an injected runner
+  ---
+  duration_ms: 10.411333
+  ...
+# flake on base: 2/2 (tests/widget.test.mjs)
+# Subtest: L7 repeated failing check is rerun on base, preserves failure and cleans temporary worktree
+ok 300 - L7 repeated failing check is rerun on base, preserves failure and cleans temporary worktree
+  ---
+  duration_ms: 950.772791
+  ...
+# flake on base: 0/2 (widget.test.mjs)
+# Subtest: L7 ship checks base and --no-flake-check suppresses probing without passing a failure
+ok 301 - L7 ship checks base and --no-flake-check suppresses probing without passing a failure
+  ---
+  duration_ms: 881.507916
+  ...
+# Subtest: L8 resultFile takes precedence, validates required keys and reports final-message disagreements
+ok 302 - L8 resultFile takes precedence, validates required keys and reports final-message disagreements
+  ---
+  duration_ms: 533.832125
+  ...
+# Subtest: L8 valid file survives unstructured reply; unreadable file warns and falls back to message
+ok 303 - L8 valid file survives unstructured reply; unreadable file warns and falls back to message
+  ---
+  duration_ms: 840.493792
+  ...
+# Subtest: A: validateManifest accepts mutantsFile only when it names one of the job's own outputs
+ok 304 - A: validateManifest accepts mutantsFile only when it names one of the job's own outputs
+  ---
+  duration_ms: 3.051708
+  ...
+# Subtest: A: a job-declared mutantsFile output is used automatically by integrate --mutants, with --mutant-check as fallback
+ok 305 - A: a job-declared mutantsFile output is used automatically by integrate --mutants, with --mutant-check as fallback
+  ---
+  duration_ms: 777.726416
+  ...
+# Subtest: A: --mutants-file loads post-build mutants from an external file when the manifest declares neither mutants nor mutantCheck
+ok 306 - A: --mutants-file loads post-build mutants from an external file when the manifest declares neither mutants nor mutantCheck
+  ---
+  duration_ms: 618.586333
+  ...
+# Subtest: B: a non-zero exit keeps its own stderr reason in agentError and agent.log
+ok 307 - B: a non-zero exit keeps its own stderr reason in agentError and agent.log
+  ---
+  duration_ms: 526.672458
+  ...
+# Subtest: B: a job that reports success but writes none of its declared outputs keeps today's status, undisturbed by agentError
+ok 308 - B: a job that reports success but writes none of its declared outputs keeps today's status, undisturbed by agentError
+  ---
+  duration_ms: 741.540833
+  ...
+# Subtest: B: a worker's own blocked envelope is reported as job status blocked, not masked by "missing output"
+ok 309 - B: a worker's own blocked envelope is reported as job status blocked, not masked by "missing output"
+  ---
+  duration_ms: 672.12475
+  ...
+# Subtest: C: validateManifest accepts a simple contextGlob and rejects **
+ok 310 - C: validateManifest accepts a simple contextGlob and rejects **
+  ---
+  duration_ms: 0.327792
+  ...
+# Subtest: C: validate warns when context omits new same-directory captures, and contextGlob picks them up instead
+ok 311 - C: validate warns when context omits new same-directory captures, and contextGlob picks them up instead
+  ---
+  duration_ms: 444.334709
+  ...
+# Subtest: C: a contextGlob matching no files is a clear validate error
+ok 312 - C: a contextGlob matching no files is a clear validate error
+  ---
+  duration_ms: 275.316291
+  ...
+# Subtest: a check that exits 127 is classified unrunnable with a hint, not failed, and checksErrored is true
+ok 313 - a check that exits 127 is classified unrunnable with a hint, not failed, and checksErrored is true
+  ---
+  duration_ms: 518.877541
+  ...
+# Subtest: a bad spawn (missing binary) is classified spawn-error with a hint and retried exactly once
+ok 314 - a bad spawn (missing binary) is classified spawn-error with a hint and retried exactly once
+  ---
+  duration_ms: 467.197375
+  ...
+# Subtest: a check whose own binary does not exist yet gets one preChecks run and one retry, ending green once the preCheck creates it
+ok 315 - a check whose own binary does not exist yet gets one preChecks run and one retry, ending green once the preCheck creates it
+  ---
+  duration_ms: 623.03875
+  ...
+# Subtest: CLI integrate exits non-zero when checksErrored, even without --require-checks
+ok 316 - CLI integrate exits non-zero when checksErrored, even without --require-checks
+  ---
+  duration_ms: 856.335083
+  ...
+# Subtest: validate warns stale-env-risk for a version-only pyproject.toml bump with no preChecks declared
+ok 317 - validate warns stale-env-risk for a version-only pyproject.toml bump with no preChecks declared
+  ---
+  duration_ms: 69.645
+  ...
+# Subtest: validate does not warn stale-env-risk when the manifest declares preChecks
+ok 318 - validate does not warn stale-env-risk when the manifest declares preChecks
+  ---
+  duration_ms: 67.830125
+  ...
+# Subtest: validate warns tight-test-timeout for a timeout literal under 5s in a test file, silent for the same line outside tests/
+ok 319 - validate warns tight-test-timeout for a timeout literal under 5s in a test file, silent for the same line outside tests/
+  ---
+  duration_ms: 272.622625
+  ...
+# Subtest: validate warns tight-test-timeout for a short JS setTimeout in a test file
+ok 320 - validate warns tight-test-timeout for a short JS setTimeout in a test file
+  ---
+  duration_ms: 113.365125
+  ...
+# Subtest: validate warns runtime-check-no-shell when a check argv contains a repeat construct (seq N) and the job has no shell
+ok 321 - validate warns runtime-check-no-shell when a check argv contains a repeat construct (seq N) and the job has no shell
+  ---
+  duration_ms: 120.702083
+  ...
+# Subtest: runtime-check-no-shell stays silent for a doc-only job even with a repeat-construct check
+ok 322 - runtime-check-no-shell stays silent for a doc-only job even with a repeat-construct check
+  ---
+  duration_ms: 104.892208
+  ...
+# Subtest: runtime-check-no-shell fires when the prompt names a race/flaky bug and the job has no shell
+ok 323 - runtime-check-no-shell fires when the prompt names a race/flaky bug and the job has no shell
+  ---
+  duration_ms: 71.955
+  ...
+# Subtest: an ask run writes a session-metrics record read back by readSessionMetrics
+ok 324 - an ask run writes a session-metrics record read back by readSessionMetrics
+  ---
+  duration_ms: 365.566083
+  ...
+# Subtest: a scout run writes a session-metrics record read back by readSessionMetrics
+ok 325 - a scout run writes a session-metrics record read back by readSessionMetrics
+  ---
+  duration_ms: 457.932959
+  ...
+# Subtest: integrate records a checks session-metrics window
+ok 326 - integrate records a checks session-metrics window
+  ---
+  duration_ms: 443.009459
+  ...
+# Subtest: writeSessionMetric/readSessionMetrics round-trip a record and skip corrupt entries
+ok 327 - writeSessionMetric/readSessionMetrics round-trip a record and skip corrupt entries
+  ---
+  duration_ms: 17.805958
+  ...
+# Subtest: CLI validate refuses when a check names a missing interpreter (probeCheckInterpreters hook)
+ok 328 - CLI validate refuses when a check names a missing interpreter (probeCheckInterpreters hook)
+  ---
+  duration_ms: 71.855958
+  ...
+# Subtest: CLI validate still succeeds when every check interpreter is present
+ok 329 - CLI validate still succeeds when every check interpreter is present
+  ---
+  duration_ms: 177.945208
+  ...
+# Subtest: validateProject surfaces registryPinningWarnings for a job adding a new file under a directory an existing test enumerates
+ok 330 - validateProject surfaces registryPinningWarnings for a job adding a new file under a directory an existing test enumerates
+  ---
+  duration_ms: 144.257458
+  ...
+# Subtest: validateProject stays silent on registry-pinning-tests once the enumerating test is in context
+ok 331 - validateProject stays silent on registry-pinning-tests once the enumerating test is in context
+  ---
+  duration_ms: 74.686958
+  ...
+# Subtest: resolveCheckProbe: resolves the real argv[0] after env VAR=... prefixes, including a uv-wrapped python -m form
+ok 332 - resolveCheckProbe: resolves the real argv[0] after env VAR=... prefixes, including a uv-wrapped python -m form
+  ---
+  duration_ms: 4.03125
+  ...
+# Subtest: probeCheckInterpreters: a missing python module is refused with a clear message naming the check and module
+ok 333 - probeCheckInterpreters: a missing python module is refused with a clear message naming the check and module
+  ---
+  duration_ms: 0.530833
+  ...
+# Subtest: preflightProject: refuses a manifest whose check names a missing python module
+ok 334 - preflightProject: refuses a manifest whose check names a missing python module
+  ---
+  duration_ms: 51.541167
+  ...
+# Subtest: preflightProject: a check argv with a present interpreter/module passes
+ok 335 - preflightProject: a check argv with a present interpreter/module passes
+  ---
+  duration_ms: 76.936541
+  ...
+# Subtest: probeCheckInterpreters: probes cheaply — one exec call per distinct resolved probe command
+ok 336 - probeCheckInterpreters: probes cheaply — one exec call per distinct resolved probe command
+  ---
+  duration_ms: 0.293916
+  ...
+# Subtest: directoryGuardCoverage: recognizes a readdirSync + extension filter as directory coverage
+ok 337 - directoryGuardCoverage: recognizes a readdirSync + extension filter as directory coverage
+  ---
+  duration_ms: 0.730458
+  ...
+# Subtest: findUncoveredTests: a new .css side output alongside a guarded main stylesheet is recognized as covered by a directory glob guard
+ok 338 - findUncoveredTests: a new .css side output alongside a guarded main stylesheet is recognized as covered by a directory glob guard
+  ---
+  duration_ms: 57.04875
+  ...
+# Subtest: registryPinningWarnings: a job adding catalog/x/connector.yaml with a test that globs catalog/ warns, naming the test
+ok 339 - registryPinningWarnings: a job adding catalog/x/connector.yaml with a test that globs catalog/ warns, naming the test
+  ---
+  duration_ms: 27.824709
+  ...
+# Subtest: registryPinningWarnings: silent when the enumerating test is already in the job's context/outputs/ignoreTests
+ok 340 - registryPinningWarnings: silent when the enumerating test is already in the job's context/outputs/ignoreTests
+  ---
+  duration_ms: 33.935875
+  ...
+# Subtest: mutants refuses to start when the check does not pass on the unmutated tree (a missing test file)
+ok 341 - mutants refuses to start when the check does not pass on the unmutated tree (a missing test file)
+  ---
+  duration_ms: 115.355583
+  ...
+# Subtest: a mutant run that exits via a collection/usage error is invalid, never killed
+ok 342 - a mutant run that exits via a collection/usage error is invalid, never killed
+  ---
+  duration_ms: 324.126667
+  ...
+# Subtest: a real test failure (exit 1) is still reported killed once the baseline is green
+ok 343 - a real test failure (exit 1) is still reported killed once the baseline is green
+  ---
+  duration_ms: 210.162958
+  ...
+# Subtest: integrate --mutants-file/--mutant-check implies --mutants instead of silently skipping it
+ok 344 - integrate --mutants-file/--mutant-check implies --mutants instead of silently skipping it
+  ---
+  duration_ms: 701.911917
+  ...
+# Subtest: integrate --accept-blocked applies a blocked job's declared outputs, tags integrated-blocked, and carries the reason forward
+ok 345 - integrate --accept-blocked applies a blocked job's declared outputs, tags integrated-blocked, and carries the reason forward
+  ---
+  duration_ms: 491.145875
+  ...
+# Subtest: a fully complete run is tagged integrationStatus complete even with --accept-blocked passed
+ok 346 - a fully complete run is tagged integrationStatus complete even with --accept-blocked passed
+  ---
+  duration_ms: 547.84425
+  ...
+# Subtest: integrate --accept-blocked still refuses a run whose saved job outputs differ from the manifest
+ok 347 - integrate --accept-blocked still refuses a run whose saved job outputs differ from the manifest
+  ---
+  duration_ms: 340.415125
+  ...
+# Subtest: invented-hash warns for a new sha-shaped string absent from context, silent for one copied from context
+ok 348 - invented-hash warns for a new sha-shaped string absent from context, silent for one copied from context
+  ---
+  duration_ms: 380.68925
+  ...
+# Subtest: invented-hash stays silent when the hex string already existed in the file before the job ran
+ok 349 - invented-hash stays silent when the hex string already existed in the file before the job ran
+  ---
+  duration_ms: 499.144916
+  ...
+# Subtest: validate accepts an absolute manifest path that resolves inside --root
+ok 350 - validate accepts an absolute manifest path that resolves inside --root
+  ---
+  duration_ms: 186.563875
+  ...
+# Subtest: validate still refuses a bare absolute path outside --root
+ok 351 - validate still refuses a bare absolute path outside --root
+  ---
+  duration_ms: 89.944625
+  ...
+# Subtest: runCheck kills its child as a whole process group once cancelled, leaving no descendant running
+ok 352 - runCheck kills its child as a whole process group once cancelled, leaving no descendant running
+  ---
+  duration_ms: 107.851458
+  ...
+# Subtest: shell-job completion: a NEW file that is a declared output is never warned as a dropped write
+ok 353 - shell-job completion: a NEW file that is a declared output is never warned as a dropped write
+  ---
+  duration_ms: 958.888792
+  ...
+# Subtest: shell-job completion: a stray new file that is NOT a declared output is warned as a dropped write, tagged (new)
+ok 354 - shell-job completion: a stray new file that is NOT a declared output is warned as a dropped write, tagged (new)
+  ---
+  duration_ms: 922.2195
+  ...
+# Subtest: selectLockCheck: picks npm-lock-check for package.json/package-lock.json, uv-lock-check for pyproject.toml/uv.lock, null otherwise
+ok 355 - selectLockCheck: picks npm-lock-check for package.json/package-lock.json, uv-lock-check for pyproject.toml/uv.lock, null otherwise
+  ---
+  duration_ms: 2.28
+  ...
+# Subtest: ship: a stale lockfile refuses before push (fixture: run touched package.json, npm-lock-check fails)
+ok 356 - ship: a stale lockfile refuses before push (fixture: run touched package.json, npm-lock-check fails)
+  ---
+  duration_ms: 15.395458
+  ...
+# Subtest: ship: a run with no version/manifest file in its outputs never runs a lock check
+ok 357 - ship: a run with no version/manifest file in its outputs never runs a lock check
+  ---
+  duration_ms: 8.476584
+  ...
+# Subtest: ship: a passing lock check does not block the push
+ok 358 - ship: a passing lock check does not block the push
+  ---
+  duration_ms: 11.339833
+  ...
+# Subtest: ship: lease-pushes with --force-with-lease when the remote head diverged but the coordinator moved it
+ok 359 - ship: lease-pushes with --force-with-lease when the remote head diverged but the coordinator moved it
+  ---
+  duration_ms: 9.10475
+  ...
+# Subtest: ship: refuses (does not lease-force) when the diverged remote head was moved by someone else
+ok 360 - ship: refuses (does not lease-force) when the diverged remote head was moved by someone else
+  ---
+  duration_ms: 6.088084
+  ...
+# Subtest: ship: a push failure unrelated to a non-fast-forward rejection never attempts a lease push
+ok 361 - ship: a push failure unrelated to a non-fast-forward rejection never attempts a lease push
+  ---
+  duration_ms: 5.46725
+  ...
+# Subtest: platformOnlyFailures: silent when every OS is red, or only one OS is in the matrix
+ok 362 - platformOnlyFailures: silent when every OS is red, or only one OS is in the matrix
+  ---
+  duration_ms: 1.056125
+  ...
+# Subtest: platformOnlyFailures: names the OS and failing ids when only some OS entries in the matrix are red
+ok 363 - platformOnlyFailures: names the OS and failing ids when only some OS entries in the matrix are red
+  ---
+  duration_ms: 0.211791
+  ...
+# Subtest: ship: ci-failed on a 1/3 OS matrix prints the platform-only failure line naming the OS and failing ids
+ok 364 - ship: ci-failed on a 1/3 OS matrix prints the platform-only failure line naming the OS and failing ids
+  ---
+  duration_ms: 7.412208
+  ...
+# Subtest: ship: a CI failure red on every OS gets no platform-only line
+ok 365 - ship: a CI failure red on every OS gets no platform-only line
+  ---
+  duration_ms: 5.245875
+  ...
+# Subtest: undocumentedBinaryWarnings: flags a spawned binary outside the documented allowlist, skips one with a nearby fake/skip seam
+ok 366 - undocumentedBinaryWarnings: flags a spawned binary outside the documented allowlist, skips one with a nearby fake/skip seam
+  ---
+  duration_ms: 0.963334
+  ...
+# Subtest: DOCUMENTED_TEST_BINARIES: names the already-vetted binaries ship itself relies on
+ok 367 - DOCUMENTED_TEST_BINARIES: names the already-vetted binaries ship itself relies on
+  ---
+  duration_ms: 0.168
+  ...
+# Subtest: ship: refuses when a test file spawns a binary outside the documented allowlist with no fake/skip seam
+ok 368 - ship: refuses when a test file spawns a binary outside the documented allowlist with no fake/skip seam
+  ---
+  duration_ms: 13.253959
+  ...
+# Subtest: ship: a spawned binary with a nearby fake/skip seam is not refused
+ok 369 - ship: a spawned binary with a nearby fake/skip seam is not refused
+  ---
+  duration_ms: 14.790292
+  ...
+# Subtest: swarmEnvInTestWarnings: flags a test file referencing a swarm-exported env var
+ok 370 - swarmEnvInTestWarnings: flags a test file referencing a swarm-exported env var
+  ---
+  duration_ms: 0.770542
+  ...
+# Subtest: ship: warns swarm-env-in-tests with a stub/unset hint when a test file references SWARM_PORT_BASE, without refusing
+ok 371 - ship: warns swarm-env-in-tests with a stub/unset hint when a test file references SWARM_PORT_BASE, without refusing
+  ---
+  duration_ms: 17.213125
+  ...
+# Subtest: ship: a test file outside tests/ referencing SWARM_PORT_BASE is not scanned
+ok 372 - ship: a test file outside tests/ referencing SWARM_PORT_BASE is not scanned
+  ---
+  duration_ms: 13.539583
+  ...
+# Subtest: link preserves user text and updates exactly one agent block in place for every agent
+ok 373 - link preserves user text and updates exactly one agent block in place for every agent
+  ---
+  duration_ms: 464.809875
+  ...
+# Subtest: link seeds each missing coordination file, reports kept files, and never overwrites
+ok 374 - link seeds each missing coordination file, reports kept files, and never overwrites
+  ---
+  duration_ms: 201.990584
+  ...
+# Subtest: link adds an effective .swarm ignore without duplicating it or clobbering text
+ok 375 - link adds an effective .swarm ignore without duplicating it or clobbering text
+  ---
+  duration_ms: 461.378
+  ...
+# Subtest: link --no-agent-files leaves agent files alone but still seeds and ignores runtime data
+ok 376 - link --no-agent-files leaves agent files alone but still seeds and ignores runtime data
+  ---
+  duration_ms: 76.150959
+  ...
+# Subtest: link refuses a lone start marker with no matching end marker and leaves AGENTS.md untouched
+ok 377 - link refuses a lone start marker with no matching end marker and leaves AGENTS.md untouched
+  ---
+  duration_ms: 154.040792
+  ...
+# Subtest: link refuses two start markers with only one end marker and leaves AGENTS.md untouched
+ok 378 - link refuses two start markers with only one end marker and leaves AGENTS.md untouched
+  ---
+  duration_ms: 79.924833
+  ...
+# Subtest: link refuses symlinked agent and ignore paths without writing outside the project
+ok 379 - link refuses symlinked agent and ignore paths without writing outside the project
+  ---
+  duration_ms: 472.489083
+  ...
+# Subtest: live state separates a working CLI from a silent one before either worker finishes
+ok 380 - live state separates a working CLI from a silent one before either worker finishes
+  ---
+  duration_ms: 731.950083
+  ...
+# Subtest: telemetry counts exact UTF-8 bytes per stream and stores no output text
+ok 381 - telemetry counts exact UTF-8 bytes per stream and stores no output text
+  ---
+  duration_ms: 329.416333
+  ...
+# Subtest: a worker that writes nothing keeps null timestamps instead of a fabricated heartbeat
+ok 382 - a worker that writes nothing keeps null timestamps instead of a fabricated heartbeat
+  ---
+  duration_ms: 441.842584
+  ...
+# Subtest: API jobs report telemetry as unavailable rather than inventing observed activity
+ok 383 - API jobs report telemetry as unavailable rather than inventing observed activity
+  ---
+  duration_ms: 318.828416
+  ...
+# Subtest: cancelled and failed runs keep their counters and write no state after returning
+ok 384 - cancelled and failed runs keep their counters and write no state after returning
+  ---
+  duration_ms: 1519.523166
+  ...
+# Subtest: summary tolerates state saved before telemetry existed
+ok 385 - summary tolerates state saved before telemetry existed
+  ---
+  duration_ms: 0.535875
+  ...
+# Subtest: telemetry writes are throttled and stop with the last observed job
+ok 386 - telemetry writes are throttled and stop with the last observed job
+  ---
+  duration_ms: 383.095458
+  ...
+# Subtest: rejected asynchronous telemetry flush stops recording and remains observable to its owner
+ok 387 - rejected asynchronous telemetry flush stops recording and remains observable to its owner
+  ---
+  duration_ms: 102.970041
+  ...
+# Subtest: a failing live state save cancels owned workers and records the actual coordinator failure
+ok 388 - a failing live state save cancels owned workers and records the actual coordinator failure
+  ---
+  duration_ms: 662.480417
+  ...
+# Subtest: failure before provider launch (start-save) fails cleanly without starting a worker
+ok 389 - failure before provider launch (start-save) fails cleanly without starting a worker
+  ---
+  duration_ms: 492.487916
+  ...
+# Subtest: failure before provider launch (message-write) fails cleanly without starting a worker
+ok 390 - failure before provider launch (message-write) fails cleanly without starting a worker
+  ---
+  duration_ms: 485.320167
+  ...
+# Subtest: failed atomic state rename removes its temporary artifact and preserves the target
+ok 391 - failed atomic state rename removes its temporary artifact and preserves the target
+  ---
+  duration_ms: 220.685666
+  ...
+# Subtest: live fake-API: the real CLI runs Bash only inside the sandbox and labels every request
+ok 392 - live fake-API: the real CLI runs Bash only inside the sandbox and labels every request # SKIP set SWARM_LIVE_SHELL=1 on macOS
+  ---
+  duration_ms: 2.357041
+  ...
+# Subtest: live model: one real haiku shell job stays inside the sandbox
+ok 393 - live model: one real haiku shell job stays inside the sandbox # SKIP set SWARM_LIVE_SHELL=1 on macOS
+  ---
+  duration_ms: 0.099708
+  ...
+# Subtest: renders one row per job with status symbol and word, plus a summary line
+ok 394 - renders one row per job with status symbol and word, plus a summary line
+  ---
+  duration_ms: 1.431667
+  ...
+# Subtest: table rows stay aligned: every row and the header share one column width per column
+ok 395 - table rows stay aligned: every row and the header share one column width per column
+  ---
+  duration_ms: 0.285292
+  ...
+# Subtest: NO_COLOR / non-TTY input renders plain text with no ANSI escapes
+ok 396 - NO_COLOR / non-TTY input renders plain text with no ANSI escapes
+  ---
+  duration_ms: 0.418
+  ...
+# Subtest: color:true adds ANSI codes around the status cell only, never elsewhere
+ok 397 - color:true adds ANSI codes around the status cell only, never elsewhere
+  ---
+  duration_ms: 0.477583
+  ...
+# Subtest: truncates to terminal width without breaking column alignment
+ok 398 - truncates to terminal width without breaking column alignment
+  ---
+  duration_ms: 0.416458
+  ...
+# Subtest: missing optional fields (null model/tier, no duration) render as a dash, not "null"
+ok 399 - missing optional fields (null model/tier, no duration) render as a dash, not "null"
+  ---
+  duration_ms: 0.099708
+  ...
+# Subtest: formatDuration renders human units and a dash for missing values
+ok 400 - formatDuration renders human units and a dash for missing values
+  ---
+  duration_ms: 0.056375
+  ...
+# Subtest: omits the usage line entirely when nothing was recorded
+ok 401 - omits the usage line entirely when nothing was recorded
+  ---
+  duration_ms: 0.064
+  ...
+# Subtest: visibleLength ignores embedded ANSI codes
+ok 402 - visibleLength ignores embedded ANSI codes
+  ---
+  duration_ms: 0.105625
+  ...
+# Subtest: an empty job list still renders a valid, width-bounded summary
+ok 403 - an empty job list still renders a valid, width-bounded summary
+  ---
+  duration_ms: 0.1345
+  ...
+# Subtest: monitor keeps its JSON snapshot unchanged when --view is not passed
+ok 404 - monitor keeps its JSON snapshot unchanged when --view is not passed
+  ---
+  duration_ms: 532.92625
+  ...
+# Subtest: monitor --view prints a human table instead of JSON, and exits 0 for a finished run
+ok 405 - monitor --view prints a human table instead of JSON, and exits 0 for a finished run
+  ---
+  duration_ms: 339.286917
+  ...
+# Subtest: monitor --watch on an already-finished run renders once and returns without hanging
+ok 406 - monitor --watch on an already-finished run renders once and returns without hanging
+  ---
+  duration_ms: 392.833167
+  ...
+# Subtest: monitor --watch rejects a non-positive interval
+ok 407 - monitor --watch rejects a non-positive interval
+  ---
+  duration_ms: 490.361792
+  ...
+# Subtest: every request carries data_collection deny; anthropic models pin the Anthropic provider with no fallback
+ok 408 - every request carries data_collection deny; anthropic models pin the Anthropic provider with no fallback
+  ---
+  duration_ms: 76.331167
+  ...
+# Subtest: a non-anthropic model still denies data collection and is not pinned
+ok 409 - a non-anthropic model still denies data collection and is not pinned
+  ---
+  duration_ms: 0.575458
+  ...
+# Subtest: a request body without data_collection deny is refused before anything is sent
+ok 410 - a request body without data_collection deny is refused before anything is sent
+  ---
+  duration_ms: 0.612041
+  ...
+# Subtest: deepseek models may write bookkeeping files only, refused at validate and at run with no request sent
+ok 411 - deepseek models may write bookkeeping files only, refused at validate and at run with no request sent
+  ---
+  duration_ms: 4.350417
+  ...
+# Subtest: spend caps: a request whose worst case would pass $5 for the job or $25 for the day is refused before the chat call
+ok 412 - spend caps: a request whose worst case would pass $5 for the job or $25 for the day is refused before the chat call
+  ---
+  duration_ms: 8.144375
+  ...
+# Subtest: each completed request is appended to the spend ledger with the provider-reported cost; missing cost records the worst case
+ok 413 - each completed request is appended to the spend ledger with the provider-reported cost; missing cost records the worst case
+  ---
+  duration_ms: 11.086209
+  ...
+# Subtest: pricing that cannot be fetched refuses the request (the cap can never be skipped)
+ok 414 - pricing that cannot be fetched refuses the request (the cap can never be skipped)
+  ---
+  duration_ms: 2.359
+  ...
+# Subtest: the key comes from env, else the keychain item OASIS/openrouter.api_key, and a missing key refuses
+ok 415 - the key comes from env, else the keychain item OASIS/openrouter.api_key, and a missing key refuses
+  ---
+  duration_ms: 1.335584
+  ...
+# Subtest: an echoed key discards the output
+ok 416 - an echoed key discards the output
+  ---
+  duration_ms: 7.0775
+  ...
+# Subtest: worst case counts every input character as a token plus the full output budget
+ok 417 - worst case counts every input character as a token plus the full output budget
+  ---
+  duration_ms: 0.440833
+  ...
+# Subtest: a key read from the keychain (not env) that is echoed back still discards the output
+ok 418 - a key read from the keychain (not env) that is echoed back still discards the output
+  ---
+  duration_ms: 5.443792
+  ...
+# Subtest: yesterday's spend never counts toward today's cap
+ok 419 - yesterday's spend never counts toward today's cap
+  ---
+  duration_ms: 7.572709
+  ...
+# Subtest: portBlockFor: same path always gives the same base; a sample of different paths differs; base is a multiple of 10 in [20000,27990] and never the busy block
+ok 420 - portBlockFor: same path always gives the same base; a sample of different paths differs; base is a multiple of 10 in [20000,27990] and never the busy block
+  ---
+  duration_ms: 10.945625
+  ...
+# Subtest: resolvePortBlock: the first free block wins with moved:false
+ok 421 - resolvePortBlock: the first free block wins with moved:false
+  ---
+  duration_ms: 0.652
+  ...
+# Subtest: resolvePortBlock: two busy blocks then a free one steps forward and reports moved:true
+ok 422 - resolvePortBlock: two busy blocks then a free one steps forward and reports moved:true
+  ---
+  duration_ms: 0.151125
+  ...
+# Subtest: resolvePortBlock: every block busy for 50 tries returns the original base with moved:true
+ok 423 - resolvePortBlock: every block busy for 50 tries returns the original base with moved:true
+  ---
+  duration_ms: 0.3445
+  ...
+# Subtest: integrate: a check sees the resolved SWARM_PORT_BASE for this project root
+ok 424 - integrate: a check sees the resolved SWARM_PORT_BASE for this project root
+  ---
+  duration_ms: 442.934541
+  ...
+# Subtest: a non-shell claude job env and prompt are unchanged
+ok 425 - a non-shell claude job env and prompt are unchanged
+  ---
+  duration_ms: 361.27675
+  ...
+# Subtest: validate refuses a manifest testEnv that sets SWARM_PORT_BASE, for codex and for shell jobs
+ok 426 - validate refuses a manifest testEnv that sets SWARM_PORT_BASE, for codex and for shell jobs
+  ---
+  duration_ms: 0.3775
+  ...
+# Subtest: a codex job's env carries its own SWARM_PORT_BASE
+ok 427 - a codex job's env carries its own SWARM_PORT_BASE
+  ---
+  duration_ms: 973.795625
+  ...
+# Subtest: a shell job's env carries SWARM_PORT_BASE and its prompt states the Ports line
+ok 428 - a shell job's env carries SWARM_PORT_BASE and its prompt states the Ports line
+  ---
+  duration_ms: 842.726792
+  ...
+# Subtest: finds stale-snapshot dependency even at concurrency one; same-job input/output is valid
+ok 429 - finds stale-snapshot dependency even at concurrency one; same-job input/output is valid
+  ---
+  duration_ms: 125.581708
+  ...
+# Subtest: accounts for UTF-8 bytes, deduplicates within a job, and reports repeated copied context
+ok 430 - accounts for UTF-8 bytes, deduplicates within a job, and reports repeated copied context
+  ---
+  duration_ms: 79.70025
+  ...
+# Subtest: size and output warnings are advisory, use strict thresholds, and permit coherent large jobs
+ok 431 - size and output warnings are advisory, use strict thresholds, and permit coherent large jobs
+  ---
+  duration_ms: 124.56425
+  ...
+# Subtest: sorts equal-size files deterministically and counts existing outputs as copied context
+ok 432 - sorts equal-size files deterministically and counts existing outputs as copied context
+  ---
+  duration_ms: 172.6665
+  ...
+# Subtest: fails closed for missing inputs, traversal, reserved paths, and invalid manifests
+ok 433 - fails closed for missing inputs, traversal, reserved paths, and invalid manifests
+  ---
+  duration_ms: 41.605083
+  ...
+# Subtest: refuses linked inputs and output parents without reading their targets
+ok 434 - refuses linked inputs and output parents without reading their targets
+  ---
+  duration_ms: 67.977792
+  ...
+# Subtest: CLI emits dependency advisories with exit zero and invalid paths with nonzero, without spawning
+ok 435 - CLI emits dependency advisories with exit zero and invalid paths with nonzero, without spawning
+  ---
+  duration_ms: 298.599084
+  ...
+# Subtest: a second worktree of the same git repo refuses to run when a live run already claims one of its outputs, and starts no job
+ok 436 - a second worktree of the same git repo refuses to run when a live run already claims one of its outputs, and starts no job
+  ---
+  duration_ms: 350.610791
+  ...
+# Subtest: a live run registration is removed after a run completes, fails, or throws before it can start
+ok 437 - a live run registration is removed after a run completes, fails, or throws before it can start
+  ---
+  duration_ms: 958.983625
+  ...
+# Subtest: validateManifest validates after: unknown id, self-reference, duplicates, empty array, codex agent, and cycles
+ok 438 - validateManifest validates after: unknown id, self-reference, duplicates, empty array, codex agent, and cycles
+  ---
+  duration_ms: 1.213709
+  ...
+# Subtest: a dependent job starts only after its "after" jobs complete, and sees their changed outputs copied into its workspace
+ok 439 - a dependent job starts only after its "after" jobs complete, and sees their changed outputs copied into its workspace
+  ---
+  duration_ms: 558.527791
+  ...
+# Subtest: a failed dependency makes its dependent skipped, naming the dependency and its status, and the dependent never starts
+ok 440 - a failed dependency makes its dependent skipped, naming the dependency and its status, and the dependent never starts
+  ---
+  duration_ms: 330.842958
+  ...
+# Subtest: validateManifest rejects a malformed check repeat and accepts the boundary values
+ok 441 - validateManifest rejects a malformed check repeat and accepts the boundary values
+  ---
+  duration_ms: 1.010333
+  ...
+# Subtest: a check with repeat stops at the first failing run and reports runs/failedRun
+ok 442 - a check with repeat stops at the first failing run and reports runs/failedRun
+  ---
+  duration_ms: 711.075875
+  ...
+# Subtest: a check with repeat that always passes runs exactly `repeat` times and reports no failedRun
+ok 443 - a check with repeat that always passes runs exactly `repeat` times and reports no failedRun
+  ---
+  duration_ms: 501.485167
+  ...
+# Subtest: {new} and {new:.ext} expand only to files absent when the run started, and a zero-match placeholder skips
+ok 444 - {new} and {new:.ext} expand only to files absent when the run started, and a zero-match placeholder skips
+  ---
+  duration_ms: 436.950666
+  ...
+# Subtest: the codex call site passes the manifest contract into codexMessage, and the untracked-context refusal skips the contract path
+ok 445 - the codex call site passes the manifest contract into codexMessage, and the untracked-context refusal skips the contract path
+  ---
+  duration_ms: 603.1145
+  ...
+# Subtest: wait, inspect, and inspect --results roll up per-job tokens into a run total and list jobs with no reported cost
+ok 446 - wait, inspect, and inspect --results roll up per-job tokens into a run total and list jobs with no reported cost
+  ---
+  duration_ms: 272.926125
+  ...
+# Subtest: wait reports null tokens and every job in costNotReported when no job reports usage or cost
+ok 447 - wait reports null tokens and every job in costNotReported when no job reports usage or cost
+  ---
+  duration_ms: 301.229084
+  ...
+# Subtest: a running run is on the board while its jobs run, and gone once it ends
+ok 448 - a running run is on the board while its jobs run, and gone once it ends
+  ---
+  duration_ms: 218.477541
+  ...
+# Subtest: validate lets a codex job read the untracked manifest contract, and still refuses any other untracked context file
+ok 449 - validate lets a codex job read the untracked manifest contract, and still refuses any other untracked context file
+  ---
+  duration_ms: 769.88575
+  ...
+# Subtest: scout ids carry a random suffix: <prefix>-<ms>-<8 hex>, unlike the old scout-<ms> that two runs could share
+ok 450 - scout ids carry a random suffix: <prefix>-<ms>-<8 hex>, unlike the old scout-<ms> that two runs could share
+  ---
+  duration_ms: 421.46
+  ...
+# Subtest: a claim collision on the first id is retried once with a fresh id, and the run still completes
+ok 451 - a claim collision on the first id is retried once with a fresh id, and the run still completes
+  ---
+  duration_ms: 499.055
+  ...
+# Subtest: \#193: a cancelled scout reports costUsd from the last cost-carrying event seen before it was killed
+ok 452 - \#193: a cancelled scout reports costUsd from the last cost-carrying event seen before it was killed
+  ---
+  duration_ms: 466.889291
+  ...
+# Subtest: \#193: a cancelled scout with no cost ever streamed reports costUsd:null and costUnknown:true
+ok 453 - \#193: a cancelled scout with no cost ever streamed reports costUsd:null and costUnknown:true
+  ---
+  duration_ms: 455.892459
+  ...
+# Subtest: parseAllowedLicenses reads a case-insensitive "Allowed licenses: ..." line and splits on commas
+ok 454 - parseAllowedLicenses reads a case-insensitive "Allowed licenses: ..." line and splits on commas
+  ---
+  duration_ms: 0.816375
+  ...
+# Subtest: licenseAllowed matches an SPDX id against its full name either direction, case-insensitively
+ok 455 - licenseAllowed matches an SPDX id against its full name either direction, case-insensitively
+  ---
+  duration_ms: 0.157708
+  ...
+# Subtest: normalizeScoutReport keeps a brief-allowed asset license that the fixed code list would have rejected
+ok 456 - normalizeScoutReport keeps a brief-allowed asset license that the fixed code list would have rejected
+  ---
+  duration_ms: 0.115917
+  ...
+# Subtest: \#194: scoutRun reads "Allowed licenses" from the brief and keeps a worker pick the fixed code list alone would reject
+ok 457 - \#194: scoutRun reads "Allowed licenses" from the brief and keeps a worker pick the fixed code list alone would reject
+  ---
+  duration_ms: 271.900333
+  ...
+# Subtest: \#194: a brief naming no allowlist still falls back to the fixed code-license list
+ok 458 - \#194: a brief naming no allowlist still falls back to the fixed code-license list
+  ---
+  duration_ms: 505.991708
+  ...
+# Subtest: CLI check-pins parses its own flags before touching the (parallel-job-owned, lazily-imported) check-pins module
+ok 459 - CLI check-pins parses its own flags before touching the (parallel-job-owned, lazily-imported) check-pins module
+  ---
+  duration_ms: 69.213541
+  ...
+# Subtest: CLI check-pins with valid flags reaches the dynamic import of ./check-pins.mjs, proving swarm.mjs itself loads fine before that module exists
+not ok 460 - CLI check-pins with valid flags reaches the dynamic import of ./check-pins.mjs, proving swarm.mjs itself loads fine before that module exists
+  ---
+  duration_ms: 73.454542
+  location: '/Users/prime/Documents/repos-projects/project-swarm-125/tests/scout-125.test.mjs:148:1'
+  failureType: 'testCodeFailure'
+  error: 'check-pins.mjs does not exist yet in this worktree, so the command must fail'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///Users/prime/Documents/repos-projects/project-swarm-125/tests/scout-125.test.mjs:151:10)
+    async Test.run (node:internal/test_runner/test:797:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:526:7)
+  ...
+# Subtest: check-pins is listed in --help usage
+ok 461 - check-pins is listed in --help usage
+  ---
+  duration_ms: 59.215125
+  ...
+# Subtest: scout refuses without --model, without --brief, a missing brief file, an empty goal, or an out-of-range max-picks
+ok 462 - scout refuses without --model, without --brief, a missing brief file, an empty goal, or an out-of-range max-picks
+  ---
+  duration_ms: 16.079084
+  ...
+# Subtest: claudeArgs: a web job gets WebSearch/WebFetch in --tools and --allowedTools with no Write/Edit/Bash; a non-web job is unchanged
+ok 463 - claudeArgs: a web job gets WebSearch/WebFetch in --tools and --allowedTools with no Write/Edit/Bash; a non-web job is unchanged
+  ---
+  duration_ms: 0.641333
+  ...
+# Subtest: validate refuses web on a non-claude agent and a web job with outputs
+ok 464 - validate refuses web on a non-claude agent and a web job with outputs
+  ---
+  duration_ms: 1.531791
+  ...
+# Subtest: normalizeScoutReport rule 1: only schema keys survive, at every level
+ok 465 - normalizeScoutReport rule 1: only schema keys survive, at every level
+  ---
+  duration_ms: 0.957
+  ...
+# Subtest: normalizeScoutReport rule 2: strings are trimmed and capped at 300 characters; top caps at 3, rejected caps at 20
+ok 466 - normalizeScoutReport rule 2: strings are trimmed and capped at 300 characters; top caps at 3, rejected caps at 20
+  ---
+  duration_ms: 0.616584
+  ...
+# Subtest: normalizeScoutReport rule 3: a pick whose url does not start with https:// is moved to rejected with "bad url"
+ok 467 - normalizeScoutReport rule 3: a pick whose url does not start with https:// is moved to rejected with "bad url"
+  ---
+  duration_ms: 0.13775
+  ...
+# Subtest: normalizeScoutReport rule 4: GPL-3.0, AGPL-3.0, BUSL-1.1, NOASSERTION, and a missing license are each rejected and moved
+ok 468 - normalizeScoutReport rule 4: GPL-3.0, AGPL-3.0, BUSL-1.1, NOASSERTION, and a missing license are each rejected and moved
+  ---
+  duration_ms: 0.490958
+  ...
+# Subtest: normalizeScoutReport rule 5: MIT is kept plainly, MPL-2.0 is kept with a flag
+ok 469 - normalizeScoutReport rule 5: MIT is kept plainly, MPL-2.0 is kept with a flag
+  ---
+  duration_ms: 0.426875
+  ...
+# Subtest: normalizeScoutReport rule 6: a short sha becomes null, and bad stars/lastCommit/fit are normalized
+ok 470 - normalizeScoutReport rule 6: a short sha becomes null, and bad stars/lastCommit/fit are normalized
+  ---
+  duration_ms: 0.270458
+  ...
+# Subtest: normalizeScoutReport rule 7: picks beyond maxPicks are dropped after the license gate, order kept
+ok 471 - normalizeScoutReport rule 7: picks beyond maxPicks are dropped after the license gate, order kept
+  ---
+  duration_ms: 0.281875
+  ...
+# Subtest: renderScoutMarkdown escapes | in table cells
+ok 472 - renderScoutMarkdown escapes | in table cells
+  ---
+  duration_ms: 0.747584
+  ...
+# Subtest: scoutRun builds a read-only web job, writes report.json/report.md, and returns the contract-shaped result with a fake claude CLI
+ok 473 - scoutRun builds a read-only web job, writes report.json/report.md, and returns the contract-shaped result with a fake claude CLI
+  ---
+  duration_ms: 398.1115
+  ...
+# Subtest: normalizeScoutReport: a non-string value in a text field becomes null, so nothing nested rides through
+ok 474 - normalizeScoutReport: a non-string value in a text field becomes null, so nothing nested rides through
+  ---
+  duration_ms: 0.391
+  ...
+# Subtest: scoutRun launches the worker with web tools and no write tools
+ok 475 - scoutRun launches the worker with web tools and no write tools
+  ---
+  duration_ms: 323.769417
+  ...
+# Subtest: renderScoutMarkdown escapes backslashes before pipes and flattens newlines, so a cell cannot break the table
+ok 476 - renderScoutMarkdown escapes backslashes before pipes and flattens newlines, so a cell cannot break the table
+  ---
+  duration_ms: 0.397875
+  ...
+# Subtest: resolveRootGitInfo: plain repo directory, linked-worktree file (gitdir + commondir), missing .git
+ok 477 - resolveRootGitInfo: plain repo directory, linked-worktree file (gitdir + commondir), missing .git
+  ---
+  duration_ms: 3.085792
+  ...
+# Subtest: scanListeningPorts parses lsof -Fn LISTEN lines (wildcard, v4 and v6 loopback), ignores other addresses, fails clearly
+ok 478 - scanListeningPorts parses lsof -Fn LISTEN lines (wildcard, v4 and v6 loopback), ignores other addresses, fails clearly
+  ---
+  duration_ms: 0.755208
+  ...
+# Subtest: resolveRigServicePort reads the port file, defaulting to 4405 when missing or invalid
+ok 479 - resolveRigServicePort reads the port file, defaulting to 4405 when missing or invalid
+  ---
+  duration_ms: 0.567333
+  ...
+# Subtest: shell profile: reads the project root .git (directory for a plain repo, file+gitdir+commondir for a worktree root), never a write rule
+ok 480 - shell profile: reads the project root .git (directory for a plain repo, file+gitdir+commondir for a worktree root), never a write rule
+  ---
+  duration_ms: 1.304583
+  ...
+# Subtest: shell profile: omitted loopbackDenied leaves the network section exactly as before
+ok 481 - shell profile: omitted loopbackDenied leaves the network section exactly as before
+  ---
+  duration_ms: 0.203458
+  ...
+# Subtest: shell profile: loopback allow rules, then a deny per denied port, in that order; the proxy port is never denied
+ok 482 - shell profile: loopback allow rules, then a deny per denied port, in that order; the proxy port is never denied
+  ---
+  duration_ms: 0.587167
+  ...
+# Subtest: a real run scans listening ports, denies them (minus its own proxy), and inspect shows loopbackDenied
+ok 483 - a real run scans listening ports, denies them (minus its own proxy), and inspect shows loopbackDenied
+  ---
+  duration_ms: 872.41875
+  ...
+# Subtest: an lsof failure refuses the job with loopback-scan-failed; the worker never spawns
+ok 484 - an lsof failure refuses the job with loopback-scan-failed; the worker never spawns
+  ---
+  duration_ms: 804.129125
+  ...
+# Subtest: a shell job prompt states the loopback-only network line
+ok 485 - a shell job prompt states the loopback-only network line
+  ---
+  duration_ms: 697.788292
+  ...
+# Subtest: generated profile: a fresh self-connection over loopback works; a port already listening on the host is deniable via loopbackDenied
+ok 486 - generated profile: a fresh self-connection over loopback works; a port already listening on the host is deniable via loopbackDenied
+  ---
+  duration_ms: 186.761833
+  ...
+# Subtest: generated profile: the project root .git is unreadable without rootGit, readable with it; git rev-parse still resolves the job worktree
+ok 487 - generated profile: the project root .git is unreadable without rootGit, readable with it; git rev-parse still resolves the job worktree
+  ---
+  duration_ms: 293.577792
+  ...
+# Subtest: createShellScratchDir makes tmp/ and home/ under a fresh 0700 dir, with no .git in any ancestor
+ok 488 - createShellScratchDir makes tmp/ and home/ under a fresh 0700 dir, with no .git in any ancestor
+  ---
+  duration_ms: 13.609166
+  ...
+# Subtest: createShellScratchDir refuses with scratch-inside-repo when os.tmpdir() resolves inside a repo, walking up to /
+ok 489 - createShellScratchDir refuses with scratch-inside-repo when os.tmpdir() resolves inside a repo, walking up to /
+  ---
+  duration_ms: 0.861667
+  ...
+# Subtest: shell profile: scratch dir gets a realpathd read+write allow, placed before the final denies
+ok 490 - shell profile: scratch dir gets a realpathd read+write allow, placed before the final denies
+  ---
+  duration_ms: 0.683125
+  ...
+# Subtest: shell env: TMPDIR, TMP, TEMP and CLAUDE_CODE_TMPDIR all point at the scratch tmp dir; HOME at the scratch home dir
+ok 491 - shell env: TMPDIR, TMP, TEMP and CLAUDE_CODE_TMPDIR all point at the scratch tmp dir; HOME at the scratch home dir
+  ---
+  duration_ms: 0.328958
+  ...
+# Subtest: a manifest testEnv can never override TMP or TEMP: reserved for the shell sandbox
+ok 492 - a manifest testEnv can never override TMP or TEMP: reserved for the shell sandbox
+  ---
+  duration_ms: 0.580583
+  ...
+# Subtest: a real run wires the scratch dir into the env and profile, then removes it after a clean job
+ok 493 - a real run wires the scratch dir into the env and profile, then removes it after a clean job
+  ---
+  duration_ms: 1021.4265
+  ...
+# Subtest: keepScratch: true keeps the scratch dir after the job; validate refuses it on non-shell jobs and non-booleans
+ok 494 - keepScratch: true keeps the scratch dir after the job; validate refuses it on non-shell jobs and non-booleans
+  ---
+  duration_ms: 713.01925
+  ...
+# Subtest: scratch-inside-repo refuses the job before any worker spawns, the same shape as loopback-scan-failed
+ok 495 - scratch-inside-repo refuses the job before any worker spawns, the same shape as loopback-scan-failed
+  ---
+  duration_ms: 536.669291
+  ...
+# Subtest: non-shell claude jobs get no scratch dir and no env change: byte-identical to before
+ok 496 - non-shell claude jobs get no scratch dir and no env change: byte-identical to before
+  ---
+  duration_ms: 332.561916
+  ...
+# Subtest: validate: setup is accepted for codex and claude shell jobs, refused elsewhere, capped at 5, each entry a non-empty argv array
+ok 497 - validate: setup is accepted for codex and claude shell jobs, refused elsewhere, capped at 5, each entry a non-empty argv array
+  ---
+  duration_ms: 2.360042
+  ...
+# Subtest: setup runs in the job worktree before the worker starts; the worker sees what setup wrote; setup.log is saved
+ok 498 - setup runs in the job worktree before the worker starts; the worker sees what setup wrote; setup.log is saved
+  ---
+  duration_ms: 857.684875
+  ...
+# Subtest: a failing setup fails the job with setup-failed and the worker is never spawned
+ok 499 - a failing setup fails the job with setup-failed and the worker is never spawned
+  ---
+  duration_ms: 609.296958
+  ...
+# Subtest: a codex job also runs setup before its worker, in the same worktree
+ok 500 - a codex job also runs setup before its worker, in the same worktree
+  ---
+  duration_ms: 665.622667
+  ...
+# Subtest: shell profile: file-read-metadata for every worktree ancestor up to /, file-read* for each ancestor pyproject.toml/uv.toml/package.json
+ok 501 - shell profile: file-read-metadata for every worktree ancestor up to /, file-read* for each ancestor pyproject.toml/uv.toml/package.json
+  ---
+  duration_ms: 0.458917
+  ...
+# Subtest: resolveVenvInterpreterHome reads the home= line of .venv/pyvenv.cfg, else null
+ok 502 - resolveVenvInterpreterHome reads the home= line of .venv/pyvenv.cfg, else null
+  ---
+  duration_ms: 0.419208
+  ...
+# Subtest: a synced venv pointing inside $HOME adds its interpreter parent as a read path; outside $HOME it is left alone
+ok 503 - a synced venv pointing inside $HOME adds its interpreter parent as a read path; outside $HOME it is left alone
+  ---
+  duration_ms: 925.251125
+  ...
+# Subtest: a venv interpreter inside $HOME but under a denied subdirectory is skipped with a warning, never granted
+ok 504 - a venv interpreter inside $HOME but under a denied subdirectory is skipped with a warning, never granted
+  ---
+  duration_ms: 609.443958
+  ...
+# Subtest: shell env: setup-related offline keys are added only when a uv cache dir is given, and are reserved in testEnv
+ok 505 - shell env: setup-related offline keys are added only when a uv cache dir is given, and are reserved in testEnv
+  ---
+  duration_ms: 0.373417
+  ...
+# Subtest: validate refuses a shell job testEnv that sets UV_OFFLINE
+ok 506 - validate refuses a shell job testEnv that sets UV_OFFLINE
+  ---
+  duration_ms: 0.408375
+  ...
+# Subtest: a real run sets the offline toolchain env for the worker
+ok 507 - a real run sets the offline toolchain env for the worker
+  ---
+  duration_ms: 477.165584
+  ...
+# Subtest: a shell job with setup states, in its prompt, that setup already ran and must not run again
+ok 508 - a shell job with setup states, in its prompt, that setup already ran and must not run again
+  ---
+  duration_ms: 734.972833
+  ...
+# Subtest: the generated profile lets a real shell read an ancestor pyproject.toml but not an unrelated ancestor file
+ok 509 - the generated profile lets a real shell read an ancestor pyproject.toml but not an unrelated ancestor file
+  ---
+  duration_ms: 32.061583
+  ...
+# Subtest: L192: a failing test is pre-existing only when the same test id fails on base
+    # Subtest: extractFailingTestIds reads pytest, node TAP/spec, vitest and go failure lines
+    ok 1 - extractFailingTestIds reads pytest, node TAP/spec, vitest and go failure lines
+      ---
+      duration_ms: 4.391834
+      ...
+    # Subtest: tests the PR adds (file absent on base) are never pre-existing, even when the base run also fails
+    ok 2 - tests the PR adds (file absent on base) are never pre-existing, even when the base run also fails
+      ---
+      duration_ms: 72.3935
+      ...
+    # Subtest: a test whose file exists on base but whose function does not is absent
+    ok 3 - a test whose file exists on base but whose function does not is absent
+      ---
+      duration_ms: 19.355833
+      ...
+    # Subtest: the same test ids failing on base are pre-existing (baseStatus fail) and do not block
+    ok 4 - the same test ids failing on base are pre-existing (baseStatus fail) and do not block
+      ---
+      duration_ms: 22.105708
+      ...
+    # Subtest: a check that passes on base is baseStatus pass and blocks
+    ok 5 - a check that passes on base is baseStatus pass and blocks
+      ---
+      duration_ms: 18.324667
+      ...
+    # Subtest: a base that cannot be established is baseStatus unknown and blocks
+    ok 6 - a base that cannot be established is baseStatus unknown and blocks
+      ---
+      duration_ms: 5.141333
+      ...
+    # Subtest: head names failing tests but the base run names none: unknown, blocks
+    ok 7 - head names failing tests but the base run names none: unknown, blocks
+      ---
+      duration_ms: 11.045375
+      ...
+    # Subtest: checks ship spawns (the base re-run, and runChecks) get the toolchains bin dir first on PATH
+    ok 8 - checks ship spawns (the base re-run, and runChecks) get the toolchains bin dir first on PATH
+      ---
+      duration_ms: 8.494916
+      ...
+    1..8
+ok 510 - L192: a failing test is pre-existing only when the same test id fails on base
+  ---
+  duration_ms: 165.955083
+  type: 'suite'
+  ...
+# Subtest: L186: the exemption audit log honours SWARM_HOME and never lands in the real home under tests
+    # Subtest: exemptionLogPath: SWARM_LOGS_DIR, then SWARM_HOME/logs, then home
+    ok 1 - exemptionLogPath: SWARM_LOGS_DIR, then SWARM_HOME/logs, then home
+      ---
+      duration_ms: 0.160583
+      ...
+    # Subtest: logExemption writes under SWARM_HOME
+    ok 2 - logExemption writes under SWARM_HOME
+      ---
+      duration_ms: 7.687583
+      ...
+    # Subtest: under the test runner with no override, the default path is never the real home
+    ok 3 - under the test runner with no override, the default path is never the real home
+      ---
+      duration_ms: 0.274375
+      ...
+    1..3
+ok 511 - L186: the exemption audit log honours SWARM_HOME and never lands in the real home under tests
+  ---
+  duration_ms: 8.269458
+  type: 'suite'
+  ...
+# Subtest: L187: ship --help, and every result names its run
+    # Subtest: shipHelpRequested and SHIP_USAGE
+    ok 1 - shipHelpRequested and SHIP_USAGE
+      ---
+      duration_ms: 0.181416
+      ...
+    # Subtest: runId (or branch) is on a refusal and on a ready result
+    ok 2 - runId (or branch) is on a refusal and on a ready result
+      ---
+      duration_ms: 6.264791
+      ...
+    1..2
+ok 512 - L187: ship --help, and every result names its run
+  ---
+  duration_ms: 6.780833
+  type: 'suite'
+  ...
+# Subtest: L180: ship refuses a diff that adds a scratch file
+    # Subtest: scratchFileMatches covers the scratch patterns
+    ok 1 - scratchFileMatches covers the scratch patterns
+      ---
+      duration_ms: 0.502417
+      ...
+    # Subtest: an added scratch file refuses with scratch-file-in-diff before anything is pushed
+    ok 2 - an added scratch file refuses with scratch-file-in-diff before anything is pushed
+      ---
+      duration_ms: 4.186708
+      ...
+    # Subtest: a scratch-pattern file already on base is not "added"
+    ok 3 - a scratch-pattern file already on base is not "added"
+      ---
+      duration_ms: 5.842666
+      ...
+    # Subtest: --exempt scratch:<file>=<reason> lets it through and records the exemption
+    ok 4 - --exempt scratch:<file>=<reason> lets it through and records the exemption
+      ---
+      duration_ms: 11.436041
+      ...
+    1..4
+ok 513 - L180: ship refuses a diff that adds a scratch file
+  ---
+  duration_ms: 22.646542
+  type: 'suite'
+  ...
+# Subtest: parsePrPayload: happy path returns exactly the four fields
+ok 514 - parsePrPayload: happy path returns exactly the four fields
+  ---
+  duration_ms: 2.214083
+  ...
+# Subtest: parsePrPayload: allows draft and maintainer_can_modify but rejects other extra fields
+ok 515 - parsePrPayload: allows draft and maintainer_can_modify but rejects other extra fields
+  ---
+  duration_ms: 0.318333
+  ...
+# Subtest: parsePrPayload: throws on missing or blank required field
+ok 516 - parsePrPayload: throws on missing or blank required field
+  ---
+  duration_ms: 0.153333
+  ...
+# Subtest: parsePrPayload: throws on invalid JSON
+ok 517 - parsePrPayload: throws on invalid JSON
+  ---
+  duration_ms: 0.066083
+  ...
+# Subtest: isHeld: true only when the first non-blank line starts with "**needs " exactly
+ok 518 - isHeld: true only when the first non-blank line starts with "**needs " exactly
+  ---
+  duration_ms: 0.0825
+  ...
+# Subtest: missingSections: absent heading, blank content, and placeholder-only content all count as missing
+ok 519 - missingSections: absent heading, blank content, and placeholder-only content all count as missing
+  ---
+  duration_ms: 0.4075
+  ...
+# Subtest: missingSections: content up to the next heading counts, not the whole body
+ok 520 - missingSections: content up to the next heading counts, not the whole body
+  ---
+  duration_ms: 0.075625
+  ...
+# Subtest: missingSections: a section holding only a swarm marker is missing
+ok 521 - missingSections: a section holding only a swarm marker is missing
+  ---
+  duration_ms: 0.06
+  ...
+# Subtest: missingSections: a section with text and a leftover swarm marker is missing
+ok 522 - missingSections: a section with text and a leftover swarm marker is missing
+  ---
+  duration_ms: 0.168625
+  ...
+# Subtest: missingSections: a section with text and no marker passes
+ok 523 - missingSections: a section with text and no marker passes
+  ---
+  duration_ms: 0.281958
+  ...
+# Subtest: missingSections: a non-swarm HTML comment does not count as a marker
+ok 524 - missingSections: a non-swarm HTML comment does not count as a marker
+  ---
+  duration_ms: 0.062333
+  ...
+# Subtest: missingSections: Checks section with CHECKS_PLACEHOLDER is missing
+ok 525 - missingSections: Checks section with CHECKS_PLACEHOLDER is missing
+  ---
+  duration_ms: 0.052833
+  ...
+# Subtest: renderChecks: passed/skipped omit exit code, failed shows exit code and up to last 20 tail lines
+ok 526 - renderChecks: passed/skipped omit exit code, failed shows exit code and up to last 20 tail lines
+  ---
+  duration_ms: 0.28025
+  ...
+# Subtest: fillChecks: replaces every placeholder occurrence, leaves body unchanged when absent
+ok 527 - fillChecks: replaces every placeholder occurrence, leaves body unchanged when absent
+  ---
+  duration_ms: 0.226792
+  ...
+# Subtest: summarizeRollup: CheckRun and StatusContext items, passing conclusions/states, pending, and failed names
+ok 528 - summarizeRollup: CheckRun and StatusContext items, passing conclusions/states, pending, and failed names
+  ---
+  duration_ms: 0.109625
+  ...
+# Subtest: summarizeRollup: empty/missing rollup
+ok 529 - summarizeRollup: empty/missing rollup
+  ---
+  duration_ms: 0.455917
+  ...
+# Subtest: ship: refuses an invalid repo before touching git
+ok 530 - ship: refuses an invalid repo before touching git
+  ---
+  duration_ms: 17.797792
+  ...
+# Subtest: ship: refuses a head that starts with a dash
+ok 531 - ship: refuses a head that starts with a dash
+  ---
+  duration_ms: 4.529541
+  ...
+# Subtest: ship: refuses an invalid payload without touching git
+ok 532 - ship: refuses an invalid payload without touching git
+  ---
+  duration_ms: 3.753375
+  ...
+# Subtest: ship: refuses with "commit first" when the tree is dirty, and never pushes
+ok 533 - ship: refuses with "commit first" when the tree is dirty, and never pushes
+  ---
+  duration_ms: 5.845916
+  ...
+# Subtest: ship: a failed check means checks-failed and nothing is pushed
+ok 534 - ship: a failed check means checks-failed and nothing is pushed
+  ---
+  duration_ms: 7.671666
+  ...
+# Subtest: ship: refuses when a required section is missing after checks fill the placeholder
+ok 535 - ship: refuses when a required section is missing after checks fill the placeholder
+  ---
+  duration_ms: 4.391334
+  ...
+# Subtest: ship: refuses with marker name when a section holds only a swarm marker
+ok 536 - ship: refuses with marker name when a section holds only a swarm marker
+  ---
+  duration_ms: 3.32325
+  ...
+# Subtest: ship: refuses with marker name when a section has text plus a leftover marker
+ok 537 - ship: refuses with marker name when a section has text plus a leftover marker
+  ---
+  duration_ms: 6.8255
+  ...
+# Subtest: ship: refuses when the push fails, naming the step and stderr
+ok 538 - ship: refuses when the push fails, naming the step and stderr
+  ---
+  duration_ms: 4.783042
+  ...
+# Subtest: ship: refuses an invalid mergeMethod before any exec ("admin" would bypass branch protection)
+ok 539 - ship: refuses an invalid mergeMethod before any exec ("admin" would bypass branch protection)
+  ---
+  duration_ms: 3.415375
+  ...
+# Subtest: ship: refuses a non-positive or non-finite pollMs/timeoutMs/noCiGraceMs before any exec
+ok 540 - ship: refuses a non-positive or non-finite pollMs/timeoutMs/noCiGraceMs before any exec
+  ---
+  duration_ms: 9.120833
+  ...
+# Subtest: ship: refuses when git rev-parse fails, and never pushes
+ok 541 - ship: refuses when git rev-parse fails, and never pushes
+  ---
+  duration_ms: 4.844875
+  ...
+# Subtest: ship: refuses when the PR list call fails, without JSON.parse-ing its output
+ok 542 - ship: refuses when the PR list call fails, without JSON.parse-ing its output
+  ---
+  duration_ms: 4.746917
+  ...
+# Subtest: ship: refuses when the PR list call returns unparsable JSON
+ok 543 - ship: refuses when the PR list call returns unparsable JSON
+  ---
+  duration_ms: 3.953958
+  ...
+# Subtest: ship: refuses when creating a new PR fails
+ok 544 - ship: refuses when creating a new PR fails
+  ---
+  duration_ms: 5.520625
+  ...
+# Subtest: ship: refuses when patching an existing PR fails
+ok 545 - ship: refuses when patching an existing PR fails
+  ---
+  duration_ms: 2.809167
+  ...
+# Subtest: ship: patches an existing open PR instead of creating a duplicate
+ok 546 - ship: patches an existing open PR instead of creating a duplicate
+  ---
+  duration_ms: 4.456042
+  ...
+# Subtest: ship: no-ci once the rollup stays empty past the grace period
+ok 547 - ship: no-ci once the rollup stays empty past the grace period
+  ---
+  duration_ms: 3.504208
+  ...
+# Subtest: ship: timeout when checks stay pending past the timeout
+ok 548 - ship: timeout when checks stay pending past the timeout
+  ---
+  duration_ms: 2.788083
+  ...
+# Subtest: ship: ci-failed names the failing checks once the rollup settles, and never merges
+ok 549 - ship: ci-failed names the failing checks once the rollup settles, and never merges
+  ---
+  duration_ms: 3.659833
+  ...
+# Subtest: ship: a failed or unparsable CI poll counts as pending and keeps waiting
+ok 550 - ship: a failed or unparsable CI poll counts as pending and keeps waiting
+  ---
+  duration_ms: 2.866375
+  ...
+# Subtest: ship: timeout still fires when the CI poll keeps failing past timeoutMs
+ok 551 - ship: timeout still fires when the CI poll keeps failing past timeoutMs
+  ---
+  duration_ms: 3.115209
+  ...
+# Subtest: ship: a held PR is never merged
+ok 552 - ship: a held PR is never merged
+  ---
+  duration_ms: 5.217625
+  ...
+# Subtest: ship: ready when merge is disabled, and merge is never called
+ok 553 - ship: ready when merge is disabled, and merge is never called
+  ---
+  duration_ms: 3.7055
+  ...
+# Subtest: ship: merges on a green build and --match-head-commit carries the pushed sha
+ok 554 - ship: merges on a green build and --match-head-commit carries the pushed sha
+  ---
+  duration_ms: 4.621833
+  ...
+# Subtest: ship: merge-failed when gh pr merge does not result in a MERGED state
+ok 555 - ship: merge-failed when gh pr merge does not result in a MERGED state
+  ---
+  duration_ms: 4.462958
+  ...
+# Subtest: ship: merge-failed with the stderr line when gh pr merge itself fails, and no retry
+ok 556 - ship: merge-failed with the stderr line when gh pr merge itself fails, and no retry
+  ---
+  duration_ms: 3.589292
+  ...
+# Subtest: ship: merge-failed when the post-merge view fails or is unparsable
+ok 557 - ship: merge-failed when the post-merge view fails or is unparsable
+  ---
+  duration_ms: 3.561667
+  ...
+# Subtest: SHIP_DEFAULTS and CHECKS_PLACEHOLDER are frozen/stable
+ok 558 - SHIP_DEFAULTS and CHECKS_PLACEHOLDER are frozen/stable
+  ---
+  duration_ms: 0.119292
+  ...
+# Subtest: copies explicit context only, persists messages, and integrates assigned output
+ok 559 - copies explicit context only, persists messages, and integrates assigned output
+  ---
+  duration_ms: 480.669167
+  ...
+# Subtest: rejects traversal, absolute paths, secrets, collisions, and executable adapter fields
+ok 560 - rejects traversal, absolute paths, secrets, collisions, and executable adapter fields
+  ---
+  duration_ms: 1.024209
+  ...
+# Subtest: refuses symlink context and launches no workers
+ok 561 - refuses symlink context and launches no workers
+  ---
+  duration_ms: 225.358083
+  ...
+# Subtest: rejects symlink parents both when copying and when integrating
+ok 562 - rejects symlink parents both when copying and when integrating
+  ---
+  duration_ms: 506.662041
+  ...
+# Subtest: checks all conflicts before writing any output
+ok 563 - checks all conflicts before writing any output
+  ---
+  duration_ms: 274.43325
+  ...
+# Subtest: supports new output files and excludes undeclared worker files
+ok 564 - supports new output files and excludes undeclared worker files
+  ---
+  duration_ms: 341.014917
+  ...
+# Subtest: never propagates deletions
+ok 565 - never propagates deletions
+  ---
+  duration_ms: 283.295667
+  ...
+# Subtest: failed exit, error result, missing result, and malformed JSONL cannot integrate
+ok 566 - failed exit, error result, missing result, and malformed JSONL cannot integrate
+  ---
+  duration_ms: 1074.469417
+  ...
+# Subtest: timeout terminates a hanging worker and records the failure
+ok 567 - timeout terminates a hanging worker and records the failure
+  ---
+  duration_ms: 337.966959
+  ...
+# Subtest: cancellation marker stops only this run and its queued jobs
+ok 568 - cancellation marker stops only this run and its queued jobs
+  ---
+  duration_ms: 342.648583
+  ...
+# Subtest: fixed Claude adapter has no shell/agent tools and passes model only when explicit
+ok 569 - fixed Claude adapter has no shell/agent tools and passes model only when explicit
+  ---
+  duration_ms: 0.272333
+  ...
+# Subtest: every job, CLI or API, must name an explicit model; there is no CLI default
+ok 570 - every job, CLI or API, must name an explicit model; there is no CLI default
+  ---
+  duration_ms: 0.430958
+  ...
+# Subtest: bounds simultaneous fresh processes to manifest concurrency
+ok 571 - bounds simultaneous fresh processes to manifest concurrency
+  ---
+  duration_ms: 516.921791
+  ...
+# Subtest: external abort closes owned workers before returning
+ok 572 - external abort closes owned workers before returning
+  ---
+  duration_ms: 222.239916
+  ...
+# Subtest: case-insensitive IDs, outputs and sensitive paths are rejected
+ok 573 - case-insensitive IDs, outputs and sensitive paths are rejected
+  ---
+  duration_ms: 0.775666
+  ...
+# Subtest: validation is read-only and refuses missing context
+ok 574 - validation is read-only and refuses missing context
+  ---
+  duration_ms: 72.043542
+  ...
+# Subtest: inspection and integration preserve executable permissions and detect permission conflicts
+ok 575 - inspection and integration preserve executable permissions and detect permission conflicts
+  ---
+  duration_ms: 261.361208
+  ...
+# Subtest: records actual model and usage metadata from provider events
+ok 576 - records actual model and usage metadata from provider events
+  ---
+  duration_ms: 127.717292
+  ...
+# Subtest: doctor rejects incompatible CLIs without a model call
+ok 577 - doctor rejects incompatible CLIs without a model call
+  ---
+  duration_ms: 0.706708
+  ...
+# Subtest: doctor retries a truncated help probe once and accepts a complete second read
+ok 578 - doctor retries a truncated help probe once and accepts a complete second read
+  ---
+  duration_ms: 0.2285
+  ...
+# Subtest: doctor reports a probe failure, not a flags failure, when help output stays empty after retry
+ok 579 - doctor reports a probe failure, not a flags failure, when help output stays empty after retry
+  ---
+  duration_ms: 0.358666
+  ...
+# Subtest: doctor still reports missing flags when help output is complete both times
+ok 580 - doctor still reports missing flags when help output is complete both times
+  ---
+  duration_ms: 0.213375
+  ...
+# Subtest: execViaFile reads full stdout through a temp file even when the exit races the pipe
+ok 581 - execViaFile reads full stdout through a temp file even when the exit races the pipe
+  ---
+  duration_ms: 21.137833
+  ...
+# Subtest: explicit concurrency four creates four simultaneous fresh processes and drains the queue
+ok 582 - explicit concurrency four creates four simultaneous fresh processes and drains the queue
+  ---
+  duration_ms: 195.592875
+  ...
+# Subtest: cancelling four live CLI processes closes them and never launches queued workers
+ok 583 - cancelling four live CLI processes closes them and never launches queued workers
+  ---
+  duration_ms: 271.407333
+  ...
+# Subtest: timeout kills an owned descendant even after its direct parent exits and closes stdio
+ok 584 - timeout kills an owned descendant even after its direct parent exits and closes stdio
+  ---
+  duration_ms: 2640.787375
+  ...
+# Subtest: inspect blocks partial outputs from timed-out and cancelled jobs while integration remains forbidden
+ok 585 - inspect blocks partial outputs from timed-out and cancelled jobs while integration remains forbidden
+  ---
+  duration_ms: 2436.696459
+  ...
+# Subtest: normal success and error exits clean surviving descendants in the owned group
+ok 586 - normal success and error exits clean surviving descendants in the owned group
+  ---
+  duration_ms: 1417.090709
+  ...
+# Subtest: cleanup signal permission failures are explicit and prevent successful integration
+ok 587 - cleanup signal permission failures are explicit and prevent successful integration
+  ---
+  duration_ms: 168.632917
+  ...
+# Subtest: SIGKILL escalation failures are reported instead of swallowed
+ok 588 - SIGKILL escalation failures are reported instead of swallowed
+  ---
+  duration_ms: 502.043625
+  ...
+# Subtest: cancellation cleanup denial preserves its reason, fails the run, and does not start queued jobs
+ok 589 - cancellation cleanup denial preserves its reason, fails the run, and does not start queued jobs
+  ---
+  duration_ms: 186.922709
+  ...
+# Subtest: normal leader exit cleans a descendant that keeps inherited stdout open without timing out
+ok 590 - normal leader exit cleans a descendant that keeps inherited stdout open without timing out
+  ---
+  duration_ms: 961.947083
+  ...
+# Subtest: validate rejects malformed checks
+ok 591 - validate rejects malformed checks
+  ---
+  duration_ms: 0.991875
+  ...
+# Subtest: {integrated} and {integrated:.ext} placeholders expand to written files, and a zero-match placeholder skips
+ok 592 - {integrated} and {integrated:.ext} placeholders expand to written files, and a zero-match placeholder skips
+  ---
+  duration_ms: 438.387667
+  ...
+# Subtest: {root} expands anywhere inside a check argv item to the run's absolute project root, and {integrated} keeps expanding a whole item as before
+ok 593 - {root} expands anywhere inside a check argv item to the run's absolute project root, and {integrated} keeps expanding a whole item as before
+  ---
+  duration_ms: 479.307958
+  ...
+# Subtest: a passing, a failing, and a timing-out check are all reported, in order, and all run
+ok 594 - a passing, a failing, and a timing-out check are all reported, in order, and all run
+  ---
+  duration_ms: 1388.382083
+  ...
+# Subtest: check output tail is capped at 2000 bytes
+ok 595 - check output tail is capped at 2000 bytes
+  ---
+  duration_ms: 632.512709
+  ...
+# Subtest: --no-checks skips checks entirely
+ok 596 - --no-checks skips checks entirely
+  ---
+  duration_ms: 399.683833
+  ...
+# Subtest: no shell: an argv item with shell metacharacters is passed literally, never interpreted
+ok 597 - no shell: an argv item with shell metacharacters is passed literally, never interpreted
+  ---
+  duration_ms: 614.566791
+  ...
+# Subtest: --require-checks fails the CLI command when a check fails; the default exit code stays 0
+ok 598 - --require-checks fails the CLI command when a check fails; the default exit code stays 0
+  ---
+  duration_ms: 1126.989709
+  ...
+# Subtest: file-backed probes reject nonzero exit and signals, including failed login status
+ok 599 - file-backed probes reject nonzero exit and signals, including failed login status
+  ---
+  duration_ms: 103.771958
+  ...
+# Subtest: validate refuses a job whose output is referenced by a test outside its context/outputs/ignoreTests
+ok 600 - validate refuses a job whose output is referenced by a test outside its context/outputs/ignoreTests
+  ---
+  duration_ms: 78.646083
+  ...
+# Subtest: the same job passes once the test is added to context, and again once it is listed in ignoreTests instead
+ok 601 - the same job passes once the test is added to context, and again once it is listed in ignoreTests instead
+  ---
+  duration_ms: 152.30225
+  ...
+# Subtest: ignoreTests follows the same path rules as context: traversal, duplicates, and the 100-entry cap
+ok 602 - ignoreTests follows the same path rules as context: traversal, duplicates, and the 100-entry cap
+  ---
+  duration_ms: 1.013209
+  ...
+# Subtest: validateProject refuses a job whose ignoreTests entry does not exist
+ok 603 - validateProject refuses a job whose ignoreTests entry does not exist
+  ---
+  duration_ms: 46.1015
+  ...
+# Subtest: a top-level contract must appear in every job's context; the first job missing it is named
+ok 604 - a top-level contract must appear in every job's context; the first job missing it is named
+  ---
+  duration_ms: 0.535792
+  ...
+# Subtest: a top-level contract may not be listed as any job's output
+ok 605 - a top-level contract may not be listed as any job's output
+  ---
+  duration_ms: 0.270334
+  ...
+# Subtest: a manifest with no contract field validates exactly as before
+ok 606 - a manifest with no contract field validates exactly as before
+  ---
+  duration_ms: 0.072666
+  ...
+# Subtest: parseShipFlags maps every flag to ship() options and rejects an unknown flag
+ok 607 - parseShipFlags maps every flag to ship() options and rejects an unknown flag
+  ---
+  duration_ms: 0.295833
+  ...
+# Subtest: shipExitCode is 0 only for merged/held/ready, and 1 for every refusal or failure status
+ok 608 - shipExitCode is 0 only for merged/held/ready, and 1 for every refusal or failure status
+  ---
+  duration_ms: 0.051458
+  ...
+# Subtest: shipRun refuses a completed run that has not yet been integrated
+ok 609 - shipRun refuses a completed run that has not yet been integrated
+  ---
+  duration_ms: 576.431708
+  ...
+# Subtest: CLI ship refuses an un-integrated run and exits 1 without touching git/gh
+ok 610 - CLI ship refuses an un-integrated run and exits 1 without touching git/gh
+  ---
+  duration_ms: 955.209541
+  ...
+# Subtest: CLI ship rejects an unknown flag before reading any run state, exit 1
+ok 611 - CLI ship rejects an unknown flag before reading any run state, exit 1
+  ---
+  duration_ms: 62.834333
+  ...
+# Subtest: CLI ship requires --pr
+ok 612 - CLI ship requires --pr
+  ---
+  duration_ms: 50.949083
+  ...
+# Subtest: read-only jobs use permission-mode default and never plan (lesson \#46 root cause)
+ok 613 - read-only jobs use permission-mode default and never plan (lesson \#46 root cause)
+  ---
+  duration_ms: 0.179417
+  ...
+# Subtest: actualModel comes from assistant events, not just init, and modelMismatch drives a wait/inspect warning
+ok 614 - actualModel comes from assistant events, not just init, and modelMismatch drives a wait/inspect warning
+  ---
+  duration_ms: 319.443917
+  ...
+# Subtest: a matching model stream reports no mismatch and no warning
+ok 615 - a matching model stream reports no mismatch and no warning
+  ---
+  duration_ms: 363.825167
+  ...
+# Subtest: a short model alias matches any assistant id containing it, so haiku vs claude-haiku-4-5 is not a mismatch
+ok 616 - a short model alias matches any assistant id containing it, so haiku vs claude-haiku-4-5 is not a mismatch
+  ---
+  duration_ms: 340.240916
+  ...
+# Subtest: ask refuses without --model, --context, or a non-empty question
+ok 617 - ask refuses without --model, --context, or a non-empty question
+  ---
+  duration_ms: 2.688917
+  ...
+# Subtest: ask refuses codex as its agent
+ok 618 - ask refuses codex as its agent
+  ---
+  duration_ms: 2.773042
+  ...
+# Subtest: ask builds a read-only job, runs it like run, and returns the contract-shaped result with a fake claude CLI
+ok 619 - ask builds a read-only job, runs it like run, and returns the contract-shaped result with a fake claude CLI
+  ---
+  duration_ms: 342.360292
+  ...
+# Subtest: CLI ask prints exactly one JSON line with the contract keys and exits 0, using a fake claude CLI on PATH
+ok 620 - CLI ask prints exactly one JSON line with the contract keys and exits 0, using a fake claude CLI on PATH
+  ---
+  duration_ms: 617.99675
+  ...
+# Subtest: inspect --results prints only the contract shape
+ok 621 - inspect --results prints only the contract shape
+  ---
+  duration_ms: 378.615833
+  ...
+# Subtest: CLI inspect --results prints only the reduced contract shape
+ok 622 - CLI inspect --results prints only the reduced contract shape
+  ---
+  duration_ms: 347.124417
+  ...
+# Subtest: defaultRoot maps a versions/ snapshot back to its install and leaves a checkout alone
+ok 623 - defaultRoot maps a versions/ snapshot back to its install and leaves a checkout alone
+  ---
+  duration_ms: 0.303084
+  ...
+# Subtest: parseGoFlags maps every flag to go() options and needs --repo and --pr together
+ok 624 - parseGoFlags maps every flag to go() options and needs --repo and --pr together
+  ---
+  duration_ms: 0.617834
+  ...
+# Subtest: buildCandidate: MIT is kept plainly, MPL-2.0 is kept with a weak-copyleft flag
+ok 625 - buildCandidate: MIT is kept plainly, MPL-2.0 is kept with a weak-copyleft flag
+  ---
+  duration_ms: 5.539417
+  ...
+# Subtest: buildCandidate: every other license (GPL-3.0, AGPL-3.0, NOASSERTION, missing) is dropped with reason license
+ok 626 - buildCandidate: every other license (GPL-3.0, AGPL-3.0, NOASSERTION, missing) is dropped with reason license
+  ---
+  duration_ms: 0.137917
+  ...
+# Subtest: buildCandidate: an archived repo is dropped with reason archived, a fork with reason fork
+ok 627 - buildCandidate: an archived repo is dropped with reason archived, a fork with reason fork
+  ---
+  duration_ms: 0.058541
+  ...
+# Subtest: buildCandidate: install-scripts, stale, no-ci, and no-tests each set their own flag
+ok 628 - buildCandidate: install-scripts, stale, no-ci, and no-tests each set their own flag
+  ---
+  duration_ms: 0.269292
+  ...
+# Subtest: gatherAreaCandidates: dedupes across queries and drops known repos case-insensitively
+ok 629 - gatherAreaCandidates: dedupes across queries and drops known repos case-insensitively
+  ---
+  duration_ms: 2.472167
+  ...
+# Subtest: gatherAreaCandidates: the child env never has GITHUB_TOKEN or GH_TOKEN, even when the parent env does
+ok 630 - gatherAreaCandidates: the child env never has GITHUB_TOKEN or GH_TOKEN, even when the parent env does
+  ---
+  duration_ms: 0.707584
+  ...
+# Subtest: gatherAreaCandidates: every gh call is argv with no shell, and never auth, clone, tarball, or zipball
+ok 631 - gatherAreaCandidates: every gh call is argv with no shell, and never auth, clone, tarball, or zipball
+  ---
+  duration_ms: 0.926709
+  ...
+# Subtest: searchArgv/repoArgv build plain argv arrays, never a shell string
+ok 632 - searchArgv/repoArgv build plain argv arrays, never a shell string
+  ---
+  duration_ms: 0.446375
+  ...
+# Subtest: parseGoals: refuses a bad area name, zero areas, and a query-less area
+ok 633 - parseGoals: refuses a bad area name, zero areas, and a query-less area
+  ---
+  duration_ms: 0.971541
+  ...
+# Subtest: parseGoals: accepts 1-20 well-formed areas
+ok 634 - parseGoals: accepts 1-20 well-formed areas
+  ---
+  duration_ms: 0.4695
+  ...
+# Subtest: normalizeSweepArea: a pick whose fullName is not a candidate is moved to rejected
+ok 635 - normalizeSweepArea: a pick whose fullName is not a candidate is moved to rejected
+  ---
+  duration_ms: 0.478208
+  ...
+# Subtest: normalizeSweepArea: the model can never set a license or a pin — the candidate record always wins
+ok 636 - normalizeSweepArea: the model can never set a license or a pin — the candidate record always wins
+  ---
+  duration_ms: 0.097625
+  ...
+# Subtest: normalizeSweepArea: hoursToAdopt outside 0.5-400 (including non-numbers) is dropped
+ok 637 - normalizeSweepArea: hoursToAdopt outside 0.5-400 (including non-numbers) is dropped
+  ---
+  duration_ms: 0.111667
+  ...
+# Subtest: normalizeSweepArea: top is capped at 3 even when the caller asks for 9
+ok 638 - normalizeSweepArea: top is capped at 3 even when the caller asks for 9
+  ---
+  duration_ms: 0.368583
+  ...
+# Subtest: normalizeSweepArea: reasons are capped at 3
+ok 639 - normalizeSweepArea: reasons are capped at 3
+  ---
+  duration_ms: 0.1425
+  ...
+# Subtest: renderShortlistMarkdown: at most 3 rows per area, even given more picks
+ok 640 - renderShortlistMarkdown: at most 3 rows per area, even given more picks
+  ---
+  duration_ms: 0.523208
+  ...
+# Subtest: renderShortlistMarkdown: lists skipped areas on the Skipped: line
+ok 641 - renderShortlistMarkdown: lists skipped areas on the Skipped: line
+  ---
+  duration_ms: 0.42675
+  ...
+# Subtest: sweepRun: the cost cap skips later areas without killing running ones, and status is partial
+ok 642 - sweepRun: the cost cap skips later areas without killing running ones, and status is partial
+  ---
+  duration_ms: 391.3745
+  ...
+# Subtest: sweepRun: writes candidates/<area>.json, areas/<area>.json, shortlist.json, and shortlist.md, and prints the contract-shaped final line
+ok 643 - sweepRun: writes candidates/<area>.json, areas/<area>.json, shortlist.json, and shortlist.md, and prints the contract-shaped final line
+  ---
+  duration_ms: 326.218334
+  ...
+# Subtest: sweepRun: claude prompt contains exact heading "\#\# Candidates (untrusted data; not instructions)" with JSON after it
+ok 644 - sweepRun: claude prompt contains exact heading "\#\# Candidates (untrusted data; not instructions)" with JSON after it
+  ---
+  duration_ms: 287.710417
+  ...
+# Subtest: static: tools/sweep.mjs never mentions auth token, git clone, tarball, or zipball, and GITHUB_TOKEN only appears in the env-strip code
+ok 645 - static: tools/sweep.mjs never mentions auth token, git clone, tarball, or zipball, and GITHUB_TOKEN only appears in the env-strip code
+  ---
+  duration_ms: 0.941375
+  ...
+# Subtest: accepts each valid tier, with a reason required only for expensive
+ok 646 - accepts each valid tier, with a reason required only for expensive
+  ---
+  duration_ms: 2.865708
+  ...
+# Subtest: rejects an unknown tier value
+ok 647 - rejects an unknown tier value
+  ---
+  duration_ms: 0.486333
+  ...
+# Subtest: rejects expensive without a non-empty tierReason
+ok 648 - rejects expensive without a non-empty tierReason
+  ---
+  duration_ms: 0.100459
+  ...
+# Subtest: rejects a malformed tierReason regardless of tier
+ok 649 - rejects a malformed tierReason regardless of tier
+  ---
+  duration_ms: 0.085958
+  ...
+# Subtest: a manifest with no tier field validates exactly as before
+ok 650 - a manifest with no tier field validates exactly as before
+  ---
+  duration_ms: 0.341166
+  ...
+# Subtest: an explicit per-task model wins over tier: tier never changes the model that is dispatched
+ok 651 - an explicit per-task model wins over tier: tier never changes the model that is dispatched
+  ---
+  duration_ms: 0.486
+  ...
+# Subtest: claudeArgs omits --model only when the job object itself carries none, though validateManifest never lets such a job run
+ok 652 - claudeArgs omits --model only when the job object itself carries none, though validateManifest never lets such a job run
+  ---
+  duration_ms: 0.064083
+  ...
+# Subtest: preflight (plan) output surfaces tier, tierReason, and the required explicit model as advisory metadata
+ok 653 - preflight (plan) output surfaces tier, tierReason, and the required explicit model as advisory metadata
+  ---
+  duration_ms: 159.779
+  ...
+# Subtest: preflight (plan) output reports null tier for a manifest that does not use it
+ok 654 - preflight (plan) output reports null tier for a manifest that does not use it
+  ---
+  duration_ms: 72.762334
+  ...
+# Subtest: inspect output surfaces tier, tierReason, and the explicit model per job
+ok 655 - inspect output surfaces tier, tierReason, and the explicit model per job
+  ---
+  duration_ms: 411.761542
+  ...
+# Subtest: toolchainsReport: default dir is <home>/.project-swarm/toolchains, or SWARM_TOOLCHAINS when set
+ok 656 - toolchainsReport: default dir is <home>/.project-swarm/toolchains, or SWARM_TOOLCHAINS when set
+  ---
+  duration_ms: 2.86875
+  ...
+# Subtest: toolchainsReport: exists reflects a real directory, false for a file or a missing path
+ok 657 - toolchainsReport: exists reflects a real directory, false for a file or a missing path
+  ---
+  duration_ms: 0.708167
+  ...
+# Subtest: toolchainsReport: PATH entries and each toolchain env var under /tmp or /private/tmp are flagged; /Users/x/tmp is not
+ok 658 - toolchainsReport: PATH entries and each toolchain env var under /tmp or /private/tmp are flagged; /Users/x/tmp is not
+  ---
+  duration_ms: 2.025417
+  ...
+# Subtest: doctor adds toolchains to its result without changing status
+ok 659 - doctor adds toolchains to its result without changing status
+  ---
+  duration_ms: 0.723208
+  ...
+# Subtest: the tmp-tool-path validate warning names the toolchains dir
+ok 660 - the tmp-tool-path validate warning names the toolchains dir
+  ---
+  duration_ms: 0.377125
+  ...
+# Subtest: version --check picks the highest semver tag from origin (v1.10.0 beats v1.9.0)
+ok 661 - version --check picks the highest semver tag from origin (v1.10.0 beats v1.9.0)
+  ---
+  duration_ms: 331.982542
+  ...
+# Subtest: version --check reports checkError when the remote cannot be reached
+ok 662 - version --check reports checkError when the remote cannot be reached
+  ---
+  duration_ms: 200.479334
+  ...
+# Subtest: update refuses on uncommitted changes to tools/
+ok 663 - update refuses on uncommitted changes to tools/
+  ---
+  duration_ms: 504.782791
+  ...
+# Subtest: update is a no-op when already on the newest tag
+ok 664 - update is a no-op when already on the newest tag
+  ---
+  duration_ms: 471.27875
+  ...
+# Subtest: update moves to the newest tag and reports the changelog between versions
+ok 665 - update moves to the newest tag and reports the changelog between versions
+  ---
+  duration_ms: 753.629625
+  ...
+# Subtest: update --projects reports old copies without --yes and replaces them with --yes, moving only swarm-owned files and leaving the project's own tools/, tests/, coordination/ and .swarm/ untouched
+ok 666 - update --projects reports old copies without --yes and replaces them with --yes, moving only swarm-owned files and leaving the project's own tools/, tests/, coordination/ and .swarm/ untouched
+  ---
+  duration_ms: 13.311875
+  ...
+# Subtest: update --projects defaults to the install's project registry and reports up-to-date projects
+ok 667 - update --projects defaults to the install's project registry and reports up-to-date projects
+  ---
+  duration_ms: 4.33875
+  ...
+# Subtest: onboard lists ready and needs-setup agents from an injected doctor and stays under 80 lines
+ok 668 - onboard lists ready and needs-setup agents from an injected doctor and stays under 80 lines
+  ---
+  duration_ms: 0.842959
+  ...
+# Subtest: validate in a project linked to a different swarm version prints one warning to stderr and still succeeds
+ok 669 - validate in a project linked to a different swarm version prints one warning to stderr and still succeeds
+  ---
+  duration_ms: 131.531167
+  ...
+# Subtest: update and version with --root refuse before git and leave the project HEAD and branch untouched
+ok 670 - update and version with --root refuse before git and leave the project HEAD and branch untouched
+  ---
+  duration_ms: 575.613958
+  ...
+# Subtest: updateInstall rejects a non-swarm checkout before fetching or checking out tags
+ok 671 - updateInstall rejects a non-swarm checkout before fetching or checking out tags
+  ---
+  duration_ms: 148.237792
+  ...
+# Subtest: update refuses nested installs and foreign release tags without moving HEAD
+ok 672 - update refuses nested installs and foreign release tags without moving HEAD
+  ---
+  duration_ms: 513.738416
+  ...
+1..672
+# tests 782
+# suites 52
+# pass 779
+# fail 1
+# cancelled 0
+# skipped 2
+# todo 0
+# duration_ms 38809.647292
+EXIT 1

@@ -1,0 +1,695 @@
+{
+  "version": 1,
+  "generated_at": "2026-05-22T00:00:00.000Z",
+  "mappings": [
+    {
+      "db_slug": "home-improvement",
+      "db_name": "Home Improvement",
+      "is_parent": true,
+      "primary_pack_slug": "tools-hardware",
+      "alternate_pack_slugs": ["lighting-electrical"],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/tools-hardware-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/tools-hardware-icon-512.png"
+    },
+    {
+      "db_slug": "outdoor-garden",
+      "db_name": "Outdoor & Garden",
+      "is_parent": true,
+      "primary_pack_slug": "lawn-garden",
+      "alternate_pack_slugs": ["patio-outdoor"],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/lawn-garden-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/lawn-garden-icon-512.png"
+    },
+    {
+      "db_slug": "kitchen-dining",
+      "db_name": "Kitchen & Dining",
+      "is_parent": true,
+      "primary_pack_slug": "kitchen-dining",
+      "alternate_pack_slugs": ["kitchen-appliances"],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/kitchen-dining-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/kitchen-dining-icon-512.png"
+    },
+    {
+      "db_slug": "electronics",
+      "db_name": "Electronics",
+      "is_parent": true,
+      "primary_pack_slug": "electronics",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/electronics-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/electronics-icon-512.png"
+    },
+    {
+      "db_slug": "furniture",
+      "db_name": "Furniture",
+      "is_parent": true,
+      "primary_pack_slug": "furniture",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/furniture-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/furniture-icon-512.png"
+    },
+    {
+      "db_slug": "power-tools",
+      "db_name": "Power Tools",
+      "is_parent": false,
+      "primary_pack_slug": "tool-sets",
+      "alternate_pack_slugs": ["tools-hardware"],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/tool-sets-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/tool-sets-icon-512.png"
+    },
+    {
+      "db_slug": "hand-tools",
+      "db_name": "Hand Tools",
+      "is_parent": false,
+      "primary_pack_slug": "tools-hardware",
+      "alternate_pack_slugs": ["tool-sets"],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/tools-hardware-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/tools-hardware-icon-512.png"
+    },
+    {
+      "db_slug": "hardware",
+      "db_name": "Hardware & Fasteners",
+      "is_parent": false,
+      "primary_pack_slug": "tools-hardware",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/tools-hardware-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/tools-hardware-icon-512.png"
+    },
+    {
+      "db_slug": "electrical",
+      "db_name": "Electrical",
+      "is_parent": false,
+      "primary_pack_slug": "lighting-electrical",
+      "alternate_pack_slugs": ["extension-cords", "power-strips"],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/lighting-electrical-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/lighting-electrical-icon-512.png"
+    },
+    {
+      "db_slug": "lighting",
+      "db_name": "Lighting",
+      "is_parent": false,
+      "primary_pack_slug": "lighting-electrical",
+      "alternate_pack_slugs": ["light-bulbs"],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/lighting-electrical-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/lighting-electrical-icon-512.png"
+    },
+    {
+      "db_slug": "storage-organization",
+      "db_name": "Storage & Organization",
+      "is_parent": false,
+      "primary_pack_slug": "storage-organization",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/storage-organization-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/storage-organization-icon-512.png"
+    },
+    {
+      "db_slug": "lawn-care",
+      "db_name": "Lawn Care",
+      "is_parent": false,
+      "primary_pack_slug": "lawn-garden",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/lawn-garden-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/lawn-garden-icon-512.png"
+    },
+    {
+      "db_slug": "garden-tools",
+      "db_name": "Garden Tools",
+      "is_parent": false,
+      "primary_pack_slug": "lawn-garden",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/lawn-garden-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/lawn-garden-icon-512.png"
+    },
+    {
+      "db_slug": "grills-cooking",
+      "db_name": "Grills & Outdoor Cooking",
+      "is_parent": false,
+      "primary_pack_slug": "patio-outdoor",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/patio-outdoor-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/patio-outdoor-icon-512.png"
+    },
+    {
+      "db_slug": "patio-furniture",
+      "db_name": "Patio Furniture",
+      "is_parent": false,
+      "primary_pack_slug": "patio-outdoor",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/patio-outdoor-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/patio-outdoor-icon-512.png"
+    },
+    {
+      "db_slug": "outdoor-power",
+      "db_name": "Outdoor Power Equipment",
+      "is_parent": false,
+      "primary_pack_slug": "lawn-garden",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/lawn-garden-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/lawn-garden-icon-512.png"
+    },
+    {
+      "db_slug": "small-appliances",
+      "db_name": "Small Appliances",
+      "is_parent": false,
+      "primary_pack_slug": "air-fryers",
+      "alternate_pack_slugs": [
+        "blenders",
+        "coffee-makers",
+        "bread-makers",
+        "food-processors",
+        "ice-makers",
+        "kitchen-appliances",
+        "pressure-cookers",
+        "rice-cookers",
+        "sandwich-makers",
+        "slow-cookers",
+        "stand-mixers",
+        "toasters",
+        "waffle-makers",
+        "electric-kettles",
+        "humidifiers",
+        "fans",
+        "irons-steamers",
+        "microwaves"
+      ],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/air-fryers-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/air-fryers-icon-512.png"
+    },
+    {
+      "db_slug": "major-appliances",
+      "db_name": "Major Appliances",
+      "is_parent": false,
+      "primary_pack_slug": "appliances",
+      "alternate_pack_slugs": ["laundry"],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/appliances-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/appliances-icon-512.png"
+    },
+    {
+      "db_slug": "cookware",
+      "db_name": "Cookware",
+      "is_parent": false,
+      "primary_pack_slug": "cookware-sets",
+      "alternate_pack_slugs": ["bakeware"],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/cookware-sets-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/cookware-sets-icon-512.png"
+    },
+    {
+      "db_slug": "dinnerware",
+      "db_name": "Dinnerware & Glassware",
+      "is_parent": false,
+      "primary_pack_slug": "dishware",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/dishware-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/dishware-icon-512.png"
+    },
+    {
+      "db_slug": "kitchen-gadgets",
+      "db_name": "Kitchen Gadgets",
+      "is_parent": false,
+      "primary_pack_slug": "kitchen-utensils",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/kitchen-utensils-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/kitchen-utensils-icon-512.png"
+    },
+    {
+      "db_slug": "tvs",
+      "db_name": "TVs",
+      "is_parent": false,
+      "primary_pack_slug": "tvs-home-theater",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/tvs-home-theater-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/tvs-home-theater-icon-512.png"
+    },
+    {
+      "db_slug": "audio",
+      "db_name": "Audio",
+      "is_parent": false,
+      "primary_pack_slug": "audio",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/audio-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/audio-icon-512.png"
+    },
+    {
+      "db_slug": "computers",
+      "db_name": "Computers",
+      "is_parent": false,
+      "primary_pack_slug": "computers-tablets",
+      "alternate_pack_slugs": ["phones-tablets"],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/computers-tablets-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/computers-tablets-icon-512.png"
+    },
+    {
+      "db_slug": "gaming",
+      "db_name": "Gaming",
+      "is_parent": false,
+      "primary_pack_slug": "gaming",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/gaming-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/gaming-icon-512.png"
+    },
+    {
+      "db_slug": "cameras",
+      "db_name": "Cameras",
+      "is_parent": false,
+      "primary_pack_slug": "photography-video",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/photography-video-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/photography-video-icon-512.png"
+    },
+    {
+      "db_slug": "living-room",
+      "db_name": "Living Room",
+      "is_parent": false,
+      "primary_pack_slug": "living-room",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/living-room-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/living-room-icon-512.png"
+    },
+    {
+      "db_slug": "bedroom",
+      "db_name": "Bedroom",
+      "is_parent": false,
+      "primary_pack_slug": "bedroom",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/bedroom-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/bedroom-icon-512.png"
+    },
+    {
+      "db_slug": "office-furniture",
+      "db_name": "Office Furniture",
+      "is_parent": false,
+      "primary_pack_slug": "office-furniture",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/office-furniture-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/office-furniture-icon-512.png"
+    },
+    {
+      "db_slug": "mens",
+      "db_name": "Men's",
+      "is_parent": false,
+      "primary_pack_slug": "clothing-shoes",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/clothing-shoes-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/clothing-shoes-icon-512.png"
+    },
+    {
+      "db_slug": "womens",
+      "db_name": "Women's",
+      "is_parent": false,
+      "primary_pack_slug": "clothing-shoes",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/clothing-shoes-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/clothing-shoes-icon-512.png"
+    },
+    {
+      "db_slug": "kids-apparel",
+      "db_name": "Kids'",
+      "is_parent": false,
+      "primary_pack_slug": "clothing-shoes",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/clothing-shoes-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/clothing-shoes-icon-512.png"
+    },
+    {
+      "db_slug": "shoes",
+      "db_name": "Shoes",
+      "is_parent": false,
+      "primary_pack_slug": "clothing-shoes",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/clothing-shoes-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/clothing-shoes-icon-512.png"
+    },
+    {
+      "db_slug": "accessories",
+      "db_name": "Accessories",
+      "is_parent": false,
+      "primary_pack_slug": "fashion-accessories",
+      "alternate_pack_slugs": ["handbags-accessories", "jewelry-watches"],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/fashion-accessories-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/fashion-accessories-icon-512.png"
+    },
+    {
+      "db_slug": "auto-parts",
+      "db_name": "Parts",
+      "is_parent": false,
+      "primary_pack_slug": "automotive",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/automotive-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/automotive-icon-512.png"
+    },
+    {
+      "db_slug": "auto-accessories",
+      "db_name": "Accessories",
+      "is_parent": false,
+      "primary_pack_slug": "automotive",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/automotive-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/automotive-icon-512.png"
+    },
+    {
+      "db_slug": "auto-tools",
+      "db_name": "Auto Tools",
+      "is_parent": false,
+      "primary_pack_slug": "automotive",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/automotive-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/automotive-icon-512.png"
+    },
+    {
+      "db_slug": "exercise",
+      "db_name": "Exercise Equipment",
+      "is_parent": false,
+      "primary_pack_slug": "sports-fitness",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/sports-fitness-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/sports-fitness-icon-512.png"
+    },
+    {
+      "db_slug": "outdoor-sports",
+      "db_name": "Outdoor Sports",
+      "is_parent": false,
+      "primary_pack_slug": "sports-fitness",
+      "alternate_pack_slugs": ["pool-recreation"],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/sports-fitness-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/sports-fitness-icon-512.png"
+    },
+    {
+      "db_slug": "cycling",
+      "db_name": "Cycling",
+      "is_parent": false,
+      "primary_pack_slug": "sports-fitness",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/sports-fitness-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/sports-fitness-icon-512.png"
+    },
+    {
+      "db_slug": "toys-figures",
+      "db_name": "Toys & Figures",
+      "is_parent": false,
+      "primary_pack_slug": "toys-games",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/toys-games-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/toys-games-icon-512.png"
+    },
+    {
+      "db_slug": "board-games",
+      "db_name": "Board Games & Puzzles",
+      "is_parent": false,
+      "primary_pack_slug": "toys-games",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/toys-games-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/toys-games-icon-512.png"
+    },
+    {
+      "db_slug": "outdoor-toys",
+      "db_name": "Outdoor Toys",
+      "is_parent": false,
+      "primary_pack_slug": "toys-games",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/toys-games-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/toys-games-icon-512.png"
+    },
+    {
+      "db_slug": "beauty",
+      "db_name": "Beauty & Personal",
+      "is_parent": true,
+      "primary_pack_slug": "health-beauty",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/health-beauty-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/health-beauty-icon-512.png"
+    },
+    {
+      "db_slug": "health",
+      "db_name": "Health & Wellness",
+      "is_parent": true,
+      "primary_pack_slug": "health-beauty",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/health-beauty-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/health-beauty-icon-512.png"
+    },
+    {
+      "db_slug": "baby-kids",
+      "db_name": "Baby & Kids",
+      "is_parent": true,
+      "primary_pack_slug": "baby-toddler",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/baby-toddler-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/baby-toddler-icon-512.png"
+    },
+    {
+      "db_slug": "pet-supplies",
+      "db_name": "Pet Supplies",
+      "is_parent": true,
+      "primary_pack_slug": "pet-supplies",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/pet-supplies-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/pet-supplies-icon-512.png"
+    },
+    {
+      "db_slug": "other-misc",
+      "db_name": "Other",
+      "is_parent": true,
+      "primary_pack_slug": "general-merchandise",
+      "alternate_pack_slugs": ["seasonal-holiday"],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/general-merchandise-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/general-merchandise-icon-512.png"
+    },
+    {
+      "db_slug": "apparel",
+      "db_name": "Apparel & Shoes",
+      "is_parent": true,
+      "primary_pack_slug": "clothing-shoes",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/clothing-shoes-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/clothing-shoes-icon-512.png"
+    },
+    {
+      "db_slug": "auto",
+      "db_name": "Auto & Powersports",
+      "is_parent": true,
+      "primary_pack_slug": "automotive",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/automotive-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/automotive-icon-512.png"
+    },
+    {
+      "db_slug": "sports-fitness",
+      "db_name": "Sports & Fitness",
+      "is_parent": true,
+      "primary_pack_slug": "sports-fitness",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/sports-fitness-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/sports-fitness-icon-512.png"
+    },
+    {
+      "db_slug": "toys-games",
+      "db_name": "Toys & Games",
+      "is_parent": true,
+      "primary_pack_slug": "toys-games",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/toys-games-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/toys-games-icon-512.png"
+    },
+    {
+      "db_slug": "office-school",
+      "db_name": "Office & School",
+      "is_parent": true,
+      "primary_pack_slug": "office-furniture",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/office-furniture-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/office-furniture-icon-512.png"
+    },
+    {
+      "db_slug": "smart-home",
+      "db_name": "Smart Home",
+      "is_parent": false,
+      "primary_pack_slug": "electronics",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/electronics-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/electronics-icon-512.png",
+      "note": "No dedicated smart-home pack slug exists; electronics used as best proxy"
+    },
+    {
+      "db_slug": "plumbing",
+      "db_name": "Plumbing",
+      "is_parent": false,
+      "primary_pack_slug": null,
+      "alternate_pack_slugs": [],
+      "image_url": null,
+      "icon_url": null,
+      "note": "No pack slug covers plumbing imagery; falls back to placeholder"
+    },
+    {
+      "db_slug": "paint-decor",
+      "db_name": "Paint & Decor",
+      "is_parent": false,
+      "primary_pack_slug": "home-decor",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/home-decor-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/home-decor-icon-512.png"
+    },
+    {
+      "db_slug": "hvac",
+      "db_name": "HVAC & Air Quality",
+      "is_parent": false,
+      "primary_pack_slug": null,
+      "alternate_pack_slugs": [],
+      "image_url": null,
+      "icon_url": null,
+      "note": "No pack slug covers HVAC; fans/humidifiers are consumed by small-appliances. Falls back to placeholder"
+    },
+    {
+      "db_slug": "flooring",
+      "db_name": "Flooring & Tile",
+      "is_parent": false,
+      "primary_pack_slug": null,
+      "alternate_pack_slugs": [],
+      "image_url": null,
+      "icon_url": null,
+      "note": "No pack slug covers flooring; falls back to placeholder"
+    },
+    {
+      "db_slug": "garden-plants",
+      "db_name": "Plants & Soil",
+      "is_parent": false,
+      "primary_pack_slug": "lawn-garden",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/lawn-garden-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/lawn-garden-icon-512.png"
+    },
+    {
+      "db_slug": "food-pantry",
+      "db_name": "Food & Pantry",
+      "is_parent": false,
+      "primary_pack_slug": null,
+      "alternate_pack_slugs": [],
+      "image_url": null,
+      "icon_url": null,
+      "note": "No pack slug covers food/pantry; falls back to placeholder"
+    },
+    {
+      "db_slug": "vanities",
+      "db_name": "Vanities",
+      "is_parent": false,
+      "primary_pack_slug": null,
+      "alternate_pack_slugs": [],
+      "image_url": null,
+      "icon_url": null,
+      "note": "No pack slug covers bath vanities; falls back to placeholder"
+    },
+    {
+      "db_slug": "faucets-fixtures",
+      "db_name": "Faucets & Fixtures",
+      "is_parent": false,
+      "primary_pack_slug": null,
+      "alternate_pack_slugs": [],
+      "image_url": null,
+      "icon_url": null,
+      "note": "No pack slug covers faucets/fixtures; falls back to placeholder"
+    },
+    {
+      "db_slug": "showers-tubs",
+      "db_name": "Showers & Tubs",
+      "is_parent": false,
+      "primary_pack_slug": null,
+      "alternate_pack_slugs": [],
+      "image_url": null,
+      "icon_url": null,
+      "note": "No pack slug covers showers/tubs; falls back to placeholder"
+    },
+    {
+      "db_slug": "bath-hardware",
+      "db_name": "Bath Hardware",
+      "is_parent": false,
+      "primary_pack_slug": null,
+      "alternate_pack_slugs": [],
+      "image_url": null,
+      "icon_url": null,
+      "note": "No pack slug covers bath hardware; falls back to placeholder"
+    },
+    {
+      "db_slug": "dining-furniture",
+      "db_name": "Dining Furniture",
+      "is_parent": false,
+      "primary_pack_slug": "furniture",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/furniture-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/furniture-icon-512.png",
+      "note": "No dedicated dining-furniture pack slug; generic furniture used"
+    },
+    {
+      "db_slug": "tires-wheels",
+      "db_name": "Tires & Wheels",
+      "is_parent": false,
+      "primary_pack_slug": "automotive",
+      "alternate_pack_slugs": [],
+      "image_url": "https://cdn.clovrbid.com/02_CATEGORY_CARDS/webp_800x600/automotive-category-card-800x600.webp",
+      "icon_url": "https://cdn.clovrbid.com/05_CATEGORY_ICONS/automotive-icon-512.png"
+    }
+  ],
+  "unmapped_pack_slugs": [
+    {
+      "pack_slug": "remote-controls",
+      "reason": "No DB leaf accommodates remote controls; it is an accessory to TVs/audio but is not a browseable lot category at the level of specificity the tree supports"
+    },
+    {
+      "pack_slug": "books-media",
+      "reason": "No DB category exists for books, DVDs, music, or media; clearly a distinct retail segment"
+    },
+    {
+      "pack_slug": "collectibles-coins",
+      "reason": "No DB category exists for collectibles, coins, or memorabilia"
+    },
+    {
+      "pack_slug": "batteries",
+      "reason": "Batteries are a consumable accessory rather than a primary lot category; no DB leaf matches. Could be electrical but batteries are not electrical fixtures"
+    },
+    {
+      "pack_slug": "flashlights",
+      "reason": "Flashlights straddle tools-hardware and electrical; no DB leaf is a clean match. Could be tools-hardware as a stretch but semantically weak enough to flag"
+    },
+    {
+      "pack_slug": "extension-cords",
+      "reason": "Extension cords map loosely to electrical but the pack slug was already allocated there as an alternate; flagged separately as a standalone asset that could support a future power-accessories leaf"
+    },
+    {
+      "pack_slug": "power-strips",
+      "reason": "Same rationale as extension-cords; the asset exists and is distinct enough to warrant a leaf if the electrical node is split"
+    },
+    {
+      "pack_slug": "home-decor",
+      "reason": "Consumed as primary for paint-decor, but home-decor as a concept crosses multiple DB leaves (paint-decor, storage-organization, lighting). No standalone DB leaf named home-decor exists"
+    }
+  ],
+  "new_leaves_needed": [
+    {
+      "pack_slug": "remote-controls",
+      "proposed_parent_slug": "electronics",
+      "proposed_db_slug": "remote-controls",
+      "proposed_name": "Remote Controls"
+    },
+    {
+      "pack_slug": "books-media",
+      "proposed_parent_slug": "other-misc",
+      "proposed_db_slug": "books-media",
+      "proposed_name": "Books & Media"
+    },
+    {
+      "pack_slug": "collectibles-coins",
+      "proposed_parent_slug": "other-misc",
+      "proposed_db_slug": "collectibles",
+      "proposed_name": "Collectibles & Coins"
+    },
+    {
+      "pack_slug": "batteries",
+      "proposed_parent_slug": "electronics",
+      "proposed_db_slug": "batteries-accessories",
+      "proposed_name": "Batteries & Accessories"
+    },
+    {
+      "pack_slug": "flashlights",
+      "proposed_parent_slug": "home-improvement",
+      "proposed_db_slug": "flashlights-portable-lighting",
+      "proposed_name": "Flashlights & Portable Lighting"
+    }
+  ]
+}

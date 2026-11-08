@@ -1,0 +1,6 @@
+{
+  "title": "T47 item 5: CI runs swarm check-pins (v1.25.0)",
+  "head": "t47-check-pins",
+  "base": "main",
+  "body": "## Summary\n\nT47 item 5 (decisions #223\u2013#225): a new ubuntu-only `internal pins` CI job runs `swarm check-pins` from project-swarm at the pinned tag `v1.25.0` (never a branch or latest). A stale exact pin on another OASIS package now fails CI. The existing `check` job is unchanged, so the Windows matrix gets no slower.\n\n- `.github/workflows/ci.yml`: new `pins` job (checkout, checkout RDW-Labz/project-swarm@v1.25.0 to `.swarm-tool`, run check-pins).\n- `CHANGELOG.md`: Unreleased entry.\n\nThis repo passes the check today; no pin fixes needed.\n\n## Checks\n\n<!-- swarm:checks -->\n\n- workflow YAML parses; jobs = `check`, `pins`; `pins` checks out `ref: v1.25.0`.\n\n## Mutation check\n\nThe gate here is the new CI job. Injected `agent-core==0.7.22` with a vendored `agent_core-0.7.29` wheel \u2192 `pin-not-vendored-version` + `pin-older-than-vendored`, exit 1 (R2/R4). Restored; `check-pins: ok` on the real tree. Known gap (logged for swarm 1.26): an exact pin on one of our packages with no vendored wheel is not checked by R2.\n\n\ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)\n"
+}

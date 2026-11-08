@@ -1,0 +1,1 @@
+{"ship": {"branches": [{"branch": "swarm-1.38-batch-w", "attempts": 6, "refusedCodes": {"private-name-in-diff": 2, "private-term-in-commit": 1, "test-reads-git-ignored-path": 1}, "minutesToFirstPush": 0.0, "minutesToFirstPushSource": "mtime"}], "skipped": 0}}

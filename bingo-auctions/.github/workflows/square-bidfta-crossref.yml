@@ -1,0 +1,32 @@
+name: Square × BidFTA cross-reference (read-only)
+
+# One-off, READ-ONLY report. Pages the account-wide Square customer directory
+# and flags which customers also appear in an old BidFTA bidder export. The
+# BidFTA side is a file of one-way SHA-256 key hashes committed alongside this
+# workflow (scripts/.bidfta-keys.txt) — no BidFTA plaintext is in the repo, and
+# nothing is written to Square or the DB. Matches print to the job log for the
+# operator to read back. Manual dispatch only.
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: square-bidfta-crossref
+  cancel-in-progress: false
+
+jobs:
+  crossref:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Cross-reference Square customers against BidFTA key hashes
+        env:
+          SQUARE_ACCESS_TOKEN: ${{ secrets.SQUARE_ACCESS_TOKEN }}
+        run: node scripts/square-bidfta-crossref.mjs scripts/.bidfta-keys.txt

@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "concurrency": 3,
+  "jobs": [
+    {
+      "agent": "claude",
+      "context": [
+        "coordination/t02-t03-contract.md",
+        "AGENTS.md"
+      ],
+      "timeoutMs": 900000,
+      "id": "secrets-store",
+      "outputs": [
+        "repos/agent-core/src/anorak/secrets.py",
+        "repos/agent-core/tests/test_secrets.py"
+      ],
+      "prompt": "You are a bounded OASIS worker. Coordinator instructions in coordination/t02-t03-contract.md are your task contract. Only edit declared outputs; no shell, secrets, external actions or scope expansion. Implement the T02 SecretStore and thorough focused fake-backend tests including no leaking traceback/repr/stdout/stderr/logs, missing value KeyError, malformed names/index, partial writes/deletes and cross-instance concurrency. Follow contract EXACT interface. Module list function shadows builtin: use builtins or typing safely. Raise sanitized exceptions outside except. No real OS keychain in tests. Return actual files, note remaining risks."
+    },
+    {
+      "agent": "claude",
+      "context": [
+        "coordination/t02-t03-contract.md",
+        "AGENTS.md"
+      ],
+      "timeoutMs": 900000,
+      "id": "registration-probe",
+      "outputs": [
+        "repos/connectors/scripts/check_registration.py",
+        "repos/connectors/tests/test_registration.py"
+      ],
+      "prompt": "You are a bounded OASIS worker. Coordinator instructions in coordination/t02-t03-contract.md are your task contract. Only edit declared outputs; no shell, secrets, external actions or scope expansion. Implement the T03 readiness-only operator script and focused tests. Follow contract exactly. Design injectable HTTP transport and secret reader for meaningful offline tests; validate hosts, refusal of redirects, bounded reads, timeout and secret-safe output. Test main version/dependency errors, both-provider execution, unknown/malformed errors and unexpected token success. Strict mypy script must pass. Ensure tests can load script reliably by importlib without installed script module."
+    },
+    {
+      "agent": "claude",
+      "context": [
+        "coordination/t02-t03-contract.md",
+        "AGENTS.md"
+      ],
+      "timeoutMs": 900000,
+      "id": "registration-guide",
+      "outputs": [
+        "repos/connectors/docs/registrations.md"
+      ],
+      "prompt": "You are a bounded OASIS worker. Coordinator instructions in coordination/t02-t03-contract.md are your task contract. Only edit declared outputs; no shell, secrets, external actions or scope expansion. Write the T03 plain-words console guide from official findings in contract. Include proposed domain URLs, exact Microsoft scopes, justified minimal Google scopes, hidden-input commands and readiness limitations. Explicit prerequisites and accurate pending status, no false completed registration or verification. Distinguish T03 preparation vs T11 auth/demo blocker. Practical steps, source links, no fabricated public privacy policy or contact info. Do not write any other file."
+    }
+  ]
+}

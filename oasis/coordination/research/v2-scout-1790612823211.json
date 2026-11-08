@@ -1,0 +1,60 @@
+{
+  "picks": [
+    {
+      "name": "three.js Sky.js + Water.js (examples/jsm/objects)",
+      "url": "https://github.com/mrdoob/three.js/blob/master/examples/jsm/objects/Sky.js",
+      "license": "MIT",
+      "licenseEvidence": "From mrdoob/three.js LICENSE (root of repo): 'The MIT License ... Permission is hereby granted, free of charge, to any person obtaining a copy of this software ... THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND'",
+      "commit": null,
+      "stars": 116000,
+      "lastCommit": "2026-09-24",
+      "gives": "Procedural physical sky dome (Preetham/Rayleigh-Mie atmospheric scattering driven by sun elevation/azimuth, so day-night is just animating one parameter) plus a reflective/refracted water-plane shader with normal-map distortion and Fresnel — both are self-contained ~300-line modules, no external dep…",
+      "fit": "reference-only",
+      "where": "T40 'Enter the OASIS' scene: skydome + sun/day-night driver, and any water plane in the low-poly world",
+      "risk": "Water.js explicitly only supports WebGLRenderer, not WebGPURenderer — confirm renderer choice before committing. Addon APIs shift between three.js minor versions, so pin the exact tag when vendoring and re-check on upgrade."
+    },
+    {
+      "name": "THREE.Terrain",
+      "url": "https://github.com/IceCreamYou/THREE.Terrain",
+      "license": "MIT",
+      "licenseEvidence": "From LICENSE.txt on gh-pages branch (quoted by fetch): 'The MIT License ... Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files ... to deal in the Software without restriction ...'",
+      "commit": null,
+      "stars": 905,
+      "lastCommit": null,
+      "gives": "Procedural heightmap-based low-poly terrain generation for Three.js (multiple noise/diamond-square algorithms, seeded randomness, instanced scattered decoration meshes, a grass-generation module) — purpose-built for exactly the 'low-poly terrain' part of the goal.",
+      "fit": "reference-only",
+      "where": "T40 low-poly terrain generation in the Enter-the-OASIS world",
+      "risk": "Small single-maintainer project (905 stars) with an unusual default branch (gh-pages) — verify the pinned three.js peer version (currently tracks 0.186.0, matching the Sky/Water pick) stays compatible on upgrade. Exact minified+gzip size is unknown/unpublished, so budget conservatively (~20-25KB gzi…"
+    }
+  ],
+  "rejected": [
+    {
+      "name": "Kenney City Kit (Commercial + Suburban), via shorepine/kenney mirror",
+      "url": "https://github.com/shorepine/kenney/tree/main/3d/city-commercial",
+      "reason": "license not allowed: CC0 1.0 Universal"
+    },
+    {
+      "name": "Shadertoy 'Procedural sky' (rabbitator)",
+      "url": "https://www.shadertoy.com/view/7tsfWM",
+      "reason": "Shadertoy default license applies (all rights reserved unless the author explicitly states otherwise); no CC0/MIT/CC-BY grant found on the shader page — rejected per the hard rule against Shadertoy default license."
+    },
+    {
+      "name": "Low Poly City Pack (owlora, itch.io)",
+      "url": "https://owlora.itch.io/low-poly-city-pack",
+      "reason": "Page states a custom 'free to use for personal and commercial projects' phrase with no LICENSE file and no standard OSI/CC designation — unverifiable, non-standard license, not in the allowed list (MIT/Apache-2.0/BSD/CC0/CC-BY)."
+    }
+  ],
+  "top": [
+    "three.js's own Sky.js/Water.js addons (MIT, r186) give the physical sky + water shaders for free since three is already the runtime dependency.",
+    "Kenney's City Kit (CC0, via the shorepine/kenney mirror) supplies ready-to-load low-poly glTF buildings well under the 2MB asset cap.",
+    "THREE.Terrain (MIT, v3.1.1, active) is a small, focused, still-maintained library that directly covers the low-poly terrain-generation gap."
+  ],
+  "moved": [
+    "Kenney City Kit (Commercial + Suburban), via shorepine/kenney mirror"
+  ],
+  "id": "scout-1790612823211",
+  "goal": "Low-poly world and sky for the later Enter-the-OASIS Three.js scene: procedural/physical sky shaders, low-poly terrain/city/buildings, stylized water, day-night",
+  "model": "sonnet",
+  "actualModel": "claude-sonnet-5",
+  "createdAt": "2026-09-28T16:31:32.253Z"
+}

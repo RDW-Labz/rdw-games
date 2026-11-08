@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "concurrency": 1,
+  "jobs": [
+    {
+      "id": "connectors-followups-pr-body",
+      "agent": "claude",
+      "model": "haiku",
+      "tier": "cheap",
+      "prompt": "Write the GitHub PR description for the connectors T16b follow-ups into coordination/connectors-followups-pr.md. Inputs: coordination/connectors-followups-pr-input.md and coordination/connectors-followups-changelog.md (use only the newest entry). Plain words, short sentences. Sections: Summary (one bullet each for d, e, f, plus the version 0.3.1), Why (one line: found in the live Mac run), Tests (paste the check block verbatim), Open for Braden (whether to re-vendor 0.3.1 into agent-core later). Do not invent facts. Do not claim any ticket is done. End the file with the line: \ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)\nOnly edit the declared output. End with one JSON line {\"files_changed\":[...]}.",
+      "context": [
+        "coordination/connectors-followups-pr-input.md",
+        "coordination/connectors-followups-changelog.md"
+      ],
+      "outputs": [
+        "coordination/connectors-followups-pr.md"
+      ],
+      "timeoutMs": 900000
+    }
+  ]
+}

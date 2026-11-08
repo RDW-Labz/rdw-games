@@ -1,0 +1,55 @@
+[project]
+name = "playbooks"
+version = "0.6.0"
+description = "OASIS Garage — playbooks"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = ["agent-core>=0.4.0,<0.8", "skills==0.2.1.post1", "PyYAML==6.0.3"]
+
+[project.optional-dependencies]
+avatars = ["Pillow==11.3.0"]
+
+[tool.uv.sources]
+agent-core = { path = "vendor/agent_core-0.4.0-py3-none-any.whl" }
+skills = { path = "vendor/skills-0.2.1.post1-py3-none-any.whl" }
+
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/garage"]
+artifacts = ["src/garage/avatars/packs/**", "src/garage/avatars/portraits/**"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"onboarding/v1/intro.yaml" = "garage/onboarding/v1/intro.yaml"
+"onboarding/v1/questions.yaml" = "garage/onboarding/v1/questions.yaml"
+"onboarding/v1/skill.yaml" = "garage/onboarding/v1/skill.yaml"
+"ventures.yaml" = "garage/ventures.yaml"
+
+[dependency-groups]
+dev = [
+    "Pillow==11.3.0",
+    "pytest>=8.3",
+    "ruff>=0.6",
+    "mypy>=1.11",
+    "types-PyYAML==6.0.12.20260906",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+# `playbooks` carries the unrendered repo templates; they are scaffolding, not source.
+# Harmless no-op in repos that have no `template/` directory.
+extend-exclude = ["template", "avatars/tools/reference"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.mypy]
+python_version = "3.12"
+files = ["src"]
+strict = true

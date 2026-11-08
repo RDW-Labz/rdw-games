@@ -1,0 +1,1409 @@
+[
+{
+"at": "2026-09-25T00:58:13Z",
+"by": "Btabor11",
+"n": 30,
+"repo": "project-swarm",
+"title": "1.10.1: read fenced/backticked final JSON; quiet git in non-git roots"
+},
+{
+"at": "2026-09-25T01:26:09Z",
+"by": "Btabor11",
+"n": 18,
+"repo": "desktop-app",
+"title": "Add dev-only screenshot harness for the UI pilot"
+},
+{
+"at": "2026-09-25T02:26:49Z",
+"by": "Btabor11",
+"n": 6,
+"repo": "connectors",
+"title": "T27 part 1: connector write actions + reads for every catalog connector (0.4.0)"
+},
+{
+"at": "2026-09-25T02:34:58Z",
+"by": "Btabor11",
+"n": 19,
+"repo": "desktop-app",
+"title": "T19 part 1: left rail and empty state"
+},
+{
+"at": "2026-09-25T13:17:48Z",
+"by": "Btabor11",
+"n": 7,
+"repo": "connectors",
+"title": "T27 part 1b: write results carry links + Teams delete for Undo (0.4.1)"
+},
+{
+"at": "2026-09-25T14:18:58Z",
+"by": "Btabor11",
+"n": 31,
+"repo": "project-swarm",
+"title": "1.10.2: Codex envelope parses the last fenced block, falls back to the worktree"
+},
+{
+"at": "2026-09-25T14:46:27Z",
+"by": "Btabor11",
+"n": 8,
+"repo": "connectors",
+"title": "T27 v1 scopes: Teams, OneDrive and Drive writes wait for v2 (0.4.2)"
+},
+{
+"at": "2026-09-25T15:20:22Z",
+"by": "Btabor11",
+"n": 21,
+"repo": "desktop-app",
+"title": "T30: OASIS app icon"
+},
+{
+"at": "2026-09-25T15:51:08Z",
+"by": "Btabor11",
+"n": 32,
+"repo": "project-swarm",
+"title": "1.11.0: swarm scout (prior-art research before a build)"
+},
+{
+"at": "2026-09-25T16:15:54Z",
+"by": "Btabor11",
+"n": 20,
+"repo": "desktop-app",
+"title": "T27 part 3: plan preview card, plan report and Undo"
+},
+{
+"at": "2026-09-25T16:55:56Z",
+"by": "Btabor11",
+"n": 9,
+"repo": "connectors",
+"title": "T27 follow-up: mail search by sender, subject and date, newest first (0.4.3)"
+},
+{
+"at": "2026-09-25T17:00:08Z",
+"by": "Btabor11",
+"n": 38,
+"repo": "agent-core",
+"title": "T27 follow-up: chat searches mail by sender/date and previews instead of asking (0.7.2)"
+},
+{
+"at": "2026-09-25T17:21:24Z",
+"by": "Btabor11",
+"n": 10,
+"repo": "connectors",
+"title": "T27 retry: sender match on From only, drop no-reply senders (0.4.4)"
+},
+{
+"at": "2026-09-25T17:48:09Z",
+"by": "Btabor11",
+"n": 39,
+"repo": "agent-core",
+"title": "T27 retry: reply preview shows who you reply to, warns on no-reply (0.7.3)"
+},
+{
+"at": "2026-09-25T17:48:13Z",
+"by": "Btabor11",
+"n": 22,
+"repo": "desktop-app",
+"title": "T27 retry: preview card hides ids, shows who you reply to and no-reply warnings"
+},
+{
+"at": "2026-09-25T18:14:24Z",
+"by": "Btabor11",
+"n": 11,
+"repo": "connectors",
+"title": "Teams recent chats: use a sort Graph supports; errors carry HTTP status (0.4.5)"
+},
+{
+"at": "2026-09-25T19:13:00Z",
+"by": "Btabor11",
+"n": 40,
+"repo": "agent-core",
+"title": "T27 search-first, honest Teams failures, vendor connectors 0.4.5 (0.7.4)"
+},
+{
+"at": "2026-09-25T20:42:03Z",
+"by": "Btabor11",
+"n": 12,
+"repo": "connectors",
+"title": "T27b: mail reads return full recipients; reply-all sends exactly the preview's To/Cc (0.4.6)"
+},
+{
+"at": "2026-09-25T20:50:38Z",
+"by": "Btabor11",
+"n": 41,
+"repo": "agent-core",
+"title": "T27b: reply-all previews every recipient and drops you (0.7.5)"
+},
+{
+"at": "2026-09-25T20:54:05Z",
+"by": "Btabor11",
+"n": 13,
+"repo": "connectors",
+"title": "T27c: read one mail by id for reply verification (0.4.7)"
+},
+{
+"at": "2026-09-25T21:38:41Z",
+"by": "Btabor11",
+"n": 42,
+"repo": "agent-core",
+"title": "T27c: chat never claims an action it didn't take; replies re-verify by id (0.7.6)"
+},
+{
+"at": "2026-09-25T21:54:56Z",
+"by": "Btabor11",
+"n": 14,
+"repo": "connectors",
+"title": "T34: every connector write lands in the audit (0.4.8)"
+},
+{
+"at": "2026-09-25T22:02:16Z",
+"by": "Btabor11",
+"n": 43,
+"repo": "agent-core",
+"title": "Vendor connectors 0.4.8: every connector write lands in the audit (0.7.7)"
+},
+{
+"at": "2026-09-25T22:31:20Z",
+"by": "Btabor11",
+"n": 44,
+"repo": "agent-core",
+"title": "T32: skill steps accept role reader/critic + checks (0.7.8)"
+},
+{
+"at": "2026-09-25T22:36:26Z",
+"by": "Btabor11",
+"n": 6,
+"repo": "skills",
+"title": "T32: reader/critic convention + skill validator (0.3.0)"
+},
+{
+"at": "2026-09-25T23:31:48Z",
+"by": "Btabor11",
+"n": 33,
+"repo": "project-swarm",
+"title": "1.12.0: swarm sweep (read-only multi-area GitHub research)"
+},
+{
+"at": "2026-09-25T23:33:56Z",
+"by": "Btabor11",
+"n": 23,
+"repo": "desktop-app",
+"title": "Chat scrolls to the newest message; card shows above its text (bugs 3 and 4)"
+},
+{
+"at": "2026-09-25T23:37:57Z",
+"by": "Btabor11",
+"n": 45,
+"repo": "agent-core",
+"title": "T27d: honest pending text, wider claim guard, Teams send refusal (0.7.9)"
+},
+{
+"at": "2026-09-26T00:15:34Z",
+"by": "Btabor11",
+"n": 24,
+"repo": "desktop-app",
+"title": "Fix chat composer drifting when scrolling long threads (bug 5)"
+},
+{
+"at": "2026-09-26T01:43:29Z",
+"by": "Btabor11",
+"n": 25,
+"repo": "desktop-app",
+"title": "Bug 6: quick preview cards open at their top, full email scroll hint, and the preview harness captures every view"
+},
+{
+"at": "2026-09-26T01:58:24Z",
+"by": "Btabor11",
+"n": 46,
+"repo": "agent-core",
+"title": "T27e: search-first rule moves to system text; Teams refusal no longer nudged (0.7.10)"
+},
+{
+"at": "2026-09-26T02:10:46Z",
+"by": "Btabor11",
+"n": 26,
+"repo": "desktop-app",
+"title": "Fix preview-screens flake: reset each view's chat threads on the shared fake service"
+},
+{
+"at": "2026-09-26T03:06:39Z",
+"by": "Btabor11",
+"n": 47,
+"repo": "agent-core",
+"title": "T28a: injection test suite for chat consent (0.7.11)"
+},
+{
+"at": "2026-09-26T03:29:38Z",
+"by": "Btabor11",
+"n": 34,
+"repo": "project-swarm",
+"title": "1.13.0: drop-in kickoff for any orchestrator, --root update fix, field report"
+},
+{
+"at": "2026-09-26T04:42:52Z",
+"by": "Btabor11",
+"n": 48,
+"repo": "agent-core",
+"title": "0.7.12: first_name on GET /status for the Home greeting (#131)"
+},
+{
+"at": "2026-09-26T06:26:02Z",
+"by": "Btabor11",
+"n": 27,
+"repo": "desktop-app",
+"title": "T19 PR 1: design system, warm theme, clear pause, Chats page and quick field fixes"
+},
+{
+"at": "2026-09-26T06:39:28Z",
+"by": "Btabor11",
+"n": 35,
+"repo": "project-swarm",
+"title": "1.14.0: keep work on denied reads, swarm redcheck, field lessons loop"
+},
+{
+"at": "2026-09-26T07:01:50Z",
+"by": "Btabor11",
+"n": 28,
+"repo": "desktop-app",
+"title": "Home greets the person by first name (#131)"
+},
+{
+"at": "2026-09-26T09:08:26Z",
+"by": "Btabor11",
+"n": 29,
+"repo": "desktop-app",
+"title": "T19 PR 2: onboarding story and Orb polish"
+},
+{
+"at": "2026-09-26T14:07:49Z",
+"by": "Btabor11",
+"n": 30,
+"repo": "desktop-app",
+"title": "T19 PR 2 re-entry: Settings 'Show me around again' (#137)"
+},
+{
+"at": "2026-09-26T14:09:57Z",
+"by": "Btabor11",
+"n": 36,
+"repo": "project-swarm",
+"title": "1.15.0: field lessons 10-17 as tool checks"
+},
+{
+"at": "2026-09-26T15:05:42Z",
+"by": "Btabor11",
+"n": 49,
+"repo": "agent-core",
+"title": "0.7.13: T41 reply shape in the chat instructions (#129)"
+},
+{
+"at": "2026-09-26T16:53:11Z",
+"by": "Btabor11",
+"n": 31,
+"repo": "desktop-app",
+"title": "T19 PR 3: side panel + chat, safe Markdown replies (T41, #129)"
+},
+{
+"at": "2026-09-26T20:21:21Z",
+"by": "Btabor11",
+"n": 7,
+"repo": "skills",
+"title": "T28: profile.yaml company_domains + standing_rules format (0.3.1)"
+},
+{
+"at": "2026-09-26T20:38:24Z",
+"by": "Btabor11",
+"n": 50,
+"repo": "agent-core",
+"title": "0.7.14: T28 standing permissions (agent-core)"
+},
+{
+"at": "2026-09-26T20:52:07Z",
+"by": "Btabor11",
+"n": 38,
+"repo": "project-swarm",
+"title": "1.16.0: field lessons 18-20 as tool checks"
+},
+{
+"at": "2026-09-26T22:24:29Z",
+"by": "Btabor11",
+"n": 32,
+"repo": "desktop-app",
+"title": "T19 PR 4: Connect"
+},
+{
+"at": "2026-09-26T22:35:25Z",
+"by": "Btabor11",
+"n": 51,
+"repo": "agent-core",
+"title": "0.7.15: T29 feedback loop (agent-core)"
+},
+{
+"at": "2026-09-26T22:58:54Z",
+"by": "Btabor11",
+"n": 52,
+"repo": "agent-core",
+"title": "0.7.16: GET /scoreboard/latest (T19 PR 5 agent-core half)"
+},
+{
+"at": "2026-09-27T00:08:43Z",
+"by": "Btabor11",
+"n": 39,
+"repo": "project-swarm",
+"title": "1.17.0: field lessons 21-31"
+},
+{
+"at": "2026-09-27T00:16:52Z",
+"by": "Btabor11",
+"n": 33,
+"repo": "desktop-app",
+"title": "T19 PR 5: Activity + Scoreboard"
+},
+{
+"at": "2026-09-27T00:20:24Z",
+"by": "Btabor11",
+"n": 15,
+"repo": "connectors",
+"title": "T43 connectors half: formatted email bodies (0.4.9)"
+},
+{
+"at": "2026-09-27T00:40:53Z",
+"by": "Btabor11",
+"n": 34,
+"repo": "desktop-app",
+"title": "Activity rows in plain words (#148)"
+},
+{
+"at": "2026-09-27T00:54:01Z",
+"by": "Btabor11",
+"n": 53,
+"repo": "agent-core",
+"title": "0.7.17: plain words in Activity rows and the weekly note"
+},
+{
+"at": "2026-09-27T01:38:43Z",
+"by": "Btabor11",
+"n": 54,
+"repo": "agent-core",
+"title": "0.7.18: T43 formatted emails (agent-core half)"
+},
+{
+"at": "2026-09-27T01:42:47Z",
+"by": "Btabor11",
+"n": 40,
+"repo": "project-swarm",
+"title": "1.18.0: field lessons 32-39 (mutants shape, all-or-nothing integrate, red-base mutants, dropped writes, ...)"
+},
+{
+"at": "2026-09-27T02:25:47Z",
+"by": "Btabor11",
+"n": 55,
+"repo": "agent-core",
+"title": "T42 agent-core half: rig-service idle numbers on /status (0.7.19)"
+},
+{
+"at": "2026-09-27T03:42:20Z",
+"by": "Btabor11",
+"n": 35,
+"repo": "desktop-app",
+"title": "Whole-app pass 1: 62 of 71 flaws fixed, harness per-worktree port"
+},
+{
+"at": "2026-09-27T04:43:27Z",
+"by": "Btabor11",
+"n": 36,
+"repo": "desktop-app",
+"title": "T42 desktop half: idle measure tool, battery stills animations, CI warning step"
+},
+{
+"at": "2026-09-27T13:00:06Z",
+"by": "Btabor11",
+"n": 37,
+"repo": "desktop-app",
+"title": "T43 desktop: ask-first card shows the exact email formatting"
+},
+{
+"at": "2026-09-27T13:15:36Z",
+"by": "Btabor11",
+"n": 16,
+"repo": "connectors",
+"title": "T44 connectors half: account label + audited disconnect (0.4.10)"
+},
+{
+"at": "2026-09-27T14:19:03Z",
+"by": "Btabor11",
+"n": 39,
+"repo": "desktop-app",
+"title": "T44 desktop: Connect tile account line + Disconnect"
+},
+{
+"at": "2026-09-27T14:39:38Z",
+"by": "Btabor11",
+"n": 56,
+"repo": "agent-core",
+"title": "T44 agent-core: account on /connectors + ask-first disconnect (0.7.20)"
+},
+{
+"at": "2026-09-27T15:03:51Z",
+"by": "Btabor11",
+"n": 8,
+"repo": "skills",
+"title": "T25: profile.yaml optional first_name, last_name, preferred_name, birthday (0.3.2)"
+},
+{
+"at": "2026-09-27T15:46:39Z",
+"by": "Btabor11",
+"n": 40,
+"repo": "desktop-app",
+"title": "T28 desktop: standing permissions (second Yes, Settings rules, Scoreboard counts)"
+},
+{
+"at": "2026-09-27T16:29:48Z",
+"by": "Btabor11",
+"n": 41,
+"repo": "project-swarm",
+"title": "1.19.0: sandboxed shell workers, per-worktree ports, setup, loopback, scratch dir, toolchains doctor"
+},
+{
+"at": "2026-09-27T16:43:02Z",
+"by": "Btabor11",
+"n": 17,
+"repo": "connectors",
+"title": "T33 PR A: QuickBooks read connector, read-only, fake transport (0.5.0)"
+},
+{
+"at": "2026-09-27T17:03:11Z",
+"by": "Btabor11",
+"n": 57,
+"repo": "agent-core",
+"title": "T25 agent-core: Remember this \u2014 offer + ask-first save to profile or notes (0.7.21)"
+},
+{
+"at": "2026-09-27T17:48:30Z",
+"by": "Btabor11",
+"n": 41,
+"repo": "desktop-app",
+"title": "T29 desktop: thumbs + one-line note on replies and plan reports (full chat + quick box)"
+},
+{
+"at": "2026-09-27T18:09:03Z",
+"by": "Btabor11",
+"n": 58,
+"repo": "agent-core",
+"title": "T33 PR B: month-end close math + skill bindings (0.7.22)"
+},
+{
+"at": "2026-09-27T19:53:35Z",
+"by": "Btabor11",
+"n": 9,
+"repo": "skills",
+"title": "T33 PR C: month-end-close skill (0.4.0)"
+},
+{
+"at": "2026-09-27T20:00:13Z",
+"by": "Btabor11",
+"n": 42,
+"repo": "project-swarm",
+"title": "1.20.0: field lessons 127\u2013157 as tool checks"
+},
+{
+"at": "2026-09-27T20:33:21Z",
+"by": "Btabor11",
+"n": 59,
+"repo": "agent-core",
+"title": "T33 demo: off-by-default dev setting for fake QuickBooks (0.7.23)"
+},
+{
+"at": "2026-09-27T21:03:08Z",
+"by": "Btabor11",
+"n": 42,
+"repo": "desktop-app",
+"title": "T45 slice 1: Lantern foundation, one lamp, the Yes moment, narrow top bar"
+},
+{
+"at": "2026-09-27T21:41:39Z",
+"by": "Btabor11",
+"n": 43,
+"repo": "desktop-app",
+"title": "T45 slice 5: Settings page and the Chats page head"
+},
+{
+"at": "2026-09-27T22:24:59Z",
+"by": "Btabor11",
+"n": 44,
+"repo": "desktop-app",
+"title": "T45 slice 2: first run (onboarding reading layout, sign in, not connected, P1 narrow)"
+},
+{
+"at": "2026-09-27T22:50:54Z",
+"by": "Btabor11",
+"n": 60,
+"repo": "agent-core",
+"title": "T22 agent-core: signed avatar library (download, verify, cache, serve) (0.7.24)"
+},
+{
+"at": "2026-09-27T22:55:49Z",
+"by": "Btabor11",
+"n": 45,
+"repo": "desktop-app",
+"title": "T45 slice 3: Connect ledger rows, rim only on needs attention, P3"
+},
+{
+"at": "2026-09-27T23:24:53Z",
+"by": "Btabor11",
+"n": 43,
+"repo": "project-swarm",
+"title": "1.21.0: field lessons 158\u2013164 as tool checks"
+},
+{
+"at": "2026-09-27T23:47:55Z",
+"by": "Btabor11",
+"n": 46,
+"repo": "desktop-app",
+"title": "T45 slice 4: Activity ledger, Scoreboard figure lines, Skills"
+},
+{
+"at": "2026-09-28T00:05:25Z",
+"by": "Btabor11",
+"n": 47,
+"repo": "desktop-app",
+"title": "T45 slice 6: orb parity with the one lamp"
+},
+{
+"at": "2026-09-28T00:10:27Z",
+"by": "Btabor11",
+"n": 44,
+"repo": "project-swarm",
+"title": "1.22.0: field lessons 165\u2013168 as tool checks"
+},
+{
+"at": "2026-09-28T00:23:02Z",
+"by": "Btabor11",
+"n": 48,
+"repo": "desktop-app",
+"title": "T45 slice 7: review passes, preflight, lit \u25c6 on Connect, narrow Recents focus"
+},
+{
+"at": "2026-09-28T02:02:30Z",
+"by": "Btabor11",
+"n": 49,
+"repo": "desktop-app",
+"title": "T22 desktop: Coworkers page, Pick your coworker step, install progress and Cancel"
+},
+{
+"at": "2026-09-28T02:21:14Z",
+"by": "Btabor11",
+"n": 61,
+"repo": "agent-core",
+"title": "T22 follow-up agent-core: install progress, thumbnails, select/cancel, categories (0.7.25)"
+},
+{
+"at": "2026-09-28T04:00:11Z",
+"by": "Btabor11",
+"n": 10,
+"repo": "skills",
+"title": "T46 contract: animated tier in the avatar pack format (0.4.1)"
+},
+{
+"at": "2026-09-28T04:02:54Z",
+"by": "Btabor11",
+"n": 9,
+"repo": "playbooks",
+"title": "T26: portrait_to_pack \u2014 standard orb packs from a portrait in code"
+},
+{
+"at": "2026-09-28T04:26:18Z",
+"by": "Btabor11",
+"n": 10,
+"repo": "playbooks",
+"title": "T46 playbooks: animated tier in validate_pack and the pack generator (0.4.0)"
+},
+{
+"at": "2026-09-28T04:43:14Z",
+"by": "Btabor11",
+"n": 50,
+"repo": "desktop-app",
+"title": "T46 desktop: More motion \u2014 idle variants, celebrate, Coworkers tag"
+},
+{
+"at": "2026-09-28T04:46:30Z",
+"by": "Btabor11",
+"n": 62,
+"repo": "agent-core",
+"title": "T46 agent-core: animated tier \u2014 pack checks + tier on /avatars (0.7.26)"
+},
+{
+"at": "2026-09-28T04:48:09Z",
+"by": "Btabor11",
+"n": 11,
+"repo": "skills",
+"title": "T46 follow-up: format matches the builds \u2014 celebrate required, max 8 variants (0.4.2)"
+},
+{
+"at": "2026-09-28T05:16:54Z",
+"by": "Btabor11",
+"n": 51,
+"repo": "desktop-app",
+"title": "T25 desktop: Remember this \u2014 offer, checkboxes and Yes in chat and the quick box"
+},
+{
+"at": "2026-09-28T05:31:27Z",
+"by": "Btabor11",
+"n": 12,
+"repo": "skills",
+"title": "T23 contract: theme packs in the format doc (0.5.0)"
+},
+{
+"at": "2026-09-28T11:36:52Z",
+"by": "Btabor11",
+"n": 11,
+"repo": "playbooks",
+"title": "T46 motion packs: clips_to_pack \u2014 video clips to an animated-tier pack (0.4.1)"
+},
+{
+"at": "2026-09-28T11:45:59Z",
+"by": "Btabor11",
+"n": 63,
+"repo": "agent-core",
+"title": "T23 agent-core: themes \u2014 profile field, routes, signed library, contrast check (0.7.27)"
+},
+{
+"at": "2026-09-28T11:52:38Z",
+"by": "Btabor11",
+"n": 12,
+"repo": "playbooks",
+"title": "T23 playbooks: theme validator, contrast checker and bundled lantern (0.5.0)"
+},
+{
+"at": "2026-09-28T12:04:23Z",
+"by": "Btabor11",
+"n": 52,
+"repo": "desktop-app",
+"title": "T23 desktop: themes \u2014 live look switching on the Coworkers page"
+},
+{
+"at": "2026-09-28T12:26:40Z",
+"by": "Btabor11",
+"n": 64,
+"repo": "agent-core",
+"title": "T23 follow-up agent-core: theme mirror matches playbooks' shadow check (0.7.28)"
+},
+{
+"at": "2026-09-28T12:47:16Z",
+"by": "Btabor11",
+"n": 65,
+"repo": "agent-core",
+"title": "agent-core: deterministic timing in two Windows-flaky tests"
+},
+{
+"at": "2026-09-28T12:55:01Z",
+"by": "Btabor11",
+"n": 47,
+"repo": "project-swarm",
+"title": "1.23.0: field lessons 169\u2013176 as tool checks"
+},
+{
+"at": "2026-09-28T13:32:02Z",
+"by": "Btabor11",
+"n": 53,
+"repo": "desktop-app",
+"title": "T23 desktop: Lantern light lamp 200 120 0"
+},
+{
+"at": "2026-09-28T16:20:53Z",
+"by": "Btabor11",
+"n": 48,
+"repo": "project-swarm",
+"title": "Release 1.24.0: OpenRouter adapter and strict ship checks"
+},
+{
+"at": "2026-09-28T16:23:26Z",
+"by": "Btabor11",
+"n": 49,
+"repo": "project-swarm",
+"title": "Release 1.24.1: web jobs may browse (lesson 188)"
+},
+{
+"at": "2026-09-28T16:23:44Z",
+"by": "Btabor11",
+"n": 18,
+"repo": "connectors",
+"title": "T47 connectors: agent-core requirement as a range, not a stale pin (0.5.1)"
+},
+{
+"at": "2026-09-28T16:24:29Z",
+"by": "Btabor11",
+"n": 13,
+"repo": "skills",
+"title": "T47 skills: agent-core requirement as a range, not a stale pin (0.2.1.post1)"
+},
+{
+"at": "2026-09-28T16:24:39Z",
+"by": "Btabor11",
+"n": 13,
+"repo": "playbooks",
+"title": "T23 playbooks: round-one theme palettes (0.5.1)"
+},
+{
+"at": "2026-09-28T16:26:01Z",
+"by": "Btabor11",
+"n": 14,
+"repo": "playbooks",
+"title": "T47 playbooks: agent-core requirement as a range (0.2.4, maintenance)"
+},
+{
+"at": "2026-09-28T17:14:42Z",
+"by": "Btabor11",
+"n": 66,
+"repo": "agent-core",
+"title": "agent-core 0.7.29: one-step rig install (T47)"
+},
+{
+"at": "2026-09-28T18:21:19Z",
+"by": "Btabor11",
+"n": 19,
+"repo": "connectors",
+"title": "connectors 0.5.2: Teams reads by message time, complete flag, 10 s budget, recent_mail (T48)"
+},
+{
+"at": "2026-09-28T18:40:59Z",
+"by": "Btabor11",
+"n": 50,
+"repo": "project-swarm",
+"title": "Release 1.25.0: honest pre-existing checks, check-pins, scout and ship fixes"
+},
+{
+"at": "2026-09-28T19:32:28Z",
+"by": "Btabor11",
+"n": 2,
+"repo": "agent-amber",
+"title": "T47 item 5: CI runs swarm check-pins (v1.25.0)"
+},
+{
+"at": "2026-09-28T19:32:29Z",
+"by": "Btabor11",
+"n": 2,
+"repo": "agent-michael",
+"title": "T47 item 5: CI runs swarm check-pins (v1.25.0)"
+},
+{
+"at": "2026-09-28T19:32:48Z",
+"by": "Btabor11",
+"n": 2,
+"repo": "rag-pipeline",
+"title": "T47 item 5: CI runs swarm check-pins (v1.25.0)"
+},
+{
+"at": "2026-09-28T19:33:29Z",
+"by": "Btabor11",
+"n": 5,
+"repo": "remote",
+"title": "T47 item 5: CI runs swarm check-pins (v1.25.0)"
+},
+{
+"at": "2026-09-28T19:33:39Z",
+"by": "Btabor11",
+"n": 14,
+"repo": "skills",
+"title": "T47 item 5: CI runs swarm check-pins; agent-core range pin"
+},
+{
+"at": "2026-09-28T19:37:30Z",
+"by": "Btabor11",
+"n": 15,
+"repo": "playbooks",
+"title": "T47 item 5: CI runs swarm check-pins; agent-core range pin"
+},
+{
+"at": "2026-09-28T20:47:02Z",
+"by": "Btabor11",
+"n": 67,
+"repo": "agent-core",
+"title": "T48: honest reads, early Teams refusal, search-first recap, plain titles (0.7.30)"
+},
+{
+"at": "2026-09-28T22:02:51Z",
+"by": "Btabor11",
+"n": 51,
+"repo": "project-swarm",
+"title": "Release 1.26.0: field lessons 99\u2013111, local config, ship timing"
+},
+{
+"at": "2026-09-28T22:47:03Z",
+"by": "Btabor11",
+"n": 68,
+"repo": "agent-core",
+"title": "agent-core 0.7.31: T48 Mac-check fixes"
+},
+{
+"at": "2026-09-28T22:47:36Z",
+"by": "Btabor11",
+"n": 52,
+"repo": "project-swarm",
+"title": "Release 1.26.1: config outside the install, private-names via config, public scrub"
+},
+{
+"at": "2026-09-28T23:04:22Z",
+"by": "Btabor11",
+"n": 6,
+"repo": "remote",
+"title": "T64: Watcher v1 (Windows) design doc"
+},
+{
+"at": "2026-09-28T23:50:25Z",
+"by": "Btabor11",
+"n": 69,
+"repo": "agent-core",
+"title": "agent-core 0.7.32: T62 scoreboard nightly installs and logs its runs"
+},
+{
+"at": "2026-09-29T00:00:50Z",
+"by": "Btabor11",
+"n": 70,
+"repo": "agent-core",
+"title": "Test lint: tests use pytest tmp_path, not tempfile directories"
+},
+{
+"at": "2026-09-29T00:02:41Z",
+"by": "Btabor11",
+"n": 53,
+"repo": "project-swarm",
+"title": "Release 1.27.0: worker skills"
+},
+{
+"at": "2026-09-29T00:11:25Z",
+"by": "Btabor11",
+"n": 15,
+"repo": "skills",
+"title": "skills 0.6.0: ask-first exit test (T61)"
+},
+{
+"at": "2026-09-29T00:14:59Z",
+"by": "Btabor11",
+"n": 54,
+"repo": "project-swarm",
+"title": "Release 1.28.0: field lessons 113-119"
+},
+{
+"at": "2026-09-29T01:30:49Z",
+"by": "Btabor11",
+"n": 16,
+"repo": "playbooks",
+"title": "playbooks 0.5.2: T46 More motion fill 80-90% of cell height (#205)"
+},
+{
+"at": "2026-09-29T01:57:07Z",
+"by": "Btabor11",
+"n": 55,
+"repo": "project-swarm",
+"title": "Release 1.29.0: field lessons 120-130"
+},
+{
+"at": "2026-09-29T02:00:25Z",
+"by": "Btabor11",
+"n": 71,
+"repo": "agent-core",
+"title": "agent-core 0.7.33: T66 Scoreboard events (ask-first, sourced answers, automated, check-in)"
+},
+{
+"at": "2026-09-29T02:06:12Z",
+"by": "Btabor11",
+"n": 56,
+"repo": "project-swarm",
+"title": "Release 1.29.0: version bump"
+},
+{
+"at": "2026-09-29T03:17:08Z",
+"by": "Btabor11",
+"n": 72,
+"repo": "agent-core",
+"title": "agent-core 0.7.34: T66b Scoreboard counts events by the local day"
+},
+{
+"at": "2026-09-29T03:30:04Z",
+"by": "Btabor11",
+"n": 73,
+"repo": "agent-core",
+"title": "agent-core 0.7.35: T61b part 1 \u2014 exit-test eligibility gate for standing rules"
+},
+{
+"at": "2026-09-29T03:41:47Z",
+"by": "Btabor11",
+"n": 16,
+"repo": "skills",
+"title": "skills 0.7.0: shared/email-reply + live exit-test report fields + pinned datasets (T61b part 2A)"
+},
+{
+"at": "2026-09-29T04:24:23Z",
+"by": "Btabor11",
+"n": 57,
+"repo": "project-swarm",
+"title": "Release 1.30.0: field lessons 131-139"
+},
+{
+"at": "2026-09-29T04:31:51Z",
+"by": "Btabor11",
+"n": 74,
+"repo": "agent-core",
+"title": "agent-core 0.7.36: T65 failed runs log failed_step + error_class"
+},
+{
+"at": "2026-09-29T05:40:56Z",
+"by": "Btabor11",
+"n": 75,
+"repo": "agent-core",
+"title": "agent-core 0.7.37: T61b part 2 live exit-test runner (fake model only; no key)"
+},
+{
+"at": "2026-09-29T12:15:14Z",
+"by": "Btabor11",
+"n": 58,
+"repo": "project-swarm",
+"title": "Release 1.31.0: field lessons 238-241"
+},
+{
+"at": "2026-09-29T12:49:50Z",
+"by": "Btabor11",
+"n": 59,
+"repo": "project-swarm",
+"title": "Release 1.32.0: field lessons 242-243"
+},
+{
+"at": "2026-09-29T14:00:41Z",
+"by": "Btabor11",
+"n": 20,
+"repo": "connectors",
+"title": "connectors 0.5.3: Sent mail + calendar series reads (T63)"
+},
+{
+"at": "2026-09-29T14:29:34Z",
+"by": "Btabor11",
+"n": 76,
+"repo": "agent-core",
+"title": "agent-core 0.7.38: T67 account refresh actually sent (needs Braden)"
+},
+{
+"at": "2026-09-29T15:32:25Z",
+"by": "Btabor11",
+"n": 60,
+"repo": "project-swarm",
+"title": "Release 1.33.0: field lessons 244-247, 249-251"
+},
+{
+"at": "2026-09-29T17:04:42Z",
+"by": "Btabor11",
+"n": 61,
+"repo": "project-swarm",
+"title": "Release 1.34.0: field lessons 248, 252-255"
+},
+{
+"at": "2026-09-29T20:01:38Z",
+"by": "Btabor11",
+"n": 77,
+"repo": "agent-core",
+"title": "agent-core 0.7.39: T63 Proposals v1, agent-core half (needs Braden)"
+},
+{
+"at": "2026-09-29T20:26:20Z",
+"by": "Btabor11",
+"n": 63,
+"repo": "project-swarm",
+"title": "Release 1.35.0: T52b swarm verify --orb"
+},
+{
+"at": "2026-09-29T20:37:38Z",
+"by": "Btabor11",
+"n": 21,
+"repo": "connectors",
+"title": "connectors 0.5.4: refuse off-host nextLink (#285)"
+},
+{
+"at": "2026-09-29T21:11:44Z",
+"by": "Btabor11",
+"n": 78,
+"repo": "agent-core",
+"title": "agent-core 0.7.40: vendor connectors 0.5.4 (nextLink host check, needs Braden)"
+},
+{
+"at": "2026-09-29T21:34:07Z",
+"by": "Btabor11",
+"n": 17,
+"repo": "skills",
+"title": "skills 0.7.1: vendor AgentDojo workspace suite text (T61b Fix B, #286)"
+},
+{
+"at": "2026-09-29T21:52:49Z",
+"by": "Btabor11",
+"n": 64,
+"repo": "project-swarm",
+"title": "Release 1.36.0: field lessons 256-261, 263"
+},
+{
+"at": "2026-09-29T22:34:59Z",
+"by": "Btabor11",
+"n": 54,
+"repo": "desktop-app",
+"title": "T47 item 5: CI runs swarm check-pins at v1.36.0"
+},
+{
+"at": "2026-09-29T23:02:52Z",
+"by": "Btabor11",
+"n": 17,
+"repo": "playbooks",
+"title": "playbooks 0.5.3: ship the 8 More motion packs in the wheel; skills==0.2.1.post1 (#290)"
+},
+{
+"at": "2026-09-30T00:07:48Z",
+"by": "Btabor11",
+"n": 79,
+"repo": "agent-core",
+"title": "agent-core 0.7.41: vendor playbooks 0.5.3 - 8 More motion packs as bundled avatars (#290, #291)"
+},
+{
+"at": "2026-09-30T01:19:16Z",
+"by": "Btabor11",
+"n": 65,
+"repo": "project-swarm",
+"title": "Release 1.37.0: field lessons 263r, 268-272"
+},
+{
+"at": "2026-09-30T01:56:58Z",
+"by": "Btabor11",
+"n": 55,
+"repo": "desktop-app",
+"title": "T49: Orb hover controls"
+},
+{
+"at": "2026-09-30T02:07:59Z",
+"by": "Btabor11",
+"n": 80,
+"repo": "agent-core",
+"title": "T61b Fix A+B: fail closed on the vacuous exit-test pass, then measure the numbers for real (agent-core 0.7.42)"
+},
+{
+"at": "2026-09-30T02:22:49Z",
+"by": "Btabor11",
+"n": 81,
+"repo": "agent-core",
+"title": "agent-core 0.7.43: T68 decoder accepts the usage breakdown and skips unknown blocks (needs Braden)"
+},
+{
+"at": "2026-09-30T02:58:46Z",
+"by": "Btabor11",
+"n": 82,
+"repo": "agent-core",
+"title": "agent-core 0.7.44: T63b today's suggestion route + chat card frame"
+},
+{
+"at": "2026-09-30T03:35:44Z",
+"by": "Btabor11",
+"n": 7,
+"repo": "remote",
+"title": "remote 0.2.0: mask_credentials for free-text credential shapes (T70 PR 1, needs Braden)"
+},
+{
+"at": "2026-09-30T04:05:01Z",
+"by": "Btabor11",
+"n": 56,
+"repo": "desktop-app",
+"title": "T49b: floating companion redesign (bubble + dock, six companion styles)"
+},
+{
+"at": "2026-09-30T04:43:03Z",
+"by": "Btabor11",
+"n": 83,
+"repo": "agent-core",
+"title": "agent-core 0.7.45: T70 mask credentials read from mail/Teams (needs Braden)"
+},
+{
+"at": "2026-09-30T05:26:39Z",
+"by": "Btabor11",
+"n": 57,
+"repo": "desktop-app",
+"title": "T63: Suggestion card on Home and in chat"
+},
+{
+"at": "2026-09-30T14:45:18Z",
+"by": "Btabor11",
+"n": 58,
+"repo": "desktop-app",
+"title": "Tests: Onboarding avatar-refresh assertions wait for the async call (CI flake)"
+},
+{
+"at": "2026-09-30T15:12:33Z",
+"by": "Btabor11",
+"n": 59,
+"repo": "desktop-app",
+"title": "Fix: bundled More motion packs show a preview and can be picked (needs Braden)"
+},
+{
+"at": "2026-09-30T15:16:34Z",
+"by": "Btabor11",
+"n": 84,
+"repo": "agent-core",
+"title": "agent-core 0.7.46: T301 send-from account on the Yes card (needs Braden)"
+},
+{
+"at": "2026-09-30T15:41:44Z",
+"by": "Btabor11",
+"n": 8,
+"repo": "remote",
+"title": "remote docs: link the rendered T64 watcher diagram (#313)"
+},
+{
+"at": "2026-09-30T15:53:19Z",
+"by": "Btabor11",
+"n": 70,
+"repo": "project-swarm",
+"title": "Kickoff pin 1.37.0; ship tests pass without gh on PATH"
+},
+{
+"at": "2026-09-30T16:24:32Z",
+"by": "Btabor11",
+"n": 85,
+"repo": "agent-core",
+"title": "agent-core 0.7.47: bundled More motion packs get a thumb + e2e pick test; report says \"Sent\" (#302 A) (needs Braden)"
+},
+{
+"at": "2026-09-30T16:28:03Z",
+"by": "Btabor11",
+"n": 60,
+"repo": "desktop-app",
+"title": "T301: Yes card shows the send-from account and lets you switch it (needs Braden)"
+},
+{
+"at": "2026-09-30T16:51:42Z",
+"by": "Btabor11",
+"n": 71,
+"repo": "project-swarm",
+"title": "Release 1.38.0: field lessons 262, 264-267, 273-280"
+},
+{
+"at": "2026-09-30T17:53:25Z",
+"by": "Btabor11",
+"n": 86,
+"repo": "agent-core",
+"title": "agent-core 0.7.48: real-bundled-pack route test (packs Mac check fail 2026-09-30) (needs Braden)"
+},
+{
+"at": "2026-09-30T17:55:16Z",
+"by": "Btabor11",
+"n": 61,
+"repo": "desktop-app",
+"title": "packs: CSP allows blob: images so More motion cards and the orb show the picked pack (Mac check fail 2026-09-30) (needs Braden)"
+},
+{
+"at": "2026-09-30T18:17:57Z",
+"by": "Btabor11",
+"n": 9,
+"repo": "remote",
+"title": "remote 0.3.0: T64 slices 2-3, scrubbed HAR trace writer + HAR->macro adapter (needs Braden)"
+},
+{
+"at": "2026-09-30T18:37:38Z",
+"by": "Btabor11",
+"n": 87,
+"repo": "agent-core",
+"title": "agent-core 0.7.49: T61b live exit-test dev cap $2.00 -> $4.00 (decision #321) (needs Braden)"
+},
+{
+"at": "2026-09-30T19:04:32Z",
+"by": "Btabor11",
+"n": 88,
+"repo": "agent-core",
+"title": "agent-core 0.7.50: T64 watcher wiring slice (remote 0.3.0)"
+},
+{
+"at": "2026-09-30T19:20:44Z",
+"by": "Btabor11",
+"n": 89,
+"repo": "agent-core",
+"title": "agent-core 0.7.51: T69 keychain get no longer polls a missing optional secret every ~3 s (needs Braden)"
+},
+{
+"at": "2026-09-30T19:22:22Z",
+"by": "Btabor11",
+"n": 72,
+"repo": "project-swarm",
+"title": "Release 1.39.0: field lessons 281-288 (batch X)"
+},
+{
+"at": "2026-09-30T19:45:26Z",
+"by": "Btabor11",
+"n": 90,
+"repo": "agent-core",
+"title": "agent-core 0.7.52: T61b live runner writes a failed_at_cap partial report"
+},
+{
+"at": "2026-09-30T19:51:32Z",
+"by": "Btabor11",
+"n": 62,
+"repo": "desktop-app",
+"title": "desktop-app 0.2.0: T74 Windows installer bundle + docs (needs Braden)"
+},
+{
+"at": "2026-09-30T20:13:37Z",
+"by": "Btabor11",
+"n": 63,
+"repo": "desktop-app",
+"title": "desktop-app 0.2.0: T74 (e) test \u2014 app launch starts and Quit/exit stops rig-service"
+},
+{
+"at": "2026-09-30T20:24:42Z",
+"by": "Btabor11",
+"n": 91,
+"repo": "agent-core",
+"title": "agent-core 0.7.53: T74 Windows Credential Manager round-trip CI + embedding-host service contract (needs Braden)"
+},
+{
+"at": "2026-09-30T20:47:25Z",
+"by": "Btabor11",
+"n": 10,
+"repo": "remote",
+"title": "remote 0.4.0: T76 watcher never-automate host gate (decision #329) (needs Braden)"
+},
+{
+"at": "2026-09-30T20:55:34Z",
+"by": "Btabor11",
+"n": 18,
+"repo": "skills",
+"title": "skills 0.8.0: T76 lint refuses never-automate hosts via --profile (decision #329)"
+},
+{
+"at": "2026-09-30T20:57:28Z",
+"by": "Btabor11",
+"n": 92,
+"repo": "agent-core",
+"title": "agent-core 0.7.54: T76 profile never_automate_hosts field (decision #329)"
+},
+{
+"at": "2026-09-30T20:59:46Z",
+"by": "Btabor11",
+"n": 3,
+"repo": "agent-amber",
+"title": "agent-amber 0.2.0: T76 profile v1 \u2014 COO role, connector order, never-automate hosts (needs Braden)"
+},
+{
+"at": "2026-09-30T21:31:39Z",
+"by": "Btabor11",
+"n": 19,
+"repo": "skills",
+"title": "skills 0.9.0: T76a utility-share skill, first shared person skill (needs Braden)"
+},
+{
+"at": "2026-09-30T21:44:40Z",
+"by": "Btabor11",
+"n": 20,
+"repo": "skills",
+"title": "skills 0.10.0: T76b freight-invoices skill (needs Braden)"
+},
+{
+"at": "2026-10-01T00:18:37Z",
+"by": "Btabor11",
+"n": 21,
+"repo": "skills",
+"title": "skills 0.11.0: T76c month-end-close-prep skill (needs Braden)"
+},
+{
+"at": "2026-10-01T01:15:47Z",
+"by": "Btabor11",
+"n": 64,
+"repo": "desktop-app",
+"title": "desktop-app 0.2.0: T50 holo coworker cards (CSS foil, tilt, flip; no new deps)"
+},
+{
+"at": "2026-10-01T02:54:09Z",
+"by": "Btabor11",
+"n": 65,
+"repo": "desktop-app",
+"title": "preview-screens: HoloCard portrait selector (T50 follow-up)"
+},
+{
+"at": "2026-10-01T04:51:23Z",
+"by": "Btabor11",
+"n": 67,
+"repo": "desktop-app",
+"title": "T51b (#263): PR gate is the Windows gate job; build, idle numbers and macOS move to full"
+},
+{
+"at": "2026-10-01T15:18:00Z",
+"by": "Btabor11",
+"n": 93,
+"repo": "agent-core",
+"title": "Pack thumb cap 32 KB -> 256 KB; packs serve 512 px portraits (decision #337); 0.7.55"
+},
+{
+"at": "2026-10-01T16:45:47Z",
+"by": "Btabor11",
+"n": 66,
+"repo": "desktop-app",
+"title": "T50 follow-up: HoloCard design (gpt-6-astra) + polish pass #337 + preview-screens --holo-state / --avatars"
+},
+{
+"at": "2026-10-01T16:53:34Z",
+"by": "Btabor11",
+"n": 68,
+"repo": "desktop-app",
+"title": "T77: Coworkers page v2 \u2014 strip, filters, theme sections, preview panel, Your own (stacked on #66)"
+},
+{
+"at": "2026-10-01T17:48:13Z",
+"by": "Btabor11",
+"n": 18,
+"repo": "playbooks",
+"title": "T78: eight r1 theme sets as 96 still avatar packs + stills_to_pack pipeline; 0.6.0"
+},
+{
+"at": "2026-10-01T20:27:52Z",
+"by": "Btabor11",
+"n": 94,
+"repo": "agent-core",
+"title": "T78 + T79: vendor playbooks 0.6.0 (96 r1 still packs) and POST /avatars/import; 0.7.56"
+},
+{
+"at": "2026-10-01T20:28:27Z",
+"by": "Btabor11",
+"n": 69,
+"repo": "desktop-app",
+"title": "T79 desktop: Add a pack sends the dropped pack to POST /avatars/import; drawer packs preview with any geometry"
+},
+{
+"at": "2026-10-01T21:56:33Z",
+"by": "Btabor11",
+"n": 95,
+"repo": "agent-core",
+"title": "agent-core 0.7.57: two-tier CI, gate is the one required check (T51 items 2+3, #239)"
+},
+{
+"at": "2026-10-01T22:19:32Z",
+"by": "Btabor11",
+"n": 11,
+"repo": "remote",
+"title": "remote 0.3.2: two-tier CI, gate is the one required check (T51 items 2+3, #239)"
+},
+{
+"at": "2026-10-01T22:34:54Z",
+"by": "Btabor11",
+"n": 96,
+"repo": "agent-core",
+"title": "agent-core 0.7.58: gate under 4 min, three pytest shards + lint/types in parallel under the same required check (T51, #239)"
+},
+{
+"at": "2026-10-01T23:04:05Z",
+"by": "Btabor11",
+"n": 97,
+"repo": "agent-core",
+"title": "agent-core 0.7.59: gate shards split by collected test id, four shards (T51, #239)"
+},
+{
+"at": "2026-10-02T02:41:41Z",
+"by": "Btabor11",
+"n": 70,
+"repo": "desktop-app",
+"title": "T83: the orb reads sheet geometry from the pack manifest (animated-tier packs rendered as a tiny 3x1.5 slice)"
+},
+{
+"at": "2026-10-02T03:19:13Z",
+"by": "Btabor11",
+"n": 73,
+"repo": "project-swarm",
+"title": "project-swarm 1.43.0: releases 1.40.0\u20131.43.0 (batch Y lessons, lesson tool T80, speed pipeline T81, integrate --jobs + output cap + import --dry-run T82)"
+}
+]

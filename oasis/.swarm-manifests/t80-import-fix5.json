@@ -1,0 +1,37 @@
+{
+ "version": 1,
+ "concurrency": 1,
+ "jobs": [
+  {
+   "id": "t80-import-fix5",
+   "agent": "codex",
+   "model": "gpt-6-astra",
+   "tier": "expensive",
+   "timeoutMs": 3000000,
+   "context": [
+    "docs/_swarm/lessons-sample-rows.md",
+    "docs/_swarm/t80-fix5-failures.txt",
+    "package.json",
+    "tests/_isolate-config.mjs",
+    "tests/field-lesson-t80-cli.test.mjs",
+    "tests/field-lesson-t80-core.test.mjs",
+    "tests/field-lesson-t80-import.test.mjs",
+    "tests/field-lesson-t80-ship.test.mjs",
+    "tools/lessons-publish.mjs",
+    "tools/lessons.mjs"
+   ],
+   "outputs": [
+    "tools/lessons.mjs",
+    "tests/field-lesson-t80-core.test.mjs",
+    "tests/field-lesson-t80-ship.test.mjs"
+   ],
+   "ignoreTests": [
+    "tests/field-lessons-batch-x.test.mjs",
+    "tests/field-lesson-t80-import.test.mjs",
+    "tests/field-lesson-t80-cli.test.mjs"
+   ],
+   "prompt": "T80 fix job `t80-import-fix5` for project-swarm 1.41.0 (decision #340): after the lenient `lesson import` landed (parseLegacyLessons in tools/lessons.mjs now pads short rows, joins multi-line cells, keeps a reopen suffix, and reports padded/overflow/skipped), four older T80 subtests went red; their raw node:test output is in docs/_swarm/t80-fix5-failures.txt. Read it, then tests/field-lesson-t80-core.test.mjs, tests/field-lesson-t80-cli.test.mjs and tests/field-lesson-t80-ship.test.mjs around the failing subtests, then tools/lessons.mjs. Rules for deciding what to change: (1) the parser must accept every table header shape the older fixtures use (a header row then a `|---|` separator, whatever the column titles), answering lesson-import-invalid only when no header row at all is present: fix the parser, not those fixtures, where the failure is lesson-import-invalid on a fixture that has a header; (2) where an older expectation only lacks the new result keys (padded, overflow, skipped, reopen) or the deep-equal now differs because of them, extend the expectation; (3) where an older fixture row was rejected before and is now imported because of a lenient rule (padding, overflow, reopen), the lenient behaviour wins: update the expectation and keep the fixture; (4) where an older test asserts a refusal that must still hold (a private name in a field, malformed input with no header, idempotence, preserved ids), the refusal must still hold: if it no longer does, fix the parser or importLessons' ordering, never weaken the test. Keep tests/field-lesson-t80-import.test.mjs green (it is context; do not edit it). tests/field-lesson-t80-cli.test.mjs is context only (another live job owns it): its failing subtest must go green through the parser fix alone; if an expectation there would still need to change, say exactly which line and what in findings instead of editing it. Keep every existing export, option, error code and behaviour; no reformatting of untouched code. Use your shell to read the context files and write your outputs in place; do not run tests, installs or network commands; re-read your files once for syntax before returning.\n\nReturn JSON only, under 700 characters, after the files: {\"status\":\"complete|partial\",\"filesChanged\":[...],\"reproTest\":\"tests/field-lesson-t80-core.test.mjs\",\"parserChanges\":[\"<one line each>\"],\"expectationChanges\":[\"<subtest name: what changed and which rule above>\"],\"findings\":[\"<\u22643 one-liners>\"]}\n\n(ignoreTests: the batch-x and import tests are not inlined; keep every existing behaviour so they stay green; the orchestrator runs the whole suite after integrate.)",
+   "tierReason": "fix round on the Codex-only path; in-place edits across four files"
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Awesome Offline Mobile Games">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff7a45"/>
+      <stop offset=".5" stop-color="#f0b429"/>
+      <stop offset="1" stop-color="#4de2c0"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="#0a0c11"/>
+  <rect x="34" y="34" width="444" height="444" rx="92" fill="none" stroke="url(#g)" stroke-width="14" opacity=".85"/>
+  <g fill="url(#g)">
+    <rect x="132" y="168" width="72" height="72" rx="14"/>
+    <rect x="220" y="168" width="72" height="72" rx="14" opacity=".72"/>
+    <rect x="308" y="168" width="72" height="72" rx="14" opacity=".5"/>
+    <rect x="132" y="256" width="72" height="72" rx="14" opacity=".72"/>
+    <rect x="220" y="256" width="72" height="72" rx="14"/>
+    <rect x="308" y="256" width="72" height="72" rx="14" opacity=".72"/>
+    <rect x="220" y="344" width="72" height="72" rx="14" opacity=".5"/>
+  </g>
+  <path d="M392 300a44 44 0 0 1 0 62" fill="none" stroke="#4de2c0" stroke-width="12" stroke-linecap="round" opacity=".9"/>
+  <path d="M414 276a78 78 0 0 1 0 110" fill="none" stroke="#4de2c0" stroke-width="10" stroke-linecap="round" opacity=".45"/>
+</svg>

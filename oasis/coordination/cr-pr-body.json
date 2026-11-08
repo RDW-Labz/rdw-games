@@ -1,0 +1,18 @@
+{
+ "version": 1,
+ "concurrency": 1,
+ "jobs": [
+  {
+   "id": "cr-pr-body",
+   "agent": "claude",
+   "model": "haiku",
+   "tier": "cheap",
+   "prompt": "Write a GitHub PR create payload as JSON to your declared output file: {\"title\":\"...\",\"head\":\"<branch>\",\"base\":\"main\",\"body\":\"<markdown>\"}. Plain words, short lines. Wrap every angle-bracket placeholder, path and identifier in backticks. Sections \"## What\", \"## Checks (rerun by coordinator)\", plus any named below. End the body with a blank line then exactly: \ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code). Use only the facts given. Valid JSON only.\nTitle: \"T21 PR 3: chat threads in a left rail\". Branch: t21-chat-rail.\nFacts: Last PR of T21 Chat threads (decisions #67, #68, #71, #72); service side is agent-core 0.6.12-0.6.14 (agent-core#27, #28, #29, all merged).\n- docs/local-api.md: new Chats section copied from agent-core docs/local-service.md: GET /chats, POST /chats, GET /chats/search?q=, GET /chats/:id, POST /chats/:id/rename, two-call POST /chats/:id/delete (first call returns needs_confirmation + preview + confirm_token; second call with confirm_token returns deleted; 409 confirmation_invalid or paused). WS /chat send carries thread_id; done echoes thread_id; no thread_id means newest thread (#71).\n- src/lib/serviceClient.ts: typed functions for each Chats endpoint; thread_id on the chat socket send and done event.\n- New src/components/ChatRail.tsx, shown beside the chat in src/App.tsx: search box, New chat, thread list newest first, click to resume, inline rename (Enter saves, Escape cancels), delete shows the preview lines with Yes and Cancel; only the Yes click sends the confirm_token. After the first reply's done the list re-fetches so the auto-title shows. When the window is shown again (Ctrl+Space, focus or visibilitychange) the list re-fetches and the newest thread is selected. Rust is unchanged; Ctrl+Space keeps its show/hide toggle. Every request path shows a plain message on failure.\n- src/components/Chat.tsx takes threadId, initialMessages and onDone; the history resets when the thread changes.\n- tests/fakeService.ts serves the same Chats contract in memory, including the one-time delete token, and records every delete call.\n- tests/ChatRail.test.tsx (12 cases) and tests/Chat.test.tsx (resume round trip).\n- CHANGELOG.md Unreleased entry; docs/rig.md describes the rail. No version bump (repo stays 0.1.0). No leftover Btabor11/ links in this repo.\nChecks (rerun by coordinator after integrate): npm run typecheck clean; npx eslint src tests clean; vitest 15 files, 78 tests passed; cargo check and cargo test passed; git diff --check clean.\nAdd a section \"## Delete gate mutation check\": each mutant was applied to ChatRail.tsx alone and tests/ChatRail.test.tsx re-run; every one made a test fail: (1) preview call sends the token straight away with no Yes, (2) Cancel sends the token, (3) Yes sends a wrong token, (4) Yes sends the token twice, (5) Yes skips the confirm call but removes the row. No surviving mutants.\nAdd a section \"## After merge\": restart rig-service on agent-core main (0.6.14) and rebuild OASIS.app on Braden's Mac; Braden checks that a thread survives a restart, resumes from the rail, and is deleted only after a Yes. That closes T21.",
+   "context": [],
+   "outputs": [
+    "coordination/desktop-app-t21-rail-pr-create.json"
+   ],
+   "timeoutMs": 600000
+  }
+ ]
+}

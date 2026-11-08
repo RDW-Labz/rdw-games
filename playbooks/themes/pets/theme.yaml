@@ -1,0 +1,69 @@
+name: Pets
+avatar: pets
+light:
+  colors:
+    bg: "#f6f2eb"
+    surface: "#ede7dd"
+    surface-raised: "#fcfaf6"
+    border: "#7e7569"
+    hairline: "#dcd4c7"
+    text: "#221d18"
+    text-muted: "#5c534a"
+    accent: "#4e5a23"
+    accent-text: "#fafbef"
+    focus: "#2d4d84"
+    link: "#2d4d84"
+    ok: "#2d6842"
+    needs-you: "#7a4b08"
+    rim: "#9f630e"
+    lamp: "199 119 0"
+    glow-strength: 0.24
+    error: "#a3342c"
+    paused: "#684f88"
+    scrim: "#221d1852"
+    shadow-1: "0 1px 2px #221d1814"
+    shadow-2: "0 12px 32px -12px #221d1840"
+dark:
+  colors:
+    bg: "#1c1815"
+    surface: "#231e1a"
+    surface-raised: "#2c2621"
+    border: "#8b8176"
+    hairline: "#3c352f"
+    text: "#f1ebe3"
+    text-muted: "#b8aea2"
+    accent: "#cad590"
+    accent-text: "#1e220a"
+    focus: "#a5c1f3"
+    link: "#a5c1f3"
+    ok: "#9ed5a5"
+    needs-you: "#f4c160"
+    rim: "#e3a53f"
+    lamp: "255 196 88"
+    glow-strength: 0.16
+    error: "#ffa091"
+    paused: "#cdb8e3"
+    scrim: "#00000080"
+    shadow-1: "0 1px 2px #00000066"
+    shadow-2: "0 16px 40px -12px #00000099"
+type:
+  font: 'Figtree, system-ui, -apple-system, "Segoe UI", sans-serif'
+radius:
+  sm: 8
+  md: 12
+  lg: 16
+  pill: 999
+motion:
+  duration-instant: 80
+  duration-fast: 120
+  duration-base: 200
+  duration-slow: 320
+  duration-light: 480
+  breath: 2400
+  ease-out: "cubic-bezier(0, 0, 0.2, 1)"
+  ease-in: "cubic-bezier(0.4, 0, 1, 1)"
+  ease-standard: "cubic-bezier(0.2, 0, 0, 1)"
+sounds:
+  needs_you: default
+  done: default
+  problem: default

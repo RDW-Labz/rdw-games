@@ -1,0 +1,5 @@
+android.permission.ACCESS_NETWORK_STATE
+android.permission.INTERNET
+android.permission.VIBRATE
+com.android.vending.BILLING
+com.rdwlabz.puttdrop.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION

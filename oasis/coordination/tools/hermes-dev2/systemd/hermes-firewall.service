@@ -1,0 +1,20 @@
+# Loads the hermes-w firewall table (decision #384). Jobs, forwarders and
+# probes run in private network namespaces where host nftables rules don't
+# apply: there, PrivateNetwork and the systemd IP filter are the walls. This
+# table is the wall for any hermes-w process on dev2's HOST network (a stray
+# process, a mistake in a unit). Every worker unit Requires= it and checks
+# its drop rule as root before starting (hermes-unit-precheck), so stopping
+# or flushing it stops new work.
+[Unit]
+Description=Hermes worker firewall (nft table inet hermes_w)
+Before=hermes-proxy.service
+After=network-pre.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/sbin/nft -f /etc/hermes-dev2/hermes-w.nft
+ExecStop=/usr/sbin/nft delete table inet hermes_w
+
+[Install]
+WantedBy=multi-user.target

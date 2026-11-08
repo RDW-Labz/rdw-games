@@ -1,0 +1,18 @@
+{
+  "id": "photo-004",
+  "image_path": "photo-004-milwaukee-impact-clear.jpg",
+  "media_type": "image/jpeg",
+  "photo_quality_label": "clear",
+  "expected": {
+    "title": "Milwaukee 2767-20 M18 FUEL 1/2-inch High Torque Impact Wrench (Tool Only)",
+    "brand": "Milwaukee",
+    "model": "2767-20",
+    "upc": "045242418800",
+    "category_slug": "power-tools",
+    "category_legacy": "Tools & Hardware",
+    "condition": "New/Sealed",
+    "msrp_cents": 32900,
+    "expected_confidence": "high"
+  },
+  "notes": "Clean studio photo of red Milwaukee box, model number prominent. Easy mode for vision."
+}

@@ -1,0 +1,18 @@
+{
+  "id": "photo-005",
+  "image_path": "photo-005-instant-pot-clear.jpg",
+  "media_type": "image/jpeg",
+  "photo_quality_label": "clear",
+  "expected": {
+    "title": "Instant Pot Duo 7-in-1 Electric Pressure Cooker (6-Quart, Stainless Steel)",
+    "brand": "Instant Pot",
+    "model": "Duo 60 V3",
+    "upc": "810028580015",
+    "category_slug": "small-appliances",
+    "category_legacy": "Appliances",
+    "condition": "New/Sealed",
+    "msrp_cents": 9999,
+    "expected_confidence": "high"
+  },
+  "notes": "Front-of-box shot, well-lit. Model name 'Duo 60 V3' is on the side panel, not the front — tests whether the model reads ALL sides."
+}

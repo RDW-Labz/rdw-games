@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Pocket Park sky (bgTop) — window, splash, system bars -->
+    <color name="sky_top">#FAF3DF</color>
+    <color name="colorPrimary">#FAF3DF</color>
+    <color name="colorPrimaryDark">#EEE8CF</color>
+    <color name="colorAccent">#5C8963</color>
+</resources>

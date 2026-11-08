@@ -1,0 +1,25 @@
+-- ROLLBACK for 0442 (recover lots_block_identity_code_twin trigger/function).
+--
+-- On PROD: a NO-OP, deliberately. The trigger and function predate 0442 —
+-- 0442 only re-committed into the repo what prod already ran since 2026-07-16
+-- (mig 0275 / PR #207). "Rolling back 0442" does not mean "undo something
+-- 0442 did to prod" (it did nothing to prod; see 0442's header — the DO block
+-- found the trigger already installed and skipped). It would mean "remove a
+-- guard that has been live and enforcing for three months", which is a
+-- separate, deliberate product decision, not an undo of this recovery file.
+--
+-- If that decision is ever made, the real removal is below, commented out,
+-- for a human to uncomment deliberately — NOT to be run by accident via a
+-- standby/rollback dispatch:
+--
+-- ⚠️ WARNING — uncommenting and running this REMOVES the only guard against
+-- a Quick Lot scan minting a twin lot for an already-active legacy sticker
+-- (the exact 2026-07-16 defect D3 in 0275's header). Get sign-off first.
+--
+-- BEGIN;
+-- SET LOCAL lock_timeout = '3s';
+-- DROP TRIGGER IF EXISTS lots_block_identity_code_twin_trg ON public.lots;
+-- DROP FUNCTION IF EXISTS public.lots_block_identity_code_twin();
+-- COMMIT;
+
+SELECT '0442 rollback: no-op by design — the guard predates 0442 on prod. See this file''s header.' AS note;

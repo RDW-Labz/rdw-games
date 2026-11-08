@@ -1,0 +1,55 @@
+{
+  "name": "default-smoke",
+  "description": "Real-world photo qualities encountered in lotting. Copy this file to manifest.json and add 'cases' for your actual fixture images. The 'expected' object is the ground truth the harness will score model outputs against.",
+  "cases": [
+    {
+      "id": "001-dewalt-clear",
+      "image": "001-dewalt-clear.jpg",
+      "notes": "Good light, clear DeWalt model sticker — happy path baseline",
+      "expected": {
+        "brand": "DeWalt",
+        "model": "DCD771C2",
+        "title_contains": ["DeWalt", "DCD771C2"],
+        "category_contains": ["Tool"]
+      }
+    },
+    {
+      "id": "002-feed-bag-stylized",
+      "image": "002-feed-bag-stylized.jpg",
+      "notes": "Stylized 'DuMOR' brand — vision models often OCR as 'Idumor'",
+      "expected": {
+        "brand": "DuMOR",
+        "title_contains": ["DuMOR"],
+        "category_contains": ["Pet", "Feed", "Animal"]
+      }
+    },
+    {
+      "id": "003-amazon-fnsku",
+      "image": "003-amazon-fnsku.jpg",
+      "notes": "FNSKU sticker visible; the asin should NOT show up in model field",
+      "expected": {
+        "fnsku": "X004IXICJH",
+        "title_contains": ["3D"]
+      }
+    },
+    {
+      "id": "004-poor-light-no-text",
+      "image": "004-poor-light-no-text.jpg",
+      "notes": "Bare item, no packaging — must identify by shape/color only",
+      "expected": {
+        "title_contains": ["filament", "3D"],
+        "category_contains": ["Craft", "3D"]
+      }
+    },
+    {
+      "id": "005-glare-on-plastic",
+      "image": "005-glare-on-plastic.jpg",
+      "notes": "Shiny package, hard glare — focus + read text under reflection",
+      "expected": {
+        "brand": "Pronto",
+        "title_contains": ["Acetone"],
+        "upc": "017502232037"
+      }
+    }
+  ]
+}

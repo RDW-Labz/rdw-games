@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#06080f">
+<title>Ember Drift — shot</title>
+<style>
+  :root { --bg:#06080f; --cyan:#4de2ff; --ember:#ff7a45; }
+  html, body { margin:0; padding:0; height:100%; width:100%; background:var(--bg); overflow:hidden; }
+  #stage { position:fixed; inset:0; }
+  canvas#game { display:block; width:100%; height:100%; background:#06080f; touch-action:none; outline:none; }
+  .gk-pad .gk-btn {
+    font:700 11px/64px ui-monospace, Menlo, Consolas, monospace !important;
+    letter-spacing:.08em;
+    background:rgba(77,226,255,.09) !important;
+    border:1px solid rgba(77,226,255,.50) !important;
+    color:#d8f6ff !important;
+  }
+</style>
+</head>
+<body>
+  <div id="stage"><canvas id="game" aria-label="Ember Drift"></canvas></div>
+  <script src="../../shell/lib/gamekit.js"></script>
+  <script>
+    /* capture boot options so the shot driver can step the sim deterministically */
+    (function () {
+      var b = GK.boot;
+      GK.boot = function (opts) { window.__opts = opts; return b.call(GK, opts); };
+    })();
+  </script>
+  <script src="js/main.js"></script>
+  <script>
+  (function () {
+    var h = (location.hash || '#title').slice(1);
+    var cv = document.getElementById('game');
+    var ctx = cv.getContext('2d');
+    var t = 0;
+    function view() { var r = cv.getBoundingClientRect(); return { w: Math.round(r.width), h: Math.round(r.height), dpr: 1 }; }
+    function step(n) {
+      var v = view();
+      for (var i = 0; i < n; i++) { t += 1 / 60; window.__opts.update(1 / 60, t); }
+      window.__opts.render(ctx, t, v);
+    }
+    function tap(x, y) {
+      var r = cv.getBoundingClientRect();
+      cv.dispatchEvent(new PointerEvent('pointerdown', { clientX: r.left + x, clientY: r.top + y, bubbles: true, cancelable: true, pointerId: 1 }));
+    }
+    function key(k, down) { window.dispatchEvent(new KeyboardEvent(down ? 'keydown' : 'keyup', { key: k, bubbles: true })); }
+    function start() {
+      step(30);
+      if (h === 'title') return;
+      window.__game.act('newGame');
+      step(10);
+      if (h === 'station') { window.__game.act('dock'); step(20); }
+      else if (h === 'contracts') { window.__game.act('dock'); step(10); tap(140, 55); step(10); }
+      else if (h === 'outfit') { window.__game.act('dock'); step(10); tap(230, 55); step(10); }
+      else if (h === 'map') { step(4); tap(view().w - 37, 47); step(20); }
+      else if (h === 'flight') {
+        window.__game.act('jumpNext'); step(8);
+        window.__game.act('jumpNext'); step(8);
+        key('w', true); step(70);
+        key(' ', true); step(40);
+        key('d', true); step(18);
+      } else if (h === 'dead') {
+        window.__game.act('jumpNext'); step(8);
+        window.__game.act('jumpNext'); step(600);
+      }
+      document.title = 'SHOT ' + JSON.stringify(window.__game.state());
+    }
+    // give the first rAF frame a moment, then take over
+    setTimeout(start, 60);
+  })();
+  </script>
+</body>
+</html>

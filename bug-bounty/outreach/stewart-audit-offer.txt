@@ -1,0 +1,44 @@
+To: secops@stewart.com
+Subject: ind-dev / ind-uat on stewart.com are still pointing at a deleted Traffic Manager profile
+Status: SENT 2026-11-01 — touch 2 of the sequence in SALES.md, sent same day at the owner's
+         direction. Touch 3 (one-line nudge) is due 2026-11-08 if there is no reply.
+
+---
+
+Hello,
+
+I sent you a dangling-DNS report earlier today for Stewart. I re-checked this morning and
+the records are still live:
+
+  ind-dev.stewart.com  -> ind-dev.trafficmanager.net   (NXDOMAIN)
+  ind-uat.stewart.com  -> ind-uat.trafficmanager.net   (NXDOMAIN)
+
+Two integration hostnames resolve to a Traffic Manager profile that has been deleted. The profile name is unclaimed, so the DNS name can be recreated by anyone who guesses it — and it is not hard to guess.
+
+Removing each record is a single DNS deletion — that is the whole fix, and the report I sent has the
+exact records and the provider's own documentation on why each is claimable.
+
+I do this as a service as well. A single-zone sweep covers the whole zone rather than the handful of
+hostnames I happened to look at: every hostname discovered from certificate transparency, every
+CNAME recorded and followed, a claimability verdict on each one, the remediation step for anything
+live, and a re-test after you fix. Three business days, one flat fee:
+
+    DNS Hygiene Audit — single zone sweep   $1,500
+    https://square.link/u/h41lTw3P
+
+If you would rather have it watched continuously, monitoring is $750 for the first month:
+
+    DNS Hygiene Monitoring — 1 month        $750
+    https://square.link/u/7GnO5RnD
+
+Neither is a condition of anything. The finding stays disclosed and free whatever you decide, and
+there is no deadline attached to it.
+
+If you want the one-page scope sheet before committing — zones, what is checked, what is explicitly
+out of scope, delivery date — reply and I will send it over.
+
+Regards,
+
+Michael McLuer
+RDW Labz
+security@rdwlabz.com

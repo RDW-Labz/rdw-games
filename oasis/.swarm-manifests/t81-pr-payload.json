@@ -1,0 +1,23 @@
+{
+ "version": 1,
+ "concurrency": 1,
+ "jobs": [
+  {
+   "id": "t81-pr-payload",
+   "agent": "openrouter",
+   "model": "deepseek/deepseek-v4.1-flash",
+   "tier": "cheap",
+   "maxOutputTokens": 8000,
+   "timeoutMs": 600000,
+   "context": [
+    "docs/_swarm/t80-pr-create.json",
+    "CHANGELOG.md",
+    "docs/_swarm/t81-contract.md"
+   ],
+   "outputs": [
+    "docs/_swarm/t81-pr-create.json"
+   ],
+   "prompt": "Bookkeeping job: write the pull-request payload for project-swarm 1.42.0 as the single file docs/_swarm/t81-pr-create.json, the same JSON shape as docs/_swarm/t80-pr-create.json (keys title, head, base, body). Values: title `project-swarm 1.42.0: ship --wait-required-only, swarm ticket pipeline, worker check environments, adapter evidence + Codex retry, scaffold job|pr (T81, decision #341)`; head `swarm-1.42-speed-pr`; base `main`. The body is Markdown with exactly these sections in order: `## What` (one bullet per line of the `## 1.42.0` entry in CHANGELOG.md, reworded as what a user gets, plus one line saying the branch stacks on 1.41.0); `## Checks` holding only the line `<!-- swarm:checks -->`; `## Mutation check` listing every mutant from \u00a74 of docs/_swarm/t81-contract.md as a table with columns Mutant, What it breaks, Killing test, Result, where Result is `pending` for every row; `## After merge` with two bullets: `swarm update --yes` after 1.41.0 is installed, and the next three project PRs go through `swarm ticket` to measure wall time per merged PR against the 12.5\u201318.4 min baseline. No names of people, no repository URLs, no run ids, no local paths anywhere in the file. You are a single-request worker with no tools: return the file WHOLE in the result envelope as valid JSON (escape the Markdown correctly). Then return JSON only, under 300 characters: {\"status\":\"complete|partial\",\"filesChanged\":[\"docs/_swarm/t81-pr-create.json\"],\"mutantRows\":<number>}"
+  }
+ ]
+}

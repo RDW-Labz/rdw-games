@@ -1,0 +1,22 @@
+{
+ "version": 1,
+ "concurrency": 1,
+ "jobs": [
+  {
+   "id": "bp-beacon-pack",
+   "agent": "claude",
+   "model": "opus",
+   "tier": "expensive",
+   "tierReason": "Hand-placed pixel art for 32 frames matching a reference image, with no written contract for the drawing; a mid-tier worker drifted in revision 1",
+   "prompt": "You are job BP (Beacon pack one) for OASIS. Braden (the only human) approved all of this; do not invent beyond it.\nWrite ONE file: coordination/references/orb-sketches/beacon_v2.py, a standalone Python 3.12 + Pillow script (no network, no other packages), run from the oasis root. You cannot run it; the coordinator runs it and reviews the images, so write carefully and keep it deterministic.\nLook at coordination/references/orb-sketches/higgsfield/candidate-4.png (Braden's pick) and copy its STYLE as hand-placed pixel art: a round-bellied paper-and-brass lantern coworker with vertical paper ribs and a warm inner glow, a brass top cap with an arched handle, a small dark CRT-like screen face with happy pixel eyes, a bright amber status band around the waist, small brass arms and feet, bold dark outline plus a thin light rim so it reads on dark backgrounds. Original design, no copy of any other product's character. Read beacon_v1.py for how the earlier revision structured grids, palette and output; reuse its approach where useful, but the character is the candidate-4 lantern, not the v1 hex head.\nFixed grid (decision #75; every future pack uses it): frames 128x128 px, transparent background. Sprite sheet 512x1024: one row per state in this fixed order: idle, working, asking, proposal_ready, done, needs_attention, paused, offline; 4 frames per row (columns left to right); played at 6 fps, looping. Keep the feet baseline and the body in the same place in every frame so the engine can anchor it.\nStatus looks (decision #74): eight API states, three looks. Calm: idle, done, offline = dim (offline also shows a small dark dot). Active: working = soft pulse; proposal_ready = single glow. Needs you: asking and needs_attention = bright glow with a slow blink; paused = grey, still. The amber waist band is the status light. For this sheet, draw the band as it looks in each state across the 4 frames (the T17 engine will later draw the looks at the status-light anchor, so ALSO keep the band's pixel region identical in shape and position in every frame).\nPoses, readable at the 128 px on-screen size: idle (relaxed, arms down), working (one arm clearly busy, e.g. raised holding a small tool or typing motion across frames), asking (one hand clearly raised), proposal_ready (holding up a small card or a small wave), done (small happy bounce across frames), needs_attention (both hands up or a leaning-forward alert), paused (still, eyes as a flat closed line, grey band), offline (eyes off, screen dark, dim). Faces stay soft; no wide grin.\nOutputs the script must write under coordination/references/orb-sketches/beacon-v2/: sheet.png (512x1024 RGBA, the pack sheet); manifest.yaml (write as plain text, no yaml library): name: Beacon, artist: OASIS (Higgsfield candidate 4 style), grid: {frame: 128, columns: 4, rows: [the eight state names in order], fps: 6}, palette: list of the #RRGGBB colors used, anchors: status_light: {x, y, w, h} of the band region, chat_button: {x, y} a point just below the feet centre, baseline: y of the feet bottom; one <state>.gif per state (4 frames, 6 fps, loop, transparent); preview-light.png and preview-dark.png (all 32 frames at 1x on light #F4F1EA and dark #1C1E24 backgrounds, row labels drawn with Pillow's default font). Also self-check in code: assert the sheet size is 512x1024, every frame is 128x128, each frame has at least one fully transparent corner pixel, the status_light box is inside the frame, and print one JSON line summary at the end.\nOnly write the declared output. End your reply with one JSON line, max 6 notes: {\"files_changed\":[...],\"notes\":[...]}.",
+   "context": [
+    "coordination/references/orb-sketches/higgsfield/candidate-4.png",
+    "coordination/references/orb-sketches/beacon_v1.py"
+   ],
+   "outputs": [
+    "coordination/references/orb-sketches/beacon_v2.py"
+   ],
+   "timeoutMs": 3600000
+  }
+ ]
+}

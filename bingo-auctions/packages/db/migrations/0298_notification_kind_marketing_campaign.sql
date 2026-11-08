@@ -1,0 +1,44 @@
+-- 0298 — add the notification_kind value mig 0292 forgot
+--
+-- 0292 shipped the whole marketing-campaign feature: the marketing_campaigns /
+-- _runs / _sends tables, the runner in lib/marketing-campaigns.ts, the operator
+-- console page, a `case 'marketing_campaign'` in the email drain, and matching
+-- branches in the SMS and notification drains. Everything except the enum value
+-- the runner writes.
+--
+-- runCampaign() enqueues each recipient as
+--   notifications_outbox(kind = 'marketing_campaign', ...)
+-- and notifications_outbox.kind is the notification_kind enum, which has
+-- marketing_digest (the older one-off digest) but never gained
+-- marketing_campaign. Every insert therefore fails:
+--   22P02 invalid input value for enum notification_kind: "marketing_campaign"
+-- the runner raises `campaign outbox insert failed`, and the run aborts.
+--
+-- The failure is silent from the outside because the run row is written BEFORE
+-- the send loop, to key outbox idempotency. So each attempt leaves a
+-- marketing_campaign_runs row with a healthy-looking recipient_count, zero rows
+-- in notifications_outbox, and zero in marketing_campaign_sends. It reads like
+-- "we emailed 257 people" when nothing was queued at all.
+--
+-- Measured on prod 2026-07-29 — four runs, 410 recipients, zero sent:
+--   outbid_comeback   manual  89 recipients  07-28 17:56  0 sends
+--   first_bid_nudge   manual 257 recipients  07-28 17:56  0 sends
+--   second_purchase   auto    36 recipients  07-29 14:00  0 sends
+--   win_back          auto    28 recipients  07-29 14:00  0 sends
+-- The two auto rows are the cron tick, so this repeats daily until fixed.
+--
+-- Enum-only. The application side needs no change — it was already complete.
+--
+-- shipment_dispatched is the SAME defect, found by the new guard added with
+-- this migration (scripts/check-notification-kinds.mjs). markShipped() in
+-- (operator)/shipping/actions.ts enqueues kind = 'shipment_dispatched', which
+-- is likewise absent from the enum. It is latent rather than live -- prod has
+-- zero shipped invoices (2026-07-29) -- but it would fail on the first
+-- shipment, and more quietly than the campaigns did: that insert's error is
+-- never checked, so the invoice would be marked shipped and the bidder would
+-- simply never be told. Fixed here rather than left for whoever ships first.
+--
+-- No BEGIN/COMMIT (ALTER TYPE ... ADD VALUE, mig-0167 pattern). Idempotent.
+
+ALTER TYPE notification_kind ADD VALUE IF NOT EXISTS 'marketing_campaign';
+ALTER TYPE notification_kind ADD VALUE IF NOT EXISTS 'shipment_dispatched';

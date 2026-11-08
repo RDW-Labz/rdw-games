@@ -1,0 +1,6 @@
+graph.json
+.graphify_analysis.json
+manifest.json
+cache/
+.graphify_root
+graph.html

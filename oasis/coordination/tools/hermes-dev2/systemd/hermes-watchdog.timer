@@ -1,0 +1,11 @@
+[Unit]
+Description=Run the Hermes worker watchdog every 30 seconds
+
+[Timer]
+Unit=hermes-watchdog@run.service
+OnBootSec=1min
+OnUnitActiveSec=30s
+AccuracySec=5s
+
+[Install]
+WantedBy=timers.target

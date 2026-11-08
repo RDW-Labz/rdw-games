@@ -1,0 +1,20 @@
+KILLED rule1 unknown tool allowed
+KILLED model prefix off
+KILLED tool name keeps args
+KILLED rule2 read without reader ok
+KILLED rule3 reader write ok
+KILLED rule4 unroled model ok
+KILLED rule5 critic non-model ok
+KILLED rule5 missing reader ok
+KILLED rule5 non-reader id ok
+KILLED rule5 dup ok
+KILLED rule5 empty checks ok
+KILLED rule6 write after reader ok
+KILLED rule6 risky after reader ok
+KILLED rule6 always_ask after reader ok
+KILLED critic does not clear U
+KILLED reader not pending
+KILLED rule7 bad role ok
+KILLED rule7 checks non-critic ok
+KILLED cli always 0
+DONE

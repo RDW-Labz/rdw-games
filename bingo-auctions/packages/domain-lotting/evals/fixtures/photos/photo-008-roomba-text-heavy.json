@@ -1,0 +1,18 @@
+{
+  "id": "photo-008",
+  "image_path": "photo-008-roomba-text-heavy.jpg",
+  "media_type": "image/jpeg",
+  "photo_quality_label": "clear",
+  "expected": {
+    "title": "iRobot Roomba i7+ (7550) Self-Emptying Robot Vacuum",
+    "brand": "iRobot",
+    "model": "7550",
+    "upc": "885155014191",
+    "category_slug": "small-appliances",
+    "category_legacy": "Appliances",
+    "condition": "New/Sealed",
+    "msrp_cents": 79999,
+    "expected_confidence": "high"
+  },
+  "notes": "Marketing-heavy box with bullet-list features in 5 languages. Tests whether the model picks the title out of dense text, and that it picks 7550 (the SKU model) not 'i7+' (the marketing name) for the model field."
+}

@@ -1,0 +1,801 @@
+name: EAS Update (OTA)
+
+# Registration touch 2026-07-01: force GitHub to index this workflow_dispatch
+# workflow (forked-in files aren't auto-registered until modified on default
+# branch) — needed to dispatch the photo-fix #7 field-mobile OTA.
+#
+# Pushes JS-only / asset-only updates to TestFlight + App Store / Play Store
+# users WITHOUT going through Apple or Google review. Users get the update
+# on next app launch.
+#
+# WHY THIS WORKFLOW EXISTS
+# ────────────────────────
+# Once v1.0 is approved in the stores, most updates are JS-only (UI tweaks,
+# business-logic changes, new screens that don't add native modules). Apple
+# Guideline 3.3.1 and Google Play Developer Program Policies BOTH allow
+# JavaScript-only over-the-air updates. EAS Update bundles + signs the
+# update on Expo's CDN and the installed app fetches it on next launch.
+#
+# WHAT WILL NOT WORK VIA OTA — ship a new EAS Build for these:
+#   - Adding/removing/upgrading a native module (anything in Podfile or
+#     android/build.gradle dependencies)
+#   - New permission strings in Info.plist or AndroidManifest.xml
+#   - New entitlements (Associated Domains, Push Notifications, etc.)
+#   - Changing the app icon, splash screen image, or app name as it appears
+#     on the home screen (these are baked into the native binary)
+#   - Bumping `runtimeVersion` in app.config.ts (existing installs become
+#     incompatible with the new bundle and stop receiving OTAs until they
+#     install a new binary)
+#
+# BRANCH/CHANNEL TARGETING (CRITICAL)
+# ───────────────────────────────────
+# Per memory `feedback_ota_both_branches.md` (2026-05-22 incident): the user's
+# TestFlight builds run on the `preview` channel; App Store builds run on the
+# `production` channel. Pushing to `production` ALONE means TestFlight users
+# never receive the update. Pushing to `preview` ALONE means App Store users
+# never receive it.
+#
+# Default behavior of this workflow is to push to BOTH branches in one
+# dispatch. The `branches` input lets you override (e.g., to do a
+# preview-only canary before promoting to production).
+#
+# PREREQUISITES
+# ─────────────
+# Repository secret EXPO_TOKEN is already configured (used by eas-build.yml).
+# Scope must include `update:create` (the standard build:create token already
+# has it).
+#
+# ENV RULE (2026-09-22)
+# ─────────────────────
+# `eas update` does NOT read the `env` blocks in eas.json — those apply to
+# `eas build` only. Until this date every OTA was bundled with no
+# EXPO_PUBLIC_SUPABASE_URL / _ANON_KEY, so packages/supabase-client threw at
+# import, the app died on launch, and expo-updates silently rolled back to the
+# APK/IPA's built-in bundle. No staff device on either platform ever ran one:
+# telemetry shows only built-in update ids since August. A new binary looked
+# like the fix each time because it ships fresh built-in JS.
+#
+# Each publish step now loads the matching build profile's env from eas.json
+# (one source of truth) and refuses to publish if the Supabase values are
+# missing.
+#
+# RUNTIME VERSION RULE
+# ────────────────────
+# Both apps use `runtimeVersion: { policy: 'appVersion' }`. That means an
+# OTA pushed against v1.0.0 only reaches devices running an installed binary
+# whose CFBundleShortVersionString === '1.0.0'. When you bump the app to
+# 1.0.1 you MUST ship a new EAS Build first; otherwise OTAs against 1.0.0
+# never reach the 1.0.1 binary.
+
+on:
+  workflow_dispatch:
+    inputs:
+      app:
+        description: 'Which app to push OTA for'
+        required: true
+        type: choice
+        default: both
+        options:
+          - bidder
+          - staff
+          - both
+
+      branches:
+        description: 'Which channel(s) to push to. "both" = preview + production. Per memory feedback_ota_both_branches.md, "both" is the safe default — TestFlight users live on preview, App Store users live on production.'
+        required: true
+        type: choice
+        default: both
+        options:
+          - preview
+          - production
+          - both
+          # 2026-08-14: added. The staff Android APKs on the warehouse floor are
+          # built from a development-channel profile (smoke-apk / robo-authed /
+          # development in apps/field-mobile/eas.json), so every OTA published
+          # to preview+production succeeded and reached NOTHING. An expo-updates
+          # client only ever sees its own channel. Without this option the only
+          # way to reach those devices was a full rebuild.
+          - development
+          - all
+
+      platform:
+        description: 'Which platform(s) to bundle and publish. all = both (the default). A legacy-runtime rescue for one store (e.g. Android on 0.1.1) should name that platform only.'
+        required: false
+        type: choice
+        default: all
+        options:
+          - all
+          - ios
+          - android
+
+      runtime_version:
+        description: 'OPTIONAL legacy-rescue runtime. Leave BLANK normally. Set to e.g. 0.1.0 to publish an update FOR devices still on that runtime (phones orphaned by a version bump). Does NOT change the app version label; publish-only.'
+        required: false
+        type: string
+        default: ''
+
+      message:
+        description: 'Update message (shown in expo.dev dashboard + dev logs). Defaults to "{short-sha}: {commit subject}" if blank.'
+        required: false
+        type: string
+        default: ''
+
+      dry_run:
+        description: 'Dry run: log what would be pushed without pushing. Safe default OFF for the manual-dispatch use case.'
+        required: false
+        type: boolean
+        default: false
+
+      republish_group:
+        description: 'OPTIONAL. Update group ID to copy as-is to the chosen branch(es) instead of bundling from this ref — promotes the exact bundle a canary tested. Needs app = bidder or staff, not both.'
+        required: false
+        type: string
+        default: ''
+
+      roll_back_to_embedded:
+        description: 'Roll the chosen branch(es) back to the code built into the installed app (eas update:roll-back-to-embedded) instead of publishing. Needs app = bidder or staff.'
+        required: false
+        type: boolean
+        default: false
+
+      rollback_platform:
+        description: 'With roll_back_to_embedded: which platform to roll back.'
+        required: false
+        type: choice
+        default: all
+        options:
+          - all
+          - ios
+          - android
+
+  # workflow_call: lets a tagged-release or post-merge workflow invoke OTA
+  # programmatically. The same input contract as workflow_dispatch.
+  workflow_call:
+    inputs:
+      app:
+        required: false
+        type: string
+        default: both
+      branches:
+        required: false
+        type: string
+        default: both
+      message:
+        required: false
+        type: string
+        default: ''
+      dry_run:
+        required: false
+        type: boolean
+        default: false
+      platform:
+        required: false
+        type: string
+        default: all
+    secrets:
+      EXPO_TOKEN:
+        required: true
+
+concurrency:
+  group: eas-update-${{ inputs.app }}-${{ inputs.branches }}-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+  EXPO_NO_TELEMETRY: 1
+  CI: true
+  # 2026-09-24: publish steps pass this to `eas update --platform`. Before, every
+  # publish bundled both platforms, so an Android-only rescue under an old
+  # runtime (bidder Play 0.1.1) would also have shipped an untested iOS bundle
+  # under that runtime.
+  EAS_PLATFORM: ${{ inputs.platform || 'all' }}
+
+jobs:
+  # ── Bidder OTA ──────────────────────────────────────────────────────────
+  update-bidder:
+    name: OTA bidder-app
+    if: ${{ !inputs.republish_group && !inputs.roll_back_to_embedded && (inputs.app == 'bidder' || inputs.app == 'both') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    defaults:
+      run:
+        working-directory: apps/bidder-app
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Need history for the commit subject to populate the default
+          # update message.
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install workspace dependencies
+        working-directory: .
+        run: npm ci
+
+      - name: Install EAS CLI
+        run: npm install -g eas-cli@latest
+
+      - name: Authenticate with EAS
+        run: eas whoami
+
+      - name: Compute update message
+        id: msg
+        working-directory: .
+        # The message reaches bash as an ENV VAR, never interpolated into the
+        # script body. `INPUT_MSG="${{ inputs.message }}"` put attacker- (or
+        # typo-) controlled text inside a double-quoted assignment, so a
+        # message containing a `"` closed the string and ran the remainder as
+        # commands. Tripped 2026-08-03 by a message quoting `"no lot matches"`,
+        # which died on `lot: command not found` (exit 127) — benign that time.
+        env:
+          INPUT_MSG: ${{ inputs.message }}
+        run: |
+          set -euo pipefail
+          if [[ -n "$INPUT_MSG" ]]; then
+            MSG="$INPUT_MSG"
+          else
+            SHA=$(git rev-parse --short HEAD)
+            SUBJECT=$(git log -1 --pretty=%s)
+            MSG="$SHA: $SUBJECT"
+          fi
+          # EAS messages have a 1024-char limit; trim defensively.
+          MSG="${MSG:0:1000}"
+          # Heredoc form: a newline in the message can't forge extra outputs.
+          {
+            echo "msg<<__EAS_MSG_EOF__"
+            echo "$MSG"
+            echo "__EAS_MSG_EOF__"
+          } >> "$GITHUB_OUTPUT"
+          echo "Computed OTA message: $MSG"
+
+      - name: Push OTA to preview channel
+        if: ${{ inputs.branches == 'preview' || inputs.branches == 'both' || inputs.branches == 'all' }}
+        env:
+          MSG: ${{ steps.msg.outputs.msg }}
+          DRY_RUN: ${{ inputs.dry_run }}
+          # Blank normally; app.config.ts falls back to policy 'appVersion'.
+          OTA_RUNTIME_VERSION: ${{ inputs.runtime_version }}
+        run: |
+          # Bundle with the preview build profile's env. See ENV RULE at the top.
+          eval "$(jq -r '.build.preview.env | to_entries[] | "export \(.key)=\(.value | @sh)"' eas.json)"
+          if [[ -z "${EXPO_PUBLIC_SUPABASE_URL:-}" || -z "${EXPO_PUBLIC_SUPABASE_ANON_KEY:-}" ]]; then
+            echo "::error::eas.json build.preview.env has no Supabase URL/key; refusing to publish a bundle that crashes on launch."
+            exit 1
+          fi
+          if [[ "$DRY_RUN" == "true" ]]; then
+            echo "[DRY RUN] Would: eas update --branch preview --platform $EAS_PLATFORM --message '$MSG' --non-interactive"
+          else
+            eas update --branch preview --platform "$EAS_PLATFORM" --message "$MSG" --non-interactive
+          fi
+
+      - name: Record OTA publish in DB (preview)
+        if: ${{ inputs.dry_run != true && (inputs.branches == 'preview' || inputs.branches == 'both' || inputs.branches == 'all') }}
+        continue-on-error: true
+        env:
+          RECORD_APP: bidder
+          MSG: ${{ steps.msg.outputs.msg }}
+          SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          GH_RUN_ID: ${{ github.run_id }}
+        run: |
+          "$GITHUB_WORKSPACE/scripts/ci/record-ota-publish.sh" "$RECORD_APP" preview
+
+      - name: Push OTA to production channel
+        if: ${{ inputs.branches == 'production' || inputs.branches == 'both' || inputs.branches == 'all' }}
+        env:
+          MSG: ${{ steps.msg.outputs.msg }}
+          DRY_RUN: ${{ inputs.dry_run }}
+          # Blank normally; app.config.ts falls back to policy 'appVersion'.
+          OTA_RUNTIME_VERSION: ${{ inputs.runtime_version }}
+        run: |
+          # Bundle with the production build profile's env. See ENV RULE at the top.
+          eval "$(jq -r '.build.production.env | to_entries[] | "export \(.key)=\(.value | @sh)"' eas.json)"
+          if [[ -z "${EXPO_PUBLIC_SUPABASE_URL:-}" || -z "${EXPO_PUBLIC_SUPABASE_ANON_KEY:-}" ]]; then
+            echo "::error::eas.json build.production.env has no Supabase URL/key; refusing to publish a bundle that crashes on launch."
+            exit 1
+          fi
+          if [[ "$DRY_RUN" == "true" ]]; then
+            echo "[DRY RUN] Would: eas update --branch production --platform $EAS_PLATFORM --message '$MSG' --non-interactive"
+          else
+            eas update --branch production --platform "$EAS_PLATFORM" --message "$MSG" --non-interactive
+          fi
+
+      - name: Record OTA publish in DB (production)
+        if: ${{ inputs.dry_run != true && (inputs.branches == 'production' || inputs.branches == 'both' || inputs.branches == 'all') }}
+        continue-on-error: true
+        env:
+          RECORD_APP: bidder
+          MSG: ${{ steps.msg.outputs.msg }}
+          SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          GH_RUN_ID: ${{ github.run_id }}
+        run: |
+          "$GITHUB_WORKSPACE/scripts/ci/record-ota-publish.sh" "$RECORD_APP" production
+
+      - name: Push OTA to development channel
+        if: ${{ inputs.branches == 'development' || inputs.branches == 'all' }}
+        env:
+          MSG: ${{ steps.msg.outputs.msg }}
+          DRY_RUN: ${{ inputs.dry_run }}
+          # Blank normally; app.config.ts falls back to policy 'appVersion'.
+          OTA_RUNTIME_VERSION: ${{ inputs.runtime_version }}
+        run: |
+          # 2026-08-14: the warehouse Android APKs are built from a
+          # development-channel profile, so they never saw preview/production
+          # updates. An expo-updates client only reads its own channel.
+          # Bundle with the development build profile's env. See ENV RULE at the top.
+          eval "$(jq -r '.build.development.env | to_entries[] | "export \(.key)=\(.value | @sh)"' eas.json)"
+          if [[ -z "${EXPO_PUBLIC_SUPABASE_URL:-}" || -z "${EXPO_PUBLIC_SUPABASE_ANON_KEY:-}" ]]; then
+            echo "::error::eas.json build.development.env has no Supabase URL/key; refusing to publish a bundle that crashes on launch."
+            exit 1
+          fi
+          if [[ "$DRY_RUN" == "true" ]]; then
+            echo "[DRY RUN] Would: eas update --branch development --platform $EAS_PLATFORM --message '$MSG' --non-interactive"
+          else
+            eas update --branch development --platform "$EAS_PLATFORM" --message "$MSG" --non-interactive
+          fi
+
+      - name: Record OTA publish in DB (development)
+        if: ${{ inputs.dry_run != true && (inputs.branches == 'development' || inputs.branches == 'all') }}
+        continue-on-error: true
+        env:
+          RECORD_APP: bidder
+          MSG: ${{ steps.msg.outputs.msg }}
+          SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          GH_RUN_ID: ${{ github.run_id }}
+        run: |
+          "$GITHUB_WORKSPACE/scripts/ci/record-ota-publish.sh" "$RECORD_APP" development
+
+      - name: Summary
+        if: always()
+        working-directory: .
+        env:
+          MSG: ${{ steps.msg.outputs.msg }}
+          BRANCHES: ${{ inputs.branches }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          {
+            echo "## EAS Update — bidder-app"
+            echo ""
+            echo "| Field | Value |"
+            echo "|---|---|"
+            echo "| App | bidder-app |"
+            echo "| Branches | $BRANCHES |"
+            echo "| Message | $MSG |"
+            echo "| Dry run | $DRY_RUN |"
+            echo "| Dashboard | https://expo.dev/accounts/rdw_cluer/projects/auction-platform-bidder/updates |"
+          } >> $GITHUB_STEP_SUMMARY
+
+  # ── Staff (field-mobile) OTA ────────────────────────────────────────────
+  update-staff:
+    name: OTA field-mobile (staff)
+    if: ${{ !inputs.republish_group && !inputs.roll_back_to_embedded && (inputs.app == 'staff' || inputs.app == 'both') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    defaults:
+      run:
+        working-directory: apps/field-mobile
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install workspace dependencies
+        working-directory: .
+        run: npm ci
+
+      - name: Install EAS CLI
+        run: npm install -g eas-cli@latest
+
+      - name: Authenticate with EAS
+        run: eas whoami
+
+      - name: Compute update message
+        id: msg
+        working-directory: .
+        # See the bidder job above: the message goes through env, never into
+        # the script body. This is the copy that actually broke on 2026-08-03.
+        env:
+          INPUT_MSG: ${{ inputs.message }}
+        run: |
+          set -euo pipefail
+          if [[ -n "$INPUT_MSG" ]]; then
+            MSG="$INPUT_MSG"
+          else
+            SHA=$(git rev-parse --short HEAD)
+            SUBJECT=$(git log -1 --pretty=%s)
+            MSG="$SHA: $SUBJECT"
+          fi
+          MSG="${MSG:0:1000}"
+          {
+            echo "msg<<__EAS_MSG_EOF__"
+            echo "$MSG"
+            echo "__EAS_MSG_EOF__"
+          } >> "$GITHUB_OUTPUT"
+          echo "Computed OTA message: $MSG"
+
+      - name: Push OTA to preview channel
+        if: ${{ inputs.branches == 'preview' || inputs.branches == 'both' || inputs.branches == 'all' }}
+        env:
+          MSG: ${{ steps.msg.outputs.msg }}
+          DRY_RUN: ${{ inputs.dry_run }}
+          # Blank normally; app.config.ts falls back to policy 'appVersion'.
+          OTA_RUNTIME_VERSION: ${{ inputs.runtime_version }}
+        run: |
+          # Bundle with the preview build profile's env. See ENV RULE at the top.
+          eval "$(jq -r '.build.preview.env | to_entries[] | "export \(.key)=\(.value | @sh)"' eas.json)"
+          if [[ -z "${EXPO_PUBLIC_SUPABASE_URL:-}" || -z "${EXPO_PUBLIC_SUPABASE_ANON_KEY:-}" ]]; then
+            echo "::error::eas.json build.preview.env has no Supabase URL/key; refusing to publish a bundle that crashes on launch."
+            exit 1
+          fi
+          if [[ "$DRY_RUN" == "true" ]]; then
+            echo "[DRY RUN] Would: eas update --branch preview --platform $EAS_PLATFORM --message '$MSG' --non-interactive"
+          else
+            eas update --branch preview --platform "$EAS_PLATFORM" --message "$MSG" --non-interactive
+          fi
+
+      - name: Record OTA publish in DB (preview)
+        if: ${{ inputs.dry_run != true && (inputs.branches == 'preview' || inputs.branches == 'both' || inputs.branches == 'all') }}
+        continue-on-error: true
+        env:
+          RECORD_APP: staff
+          MSG: ${{ steps.msg.outputs.msg }}
+          SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          GH_RUN_ID: ${{ github.run_id }}
+        run: |
+          "$GITHUB_WORKSPACE/scripts/ci/record-ota-publish.sh" "$RECORD_APP" preview
+
+      - name: Push OTA to production channel
+        if: ${{ inputs.branches == 'production' || inputs.branches == 'both' || inputs.branches == 'all' }}
+        env:
+          MSG: ${{ steps.msg.outputs.msg }}
+          DRY_RUN: ${{ inputs.dry_run }}
+          # Blank normally; app.config.ts falls back to policy 'appVersion'.
+          OTA_RUNTIME_VERSION: ${{ inputs.runtime_version }}
+        run: |
+          # Bundle with the production build profile's env. See ENV RULE at the top.
+          eval "$(jq -r '.build.production.env | to_entries[] | "export \(.key)=\(.value | @sh)"' eas.json)"
+          if [[ -z "${EXPO_PUBLIC_SUPABASE_URL:-}" || -z "${EXPO_PUBLIC_SUPABASE_ANON_KEY:-}" ]]; then
+            echo "::error::eas.json build.production.env has no Supabase URL/key; refusing to publish a bundle that crashes on launch."
+            exit 1
+          fi
+          if [[ "$DRY_RUN" == "true" ]]; then
+            echo "[DRY RUN] Would: eas update --branch production --platform $EAS_PLATFORM --message '$MSG' --non-interactive"
+          else
+            eas update --branch production --platform "$EAS_PLATFORM" --message "$MSG" --non-interactive
+          fi
+
+      - name: Record OTA publish in DB (production)
+        if: ${{ inputs.dry_run != true && (inputs.branches == 'production' || inputs.branches == 'both' || inputs.branches == 'all') }}
+        continue-on-error: true
+        env:
+          RECORD_APP: staff
+          MSG: ${{ steps.msg.outputs.msg }}
+          SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          GH_RUN_ID: ${{ github.run_id }}
+        run: |
+          "$GITHUB_WORKSPACE/scripts/ci/record-ota-publish.sh" "$RECORD_APP" production
+
+      - name: Push OTA to development channel
+        if: ${{ inputs.branches == 'development' || inputs.branches == 'all' }}
+        env:
+          MSG: ${{ steps.msg.outputs.msg }}
+          DRY_RUN: ${{ inputs.dry_run }}
+          # Blank normally; app.config.ts falls back to policy 'appVersion'.
+          OTA_RUNTIME_VERSION: ${{ inputs.runtime_version }}
+        run: |
+          # 2026-08-14: the warehouse Android APKs are built from a
+          # development-channel profile, so they never saw preview/production
+          # updates. An expo-updates client only reads its own channel.
+          # Bundle with the development build profile's env. See ENV RULE at the top.
+          eval "$(jq -r '.build.development.env | to_entries[] | "export \(.key)=\(.value | @sh)"' eas.json)"
+          if [[ -z "${EXPO_PUBLIC_SUPABASE_URL:-}" || -z "${EXPO_PUBLIC_SUPABASE_ANON_KEY:-}" ]]; then
+            echo "::error::eas.json build.development.env has no Supabase URL/key; refusing to publish a bundle that crashes on launch."
+            exit 1
+          fi
+          if [[ "$DRY_RUN" == "true" ]]; then
+            echo "[DRY RUN] Would: eas update --branch development --platform $EAS_PLATFORM --message '$MSG' --non-interactive"
+          else
+            eas update --branch development --platform "$EAS_PLATFORM" --message "$MSG" --non-interactive
+          fi
+
+      - name: Record OTA publish in DB (development)
+        if: ${{ inputs.dry_run != true && (inputs.branches == 'development' || inputs.branches == 'all') }}
+        continue-on-error: true
+        env:
+          RECORD_APP: staff
+          MSG: ${{ steps.msg.outputs.msg }}
+          SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          GH_RUN_ID: ${{ github.run_id }}
+        run: |
+          "$GITHUB_WORKSPACE/scripts/ci/record-ota-publish.sh" "$RECORD_APP" development
+
+      - name: Summary
+        if: always()
+        working-directory: .
+        env:
+          MSG: ${{ steps.msg.outputs.msg }}
+          BRANCHES: ${{ inputs.branches }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          {
+            echo "## EAS Update — field-mobile (staff)"
+            echo ""
+            echo "| Field | Value |"
+            echo "|---|---|"
+            echo "| App | field-mobile |"
+            echo "| Branches | $BRANCHES |"
+            echo "| Message | $MSG |"
+            echo "| Dry run | $DRY_RUN |"
+            echo "| Dashboard | https://expo.dev/accounts/rdw_cluer/projects/bidwizops-field/updates |"
+          } >> $GITHUB_STEP_SUMMARY
+
+  # ── Republish an existing update group ──────────────────────────────────
+  # 2026-09-23: 01a0cf4b was canary-tested on preview, but every other path in
+  # this workflow re-bundles from the checked-out ref. Promoting to production
+  # that way ships a DIFFERENT bundle (master had moved on), so the canary
+  # proves nothing about it. `eas update:republish` copies the tested group's
+  # bundle to another branch byte-for-byte. It gets new update IDs, so watch
+  # telemetry for the IDs printed here, not the canary's.
+  republish:
+    name: Republish ${{ inputs.republish_group }} (${{ inputs.app }})
+    if: ${{ inputs.republish_group && !inputs.roll_back_to_embedded }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    defaults:
+      run:
+        working-directory: apps/${{ inputs.app == 'staff' && 'field-mobile' || 'bidder-app' }}
+
+    steps:
+      # A group belongs to one EAS project, and a bundle carries whatever
+      # runtime it was built for — neither input can be widened here.
+      - name: Guard inputs
+        working-directory: .
+        env:
+          APP: ${{ inputs.app }}
+          GROUP: ${{ inputs.republish_group }}
+          RUNTIME: ${{ inputs.runtime_version }}
+        run: |
+          if [[ "$APP" != "staff" && "$APP" != "bidder" ]]; then
+            echo "::error::republish_group needs app = staff or bidder (an update group belongs to one project), got '$APP'."
+            exit 1
+          fi
+          if [[ ! "$GROUP" =~ ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$ ]]; then
+            echo "::error::republish_group must be an update GROUP id (uuid), got '$GROUP'. Update IDs differ per platform; the group ID is on the publish run's 'Update group ID' line."
+            exit 1
+          fi
+          if [[ -n "$RUNTIME" ]]; then
+            echo "::error::runtime_version cannot be combined with republish_group — a republished bundle keeps the runtime it was built for."
+            exit 1
+          fi
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # app.config.ts imports workspace packages; eas reads it on every command.
+      - name: Install workspace dependencies
+        working-directory: .
+        run: npm ci
+
+      - name: Install EAS CLI
+        run: npm install -g eas-cli@latest
+
+      - name: Authenticate with EAS
+        run: eas whoami
+
+      # The bundle keeps the env it was bundled with (ENV RULE at the top), so
+      # it is only safe on a branch whose build profile has the same env as
+      # the branch it was published to.
+      - name: Resolve source branch and check env
+        id: src
+        env:
+          GROUP: ${{ inputs.republish_group }}
+          BRANCHES: ${{ inputs.branches }}
+        run: |
+          set -euo pipefail
+          VIEW=$(eas update:view "$GROUP" --json)
+          echo "update:view (truncated): ${VIEW:0:1500}"
+          SRC=$(jq -r '[.. | objects | .branch? | select(. != null) | if type == "object" then .name else . end][0] // empty' <<<"$VIEW")
+          if [[ -z "$SRC" ]]; then
+            echo "::error::Could not read the source branch of group $GROUP from eas update:view."
+            exit 1
+          fi
+          case "$BRANCHES" in
+            both) DESTS="preview production" ;;
+            all)  DESTS="preview production development" ;;
+            *)    DESTS="$BRANCHES" ;;
+          esac
+          if ! jq -e --arg p "$SRC" '.build[$p].env' eas.json >/dev/null; then
+            echo "::error::Source branch '$SRC' has no matching build profile in eas.json, so the env its bundle carries is unknown. Refusing."
+            exit 1
+          fi
+          for D in $DESTS; do
+            if [[ "$D" == "$SRC" ]]; then
+              echo "::error::Group $GROUP is already on '$D'."
+              exit 1
+            fi
+            if ! diff <(jq -S --arg p "$SRC" '.build[$p].env' eas.json) <(jq -S --arg p "$D" '.build[$p].env // null' eas.json); then
+              echo "::error::build.$SRC.env and build.$D.env differ in eas.json; a bundle from '$SRC' would run on '$D' with the wrong env. Refusing."
+              exit 1
+            fi
+          done
+          echo "Source branch: $SRC -> $DESTS"
+          echo "src=$SRC" >> "$GITHUB_OUTPUT"
+          echo "dests=$DESTS" >> "$GITHUB_OUTPUT"
+
+      - name: Republish
+        env:
+          GROUP: ${{ inputs.republish_group }}
+          SRC: ${{ steps.src.outputs.src }}
+          DESTS: ${{ steps.src.outputs.dests }}
+          INPUT_MSG: ${{ inputs.message }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          set -euo pipefail
+          MSG="${INPUT_MSG:-republish of $SRC group $GROUP}"
+          MSG="${MSG:0:1000}"
+          for D in $DESTS; do
+            if [[ "$DRY_RUN" == "true" ]]; then
+              echo "[DRY RUN] Would: eas update:republish --group $GROUP --destination-branch $D --message '$MSG' --non-interactive"
+            else
+              eas update:republish --group "$GROUP" --destination-branch "$D" --message "$MSG" --non-interactive
+            fi
+          done
+
+      - name: Record OTA republish in DB
+        if: ${{ inputs.dry_run != true }}
+        continue-on-error: true
+        env:
+          RECORD_APP: ${{ inputs.app }}
+          DESTS: ${{ steps.src.outputs.dests }}
+          MSG: ${{ inputs.message }}
+          SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          GH_RUN_ID: ${{ github.run_id }}
+          GROUP: ${{ inputs.republish_group }}
+          SRC: ${{ steps.src.outputs.src }}
+        run: |
+          # Same default message as the Republish step above.
+          MSG="${MSG:-republish of $SRC group $GROUP}"
+          export MSG="${MSG:0:1000}"
+          "$GITHUB_WORKSPACE/scripts/ci/record-ota-publish.sh" "$RECORD_APP" "$DESTS"
+
+      - name: Summary
+        if: always()
+        working-directory: .
+        env:
+          APP: ${{ inputs.app }}
+          GROUP: ${{ inputs.republish_group }}
+          SRC: ${{ steps.src.outputs.src }}
+          DESTS: ${{ steps.src.outputs.dests }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          {
+            echo "## EAS Republish — $APP"
+            echo ""
+            echo "| Field | Value |"
+            echo "|---|---|"
+            echo "| Group | $GROUP |"
+            echo "| From | $SRC |"
+            echo "| To | $DESTS |"
+            echo "| Dry run | $DRY_RUN |"
+            echo ""
+            echo "New update IDs are in the Republish step log — telemetry reports those, not the source group's IDs."
+          } >> $GITHUB_STEP_SUMMARY
+
+  # ── Roll back to the embedded bundle ────────────────────────────────────
+  # 2026-09-23: the undo for a republish. Pointing a branch back at the code
+  # built into the installed app is the only safe target here: the previous
+  # production group (490229c, 2026-09-22) was bundled before the ENV RULE fix
+  # and dies at import, so "republish the last one" is not a rollback.
+  roll-back:
+    name: Roll back ${{ inputs.branches }} to embedded (${{ inputs.app }}, ${{ inputs.rollback_platform }})
+    if: ${{ inputs.roll_back_to_embedded }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    defaults:
+      run:
+        working-directory: apps/${{ inputs.app == 'staff' && 'field-mobile' || 'bidder-app' }}
+
+    steps:
+      - name: Guard inputs
+        working-directory: .
+        env:
+          APP: ${{ inputs.app }}
+          REPUBLISH_GROUP: ${{ inputs.republish_group }}
+        run: |
+          if [[ -n "$REPUBLISH_GROUP" ]]; then
+            echo "::error::roll_back_to_embedded and republish_group are separate runs."
+            exit 1
+          fi
+          if [[ "$APP" != "staff" && "$APP" != "bidder" ]]; then
+            echo "::error::roll_back_to_embedded needs app = staff or bidder (one project per run), got '$APP'."
+            exit 1
+          fi
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # app.config.ts imports workspace packages; eas reads it for the runtime.
+      - name: Install workspace dependencies
+        working-directory: .
+        run: npm ci
+
+      - name: Install EAS CLI
+        run: npm install -g eas-cli@latest
+
+      - name: Authenticate with EAS
+        run: eas whoami
+
+      - name: Roll back
+        env:
+          BRANCHES: ${{ inputs.branches }}
+          PLATFORM: ${{ inputs.rollback_platform }}
+          INPUT_MSG: ${{ inputs.message }}
+          DRY_RUN: ${{ inputs.dry_run }}
+          # Blank normally; app.config.ts falls back to policy 'appVersion'.
+          OTA_RUNTIME_VERSION: ${{ inputs.runtime_version }}
+        run: |
+          set -euo pipefail
+          case "$BRANCHES" in
+            both) DESTS="preview production" ;;
+            all)  DESTS="preview production development" ;;
+            *)    DESTS="$BRANCHES" ;;
+          esac
+          MSG="${INPUT_MSG:-roll back to embedded}"
+          MSG="${MSG:0:1000}"
+          for D in $DESTS; do
+            echo "Latest on $D before rollback:"
+            eas update:list --branch "$D" --limit 2 --non-interactive || true
+            if [[ "$DRY_RUN" == "true" ]]; then
+              echo "[DRY RUN] Would: eas update:roll-back-to-embedded --branch $D --platform $PLATFORM --message '$MSG' --non-interactive"
+            else
+              eas update:roll-back-to-embedded --branch "$D" --platform "$PLATFORM" --message "$MSG" --non-interactive
+            fi
+          done
+
+      - name: Summary
+        if: always()
+        working-directory: .
+        env:
+          APP: ${{ inputs.app }}
+          BRANCHES: ${{ inputs.branches }}
+          PLATFORM: ${{ inputs.rollback_platform }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          {
+            echo "## EAS roll back to embedded — $APP"
+            echo ""
+            echo "| Field | Value |"
+            echo "|---|---|"
+            echo "| Branches | $BRANCHES |"
+            echo "| Platform | $PLATFORM |"
+            echo "| Dry run | $DRY_RUN |"
+          } >> $GITHUB_STEP_SUMMARY

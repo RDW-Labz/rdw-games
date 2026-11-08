@@ -1,0 +1,31 @@
+{
+  "name": "@auction-platform/db",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Database migrations, RLS policies, and seed data for the auction platform",
+  "scripts": {
+    "db:reset": "supabase db reset",
+    "db:push": "supabase db push",
+    "db:diff": "supabase db diff",
+    "db:start": "supabase start",
+    "db:stop": "supabase stop",
+    "test:place-bid": "tsx test/place_bid.load.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:load": "PLACE_BID_LOAD=1 vitest run test/place_bid.load.test.ts",
+    "test:intake": "INTAKE_LOT_REGRESSION=1 vitest run test/intake_lot_to_bin.regression.test.ts",
+    "test:bid-count": "BID_COUNT_REGRESSION=1 vitest run test/bid_count_human_only.regression.test.ts",
+    "test:catalog-seed": "MANIFEST_CATALOG_SEED=1 vitest run test/manifest_catalog_seed.test.ts",
+    "test:staff-scan": "STAFF_SCAN_REGRESSION=1 vitest run test/staff_scan_bidder_token.regression.test.ts",
+    "test:sql": "psql -h localhost -U postgres -v ON_ERROR_STOP=1 -f test/resolve_category_ids_batch.sql",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@supabase/supabase-js": "^2.105.3",
+    "@types/node": "^22.19.17",
+    "tsx": "^4.19.0",
+    "typescript": "~5.9.3",
+    "vitest": "^2.1.0"
+  }
+}

@@ -1,0 +1,9 @@
+KILLED chat wrap rows unsized
+KILLED chat wrap cols unsized
+KILLED quick wrap rows unsized
+KILLED quick wrap cols unsized
+KILLED list align-self center again
+KILLED full composer shrinkable
+KILLED quick composer shrinkable
+KILLED pill overlap cell removed
+harness: KILLED original bug restored (chat wrap unsized + align-self center) -> Layout failed at start

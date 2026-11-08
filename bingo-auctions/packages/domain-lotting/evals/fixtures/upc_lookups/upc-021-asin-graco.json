@@ -1,0 +1,15 @@
+{
+  "id": "upc-021",
+  "code": "B07Q6ZD2F1",
+  "code_type": "asin",
+  "expected": {
+    "title": "Graco Pack 'n Play Portable Playard with Bassinet and Changing Station (Cooper)",
+    "brand": "Graco",
+    "model": "2118018",
+    "category_slug": "baby-kids",
+    "category_legacy": "Other",
+    "condition": "",
+    "msrp_cents": 12999
+  },
+  "notes": "Graco baby gear ASIN. Tests baby-kids → 'Other' legacy mapping."
+}

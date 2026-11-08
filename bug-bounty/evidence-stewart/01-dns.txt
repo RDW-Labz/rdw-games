@@ -1,0 +1,12 @@
+-- ind-dev.stewart.com
+ind-dev.stewart.com.	300	IN	CNAME	ind-dev.trafficmanager.net.
+status: NXDOMAIN
+-- ind-uat.stewart.com
+ind-uat.stewart.com.	300	IN	CNAME	ind-uat.trafficmanager.net.
+status: NXDOMAIN
+ind-dev.trafficmanager.net : status: NXDOMAIN
+ind-uat.trafficmanager.net : status: NXDOMAIN
+
+== zone NS ==
+hank.ns.cloudflare.com.
+serenity.ns.cloudflare.com.

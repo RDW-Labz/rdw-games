@@ -1,0 +1,22 @@
+{
+ "version": 1,
+ "concurrency": 1,
+ "jobs": [
+  {
+   "id": "bf-beacon-fix",
+   "agent": "claude",
+   "model": "opus",
+   "tier": "expensive",
+   "tierReason": "Pixel-art redraw of handle and face across 32 frames against a reference; the same Opus worker drew the pack",
+   "prompt": "You are job BF (Beacon fix round, the last one) for OASIS. Braden approved the Beacon pack; make exactly these changes to coordination/references/orb-sketches/beacon_v2.py and nothing else. You cannot run it; the coordinator runs it. Keep every existing self-check passing (sheet 512x1024, 128x128 frames, transparent corner, band region identical in every frame, status_light inside the frame) and keep the grid, state order, 4 frames, 6 fps, body and feet position.\nLook at coordination/references/orb-sketches/higgsfield/candidate-4.png (the reference) and coordination/references/orb-sketches/beacon-v2/preview-dark.png (the current result).\n1. Handle: replace the square block handle on top with a curved arch handle like candidate 4 (a rounded brass loop rising from both sides of the top cap, open in the middle so the background shows through). Keep the dark outline and light rim around it. Keep the done state's small handle hop.\n2. Face: make the dark CRT screen face clearly bigger (about 1.5x its current width and height on the native 64 grid, still centred above the band, not overlapping the band) with eyes scaled to match, so the face reads at 64 px on screen. Keep faces soft; paused eyes stay a flat closed line; offline screen stays dark.\n3. Band: the \"needs you\" family must read at 64 px with no animation. Add a BAND_TONES entry \"white\" (near-white glint, pale-cream core, light amber edge, e.g. (\"#FFFFFF\", \"#FFF4D6\", \"#FFD27A\")). asking and needs_attention become [\"white\", \"white\", \"white\", \"bright\"] (the blink never drops below bright). idle, working, proposal_ready, done, paused, offline stay as they are, so no calm or active frame is as light as any needs-you frame.\n4. Add one output: preview-64-dark.png: frame 0 of idle, asking and paused, each downscaled to 64x64 with nearest-neighbour, side by side on #1C1E24 with 16 px gaps and a small label under each (Pillow default font), plus the same three at 128 px in a second row for comparison.\n5. Update the module docstring to say revision 3 (curved handle, bigger face, white needs-you band, 64 px check). Update manifest.yaml output only if an anchor moves (the band must not move).\nOnly write the declared output. End with one JSON line, max 6 notes: {\"files_changed\":[...],\"notes\":[...]}.",
+   "context": [
+    "coordination/references/orb-sketches/higgsfield/candidate-4.png",
+    "coordination/references/orb-sketches/beacon-v2/preview-dark.png"
+   ],
+   "outputs": [
+    "coordination/references/orb-sketches/beacon_v2.py"
+   ],
+   "timeoutMs": 3600000
+  }
+ ]
+}

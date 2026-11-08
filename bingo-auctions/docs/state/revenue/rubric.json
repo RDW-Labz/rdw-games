@@ -1,0 +1,20 @@
+{
+  "written_at": "2026-10-15, committed before any candidate was scored",
+  "scale": "Each criterion is scored 0-5 against the anchors below, then multiplied by weight/5. Total out of 100. Totals are computed by score.mjs, never by hand.",
+  "criteria": [
+    {"key": "revenue", "weight": 25, "anchors": {"0": "no named payer or < $100/mo", "1": "$100-300/mo", "2": "$300-750/mo", "3": "$750-1,500/mo", "4": "$1,500-3,000/mo", "5": "> $3,000/mo net"}, "rule": "ESTIMATE net $/month from baseline.json numbers × an attach rate taken from research.md; inputs must be shown"},
+    {"key": "reuse", "weight": 20, "anchors": {"0": "nothing exists", "1": "data only", "2": "schema exists, no flow", "3": "schema + partial flow", "4": "flow exists, needs a fee/charge hook", "5": "only a setting/flag needed"}, "rule": "cite files"},
+    {"key": "safety", "weight": 15, "anchors": {"0": "changes existing behaviour when off", "1": "touches place_bid / close / charge core", "2": "touches charge path behind a flag", "3": "new path beside checkout/pickup", "4": "new screen + new table only", "5": "read-only or off-platform"}, "rule": "higher = safer"},
+    {"key": "fit", "weight": 15, "anchors": {"0": "contradicts signals or adds floor work", "1": "no signal", "2": "1 weak signal", "3": "1 strong signal, some floor work", "4": "2+ signals, little floor work", "5": "2+ strong signals, no added floor work"}, "rule": "cite S# from research.md"},
+    {"key": "pilot_cost", "weight": 10, "anchors": {"0": "> 4 weeks build or cash spend", "1": "3-4 weeks", "2": "2-3 weeks", "3": "1-2 weeks", "4": "< 1 week", "5": "< 2 days"}, "rule": "smallest testable slice"},
+    {"key": "measurable", "weight": 10, "anchors": {"0": "metric not in data", "1": "needs new instrumentation + > 60 days", "2": "new instrumentation, 30-60 days", "3": "new column, readable in 30 days", "4": "existing tables, 30 days", "5": "existing tables, < 14 days"}, "rule": "must be readable from a Phase 0 verified source"},
+    {"key": "durability", "weight": 5, "anchors": {"0": "one-off", "3": "recurring", "5": "recurring and compounding"}, "rule": ""}
+  ],
+  "disqualifiers": [
+    "D1 changes existing behaviour when the flag is off",
+    "D2 needs customer PII to leave the system",
+    "D3 makes the staff app slower or less reliable offline",
+    "D4 cannot be measured with data verified in Phase 0"
+  ],
+  "pass_mark": 70
+}

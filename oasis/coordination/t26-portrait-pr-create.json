@@ -1,0 +1,6 @@
+{
+ "title": "T26: portrait_to_pack \u2014 standard orb packs from a portrait in code",
+ "head": "t26-portrait-sprite-test",
+ "base": "main",
+ "body": "`avatars/tools/portrait_to_pack.py`: turns one transparent portrait into a standard orb pack in plain code (decision #200). Used to build the 44 standard packs of avatar round one; the packs themselves stay out of git and ship through the signed library.\n\n## What\n- Crop, scale, palette-quantise, binary alpha, outline and rim; status brooch in Beacon's tones; props per state.\n- Idle: slow 2-frame breathe (1 px shoulder rise). Blink on every awake state. Small head tilt on asking.\n- No image model, no credits. Output passes `validate_pack` unchanged (all 44 round-one packs: 0 failures, largest sheet 108 KB).\n- Tests on a synthetic portrait: exact 1 px rise, blink confined to the eye boxes, tilt leaves the body untouched, silhouette unbroken, CLI help.\n\n## Checks\n<!-- swarm:checks -->\n\n## Mutation check\nNo ask-first gate or state mapping: a build-time image tool that runs on the builder's machine, not in the product.\n\n\ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)\n\nhttps://claude.ai/code/session_012QWQRVxJjQx2DsXEAH1iuw"
+}

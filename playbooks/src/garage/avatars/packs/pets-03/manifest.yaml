@@ -1,0 +1,110 @@
+name: Finn
+artist: OASIS
+grid:
+  frame: 128
+  columns: 12
+  rows:
+  - idle
+  - working
+  - asking
+  - proposal_ready
+  - done
+  - needs_attention
+  - paused
+  - offline
+  - idle_variant_1
+  - idle_variant_2
+  - idle_variant_3
+  - celebrate
+  fps: 6
+palette:
+- '#140E0C'
+- '#1F0D06'
+- '#231713'
+- '#2E2A28'
+- '#301709'
+- '#392E15'
+- '#3B1A12'
+- '#3F1E0A'
+- '#433E3B'
+- '#453A1B'
+- '#473424'
+- '#4A2310'
+- '#4E4521'
+- '#57402A'
+- '#584D27'
+- '#58524E'
+- '#5B280F'
+- '#6A4C30'
+- '#6D5633'
+- '#6D6762'
+- '#6E7176'
+- '#782E0A'
+- '#7C5322'
+- '#837C76'
+- '#8F9297'
+- '#944A1F'
+- '#963206'
+- '#976D4A'
+- '#99928B'
+- '#A2702E'
+- '#A66A22'
+- '#AEA8A1'
+- '#AF3707'
+- '#B65411'
+- '#B6ABA0'
+- '#B7B9BD'
+- '#BD8C62'
+- '#C17443'
+- '#C24001'
+- '#C3BEB7'
+- '#C4904A'
+- '#CC411E'
+- '#CC8E33'
+- '#CF7F1E'
+- '#D24802'
+- '#D3A175'
+- '#D76A1C'
+- '#D8D4CE'
+- '#E05102'
+- '#E3B38A'
+- '#E9541B'
+- '#E9B864'
+- '#EC5A01'
+- '#EDEAE5'
+- '#F29A1F'
+- '#F2AA3C'
+- '#F48A32'
+- '#F49A50'
+- '#F5C898'
+- '#F66102'
+- '#F7771B'
+- '#F9B472'
+- '#FBD8AE'
+- '#FD6702'
+- '#FE7105'
+- '#FE7D0B'
+- '#FFC53D'
+- '#FFD27A'
+- '#FFD98A'
+- '#FFE7C2'
+- '#FFF1B8'
+- '#FFF3DC'
+- '#FFF4D6'
+- '#FFF6D7'
+- '#FFFBF2'
+- '#FFFFFF'
+anchors:
+  status_light:
+    x: 62
+    y: 57
+    w: 10
+    h: 8
+  chat_button:
+    x: 64
+    y: 122
+  baseline: 119
+tier: animated
+frames: 12
+fps: 6
+category: Pets

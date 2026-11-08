@@ -1,0 +1,31 @@
+# Calls the org's reusable publishing pipeline (RDW-Labz/ship-pipeline @v1).
+# Dry run on demand; a real publish needs BOTH a vX.Y.Z tag and `publish: true`
+# in ship.config.yml. Pushes to main do not trigger it.
+name: ship
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Re-publish targets already marked published in the release receipt
+        type: boolean
+        default: false
+      full_dry_run:
+        description: Also run the macOS iOS job in the dry run (costs macOS minutes)
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  ship:
+    if: github.ref_type == 'tag' || github.event_name == 'workflow_dispatch'
+    uses: RDW-Labz/ship-pipeline/.github/workflows/ship.yml@v1
+    with:
+      config_path: ship.config.yml
+      force: ${{ inputs.force || false }}
+      full_dry_run: ${{ inputs.full_dry_run || false }}
+    secrets: inherit

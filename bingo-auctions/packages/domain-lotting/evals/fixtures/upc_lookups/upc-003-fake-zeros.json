@@ -1,0 +1,15 @@
+{
+  "id": "upc-003",
+  "code": "000000000001",
+  "code_type": "upc",
+  "expected": {
+    "title": "",
+    "brand": "",
+    "model": "",
+    "category_slug": "other-misc",
+    "category_legacy": "Other",
+    "condition": "",
+    "msrp_cents": 0
+  },
+  "notes": "NEGATIVE — fake all-zeros UPC. Tests the 'no hallucination on miss' invariant. A model that confidently invents a product here is disqualified regardless of how well it does on the easy cases."
+}

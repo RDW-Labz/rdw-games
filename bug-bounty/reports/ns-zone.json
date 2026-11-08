@@ -1,0 +1,37 @@
+{
+ "dangling": [
+  {
+   "host": "devops.ops.dev.playgami.scopely.com",
+   "ns": [
+    "ns-1313.awsdns-36.org",
+    "ns-150.awsdns-18.com",
+    "ns-1983.awsdns-55.co.uk",
+    "ns-565.awsdns-06.net"
+   ],
+   "status": "ns-1313.awsdns-36.org=nxdomain",
+   "scope": "h1:scopely"
+  },
+  {
+   "host": "gamma-eu-west-1.musicmaker.kids-play.amazon.co.uk",
+   "ns": [
+    "ns-1172.awsdns-18.org",
+    "ns-1894.awsdns-44.co.uk",
+    "ns-346.awsdns-43.com",
+    "ns-929.awsdns-52.net"
+   ],
+   "status": "ns-1172.awsdns-18.org=nxdomain",
+   "scope": "h1:amazonvrp"
+  },
+  {
+   "host": "gamma-us-west-2.musicmaker.kids-play.amazon.co.jp",
+   "ns": [
+    "ns-1119.awsdns-11.org",
+    "ns-133.awsdns-16.com",
+    "ns-1605.awsdns-08.co.uk",
+    "ns-908.awsdns-49.net"
+   ],
+   "status": "ns-1119.awsdns-11.org=nxdomain",
+   "scope": "h1:amazonvrp"
+  }
+ ]
+}

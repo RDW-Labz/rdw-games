@@ -1,0 +1,23 @@
+{
+  "id": "manifest-010",
+  "source": "amazon",
+  "raw": {
+    "description": "Graco Pack 'n Play Portable Playard with Bassinet, Reversible Napper, Changing Station Travel Crib (Cooper)",
+    "retailer_category": "gl_baby_product",
+    "upc": "047406180110",
+    "model_number": "2118018",
+    "quantity": 1,
+    "retail_price": 129.99
+  },
+  "expected": {
+    "title": "Graco Pack 'n Play Portable Playard with Bassinet and Changing Station (Cooper)",
+    "brand": "Graco",
+    "model": "2118018",
+    "category_slug": "baby-kids",
+    "category_legacy": "Other",
+    "condition": "New/Open Box",
+    "msrp_cents": 12999,
+    "expected_confidence": "high"
+  },
+  "notes": "Baby category — legacy enum has no 'Baby' entry, falls to 'Other'. Tests the slug-vs-legacy mapping."
+}

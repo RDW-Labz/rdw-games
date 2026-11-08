@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "concurrency": 1,
+  "jobs": [
+    {
+      "id": "desktop-app-mac-pr-body",
+      "agent": "claude",
+      "model": "haiku",
+      "tier": "cheap",
+      "prompt": "Write the GitHub PR description for the desktop-app Mac-build PR into coordination/desktop-app-mac-pr.md. Inputs: coordination/desktop-app-mac-pr-input.md and coordination/desktop-app-mac-changelog.md (the Unreleased entries shown). Plain words, short sentences. Sections: Summary (one bullet each: the Mac quickstart guide, the updater public key, the token cache fix, the Activity error messages, the orb drag fix), Checked on the Mac (copy those bullets), Tests (paste the check block verbatim), Not in this PR (the skipped Windows parts, T17, and the known follow-ups from the Facts), Open for Braden (write \"nothing\"). Do not invent facts. Do not claim any ticket is done. End the file with the line: \ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)\nOnly edit the declared output. End with one JSON line {\"files_changed\":[...]}.",
+      "context": [
+        "coordination/desktop-app-mac-pr-input.md",
+        "coordination/desktop-app-mac-changelog.md"
+      ],
+      "outputs": [
+        "coordination/desktop-app-mac-pr.md"
+      ],
+      "timeoutMs": 900000
+    }
+  ]
+}

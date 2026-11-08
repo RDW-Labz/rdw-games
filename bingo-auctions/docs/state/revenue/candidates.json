@@ -1,0 +1,407 @@
+{
+  "scored_at": "2026-10-15",
+  "assumptions": {
+    "A1_pass_through": "ESTIMATE: BinGo is the only seller, so a fee every buyer must pay is partly offset by lower bids. 50% of a mandatory fee is assumed to come back out of hammer. Optional fees (holds, memberships, services) are not offset.",
+    "A2_month": "4.33 weeks; weekly figures from baseline.json (11 full weeks)",
+    "A3_lines_per_week": "1,695 = 20,340 invoice lines / 12 weeks (baseline.json lines_84d)"
+  },
+  "excluded": [
+    {
+      "candidate": "Refund leakage (pick accuracy)",
+      "reason": "Not a new revenue stream: 2,426 of 2,464 refunds (98.5%) are issued before pickup, i.e. the warehouse could not hand the item over ($32,292 hammer in 84d, queries/b7.json). That is the Missing Items work already in flight (#517 and related), so it is reported to Braden as a finding, not scored here. Correction 2026-10-15: refund reasons ARE recorded (after_state.sub_reason, 99.8%) but default-biased; see docs/audits/refunds-before-pickup-2026-10-15.md."
+    }
+  ],
+  "candidates": [
+    {
+      "id": "C01",
+      "name": "Paid pickup hold past the 7-day window ($5/item, MAC.BID model E4)",
+      "disqualified": null,
+      "scores": {
+        "revenue": 0,
+        "reuse": 3,
+        "safety": 3,
+        "fit": 2,
+        "pilot_cost": 3,
+        "measurable": 4,
+        "durability": 3
+      },
+      "evidence": {
+        "revenue": "823 forfeited lines/84d \u00d7 25% attach \u00d7 $5 = ~$371/mo gross, but each held item is one BinGo would have relisted (62% sell at $6.68, b7) \u2192 ~$64/mo net. ESTIMATE",
+        "reuse": "operators.pickup_grace_extension_hours, operator_policies.pickup_window_days, no-show cron exist; no paid-hold flow",
+        "safety": "new path beside pickup + forfeit cron",
+        "fit": "S3: only 27 pickups after day 7 in 84d \u2014 weak",
+        "pilot_cost": "1-2 weeks incl. charge",
+        "measurable": "invoice_lots.forfeited_at + fee ledger",
+        "durability": "recurring"
+      }
+    },
+    {
+      "id": "C02",
+      "name": "BinGo Plus membership $9.99/mo (early pickup hour, free holds, express counter) \u2014 BidFTA+/MAC.BID model E3/E5",
+      "disqualified": null,
+      "scores": {
+        "revenue": 1,
+        "reuse": 2,
+        "safety": 2,
+        "fit": 3,
+        "pilot_cost": 1,
+        "measurable": 4,
+        "durability": 5
+      },
+      "evidence": {
+        "revenue": "30% of 31 heavy + 10% of 187 mid buyers = 28 \u00d7 $9.99 = $280/mo less ~3% card fee = ~$271/mo. ESTIMATE",
+        "reuse": "bidder_subscriptions + operators.pro_* + membership_fee_bps exist but are Stripe-based; Square subscriptions not built (PLAN-operator-memberships-2026-06-03.md)",
+        "safety": "new recurring charge path",
+        "fit": "S1, S2 strong; early pickup hour needs staff before 10:30 = floor work",
+        "pilot_cost": "3-4 weeks: Square subscriptions + app store review of a physical-service membership",
+        "measurable": "subscription rows",
+        "durability": "recurring, compounding"
+      }
+    },
+    {
+      "id": "C03",
+      "name": "Per-lot handling fee $1 (BidFTA/MAC.BID/OLA model E2/E4/E6)",
+      "disqualified": null,
+      "scores": {
+        "revenue": 5,
+        "reuse": 3,
+        "safety": 1,
+        "fit": 1,
+        "pilot_cost": 3,
+        "measurable": 5,
+        "durability": 5
+      },
+      "evidence": {
+        "revenue": "1,695 lines/wk \u00d7 $1 \u00d7 4.33 = $7,340/mo gross \u00d7 50% (A1) = ~$3,670/mo. ESTIMATE",
+        "reuse": "invoice build computes premium + tax at close; fee would be a new invoice component",
+        "safety": "touches close-time invoice totals and the auto-charge amount",
+        "fit": "no demand signal; $1 is 20% of the $5 median hammer \u2014 complaint risk",
+        "pilot_cost": "1-2 weeks",
+        "measurable": "invoices table",
+        "durability": "recurring"
+      }
+    },
+    {
+      "id": "C04",
+      "name": "Buyer's premium 15% \u2192 17% on selected auctions (fee tuning; BidFTA is 17.25%, E2)",
+      "disqualified": null,
+      "scores": {
+        "revenue": 2,
+        "reuse": 5,
+        "safety": 4,
+        "fit": 1,
+        "pilot_cost": 5,
+        "measurable": 4,
+        "durability": 5
+      },
+      "evidence": {
+        "revenue": "$16,379/wk hammer \u00d7 4.33 \u00d7 2% = $1,418/mo \u00d7 50% (A1) = ~$709/mo. ESTIMATE",
+        "reuse": "auctions.buyer_premium_bps is already per-auction (356/356 at 1500, b1)",
+        "safety": "existing setting; other auctions unchanged",
+        "fit": "no demand signal; a price rise",
+        "pilot_cost": "a setting on one auction",
+        "measurable": "invoices.buyer_premium_cents vs hammer, matched auctions; confounded by +48% growth",
+        "durability": "recurring"
+      }
+    },
+    {
+      "id": "C05",
+      "name": "Reseller bulk lots: bundle 2\u00d7-relisted and zero-bid items into box/pallet lots (B-Stock/Quicklotz model E8/E11)",
+      "disqualified": null,
+      "scores": {
+        "revenue": 2,
+        "reuse": 4,
+        "safety": 5,
+        "fit": 3,
+        "pilot_cost": 5,
+        "measurable": 3,
+        "durability": 3
+      },
+      "evidence": {
+        "revenue": "962 items relisted 2+ times + 320 disposal-flagged per 84d \u2248 107/wk \u2192 4 bulk lots of 25/wk \u00d7 $75 (\u22482% of $151 avg MSRP \u00d7 25) \u00d7 4.33 = $1,300/mo, less ~$690/mo of single-relist sales given up = ~$610/mo net. ESTIMATE",
+        "reuse": "a bulk lot is an ordinary lot made in the existing staff lotting flow; no code for a manual pilot",
+        "safety": "manual pilot uses the existing flow; nothing changes for others",
+        "fit": "S1 (31 resellers) + S6 (4,011 zero-bid lots); staff must assemble bundles = floor work",
+        "pilot_cost": "staff-only, no code",
+        "measurable": "needs a bulk tag/category to separate these lots",
+        "durability": "recurring"
+      }
+    },
+    {
+      "id": "C06",
+      "name": "Consignment / event auctions for outside sellers at 20-30% commission (Crandall model, E12)",
+      "disqualified": null,
+      "scores": {
+        "revenue": 1,
+        "reuse": 4,
+        "safety": 4,
+        "fit": 1,
+        "pilot_cost": 2,
+        "measurable": 4,
+        "durability": 3
+      },
+      "evidence": {
+        "revenue": "no named consignor; a 120-lot event like Crandall \u00d7 $9.56 avg \u00d7 25% = ~$287/event. ESTIMATE",
+        "reuse": "Crandall warehouse row + off-site pickup + notices live (0411/0412, 120 open lots, b7); no consignor payout/settlement",
+        "safety": "separate warehouse/auction",
+        "fit": "no internal signal of outside sellers",
+        "pilot_cost": "needs a consignor, a contract, a payout path",
+        "measurable": "lots/invoices by warehouse",
+        "durability": "per event"
+      }
+    },
+    {
+      "id": "C07",
+      "name": "Paid local delivery",
+      "disqualified": null,
+      "scores": {
+        "revenue": 1,
+        "reuse": 1,
+        "safety": 3,
+        "fit": 1,
+        "pilot_cost": 1,
+        "measurable": 3,
+        "durability": 3
+      },
+      "evidence": {
+        "revenue": "no request in Feedback or data; ESTIMATE < $300/mo",
+        "reuse": "no delivery flow; fulfillment_method column only",
+        "safety": "new path",
+        "fit": "no signal (S9 empty)",
+        "pilot_cost": "drivers/vehicle = cash spend",
+        "measurable": "new column",
+        "durability": "recurring"
+      }
+    },
+    {
+      "id": "C08",
+      "name": "Shipping via existing EasyPost code",
+      "disqualified": null,
+      "scores": {
+        "revenue": 1,
+        "reuse": 3,
+        "safety": 3,
+        "fit": 1,
+        "pilot_cost": 2,
+        "measurable": 4,
+        "durability": 3
+      },
+      "evidence": {
+        "revenue": "$9.56 avg hammer; shipping costs more than most items. ESTIMATE < $300/mo",
+        "reuse": "lib/easypost.ts, shipping routes; offers_shipping=false",
+        "safety": "new fulfilment path through checkout",
+        "fit": "no signal",
+        "pilot_cost": "2-3 weeks + packing labour",
+        "measurable": "invoices.shipping_cents",
+        "durability": "recurring"
+      }
+    },
+    {
+      "id": "C09",
+      "name": "Saved-search alerts push (re-engagement on unsold stock)",
+      "disqualified": null,
+      "scores": {
+        "revenue": 1,
+        "reuse": 4,
+        "safety": 4,
+        "fit": 3,
+        "pilot_cost": 4,
+        "measurable": 3,
+        "durability": 5
+      },
+      "evidence": {
+        "revenue": "+2% sell-through on 4,011 zero-bid lots = 80 lots \u00d7 $6.68 per 84d \u2248 $190/mo. ESTIMATE",
+        "reuse": "saved_searches.notify + notifications_outbox + push tokens exist",
+        "safety": "notification only",
+        "fit": "S7: 656 watchlist users, 21 saved-search users",
+        "pilot_cost": "< 1 week",
+        "measurable": "needs attribution of alert \u2192 bid",
+        "durability": "compounding"
+      }
+    },
+    {
+      "id": "C10",
+      "name": "Promoted/featured lots paid by sellers",
+      "disqualified": null,
+      "scores": {
+        "revenue": 0,
+        "reuse": 1,
+        "safety": 4,
+        "fit": 0,
+        "pilot_cost": 3,
+        "measurable": 2,
+        "durability": 3
+      },
+      "evidence": {
+        "revenue": "no payer: BinGo is the only seller",
+        "reuse": "featured_image_urls on auctions only",
+        "safety": "UI only",
+        "fit": "no outside sellers",
+        "pilot_cost": "1-2 weeks",
+        "measurable": "new instrumentation",
+        "durability": "recurring"
+      }
+    },
+    {
+      "id": "C11",
+      "name": "License the platform to other liquidators (SaaS, $99/mo + 2% GMV per competitive-pricing-analysis.md)",
+      "disqualified": null,
+      "scores": {
+        "revenue": 0,
+        "reuse": 4,
+        "safety": 2,
+        "fit": 1,
+        "pilot_cost": 0,
+        "measurable": 3,
+        "durability": 5
+      },
+      "evidence": {
+        "revenue": "no named buyer",
+        "reuse": "multi-tenant operators table, demo operator",
+        "safety": "tenant isolation on the live database",
+        "fit": "no signal",
+        "pilot_cost": "sales + onboarding > 4 weeks",
+        "measurable": "operator invoices",
+        "durability": "compounding"
+      }
+    },
+    {
+      "id": "C12",
+      "name": "Price/data reports for resellers",
+      "disqualified": null,
+      "scores": {
+        "revenue": 0,
+        "reuse": 3,
+        "safety": 5,
+        "fit": 1,
+        "pilot_cost": 4,
+        "measurable": 3,
+        "durability": 3
+      },
+      "evidence": {
+        "revenue": "31 heavy buyers \u00d7 low attach; ESTIMATE < $100/mo",
+        "reuse": "sold-price data exists",
+        "safety": "read-only export",
+        "fit": "no signal; WEB-02 is removing public sales history",
+        "pilot_cost": "< 1 week",
+        "measurable": "new subscription rows",
+        "durability": "recurring"
+      }
+    },
+    {
+      "id": "C13",
+      "name": "Late-pickup storage fee after day 7",
+      "disqualified": null,
+      "scores": {
+        "revenue": 0,
+        "reuse": 3,
+        "safety": 3,
+        "fit": 1,
+        "pilot_cost": 3,
+        "measurable": 4,
+        "durability": 3
+      },
+      "evidence": {
+        "revenue": "27 pickups after day 7 in 84d; unpaid items are already forfeited to BinGo (full_forfeit)",
+        "reuse": "policy + forfeit cron",
+        "safety": "changes no-show path",
+        "fit": "S3 weak past day 7",
+        "pilot_cost": "1-2 weeks",
+        "measurable": "pickups",
+        "durability": "recurring"
+      }
+    },
+    {
+      "id": "C14",
+      "name": "Paid express counter pickup ($3/visit, items pre-pulled before arrival; MAC.BID Fast Pass E5)",
+      "disqualified": null,
+      "scores": {
+        "revenue": 2,
+        "reuse": 3,
+        "safety": 4,
+        "fit": 3,
+        "pilot_cost": 4,
+        "measurable": 4,
+        "durability": 3
+      },
+      "evidence": {
+        "revenue": "2,977 pickup visits/84d \u2248 1,075/mo \u00d7 10% attach \u00d7 $3 = ~$323/mo. ESTIMATE",
+        "reuse": "pickups.scheduled_at, warehouse slots (30 min \u00d7 5), staff pick list exist",
+        "safety": "new option beside pickup",
+        "fit": "S1/S2 heavy buyers make ~25 trips each and wait longer; pre-pulling is floor work",
+        "pilot_cost": "< 1 week",
+        "measurable": "pickups + fee ledger",
+        "durability": "recurring"
+      }
+    },
+    {
+      "id": "C15",
+      "name": "Collect the fees already published (auto-charge $5 relot fee to card; enforce $5 restock fee)",
+      "disqualified": null,
+      "scores": {
+        "revenue": 0,
+        "reuse": 4,
+        "safety": 2,
+        "fit": 2,
+        "pilot_cost": 4,
+        "measurable": 5,
+        "durability": 3
+      },
+      "evidence": {
+        "revenue": "~6 relot fees/wk \u00d7 $5 \u00d7 60% more collected \u2248 $78/mo; restock applies to 38 post-pickup refunds/84d. ESTIMATE",
+        "reuse": "bidder_fee_ledger, apply_relot_fee, card on file",
+        "safety": "charge path",
+        "fit": "S5",
+        "pilot_cost": "< 1 week",
+        "measurable": "bidder_fee_ledger.paid_at",
+        "durability": "recurring"
+      }
+    },
+    {
+      "id": "C16",
+      "name": "Per-sq-ft flooring sales",
+      "disqualified": "D4 \u2014 flooring volume is not identifiable in verified data (no flooring category in top sold or unsold categories); spec only on docs/sqft-bidding-spec",
+      "scores": {
+        "revenue": 0,
+        "reuse": 1,
+        "safety": 3,
+        "fit": 1,
+        "pilot_cost": 1,
+        "measurable": 0,
+        "durability": 3
+      },
+      "evidence": {
+        "revenue": "unknown",
+        "reuse": "spec only",
+        "safety": "new bid unit touches place_bid",
+        "fit": "Jared scoping",
+        "pilot_cost": "> 3 weeks",
+        "measurable": "not in data",
+        "durability": "recurring"
+      }
+    },
+    {
+      "id": "C17",
+      "name": "Sponsored local ads in app/site",
+      "disqualified": null,
+      "scores": {
+        "revenue": 1,
+        "reuse": 1,
+        "safety": 4,
+        "fit": 0,
+        "pilot_cost": 3,
+        "measurable": 3,
+        "durability": 3
+      },
+      "evidence": {
+        "revenue": "~180 buyers/wk audience; ESTIMATE $100-200/mo",
+        "reuse": "none",
+        "safety": "UI only",
+        "fit": "no signal; clutters bidding",
+        "pilot_cost": "1-2 weeks + selling",
+        "measurable": "new instrumentation",
+        "durability": "recurring"
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "$comment": [
+    "Models to compare on each smoke run. Edit this list to add / remove",
+    "candidates. Cost data is fetched live from OpenRouter's /api/v1/models",
+    "endpoint at run start, so prices auto-update — no hardcoded numbers.",
+    "Order shown here is the order in the report tables."
+  ],
+  "models": [
+    "google/gemini-2.5-flash-lite",
+    "google/gemini-2.5-flash",
+    "anthropic/claude-haiku-4.5",
+    "openai/gpt-4o-mini",
+    "meta-llama/llama-3.2-90b-vision-instruct"
+  ]
+}

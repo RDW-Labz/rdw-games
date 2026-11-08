@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "concurrency": 2,
+  "jobs": [
+    {
+      "id": "reader",
+      "agent": "claude",
+      "prompt": "Confirm in one sentence that you received this coordinator assignment. Do not read or write files.",
+      "context": [],
+      "outputs": [],
+      "timeoutMs": 120000
+    },
+    {
+      "id": "writer",
+      "agent": "claude",
+      "prompt": "Write coordination/swarm-handshake.md with a brief confirmation that you can receive an assignment and produce the declared file. Do not inspect or modify anything else.",
+      "context": [],
+      "outputs": ["coordination/swarm-handshake.md"],
+      "timeoutMs": 120000
+    }
+  ]
+}

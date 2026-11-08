@@ -1,0 +1,20 @@
+{
+ "version": 1,
+ "concurrency": 1,
+ "jobs": [
+  {
+   "id": "t21a-pr-body",
+   "agent": "claude",
+   "model": "haiku",
+   "tier": "cheap",
+   "prompt": "Write coordination/t21a-pr-create.json: a GitHub create-PR request body with keys title, head, base, body. title: \"Chat threads saved in the drawer, /chats endpoints, ask-first delete (0.6.12, T21 PR 1)\". head: \"t21-chat-storage\". base: \"main\". body (GitHub markdown, plain short words, no marketing): sections Summary (3-5 bullets from the \"Chats (T21 PR 1\" section of coordination/.t21a-local-service.md: drawer files chats/<id>.jsonl + index.json via private-file primitives; /chats list, create, get, search, append, rename; delete is decision #68's two-call ask-first with preview + one-time token bound to the thread and its content; WS /chat send takes optional thread_id, no id = newest thread (decision #71), done echoes thread_id; search is local text match, never sent to the model; model input unchanged, context is PR 2), Tests (the ticket's two PR 1 tests: resume after restart keeps the thread; delete pauses for a yes (no token deletes nothing, replayed/wrong/stale token = 409); coordinator mutation-tested the delete gate: accepting any token, skipping the content check, or deleting on preview each fail a test), Checks (paste exactly: \"ruff format --check: 81 files already formatted / ruff check: All checks passed! / mypy --strict src (native and win32): no issues in 38 source files / pytest: 561 passed, 3 skipped, 1 deselected\"), Next (\"T21 PR 2: thread context + summaries + auto-title\"). End the body with exactly the line: \ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)\nOutput valid JSON only in that file. End with one JSON line: {\"files_changed\":[...]}.",
+   "context": [
+    "coordination/.t21a-local-service.md"
+   ],
+   "outputs": [
+    "coordination/t21a-pr-create.json"
+   ],
+   "timeoutMs": 600000
+  }
+ ]
+}

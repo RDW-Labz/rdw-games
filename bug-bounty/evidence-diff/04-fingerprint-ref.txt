@@ -1,0 +1,14 @@
+can-i-take-over-xyz — provider fingerprint table
+https://raw.githubusercontent.com/EdOverflow/can-i-take-over-xyz/master/README.md
+
+  | AWS/Elastic Beanstalk | Vulnerable | elasticbeanstalk.com | NXDOMAIN | Issue #194 |
+  | AWS/Load Balancer (ELB)| Not vulnerable | elb.amazonaws.com | NXDOMAIN | Issue #137 |
+  | AWS/CloudFront         | Not vulnerable | cloudfront.net | | |
+
+Claim mechanic (https://www.stratussecurity.com/post/aws-subdomain-takeover-guide):
+  A regionalized EB hostname `<prefix>.<region>.elasticbeanstalk.com` that returns
+  NXDOMAIN is claimable by creating an environment in that same region with that
+  DNS name — `aws elasticbeanstalk check-dns-availability --cname-prefix <prefix>`
+  then `create-environment --cname-prefix <prefix>`. Hostnames that embed the
+  random `<env>.<id>.<region>` segment are still reachable by registering the id;
+  legacy non-regional names are not takeable. Ours are the plain regional form.

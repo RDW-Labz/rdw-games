@@ -1,0 +1,14 @@
+[
+ {
+  "host": "united-in-joy.tomorrowland.com",
+  "target": "kiosk.tlbe22-bmw.pages.dev",
+  "ns": "pages.dev",
+  "verdict": "AVAILABLE",
+  "how": "wildcard",
+  "platform": "it",
+  "handle": "tomorrowland",
+  "asset": "*.tomorrowland.com",
+  "bounty": true,
+  "claim": "Cloudflare Pages 404 for an unused project name"
+ }
+]

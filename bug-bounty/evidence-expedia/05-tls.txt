@@ -1,0 +1,4 @@
+subject=CN=*.github.io
+issuer=C=US, O=Let's Encrypt, CN=YR1
+notBefore=Sep 30 23:44:46 2026 GMT
+notAfter=Dec 29 23:44:45 2026 GMT

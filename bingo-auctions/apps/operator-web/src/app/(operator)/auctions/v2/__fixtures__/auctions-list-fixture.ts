@@ -1,0 +1,63 @@
+import type { AuctionsV2Props } from '../auction-list-types';
+
+// Thumbs point at images that ship in apps/operator-web/public (no external hosts).
+export const auctionsListV2Fixture: AuctionsV2Props = {
+  rows: [
+    {
+      id: 'a-live-1',
+      title: 'Tuesday Evening General',
+      status: 'live',
+      warehouseName: 'BinGo — Rogers',
+      startsAtLabel: 'Oct 7, 2025, 6:00 PM CDT',
+      firstCloseLabel: 'Oct 7, 2025, 8:00 PM CDT',
+      lastCloseLabel: 'Oct 7, 2025, 10:30 PM CDT',
+      lotCount: 128,
+      offSite: false,
+      featuredImageUrls: [
+        '/art/categories/furniture.webp',
+        '/art/categories/kitchen-dining.webp',
+        '/art/categories/outdoor-garden.webp',
+      ],
+      premiumLabel: '15.0%',
+    },
+    {
+      id: 'a-draft-1',
+      title: 'Saturday Tools & Equipment',
+      status: 'draft',
+      warehouseName: 'BinGo — Rogers',
+      startsAtLabel: 'Oct 11, 2025, 9:00 AM CDT',
+      firstCloseLabel: 'Oct 11, 2025, 6:00 PM CDT',
+      lastCloseLabel: 'Oct 11, 2025, 9:00 PM CDT',
+      lotCount: 42,
+      offSite: false,
+      featuredImageUrls: [],
+      premiumLabel: '15.0%',
+    },
+    {
+      id: 'a-offsite-1',
+      title: 'Crandall Closeout — Furniture, Appliances and Home Improvement Overstock',
+      status: 'scheduled',
+      warehouseName: 'Temporary — Crandall TX',
+      startsAtLabel: 'Oct 9, 2025, 10:00 AM CDT',
+      firstCloseLabel: 'Oct 9, 2025, 5:00 PM CDT',
+      lastCloseLabel: 'Oct 9, 2025, 8:00 PM CDT',
+      lotCount: 3500,
+      offSite: true,
+      featuredImageUrls: ['/art/categories/appliances.webp', '/art/categories/home-improvement.webp'],
+      premiumLabel: '18.0%',
+    },
+    {
+      id: 'a-closed-1',
+      title: 'Weekend Electronics',
+      status: 'closed',
+      warehouseName: 'BinGo — Rogers',
+      startsAtLabel: 'Oct 3, 2025, 6:00 PM CDT',
+      firstCloseLabel: 'Oct 5, 2025, 8:00 PM CDT',
+      lastCloseLabel: 'Oct 6, 2025, 12:15 AM CDT',
+      lotCount: 310,
+      offSite: false,
+      featuredImageUrls: ['/art/categories/electronics.webp'],
+      premiumLabel: '12.5%',
+    },
+  ],
+};

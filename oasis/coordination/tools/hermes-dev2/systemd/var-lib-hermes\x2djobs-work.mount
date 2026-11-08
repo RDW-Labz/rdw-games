@@ -1,0 +1,18 @@
+# The work area for Hermes jobs (decision #384): a 2 GB tmpfs, so a job can
+# never fill dev2's disk (and, being RAM-backed, it counts toward the
+# watchdog's free-RAM rule). Root-owned, 0711: hermes-sub can't list it;
+# each job's folder is created by root inside it. Jobs refuse to start
+# unless this is mounted (hermes-unit-precheck, hermes-job-start), and the
+# watchdog stops all jobs when it passes 90% full.
+[Unit]
+Description=Hermes worker job area (size-capped tmpfs)
+Before=hermes-proxy.service
+
+[Mount]
+What=tmpfs
+Where=/var/lib/hermes-jobs/work
+Type=tmpfs
+Options=size=2G,mode=0711,uid=0,gid=0,nosuid,nodev,noexec
+
+[Install]
+WantedBy=multi-user.target

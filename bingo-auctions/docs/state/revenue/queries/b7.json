@@ -1,0 +1,97 @@
+[
+  {
+    "refunds": {
+      "refunded_lines": 2464,
+      "never_picked": 2426,
+      "after_pickup": 38,
+      "hammer_c": 3347167,
+      "hammer_never_picked_c": 3229169,
+      "lot_marked_missing_or_removed": 364,
+      "lot_flagged_disposal": 367,
+      "p50_hours_close_to_refund": 65.7423122533333
+    },
+    "refund_removal_kinds": [
+      {
+        "k": "none",
+        "n": 2100
+      },
+      {
+        "k": "destroyed",
+        "n": 345
+      },
+      {
+        "k": "missing",
+        "n": 18
+      },
+      {
+        "k": "bin_store",
+        "n": 1
+      }
+    ],
+    "relists": {
+      "relisted_closed": 3923,
+      "sold": 2441,
+      "avg_hammer_c": 668,
+      "relist_2plus": 962,
+      "by_origin": [
+        {
+          "o": "desk_relist",
+          "n": 3390,
+          "sold": 2009,
+          "avg_c": 635
+        },
+        {
+          "o": "human_relot",
+          "n": 533,
+          "sold": 432,
+          "avg_c": 823
+        }
+      ]
+    },
+    "unsold": {
+      "zero_bid_lots": 4011,
+      "avg_msrp_c": 15145,
+      "now_disposal_flagged": 320,
+      "top_cats": [
+        {
+          "c": "Other",
+          "n": 1573
+        },
+        {
+          "c": "Furniture",
+          "n": 434
+        },
+        {
+          "c": "Electronics",
+          "n": 265
+        },
+        {
+          "c": "Home & Garden",
+          "n": 258
+        },
+        {
+          "c": "Home & Kitchen › Furniture",
+          "n": 242
+        },
+        {
+          "c": "Tools & Hardware",
+          "n": 185
+        }
+      ]
+    },
+    "other_sites": [
+      {
+        "name": "Crandall",
+        "lots": 120,
+        "open_lots": 120,
+        "first_start": "2026-10-15T12:00:00+00:00"
+      },
+      {
+        "name": "Dodge City",
+        "lots": 1,
+        "open_lots": 0,
+        "first_start": "2026-08-18T17:47:00+00:00"
+      }
+    ]
+  }
+]

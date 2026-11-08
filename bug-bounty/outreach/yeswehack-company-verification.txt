@@ -1,0 +1,21 @@
+To: support@yeswehack.com
+Subject: Company (business) verification — RDW, United States
+
+Hello,
+
+I have completed individual KYC on my hunter account and would like to move to a company verification so
+that rewards can be withdrawn to our business bank account rather than a personal one.
+
+Entity details:
+  Legal name:    RDW
+  Trading name:  RDW Labz (a DBA of RDW)
+  Jurisdiction:  Arkansas, United States
+  Address:       601 US-62 65 S., Harrison, AR 72601, US
+  Account email: security@rdwlabz.com
+
+Could you confirm which documents you need for a United States entity for the company verification path,
+and whether the billing mandate should then be issued in RDW's name? I have not withdrawn anything yet and
+would rather set this up correctly before the first payment.
+
+Thank you,
+Michael

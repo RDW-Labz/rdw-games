@@ -1,0 +1,21 @@
+{
+  "id": "manifest-004",
+  "source": "lowes",
+  "raw": {
+    "description": "CRAFTSMAN 42-IN/46-IN BAGGER",
+    "retailer_category": "mower accessories",
+    "upc": "889021314453",
+    "quantity": 1
+  },
+  "expected": {
+    "title": "Craftsman 42-inch / 46-inch Lawn Mower Bagger Attachment",
+    "brand": "Craftsman",
+    "model": "CMXGZAM110233",
+    "category_slug": "outdoor-power",
+    "category_legacy": "Home & Garden",
+    "condition": "New/Sealed",
+    "msrp_cents": 24900,
+    "expected_confidence": "medium"
+  },
+  "notes": "ALL-CAPS abbreviated Lowes department name, no model number in manifest. Tests UPC-driven enrichment."
+}

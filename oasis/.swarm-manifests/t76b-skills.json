@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "concurrency": 1,
+  "jobs": [
+    {
+      "id": "t76b-skills",
+      "agent": "openrouter",
+      "model": "anthropic/claude-sonnet-5.5",
+      "tier": "mid",
+      "maxOutputTokens": 32768,
+      "timeoutMs": 1800000,
+      "context": [
+        "docs/formats.md",
+        "src/almanac/validate.py",
+        "src/almanac/runner.py",
+        "CHANGELOG.md",
+        "shared/utility-share/skill.yaml",
+        "shared/utility-share/SKILL.md",
+        "shared/utility-share/fixtures/case-1.yaml",
+        "shared/utility-share/fixtures/injection-mail.yaml",
+        "shared/utility-share/fixtures/profile.yaml",
+        "src/utility_share.py",
+        "tests/test_utility_share.py",
+        "tests/test_month_end_close.py",
+        ".swarm-manifests/t76b-contract.md",
+        "tests/test_validate.py"
+      ],
+      "outputs": [
+        "shared/freight-invoices/skill.yaml",
+        "shared/freight-invoices/SKILL.md",
+        "shared/freight-invoices/fixtures/case-1.yaml",
+        "shared/freight-invoices/fixtures/case-2.yaml",
+        "shared/freight-invoices/fixtures/injection-mail.yaml",
+        "shared/freight-invoices/fixtures/profile.yaml",
+        "src/freight_invoices.py",
+        "tests/test_freight_invoices.py",
+        "src/almanac/validate.py",
+        "CHANGELOG.md"
+      ],
+      "prompt": "T76b (decisions #330, #331, #98): build the freight-invoices shared skill.\nBuild exactly what the contract \u00a71\u2013\u00a74 specifies. Mirror the utility-share pattern file-for-file.\nKey rules: (1) no real carrier/product/person/company names anywhere (fake .example senders; injection test uses .test, not in allow-list); (2) extract invoice numbers and due dates via regex only, never model interpolation per #73; (3) `always_ask: [write_list]` for the write_list step per decision #98 (user must confirm before the note is written); (4) all functions typed for `mypy --strict`; (5) tests use fake fixtures only and include the three mutant-killing tests from contract \u00a74; (6) CHANGELOG: one new `## Unreleased` block at the top (no version bump; pyproject unchanged).\nReturn every output file as a whole file.\nNote: This worker (openrouter adapter) cannot run tests. After integrate, the seat runs `uv run --no-sync pytest -q`, `uv run --no-sync ruff check .`, `uv run --no-sync mypy --strict src`, and `python -m almanac.validate shared/freight-invoices/skill.yaml --profile shared/freight-invoices/fixtures/profile.yaml`. Any failure comes back as a follow-up job.\n\nOUTPUT SIZE RULES (the previous attempt was truncated at 20k output tokens): for the two EXISTING outputs `src/almanac/validate.py` and `CHANGELOG.md` return an `edits` entry (one exact find/replace each: insert the two new TOOL_ACCESS lines after the `\"compute.calculate_tenant_share\": \"model\",` line; insert the new `## Unreleased` block right after the `Newest first.` line), never their whole content. Keep every new file compact: no long docstrings, no repeated comments, SKILL.md under 60 lines, tests under 200 lines, fixtures minimal. Total reply must stay under 30k tokens.\n\nReturn JSON only, max 12 lines: {\"status\": \"done|partial|blocked\", \"summary\": \"<one line>\", \"files\": [\"<every output path written>\"], \"crossJobNames\": [\"<any name you needed that is not in the contract>\"], \"reproTest\": \"<the test that covers the injection case>\", \"findings\": [\"<\u22643 one-liners: anything in the contract you could not honour>\"]}\n\nignoreTests note: tests/test_email_reply.py is not in context because the only validate.py change is two new TOOL_ACCESS entries for the new compute tools; that test does not exercise them.",
+      "ignoreTests": [
+        "tests/test_email_reply.py"
+      ]
+    }
+  ],
+  "contract": ".swarm-manifests/t76b-contract.md"
+}

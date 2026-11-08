@@ -1,0 +1,160 @@
+{
+  "picks": [
+    {
+      "name": "anime.js v4 (with Three.js adapter)",
+      "url": "https://github.com/juliangarnier/anime",
+      "license": "MIT",
+      "licenseEvidence": "github.com/juliangarnier/anime/blob/master/LICENSE.md",
+      "commit": null,
+      "stars": 62000,
+      "lastCommit": null,
+      "gives": "choreography + native Three.js adapter animates Object3D/material/camera directly — good for orb hover/idle, holo card motion, title reveal inside the scene",
+      "fit": "drop-in",
+      "where": "import 'animejs/adapters/three' side-effect, then animate() any Object3D",
+      "risk": "~42KB gzip full lib; three-adapter is new in v4, smaller track record"
+    },
+    {
+      "name": "Motion (formerly Framer Motion)",
+      "url": "https://github.com/motiondivision/motion",
+      "license": "MIT",
+      "licenseEvidence": "raw LICENSE.md in repo root confirms MIT",
+      "commit": null,
+      "stars": 26300,
+      "lastCommit": null,
+      "gives": "declarative variants/stagger orchestration for DOM/SVG choreography (title reveal overlay UI)",
+      "fit": "reference-only",
+      "where": "React DOM/SVG layer only; no maintained Three.js binding (framer-motion-3d is stale)",
+      "risk": "~34KB gzip full; doesn't touch WebGL meshes directly, needs a separate approach for orb/holo cards in-canvas"
+    },
+    {
+      "name": "dotlottie-web (LottieFiles)",
+      "url": "https://github.com/LottieFiles/dotlottie-web",
+      "license": "MIT",
+      "licenseEvidence": "github license badge + package.json; Rust/WASM core, MIT throughout",
+      "commit": null,
+      "stars": 794,
+      "lastCommit": null,
+      "gives": "Lottie/.lottie playback (After-Effects authored splash/lamp/title vector sequences)",
+      "fit": "reference-only",
+      "where": "renders to its own <canvas>; bridge into scene via CanvasTexture or as a DOM overlay",
+      "risk": "adds ~380KB+ WASM asset loaded async, separate render surface from WebGL canvas"
+    },
+    {
+      "name": "lottie-web (Airbnb)",
+      "url": "https://github.com/airbnb/lottie-web",
+      "license": "MIT",
+      "licenseEvidence": "github.com/airbnb/lottie-web/blob/master/LICENSE.md confirmed MIT",
+      "commit": null,
+      "stars": 30500,
+      "lastCommit": null,
+      "gives": "mature SVG/canvas Lottie player, huge library of existing AE-exported JSON examples",
+      "fit": "reference-only",
+      "where": "DOM/SVG or canvas renderer, same overlay caveat as dotlottie",
+      "risk": "release cadence has slowed vs dotlottie-web; heavier SVG DOM renderer by default"
+    },
+    {
+      "name": "Rive (rive-runtime + @rive-app/react-canvas)",
+      "url": "https://github.com/rive-app/rive-runtime",
+      "license": "MIT",
+      "licenseEvidence": "github.com/rive-app/rive-runtime/blob/main/LICENSE and rive-react/LICENSE both MIT",
+      "commit": null,
+      "stars": 1200,
+      "lastCommit": null,
+      "gives": "state-machine driven vector animation — strong fit for interactive hover/idle orb avatar and title-reveal blending",
+      "fit": "reference-only",
+      "where": "own canvas/WebGL2 surface; overlay or CanvasTexture bridge into three scene",
+      "risk": "authoring requires the proprietary Rive desktop editor (runtime code is MIT, tooling is not); webgl2 variant ships ~0.9MB gzip WASM, use canvas-lite for smaller"
+    },
+    {
+      "name": "pixi.js AnimatedSprite",
+      "url": "https://github.com/pixijs/pixijs",
+      "license": "MIT",
+      "licenseEvidence": "raw LICENSE at pixijs/pixijs dev branch confirmed MIT",
+      "commit": null,
+      "stars": 44000,
+      "lastCommit": null,
+      "gives": "ready-made sprite-sheet frame player (AnimatedSprite class, animationSpeed, loop) for pixel-art avatar motion packs",
+      "fit": "reference-only",
+      "where": "separate 2D/WebGL renderer; use as CanvasTexture source for a three.js plane or as a DOM overlay canvas",
+      "risk": "pulls in a second WebGL context/renderer just for sprite playback — only worth it for many sprites/atlases"
+    },
+    {
+      "name": "three.js native texture offset/repeat pattern",
+      "url": "https://github.com/mrdoob/three.js",
+      "license": "MIT",
+      "licenseEvidence": "three.js is already a project dependency (MIT LICENSE at repo root)",
+      "commit": null,
+      "stars": 105000,
+      "lastCommit": null,
+      "gives": "sprite-sheet playback directly on a THREE.Mesh/Sprite by stepping texture.offset/.repeat per frame — zero extra bundle cost",
+      "fit": "drop-in",
+      "where": "already-imported three.js Texture API, no new dependency",
+      "risk": "no built-in AnimatedSprite class — you write the frame-stepping/uv-offset loop yourself (~20 lines)"
+    }
+  ],
+  "rejected": [
+    {
+      "name": "GSAP",
+      "url": "https://github.com/greensock/GSAP",
+      "license": "Webflow Standard \"No Charge\" GSAP License (exception, not OSI)",
+      "licenseEvidence": "gsap.com/community/standard-license/ — free commercial use; prohibits building no-code visual-animation competitors to Webflow",
+      "commit": "active, npm gsap@3.15.0",
+      "stars": 20700,
+      "lastCommit": "2026 (v3.15.0)",
+      "gives": "choreographed timelines/sequencing for splash dissolve, lamp ignite, title reveal",
+      "fit": "drop-in",
+      "where": "npm import, runs fine in Tauri WebView (no Node at runtime)",
+      "risk": "license restricts building visual-animation-builder tools; not MIT/Apache/CC0 but explicitly pre-approved exception",
+      "reason": "license not allowed: Webflow Standard \"No Charge\" GSAP License (exception, not OSI)",
+      "rejectedBy": "license-gate: license not allowed: Webflow Standard \"No Charge\" GSAP License (exception, not OSI)"
+    },
+    {
+      "name": "framer-motion-3d",
+      "url": "https://github.com/framer/framer-motion-3d",
+      "reason": "unmaintained/stale, superseded by react-three-fiber + drei patterns; don't use for Three.js meshes"
+    },
+    {
+      "name": "Spine Runtimes",
+      "url": "https://github.com/EsotericSoftware/spine-runtimes",
+      "reason": "runtime code is permissive but authoring/export requires a paid Spine editor license — not a clean MIT/Apache/CC0 pipeline"
+    },
+    {
+      "name": "CreateJS / EaselJS",
+      "url": "https://github.com/CreateJS/EaselJS",
+      "reason": "MIT but effectively unmaintained (no commits in years); superseded by pixi.js for sprite playback"
+    },
+    {
+      "name": "Velocity.js",
+      "url": "https://github.com/julianshapiro/velocity",
+      "reason": "unmaintained since ~2020, no reason to pick over GSAP/anime.js for this stack"
+    },
+    {
+      "name": "react-spring",
+      "url": "https://github.com/pmndrs/react-spring",
+      "reason": "redundant given GSAP (timelines) + anime.js (Three.js adapter) already cover choreography and physics springs"
+    },
+    {
+      "name": "Phaser",
+      "url": "https://github.com/phaserjs/phaser",
+      "reason": "MIT but a full game engine — far too heavy just for sprite-sheet playback of a single avatar"
+    },
+    {
+      "name": "three-SpriteMixer",
+      "url": "https://github.com/felixmariotto/three-SpriteMixer",
+      "reason": "tiny wrapper around the same texture-offset trick, low activity — just implement the pattern natively instead"
+    }
+  ],
+  "top": [
+    "GSAP (exception license) for splash/lamp/title choreography timelines — already chosen, verified terms above.",
+    "anime.js v4's native Three.js adapter for in-scene choreography (orb hover/idle, holo cards) without leaving WebGL.",
+    "Native three.js texture-offset pattern (zero new deps) for pixel-art sprite-sheet playback; reach for pixi.js AnimatedSprite only if you need many atlases via a second canvas layer."
+  ],
+  "moved": [
+    "GSAP"
+  ],
+  "id": "scout-1790629708640-cfff972e",
+  "goal": "T53 scout A (write coordination/research/t53-a.md): questions (1) choreographed sequences and (3) sprite-sheet playback. Must cover GSAP (exception row), Motion (formerly Framer Motion), anime.js, Lottie (lottie-web / dotlottie), Rive (runtime license), and sprite-sheet players for canvas/Three.js (e.g. three's own texture offset pattern, pixi AnimatedSprite if MIT). Stack: Tauri 2 + React + TS + three 0.186.",
+  "model": "sonnet",
+  "actualModel": "claude-sonnet-5",
+  "createdAt": "2026-09-28T21:11:21.479Z"
+}

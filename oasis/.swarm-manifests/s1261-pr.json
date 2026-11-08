@@ -1,0 +1,20 @@
+{
+ "version": 1,
+ "concurrency": 1,
+ "jobs": [
+  {
+   "id": "s1261-pr",
+   "agent": "claude",
+   "model": "haiku",
+   "tier": "cheap",
+   "timeoutMs": 300000,
+   "context": [
+    "coordination/s1261-changelog.md"
+   ],
+   "outputs": [
+    "coordination/swarm-1.26.1-pr-create.json"
+   ],
+   "prompt": "Write coordination/swarm-1.26.1-pr-create.json: a JSON object {\"title\": \"Release 1.26.1: config outside the install, private-names via config, public scrub\", \"head\": \"swarm-1.26.1\", \"base\": \"main\", \"body\": \"...\"} built only from coordination/s1261-changelog.md. Public repo: the body must contain no product, company or person names, no ticket or decision numbers, no model ids. Body exactly: `## Summary` with one bullet per CHANGELOG bullet, plain words, each <= 30 words; `## Checks` with the single line `<!-- swarm:checks -->`; `## Mutation check` with the line `No ask-first gate or persisted-state mapping in this tool. Each new rule has a test that fails without it (tests/config-private-names.test.mjs).`; then a blank line and `\ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)`. Result JSON: {written: true}."
+  }
+ ]
+}

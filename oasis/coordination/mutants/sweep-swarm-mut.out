@@ -1,0 +1,23 @@
+KILLED GITHUB_TOKEN passed to gh
+KILLED GH_TOKEN passed to gh
+KILLED gh via shell
+KILLED license allowlist off
+KILLED GPL allowed
+KILLED archived kept
+KILLED fork kept
+KILLED install-scripts flag off
+KILLED stale flag off
+KILLED no-ci flag off
+KILLED no-tests flag off
+KILLED known dedupe case-sensitive
+KILLED known repos ignored
+KILLED model license wins
+KILLED model commit wins
+KILLED non-candidate pick kept
+KILLED top not capped at 3
+KILLED hoursToAdopt range off
+KILLED cost cap off
+KILLED cost not accumulated
+KILLED md rows not capped
+KILLED area id unchecked
+KILLED candidates not marked untrusted

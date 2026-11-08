@@ -1,0 +1,15 @@
+{
+  "id": "upc-020",
+  "code": "810038854076",
+  "code_type": "upc",
+  "expected": {
+    "title": "Fitbit Versa 4 Fitness Smartwatch (Black/Graphite)",
+    "brand": "Fitbit",
+    "model": "FB523BKBK",
+    "category_slug": "wearable-tech",
+    "category_legacy": "Electronics",
+    "condition": "",
+    "msrp_cents": 19999
+  },
+  "notes": "Tests wearable-tech slug from migration 0034."
+}

@@ -1,0 +1,43 @@
+name: Re-verify drain heroes (cleanup)
+
+# One-off cleanup for the pre-#192 wrong-hero window. Runs
+# scripts/reverify-drain-heroes.mjs with the same OpenRouter key + Supabase
+# service role the Worker uses. DRY-RUN by default (writes nothing) — flip
+# mode=apply only after reviewing the dry-run counts.
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'dry = report only (no writes); apply = remove confirmed-wrong heroes + re-enqueue'
+        required: true
+        type: choice
+        default: dry
+        options:
+          - dry
+          - apply
+
+concurrency:
+  group: reverify-heroes
+  cancel-in-progress: false
+
+jobs:
+  reverify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Run re-verify
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          if [ "${{ inputs.mode }}" = "apply" ]; then
+            node scripts/reverify-drain-heroes.mjs --apply
+          else
+            node scripts/reverify-drain-heroes.mjs
+          fi

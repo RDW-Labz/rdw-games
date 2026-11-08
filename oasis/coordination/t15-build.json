@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "kind": "native-task-boundary",
+  "status": "READY",
+  "ticket": "T15",
+  "model": "gpt-5.6-sol",
+  "worktree": "worktrees/agent-core-t15",
+  "context": [
+    "AGENTS.md",
+    "docs/PLAN.md",
+    "docs/TICKETS.md",
+    "docs/DECISIONS.md",
+    "coordination/TASK.md",
+    "worktrees/agent-core-t15/AGENTS.md",
+    "worktrees/agent-core-t15/AGENTS.workspace.md",
+    "worktrees/agent-core-t15/docs/loop.md",
+    "worktrees/agent-core-t15/docs/memory.md",
+    "worktrees/agent-core-t15/docs/scoreboard.md",
+    "worktrees/agent-core-t15/src/anorak/loop.py",
+    "worktrees/agent-core-t15/src/anorak/scheduler.py",
+    "worktrees/agent-core-t15/src/anorak/memory/task.py",
+    "worktrees/agent-core-t15/src/anorak/scoreboard.py",
+    "worktrees/agent-core-t15/tests/test_loop.py",
+    "worktrees/agent-core-t15/tests/test_scheduler.py",
+    "worktrees/agent-core-t15/tests/test_scoreboard.py",
+    "worktrees/agent-core-t15/tests/test_memory_loop.py"
+  ],
+  "ownership": [
+    "src/anorak/clock.py",
+    "src/anorak/telemetry.py",
+    "src/anorak/memory/task.py",
+    "src/anorak/scoreboard.py",
+    "src/anorak/loop.py",
+    "tests/test_clock.py",
+    "tests/test_telemetry.py",
+    "tests/test_scoreboard.py",
+    "tests/test_memory_loop.py",
+    "docs/clock.md",
+    "docs/scoreboard.md",
+    "docs/changes-t15.md"
+  ],
+  "prompt": "Implement only T15 in this worktree. Add an injected-clock scheduler integration that reads every installed skill.yaml schedule, dispatches due skills through the existing T07 Scheduler with Priority.SCHEDULED and declared resources, never duplicates a dispatch, performs exactly one bounded catch-up after wake from sleep, and refuses malformed or missing schedules with honest diagnostics. Paused state and T07 ask-first gates must still win. Add telemetry.py and the existing loop/memory task hooks so proposal shown and answered records include timestamps and decision, and task start/end records preserve actor, data, model, time and cost without raw tool text or secrets. Update scoreboard producers/consumers so all ten T14 measures compute from real producer fixtures when data exists and report not_measured with a precise reason when it does not; preserve T14 measure names and output shape. Do not depend on unreleased T12b or edit its files. Update only declared files; do not generate uv.lock, commit, merge or publish. Return the required ticket JSON report with checks marked unrun until coordinator runs them.",
+  "acceptance": [
+    "uv sync --locked",
+    "uv run --no-sync pytest -q tests/test_clock.py tests/test_telemetry.py tests/test_memory_loop.py tests/test_scoreboard.py",
+    "uv run --no-sync pytest -q",
+    "uv run --no-sync ruff check .",
+    "uv run --no-sync mypy --strict src",
+    "git diff --check"
+  ],
+  "constraints": [
+    "No T12b imports or unreleased dependency; no secrets or provider text in fixtures/logs.",
+    "Keep all schedule dispatches inside T07 resource and priority rules.",
+    "One PR for agent-core T15; orchestrator integrates shared __init__.py and CHANGELOG later."
+  ],
+  "timeoutMs": 3600000
+}

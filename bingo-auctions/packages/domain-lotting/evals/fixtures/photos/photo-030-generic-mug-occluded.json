@@ -1,0 +1,17 @@
+{
+  "id": "photo-030",
+  "image_path": "photo-030-generic-mug-occluded.jpg",
+  "media_type": "image/jpeg",
+  "photo_quality_label": "occluded",
+  "expected": {
+    "title": "Ceramic Mug",
+    "brand": "",
+    "model": "",
+    "category_slug": "dinnerware",
+    "category_legacy": "Kitchen",
+    "condition": "Like New",
+    "msrp_cents": 0,
+    "expected_confidence": "low"
+  },
+  "notes": "Adversarial: white ceramic mug with no visible branding, shot in shadow against a white wall. Tests anti-hallucination — model must NOT invent a brand for a generic, unidentifiable item."
+}

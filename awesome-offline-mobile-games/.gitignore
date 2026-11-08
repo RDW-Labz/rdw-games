@@ -1,0 +1,35 @@
+# build output and engine sources for the port lane (provenance lives in ports/)
+ports/*/build/
+ports/*/src/
+ports/*/*.apk
+ports/*/*.so
+*.gradle/
+.gradle/
+build/
+node_modules/
+dist/
+__pycache__/
+*.pyc
+
+# local save mirror written by server/server.py
+server/saves/
+*.log
+.DS_Store
+
+# iOS build inputs are generated, never committed: stage them from dist/ first.
+# The asset catalogue IS committed — the rendered icon cannot be rebuilt without an
+# SVG rasteriser, and neither a macOS runner nor a bare Linux box is guaranteed one.
+ios/web/
+ios/payload.json
+ios/*.xcodeproj/
+ios/build/
+*.ipa
+*.xcarchive
+
+# ship-pipeline credentials: NEVER commit these
+.env.ship
+.ship-new-app/
+
+# evidence/ IS committed: the screenshots and the generated verification record are
+# the proof this collection ships. Regenerate with:
+#   node tests/browser.mjs && python3 tools/verification-report.py

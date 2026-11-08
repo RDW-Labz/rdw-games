@@ -1,0 +1,23 @@
+{
+  "id": "manifest-001",
+  "source": "lowes",
+  "raw": {
+    "description": "DEWALT 20-Volt Max 1/2-in Brushless Cordless Drill (2-Batteries Included, Charger Included and Hard Case included)",
+    "retailer_category": "drills",
+    "upc": "885911548632",
+    "model_number": "DCD771C2",
+    "quantity": 1,
+    "retail_price": 199.0
+  },
+  "expected": {
+    "title": "DeWalt DCD771C2 20V MAX 1/2-inch Compact Drill Driver Kit",
+    "brand": "DeWalt",
+    "model": "DCD771C2",
+    "category_slug": "power-tools",
+    "category_legacy": "Tools & Hardware",
+    "condition": "New/Sealed",
+    "msrp_cents": 19900,
+    "expected_confidence": "high"
+  },
+  "notes": "Canonical 'easy mode' Lowe's manifest row — clear brand, clear model, retail price present."
+}

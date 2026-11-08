@@ -1,0 +1,25 @@
+# Pre-flight probe %i (decision #384): the same sandbox as a job (the
+# hermes-w- prefix drop-in) with its own forwarder, running checks instead
+# of Hermes. Started only by preflight.sh:
+#   hermes-w-probe@sandbox   network, files, sockets, the proxy, the model
+#   hermes-w-probe@iso-a/-b  two at once: each must fail to see, signal or
+#                            read the other, and still use its own folder
+[Unit]
+Description=Hermes worker sandbox pre-flight probe %i
+Requires=hermes-firewall.service hermes-fwd@probe-%i.service
+Requires=hermes-precheck@probe-%i.service
+BindsTo=hermes-fwd@probe-%i.service
+Wants=hermes-proxy.service
+After=hermes-firewall.service hermes-proxy.service hermes-fwd@probe-%i.service
+After=hermes-precheck@probe-%i.service
+JoinsNamespaceOf=hermes-fwd@probe-%i.service
+
+[Service]
+Type=oneshot
+TimeoutStartSec=4min
+BindPaths=/var/lib/hermes-jobs/probe/%i
+ReadWritePaths=/var/lib/hermes-jobs/probe/%i
+WorkingDirectory=/var/lib/hermes-jobs/probe/%i
+# Wait (up to 10 s) for the forwarder inside the shared namespace.
+ExecStartPre=/bin/bash -c 'for i in $(seq 50); do (exec 3<>/dev/tcp/127.0.0.1/8001) 2>/dev/null && exit 0; sleep 0.2; done; exit 0'
+ExecStart=/usr/bin/python3 -I /opt/hermes-dev2/bin/preflight_probe.py --probe %i /var/lib/hermes-jobs/probe/%i

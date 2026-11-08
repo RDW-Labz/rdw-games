@@ -1,0 +1,11 @@
+"""Smoke test: the package imports and reports its version."""
+
+import {{module}}
+
+
+def test_package_imports() -> None:
+    assert {{module}}.__name__ == "{{module}}"
+
+
+def test_version_is_declared() -> None:
+    assert {{module}}.__version__ == "0.1.0"

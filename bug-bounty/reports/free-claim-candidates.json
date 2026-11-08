@@ -1,0 +1,1274 @@
+[
+ {
+  "host": "admin.tasheer.com",
+  "target": "prodexdrupaltier2.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "prodexdrupaltier2",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "api.qa.whatsup.volkswagen.de",
+  "target": "whatsup-backend-qa.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "whatsup-backend-qa",
+  "claim": "paid",
+  "in_scope": "bc:Volkswagen  via *.volkswagen.de"
+ },
+ {
+  "host": "asdbrefreshservice-dev.unifysquare.com",
+  "target": "u2-asdbrefreshservice-dev.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "u2-asdbrefreshservice-dev",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "beta.myvoice.harman.com",
+  "target": "hcsdashboardappstag.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "hcsdashboardappstag",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "configservice-dev-staging.unifysquare.com",
+  "target": "configservice-dev-staging.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "configservice-dev-staging",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "configservice-dev.unifysquare.com",
+  "target": "configservice-dev.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "configservice-dev",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "configservice-preview.unifysquare.com",
+  "target": "configservice-preview.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "configservice-preview",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "connect-notificationservice-staging.bentley.com",
+  "target": "prod-notificationservice-eus-staging.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "prod-notificationservice-eus-staging",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "dev-connect-lumenrt360projecttours-staging.bentley.com",
+  "target": "dev-lumenrt360projecttours-eus-staging.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "dev-lumenrt360projecttours-eus-staging",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "dev-connect-productsettingsservice-eus-staging.bentley.com",
+  "target": "dev-productsettingsservice-eus-staging.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "dev-productsettingsservice-eus-staging",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "devzion.retailsso.com",
+  "target": "zion-uae-staging.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "zion-uae-staging",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "donau-carbon-us.devweb.emakina.at",
+  "target": "donauchemie-dev.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "donauchemie-dev",
+  "claim": "paid",
+  "in_scope": "bc:EPAM Systems Managed Bug Bounty Program via *.emakina.at"
+ },
+ {
+  "host": "donau-carbon.devweb.emakina.at",
+  "target": "donauchemie-dev.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "donauchemie-dev",
+  "claim": "paid",
+  "in_scope": "bc:EPAM Systems Managed Bug Bounty Program via *.emakina.at"
+ },
+ {
+  "host": "donau-chemie-group.devweb.emakina.at",
+  "target": "donauchemie-dev.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "donauchemie-dev",
+  "claim": "paid",
+  "in_scope": "bc:EPAM Systems Managed Bug Bounty Program via *.emakina.at"
+ },
+ {
+  "host": "donau-chemie-ro.devweb.emakina.at",
+  "target": "donauchemie-dev.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "donauchemie-dev",
+  "claim": "paid",
+  "in_scope": "bc:EPAM Systems Managed Bug Bounty Program via *.emakina.at"
+ },
+ {
+  "host": "donau-chemie.devweb.emakina.at",
+  "target": "donauchemie-dev.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "donauchemie-dev",
+  "claim": "paid",
+  "in_scope": "bc:EPAM Systems Managed Bug Bounty Program via *.emakina.at"
+ },
+ {
+  "host": "donau-products.devweb.emakina.at",
+  "target": "donauchemie-dev.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "donauchemie-dev",
+  "claim": "paid",
+  "in_scope": "bc:EPAM Systems Managed Bug Bounty Program via *.emakina.at"
+ },
+ {
+  "host": "donau-realitaeten.devweb.emakina.at",
+  "target": "donauchemie-dev.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "donauchemie-dev",
+  "claim": "paid",
+  "in_scope": "bc:EPAM Systems Managed Bug Bounty Program via *.emakina.at"
+ },
+ {
+  "host": "donau-umweltinformation.devweb.emakina.at",
+  "target": "donauchemie-dev.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "donauchemie-dev",
+  "claim": "paid",
+  "in_scope": "bc:EPAM Systems Managed Bug Bounty Program via *.emakina.at"
+ },
+ {
+  "host": "donau.devweb.emakina.at",
+  "target": "donauchemie-dev.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "donauchemie-dev",
+  "claim": "paid",
+  "in_scope": "bc:EPAM Systems Managed Bug Bounty Program via *.emakina.at"
+ },
+ {
+  "host": "donauchem-hu.devweb.emakina.at",
+  "target": "donauchemie-dev.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "donauchemie-dev",
+  "claim": "paid",
+  "in_scope": "bc:EPAM Systems Managed Bug Bounty Program via *.emakina.at"
+ },
+ {
+  "host": "donauchem-pl.devweb.emakina.at",
+  "target": "donauchemie-dev.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "donauchemie-dev",
+  "claim": "paid",
+  "in_scope": "bc:EPAM Systems Managed Bug Bounty Program via *.emakina.at"
+ },
+ {
+  "host": "donauchem-rs.devweb.emakina.at",
+  "target": "donauchemie-dev.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "donauchemie-dev",
+  "claim": "paid",
+  "in_scope": "bc:EPAM Systems Managed Bug Bounty Program via *.emakina.at"
+ },
+ {
+  "host": "donauchem-sk.devweb.emakina.at",
+  "target": "donauchemie-dev.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "donauchemie-dev",
+  "claim": "paid",
+  "in_scope": "bc:EPAM Systems Managed Bug Bounty Program via *.emakina.at"
+ },
+ {
+  "host": "eu.myvoice.harman.com",
+  "target": "hcsdashboardappwepro.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "hcsdashboardappwepro",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "ganterdevweb.emakina.at",
+  "target": "lsgganterdev.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "lsgganterdev",
+  "claim": "paid",
+  "in_scope": "bc:EPAM Systems Managed Bug Bounty Program via *.emakina.at"
+ },
+ {
+  "host": "helpdeskservice-dev-staging.unifysquare.com",
+  "target": "helpdeskservice-dev-staging.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "helpdeskservice-dev-staging",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "helpdeskservice-dev.unifysquare.com",
+  "target": "helpdeskservice-dev.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "helpdeskservice-dev",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "helpdeskservice-preview.unifysquare.com",
+  "target": "helpdeskservice-preview.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "helpdeskservice-preview",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "heosdiagnostics.denon.com",
+  "target": "app-prd-sun-uw1-win-heos.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "app-prd-sun-uw1-win-heos",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "nines.githubapp.com",
+  "target": "ninesapp-app-service.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "ninesapp-app-service",
+  "claim": "paid",
+  "in_scope": "h1:github via *.githubapp.com"
+ },
+ {
+  "host": "nsatservice-preview.unifysquare.com",
+  "target": "nsatservice-preview.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "nsatservice-preview",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "otaapigwpre.tasheer.com",
+  "target": "b2c-ota-apigw.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "b2c-ota-apigw",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "powersuite-dev-staging.unifysquare.com",
+  "target": "powersuite-dev-staging.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "powersuite-dev-staging",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "powersuite-dev.unifysquare.com",
+  "target": "powersuite-dev.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "powersuite-dev",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "powersuite-preview.unifysquare.com",
+  "target": "powersuite-preview.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "powersuite-preview",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "qa-cms.aon-hugeops.uk",
+  "target": "aon-sitecore-qa-xp-scaled-176730-cm.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "aon-sitecore-qa-xp-scaled-176730-cm",
+  "claim": "paid",
+  "in_scope": "h1:aon via qa-cms.aon-hugeops.uk/"
+ },
+ {
+  "host": "qa-manage-staging.bentley.com",
+  "target": "qa-bentleyadminapplication-eus-staging.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "qa-bentleyadminapplication-eus-staging",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "qcdb.retailsso.com",
+  "target": "matrix-cdb-qatar-prod.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "matrix-cdb-qatar-prod",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "qzion.retailsso.com",
+  "target": "zion-qatar-prod.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "zion-qatar-prod",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "register.beta.myvoice.harman.com",
+  "target": "hcsigwyprovisionstag.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "hcsigwyprovisionstag",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "reportingservice-dev.unifysquare.com",
+  "target": "u2-reportingservice-dev.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "u2-reportingservice-dev",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "saservice-dev-staging.unifysquare.com",
+  "target": "saservice-dev-staging.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "saservice-dev-staging",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "saservice-dev.unifysquare.com",
+  "target": "saservice-dev.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "saservice-dev",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "saservice-preview.unifysquare.com",
+  "target": "saservice-preview.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "saservice-preview",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "scorecard.prod.cbreapps.com",
+  "target": "gws-scorecard-prod-uks-app.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "gws-scorecard-prod-uks-app",
+  "claim": "paid",
+  "in_scope": "h1:cbre via *.cbreapps.com"
+ },
+ {
+  "host": "test.angulardemo.emerald.cbre.com",
+  "target": "testemeraldangulardemo.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "testemeraldangulardemo",
+  "claim": "paid",
+  "in_scope": "h1:cbre via test.angulardemo.emerald.cbre.com"
+ },
+ {
+  "host": "u2-teams-rest.unifysquare.com",
+  "target": "workstream-ms-dev.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "workstream-ms-dev",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "workstream-consent-preview.unifysquare.com",
+  "target": "workstream-ms-preview.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "workstream-ms-preview",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "workstream-ms-preview.unifysquare.com",
+  "target": "workstream-ms-preview.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "workstream-ms-preview",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "www.cbn.com.bo",
+  "target": "waredirect-prd.azurewebsites.net",
+  "provider": "azurewebsites",
+  "label": "waredirect-prd",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "bas-facility-layout-tool-api-dev.differential.com",
+  "target": "bas-facility-layout-tool-api-dev.us-east-2.elasticbeanstalk.com",
+  "provider": "beanstalk",
+  "label": "bas-facility-layout-tool-api-dev",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "bas-facility-layout-tool-api-staging.differential.com",
+  "target": "bas-facility-layout-tool-api-staging.us-east-2.elasticbeanstalk.com",
+  "provider": "beanstalk",
+  "label": "bas-facility-layout-tool-api-staging",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "dev.customerservice-ccp.priceline.com",
+  "target": "pcln-ccp-blue.us-east-1.elasticbeanstalk.com",
+  "provider": "beanstalk",
+  "label": "pcln-ccp-blue",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "candle-src.etoro.com",
+  "target": "prod-candle.trafficmanager.net",
+  "provider": "trafficmanager",
+  "label": "prod-candle",
+  "claim": "paid",
+  "in_scope": "bc:eToro Managed Bug Bounty Engagement via https://*.etoro.com"
+ },
+ {
+  "host": "combomobile-1.acbpost.be",
+  "target": "combomobile-ac.trafficmanager.net",
+  "provider": "trafficmanager",
+  "label": "combomobile-ac",
+  "claim": "paid",
+  "in_scope": "it:bpost via *.acbpost.be"
+ },
+ {
+  "host": "combomobile-1.stbpost.be",
+  "target": "combomobile-st.trafficmanager.net",
+  "provider": "trafficmanager",
+  "label": "combomobile-st",
+  "claim": "paid",
+  "in_scope": "it:bpost via *.stbpost.be"
+ },
+ {
+  "host": "console-datacollector.teamviewer.com",
+  "target": "tv-tm-mco.trafficmanager.net",
+  "provider": "trafficmanager",
+  "label": "tv-tm-mco",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "dev-rc3.teamviewer.com",
+  "target": "mco-rc-rc3.trafficmanager.net",
+  "provider": "trafficmanager",
+  "label": "mco-rc-rc3",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "dev-rc4.teamviewer.com",
+  "target": "mco-rc-rc4.trafficmanager.net",
+  "provider": "trafficmanager",
+  "label": "mco-rc-rc4",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "dev-rc5.teamviewer.com",
+  "target": "mco-rc-rc5.trafficmanager.net",
+  "provider": "trafficmanager",
+  "label": "mco-rc-rc5",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "ebill.edifact.com.co",
+  "target": "facturaelectronica1.trafficmanager.net",
+  "provider": "trafficmanager",
+  "label": "facturaelectronica1",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "ind-dev.stewart.com",
+  "target": "ind-dev.trafficmanager.net",
+  "provider": "trafficmanager",
+  "label": "ind-dev",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "ind-uat.stewart.com",
+  "target": "ind-uat.trafficmanager.net",
+  "provider": "trafficmanager",
+  "label": "ind-uat",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "jssdev.starbucks.com",
+  "target": "jssdev-starbucks.trafficmanager.net",
+  "provider": "trafficmanager",
+  "label": "jssdev-starbucks",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "oemapi-test.teamviewer.com",
+  "target": "oemapi-testing-trunk.trafficmanager.net",
+  "provider": "trafficmanager",
+  "label": "oemapi-testing-trunk",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "s-eu-tn1.unit4cloud.com",
+  "target": "s-eu-tn1-unit4cloud.trafficmanager.net",
+  "provider": "trafficmanager",
+  "label": "s-eu-tn1-unit4cloud",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "wfmnapim.starbucks.com",
+  "target": "s00150tmppdpim.trafficmanager.net",
+  "provider": "trafficmanager",
+  "label": "s00150tmppdpim",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "wfmnapimct.starbucks.com",
+  "target": "s00150tmpctpim.trafficmanager.net",
+  "provider": "trafficmanager",
+  "label": "s00150tmpctpim",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "wfmnapimdv.starbucks.com",
+  "target": "s00149tmpdvpim.trafficmanager.net",
+  "provider": "trafficmanager",
+  "label": "s00149tmpdvpim",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "wfmnapimst.starbucks.com",
+  "target": "s00149tmpstpim.trafficmanager.net",
+  "provider": "trafficmanager",
+  "label": "s00149tmpstpim",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "wfmnaposdv.starbucks.com",
+  "target": "s00149tmpdvpos.trafficmanager.net",
+  "provider": "trafficmanager",
+  "label": "s00149tmpdvpos",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "wfmnaposps.starbucks.com",
+  "target": "s00150tmppspos.trafficmanager.net",
+  "provider": "trafficmanager",
+  "label": "s00150tmppspos",
+  "claim": "paid",
+  "in_scope": null
+ },
+ {
+  "host": "afiliados.casadeapostas.bet.br",
+  "target": "murmuring-rose-lgc98znz3cmm61vtzv5pl43k.herokudns.com",
+  "provider": "herokudns",
+  "label": "murmuring-rose-lgc98znz3cmm61vtzv5pl43k",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "api-status.decathlon.com",
+  "target": "cryptic-moth-8gz8cwcrly4wcqu7cd8krtaq.herokudns.com",
+  "provider": "herokudns",
+  "label": "cryptic-moth-8gz8cwcrly4wcqu7cd8krtaq",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "aste-hvv.vr.fi",
+  "target": "aste-hvv.vr.fi.herokudns.com",
+  "provider": "herokudns",
+  "label": "aste-hvv.vr.fi",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "backoffice.community.decathlon.com",
+  "target": "corrugated-wildwood-reepjmktdgb6ab4ebtb7h97o.herokudns.com",
+  "provider": "herokudns",
+  "label": "corrugated-wildwood-reepjmktdgb6ab4ebtb7h97o",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "booxi-processor.community.decathlon.com",
+  "target": "perpendicular-brussel-61tax86vtnhjb2q62xzcmkvl.herokudns.com",
+  "provider": "herokudns",
+  "label": "perpendicular-brussel-61tax86vtnhjb2q62xzcmkvl",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "bumble.mkt.voiapp.io",
+  "target": "lit-crane-akg854c5hr1ixaccqykqaw60.herokudns.com",
+  "provider": "herokudns",
+  "label": "lit-crane-akg854c5hr1ixaccqykqaw60",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "communication-api.community.decathlon.com",
+  "target": "warm-mammal-ythedtnc5svg0aiw25nek0h9.herokudns.com",
+  "provider": "herokudns",
+  "label": "warm-mammal-ythedtnc5svg0aiw25nek0h9",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "community.decathlon.com",
+  "target": "peaceful-salmon-14fyealdyil2ciyuevjxjipj.herokudns.com",
+  "provider": "herokudns",
+  "label": "peaceful-salmon-14fyealdyil2ciyuevjxjipj",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "configuration-api.community.decathlon.com",
+  "target": "shrouded-bird-8fhtjzvul3ned24ndeca0ild.herokudns.com",
+  "provider": "herokudns",
+  "label": "shrouded-bird-8fhtjzvul3ned24ndeca0ild",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "de.mkt.voiapp.io",
+  "target": "radiant-marten-radvv1d3n6auqzij3nljct4v.herokudns.com",
+  "provider": "herokudns",
+  "label": "radiant-marten-radvv1d3n6auqzij3nljct4v",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "demo1.fireblocks.io",
+  "target": "mammalian-locust-hx2n0i3mlew8iimj19drhik9.herokudns.com",
+  "provider": "herokudns",
+  "label": "mammalian-locust-hx2n0i3mlew8iimj19drhik9",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "demo2.fireblocks.io",
+  "target": "current-emu-988wshqw24jdwf5l99sjwxeo.herokudns.com",
+  "provider": "herokudns",
+  "label": "current-emu-988wshqw24jdwf5l99sjwxeo",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "demo3.fireblocks.io",
+  "target": "endothelial-porcupine-5gre8u3b6no4lk6sggd6qaqx.herokudns.com",
+  "provider": "herokudns",
+  "label": "endothelial-porcupine-5gre8u3b6no4lk6sggd6qaqx",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "dev.backoffice.community.decathlon.com",
+  "target": "corrugated-wildwood-reepjmktdgb6ab4ebtb7h97o.herokudns.com",
+  "provider": "herokudns",
+  "label": "corrugated-wildwood-reepjmktdgb6ab4ebtb7h97o",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "dev.booxi-processor.community.decathlon.com",
+  "target": "curved-mole-p64f2qi0ww6jqnayq6gfgm9r.herokudns.com",
+  "provider": "herokudns",
+  "label": "curved-mole-p64f2qi0ww6jqnayq6gfgm9r",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "dev.communication-api.community.decathlon.com",
+  "target": "serene-earthworm-lwp8if0urj511oy72zsddete.herokudns.com",
+  "provider": "herokudns",
+  "label": "serene-earthworm-lwp8if0urj511oy72zsddete",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "dev.community.decathlon.com",
+  "target": "computational-armadillo-3i3yarx0xo4cak8ldkyzjsxy.herokudns.com",
+  "provider": "herokudns",
+  "label": "computational-armadillo-3i3yarx0xo4cak8ldkyzjsxy",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "dev.configuration-api.community.decathlon.com",
+  "target": "experimental-lizard-hz3h6px20w0pqwgkrrori2at.herokudns.com",
+  "provider": "herokudns",
+  "label": "experimental-lizard-hz3h6px20w0pqwgkrrori2at",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "dev.events-api.community.decathlon.com",
+  "target": "skeletal-parrotfish-oniu4ujw4thd856a8kevgazv.herokudns.com",
+  "provider": "herokudns",
+  "label": "skeletal-parrotfish-oniu4ujw4thd856a8kevgazv",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "dev.global-events-api.community.decathlon.com",
+  "target": "philosophical-sea-mee5u4sncqaf0vukucnc08lj.herokudns.com",
+  "provider": "herokudns",
+  "label": "philosophical-sea-mee5u4sncqaf0vukucnc08lj",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "dev.global-events-processor.community.decathlon.com",
+  "target": "lit-opossum-hkmh5l9c62n5x9w2jskz7cv1.herokudns.com",
+  "provider": "herokudns",
+  "label": "lit-opossum-hkmh5l9c62n5x9w2jskz7cv1",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "dev.media-server.community.decathlon.com",
+  "target": "afternoon-sprout-90cd7zntnzpp3u7rccvl9pav.herokudns.com",
+  "provider": "herokudns",
+  "label": "afternoon-sprout-90cd7zntnzpp3u7rccvl9pav",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "dev.proxy.community.decathlon.com",
+  "target": "tapered-porpoise-lzklatxgz20dq7eatwq7f43t.herokudns.com",
+  "provider": "herokudns",
+  "label": "tapered-porpoise-lzklatxgz20dq7eatwq7f43t",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "dev.sportplaces.api.decathlon.com",
+  "target": "gentle-temple-a69ip6jrxwmbofzbenqwgj3g.herokudns.com",
+  "provider": "herokudns",
+  "label": "gentle-temple-a69ip6jrxwmbofzbenqwgj3g",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "dev.users-api.community.decathlon.com",
+  "target": "mighty-pigweed-rn1k2brnoo6uobpy9vjc6ilz.herokudns.com",
+  "provider": "herokudns",
+  "label": "mighty-pigweed-rn1k2brnoo6uobpy9vjc6ilz",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "developer.decathlon.com",
+  "target": "developers.decathlon.com.herokudns.com",
+  "provider": "herokudns",
+  "label": "developers.decathlon.com",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "developers.decathlon.com",
+  "target": "developers.decathlon.com.herokudns.com",
+  "provider": "herokudns",
+  "label": "developers.decathlon.com",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "dn.mkt.voiapp.io",
+  "target": "murmuring-bat-fgod7iow1mnsyiax54cx2t7m.herokudns.com",
+  "provider": "herokudns",
+  "label": "murmuring-bat-fgod7iow1mnsyiax54cx2t7m",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "docs.releasenotes.salesforce.com",
+  "target": "environmental-hollyhocks-rzfrcqvdsr6fywcpyccw0zdq.ssl.herokudns.com",
+  "provider": "herokudns",
+  "label": "environmental-hollyhocks-rzfrcqvdsr6fywcpyccw0zdq.ssl",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "dsb.mkt.voiapp.io",
+  "target": "clean-peach-lp1yvy75szzjtcaapv311u80.herokudns.com",
+  "provider": "herokudns",
+  "label": "clean-peach-lp1yvy75szzjtcaapv311u80",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "ebc.a16z.com",
+  "target": "functional-reaches-3kvbsix40czwm6fyq6w2dd9c.herokudns.com",
+  "provider": "herokudns",
+  "label": "functional-reaches-3kvbsix40czwm6fyq6w2dd9c",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "ellen.withspotify.com",
+  "target": "ellen.withspotify.com.herokudns.com",
+  "provider": "herokudns",
+  "label": "ellen.withspotify.com",
+  "claim": "gated",
+  "in_scope": "h1:spotify via *.withspotify.com"
+ },
+ {
+  "host": "events-api.community.decathlon.com",
+  "target": "desolate-edmontosaurus-n7l1ygc49wgkqx0ny1goioow.herokudns.com",
+  "provider": "herokudns",
+  "label": "desolate-edmontosaurus-n7l1ygc49wgkqx0ny1goioow",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "exectalent.a16z.com",
+  "target": "exectalent.a16z.com.herokudns.com",
+  "provider": "herokudns",
+  "label": "exectalent.a16z.com",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "gdpr-controller.my.segment.com",
+  "target": "gdpr-controller.my.segment.com.herokudns.com",
+  "provider": "herokudns",
+  "label": "gdpr-controller.my.segment.com",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "global-events-api.community.decathlon.com",
+  "target": "dimensional-emu-t5vci8ysyiwxk6ykn35t3xjq.herokudns.com",
+  "provider": "herokudns",
+  "label": "dimensional-emu-t5vci8ysyiwxk6ykn35t3xjq",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "global-events-processor.community.decathlon.com",
+  "target": "flat-clownfish-a2m03cfc7mrzhtepr0mdrl33.herokudns.com",
+  "provider": "herokudns",
+  "label": "flat-clownfish-a2m03cfc7mrzhtepr0mdrl33",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "happynextholidays.hotwire.com",
+  "target": "damp-rook-r56tm3ydrsrju6an5ogcma0h.herokudns.com",
+  "provider": "herokudns",
+  "label": "damp-rook-r56tm3ydrsrju6an5ogcma0h",
+  "claim": "gated",
+  "in_scope": "h1:expediagroup via *.hotwire.com"
+ },
+ {
+  "host": "har.auth0.net",
+  "target": "whispering-penguin-5dht54inih42k94mz31xskz3.herokudns.com",
+  "provider": "herokudns",
+  "label": "whispering-penguin-5dht54inih42k94mz31xskz3",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "hold-yd63qs4avzhugrez.mkt.voiapp.io",
+  "target": "corrugated-whitefish-etcf0cv67iocbtavxd9q5hnj.herokudns.com",
+  "provider": "herokudns",
+  "label": "corrugated-whitefish-etcf0cv67iocbtavxd9q5hnj",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "insidestories.salesforce.com",
+  "target": "integrative-crocodile-5ybfdti5zui1b4is6v30vnla.herokudns.com",
+  "provider": "herokudns",
+  "label": "integrative-crocodile-5ybfdti5zui1b4is6v30vnla",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "interview.a16z.com",
+  "target": "interview.a16z.com.herokudns.com",
+  "provider": "herokudns",
+  "label": "interview.a16z.com",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "listen.thecurrent.com",
+  "target": "peaceful-hare-can93wwqcarsh5w8db927tp3.herokudns.com",
+  "provider": "herokudns",
+  "label": "peaceful-hare-can93wwqcarsh5w8db927tp3",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "map-widget.community.decathlon.com",
+  "target": "contoured-lemming-ldy3sld6m8ka6ei18rmvdi0v.herokudns.com",
+  "provider": "herokudns",
+  "label": "contoured-lemming-ldy3sld6m8ka6ei18rmvdi0v",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "media-server.community.decathlon.com",
+  "target": "powerful-atoll-ugi75xihj6v54rjirzlj1jve.herokudns.com",
+  "provider": "herokudns",
+  "label": "powerful-atoll-ugi75xihj6v54rjirzlj1jve",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "mediamanager.dpgmedia.nl",
+  "target": "mathematical-bitterroot-5ydqvyv9jo8k709w6cpfwfwm.herokudns.com",
+  "provider": "herokudns",
+  "label": "mathematical-bitterroot-5ydqvyv9jo8k709w6cpfwfwm",
+  "claim": "gated",
+  "in_scope": "it:dpgm via *.dpgmedia.nl"
+ },
+ {
+  "host": "mobilebeta.salesforce.com",
+  "target": "vast-perch-mt43wsk8hoprmijhk93gcl6m.herokudns.com",
+  "provider": "herokudns",
+  "label": "vast-perch-mt43wsk8hoprmijhk93gcl6m",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "network.a16z.com",
+  "target": "network.a16z.com.herokudns.com",
+  "provider": "herokudns",
+  "label": "network.a16z.com",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "network.staging.a16z.com",
+  "target": "network.staging.a16z.com.herokudns.com",
+  "provider": "herokudns",
+  "label": "network.staging.a16z.com",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "networks.a16z.com",
+  "target": "quantitative-primate-pf8r2fb4d9n4md63eoy07b3t.herokudns.com",
+  "provider": "herokudns",
+  "label": "quantitative-primate-pf8r2fb4d9n4md63eoy07b3t",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "offset.harman.com",
+  "target": "mathematical-anenome-1xpxhkxs28eftp43evrr4b3v.herokudns.com",
+  "provider": "herokudns",
+  "label": "mathematical-anenome-1xpxhkxs28eftp43evrr4b3v",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "oil.axelspringer.com",
+  "target": "oil.axelspringer.com.herokudns.com",
+  "provider": "herokudns",
+  "label": "oil.axelspringer.com",
+  "claim": "gated",
+  "in_scope": "it:axelspringerse via *.axelspringer.com"
+ },
+ {
+  "host": "owl.twilio.com",
+  "target": "owl.twilio.com.herokudns.com",
+  "provider": "herokudns",
+  "label": "owl.twilio.com",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "platform-beyond-crm.salesforce.com",
+  "target": "platform-beyond-crm.salesforce.com.herokudns.com",
+  "provider": "herokudns",
+  "label": "platform-beyond-crm.salesforce.com",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "platform-roi-calculator.salesforce.com",
+  "target": "platform-roi-calculator.salesforce.com.herokudns.com",
+  "provider": "herokudns",
+  "label": "platform-roi-calculator.salesforce.com",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "platformtour.salesforce.com",
+  "target": "secure-foxglove-bim9ogqi6j4eo4dh57jjscdq.herokudns.com",
+  "provider": "herokudns",
+  "label": "secure-foxglove-bim9ogqi6j4eo4dh57jjscdq",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "pm.a16z.com",
+  "target": "pm.a16z.com.herokudns.com",
+  "provider": "herokudns",
+  "label": "pm.a16z.com",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "proxy.community.decathlon.com",
+  "target": "defined-stream-naurh4h8u0x5vzssjblq3w64.herokudns.com",
+  "provider": "herokudns",
+  "label": "defined-stream-naurh4h8u0x5vzssjblq3w64",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "quiz.voxcinemas.com",
+  "target": "safe-wildebeest-ha55oesofsax3s91hy72t850.herokudns.com",
+  "provider": "herokudns",
+  "label": "safe-wildebeest-ha55oesofsax3s91hy72t850",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "revolut.mkt.voiapp.io",
+  "target": "thermal-snapdragon-yvwki98hm6q5b32inljzdrjs.herokudns.com",
+  "provider": "herokudns",
+  "label": "thermal-snapdragon-yvwki98hm6q5b32inljzdrjs",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "sj.mkt.voiapp.io",
+  "target": "metaphysical-island-d7vnpnnbd4akusze78m3l4mv.herokudns.com",
+  "provider": "herokudns",
+  "label": "metaphysical-island-d7vnpnnbd4akusze78m3l4mv",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "skanetrafiken.mkt.voiapp.io",
+  "target": "angular-anteater-raj1ejwnj8zrxeqw0b52wg8l.herokudns.com",
+  "provider": "herokudns",
+  "label": "angular-anteater-raj1ejwnj8zrxeqw0b52wg8l",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "social-listening.decathlon.com",
+  "target": "structural-chard-aeqz1upuagr2yvpzn7p25zlz.herokudns.com",
+  "provider": "herokudns",
+  "label": "structural-chard-aeqz1upuagr2yvpzn7p25zlz",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "spametrics.marriott.com",
+  "target": "spametrics.marriott.com.herokudns.com",
+  "provider": "herokudns",
+  "label": "spametrics.marriott.com",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "stadtverkehr.mkt.voiapp.io",
+  "target": "mysterious-constrictor-wxswqn714te3fdgqbg6a831b.herokudns.com",
+  "provider": "herokudns",
+  "label": "mysterious-constrictor-wxswqn714te3fdgqbg6a831b",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "stageintranet.a16z.com",
+  "target": "convex-strawberry-sey7u0zfqjylofio4l2a17yb.herokudns.com",
+  "provider": "herokudns",
+  "label": "convex-strawberry-sey7u0zfqjylofio4l2a17yb",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "staging.backoffice.community.decathlon.com",
+  "target": "rectangular-meadowlark-0eos0j04vdg096ucmk8ni4f6.herokudns.com",
+  "provider": "herokudns",
+  "label": "rectangular-meadowlark-0eos0j04vdg096ucmk8ni4f6",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "staging.booxi-processor.community.decathlon.com",
+  "target": "polar-horse-72xgy6s0wrq77h3sut2rxnq4.herokudns.com",
+  "provider": "herokudns",
+  "label": "polar-horse-72xgy6s0wrq77h3sut2rxnq4",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "staging.communication-api.community.decathlon.com",
+  "target": "environmental-fennel-qhwjth35767f069c1nf7p7t4.herokudns.com",
+  "provider": "herokudns",
+  "label": "environmental-fennel-qhwjth35767f069c1nf7p7t4",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "staging.community.decathlon.com",
+  "target": "evening-reindeer-l745el7rpr6slnp6h0f1xn6j.herokudns.com",
+  "provider": "herokudns",
+  "label": "evening-reindeer-l745el7rpr6slnp6h0f1xn6j",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "staging.configuration-api.community.decathlon.com",
+  "target": "molecular-fortress-x77g39p5qxzkbnf29czz9ubz.herokudns.com",
+  "provider": "herokudns",
+  "label": "molecular-fortress-x77g39p5qxzkbnf29czz9ubz",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "staging.events-api.community.decathlon.com",
+  "target": "morning-crow-6nfwxq53lj76m2rtybt3n3xz.herokudns.com",
+  "provider": "herokudns",
+  "label": "morning-crow-6nfwxq53lj76m2rtybt3n3xz",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "staging.global-events-api.community.decathlon.com",
+  "target": "objective-wolf-fbkntsufjpwvypbv1pa6f6pj.herokudns.com",
+  "provider": "herokudns",
+  "label": "objective-wolf-fbkntsufjpwvypbv1pa6f6pj",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "staging.global-events-processor.community.decathlon.com",
+  "target": "aqueous-pinchusion-68gi664loay6xfomrcbbtgm8.herokudns.com",
+  "provider": "herokudns",
+  "label": "aqueous-pinchusion-68gi664loay6xfomrcbbtgm8",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "staging.media-server.community.decathlon.com",
+  "target": "obscure-snapdragon-282h37igr5c0iav9tkhs5oni.herokudns.com",
+  "provider": "herokudns",
+  "label": "obscure-snapdragon-282h37igr5c0iav9tkhs5oni",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "staging.proxy.community.decathlon.com",
+  "target": "pacific-kumquat-lzxal6aj65afq03ht9kus84f.herokudns.com",
+  "provider": "herokudns",
+  "label": "pacific-kumquat-lzxal6aj65afq03ht9kus84f",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "staging.sportplaces.api.decathlon.com",
+  "target": "trapezoidal-hoverfly-mv284syw5hl25821ek4qggsf.herokudns.com",
+  "provider": "herokudns",
+  "label": "trapezoidal-hoverfly-mv284syw5hl25821ek4qggsf",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "staging.sports.api.decathlon.com",
+  "target": "blooming-monkey-k47vzx0676ysemlozvtbtls7.herokudns.com",
+  "provider": "herokudns",
+  "label": "blooming-monkey-k47vzx0676ysemlozvtbtls7",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "staging.users-api.community.decathlon.com",
+  "target": "synthetic-earthworm-tjfi2ucaleky1mqow555auod.herokudns.com",
+  "provider": "herokudns",
+  "label": "synthetic-earthworm-tjfi2ucaleky1mqow555auod",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "survey.okta.com",
+  "target": "lively-hypsilophodon-lonb3srsb3yzf4u94kjavdxh.herokudns.com",
+  "provider": "herokudns",
+  "label": "lively-hypsilophodon-lonb3srsb3yzf4u94kjavdxh",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "upload.sporza.be",
+  "target": "upload.sporza.be.herokudns.com",
+  "provider": "herokudns",
+  "label": "upload.sporza.be",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "users-api.community.decathlon.com",
+  "target": "boiling-wisteria-gtubhjdin2xm380rwqbvvuw2.herokudns.com",
+  "provider": "herokudns",
+  "label": "boiling-wisteria-gtubhjdin2xm380rwqbvvuw2",
+  "claim": "gated",
+  "in_scope": null
+ },
+ {
+  "host": "veldritcenter.hln.be",
+  "target": "damp-orange-tidk5m8h6iuxyuudn5jf5cyy.herokudns.com",
+  "provider": "herokudns",
+  "label": "damp-orange-tidk5m8h6iuxyuudn5jf5cyy",
+  "claim": "gated",
+  "in_scope": "it:dpgm via *.hln.be"
+ },
+ {
+  "host": "wielercenter.hln.be",
+  "target": "shallow-rose-ji1d198759lwsyslntat7waf.herokudns.com",
+  "provider": "herokudns",
+  "label": "shallow-rose-ji1d198759lwsyslntat7waf",
+  "claim": "gated",
+  "in_scope": "it:dpgm via *.hln.be"
+ },
+ {
+  "host": "www.workplace.cbre.at",
+  "target": "safe-cassava-f47qk1xkqq2tg63k8s3ebweg.herokudns.com",
+  "provider": "herokudns",
+  "label": "safe-cassava-f47qk1xkqq2tg63k8s3ebweg",
+  "claim": "gated",
+  "in_scope": "h1:cbre via www.workplace.cbre.at"
+ },
+ {
+  "host": "www.workplace.cbre.com",
+  "target": "workplace.cbre.com.herokudns.com",
+  "provider": "herokudns",
+  "label": "workplace.cbre.com",
+  "claim": "gated",
+  "in_scope": "h1:cbre via www.workplace.cbre.com"
+ }
+]

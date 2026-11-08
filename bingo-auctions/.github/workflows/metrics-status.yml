@@ -1,0 +1,184 @@
+# Daily business metrics snapshot for Grok (#725).
+#
+# Counts and sums only: no names, emails, phones, addresses, user ids, invoice
+# lines or free text. The one statement is a SELECT (assertReadOnly refuses
+# anything else) and the published document is built from an allowlist, so an
+# unknown column can never be copied even if the query grows.
+#
+# Read-only against prod: every statement is a SELECT through the Supabase
+# Management API. It writes nothing to the database. Safe at any hour
+# (CLAUDE.md Rule 9).
+#
+# Output goes to the `metrics-status` branch at status/metrics.json plus the
+# immutable per-day ledger at status/metrics-days.json — never to master, and
+# never force-pushed. Grok reads the raw file from that branch.
+#
+# The release ledger is ALSO appended to `metrics-history`, an append-only ref
+# that is the source of truth for disclosure history. `metrics-status` is
+# disposable (safe to delete on rollback); `metrics-history` is not, and a run
+# with no durable history aborts unless a human explicitly confirms that
+# metrics were never published (RED TEAM at d1cc6545 HIGH).
+# Merging this workflow needs Braden's or Jared's yes (it touches money totals
+# and adds a scheduled job).
+
+name: Business metrics snapshot (BinGo)
+
+on:
+  schedule:
+    # 13:15 UTC. 08:15 Central in summer, 07:15 in winter. One run a day is
+    # enough for daily/weekly/monthly windows; the date is in the file.
+    - cron: '15 13 * * *'
+  workflow_dispatch:
+    inputs:
+      confirm_first_run:
+        description: >-
+          Start a brand-new disclosure history. Use only when metrics were
+          never published; deleting the branches is NOT proof of that.
+        type: boolean
+        default: false
+
+concurrency:
+  group: metrics-status
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Guard secret
+        env:
+          HAS_PAT: ${{ secrets.SUPABASE_ACCESS_TOKEN != '' }}
+        run: |
+          if [ "$HAS_PAT" != "true" ]; then
+            echo "::error::SUPABASE_ACCESS_TOKEN repo secret is not set."
+            exit 1
+          fi
+
+      - name: Build the snapshot
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          # Required, not an override: a missing ref can never silently target
+          # another project.
+          SUPABASE_PROJECT_REF: npwseclcxcatjhgjrtwe
+        run: |
+          set -euo pipefail
+          # Immutable releases (RED TEAM #807 HIGH): reuse the per-day ledger
+          # already published, so a later ledger correction can never rewrite a
+          # day that has been released.
+          #
+          # Durable provenance (RED TEAM at d1cc6545 HIGH): the ledger lives on
+          # its own append-only `metrics-history` ref, NOT on the consumer-facing
+          # `metrics-status` branch. Withdrawing the published branch therefore
+          # cannot erase disclosure history. If both refs are gone, the run
+          # aborts unless a human explicitly confirms that nothing was ever
+          # published: branch absence does not prove nothing was disclosed,
+          # because consumers may retain an older artifact.
+          frozen="$RUNNER_TEMP/metrics-days-prev.json"
+          rm -f "$frozen"
+          pub_heads="$(git ls-remote --heads origin metrics-status)" || {
+            echo "::error::could not list metrics-status; refusing to guess history"
+            exit 1
+          }
+          hist_heads="$(git ls-remote --heads origin metrics-history)" || {
+            echo "::error::could not list metrics-history; refusing to guess history"
+            exit 1
+          }
+          published=false
+          history=false
+          [ -n "$pub_heads" ] && published=true
+          [ -n "$hist_heads" ] && history=true
+          confirmed=false
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && \
+             [ "${{ inputs.confirm_first_run }}" = "true" ]; then
+            confirmed=true
+          fi
+          ledger_source="$(node scripts/metrics-status/decide-ledger.mjs \
+            --published-exists "$published" \
+            --history-exists "$history" \
+            --confirmed-first-run "$confirmed")" || {
+            echo "::error::refusing to (re)initialize disclosure without durable history"
+            exit 1
+          }
+          if [ "$ledger_source" = "frozen" ]; then
+            git fetch --quiet origin metrics-history:refs/remotes/origin/metrics-history || {
+              echo "::error::could not fetch metrics-history; refusing to recompute history"
+              exit 1
+            }
+            git show origin/metrics-history:status/metrics-days.json > "$frozen"
+            node scripts/status-metrics.mjs --out "$RUNNER_TEMP/metrics.json" --frozen "$frozen"
+          else
+            node scripts/status-metrics.mjs --out "$RUNNER_TEMP/metrics.json" --first-run
+          fi
+
+      - name: Commit the durable ledger and the published snapshot
+        env:
+          METRICS_FILE: ${{ runner.temp }}/metrics.json
+          LEDGER_FILE: ${{ runner.temp }}/metrics-days.json
+        run: |
+          set -euo pipefail
+          git config user.name "bingo-metrics"
+          git config user.email "actions@users.noreply.github.com"
+
+          # 1. Append the release ledger to its own durable ref first. If this
+          #    push fails, nothing new is published, so the two refs can never
+          #    disagree about what was disclosed.
+          hist_heads="$(git ls-remote --heads origin metrics-history)" || {
+            echo "::error::could not list metrics-history; refusing to rewrite history"
+            exit 1
+          }
+          if [ -n "$hist_heads" ]; then
+            git fetch origin metrics-history:refs/remotes/origin/metrics-history || {
+              echo "::error::could not fetch metrics-history; refusing to rewrite history"
+              exit 1
+            }
+            git checkout -B metrics-history origin/metrics-history
+          else
+            git checkout -B metrics-history
+          fi
+          mkdir -p status
+          cp "$LEDGER_FILE" status/metrics-days.json
+          git add status/metrics-days.json
+          if git diff --cached --quiet; then
+            echo "release ledger unchanged; nothing to append"
+          else
+            git commit -m "metrics: durable release ledger $(date -u +%FT%TZ)"
+            git push origin metrics-history
+          fi
+
+          # 2. Publish the consumer snapshot. This branch is disposable; losing
+          #    it never loses disclosure history.
+          pub_heads="$(git ls-remote --heads origin metrics-status)" || {
+            echo "::error::could not list metrics-status; refusing to rewrite history"
+            exit 1
+          }
+          if [ -n "$pub_heads" ]; then
+            git fetch origin metrics-status:refs/remotes/origin/metrics-status || {
+              echo "::error::could not fetch metrics-status; refusing to rewrite history"
+              exit 1
+            }
+            git checkout -B metrics-status origin/metrics-status
+          else
+            git checkout -B metrics-status
+          fi
+          mkdir -p status
+          cp "$METRICS_FILE" status/metrics.json
+          cp "$LEDGER_FILE" status/metrics-days.json
+          git add status/metrics.json status/metrics-days.json
+          if git diff --cached --quiet; then
+            echo "metrics unchanged; nothing to commit"
+            exit 0
+          fi
+          git commit -m "metrics: snapshot $(date -u +%FT%TZ)"
+          git push origin metrics-status

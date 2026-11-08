@@ -1,0 +1,18 @@
+{
+  "id": "photo-006",
+  "image_path": "photo-006-keurig-occluded.jpg",
+  "media_type": "image/jpeg",
+  "photo_quality_label": "occluded",
+  "expected": {
+    "title": "Keurig K-Classic Single Serve K-Cup Pod Coffee Maker (Black)",
+    "brand": "Keurig",
+    "model": "K-Classic",
+    "upc": "611247373842",
+    "category_slug": "small-appliances",
+    "category_legacy": "Appliances",
+    "condition": "New/Open Box",
+    "msrp_cents": 11999,
+    "expected_confidence": "medium"
+  },
+  "notes": "Box on warehouse shelf, packing tape covers the model number on the front. Tests whether the model checks alternate angles or label info."
+}

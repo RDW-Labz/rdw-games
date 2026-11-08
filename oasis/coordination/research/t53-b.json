@@ -1,0 +1,135 @@
+{
+  "picks": [
+    {
+      "name": "@react-three/drei",
+      "url": "https://github.com/pmndrs/drei",
+      "license": "MIT",
+      "licenseEvidence": "LICENSE file at pmndrs/drei/blob/master/LICENSE states 'MIT License'",
+      "commit": null,
+      "stars": 0,
+      "lastCommit": "2026-09-25",
+      "gives": "Ready-made R3F helpers: Float (idle bob/tilt), Sparkles, MeshDistortMaterial, Trail, useCursor — covers orb idle motion and holo card hover in a few props",
+      "fit": "drop-in",
+      "where": "https://drei.docs.pmnd.rs/staging/introduction (Float + Sparkles examples)",
+      "risk": "Pulls in @react-three/fiber; verify version compat with three 0.186.x before pinning"
+    },
+    {
+      "name": "three.quarks",
+      "url": "https://github.com/Alchemist0823/three.quarks",
+      "license": "MIT",
+      "licenseEvidence": "LICENSE file (root) — MIT License, Copyright (c) 2019 Forrest Sun",
+      "commit": null,
+      "stars": 1000,
+      "lastCommit": null,
+      "gives": "Full particle/VFX engine for three.js: emitters, curves, sprite-batch particles — good for orb idle glow/ambient particles and holo card shimmer",
+      "fit": "drop-in",
+      "where": "https://github.com/Alchemist0823/three.quarks (examples/ folder, live demos linked from README)",
+      "risk": "No GitHub Releases page — pin an exact npm version, not a branch/tag, to avoid drift"
+    },
+    {
+      "name": "react-spring / @react-spring/three",
+      "url": "https://github.com/pmndrs/react-spring",
+      "license": "MIT",
+      "licenseEvidence": "LICENSE file at pmndrs/react-spring/blob/main/LICENSE — MIT, Copyright (c) 2018-present Paul Henschel and contributors",
+      "commit": null,
+      "stars": 0,
+      "lastCommit": "2024-06-24",
+      "gives": "Spring-physics hooks (useSpring, animated) with a three.js-native binding for hover/idle scale, rotation, emissive intensity on orb/cards",
+      "fit": "drop-in",
+      "where": "https://codesandbox.io/examples/package/@react-spring/three",
+      "risk": "Last tagged release mid-2024 — check open issues for React 19/three 0.186 compat before pinning"
+    },
+    {
+      "name": "Motion (formerly Framer Motion)",
+      "url": "https://github.com/motiondivision/motion",
+      "license": "MIT",
+      "licenseEvidence": "LICENSE.md at motiondivision/motion — 'The MIT License (MIT)', Copyright (c) 2024 Motion B.V.",
+      "commit": null,
+      "stars": 33800,
+      "lastCommit": null,
+      "gives": "DOM/CSS animation engine (springs, gestures, layout) — best for HTML overlay UI on holo cards (hover tilt, glow) composited over the WebGL canvas, not for in-scene 3D objects",
+      "fit": "reference-only",
+      "where": "https://motion.dev/docs/react-gestures (whileHover/whileTap examples)",
+      "risk": "No native three.js/WebGL binding — only animates DOM/CSS, so it's for card chrome, not the orb mesh itself"
+    },
+    {
+      "name": "simplex-noise",
+      "url": "https://github.com/jwagner/simplex-noise.js",
+      "license": "MIT",
+      "licenseEvidence": "LICENSE file — MIT, Copyright (c) 2018 Jonas Wagner",
+      "commit": null,
+      "stars": 0,
+      "lastCommit": null,
+      "gives": "Dependency-free simplex noise generator (~2KB min+gzip per README) for driving organic idle bob/rotation on the orb in the render loop",
+      "fit": "drop-in",
+      "where": "https://github.com/jwagner/simplex-noise.js#readme (usage snippet)",
+      "risk": "CPU-side only; for shader-driven noise use webgl-noise instead"
+    },
+    {
+      "name": "webgl-noise (Ashima Arts)",
+      "url": "https://github.com/ashima/webgl-noise",
+      "license": "MIT",
+      "licenseEvidence": "README states 'Source code for the noise functions is released under the conditions of the MIT license. See the file LICENSE for details.'",
+      "commit": null,
+      "stars": 0,
+      "lastCommit": null,
+      "gives": "Classic GLSL noise (Perlin/simplex) snippets to paste into custom ShaderMaterial for idle shimmer on orb/holo card surfaces",
+      "fit": "reference-only",
+      "where": "https://github.com/ashima/webgl-noise/tree/master/src (srnoise2D.glsl etc.)",
+      "risk": "Unmaintained/archival — copy the specific .glsl function you need rather than depending on the repo"
+    },
+    {
+      "name": "mattdesl/eases",
+      "url": "https://github.com/mattdesl/eases",
+      "license": "MIT",
+      "licenseEvidence": "README: 'MIT, see LICENSE.md for details'",
+      "commit": null,
+      "stars": 385,
+      "lastCommit": null,
+      "gives": "Small grab-bag of Penner easing equations (JS + glsl-easings derived) as a lightweight easing pack for tweening idle/hover motion",
+      "fit": "drop-in",
+      "where": "https://github.com/mattdesl/eases#readme",
+      "risk": "Low recent activity — fine since it's a frozen math utility, but confirm it still installs cleanly"
+    }
+  ],
+  "rejected": [
+    {
+      "name": "LottieFiles free library",
+      "url": "https://lottiefiles.com/free-animations/license",
+      "license": "Lottie Simple License (custom, not OSI)",
+      "licenseEvidence": "lottiefiles.com/page/license: free, commercial use allowed, no attribution required, modifications become derivatives under same license, may not be scraped/recompiled into a competing library",
+      "commit": "n/a (asset source)",
+      "stars": 0,
+      "lastCommit": "n/a",
+      "gives": "Free Lottie JSON animations usable for splash/title choreography accents if a 2D overlay layer is added later",
+      "fit": "asset-source",
+      "where": "https://lottiefiles.com/free-animations",
+      "risk": "Per-file license, not a code dependency — any file actually pulled needs a CREDITS.md line (name, URL, license, date) before shipping",
+      "reason": "license not allowed: Lottie Simple License (custom, not OSI)",
+      "rejectedBy": "license-gate: license not allowed: Lottie Simple License (custom, not OSI)"
+    },
+    {
+      "name": "LYGIA shader library",
+      "url": "https://github.com/patriciogonzalezvivo/lygia",
+      "reason": "Dual-licensed under Prosperity License + Patron License — non-commercial free only, requires paid license for commercial use, fails MIT/Apache-2.0/CC0 filter"
+    },
+    {
+      "name": "Shadertoy snippets",
+      "url": "https://www.shadertoy.com",
+      "reason": "Per-shader licensing, most default to CC BY-NC-SA (non-commercial) with no uniform terms — too risky to copy into a commercial desktop app without per-shader verification"
+    }
+  ],
+  "top": [
+    "@react-three/drei — MIT, actively released (v10.7.9, Sep 2026), gives Float/Sparkles/Trail out of the box for orb+card idle motion",
+    "three.quarks — MIT particle VFX engine purpose-built for three.js, best fit for orb ambient particles and holo shimmer",
+    "react-spring/@react-spring/three — MIT spring-physics hooks with a native R3F binding for smooth hover transitions on meshes"
+  ],
+  "moved": [
+    "LottieFiles free library"
+  ],
+  "id": "scout-1790629708640-b51be7e8",
+  "goal": "T53 scout B (write coordination/research/t53-b.md): question (2) hover/idle motion on a Three.js orb and holo cards (springs, noise, particles: must cover three.quarks, Motion, react-spring / @react-three/drei helpers if MIT) plus free motion asset sources (LottieFiles free license terms, easing packs, shader snippet libraries) with license per source. Stack: Tauri 2 + React + TS + three 0.186.",
+  "model": "sonnet",
+  "actualModel": "claude-sonnet-5",
+  "createdAt": "2026-09-28T21:10:17.349Z"
+}

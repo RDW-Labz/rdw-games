@@ -1,0 +1,15 @@
+{
+  "id": "upc-015",
+  "code": "084691838364",
+  "code_type": "upc",
+  "expected": {
+    "title": "GE 25.6 Cu Ft Side-by-Side Refrigerator with Ice Maker (Stainless Steel, GSS25GYPFS)",
+    "brand": "GE",
+    "model": "GSS25GYPFS",
+    "category_slug": "major-appliances",
+    "category_legacy": "Appliances",
+    "condition": "",
+    "msrp_cents": 139900
+  },
+  "notes": "Major appliance. Tests the kitchen-dining → appliances re-parenting from migration 0034."
+}

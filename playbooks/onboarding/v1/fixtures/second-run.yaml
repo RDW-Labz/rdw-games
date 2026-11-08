@@ -1,0 +1,15 @@
+# Fake, recorded fixture for onboarding-v1 test case "second-run-gaps-only":
+# a person who already has a valid profile.yaml except for one preference.
+# No real names or client data.
+steps:
+  show_intro:
+    value: {screens_shown: 1}
+  collect_answers:
+    value:
+      asked_ids:
+        - q_pref_quiet_hours
+  write_profile:
+    value: {status: onboarded, missing_fields: []}
+    confirm: true
+  ask_watch_page:
+    value: {status: onboarded, missing_fields: []}

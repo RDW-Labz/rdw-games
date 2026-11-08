@@ -1,0 +1,6 @@
+{
+  "title": "T47 item 5: CI runs swarm check-pins; agent-core range pin",
+  "head": "t47-check-pins",
+  "base": "main",
+  "body": "## Summary\n\nT47 item 5 (decisions #223\u2013#225) plus the #222 forward-port.\n\n- `.github/workflows/ci.yml`: new ubuntu-only `internal pins` job runs `swarm check-pins` from project-swarm at the pinned tag `v1.25.0`. The existing `check` job is unchanged.\n- `pyproject.toml`: `agent-core==0.7.22` \u2192 `agent-core>=0.7.22,<0.8`. A library never exact-pins agent-core, the host it loads into (R1). `[tool.uv.sources]` still points at the vendored 0.7.22 wheel, so the resolved version and `uv.lock` are unchanged (`uv lock --check --offline` passes; path sources record no specifier).\n- `CHANGELOG.md`: two Unreleased entries. No version bump, no code change.\n\n## Checks\n\n<!-- swarm:checks -->\n\n## Mutation check\n\nThe gate is the new CI job. Before this PR, `main` (727fb68) fails `check-pins` with `library-exact-core-pin: skills pins agent-core with == (0.7.22)`, exit 1. With the range, `check-pins: ok`. So putting the exact pin back makes the new job fail.\n\n\ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)\n"
+}

@@ -1,0 +1,191 @@
+{"label": "pass1-connect (agent-tool, opus, desktop-app-pass1)", "start": "2026-09-27T01:53:04Z", "end": "2026-09-27T02:02:55Z"}
+{"label": "e1-fix (agent-tool, sonnet, project-swarm-e1)", "start": "2026-09-27T01:58:03Z", "end": "2026-09-27T02:02:34Z"}
+{"label": "t42-fix (agent-tool, sonnet, agent-core-t42)", "start": "2026-09-27T02:01:24Z", "end": "2026-09-27T02:05:55Z"}
+{"label": "shell-worker (agent-tool, opus, project-swarm-shell)", "start": "2026-09-27T02:06:19Z", "end": "2026-09-27T02:35:56Z"}
+{"label": "e1-harness-fix (agent-tool, sonnet, oasis/coordination/tools)", "start": "2026-09-27T02:28:11Z", "end": "2026-09-27T02:33:25Z"}
+{"label": "e1-rerun-fix (agent-tool, sonnet, oasis/coordination/tools)", "start": "2026-09-27T09:02:15Z", "end": "2026-09-27T09:05:08Z"}
+{"label": "t44-tile-harness-fix", "start": "2026-09-27T13:24:51Z", "end": "2026-09-27T13:29:09Z"}
+{"label": "t44-tile-mutants (agent-tool, sonnet, desktop-app-t44)", "start": "2026-09-27T13:48:25Z", "end": "2026-09-27T13:57:59Z"}
+{"label": "t44-core-mutants (agent-tool, sonnet, agent-core-t44)", "start": "2026-09-27T13:55:47Z", "end": "2026-09-27T13:58:13Z"}
+{"label": "t44-core-flake (agent-tool, sonnet, agent-core-t44)", "start": "2026-09-27T14:06:38Z", "end": "2026-09-27T14:15:48Z"}
+{"label": "t28-desk-mutants (agent-tool, sonnet, desktop-app-t28)", "start": "2026-09-27T14:54:24Z", "end": "2026-09-27T14:58:30Z"}
+{"label": "t28-race-mutants (agent-tool, sonnet, desktop-app-t28)", "start": "2026-09-27T15:07:58Z", "end": "2026-09-27T15:29:27Z"}
+{"label": "t25-core-tests (agent-tool, sonnet, agent-core-t25)", "start": "2026-09-27T15:46:48Z", "end": "2026-09-27T16:03:39Z"}
+{"label": "t25-core-mutants (agent-tool, sonnet, agent-core-t25)", "start": "2026-09-27T16:06:01Z", "end": "2026-09-27T16:48:11Z"}
+{"label": "swarm119-ci-fix (agent-tool, sonnet, project-swarm-shell)", "start": "2026-09-27T16:13:22Z", "end": "2026-09-27T16:27:44Z"}
+{"label": "t29-desk-fix (agent-tool, sonnet, desktop-app-t29)", "start": "2026-09-27T16:28:17Z", "end": "2026-09-27T17:14:34Z"}
+{"label": "t45-lead-design (agent-tool, opus, desktop-app-t45)", "start": "2026-09-27T17:52:28Z", "end": "2026-09-27T18:17:04Z"}
+{"label": "t45-slice1 (agent-tool, opus, desktop-app-t45)", "start": "2026-09-27T18:17:03Z", "end": "2026-09-27T20:27:32Z"}
+{"label": "t45-slice2 (agent-tool, opus, desktop-app-t45s2)", "start": "2026-09-27T20:36:08Z", "end": "2026-09-27T20:53:42Z"}
+{"label": "t45-slice3 (agent-tool, opus, desktop-app-t45s3)", "start": "2026-09-27T20:36:08Z", "end": "2026-09-27T20:56:54Z"}
+{"label": "t45-slice4 (agent-tool, opus, desktop-app-t45s4)", "start": "2026-09-27T20:41:51Z", "end": "2026-09-27T20:56:13Z"}
+{"label": "t45-slice5 (agent-tool, opus, desktop-app-t45s5)", "start": "2026-09-27T20:56:23Z", "end": "2026-09-27T21:15:24Z"}
+{"label": "t45-slice6 (agent-tool, opus, desktop-app-t45s6)", "start": "2026-09-27T20:56:23Z", "end": "2026-09-27T21:07:51Z"}
+{"label": "t45-survivor-tests (agent-tool, opus, desktop-app-t45s2/3/4/6)", "start": "2026-09-27T21:40:59Z", "end": "2026-09-27T21:47:00Z"}
+{"label": "t22-fix (agent-tool, sonnet, agent-core-t22)", "start": "2026-09-27T21:40:59Z", "end": "2026-09-27T22:10:21Z"}
+{"label": "swarm-lessons-158-164 (agent-tool, opus, project-swarm-lessons158)", "start": "2026-09-27T21:41:52Z", "end": "2026-09-27T22:12:45Z"}
+{"label": "t45s2-ship-prep (agent-tool, sonnet, desktop-app-t45s2)", "start": "2026-09-27T21:47:16Z", "end": "2026-09-27T22:06:09Z"}
+{"label": "t45s3-ship-prep (agent-tool, sonnet, desktop-app-t45s3)", "start": "2026-09-27T22:06:39Z", "end": "2026-09-27T22:15:38Z"}
+{"label": "t22-mutants-file (agent-tool, haiku, agent-core-t22)", "start": "2026-09-27T22:10:21Z", "end": "2026-09-27T22:20:06Z"}
+{"label": "t45s4-ship-prep (agent-tool, sonnet, desktop-app-t45s4)", "start": "2026-09-27T22:15:38Z", "end": "2026-09-27T22:27:55Z"}
+{"label": "t45s6-ship-prep (agent-tool, sonnet, desktop-app-t45s6)", "start": "2026-09-27T22:27:55Z", "end": "2026-09-27T22:42:24Z"}
+{"label": "t22-win-fix (agent-tool, sonnet, agent-core-t22)", "start": "2026-09-27T22:30:58Z", "end": "2026-09-27T22:39:21Z"}
+{"label": "t45s7-copy (agent-tool, sonnet, desktop-app-t45s7)", "start": "2026-09-27T22:42:24Z", "end": "2026-09-27T22:49:43Z"}
+{"label": "t45s7-rest (agent-tool, opus, desktop-app-t45s7)", "start": "2026-09-27T23:28:04Z", "end": "2026-09-27T23:57:24Z"}
+{"label": "swarm-165-167 (agent-tool, sonnet, project-swarm-lessons165)", "start": "2026-09-27T23:28:04Z", "end": "2026-09-27T23:49:14Z"}
+{"label": "swarm-168 (agent-tool, sonnet, project-swarm-lessons165)", "start": "2026-09-27T23:57:24Z", "end": "2026-09-28T00:04:32Z"}
+{"label": "t22-contract (agent-tool, opus, agent-core-t22b)", "start": "2026-09-28T00:28:23Z", "end": "2026-09-28T00:35:05Z"}
+{"label": "t22b-core (agent-tool, sonnet, agent-core-t22b)", "start": "2026-09-28T00:35:05Z", "end": "2026-09-28T01:39:06Z"}
+{"label": "t22-desktop (agent-tool, opus, desktop-app-t22)", "start": "2026-09-28T00:37:57Z", "end": "2026-09-28T01:27:59Z"}
+{"label": "t22b-ci-fix (agent-tool, sonnet, agent-core-t22b)", "start": "2026-09-28T01:58:19Z", "end": "2026-09-28T02:06:28Z"}
+{"label": "avatar-prompts (agent-tool, sonnet, coordination/avatars-r1)", "start": "2026-09-28T02:46:05Z", "end": "2026-09-28T02:51:55Z"}
+{"label": "t26-sprite-test (agent-tool, opus, playbooks-t26-test)", "start": "2026-09-28T03:28:52Z", "end": "2026-09-28T03:41:37Z"}
+{"label": "t26-code-packs-44 (agent-tool, sonnet, playbooks-t26-test)", "start": "2026-09-28T03:44:25Z", "end": "2026-09-28T03:57:50Z"}
+{"label": "t46-contract (agent-tool, sonnet, skills-t46)", "start": "2026-09-28T03:48:34Z", "end": "2026-09-28T03:56:43Z"}
+{"label": "swarm-169-172 (agent-tool, sonnet, project-swarm-lessons169)", "start": "2026-09-28T03:48:34Z", "end": "2026-09-28T11:24:30Z"}
+{"label": "t46-core (agent-tool, sonnet, agent-core-t46)", "start": "2026-09-28T03:58:14Z", "end": "2026-09-28T04:35:07Z"}
+{"label": "t46-desktop (agent-tool, opus, desktop-app-t46)", "start": "2026-09-28T03:58:14Z", "end": "2026-09-28T04:19:00Z"}
+{"label": "t46-playbooks (agent-tool, sonnet, playbooks-t46)", "start": "2026-09-28T04:03:12Z", "end": "2026-09-28T04:24:17Z"}
+{"label": "t46-desktop-fix (agent-tool, opus, desktop-app-t46, resumed)", "start": "2026-09-28T04:20:00Z", "end": "2026-09-28T04:24:00Z"}
+{"label": "motion-price (agent-tool, haiku, coordination)", "start": "2026-09-28T04:26:53Z", "end": "2026-09-28T04:27:46Z"}
+{"label": "motion-pilot (agent-tool, opus, playbooks-motion)", "start": "2026-09-28T04:28:08Z", "end": "2026-09-28T11:25:20Z"}
+{"label": "t25-desktop (agent-tool, opus, desktop-app-t25)", "start": "2026-09-28T04:43:44Z", "end": "2026-09-28T04:55:15Z"}
+{"label": "t23-contract (agent-tool, sonnet, skills-t23)", "start": "2026-09-28T05:21:57Z", "end": "2026-09-28T05:30:32Z"}
+{"label": "t23-core (agent-tool, sonnet, agent-core-t23)", "start": "2026-09-28T05:31:10Z", "end": "2026-09-28T06:05:33Z"}
+{"label": "t23-desktop (agent-tool, opus, desktop-app-t23)", "start": "2026-09-28T05:31:10Z", "end": "2026-09-28T05:48:17Z"}
+{"label": "t23-scout (swarm ask, sonnet, desktop-app-t23)", "start": "2026-09-28T11:32:40Z", "end": "2026-09-28T11:35:23Z"}
+{"label": "swarm-174-175 (agent-tool, sonnet, project-swarm-lessons169)", "start": "2026-09-28T11:32:53Z", "end": "2026-09-28T11:46:41Z"}
+{"label": "motion-pr-bump (agent-tool, haiku, playbooks-motion)", "start": "2026-09-28T11:33:52Z", "end": "2026-09-28T11:34:51Z"}
+{"label": "t23-desktop-ws-fix (agent-tool, sonnet, desktop-app-t23)", "start": "2026-09-28T11:35:23Z", "end": "2026-09-28T11:39:42Z"}
+{"label": "t23-playbooks (agent-tool, sonnet, playbooks-t23)", "start": "2026-09-28T11:37:40Z", "end": "2026-09-28T11:50:31Z"}
+{"label": "t23-shadow-mirror (agent-tool, sonnet, agent-core-t23b)", "start": "2026-09-28T11:51:35Z", "end": "2026-09-28T12:01:09Z"}
+{"label": "t23-palettes (agent-tool, opus, playbooks-t23p)", "start": "2026-09-28T11:53:41Z", "end": "2026-09-28T11:59:45Z"}
+{"label": "swarm-176 (agent-tool, sonnet, project-swarm-lessons169)", "start": "2026-09-28T12:01:29Z", "end": "2026-09-28T12:06:22Z"}
+{"label": "t31-storyboard (agent-tool, opus, art)", "start": "2026-09-28T12:07:39Z", "end": "2026-09-28T12:15:13Z"}
+{"label": "swarm-177-178 (agent-tool, sonnet, project-swarm-lessons177)", "start": "2026-09-28T12:27:22Z", "end": "2026-09-28T12:51:44Z"}
+{"label": "flaky-timing (agent-tool, sonnet, agent-core-flaky)", "start": "2026-09-28T12:27:22Z", "end": "2026-09-28T12:37:21Z"}
+{"label": "t31-round2 (agent-tool, opus, art)", "start": "2026-09-28T12:52:18Z", "end": "2026-09-28T13:07:00Z"}
+{"label": "swarm-179-exempt (agent-tool, sonnet, project-swarm-lessons177)", "start": "2026-09-28T12:58:49Z", "end": "2026-09-28T13:24:32Z"}
+{"label": "t23-muted-lantern (agent-tool, sonnet, playbooks-t23p + desktop-app-lamp)", "start": "2026-09-28T13:01:38Z", "end": "2026-09-28T13:12:25Z"}
+{"label": "t31-round3 (agent-tool, opus, art)", "start": "2026-09-28T13:11:47Z", "end": "2026-09-28T13:29:59Z"}
+{"label": "motion-12 (agent-tool, opus, art)", "start": "2026-09-28T13:12:31Z", "end": "2026-09-28T14:34:05Z"}
+{"label": "t48-scout (agent-tool explore, sonnet, read-only)", "start": "2026-09-28T13:17:08Z", "end": "2026-09-28T13:18:41Z"}
+{"label": "t47-connectors (agent-tool, sonnet, connectors-t47)", "start": "2026-09-28T13:25:05Z", "end": "2026-09-28T13:34:07Z"}
+{"label": "t47-playbooks-024 (agent-tool, sonnet, playbooks-024)", "start": "2026-09-28T13:34:21Z", "end": "2026-09-28T13:41:07Z"}
+{"label": "t31-desktop (agent-tool, opus, desktop-app-t31)", "start": "2026-09-28T13:34:21Z", "end": "2026-09-28T14:34:05Z"}
+{"label": "t47-skills-post1 (agent-tool, sonnet, skills-post1 + playbooks-024)", "start": "2026-09-28T13:41:26Z", "end": "2026-09-28T13:52:33Z"}
+{"label": "swarm-183 (agent-tool, sonnet, project-swarm-lessons177)", "start": "2026-09-28T13:52:33Z", "end": "2026-09-28T14:34:05Z"}
+{"label": "t31_cinematic_direction (native, log-added-after-launch)", "start": "2026-09-28T14:21:12Z", "end": "2026-09-28T14:21:12Z", "launchTimeKnown": false, "durationUnknown": true, "recordedAt": "2026-09-28T14:21:12Z", "evidenceNote": "Logged at bounded job completion; start/end are the logging observation, not actual launch or measured duration. Do not infer idle/parallel coverage from this zero-length interval. Parent authorized native fallback for media inspection; files: TASK.md, HANDOFF.md, round4/direction.md."}
+{"label": "research-price-scan (agent-tool, haiku, read-only)", "start": "2026-09-28T14:44:10Z", "end": "2026-09-28T14:46:39Z"}
+{"label": "research-quality (agent-tool, haiku, read-only)", "start": "2026-09-28T14:44:10Z", "end": "2026-09-28T14:46:39Z"}
+{"label": "t31_continuity_video_preflight (native, expensive)", "start": "2026-09-28T14:47:02Z", "end": null, "evidenceNote": "Stage 1 started via parent dispatch; live browser control and cost preflight only, no new media spend."}
+{"label": "t31_audio_build (native, expensive, isolated snapshot)", "start": "2026-09-28T14:48:19.909886+00:00", "end": null, "launchTimeKnown": false, "recordedAt": "2026-09-28T14:48:19.909886+00:00", "evidenceNote": "Parent reported independent build already dispatched; timestamp is observation, not exact launch. Playback lifecycle and tests; no shared TASK/HANDOFF ownership."}
+{"label": "swarm-183 (swarm CLI, openrouter anthropic/claude-sonnet-5)", "start": "2026-09-28T14:53:49Z", "end": null}
+{"label": "t31_audio_build (native, expensive, isolated snapshot)", "event": "completion-observed", "end": "2026-09-28T15:06:59.293658+00:00", "exactEndKnown": false, "evidenceNote": "Parent reports worker complete; independent104 focused tests/build/type/lint/diff passed; additive audio-only patch integrated after14 baseline hashes unchanged and git apply --check. Postintegration checks running."}
+{"label": "t31_continuity_video_preflight (native, expensive)", "event": "completed", "end": "2026-09-28T15:18:14.008121+00:00", "creditsSpent": 66.5, "evidenceNote": "User approved80 additionalcredits; one referenceedit andone5s nativeaudiovideo completed, downloaded;6decodedframes/audiolevels reviewed; freeH264reviewcopy. No sourceedits/install. Boundedartjob complete, T31 fullticket notcomplete."}
+{"label": "t31_pilot_finishing (native, expensive)", "event": "start-observed", "start": "2026-09-28T15:26:14.353844+00:00", "launchTimeKnown": false, "evidenceNote": "Parent dispatch observed; final1080pH264<=10MB pilot settle/audiofade only, no paidcalls; then parent #183Codexshell and1.24. No productsource/installedapp changes."}
+{"label": "t31_pilot_finishing (native, expensive)", "event": "completed", "end": "2026-09-28T15:32:28.565199+00:00", "creditsSpent": 0, "evidenceNote": "07H2641080p24fps2,692,132bytes5.75s; quadraticsettle+hold; AACtaildecodedzero; sourcehashunchanged; parentindependentverification precedes #183Codexshell/1.24."}
+{"label": "t31_pilot_finishing (native, expensive)", "event": "quality-pass-completed", "end": "2026-09-28T15:35:02.510543+00:00", "creditsSpent": 0, "evidenceNote": "Final8Mbpsencode replaces4Mbps trial:5,207,431bytes,H2641080p24fps5.75s; alldecodedQApasses; sourceunchanged; no furtherwork before parentverification/#183."}
+{"label": "swarm-183 (native Codex fallback, gpt-6-astra, expensive)", "event": "start-observed", "start": "2026-09-28T15:46:45Z", "launchTimeKnown": false, "recordedAt": "2026-09-28T15:46:45Z", "evidenceNote": "Parent announced native fallback after CLI run 1790610131553-1a00919e failed with missing outputs; actual launch time not captured. Isolated writable checkout; parent integrates/ships after review."}
+{"label": "research-threeui", "start": "2026-09-28T15:59:24Z", "end": "2026-09-28T16:02:50Z"}
+{"label": "research-ui-model", "start": "2026-09-28T15:59:24Z", "end": "2026-09-28T16:03:11Z"}
+{"label": "recovery-manager-native-codex", "start": "2026-09-28T18:33:37.377163+00:00", "end": null, "task": "/root/recovery_manager"}
+{"label": "motion-fantasy (agent-tool, sonnet, art)", "start": "2026-09-29T01:12:32Z", "end": "2026-09-29T01:22:51Z"}
+{"label": "motion-pack8 (agent-tool, sonnet, art)", "start": "2026-09-29T01:31:04Z", "end": "2026-09-29T01:38:59Z"}
+{"label": "t61b-datasets", "start": "2026-09-29T03:10:55Z", "end": "2026-09-29T03:15:21Z"}
+{"label": "t61b-datasets-llmail", "start": "2026-09-29T03:15:21Z", "end": "2026-09-29T03:18:15Z"}
+{"label": "agentdojo-text (agent-tool, sonnet, fetch)", "start": "2026-09-29T21:16:26Z", "end": "2026-09-29T21:21:14Z"}
+{"label": "packlive (Opus, Agent tool: live rig + ~/.oasis log need)", "start": "2026-09-30T17:04:56Z", "end": "2026-09-30T17:24:04Z"}
+{"label": "t64-slices23 (sonnet, Agent tool: Codex sandbox denies uv workspace discovery, lesson pending)", "start": "2026-09-30T17:46:27Z", "end": "2026-09-30T17:55:49Z"}
+{"label": "x-contract (sonnet, Agent tool: Claude CLI plan at weekly limit)", "start": "2026-09-30T17:56:50Z", "end": "2026-09-30T18:10:35Z"}
+{"label": "t64-winfix (sonnet, Agent tool: Claude CLI plan at weekly limit)", "start": "2026-09-30T18:06:52Z", "end": "2026-09-30T18:15:27Z"}
+{"label": "x1 batch X build (sonnet, Agent tool: Claude CLI plan at weekly limit)", "start": "2026-09-30T18:10:43Z", "end": "2026-09-30T18:58:00Z", "note": "finished under the s62 seat; committed 85e02cd"}
+{"label": "t69 keychain poll (sonnet, Agent tool: Claude CLI plan at weekly limit)", "start": "2026-09-30T18:21:16Z", "end": "2026-09-30T18:55:00Z", "note": "finished under the s62 seat; committed 3b3376a"}
+{"label": "metrics-parallel-fix (sonnet, Agent tool: Claude CLI plan at weekly limit)", "start": "2026-09-30T18:12:00Z", "end": "2026-09-30T18:33:00Z"}
+{"label": "t69b keychain poll finisher (sonnet, Agent tool)", "start": "2026-09-30T18:12:30Z", "end": "2026-09-30T18:39:00Z", "note": "stopped: s62 seat (oasis-67) still alive with its own worker in this worktree"}
+{"label": "x1b batch X tests + payload (sonnet, Agent tool: Claude CLI plan at weekly limit)", "start": "2026-09-30T18:16:00Z", "end": "2026-09-30T18:39:30Z", "note": "stopped: s62 seat (oasis-67) still alive with its own worker in this worktree"}
+{"label": "t64a agent-core wiring slice + remote 0.3.0 pin (sonnet, Agent tool)", "start": "2026-09-30T18:22:00Z", "end": "2026-09-30T19:02:00Z"}
+{"label": "t74c desktop-app NSIS bundle CI + docs (sonnet, Agent tool)", "start": "2026-09-30T18:24:00Z", "end": "2026-09-30T18:52:00Z", "note": "died: 429 weekly limit (opus and sonnet both); re-run on fable"}
+{"label": "t61br failed_at_cap partial report (sonnet, Agent tool)", "start": "2026-09-30T18:46:00Z", "end": "2026-09-30T18:45:00Z", "note": "died: sonnet 429 weekly limit (Agent tool shares the plan); re-run on opus"}
+{"label": "t61br2 failed_at_cap partial report (opus, Agent tool: sonnet 429)", "start": "2026-09-30T18:47:00Z", "end": "2026-09-30T18:52:00Z", "note": "died: 429 weekly limit (opus and sonnet both); re-run on fable"}
+{"label": "t61br3 failed_at_cap partial report (fable, Agent tool: sonnet+opus 429)", "start": "2026-09-30T18:53:00Z", "end": "2026-09-30T19:02:00Z"}
+{"label": "t74c2 desktop-app NSIS bundle CI + docs, resumed from partial (fable, Agent tool: sonnet 429)", "start": "2026-09-30T18:53:00Z", "end": "2026-09-30T19:22:00Z"}
+{"label": "t69c read-only items + third mutant + PR payload (fable, Agent tool)", "start": "2026-09-30T19:08:00Z", "end": "2026-09-30T19:11:00Z"}
+{"label": "x-payload batch X PR payload (fable, Agent tool: DeepSeek route needs swarm run over-cap; bookkeeping)", "start": "2026-09-30T19:15:00Z", "end": "2026-09-30T19:16:00Z"}
+{"label": "x2 wire ship --preflight in the CLI parser + test (fable, Agent tool)", "start": "2026-09-30T19:40:00Z", "end": "2026-09-30T19:44:00Z"}
+{"label": "t74a agent-core secrets Windows backend + CI round-trip + (b) docs (fable, Agent tool)", "start": "2026-09-30T20:05:00Z", "end": "2026-09-30T20:26:00Z"}
+{"label": "t74e desktop-app launch/stop service test (fable, Agent tool)", "start": "2026-09-30T20:05:00Z", "end": "2026-09-30T20:22:00Z"}
+{"label": "t74f windowsInstaller test Windows-only failure fix (fable, Agent tool)", "start": "2026-09-30T20:12:00Z", "end": "2026-09-30T20:16:00Z"}
+{"label": "t73 hindsight scout, read-only (fable, Agent tool; web scout \u2014 CLI plan out)", "start": "2026-09-30T20:32:00Z", "end": "2026-09-30T20:36:00Z"}
+{"label": "t76-contract agent-amber role file v1 build contract (fable, Agent tool)", "start": "2026-09-30T20:27:00Z", "end": "2026-09-30T20:32:30Z", "note": "times clock-corrected at 21:01Z (lesson #292)"}
+{"label": "t76d agent-core never_automate_hosts profile field (fable, Agent tool)", "start": "2026-09-30T20:33:17Z", "end": "2026-09-30T20:34:27Z", "note": "died: fable 429 weekly limit now too (nothing written) | times clock-corrected at 21:01Z (lesson #292)"}
+{"label": "t76b remote watcher deny list + refusal (fable, Agent tool)", "start": "2026-09-30T20:33:17Z", "end": "2026-09-30T20:34:27Z", "note": "died: fable 429 weekly limit now too (nothing written) | times clock-corrected at 21:01Z (lesson #292)"}
+{"label": "t76c skills lint never-automate hosts (fable, Agent tool)", "start": "2026-09-30T20:33:17Z", "end": "2026-09-30T20:33:28Z", "note": "never launched: fable 429 before dispatch | times clock-corrected at 21:01Z (lesson #292)"}
+{"label": "t76d2 agent-core never_automate_hosts field (haiku, Agent tool: fable 429)", "start": "2026-09-30T20:34:51Z", "end": "2026-09-30T20:38:47Z", "note": "times clock-corrected at 21:01Z (lesson #292)"}
+{"label": "t76b2 remote watcher deny list + refusal (haiku, Agent tool: fable 429)", "start": "2026-09-30T20:39:10Z", "end": "2026-09-30T20:46:38Z", "note": "times clock-corrected at 21:01Z (lesson #292)"}
+{"label": "t76c2 skills lint never-automate hosts (haiku, Agent tool: fable 429)", "start": "2026-09-30T20:39:10Z", "end": "2026-09-30T20:49:00Z", "note": "times clock-corrected at 21:01Z (lesson #292)"}
+{"label": "t76a agent-amber profile.yaml v1 + pins (haiku, Agent tool)", "start": "2026-09-30T20:47:25Z", "end": "2026-09-30T20:52:08Z", "note": "times clock-corrected at 21:01Z (lesson #292)"}
+{"label": "t76a2 re-vendor agent-core 0.7.54 wheel from merged main + provenance (haiku, Agent tool)", "start": "2026-09-30T20:55:17Z", "end": "2026-09-30T20:56:27Z", "note": "times clock-corrected at 21:01Z (lesson #292)"}
+{"label": "t76a-skill-contract utility-share skill build contract (haiku, Agent tool)", "start": "2026-09-30T20:57:15Z", "end": "2026-09-30T20:59:12Z", "note": "times clock-corrected at 21:01Z (lesson #292)"}
+{"label": "t76a-build shared/utility-share skill (haiku, Agent tool)", "start": "2026-09-30T21:00:00Z", "end": "2026-09-30T21:08:12Z", "note": "times clock-corrected at 21:01Z (lesson #292)"}
+{"label": "t76b-contract freight-invoices-due skill contract (haiku, Agent tool)", "start": "2026-09-30T21:07:27Z", "end": "2026-09-30T21:09:17Z"}
+{"label": "t76c-contract month-end-close-prep skill contract (haiku, Agent tool)", "start": "2026-09-30T21:07:27Z", "end": "2026-09-30T21:10:33Z"}
+{"label": "t76a-scrub company names out of shared/utility-share + tests + CHANGELOG (haiku, Agent tool)", "start": "2026-09-30T21:08:54Z", "end": "2026-09-30T21:12:57Z"}
+{"label": "t76b-manifest swarm manifest for the T76b build on OpenRouter Sonnet 5.5 (haiku, Agent tool)", "start": "2026-09-30T21:11:24Z", "end": "2026-09-30T21:51:56Z", "note": "closed late; worker returned ~21:12Z (notification), row stamped at close"}
+{"label": "t76a-finish mutants x3 + 0.9.0 bump + PR payload (haiku, Agent tool)", "start": "2026-09-30T21:13:21Z", "end": "2026-09-30T21:17:46Z"}
+{"label": "t76a-gate sender allow-list in code + real injection fixture + behavioral mutant c (haiku, Agent tool)", "start": "2026-09-30T21:18:34Z", "end": "2026-09-30T21:25:23Z"}
+{"label": "t76a-gate2 injection fixture body in data + behavioral injection test (haiku, Agent tool, resume)", "start": "2026-09-30T21:26:08Z", "end": "2026-09-30T21:28:07Z"}
+{"label": "bk-task65 TASK/HANDOFF s65 top blocks + ORCHESTRATOR route line (haiku, Agent tool; swarm refused DeepSeek for coordination/*.md)", "start": "2026-09-30T21:30:54Z", "end": "2026-09-30T21:32:13Z"}
+{"label": "t76c-manifest swarm manifest for the T76c build on OpenRouter Sonnet 5.5 (haiku, Agent tool)", "start": "2026-09-30T21:36:09Z", "end": "2026-09-30T21:37:51Z"}
+{"label": "t76b-finish mutants x3 + 0.10.0 bump + PR payload (haiku, Agent tool)", "start": "2026-09-30T21:37:11Z", "end": "2026-09-30T21:41:01Z"}
+{"label": "t76c-finish month_pack instead of invented open_items + ruff + leak + mutants x3 + 0.11.0 + payload (haiku, Agent tool)", "start": "2026-09-30T21:50:24Z", "end": "2026-09-30T21:59:14Z"}
+{"label": "t50-contract holo coworker cards contract + technique notes (haiku, Agent tool)", "start": "2026-10-01T00:19:56Z", "end": "2026-10-01T00:26:21Z"}
+{"label": "s66-bookkeeping TASK/HANDOFF top blocks + t50 PR payload (haiku, Agent tool)", "start": "2026-10-01T00:27:21Z", "end": "2026-10-01T00:29:24Z"}
+{"label": "t50-wire HoloCard into CoworkerGrid + coworkers.css + CHANGELOG + holoCardWire.test (haiku, Agent tool, shell; after two OpenRouter envelope failures)", "start": "2026-10-01T00:35:43Z", "end": "2026-10-01T00:45:32Z"}
+{"label": "s66-lessons rows #296-#298 in swarm-lessons.md (haiku, Agent tool)", "start": "2026-10-01T00:36:40Z", "end": "2026-10-01T00:37:52Z"}
+{"label": "t50-fix NaN tilt under jsdom in holoCard tests / holoCardState guard (haiku, Agent tool, shell)", "start": "2026-10-01T00:39:25Z", "end": "2026-10-01T00:43:37Z"}
+{"label": "t50-clean remove hidden legacy DOM in CoworkerGrid, retarget old tests honestly (haiku, Agent tool, shell)", "start": "2026-10-01T00:45:50Z", "end": "2026-10-01T00:52:15Z"}
+{"label": "t50-mutants lazy-load restore + 3 mutants (haiku, Agent tool, shell)", "start": "2026-10-01T00:52:15Z", "end": "2026-10-01T00:55:25Z"}
+{"label": "t50-shots Playwright PNGs A-D light/dark for Braden (#293) (haiku, Agent tool, shell)", "start": "2026-10-01T00:55:25Z", "end": "2026-10-01T01:33:24Z"}
+{"label": "swarm-y-contract batch Y contract from queued lessons (haiku, Agent tool)", "start": "2026-10-01T00:57:51Z", "end": "2026-10-01T01:00:47Z"}
+{"label": "y1a batch Y adapters: api-adapters.mjs + openrouter.mjs (#296 #295) + tests (haiku, Agent tool, shell)", "start": "2026-10-01T01:00:47Z", "end": "2026-10-01T01:24:25Z"}
+{"label": "y1b batch Y swarm.mjs enforcements (#294 #293 #291 #290 #289 #292 #298 + backlog) + tests (haiku, Agent tool, shell)", "start": "2026-10-01T01:00:47Z", "end": "2026-10-01T01:15:15Z"}
+{"label": "s66-handoff TASK/HANDOFF/mac-checks/lessons#299/metrics rows (haiku, Agent tool)", "start": "2026-10-01T01:22:10Z", "end": "2026-10-01T01:26:53Z"}
+{"label": "t50-shots2 Playwright PNGs A-E light/dark after chromium-1208 install (haiku, Agent tool, shell)", "start": "2026-10-01T01:33:38Z", "end": "2026-10-01T01:38:27Z"}
+{"label": "t50sel preview-screens selector fix for HoloCard markup + render proof (haiku, Agent tool, shell)", "start": "2026-10-01T02:25:32Z", "end": "2026-10-01T02:31:54Z"}
+{"label": "y1b-rest batch Y: #298 integrate --jobs, #294 cap warn, #293 private-names shared/, #296 response-invalid.txt, #299 test tmp under workspace (haiku, Agent tool, shell)", "start": "2026-10-01T02:29:08Z", "end": "2026-10-01T02:49:42Z"}
+{"label": "t50-shots3 HoloCard states A-E light/dark PNGs into coordination/references/t50 (haiku, Agent tool, shell)", "start": "2026-10-01T02:32:55Z", "end": "2026-10-01T02:40:00Z"}
+{"label": "tickets-scan next unblocked tickets per #325 from docs/TICKETS.md (haiku, Agent tool)", "start": "2026-10-01T02:33:54Z", "end": "2026-10-01T02:40:00Z"}
+{"label": "y1c6-sonnet-agent-tool", "start": "2026-10-01T20:51:34Z", "end": "2026-10-01T21:01:40Z", "root": "worktrees/swarm-y", "reason": "Codex 5th sandbox failure (nested sandbox-exec, xcrun_db); CLI claude workers have no shell", "commit": "79ab51f"}
+{"label": "s68-lessons-317-319-haiku-agent-tool", "start": "2026-10-01T20:58:13Z", "end": "2026-10-01T20:59:39Z", "root": ".", "reason": "CLI haiku provider-limit until 10-02 23:00Z; DeepSeek refused for swarm-lessons.md"}
+{"label": "s68-task-handoff-refresh-haiku-agent-tool", "start": "2026-10-01T21:10:09Z", "end": "2026-10-01T21:12:51Z", "root": ".", "reason": "haiku CLI provider-limit; DeepSeek refused for coordination/*.md", "note": "haiku weekly limit 429 after both blocks written"}
+{"label": "s68-lessons-320-321-sonnet-agent-tool", "start": "2026-10-01T21:21:20Z", "end": "2026-10-01T21:22:39Z", "root": ".", "reason": "Sonnet CLI run hit provider-limit; haiku out; DeepSeek refused for swarm-lessons.md"}
+{"label": "s68-handoff-bookkeeping-sonnet-agent-tool", "start": "2026-10-01T21:57:18Z", "end": "2026-10-01T22:00:09Z", "root": ".", "reason": "Sonnet/haiku CLI at weekly limit; DeepSeek refused for coordination/*.md"}
+{"label": "t80-contract-hand-codex", "start": "2026-10-01T22:42:30Z", "end": "2026-10-01T22:51:30Z", "note": "codex exec by hand after two sandboxed swarm runs died in <31 s (lesson #322)"}
+{"label": "t91-scout (Agent tool fallback, swarm scout crashed: actualModel undefined)", "start": "2026-10-02T16:09:16Z", "end": "2026-10-02T16:16:30Z"}
+{"label": "ad-fix1 (Agent tool fallback: swarm classed a quoted limit string as provider-limit, lesson #347)", "start": "2026-10-05T14:58:30Z", "end": "2026-10-05T15:04:40Z"}
+{"label": "t86-release (Agent tool fallback #2: false provider-limit from quoted limit string, lesson #347)", "start": "2026-10-05T15:33:00Z", "end": "2026-10-05T15:36:00Z"}
+{"label": "t94-avatar-fix (Agent tool fallback #3: Codex sandbox cannot write node_modules/.vite-temp, so vitest cannot start)", "start": "2026-10-05T18:35:48Z", "end": "2026-10-05T18:43:12Z"}
+{"label": "t98-screenshots", "start": "2026-10-06T15:54:22Z", "end": "2026-10-06T15:58:34Z"}
+{"label": "t110-ui-survey", "start": "2026-10-07T17:59:25Z", "end": "2026-10-07T18:21:41Z"}
+{"label": "t110-mockups", "start": "2026-10-07T20:25:26Z", "end": "2026-10-07T20:32:14Z"}
+{"label": "t112-bug1-probe", "start": "2026-10-08T14:28:08Z", "end": "2026-10-08T14:35:34Z"}
+{"label": "t112-bug1-probe2", "start": "2026-10-08T14:36:04Z", "end": "2026-10-08T14:46:11Z"}
+{"label": "t112-bug1-click", "start": "2026-10-08T15:20:18Z", "end": "2026-10-08T15:23:10Z"}
+{"label": "t112-bug1-probe4", "start": "2026-10-08T15:32:34Z", "end": "2026-10-08T15:37:51Z"}
+{"label": "t112-bug1-probe4b", "start": "2026-10-08T15:38:02Z", "end": "2026-10-08T15:42:31Z"}
+{"label": "t112-bug1-probe4c", "start": "2026-10-08T15:42:31Z", "end": "2026-10-08T15:46:59Z"}
+{"label": "t112-bug1-probe4d", "start": "2026-10-08T15:46:59Z", "end": null}
+{"label": "t112-window-shots", "start": "2026-10-08T16:32:28Z", "end": "2026-10-08T16:37:34Z"}
+{"label": "graphify-study", "start": "2026-10-08T19:13:56Z", "end": "2026-10-08T19:15:50Z"}
+{"label": "refstudy-impeccable", "start": "2026-10-08T19:25:01Z", "end": "2026-10-08T19:27:07Z"}
+{"label": "refstudy-others", "start": "2026-10-08T19:25:01Z", "end": "2026-10-08T19:26:54Z"}
+{"label": "beacon-scout (Agent-tool fallback haiku: swarm ask tier fallback unconfigured)", "start": "2026-10-08T21:17:20Z", "end": "2026-10-08T21:20:51Z"}
+{"label":"pr80-rebase-conflicts","start":"2026-10-13T22:50:18Z","end":"2026-10-13T22:54:41Z"}
+{"label":"t116-fix-suites","start":"2026-10-13T23:09:54Z","end":"2026-10-13T23:34:55Z"}
+{"label":"hermes-round4","start":"2026-10-13T23:10:33Z","end":"2026-10-13T23:17:02Z"}
+{"label":"hermes-review4","start":"2026-10-13T23:17:12Z","end":"2026-10-13T23:21:16Z"}
+{"label":"t116-src-fixes","start":"2026-10-14T15:46:19Z","end":"2026-10-14T16:40:29Z"}
+{"label":"t116-mutant-gaps","start":"2026-10-14T16:53:02Z","end":"2026-10-14T17:11:48Z"}
+{"label":"hermes-bundle-psutil","start":"2026-10-14T18:11:49Z","end":"2026-10-14T18:26:41Z"}
+{"label":"hermes-bundle-pypi-only","start":"2026-10-14T18:49:45Z","end":"2026-10-14T18:55:59Z"}

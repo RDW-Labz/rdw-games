@@ -1,0 +1,87 @@
+# App version guard — refuse a version that would regress against the store.
+#
+# The same bug shipped twice in one week, in opposite directions:
+#
+#   bidder 2026-08-09 — config 0.1.1 while the App Store had released 1.0.0.
+#     Apple bounced every upload (ITMS-90062 "Invalid Binary").
+#   staff  2026-08-11 — two builds went up as "1.0" against an 0.1.0 train.
+#     iOS compares the version string before the build number, so builds 28-31
+#     read as downgrades and TestFlight stopped offering them. A staff iPhone
+#     sat on build 27 for eight days. (PR #248)
+#
+# Both also killed OTAs on the affected devices — runtimeVersion.policy is
+# appVersion, so the binary channel and the update channel die together.
+#
+# Neither is visible in App Store Connect, which lists builds by ascending
+# BUILD number and hides the version anomaly in a column you have to know to
+# read. So it gets checked here, against the store's own answer.
+#
+# The real gate is in eas-build.yml, which runs this same script before
+# `eas build` and cannot be skipped. This workflow is the early warning: it
+# catches the bad version on the PR that introduces it, hours before anyone
+# builds. It is deliberately the softer of the two — see the severity comment
+# on the check step below.
+#
+# Secrets: ASC_API_KEY, ASC_API_KEY_ID, ASC_API_KEY_ISSUER_ID (already
+# configured for eas-build.yml / asc-status.yml). Fork PRs cannot read them,
+# so --allow-missing-credentials makes this skip rather than fail there; the
+# build-time gate has no such escape hatch.
+
+name: App version guard
+
+on:
+  pull_request:
+    paths:
+      - 'apps/*/app.config.ts'
+      - 'apps/*/eas.json'
+      - 'scripts/store-release/version_guard.py'
+      - '.github/workflows/app-version-guard.yml'
+  push:
+    branches: [master]
+    paths:
+      - 'apps/*/app.config.ts'
+      - 'apps/*/eas.json'
+      - 'scripts/store-release/version_guard.py'
+  # Lets the owner re-check after a store state change (a release going live
+  # raises the App Store floor) without pushing a commit.
+  workflow_dispatch:
+
+concurrency:
+  group: app-version-guard-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  version-guard:
+    name: version vs store
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # No network, no secrets — catches logic regressions and, importantly,
+      # VERSION_RE drifting away from app.config.ts's actual shape. A guard
+      # whose regex silently matches nothing is a guard that always passes.
+      - name: Self-test the guard
+        run: python3 scripts/store-release/version_guard.py --self-test
+
+      - if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+        run: pip install --quiet PyJWT cryptography
+
+      # --appstore-floor-severity=warning: a version EQUAL to the released App
+      # Store version is the repo's normal resting state between releases, and
+      # it stays there until someone starts the next one. Failing every PR for
+      # that whole window would train people to ignore this check — which is
+      # how the 08-09 and 08-11 bugs got through review in the first place. It
+      # still surfaces as a warning, and eas-build.yml still hard-fails on it,
+      # so a build cannot slip past. A version BELOW the TestFlight max is
+      # never downgraded: that one is broken for testers right now.
+      - name: Check both apps against App Store Connect
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+        env:
+          ASC_API_KEY: ${{ secrets.ASC_API_KEY }}
+          ASC_API_KEY_ID: ${{ secrets.ASC_API_KEY_ID }}
+          ASC_API_KEY_ISSUER_ID: ${{ secrets.ASC_API_KEY_ISSUER_ID }}
+        run: |
+          python3 scripts/store-release/version_guard.py \
+            apps/bidder-app apps/field-mobile \
+            --allow-missing-credentials \
+            --appstore-floor-severity=warning

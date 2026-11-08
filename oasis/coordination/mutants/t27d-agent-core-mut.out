@@ -1,0 +1,19 @@
+KILLED pending text not applied
+KILLED old narrow CLAIM_PATTERNS (no noun-first)
+KILLED noun-first without sentence anchor (after tm-tests)
+KILLED noun-first without by/from guard
+KILLED has-been pattern removed
+KILLED CLAIM_NONE_TEXT -> preview text
+KILLED claim guard off (no plan)
+KILLED Teams do-tool offered
+KILLED Teams reads hidden too
+KILLED instruction sentence removed
+KILLED Teams guard off
+KILLED Teams guard un-anchored (I anywhere)
+KILLED Teams guard any-subject verb
+KILLED Teams guard straight apostrophe only
+KILLED Teams guard no Sent-sentence pattern
+KILLED Teams guard crosses sentences (after tm-tests)
+KILLED Teams guard before claim guard w/ plan
+KILLED user text into system (#73)
+DONE

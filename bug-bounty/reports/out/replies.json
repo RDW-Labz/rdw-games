@@ -1,0 +1,36 @@
+{
+ "captured_at": "2026-11-07T23:51:10+00:00",
+ "query": "from:bpost.be OR from:celemi.com OR from:chipotle.com OR from:differential.com OR from:harman.com OR from:luva.bet OR from:luva.bet.br OR from:safaricom.co.ke OR from:starbucks.com OR from:stewart.com OR from:teamviewer.com OR from:unifysquare.com OR from:unit4.com OR from:unit4cloud.com OR from:vfsglobal.com OR from:xola.com",
+ "matched": 4,
+ "gmail_says_empty": false,
+ "rows": [
+  {
+   "from": "security@bpost.be",
+   "name": "Security",
+   "snippet": "\u00a0-\u00a0Beste, Uw mail is goed ontvangen. Indien u ons contacteert met betrekking \ntot een van onderstaande onderwerpen, verwijzen we u door naar de betrokken \ndienst. Uw mail wordt niet automatisch doorgestuurd",
+   "subject": "RE: 2 dangling DNS records on bpost.be \u2014 the Traffic Manager profiles are gone",
+   "when": "Nov 4"
+  },
+  {
+   "from": "marcelo@differential.com",
+   "name": "Marcelo, me",
+   "snippet": "\u00a0-\u00a0Hi Michael, thank you for letting us know, we've removed the CNAMEs. \nMarcelo Reyna Head of Infrastructure and Cybersecurity On Tue, Nov 3, 2026 \nat 4:00 PM RDW Labz <security@rdwlabz.com>",
+   "subject": "Re: the two dangling Elastic Beanstalk records on differential.com",
+   "when": "Nov 4"
+  },
+  {
+   "from": "security@bpost.be",
+   "name": "Security",
+   "snippet": "\u00a0-\u00a0Beste, Uw mail is goed ontvangen. Indien u ons contacteert met betrekking \ntot een van onderstaande onderwerpen, verwijzen we u door naar de betrokken \ndienst. Uw mail wordt niet automatisch doorgestuurd",
+   "subject": "Automatic reply: 2 dangling DNS records on bpost.be \u2014 the Traffic Manager profiles are gone",
+   "when": "Nov 2"
+  },
+  {
+   "from": "security@unit4.com",
+   "name": "security",
+   "snippet": "\u00a0-\u00a0Dear Sender, Thank you for your email. Please be aware that we have moved \nover to Bugcrowd for any bug report queries. Please refer to the following \nlink for details on the programme, as well as",
+   "subject": "Re: 1 dangling DNS record on unit4cloud.com \u2014 the name is unclaimed",
+   "when": "Nov 5"
+  }
+ ]
+}

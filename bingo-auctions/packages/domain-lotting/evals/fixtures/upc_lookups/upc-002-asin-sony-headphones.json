@@ -1,0 +1,15 @@
+{
+  "id": "upc-002",
+  "code": "B0863TXGM3",
+  "code_type": "asin",
+  "expected": {
+    "title": "Sony WH-1000XM4 Wireless Noise Cancelling Over-Ear Headphones (Black)",
+    "brand": "Sony",
+    "model": "WH-1000XM4",
+    "category_slug": "audio",
+    "category_legacy": "Electronics",
+    "condition": "",
+    "msrp_cents": 34800
+  },
+  "notes": "Amazon ASIN path. lookupCode() switches its prompt branch on this format."
+}

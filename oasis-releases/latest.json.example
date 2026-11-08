@@ -1,0 +1,12 @@
+{
+  "version": "9.0.1",
+  "notes": "Example only. Plain words about what changed go here.",
+  "pub_date": "2030-01-01T00:00:00Z",
+  "platforms": {
+    "windows-x86_64": {
+      "url": "https://github.com/RDW-Labz/oasis-releases/releases/download/v9.0.1/OASIS_9.0.1_x64-setup.exe",
+      "signature": "FAKE-SIGNATURE-EXAMPLE-NOT-REAL-dW50cnVzdGVkIGNvbW1lbnQ6IGZha2UgZXhhbXBsZQ==",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  }
+}

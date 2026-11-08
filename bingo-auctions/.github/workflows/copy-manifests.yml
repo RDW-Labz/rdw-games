@@ -1,0 +1,80 @@
+name: Copy Manifest Pool (ClovrBid → BinGo)
+
+# Re-runnable migration of the PENDING manifest pool (imports + import_rows)
+# from the old ClovrBid Supabase project into BinGo's. copy-catalog.yml
+# brought product_lookups; this brings the tracking-number → item mappings
+# that Quick Lot's FedEx-label scan probes via find_import_row_by_scan.
+# Without it every Wayfair return-label scan misses (owner report 2026-07-09).
+#
+# Same single-credential approach as copy-catalog.yml: the account-level
+# SUPABASE_ACCESS_TOKEN PAT reaches both projects via the Management API.
+#
+# Defaults to a DRY RUN (counts only). Set apply=true to actually copy.
+# Row UUIDs are preserved and inserts are ON CONFLICT DO NOTHING, so
+# re-runs are safe.
+
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: 'false = dry-run counts only; true = perform the copy'
+        required: true
+        type: choice
+        default: 'false'
+        options:
+          - 'false'
+          - 'true'
+      source_ref:
+        description: 'Source project ref (ClovrBid)'
+        required: false
+        type: string
+        default: 'xgsujdzicnjenhqihovk'
+      source_operator:
+        description: 'Source operator UUID (only needed if >1 has pending rows)'
+        required: false
+        type: string
+        default: ''
+      dest_operator:
+        description: 'Dest operator UUID (only needed if >1 dest operator)'
+        required: false
+        type: string
+        # BinGo Auctions on BinGo prod (the other operator is the demo seed).
+        default: '05775af4-adb7-4f0f-943e-94a91e17f60d'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: copy-manifests
+  cancel-in-progress: false
+
+jobs:
+  copy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Guard secret
+        env:
+          HAS_PAT: ${{ secrets.SUPABASE_ACCESS_TOKEN != '' }}
+        run: |
+          if [ "$HAS_PAT" != "true" ]; then
+            echo "::error::SUPABASE_ACCESS_TOKEN repo secret is not set."
+            exit 1
+          fi
+      - name: Copy manifest pool
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SOURCE_REF: ${{ inputs.source_ref }}
+          SOURCE_OPERATOR: ${{ inputs.source_operator }}
+          DEST_OPERATOR: ${{ inputs.dest_operator }}
+          DEST_REF: npwseclcxcatjhgjrtwe
+        run: |
+          if [ "${{ inputs.apply }}" = "true" ]; then
+            node scripts/copy-manifests.mjs --apply
+          else
+            node scripts/copy-manifests.mjs
+          fi

@@ -1,0 +1,655 @@
+{
+ "captured_at": "2026-09-24",
+ "source": "prod product_lookups rows keyed by a manifest import_rows.tracking_number",
+ "rows": [
+  {
+   "upc": "798021078931",
+   "title": null,
+   "brand": null,
+   "model": null,
+   "category_id": null,
+   "category_raw": null,
+   "image_urls": [],
+   "msrp_cents": 1529,
+   "avg_asking_cents": null,
+   "median_sold_cents": null,
+   "start_bid_cents": null,
+   "prices": [],
+   "sold_comps": [],
+   "description": null,
+   "specs": null,
+   "confidence": "none",
+   "sources": [],
+   "identity_refreshed_at": "2026-07-16T17:43:07.127+00:00",
+   "prices_refreshed_at": null,
+   "created_at": "2026-07-16T17:43:07.218367+00:00",
+   "updated_at": "2026-07-16T17:43:07.218367+00:00",
+   "asin": null,
+   "fnsku": null,
+   "lpn": null,
+   "mpn": null,
+   "external_codes": [],
+   "embedding": null
+  },
+  {
+   "upc": "798029540060",
+   "title": null,
+   "brand": null,
+   "model": null,
+   "category_id": null,
+   "category_raw": null,
+   "image_urls": [],
+   "msrp_cents": 1999,
+   "avg_asking_cents": null,
+   "median_sold_cents": null,
+   "start_bid_cents": null,
+   "prices": [],
+   "sold_comps": [],
+   "description": null,
+   "specs": null,
+   "confidence": "none",
+   "sources": [],
+   "identity_refreshed_at": "2026-07-17T18:32:52.163+00:00",
+   "prices_refreshed_at": null,
+   "created_at": "2026-07-17T18:32:52.252903+00:00",
+   "updated_at": "2026-07-17T18:32:52.252903+00:00",
+   "asin": null,
+   "fnsku": null,
+   "lpn": null,
+   "mpn": null,
+   "external_codes": [],
+   "embedding": null
+  },
+  {
+   "upc": "798051984500",
+   "title": "Simply® Doritos Zesty Cool Ranch Tortilla Chips, 7.5 oz",
+   "brand": "Doritos",
+   "model": "0002840076407",
+   "category_id": null,
+   "category_raw": "kingsoopers.com",
+   "image_urls": [],
+   "msrp_cents": 269,
+   "avg_asking_cents": 269,
+   "median_sold_cents": null,
+   "start_bid_cents": 100,
+   "prices": [
+    {
+     "url": "https://www.kingsoopers.com/p/simplya-doritosa-zesty-cool-ranch-flavored-tortilla-chips/0002840076407",
+     "cents": 0,
+     "retailer": "kingsoopers.com",
+     "fetched_at": "2026-07-17T22:45:17.627Z"
+    },
+    {
+     "url": "https://www.chefstore.com/p/doritos-extra-flavored-nacho-cheese-xl_1049819/",
+     "cents": 269,
+     "retailer": "chefstore.com",
+     "fetched_at": "2026-07-17T22:45:17.627Z"
+    }
+   ],
+   "sold_comps": [],
+   "description": "Though our roots date back to 2002, the Simply line sprouted in 2013 from our desire to make snacking simpler than ever—that includes simple choices and simple ingredients. We set out to make picking a snack easy (because who couldn’t use a little more ease these days?) by offering the familiar brands you love and trust without artificial flavors or colors. The result? Not having to figure out something new to snack on when you want the good stuff. Knowing you and your family can share your favorite snacks made with ingredients you feel good about while enjoying the same great taste… well, that’s Simply amazing.​ Includes 1 (7.5 oz) bags of Simply Doritos Zesty Cool Ranch flavored Tortilla chips Simply Doritos Zesty Cool Ranch Tortilla Chips are made from U.S. grown whole corn and cooked with sunflower oil Simply Doritos Zesty Cool Ranch Tortilla Chips are made with no artificial colors or flavors added 8g Whole Grains in every serving of Simply Doritos Zesty Cool Ranch Tortilla Chips Simply, fun you feel good about Our snacks are made with flavors from the brands you love and ingredients you can feel good about",
+   "specs": null,
+   "confidence": "high",
+   "sources": [
+    "openrouter:perplexity:sonar+url-fetch"
+   ],
+   "identity_refreshed_at": "2026-07-17T22:45:17.627+00:00",
+   "prices_refreshed_at": "2026-07-17T22:45:17.627+00:00",
+   "created_at": "2026-07-17T22:45:17.797018+00:00",
+   "updated_at": "2026-07-17T22:45:17.797018+00:00",
+   "asin": null,
+   "fnsku": null,
+   "lpn": null,
+   "mpn": "0002840076407",
+   "external_codes": [],
+   "embedding": null
+  },
+  {
+   "upc": "529620025196",
+   "title": "ANGELES HOME Ceramic 1-Piece 1.28 GPF Single Flush Elongated Toilet in White with Soft Closing Seat W128CKP1962",
+   "brand": "ANGELES HOME",
+   "model": "1011701543",
+   "category_id": "f88e825f-d791-4a03-a241-d3b90e16cd6e",
+   "category_raw": "Home Depot",
+   "image_urls": [
+    "https://images.thdstatic.com/productImages/d6f93d7b-cb18-478c-ab52-460b5e6f2d6b/svn/white-angeles-home-one-piece-toilets-w128ckp1962-64_100.jpg",
+    "https://images.thdstatic.com/productImages/1e4ee40d-038e-4340-90f0-0d4d9dd405fe/svn/white-angeles-home-one-piece-toilets-w128ckp1962-e1_100.jpg",
+    "https://images.thdstatic.com/productImages/5e7e61a7-7ba4-4a0a-9006-fb2e6187552d/svn/white-angeles-home-one-piece-toilets-w128ckp1962-c3_100.jpg",
+    "https://images.thdstatic.com/productImages/6d6267ad-aa11-471b-bb81-6e764847f8b4/svn/white-angeles-home-one-piece-toilets-w128ckp1962-4f_100.jpg",
+    "https://images.thdstatic.com/productImages/2c830d99-9bf2-45e6-a62c-dec4ffd5b632/svn/white-angeles-home-one-piece-toilets-w128ckp1962-1f_100.jpg",
+    "https://images.thdstatic.com/productImages/987fa037-4d7e-46a2-926c-64a5d7e0fb22/svn/white-angeles-home-one-piece-toilets-w128ckp1962-31_100.jpg"
+   ],
+   "msrp_cents": 44460,
+   "avg_asking_cents": 44460,
+   "median_sold_cents": null,
+   "start_bid_cents": 11115,
+   "prices": [
+    {
+     "url": "https://www.homedepot.com/p/330443366",
+     "cents": 44460,
+     "retailer": "Home Depot",
+     "fetched_at": "2026-07-21T17:01:22.197Z"
+    }
+   ],
+   "sold_comps": [],
+   "description": "This 1-piece toilet features a modern, sleek design that will add a touch of unique charm to any bathroom decor. The skirted stock bend approach creates a sleek look and makes cleaning easier. The Comfort Height feature provides a chair height seat that makes sitting down and, for most adults, standing up easier.",
+   "specs": null,
+   "confidence": "high",
+   "sources": [
+    "openrouter:perplexity:sonar+url-fetch"
+   ],
+   "identity_refreshed_at": "2026-07-21T17:01:22.197+00:00",
+   "prices_refreshed_at": "2026-07-21T17:01:22.197+00:00",
+   "created_at": "2026-07-21T17:01:22.349708+00:00",
+   "updated_at": "2026-07-21T17:01:22.349708+00:00",
+   "asin": null,
+   "fnsku": null,
+   "lpn": null,
+   "mpn": "1011701543",
+   "external_codes": [],
+   "embedding": null
+  },
+  {
+   "upc": "529620018069",
+   "title": "Duralast Canister Vent Valve Solenoid PV529",
+   "brand": "Duralast",
+   "model": "PV529",
+   "category_id": null,
+   "category_raw": "autozone.com",
+   "image_urls": [],
+   "msrp_cents": 8499,
+   "avg_asking_cents": 8499,
+   "median_sold_cents": null,
+   "start_bid_cents": 2125,
+   "prices": [
+    {
+     "url": "https://www.autozone.com/p/duralast-vapor-canister-vent-solenoid-pv529/294106",
+     "cents": 8499,
+     "retailer": "autozone.com",
+     "fetched_at": "2026-07-23T17:59:54.288Z"
+    },
+    {
+     "url": "https://www.pfisterfaucets.com/kitchen/product/clarify-f-529-fcy-1-handle-pull-down-kitchen-faucet",
+     "cents": 0,
+     "retailer": "pfisterfaucets.com",
+     "fetched_at": "2026-07-23T17:59:54.288Z"
+    }
+   ],
+   "sold_comps": [],
+   "description": "Duralast products are designed and tested to OE specifications for a direct-fit, easy install. Duralast engineering delivers trouble-free operation, optimum performance and a long service life.",
+   "specs": null,
+   "confidence": "high",
+   "sources": [
+    "openrouter:perplexity:sonar+url-fetch"
+   ],
+   "identity_refreshed_at": "2026-07-23T17:59:54.288+00:00",
+   "prices_refreshed_at": "2026-07-23T17:59:54.288+00:00",
+   "created_at": "2026-07-23T17:59:54.415243+00:00",
+   "updated_at": "2026-07-23T17:59:54.415243+00:00",
+   "asin": null,
+   "fnsku": null,
+   "lpn": null,
+   "mpn": "PV529",
+   "external_codes": [],
+   "embedding": null
+  },
+  {
+   "upc": "486571079143",
+   "title": "Epson - 79 Ink Cartridge - Black",
+   "brand": "Epson",
+   "model": "11132317",
+   "category_id": null,
+   "category_raw": "Best Buy",
+   "image_urls": [],
+   "msrp_cents": 3160,
+   "avg_asking_cents": 3160,
+   "median_sold_cents": null,
+   "start_bid_cents": 790,
+   "prices": [
+    {
+     "url": "https://www.bestbuy.com/site/epson-79-ink-cartridge-black/8449146.p",
+     "cents": 3160,
+     "retailer": "Best Buy",
+     "fetched_at": "2026-07-24T13:38:43.256Z"
+    }
+   ],
+   "sold_comps": [],
+   "description": "Shop Epson 79 Ink Cartridge Black products at Best Buy. Find low everyday prices and buy online for delivery or in-store pick-up. Price Match Guarantee.",
+   "specs": null,
+   "confidence": "high",
+   "sources": [
+    "openrouter:perplexity:sonar+url-fetch"
+   ],
+   "identity_refreshed_at": "2026-07-24T13:38:43.256+00:00",
+   "prices_refreshed_at": "2026-07-24T13:38:43.256+00:00",
+   "created_at": "2026-07-24T13:38:43.408599+00:00",
+   "updated_at": "2026-07-24T13:38:43.408599+00:00",
+   "asin": null,
+   "fnsku": null,
+   "lpn": null,
+   "mpn": "11132317",
+   "external_codes": [],
+   "embedding": null
+  },
+  {
+   "upc": "486572265300",
+   "title": null,
+   "brand": null,
+   "model": null,
+   "category_id": null,
+   "category_raw": null,
+   "image_urls": [],
+   "msrp_cents": 799,
+   "avg_asking_cents": null,
+   "median_sold_cents": null,
+   "start_bid_cents": null,
+   "prices": [],
+   "sold_comps": [],
+   "description": null,
+   "specs": null,
+   "confidence": "none",
+   "sources": [],
+   "identity_refreshed_at": "2026-07-24T14:04:20.102+00:00",
+   "prices_refreshed_at": null,
+   "created_at": "2026-07-24T14:04:20.222414+00:00",
+   "updated_at": "2026-07-24T14:04:20.222414+00:00",
+   "asin": null,
+   "fnsku": null,
+   "lpn": null,
+   "mpn": null,
+   "external_codes": [],
+   "embedding": null
+  },
+  {
+   "upc": "533500212936",
+   "title": "Cuschoice 45.8-in W x 15.8-in D x 59.4-in H Heavy Duty Black Metal Storage Rack 4 Tier Adjustable Shelving Unit",
+   "brand": "Cuschoice",
+   "model": "5019725001",
+   "category_id": null,
+   "category_raw": "Lowe's",
+   "image_urls": [
+    "https://mobileimages.lowes.com/productimages/aea17267-f478-4f5b-9d0f-cf185043f382/89863745.jpeg",
+    "https://mobileimages.lowes.com/productimages/ac96c680-22be-4fc5-b19c-55435921e0a3/85280889.jpeg",
+    "https://mobileimages.lowes.com/productimages/3517e4b5-f166-4180-805f-a602938e835d/85280963.jpeg",
+    "https://mobileimages.lowes.com/productimages/f75e4e53-4ff4-4418-a294-61b5620659cc/85280968.jpeg",
+    "https://mobileimages.lowes.com/productimages/48857f6d-29f8-43e4-98ab-56b2452e0803/85278256.jpeg",
+    "https://mobileimages.lowes.com/productimages/6b843fb0-12e4-465d-84dc-e3c0489637c0/85274438.jpeg"
+   ],
+   "msrp_cents": 12945,
+   "avg_asking_cents": 12945,
+   "median_sold_cents": null,
+   "start_bid_cents": 3236,
+   "prices": [
+    {
+     "url": "https://www.lowes.com/pd/Cuschoice-45-8-in-W-x-15-8-in-D-x-59-4-in-H-Heavy-Duty-Black-Metal-Storage-Rack-4-Tier-Adjustable-Shelving-Unit/9326732",
+     "cents": 12945,
+     "retailer": "Lowe's",
+     "fetched_at": "2026-08-03T17:28:28.229Z"
+    }
+   ],
+   "sold_comps": [],
+   "description": "45.8-in W x 15.8-in D x 59.4-in H Heavy Duty Black Metal Storage Rack 4 Tier Adjustable Shelving Unit",
+   "specs": null,
+   "confidence": "high",
+   "sources": [
+    "openrouter:perplexity:sonar+url-fetch"
+   ],
+   "identity_refreshed_at": "2026-08-03T17:28:28.229+00:00",
+   "prices_refreshed_at": "2026-08-03T17:28:28.229+00:00",
+   "created_at": "2026-08-03T17:28:28.377385+00:00",
+   "updated_at": "2026-08-03T17:28:28.377385+00:00",
+   "asin": null,
+   "fnsku": null,
+   "lpn": null,
+   "mpn": "5019725001",
+   "external_codes": [],
+   "embedding": null
+  },
+  {
+   "upc": "533500043962",
+   "title": "Esazn Metal Raised Garden Bed 47.24-in L x 23.62-in W x 71-in H",
+   "brand": "Esazn",
+   "model": "5015765169",
+   "category_id": null,
+   "category_raw": "Lowe's",
+   "image_urls": [
+    "https://mobileimages.lowes.com/productimages/45b52a85-0d0d-460c-9666-3f68ac68c8bf/83649184.jpeg",
+    "https://mobileimages.lowes.com/productimages/995abf83-5ac6-4635-8bd7-133bd81db956/83649183.jpeg",
+    "https://mobileimages.lowes.com/productimages/d0b4e158-b37f-44e4-9f23-7e527a38f605/83649185.jpeg",
+    "https://mobileimages.lowes.com/productimages/8475663e-5f42-44e9-9fe3-fe28a58f4f35/83649186.jpeg",
+    "https://mobileimages.lowes.com/productimages/6985a75d-5f59-4275-822f-07f57067f3d5/83649188.jpeg",
+    "https://mobileimages.lowes.com/productimages/48fe7254-3448-412f-ab17-3e76a473abe0/83649187.jpeg"
+   ],
+   "msrp_cents": 6839,
+   "avg_asking_cents": 6839,
+   "median_sold_cents": null,
+   "start_bid_cents": 1710,
+   "prices": [
+    {
+     "url": "https://www.lowes.com/pd/Esazn-Polyester-Unheated-Loveseat-black-Folding-Camping-Chair-Carrying-Strap-Handle-Included/5015765169",
+     "cents": 6839,
+     "retailer": "Lowe's",
+     "fetched_at": "2026-08-05T16:44:49.081Z"
+    },
+    {
+     "url": "https://store.directsupply.com/Product/ProductDetail?productId=26494006&unitMeasureId=14",
+     "cents": 0,
+     "retailer": "store.directsupply.com",
+     "fetched_at": "2026-08-05T16:44:49.081Z"
+    }
+   ],
+   "sold_comps": [],
+   "description": "Provide added customer convenience in your public restrooms with these Rubbermaid two-ply baby changing table protective liners. The laminated tissue paper keeps infants' skin away from the surface of the changing table, and the convenient design fits neatly into changing table liner holders. With their crisp white color, these Rubbermaid two-ply baby changing table protective liners offer a clean appearance to put parents' minds at ease.",
+   "specs": null,
+   "confidence": "high",
+   "sources": [
+    "openrouter:perplexity:sonar+url-fetch"
+   ],
+   "identity_refreshed_at": "2026-08-05T16:44:49.081+00:00",
+   "prices_refreshed_at": "2026-08-05T16:44:49.081+00:00",
+   "created_at": "2026-08-05T16:44:49.290845+00:00",
+   "updated_at": "2026-08-05T16:44:49.290845+00:00",
+   "asin": null,
+   "fnsku": null,
+   "lpn": null,
+   "mpn": "5015765169",
+   "external_codes": [],
+   "embedding": null
+  },
+  {
+   "upc": "533504094970",
+   "title": "MegaChef - 8.5 Quart Bundle Electric Air Fryer and Stainless Steel with 125 Piece Paper Liners - Black",
+   "brand": "MegaChef",
+   "model": "1013057240",
+   "category_id": null,
+   "category_raw": "Home Depot",
+   "image_urls": [
+    "https://images.thdstatic.com/productImages/b1c61579-9834-4935-9da6-c2355119bd30/svn/silver-megachef-deep-fryers-985121819m-64_100.jpg",
+    "https://images.thdstatic.com/productImages/7153a08d-d1ae-42bf-a4ab-fed7e5b58bc9/svn/silver-megachef-deep-fryers-985121819m-66_100.jpg",
+    "https://images.thdstatic.com/productImages/751c7861-773b-40da-9cb3-dffd7574bfee/svn/silver-megachef-deep-fryers-985121819m-c3_100.jpg",
+    "https://images.thdstatic.com/productImages/c46c574c-8459-49ee-9789-abc67015828c/svn/silver-megachef-deep-fryers-985121819m-4f_100.jpg",
+    "https://images.thdstatic.com/productImages/cbc757c9-1e6f-4d99-a9bb-cfa7abbce957/svn/silver-megachef-deep-fryers-985121819m-1f_100.jpg",
+    "https://images.thdstatic.com/productImages/fddcadb5-d80b-40f9-b3dc-68964ef29194/svn/silver-megachef-deep-fryers-985121819m-44_100.jpg"
+   ],
+   "msrp_cents": 6999,
+   "avg_asking_cents": 6199,
+   "median_sold_cents": null,
+   "start_bid_cents": 1550,
+   "prices": [
+    {
+     "url": "https://www.homedepot.com/p/MegaChef-4-23-qt-Stainless-Steel-Electric-Deep-Fryer-with-Timer-985121819M/333183255",
+     "cents": 5399,
+     "retailer": "Home Depot",
+     "fetched_at": "2026-08-18T15:42:40.423Z"
+    },
+    {
+     "url": "https://www.bestbuy.com/product/megachef-8-5-quart-bundle-electric-air-fryer-and-stainless-steel-with-125-piece-paper-liners-black/J39HPR9ZHR/sku/11388854",
+     "cents": 6999,
+     "retailer": "Best Buy",
+     "fetched_at": "2026-08-18T15:42:40.423Z"
+    }
+   ],
+   "sold_comps": [],
+   "description": "Avoid the splatter and spills of hot oil with the MegaChef 4.23 Quart Stainless Steel Electric Deep Fryer. Conveniently sized, this handy kitchen appliance is perfect for preparing all your favorite fried foods and treats. Temperature control and timer knobs for precise frying temperatures, providing you with flavorful and crispy foods allowing you to deep fry quickly and efficiently. Features see through window for your viewing convenience and removable Anti-Odor filter to filter out unwanted oil smell.",
+   "specs": null,
+   "confidence": "high",
+   "sources": [
+    "openrouter:perplexity:sonar+url-fetch"
+   ],
+   "identity_refreshed_at": "2026-08-18T15:42:40.423+00:00",
+   "prices_refreshed_at": "2026-08-18T15:42:40.423+00:00",
+   "created_at": "2026-08-18T15:42:40.610714+00:00",
+   "updated_at": "2026-08-18T15:42:40.610714+00:00",
+   "asin": null,
+   "fnsku": null,
+   "lpn": null,
+   "mpn": "1013057240",
+   "external_codes": [],
+   "embedding": null
+  },
+  {
+   "upc": "533501372036",
+   "title": "Rubbermaid® OneShot® Low Profile Polished Chrome Lotion & Soap Dispenser (800 or 1600 ml Refills)",
+   "brand": "Rubbermaid",
+   "model": "00763905022415",
+   "category_id": null,
+   "category_raw": "cleanfreak.com",
+   "image_urls": [],
+   "msrp_cents": 5497,
+   "avg_asking_cents": 5497,
+   "median_sold_cents": null,
+   "start_bid_cents": 1374,
+   "prices": [
+    {
+     "url": "https://www.cleanfreak.com/products/oneshot-lotion-dispenser-low-profile-plastic-polished-chrome",
+     "cents": 5497,
+     "retailer": "cleanfreak.com",
+     "fetched_at": "2026-08-22T17:20:36.756Z"
+    }
+   ],
+   "sold_comps": [],
+   "description": "Proper hand hygiene is important to prevent the spread of germs in high-traffic areas. The OneShot® dispenser is a touch-free, automatic dispenser that helps reduce cross-contamination. It dispenses luxurious formulas of soap and lotion to encourage healthy handwashing. Smart Sensor™ technology detects hands, automatically delivering the perfect amount of soap — every time.<br><br><h2>Features</h2><ul>\n<li>Touch-free, automatic system helps prevent the spread of germs and bacteria</li>\n<li>Reliable, controlled dispensing of concentrated soaps eliminates overuse and costly waste</li>\n<li>Mounts flush with the counter to maintain the clean look of your washroom and optimizes wall space</li>\n<li>Industry-leading battery life of up to 3 years or 120,000 cycles</li>\n<li>High-capacity  refills provide more handwashes before requiring maintenance</li>\n</ul>",
+   "specs": null,
+   "confidence": "high",
+   "sources": [
+    "openrouter:perplexity:sonar+url-fetch"
+   ],
+   "identity_refreshed_at": "2026-08-22T17:20:36.756+00:00",
+   "prices_refreshed_at": "2026-08-22T17:20:36.756+00:00",
+   "created_at": "2026-08-22T17:20:36.878013+00:00",
+   "updated_at": "2026-08-22T17:20:36.878013+00:00",
+   "asin": null,
+   "fnsku": null,
+   "lpn": null,
+   "mpn": "00763905022415",
+   "external_codes": [],
+   "embedding": null
+  },
+  {
+   "upc": "538157394961",
+   "title": "Discover Healthy Skin Kit, Double Cleanse + Exfoliate + Moisturize Value Set for All Skin Types",
+   "brand": "Discover",
+   "model": "2356699",
+   "category_id": null,
+   "category_raw": "sephora.com",
+   "image_urls": [
+    "https://www.sephora.com/productimages/sku/s2356699-main-hero.jpg"
+   ],
+   "msrp_cents": 3950,
+   "avg_asking_cents": 3950,
+   "median_sold_cents": null,
+   "start_bid_cents": 988,
+   "prices": [
+    {
+     "url": "https://www.sephora.com/product/dermalogica-discover-healthy-skin-kit-P460624",
+     "cents": 3950,
+     "retailer": "sephora.com",
+     "fetched_at": "2026-08-24T16:34:51.267Z"
+    }
+   ],
+   "sold_comps": [],
+   "description": null,
+   "specs": null,
+   "confidence": "high",
+   "sources": [
+    "openrouter:perplexity:sonar+url-fetch"
+   ],
+   "identity_refreshed_at": "2026-08-24T16:34:51.267+00:00",
+   "prices_refreshed_at": "2026-08-24T16:34:51.267+00:00",
+   "created_at": "2026-08-24T16:34:51.434059+00:00",
+   "updated_at": "2026-08-24T16:34:51.434059+00:00",
+   "asin": null,
+   "fnsku": null,
+   "lpn": null,
+   "mpn": "2356699",
+   "external_codes": [],
+   "embedding": null
+  },
+  {
+   "upc": "538157106950",
+   "title": "Apple - AirPods Pro 3, Wireless Active Noise Cancelling Earbuds with Heart Rate Sensing Feature - White",
+   "brand": "Apple",
+   "model": "6376563",
+   "category_id": null,
+   "category_raw": "Best Buy",
+   "image_urls": [],
+   "msrp_cents": 19999,
+   "avg_asking_cents": 19999,
+   "median_sold_cents": null,
+   "start_bid_cents": 5000,
+   "prices": [
+    {
+     "url": "https://www.bestbuy.com/product/apple-airpods-pro-3-wireless-active-noise-cancelling-earbuds-with-heart-rate-sensing-feature-white/JJGCQLYK5F",
+     "cents": 19999,
+     "retailer": "Best Buy",
+     "fetched_at": "2026-08-24T18:44:29.668Z"
+    }
+   ],
+   "sold_comps": [],
+   "description": "Shop Apple AirPods&nbsp;Pro&nbsp;3, Wireless Active Noise Cancelling Earbuds with Heart Rate Sensing Feature White products at Best Buy. Find low everyday prices and buy online for delivery or in-store pick-up. Price Match Guarantee.",
+   "specs": null,
+   "confidence": "high",
+   "sources": [
+    "openrouter:perplexity:sonar+url-fetch"
+   ],
+   "identity_refreshed_at": "2026-08-24T18:44:29.668+00:00",
+   "prices_refreshed_at": "2026-08-24T18:44:29.668+00:00",
+   "created_at": "2026-08-24T18:44:29.845338+00:00",
+   "updated_at": "2026-08-24T18:44:29.845338+00:00",
+   "asin": null,
+   "fnsku": null,
+   "lpn": null,
+   "mpn": "6376563",
+   "external_codes": [],
+   "embedding": null
+  },
+  {
+   "upc": "538158200880",
+   "title": "REAL SIMPLE 4-Drawer Bamboo Cosmetic Organizer",
+   "brand": null,
+   "model": null,
+   "category_id": null,
+   "category_raw": "athome.com",
+   "image_urls": [],
+   "msrp_cents": null,
+   "avg_asking_cents": null,
+   "median_sold_cents": null,
+   "start_bid_cents": null,
+   "prices": [
+    {
+     "url": "https://www.athome.com/real-simple-4-drawer-bamboo-cosmetic-organizer/125024741.html",
+     "cents": 0,
+     "retailer": "athome.com",
+     "fetched_at": "2026-09-02T20:32:59.600Z"
+    }
+   ],
+   "sold_comps": [],
+   "description": "Everyday organization starts here, with storage that",
+   "specs": null,
+   "confidence": "medium",
+   "sources": [
+    "openrouter:perplexity:sonar+url-fetch"
+   ],
+   "identity_refreshed_at": "2026-09-02T20:32:59.6+00:00",
+   "prices_refreshed_at": "2026-09-02T20:32:59.6+00:00",
+   "created_at": "2026-09-02T20:33:38.176991+00:00",
+   "updated_at": "2026-09-02T20:33:38.176991+00:00",
+   "asin": null,
+   "fnsku": null,
+   "lpn": null,
+   "mpn": null,
+   "external_codes": [],
+   "embedding": null
+  },
+  {
+   "upc": "538160936733",
+   "title": "YOFE Modern Gray Velvet 160° Lay Flat Power Lift Recliner Chair with Heat and Massage, Enhanced Comfort 9-Zone Backrest 8CXX1vW547P425986v3O6H-RECLINERGY01",
+   "brand": "YOFE",
+   "model": "1015373139",
+   "category_id": null,
+   "category_raw": "Home Depot",
+   "image_urls": [
+    "https://images.thdstatic.com/productImages/074750d9-5034-479b-bb54-cd22d062219d/svn/gray-yofe-recliners-8cxx1vw547p425986v3o6h-reclinergy01-64_100.jpg",
+    "https://images.thdstatic.com/productImages/334a4b7f-a35a-42f3-a121-72e1959de035/svn/gray-yofe-recliners-8cxx1vw547p425986v3o6h-reclinergy01-e1_100.jpg",
+    "https://images.thdstatic.com/productImages/c80b74ff-c3ca-45f5-af3c-3efc9652b47e/svn/gray-yofe-recliners-8cxx1vw547p425986v3o6h-reclinergy01-c3_100.jpg",
+    "https://images.thdstatic.com/productImages/961478c0-f213-471e-81c9-dac6e5f10274/svn/gray-yofe-recliners-8cxx1vw547p425986v3o6h-reclinergy01-4f_100.jpg",
+    "https://images.thdstatic.com/productImages/4a57734b-110d-4d93-a57a-f0062604e7b6/svn/gray-yofe-recliners-8cxx1vw547p425986v3o6h-reclinergy01-1f_100.jpg",
+    "https://images.thdstatic.com/productImages/c9e6966f-3a9a-47dd-b494-c5967a8983af/svn/gray-yofe-recliners-8cxx1vw547p425986v3o6h-reclinergy01-44_100.jpg"
+   ],
+   "msrp_cents": 39434,
+   "avg_asking_cents": 39434,
+   "median_sold_cents": null,
+   "start_bid_cents": 9859,
+   "prices": [
+    {
+     "url": "https://www.homedepot.com/p/YOFE-Modern-Gray-Velvet-160-Lay-Flat-Power-Lift-Recliner-Chair-with-Heat-and-Massage-Enhanced-Comfort-9-Zone-Backrest-8CXX1vW547P425986v3O6H-RECLINERGY01/341361733",
+     "cents": 39434,
+     "retailer": "Home Depot",
+     "fetched_at": "2026-09-05T15:44:35.724Z"
+    }
+   ],
+   "sold_comps": [],
+   "description": "Our modern velvet power lift recliner chair is the perfect addition to any living room or bedroom. Featuring a smooth 160° lay-flat reclining function, it allows you to relax, nap, or watch TV with ease. The upgraded 9-zone supportive backrest provides enhanced pressure relief, while built-in massage and heating functions help soothe sore muscles after a long day. The power lift assistance gently supports standing up, making it especially ideal for seniors or anyone with limited mobility.",
+   "specs": null,
+   "confidence": "high",
+   "sources": [
+    "openrouter:perplexity:sonar+url-fetch"
+   ],
+   "identity_refreshed_at": "2026-09-05T15:44:35.724+00:00",
+   "prices_refreshed_at": "2026-09-05T15:44:35.724+00:00",
+   "created_at": "2026-09-05T15:44:35.855793+00:00",
+   "updated_at": "2026-09-05T15:44:35.855793+00:00",
+   "asin": null,
+   "fnsku": null,
+   "lpn": null,
+   "mpn": "1015373139",
+   "external_codes": [],
+   "embedding": null
+  },
+  {
+   "upc": "538160989509",
+   "title": "YOFE Modern Gray Velvet 160° Lay Flat Power Lift Recliner Chair with Heat and Massage, Enhanced Comfort 9-Zone Backrest 8CXX1vW547P425986v3O6H-RECLINERGY01",
+   "brand": "YOFE",
+   "model": "1015373139",
+   "category_id": null,
+   "category_raw": "Home Depot",
+   "image_urls": [
+    "https://images.thdstatic.com/productImages/074750d9-5034-479b-bb54-cd22d062219d/svn/gray-yofe-recliners-8cxx1vw547p425986v3o6h-reclinergy01-64_100.jpg",
+    "https://images.thdstatic.com/productImages/334a4b7f-a35a-42f3-a121-72e1959de035/svn/gray-yofe-recliners-8cxx1vw547p425986v3o6h-reclinergy01-e1_100.jpg",
+    "https://images.thdstatic.com/productImages/c80b74ff-c3ca-45f5-af3c-3efc9652b47e/svn/gray-yofe-recliners-8cxx1vw547p425986v3o6h-reclinergy01-c3_100.jpg",
+    "https://images.thdstatic.com/productImages/961478c0-f213-471e-81c9-dac6e5f10274/svn/gray-yofe-recliners-8cxx1vw547p425986v3o6h-reclinergy01-4f_100.jpg",
+    "https://images.thdstatic.com/productImages/4a57734b-110d-4d93-a57a-f0062604e7b6/svn/gray-yofe-recliners-8cxx1vw547p425986v3o6h-reclinergy01-1f_100.jpg",
+    "https://images.thdstatic.com/productImages/c9e6966f-3a9a-47dd-b494-c5967a8983af/svn/gray-yofe-recliners-8cxx1vw547p425986v3o6h-reclinergy01-44_100.jpg"
+   ],
+   "msrp_cents": 39434,
+   "avg_asking_cents": 39434,
+   "median_sold_cents": null,
+   "start_bid_cents": 9859,
+   "prices": [
+    {
+     "url": "https://www.homedepot.com/p/YOFE-Modern-Gray-Velvet-160-Lay-Flat-Power-Lift-Recliner-Chair-with-Heat-and-Massage-Enhanced-Comfort-9-Zone-Backrest-8CXX1vW547P425986v3O6H-RECLINERGY01/341361733",
+     "cents": 39434,
+     "retailer": "Home Depot",
+     "fetched_at": "2026-09-05T16:34:49.368Z"
+    }
+   ],
+   "sold_comps": [],
+   "description": "Our modern velvet power lift recliner chair is the perfect addition to any living room or bedroom. Featuring a smooth 160° lay-flat reclining function, it allows you to relax, nap, or watch TV with ease. The upgraded 9-zone supportive backrest provides enhanced pressure relief, while built-in massage and heating functions help soothe sore muscles after a long day. The power lift assistance gently supports standing up, making it especially ideal for seniors or anyone with limited mobility.",
+   "specs": null,
+   "confidence": "high",
+   "sources": [
+    "openrouter:perplexity:sonar+url-fetch"
+   ],
+   "identity_refreshed_at": "2026-09-05T16:34:49.368+00:00",
+   "prices_refreshed_at": "2026-09-05T16:34:49.368+00:00",
+   "created_at": "2026-09-05T16:34:49.497654+00:00",
+   "updated_at": "2026-09-05T16:34:49.497654+00:00",
+   "asin": null,
+   "fnsku": null,
+   "lpn": null,
+   "mpn": "1015373139",
+   "external_codes": [],
+   "embedding": null
+  }
+ ]
+}

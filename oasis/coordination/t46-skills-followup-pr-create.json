@@ -1,0 +1,6 @@
+{
+ "title": "T46 follow-up: format matches the builds \u2014 celebrate required, max 8 variants (0.4.2)",
+ "head": "t46-contract-followup",
+ "base": "main",
+ "body": "Brings the format doc in line with what the three T46 builds enforce (playbooks#10, agent-core#62, desktop-app#50).\n\n## What\n- `docs/formats.md`: an animated pack needs `idle_variant_1` and `celebrate`; at most 8 idle variants; extra rows only under `tier: animated`.\n- `docs/t46/contract.md` \u00a78.7 (max 8 variants) and \u00a78.8 (heading \"<Category name> \u00b7 More motion\"), both provisional under #159.\n- 0.4.1 \u2192 0.4.2, CHANGELOG.\n\n## Checks\n<!-- swarm:checks -->\n\n## Mutation check\nNo ask-first gate or state mapping: docs and version only. The 9th-variant and missing-celebrate rules are mutation-checked in playbooks#10 and agent-core#62; the heading in desktop-app#50.\n\n\ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)\n\nhttps://claude.ai/code/session_012QWQRVxJjQx2DsXEAH1iuw"
+}

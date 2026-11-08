@@ -1,0 +1,61 @@
+# OASIS common .gitignore — same in every repo.
+# Lockfiles are tracked on purpose; see the bottom of this file.
+
+# --- Secrets and environment -------------------------------------------------
+.env
+*.env
+.env.*
+!.env.example
+
+# Generic credential material. Add real file names here only when a ticket
+# actually introduces one — do not invent names ahead of time.
+*.pem
+*.p12
+*.pfx
+
+# --- Python ------------------------------------------------------------------
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+.coverage
+.coverage.*
+htmlcov/
+
+# --- Tool caches -------------------------------------------------------------
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+
+# --- Node, Rust, build output ------------------------------------------------
+node_modules/
+dist/
+target/
+
+# --- Logs and event streams --------------------------------------------------
+logs/
+*.log
+*.jsonl
+# Recorded fixtures are part of the tests and must stay tracked.
+!tests/**/*.jsonl
+
+# --- Macros ------------------------------------------------------------------
+# Macros hold client names and task data. They live in a private drawer,
+# never in git, wherever they appear.
+*.remote
+
+# --- Private and orchestration directories -----------------------------------
+drawer/
+.swarm/
+
+# --- OS junk -----------------------------------------------------------------
+.DS_Store
+Thumbs.db
+
+# --- Always tracked ----------------------------------------------------------
+!uv.lock
+!package-lock.json
+!src-tauri/Cargo.lock

@@ -1,0 +1,7 @@
+== curl both hosts ==
+-- https://bas-facility-layout-tool-api-dev.differential.com/
+curl: (6) Could not resolve host: bas-facility-layout-tool-api-dev.differential.com
+   exit=0
+-- https://bas-facility-layout-tool-api-staging.differential.com/
+curl: (6) Could not resolve host: bas-facility-layout-tool-api-staging.differential.com
+   exit=0

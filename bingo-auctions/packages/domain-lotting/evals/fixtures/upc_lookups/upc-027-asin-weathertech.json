@@ -1,0 +1,15 @@
+{
+  "id": "upc-027",
+  "code": "B00FYQVUFW",
+  "code_type": "asin",
+  "expected": {
+    "title": "WeatherTech FloorLiner DigitalFit 1st Row Black Floor Mats (2014-2018 Toyota 4Runner)",
+    "brand": "WeatherTech",
+    "model": "445261",
+    "category_slug": "auto-accessories",
+    "category_legacy": "Automotive",
+    "condition": "",
+    "msrp_cents": 14995
+  },
+  "notes": "Vehicle-specific automotive accessory ASIN."
+}

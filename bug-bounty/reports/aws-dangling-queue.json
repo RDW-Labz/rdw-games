@@ -1,0 +1,300 @@
+[
+ {
+  "programme": "bc:The Trade Desk",
+  "dead_targets": 7,
+  "hosts": 7,
+  "kinds": [
+   "cloudfront",
+   "elb"
+  ],
+  "bounty": "1",
+  "sample": [
+   "a3desk.thetradedesk.com",
+   "alarm-monitoring.adsrvr.org",
+   "api-int.adsrvr.org",
+   "api2.thetradedesk.com"
+  ]
+ },
+ {
+  "programme": "bc:Latitude Financial Services Bug Bounty ",
+  "dead_targets": 7,
+  "hosts": 7,
+  "kinds": [
+   "cloudfront",
+   "elb"
+  ],
+  "bounty": "1",
+  "sample": [
+   "admin.insurance.latitudefinancial.com.au",
+   "admin.uat.genoapay.com",
+   "app.insurance.latitudefinancial.com.au",
+   "apply.dev.genoapay.com"
+  ]
+ },
+ {
+  "programme": "it:bpost",
+  "dead_targets": 5,
+  "hosts": 5,
+  "kinds": [
+   "cloudfront",
+   "elb"
+  ],
+  "bounty": "0",
+  "sample": [
+   "alb.das-dv.bpost.cloud",
+   "alb.das-st1.bpost.cloud",
+   "api.das-dv.bpost.cloud",
+   "apitestmb.bpost.cloud"
+  ]
+ },
+ {
+  "programme": "h1:expediagroup",
+  "dead_targets": 5,
+  "hosts": 9,
+  "kinds": [
+   "cloudfront",
+   "elb"
+  ],
+  "bounty": "0",
+  "sample": [
+   "alberta.ca.hotels.com",
+   "alberta.hotels.com",
+   "alberta.jp.hotels.com",
+   "alberta.kr.hotels.com"
+  ]
+ },
+ {
+  "programme": "h1:tinder",
+  "dead_targets": 4,
+  "hosts": 5,
+  "kinds": [
+   "elb"
+  ],
+  "bounty": "1",
+  "sample": [
+   "api-old-pxy.gotinder.com",
+   "app-archive.prometheus.gotinder.com",
+   "archive.prometheus.tinderops.net",
+   "auth.prometheus.tinderops.net"
+  ]
+ },
+ {
+  "programme": "h1:grab",
+  "dead_targets": 4,
+  "hosts": 4,
+  "kinds": [
+   "elb"
+  ],
+  "bounty": "1",
+  "sample": [
+   "authn.concedo.data-platform.myteksi.net",
+   "authn.concedo.stg.data-platform.myteksi.net",
+   "authz.concedo.data-platform.myteksi.net",
+   "authz.concedo.stg.data-platform.myteksi.net"
+  ]
+ },
+ {
+  "programme": "h1:epicgames",
+  "dead_targets": 3,
+  "hosts": 3,
+  "kinds": [
+   "cloudfront",
+   "elb"
+  ],
+  "bounty": "1",
+  "sample": [
+   "accounts.epicgames-stage.ol.epicgames.com",
+   "accounts.launcher-website-prod07.ol.epicgames.com",
+   "art-pipeline-s3.it.epicgames.com"
+  ]
+ },
+ {
+  "programme": "h1:coinbase",
+  "dead_targets": 3,
+  "hosts": 3,
+  "kinds": [
+   "elb"
+  ],
+  "bounty": "1",
+  "sample": [
+   "author-cms-dev.coinbase-corp.com",
+   "author-cms-production.coinbase-corp.com",
+   "author-cms-staging.coinbase-corp.com"
+  ]
+ },
+ {
+  "programme": "yw:Ezviz - Bug Bounty Program",
+  "dead_targets": 2,
+  "hosts": 2,
+  "kinds": [
+   "elb"
+  ],
+  "bounty": "1",
+  "sample": [
+   "alarmsgp.ezviz7.com",
+   "alarmus.ezviz7.com"
+  ]
+ },
+ {
+  "programme": "h1:goldmansachs",
+  "dead_targets": 2,
+  "hosts": 2,
+  "kinds": [
+   "elb"
+  ],
+  "bounty": "1",
+  "sample": [
+   "arcgis-nonprod.de.infra.marcus.com",
+   "arcgis-nonprod.infra.marcus.com"
+  ]
+ },
+ {
+  "programme": "h1:roblox",
+  "dead_targets": 2,
+  "hosts": 2,
+  "kinds": [
+   "elb"
+  ],
+  "bounty": "1",
+  "sample": [
+   "aws-eu-west-2a-lms.rbx.com",
+   "aws-us-east-1b-lms.rbx.com"
+  ]
+ },
+ {
+  "programme": "bc:REA Group | realestate.com.au, realcommercial.com.au, property.com.au",
+  "dead_targets": 1,
+  "hosts": 1,
+  "kinds": [
+   "elb"
+  ],
+  "bounty": "1",
+  "sample": [
+   "25thbirthday.mortgagechoice.com.au"
+  ]
+ },
+ {
+  "programme": "h1:mercadolibre",
+  "dead_targets": 1,
+  "hosts": 10,
+  "kinds": [
+   "elb"
+  ],
+  "bounty": "1",
+  "sample": [
+   "a-cms.prodeng.mercadolibre.com",
+   "a.disabled.prodeng.mercadolibre.com",
+   "a.prodeng.mercadolibre.com",
+   "a.repositoryproduction.prodeng.mercadolibre.com"
+  ]
+ },
+ {
+  "programme": "it:intergamma",
+  "dead_targets": 1,
+  "hosts": 1,
+  "kinds": [
+   "elb"
+  ],
+  "bounty": "1",
+  "sample": [
+   "acc.intergamma.nl"
+  ]
+ },
+ {
+  "programme": "h1:playstation",
+  "dead_targets": 1,
+  "hosts": 1,
+  "kinds": [
+   "elb"
+  ],
+  "bounty": "1",
+  "sample": [
+   "akamai-logs.psn.tools.playstation.net"
+  ]
+ },
+ {
+  "programme": "bc:T-Mobile",
+  "dead_targets": 1,
+  "hosts": 1,
+  "kinds": [
+   "cloudfront"
+  ],
+  "bounty": "1",
+  "sample": [
+   "ame-prod.uscellular.com"
+  ]
+ },
+ {
+  "programme": "bc:Prosus",
+  "dead_targets": 1,
+  "hosts": 1,
+  "kinds": [
+   "cloudfront"
+  ],
+  "bounty": "1",
+  "sample": [
+   "analytics-admin.prosus.com"
+  ]
+ },
+ {
+  "programme": "h1:hilton",
+  "dead_targets": 1,
+  "hosts": 1,
+  "kinds": [
+   "elb"
+  ],
+  "bounty": "1",
+  "sample": [
+   "api-cr-dev.hilton.com"
+  ]
+ },
+ {
+  "programme": "h1:flutteruki",
+  "dead_targets": 1,
+  "hosts": 1,
+  "kinds": [
+   "cloudfront"
+  ],
+  "bounty": "1",
+  "sample": [
+   "api.s6e.sbgservices.com"
+  ]
+ },
+ {
+  "programme": "bc:Indeed",
+  "dead_targets": 1,
+  "hosts": 1,
+  "kinds": [
+   "elb"
+  ],
+  "bounty": "1",
+  "sample": [
+   "api.wombat.indeed.tech"
+  ]
+ },
+ {
+  "programme": "h1:x",
+  "dead_targets": 1,
+  "hosts": 2,
+  "kinds": [
+   "elb"
+  ],
+  "bounty": "0",
+  "sample": [
+   "aurora-sglang.us-east-1.models.x.ai",
+   "aurora-upsampler-sglang.us-east-1.models.x.ai"
+  ]
+ },
+ {
+  "programme": "it:lansweeper",
+  "dead_targets": 1,
+  "hosts": 1,
+  "kinds": [
+   "cloudfront"
+  ],
+  "bounty": "1",
+  "sample": [
+   "autoupdateapi.lansweeper.com"
+  ]
+ }
+]

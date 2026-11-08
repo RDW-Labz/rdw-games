@@ -1,0 +1,37 @@
+{
+ "version": 1,
+ "concurrency": 1,
+ "jobs": [
+  {
+   "id": "metrics112",
+   "agent": "claude",
+   "model": "sonnet",
+   "tier": "mid",
+   "prompt": "You are job metrics112 (OASIS coordination tool fix, lesson #112 + Braden 2026-09-26). You have file tools only; the coordinator runs the tests after you.\nFile coordination/tools/session_metrics.py computes, for a session window (--since ISO, --until ISO) over one or more swarm roots, (1) idle minutes = time with zero agent jobs running, (2) jobs in parallel = time-weighted average count while >=1 job ran, and lists idle gaps. It reads job start/finish times from each root's .swarm/runs/*/state.json.\nTwo bugs to fix:\n(A) A job (or run) that has started but has no finish time yet (still running at --until, or its state.json shows status running / no finishedAt) must count as running from its start until --until. Today it is dropped, so a session looks idle while a job runs.\n(B) Workers launched through the Claude Code Agent tool leave no state.json, so they are invisible. Add an optional flag --agent-log FILE (repeatable). The file is JSON Lines, one object per worker: {\"label\": str, \"start\": ISO-8601, \"end\": ISO-8601 or null}. end null (or missing) means still running -> counts until --until. Each row counts as one running job over [start, end] clipped to the window. If --agent-log is not given and coordination/agent-tool-jobs.jsonl exists relative to the current directory, read it by default. Blank lines are skipped; a malformed line is an error naming the line number (exit non-zero), never silently skipped.\nKeep the existing CLI and output shape working; add to the output a count of jobs still running at --until and how many intervals came from the agent log. Clip every interval to [--since, --until]. Standard library only, Python 3.9+ compatible (the Mac's python3).\nWrite tests in coordination/tools/test_session_metrics.py using unittest (no pytest), building fake roots and state.json files under a tempfile.TemporaryDirectory. First read session_metrics.py to learn the real state.json fields it uses and mirror them exactly in the fakes. Tests must include: a still-running job (no finish) fills an otherwise idle gap; a job finished before --since contributes nothing; an agent-log row with end null counts until --until; an agent-log row overlapping a swarm job gives parallel 2 over the overlap; a malformed agent-log line fails with the line number; the default coordination/agent-tool-jobs.jsonl is picked up. Each test must fail against the old code for (A)/(B).\nAlso write coordination/agent-tool-jobs.jsonl as an empty file (zero bytes) so the default path exists.\nEnd with one JSON line: {\"files_changed\":[...],\"tests\":<n>,\"state_fields_used\":[...],\"notes\":\"<=200 chars\"}.",
+   "context": [
+    "coordination/tools/session_metrics.py"
+   ],
+   "outputs": [
+    "coordination/tools/session_metrics.py",
+    "coordination/tools/test_session_metrics.py",
+    "coordination/agent-tool-jobs.jsonl"
+   ],
+   "timeoutMs": 1500000
+  }
+ ],
+ "checks": [
+  {
+   "name": "unittest",
+   "argv": [
+    "python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "coordination/tools",
+    "-p",
+    "test_*.py"
+   ]
+  }
+ ]
+}

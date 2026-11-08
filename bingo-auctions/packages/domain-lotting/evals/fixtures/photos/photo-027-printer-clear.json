@@ -1,0 +1,18 @@
+{
+  "id": "photo-027",
+  "image_path": "photo-027-printer-clear.jpg",
+  "media_type": "image/jpeg",
+  "photo_quality_label": "clear",
+  "expected": {
+    "title": "HP DeskJet 2755e Wireless Color All-in-One Printer (26K67A)",
+    "brand": "HP",
+    "model": "26K67A",
+    "upc": "194850779886",
+    "category_slug": "office-school",
+    "category_legacy": "Office",
+    "condition": "New/Sealed",
+    "msrp_cents": 8499,
+    "expected_confidence": "high"
+  },
+  "notes": "HP printer in white retail box, model SKU on a white sticker on the side."
+}

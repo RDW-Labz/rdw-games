@@ -1,0 +1,21 @@
+{
+  "name": "Putt Drop",
+  "oneLiner": "A cozy one-thumb mini golf park for phones: drag back to aim, release to putt. Hand-made holes with water, sand, slopes, bumpers and moving gates.",
+  "category": "games",
+  "status": "coming-soon",
+  "statusLabel": "Coming soon to Google Play",
+  "platforms": [
+    "Android"
+  ],
+  "screenshots": [
+    {
+      "path": "store/screenshots/play-02-aiming.png",
+      "alt": "Putt Drop, hole 1 (Dewdrop): aiming a putt with power ring and dotted path on a cozy park fairway"
+    },
+    {
+      "path": "store/screenshots/play-05-celebration.png",
+      "alt": "Putt Drop: hole complete card with three stars after a hole in one on hole 1"
+    }
+  ],
+  "featured": true
+}

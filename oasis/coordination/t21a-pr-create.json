@@ -1,0 +1,6 @@
+{
+  "title": "Chat threads saved in the drawer, /chats endpoints, ask-first delete (0.6.12, T21 PR 1)",
+  "head": "t21-chat-storage",
+  "base": "main",
+  "body": "## Summary\n\n- Drawer files: `chats/<id>.jsonl` + `index.json` via private-file primitives\n- `/chats` list, create, get, search, append, rename endpoints\n- Delete is ask-first with preview + one-time token bound to the thread and its content\n- `WS /chat send` takes optional `thread_id`; no id = newest thread; `done` echoes `thread_id`\n- Search is local text match, never sent to the model; model input unchanged\n\n## Tests\n\n- Resume after restart keeps the thread\n- Delete pauses for a yes: no token deletes nothing; replayed/wrong/stale token = 409\n- Coordinator mutation-tested the delete gate: accepting any token, skipping the content check, or deleting on preview each fail a test\n\n## Checks\n\nruff format --check: 81 files already formatted / ruff check: All checks passed! / mypy --strict src (native and win32): no issues in 38 source files / pytest: 561 passed, 3 skipped, 1 deselected\n\n## Next\n\nT21 PR 2: thread context + summaries + auto-title\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+}

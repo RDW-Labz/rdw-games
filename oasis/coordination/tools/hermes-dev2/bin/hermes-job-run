@@ -1,0 +1,48 @@
+#!/bin/bash
+# Runs ONE Hermes job inside its sandboxed unit (hermes-w-job@<id>.service),
+# as hermes-w. The unit puts it in a private network namespace (only a
+# loopback device), shared with its forwarder hermes-fwd@<id>.service, which
+# relays 127.0.0.1:JOB_PROXY_PORT to the key-holding proxy's Unix socket.
+# The job can't open Unix sockets itself, and sees no host network at all.
+#
+# Hermes CLI at the pinned commit 1ac3f97 (NousResearch/hermes-agent):
+#   --safe-mode           ignores config.yaml, rules and plugins
+#                         (hermes_cli/_parser.py:205)
+#   --provider custom     plus CUSTOM_BASE_URL picks our endpoint; a custom
+#                         endpoint with no key gets "no-key-required", and the
+#                         proxy adds the real key
+#                         (hermes_cli/runtime_provider_backends.py:119-135, 190-196)
+#   HERMES_HOME           per-job state folder, deleted after the job
+#                         (hermes_constants.py:111-112)
+# The model is MODEL from /etc/hermes-dev2/config.conf, never from the Mac.
+set -euo pipefail
+PATH=/usr/bin:/bin
+id=${1:?job id}
+[[ $id =~ ^j-[a-z0-9]{8,62}$ ]] || { echo "bad job id" >&2; exit 2; }
+conf=/etc/hermes-dev2/config.conf
+get() { sed -n "s/^$1=//p" "$conf" | head -1; }
+model=$(get MODEL) url=$(get JOB_PROXY_URL) port=$(get JOB_PROXY_PORT)
+[[ -n $model && -n $url && $port =~ ^[0-9]+$ ]] || { echo "config.conf is missing MODEL/JOB_PROXY_*" >&2; exit 2; }
+job=/var/lib/hermes-jobs/work/$id
+mkdir -p "$job/home" "$job/out"
+# The forwarder starts just before us in the same namespace; wait up to 10 s.
+for _ in $(seq 50); do (exec 3<>"/dev/tcp/127.0.0.1/$port") 2>/dev/null && break; sleep 0.2; done
+export HOME="$job/home" HERMES_HOME="$job/home" CUSTOM_BASE_URL="$url"
+# The unit runs with PrivatePIDs=yes: this script is PID 1 of the job's own
+# PID namespace, and the kernel ignores signals PID 1 has no handler for.
+# So Hermes runs as a child, and SIGTERM/SIGINT are passed on explicitly.
+child=0
+stop() { [[ $child -gt 0 ]] && kill -TERM "$child" 2>/dev/null; }
+trap stop TERM INT
+set +e
+/opt/hermes-w/hermes-agent/.venv/bin/hermes chat --safe-mode --ignore-user-config --ignore-rules \
+  --toolsets none --query-file "$job/prompt.txt" --oneshot --format stream-json --max-turns 1 \
+  --provider custom --model "$model" >"$job/out/stream.jsonl" 2>"$job/out/stderr.txt" &
+child=$!
+wait "$child"
+rc=$?
+# A trapped signal interrupts `wait`; wait again for Hermes to finish exiting.
+while kill -0 "$child" 2>/dev/null; do wait "$child"; rc=$?; done
+set -e
+echo "$rc" >"$job/out/exit"
+exit 0

@@ -1,0 +1,16 @@
+{
+  "migration": "0372_purge_poisoned_tracking_lookups.sql",
+  "sql_sha256": "dd680fa9c083d912c564c4249ee77af772218cfc697db571188ddc638107c259",
+  "author_claims": {
+    "touches_lots": false,
+    "tables_written": [
+      "product_lookups (DELETE 16)",
+      "_poisoned_tracking_lookups_20260924 (CREATE, INSERT 16)"
+    ],
+    "captured_ids": "16 fixed product_lookups.upc keys, each re-checked against import_rows.tracking_number; aborts unless exactly 16",
+    "reversal": "INSERT from _poisoned_tracking_lookups_20260924 via jsonb_populate_record (in the file); off-DB copy docs/audits/2026-09-24-poisoned-tracking-lookups.json",
+    "rehearsal": "2026-09-24 read-only prod query: capture predicate = 16; to_jsonb(jsonb_populate_record(row)) = row for 16/16",
+    "active_work": "DELETE of 16 rows by primary key on a cache table; row locks only, milliseconds. No lot, bid, invoice or physical record touched.",
+    "physical_footprint": "None: product_lookups has no FKs and is not bound to stickers, bins or lots. Lots already created from these rows are listed in docs/audits/2026-09-24-poisoned-tracking-lookups.md and are not changed."
+  }
+}

@@ -1,0 +1,22 @@
+# Self-introduction screens for onboarding v1. Plain words, one idea each,
+# for a non-technical employee. No terminal, key, or settings talk.
+# Loaded by garage.onboarding.data.load_intro_screens.
+screens:
+  - id: what_i_am
+    text: >-
+      I'm a coworker that lives on your computer. I learn how you work so I
+      can take repeat tasks off your plate.
+  - id: what_i_watch
+    text: >-
+      With your yes, I watch the apps and pages you use for work, so I can
+      spot repeat tasks and offer to help. The first time I see a new site
+      or app, I'll ask, "Can I watch this page?" before I do.
+  - id: what_i_never_do
+    text: >-
+      I never send, pay, sign, or share anything outside the company
+      without asking you first. I never hide what I did — everything I do
+      shows up in your activity log for you to see.
+  - id: how_to_pause_me
+    text: >-
+      You can pause me any time — one click stops all watching until you
+      turn it back on. Nothing is lost while I'm paused; I just wait.
