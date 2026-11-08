@@ -1,0 +1,14 @@
+{
+  "_comment": "Hand-maintained destinations for catalog rows whose upstream cache has no link (desktop-only classics, curated rows whose clone is gone). Every URL here is checked live (HTTP 200) before it is added; a row with no working destination stays unlinked rather than pointing somewhere broken.",
+  "0 A.D.": {"play": "https://play0ad.com/", "kind": "web", "label": "Play"},
+  "Clumsy Bird": {"play": "https://ellisonleao.github.io/clumsy-bird/", "kind": "web", "label": "Play"},
+  "DDNet": {"play": "https://ddnet.org/", "kind": "web", "label": "Play"},
+  "DarkPlaces (Quake engine)": {"play": "https://icculus.org/twilight/darkplaces/", "kind": "web", "label": "Play"},
+  "Freeciv": {"play": "https://www.freeciv.org/", "kind": "web", "label": "Play"},
+  "OpenJK": {"play": "https://github.com/JACoders/OpenJK/releases/latest", "kind": "releases", "label": "Download"},
+  "OpenDungeons": {"play": "https://www.opendungeons.org/", "kind": "web", "label": "Play"},
+  "OpenRA": {"play": "https://www.openra.net/", "kind": "web", "label": "Play"},
+  "Red Eclipse": {"play": "https://www.redeclipse.net/", "kind": "web", "label": "Play"},
+  "speed-dreams": {"play": "https://www.speed-dreams.net/", "kind": "web", "label": "Play"},
+  "freedroidrpg": {"play": "https://www.freedroid.org/", "kind": "web", "label": "Play"}
+}
