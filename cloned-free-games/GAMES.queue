@@ -1,33 +1,17 @@
 # name	url	stars	license	est_size_kb	source	summary
-lila	https://github.com/lichess-org/lila	18956	AGPL-3.0	732024	github	♞ lichess.org: the forever free, adless and open source chess server ♞
-whisky	https://github.com/Whisky-App/Whisky	15066	GPL-3.0	757194	github	A modern Wine wrapper for macOS built with SwiftUI
-nakama	https://github.com/heroiclabs/nakama	13687	Apache-2.0	162944	github	Scalable open-source game backend server: multiplayer, matchmaking, leaderboards, chat, and social features for games.
-pysimplegui	https://github.com/PySimpleGUI/PySimpleGUI	13822	LGPL-3.0	41090	github	Python GUIs for Humans! Create any GUI simple or complicated in a way that's intuitive.  Launched in 2018. NEW for 2026 
-the-powder-toy	https://github.com/The-Powder-Toy/The-Powder-Toy	5395	GPL-3.0	41354	github	Written in C++ and using SDL, The Powder Toy is a desktop version of the classic 'falling sand' physics sandbox, it simu
 azerothcore-wotlk	https://github.com/azerothcore/azerothcore-wotlk	9160	GPL-2.0	1371162	github	Complete Open Source and Modular solution for MMO
-craft	https://github.com/fogleman/Craft	11141	MIT	14666	github	A simple Minecraft clone written in C using modern OpenGL (shaders).
-opendiablo2	https://github.com/OpenDiablo2/OpenDiablo2	11105	GPL-3.0	38353	github	An open source re-implementation of Diablo 2
-chinese-dos-games	https://github.com/rwv/chinese-dos-games	10351	GPL-3.0	50062	github	🎮 Chinese DOS games collections.
 Cat-a-shooter	https://codeberg.org/xolatgames/cat-a-shooter	0	Apache-2.0	0	fdroid	Fly in the space by the cat 😼, and shoots off from enemies 🛸
-Die-Simulator	https://github.com/andreiapps/die_simulator	0	GPL-3.0-only	0	fdroid	A simple app which allows you to roll a die.
 Dima-Defense	https://codeberg.org/xolatgames/Dima-Defense	0	Apache-2.0	0	fdroid	A simple Tower Defense game that was made in LibGDX
-net.pejici.easydice	https://github.com/pejic/EasyDice	0	GPL-3.0-or-later	0	fdroid	RPG dice roller
 FinalRozGameNew	https://codeberg.org/rozworld/final-roz-game-new	0	MIT	0	fdroid	A pixel art 2D speedrun platformer featuring 17 levels and isometric mechanics.
 Golden-Ticket	https://gitlab.com/number-smithy/golden-ticket	0	MIT	0	fdroid	Lottery simulation game - explore strategies without spending money
 jSlide2	https://codeberg.org/hasya101/jSlide2	0	GPL-3.0-or-later	0	fdroid	A short 3D Platformer with an Online Highscore and viewable Replays.
 Meritous	https://gitlab.com/meritous/sdl_android	0	GPL-3.0-or-later	0	fdroid	Dungeon crawl game
 Play-Maker	https://codeberg.org/MysticJungle/play-maker	0	CC0-1.0	0	fdroid	Play or create your own platformer levels
 Revengate	https://gitlab.com/ygingras/revengate	0	GPL-3.0-or-later	0	fdroid	A steampunk roguelike dungeon crawling game.
-Six-Shooter	https://github.com/PedePedersen/sixshooter-apk	0	MIT	0	fdroid	Western revolver drum spinner — pick a winner among up to six players
 The-One-App	https://gitlab.com/the-one-app/the-one-app	0	AGPL-3.0-or-later	0	fdroid	Application for managing a player's characters in the RPG The One Ring.
-terasology	https://github.com/MovingBlocks/Terasology	3905	Apache-2.0	306065	github	Terasology - open source voxel world
-cubyz	https://github.com/PixelGuys/Cubyz	3753	GPL-3.0	110445	github	Voxel sandbox game with a large render distance, procedurally generated content and some cool graphical effects.
-warriorjs	https://github.com/olistic/warriorjs	9540	MIT	7130	github	🏰 An exciting game of programming and Artificial Intelligence
-compactgui	https://github.com/IridiumIO/CompactGUI	9279	GPL-3.0	10570	github	Reduce the space taken up by games and programs on disk by using native Windows APIs
-isocity	https://github.com/victorqribeiro/isocity	3264	MIT	1676	github	A isometric city builder in JavaScript
 bottles	https://github.com/bottlesdevs/Bottles	9053	GPL-3.0	43650	github	Run Windows software and games on Linux
 devilution	https://github.com/diasurgical/devilution	9017	NOASSERTION	20492	github	Diablo devolved - magic behind the 1996 computer game
-assetripper	https://github.com/AssetRipper/AssetRipper	8875	GPL-3.0	451868	github	GUI application to analyze game files
+assetripper	https://github.com/AssetRipper/AssetRipper	8878	GPL-3.0	451868	github	GUI application to analyze game files
 biomes-game	https://github.com/ill-inc/biomes-game	2687	MIT	116918	github	Biomes is an open source sandbox MMORPG built for the web using web technologies such as Next.js, Typescript, React and 
 recastnavigation	https://github.com/recastnavigation/recastnavigation	8172	Zlib	28903	github	Industry-standard navigation-mesh toolset for games
 freedroidrpg	https://github.com/freedroid/freedroid-src.git	0	see-upstream	0	curated	curated open-source classic
@@ -48,17 +32,17 @@ gh-space-shooter	https://github.com/czl9707/gh-space-shooter	935	MIT	21333	githu
 fgmk	https://github.com/ericoporto/fgmk	876	GPL-2.0	77030	github	Retro RPG Game Maker
 deeplearningflappybird	https://github.com/yenchenlin/DeepLearningFlappyBird	6828	MIT	67878	github	Flappy Bird hack using Deep Reinforcement Learning (Deep Q-learning).
 borderless-gaming	https://github.com/andrewmd5/Borderless-Gaming	6685	GPL-2.0	6906	github	Play your favorite games in a borderless window; no more time consuming alt-tabs. 
-ludusavi	https://github.com/mtkennerly/ludusavi	6537	MIT	24948	github	Backup tool for PC game saves
-dialogic	https://github.com/dialogic-godot/dialogic	6154	MIT	29769	github	💬 Create Dialogs, Visual Novels, RPGs, and manage Characters with Godot to create your Game!
+ludusavi	https://github.com/mtkennerly/ludusavi	6538	MIT	24948	github	Backup tool for PC game saves
+dialogic	https://github.com/dialogic-godot/dialogic	6155	MIT	29769	github	💬 Create Dialogs, Visual Novels, RPGs, and manage Characters with Godot to create your Game!
 carp	https://github.com/carp-lang/Carp	6094	Apache-2.0	12233	github	A statically typed lisp, without a GC, for real-time applications.
 hilo	https://github.com/hiloteam/Hilo	5934	MIT	36594	github	A Cross-end HTML5 Game development solution
-totk-pc-recomp	https://github.com/valentderah/totk-pc-recomp	5890	MIT	4321	github	Static recompilation of The Legend of Zelda: Tears of the Kingdom to native Windows and Linux x86-64, with a Vulkan rend
+totk-pc-recomp	https://github.com/valentderah/totk-pc-recomp	5910	MIT	4321	github	Static recompilation of The Legend of Zelda: Tears of the Kingdom to native Windows and Linux x86-64, with a Vulkan rend
 android-dex	https://github.com/Shrey113/Android-Dex	3816	NOASSERTION	173432	github	Universal Samsung DeX alternative for all Android devices. Run Android apps on Windows, Linux & macOS with resizable win
 tmodloader	https://github.com/tModLoader/tModLoader	5771	MIT	850245	github	A mod to make and play Terraria mods. Supports Terraria 1.4 (and earlier) installations 
 partykit	https://github.com/partykit/partykit	5745	MIT	101489	github	PartyKit simplifies developing multiplayer applications
 open_spiel	https://github.com/google-deepmind/open_spiel	5587	Apache-2.0	44597	github	OpenSpiel is a collection of environments and algorithms for research in general reinforcement learning and search/plann
 games	https://github.com/CharlesPikachu/Games	5421	Apache-2.0	481216	github	Games: Create interesting games in pure python.
-linuxgsm	https://github.com/GameServerManagers/LinuxGSM	4917	NOASSERTION	28325	github	The command-line tool for quick, simple deployment and management of Linux dedicated game servers.
+linuxgsm	https://github.com/GameServerManagers/LinuxGSM	4917	NOASSERTION	28330	github	The command-line tool for quick, simple deployment and management of Linux dedicated game servers.
 luban	https://github.com/focus-creative-games/luban	4664	MIT	8891	github	luban是一个强大、易用、优雅、稳定的游戏配置解决方案。luban is a powerful, easy-to-use, elegant and stable game configuration solution. 
 free-python-games	https://github.com/grantjenks/free-python-games	4065	NOASSERTION	4162	github	Free Python Games
 1010-Klooni	https://codeberg.org/Lonami/Klooni1010	0	GPL-3.0-or-later	0	fdroid	A libGDX game based on 1010
@@ -244,7 +228,7 @@ bytelegend	https://github.com/ByteLegend/ByteLegend	3681	AGPL-3.0	71743	github	E
 alphazero_gomoku	https://github.com/junxiaosong/AlphaZero_Gomoku	3638	MIT	8266	github	An implementation of the AlphaZero algorithm for Gomoku (also called Gobang or Five in a Row) 
 julius	https://github.com/bvschaik/julius	3447	AGPL-3.0	34978	github	An open source re-implementation of Caesar III
 gridgarden	https://github.com/thomaspark/gridgarden	3399	MIT	3133	github	A game for learning CSS grid layout 🥕
-playtranslate	https://github.com/dominostars/playtranslate	1356	GPL-3.0	84521	github	Real-time translation and language learning Android app for games, visual novels, manga, and any other screen text. 屏幕翻译
+playtranslate	https://github.com/dominostars/playtranslate	1357	GPL-3.0	84521	github	Real-time translation and language learning Android app for games, visual novels, manga, and any other screen text. 屏幕翻译
 sandspiel	https://github.com/MaxBittker/sandspiel	3221	MIT	21506	github	Creative cellular automata browser game 
 osgameclones	https://github.com/opengaming/osgameclones	3168	NOASSERTION	10854	github	Open Source Clones of Popular Games
 optick	https://github.com/bombomby/optick	3162	MIT	81816	github	C++ Profiler For Games
@@ -271,7 +255,7 @@ openmu	https://github.com/MUnique/OpenMU	1282	MIT	109298	github	This project aim
 pretendyourexyzzy	https://github.com/ajanata/PretendYoureXyzzy	1280	BSD-2-Clause	12543	github	A web clone of the card game Cards Against Humanity.
 crossover	https://github.com/lacymorrow/crossover	1269	NOASSERTION	56675	github	🎯 A Crosshair Overlay for any screen. 
 bedrockonlinux	https://github.com/Wyze3306/BedrockOnLinux	1189	NOASSERTION	3674	github	Run Minecraft Bedrock for Windows seamlessly on Linux.
-openfootmanager	https://github.com/openfootmanager/openfootmanager	1185	GPL-3.0	31979	github	An open source soccer/football manager game
+openfootmanager	https://github.com/openfootmanager/openfootmanager	1185	GPL-3.0	32033	github	An open source soccer/football manager game
 conty	https://github.com/Kron4ek/Conty	1130	MIT	563	github	Easy to use unprivileged Linux container packed into a single portable executable
 opensourcegames	https://github.com/Trilarion/opensourcegames	1114	CC0-1.0	28859	github	Technical infos of open source games.
 cdogs-sdl	https://github.com/cxong/cdogs-sdl	1109	GPL-2.0	158330	github	Classic overhead run-and-gun game
@@ -291,7 +275,7 @@ reshade-steam-proton	https://github.com/kevinlekiller/reshade-steam-proton	809	G
 space-station-14	https://github.com/space-wizards/space-station-14	3900	MIT	1009352	github	A multiplayer game about paranoia and chaos on a space station. Remake of the cult-classic Space Station 13.
 interstellar	https://github.com/UseInterstellar/Interstellar	2199	AGPL-3.0	1029792	github	Interstellar is a web proxy service offering blazing-fast speeds, a wide variety of games, and has served over 17 millio
 open-project-1	https://github.com/UnityTechnologies/open-project-1	6111	Apache-2.0	4876097	github	Unity Open Project #1: Chop Chop
-antimicrox	https://github.com/AntiMicroX/antimicrox	4071	GPL-3.0	33825	github	Graphical program used to map keyboard buttons and mouse controls to a gamepad. Useful for playing games with no gamepad
+antimicrox	https://github.com/AntiMicroX/antimicrox	4072	GPL-3.0	33825	github	Graphical program used to map keyboard buttons and mouse controls to a gamepad. Useful for playing games with no gamepad
 12345---Learn-Counting	https://gitlab.com/niccokunzmann/12345	0	AGPL-3.0-or-later	0	fdroid	Learn counting in different languages with pictures
 9P	https://github.com/tube42/9p	0	GPL-2.0-only	0	fdroid	Word puzzle game
 Africa-Quiz	https://codeberg.org/Mufradat/africa-quiz	0	MIT	0	fdroid	Quiz game testing your knowledge of African capital cities
@@ -403,4 +387,4 @@ textractor	https://github.com/Artikash/Textractor	2719	GPL-3.0	19703	github	Extr
 amogos	https://github.com/Amog-OS/AmogOS	1822	NOASSERTION	7756	github	ඞ Among-us themed OS.
 k8sgames	https://github.com/rohitg00/k8sgames	1466	Apache-2.0	1433	github	Learn Kubernetes by playing. Deploy pods, fix CrashLoopBackOff, type real kubectl commands: 3D browser game, no install 
 minigalaxy	https://github.com/sharkwouter/minigalaxy	1334	GPL-3.0	12205	github	A simple GOG client for Linux
-cataclysm-bn	https://github.com/cataclysmbn/Cataclysm-BN	1305	NOASSERTION	7374305	github	Cataclysm: Bright Nights: A fork/variant of Cataclysm:DDA by CleverRaven with a mod registry at https://mods.cataclysmbn
+cataclysm-bn	https://github.com/cataclysmbn/Cataclysm-BN	1305	NOASSERTION	7374213	github	Cataclysm: Bright Nights: A fork/variant of Cataclysm:DDA by CleverRaven with a mod registry at https://mods.cataclysmbn
