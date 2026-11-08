@@ -1,0 +1,12 @@
+Paper Loop 2 — build verification, 2026-11-07
+repo: games/Paper-Loop-2 @ 20f15fe (2026-08-02)
+toolchain: JAVA_HOME=~/.gradle/jdks/eclipse_adoptium-17-amd64-linux.2 (JDK 17.0.21),
+           ANDROID_HOME=~/Android/Sdk (platform 35, build-tools 35.0.0),
+           committed wrapper gradle-8.13-bin (already cached), AGP 8.7.3, Kotlin 2.0.21
+command: timeout 90 ./gradlew :app:assembleDebug -q
+result: EXIT 0, BUILD SUCCESSFUL inside the 90 s window
+artifact: app/build/outputs/apk/debug/app-debug.apk = 91,842,280 B / 148 entries
+apk contents checked: assets/{bot.onnx 2,139,731 B, bot.plb 2,126,270 B, font-bold.ttf, font-regular.ttf}
+  and lib/{armeabi-v7a,arm64-v8a,x86,x86_64}/{libgdx.so, libgdx-freetype.so,
+  libonnxruntime.so, libonnxruntime4j_jni.so} — 4 ABIs, onnxruntime 1.22.0, libGDX 1.13.1
+NOT done: no emulator attached in this pass; nothing adb-installed, launched, or screenshotted.

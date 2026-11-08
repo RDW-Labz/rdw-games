@@ -7,3 +7,4 @@ logs/
 .build/
 build-*.log
 evidence/*.tmp
+__pycache__/

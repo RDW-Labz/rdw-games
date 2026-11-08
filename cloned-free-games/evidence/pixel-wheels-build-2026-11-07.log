@@ -1,0 +1,17 @@
+Pixel Wheels — build attempt, 2026-11-07 (desk audit)
+Clone: /home/cluer/cloned-free-games/games/Pixel-Wheels @ 0ed0376 (2026-04-18)
+
+Command: timeout 90 ./gradlew :android:assembleDebug --offline -q
+Wrapper: gradle-8.9-bin (present in ~/.gradle/wrapper/dists)
+compileSdk/targetSdk 35 (android-35 installed), minSdk 19
+
+Result: BUILD FAILED in 3s
+  BUG! exception in phase 'semantic analysis' in source unit '_BuildScript_'
+  Unsupported class file major version 71
+  (class file major 71 = Java 27; host JDK is openjdk 27.0.1.0.3, and /usr/lib/jvm
+   holds only java-27-openjdk)
+
+docs/building.md requires "A JDK, version 11" plus ImageMagick, GNU Make and
+python packages (pip3 install -r requirements.txt) to run `make assets` / `make packer`
+before `make`. No JDK 11 or 17 is installed on this host, so the documented build
+cannot start. Nothing compiled, nothing installed, no frame claimed.

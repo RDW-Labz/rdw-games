@@ -1,0 +1,50 @@
+OpenJK desk audit evidence — 2026-11-07 15:23 CST
+clone: /home/cluer/cloned-free-games/games/OpenJK  head 260c59c 2026-09-29  70 MB
+
+== toolchain present ==
+SDL2 OK (/usr/include/SDL2)  openal OK  zlib 1.3.1  libpng 1.6.59  libjpeg 80  OpenGL OK
+
+== configure ==
+cmake -S . -B <tmp> -DCMAKE_BUILD_TYPE=Release
+-- Git tag is latest
+-- Found JPEG: /usr/lib/libjpeg.so (found version "80")
+-- Found ZLIB: /usr/lib/libz.so (found version "1.3.1")
+-- Found PNG: /usr/lib/libpng.so (found version "1.6.59")
+-- Found OpenGL: /usr/lib/libOpenGL.so
+-- Configuring done (0.9s)
+-- Generating done (0.2s)
+
+== build ==
+timeout 85 cmake --build . -j12   -> completed inside the budget
+[100%] Linking CXX shared library jagamex86_64.so
+[100%] Built target jagamex86_64
+artifacts produced:
+  1,311,528 B  openjk_sp.x86_64      (SP engine)
+  2,041,776 B  openjk.x86_64         (MP engine)
+               openjkded.x86_64      (MP dedicated server)
+               compact_glsl          (shader preprocessor tool)
+  .so: code/game/jagamex86_64.so, code/rd-vanilla/rdsp-vanilla_x86_64.so,
+       codemp/game/jampgamex86_64.so, codemp/cgame/cgamex86_64.so,
+       codemp/ui/uix86_64.so, codemp/rd-vanilla/rd-vanilla_x86_64.so,
+       codemp/rd-rend2/rd-rend2_x86_64.so
+warnings: only C/C++ ABI notes on q_shared.h:2349 (sg_export is a C++ member inside an
+extern "C" struct) — no errors.
+
+== launch attempt (headless Xvfb 1280x720x24) ==
+xvfb-run -a openjk_sp.x86_64 +set fs_basepath <clone> +set fs_homepath /tmp/ojkhome
+tty console mode disabled
+OpenJK: latest linux-x86_64 Nov  7 2026
+Initialising zone memory .....
+----- FS_Startup -----
+Current search path:
+/tmp/ojkhome/base
+/home/cluer/cloned-free-games/games/OpenJK/base
+----------------------
+0 files in pk3 files
+Couldn't load default.cfg
+MESA-EGL: warning: DRI3 error: Could not get DRI3 device
+(zenity error dialog presented, process ended at timeout)
+
+=> engine initialises and reaches filesystem startup, then halts: the clone contains
+   0 .pk3 files and no base/assets*.pk3, i.e. the retail Jedi Academy data is absent.
+   No frame is claimed; nothing was installed on a phone.

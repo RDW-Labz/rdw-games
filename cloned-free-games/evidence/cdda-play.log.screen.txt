@@ -1,0 +1,40 @@
+                    lqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq< Create World >qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqk                    
+                    x World name: Shellman                                                         x                    
+                    x                                                                              x                    
+                    x  Difficulty                                                                  x                    
+                    x  --------------<|>--------------------    Cataclysm                          x                    
+                    x                                                                              x                    
+                    x            [f][ Finish ]       [r][ Reset ]     [a][ Randomize ]             x                    
+                    x                                                                              x                    
+                    x                                                                              x                    
+                    x                                                                              x                    
+                    x                                                                              x                    
+                    x                                                                              x                    
+                    x                                                                              x                    
+                    x                                                                              x                    
+                    x                                                                              x                    
+                    x                                                                              x                    
+                    x                                                                              x                    
+                    x                                                                              x                    
+                    x            Are you finished creating your world? (Case Sensitive)            x                    
+                    x                                                      [Y]es   [N]o            x                    
+                    x                                                                              x                    
+                    x                                                                              x                    
+                    x                                                                              x                    
+                    x                                                                              x                    
+                  lqx                                                                              x                    
+                  x x                                                                              x                    
+                  x»x                                                                              x                    
+                  x x                                                                              x                    
+                  x x                                                                              x                    
+                  x x                                                                              x                    
+                  mqtqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqu x                    
+           qqqqqqqqqx Press [*] to pick a random name for your world.                              xqqqqqqqq            
+              [MOTD]x Navigate options with [directional keys] and confirm with [RETURN].          xQuit]               
+                    x Press [?] to see additional control information.                             x                    
+                   Tx                                                                              x                    
+                    x                                                                              x                    
+                    x Advanced settings:                                                           x                    
+                    x [s] - Advanced options                                                       x                    
+                    x [m] - Open mod manager                                                       x                    
+                    mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj                    
