@@ -336,6 +336,18 @@ def strict_name(name: str) -> str:
     return re.sub(r"[^a-z0-9]+", "", (name or "").lower())
 
 
+def pretty_name(name: str) -> str:
+    """Card title for a build whose repo name is a slug ("Tessel-A-tile-game"). Only used for
+    synthesised cards — a real title from the queue or the catalog always wins."""
+    name = (name or "").strip()
+    if not name or name != re.sub(r"\s+", " ", name) or " " in name:
+        return name
+    parts = re.split(r"[-_]+", name)
+    if len(parts) < 2:
+        return name[:1].upper() + name[1:]
+    return " ".join(p[:1].upper() + p[1:] for p in parts if p)
+
+
 def attach_playable(entries: list[dict], playables: list[dict]) -> dict[str, int]:
     """Tag the queue rows that have an in-browser build, so the grid can rank them first.
 
@@ -370,7 +382,7 @@ def attach_playable(entries: list[dict], playables: list[dict]) -> dict[str, int
         counts["playable"] += 1
         counts["first_party" if it["tier"] == "first-party" else "mirrored"] += 1
         entries.append({
-            "name": it["name"],
+            "name": pretty_name(it["name"]),
             "slug": it.get("slug") or strict_name(it["name"]),
             "judged": False,
             "score": None,
