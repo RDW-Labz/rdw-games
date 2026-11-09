@@ -96,6 +96,24 @@ if [ -d "$WORK/catalog/thumbs" ]; then
   cp -f "$WORK/catalog/thumbs"/* "$SHELF_STAGE/public/thumbs/" || die "thumb copy failed"
   echo "THUMBS $(ls "$SHELF_STAGE/public/thumbs" | wc -l) files, $(du -sh "$SHELF_STAGE/public/thumbs" | cut -f1)"
 fi
+# Arcade: our own three.js ports. deploy.sh only stages games/live.txt + archive, so these
+# nested pages (and the shared kit module they import) ship from $SITE_REPO's HEAD as a set.
+if [ -n "$(git -C "$SITE_REPO" ls-tree --name-only HEAD games/arcade/ 2>/dev/null)" ]; then
+  mkdir -p "$SHELF_STAGE/public/games/arcade" || die "cannot create arcade dir in stage"
+  for f in $(git -C "$SITE_REPO" ls-tree --name-only HEAD games/arcade/); do
+    git -C "$SITE_REPO" show "HEAD:$f" > "$SHELF_STAGE/public/games/arcade/$(basename "$f")" \
+      || die "could not stage $f"
+  done
+  echo "ARCADE $(ls "$SHELF_STAGE/public/games/arcade" | tr '\n' ' ')"
+fi
+
+# In-browser builds: /play/<slug>/ mirrors of upstream static games, staged from .site-play
+# (kept out of both git repos — 28 MB of vendored JS that wrangler only re-uploads on change).
+if [ -d "$SRC/.site-play" ]; then
+  mkdir -p "$SHELF_STAGE/public/play"
+  cp -R "$SRC/.site-play/." "$SHELF_STAGE/public/play/" || die "play mirror copy failed"
+  echo "PLAY $(find "$SHELF_STAGE/public/play" -type f | wc -l) files, $(du -sh "$SHELF_STAGE/public/play" | cut -f1)"
+fi
 [ -f "$SHELF_STAGE/functions/_middleware.js" ] || die "no _middleware.js in stage — refusing to deploy a site without its gate"
 
 if [ -n "$DRY_RUN" ]; then

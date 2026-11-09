@@ -1,0 +1,8 @@
+# Verified static builds that play in the browser with no build step and no network.
+# Curated by hand after a browser playtest: blank/error pages and non-games are kept out.
+hextris
+isocity
+Lona
+server-survival
+clumsy-bird
+flexboxfroggy

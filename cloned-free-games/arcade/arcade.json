@@ -1,0 +1,22 @@
+{
+  "generated": "2026-11-08",
+  "note": "First-party three.js ports built on site/games/arcade/kit.js. Files ship from the site repo; this manifest only tells the catalog they exist.",
+  "games": [
+    {
+      "slug": "sokoban",
+      "name": "Sokoban",
+      "match": ["sokoban", "sokobang"],
+      "entry": "/games/arcade/sokoban.html",
+      "blurb": "10 hand-checked crate levels, 3D blocks, undo and push counter.",
+      "tier": "first-party"
+    },
+    {
+      "slug": "2048",
+      "name": "2048",
+      "match": ["2048"],
+      "entry": "/games/arcade/2048.html",
+      "blurb": "The classic, rebuilt in three.js with animated tiles and undo.",
+      "tier": "first-party"
+    }
+  ]
+}

@@ -9,3 +9,4 @@ build-*.log
 evidence/*.tmp
 __pycache__/
 .site-out/
+.site-play/

@@ -288,6 +288,113 @@ def attach_play(entries: list[dict], links: dict[str, Any]) -> dict[str, int]:
     return counts
 
 
+def load_playables(src: Path) -> list[dict]:
+    """Everything we can hand the visitor to actually play, in the browser, right now.
+
+    Two lanes: `arcade/arcade.json` is our own three.js ports (shipped from the site repo,
+    one file per game), `.queue/playable.json` is the allow-listed mirrors of upstream
+    static builds (written by promote-web-games.py). Neither is inferred from a README —
+    a game is listed here only after it has been opened in a real browser and played.
+    """
+    items: list[dict] = []
+    man = src / "arcade" / "arcade.json"
+    if man.is_file():
+        try:
+            for g in json.loads(man.read_text()).get("games", []):
+                keys = {strict_name(g.get("name", ""))}
+                keys |= {strict_name(m) for m in g.get("match", [])}
+                keys |= {strict_name(g.get("slug", ""))}
+                items.append({
+                    "keys": {k for k in keys if k},
+                    "name": g.get("name", ""),
+                    "slug": g.get("slug", ""),
+                    "url": g["entry"],
+                    "tier": "first-party",
+                    "blurb": g.get("blurb", ""),
+                })
+        except (OSError, ValueError, KeyError) as e:
+            print(f"  ! arcade manifest unreadable: {e}", file=sys.stderr)
+    mirrored = src / ".queue" / "playable.json"
+    if mirrored.is_file():
+        try:
+            for it in json.loads(mirrored.read_text()).get("items", []):
+                items.append({
+                    "keys": {strict_name(it.get("name", "")), strict_name(it.get("slug", ""))} - {""},
+                    "name": it.get("name", ""),
+                    "slug": it.get("slug", ""),
+                    "url": it["entry"],
+                    "tier": "mirrored",
+                    "blurb": "",
+                })
+        except (OSError, ValueError, KeyError) as e:
+            print(f"  ! playable manifest unreadable: {e}", file=sys.stderr)
+    return items
+
+
+def strict_name(name: str) -> str:
+    """Whole-title key: keeps parentheticals so lookalike apps stay distinct."""
+    return re.sub(r"[^a-z0-9]+", "", (name or "").lower())
+
+
+def attach_playable(entries: list[dict], playables: list[dict]) -> dict[str, int]:
+    """Tag the queue rows that have an in-browser build, so the grid can rank them first.
+
+    Match on normalised name and slug only: a card must never claim "playable" because a
+    fuzzy score liked the title. Unmatched titles keep their external play link and sit lower.
+    """
+    index: dict[str, dict] = {}
+    for it in playables:
+        for k in it["keys"]:
+            index.setdefault(k, it)
+    counts = {"playable": 0, "first_party": 0, "mirrored": 0, "added": 0}
+    used: set[int] = set()
+    for e in entries:
+        # Strict key: the full title, parentheticals included, so "2048 (Privacy Friendly)"
+        # never inherits our 2048 port. Slug is the fallback for renamed judge rows.
+        hit = index.get(strict_name(e.get("name", "")))
+        if hit is None and e.get("slug"):
+            hit = index.get(strict_name(e["slug"]))
+        if hit is None:
+            continue
+        e["playable"] = {"url": hit["url"], "tier": hit["tier"], "blurb": hit["blurb"]}
+        used.add(id(hit))
+        counts["playable"] += 1
+        counts["first_party" if hit["tier"] == "first-party" else "mirrored"] += 1
+
+    # A game we can hand someone today must not be invisible just because no judge ever
+    # scored it: clones that never made the queue get their own row.
+    for it in playables:
+        if id(it) in used:
+            continue
+        counts["added"] += 1
+        counts["playable"] += 1
+        counts["first_party" if it["tier"] == "first-party" else "mirrored"] += 1
+        entries.append({
+            "name": it["name"],
+            "slug": it.get("slug") or strict_name(it["name"]),
+            "judged": False,
+            "score": None,
+            "score_raw": "",
+            "type": "browser · three.js" if it["tier"] == "first-party" else "browser build",
+            "platforms": "web",
+            "summary": it["blurb"] or "Runs in the browser — no install, no emulator.",
+            "license": "",
+            "stars": 0,
+            "size_kb": 0,
+            "icon": "",
+            "status": "",
+            "url": it.get("url_src", ""),
+            "play": None,
+            "play_kind": None,
+            "play_label": None,
+            "desk_only": False,
+            "row": None,
+            "source": "curated",
+            "playable": {"url": it["url"], "tier": it["tier"], "blurb": it["blurb"]},
+        })
+    return counts
+
+
 def norm_game_name(name: str) -> str:
     s = re.sub(r"\([^)]*\)", " ", name or "").split("—")[0]
     return re.sub(r"[^a-z0-9]+", "", s.lower())
@@ -496,11 +603,21 @@ def merge(queue: list[dict], catalog: list[dict], dirs: dict[str, Path], icons: 
                 "row": None,
             }
         )
-    # Judged first (highest score first), then the rest by stars.
-    entries.sort(
-        key=lambda e: (0 if e["judged"] else 1, -(e["score"] or 0), -e["stars"], e["name"].lower())
-    )
+    entries.sort(key=rank_key)
     return entries, superseded
+
+
+def rank_key(e: dict) -> tuple:
+    """Playable first — a game you can start right now beats a score. Then judged
+    (highest score first), then the rest by stars."""
+    p = e.get("playable") or {}
+    return (
+        0 if p.get("tier") == "first-party" else (1 if p else 2),
+        0 if e["judged"] else 1,
+        -(e["score"] or 0),
+        -e["stars"],
+        e["name"].lower(),
+    )
 
 
 PAGE = """<!doctype html>
@@ -556,6 +673,11 @@ main{padding:14px 18px 60px}
 .score.mid{color:var(--accent);border-color:rgba(124,245,208,.35);background:rgba(124,245,208,.1)}
 .score.lo{color:#a9b8cd;border-color:var(--line);background:none}
 .score.norate{font-size:11px;font-weight:600;color:var(--dim);border-color:var(--line);background:none;padding:1px 7px}
+.pill.play{color:#06211a;border-color:transparent;background:linear-gradient(180deg,#8fffdc,#4fdcb4);font-weight:800;letter-spacing:.3px}
+.card.first{box-shadow:0 0 0 1px rgba(124,245,208,.35),0 18px 40px -24px rgba(124,245,208,.45)}
+.cta.browser{background:linear-gradient(180deg,#8fffdc,#4fdcb4);color:#04211a;border-color:transparent;font-weight:800}
+.cta.browser:hover{filter:brightness(1.06)}
+.blurb{color:var(--accent);font-size:12px;margin:0 0 6px}
 .meta{color:var(--dim);font-size:12px;display:flex;gap:6px;flex-wrap:wrap}
 .pill{border:1px solid var(--line);border-radius:999px;padding:0 8px;font-size:11px;color:#a3b2c9;line-height:18px}
 .pill.j{color:var(--accent);border-color:rgba(124,245,208,.4)}
@@ -576,7 +698,7 @@ footer{color:var(--dim);font-size:12px;padding:0 18px 40px}
 <body>
 <header>
   <h1>Free phone games <b>catalog</b></h1>
-  <p class="tagline">Every judged title below opens the game itself — its own site, the F-Droid install page, or its releases. No dead links, no broken tiles.</p>
+  <p class="tagline">Games you can start in the browser come first — our own three.js ports at the top, then verified static builds. Everything below opens the game itself: its own site, the F-Droid install page, or its releases. No dead links, no broken tiles.</p>
   <div class="stats" id="stats"></div>
   <div class="controls">
     <input id="q" type="search" placeholder="Search name, type, summary, license…" autocomplete="off" autofocus>
@@ -602,14 +724,17 @@ const stats = document.getElementById('stats');
 const qEl = document.getElementById('q');
 const srcEl = document.getElementById('src');
 const judgedBtn = document.getElementById('judged');
+judgedBtn.classList.remove('on');
+judgedBtn.textContent = 'Everything';
 const sortBtn = document.getElementById('sort');
-let judgedOnly = true, sortMode = 'score';
+let judgedOnly = false, sortMode = 'score';
 
 const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const fmtSize = kb => !kb ? '' : kb >= 1024 ? (kb/1024).toFixed(kb >= 10240 ? 0 : 1) + ' MB' : kb + ' KB';
 
 stats.innerHTML = `<span><b>${DATA.total}</b> titles in the queue</span>
   <span><b>${DATA.judged}</b> judged</span>
+  <span><b>${(DATA.playable && DATA.playable.playable) || 0}</b> play in browser</span>
   <span><b>${DATA.bySource.fdroid || 0}</b> F-Droid</span>
   <span><b>${DATA.bySource.github || 0}</b> GitHub sweep</span>
   <span><b>${DATA.bySource.curated || 0}</b> curated</span>
@@ -625,11 +750,13 @@ function rows(){
     if (!q) return true;
     return (e.name + ' ' + e.type + ' ' + e.summary + ' ' + e.license + ' ' + e.slug).toLowerCase().includes(q);
   });
-  if (sortMode === 'score') r.sort((a,b) => (b.score||0)-(a.score||0) || (b.stars||0)-(a.stars||0) || a.name.localeCompare(b.name));
+  if (sortMode === 'score') r.sort((a,b) => tier(a)-tier(b) || (b.score||0)-(a.score||0) || (b.stars||0)-(a.stars||0) || a.name.localeCompare(b.name));
   else if (sortMode === 'stars') r.sort((a,b) => (b.stars||0)-(a.stars||0) || a.name.localeCompare(b.name));
   else r.sort((a,b) => a.name.localeCompare(b.name));
   return r;
 }
+
+function tier(e){return e.playable ? (e.playable.tier === 'first-party' ? 0 : 1) : 2;}
 
 function render(){
   const r = rows();
@@ -647,6 +774,7 @@ function render(){
     const target = e.play || (e.url && !onForge ? e.url : '');
     const title = esc(e.name);
     const pills = [
+      e.playable ? `<span class="pill play">${e.playable.tier === 'first-party' ? 'play · three.js' : 'play in browser'}</span>` : '',
       e.judged ? '<span class="pill j">judged</span>' : '<span class="pill">queued</span>',
       e.source ? `<span class="pill">${esc(SRC[e.source] || e.source)}</span>` : '',
       e.stars ? `<span class="pill">★ ${e.stars.toLocaleString()}</span>` : '',
@@ -667,12 +795,15 @@ function render(){
     const desk = e.desk_only ? '<span class="pill">desk</span>' : '';
     const hit = target ? `<a class="hit" href="${esc(target)}" rel="noreferrer" aria-label="${esc(e.name)}${e.play_label ? ' — ' + esc(e.play_label) : ''}"></a>` : '';
     const icon = e.play_kind === 'web' ? '▶' : e.play_kind === 'store' ? '⤓' : '⤓';
-    const cta = e.play ? `<a class="cta ${esc(e.play_kind || 'web')}" href="${esc(e.play)}" rel="noreferrer">${icon} ${esc(e.play_label || 'Open')}</a>` : '';
+    const cta = e.playable
+      ? `<a class="cta browser" href="${esc(e.playable.url)}" rel="noreferrer">▶ Play</a>`
+      : (e.play ? `<a class="cta ${esc(e.play_kind || 'web')}" href="${esc(e.play)}" rel="noreferrer">${icon} ${esc(e.play_label || 'Open')}</a>` : '');
     const srcLink = e.url && e.play ? `<a class="src" href="${esc(e.url)}" target="_blank" rel="noreferrer noopener">source</a>` : '';
-    return `<article class="card${target ? ' clickable' : ''}">${hit}${thumb}
+    return `<article class="card${target ? ' clickable' : ''}${e.playable ? ' first' : ''}">${hit}${thumb}
       <div class="body">
         <h3><span class="n">${title}</span>${score}</h3>
         <div class="meta">${pills}${desk}</div>
+        ${e.playable && e.playable.blurb ? `<p class="blurb">${esc(e.playable.blurb)}</p>` : ''}
         ${e.type ? `<p class="type">${esc(e.type)}</p>` : ''}
         ${e.summary ? `<p class="sum">${esc(e.summary.slice(0, 220))}${e.summary.length > 220 ? '…' : ''}</p>` : ''}
         <div class="acts">${cta}${srcLink}${e.status ? `<button class="more" data-i="${i}">evidence</button>` : ''}</div>
@@ -692,7 +823,7 @@ qEl.oninput = render;
 srcEl.onchange = render;
 judgedBtn.onclick = () => { judgedOnly = !judgedOnly; judgedBtn.classList.toggle('on', judgedOnly); judgedBtn.textContent = judgedOnly ? 'Judged only' : 'Everything'; render(); };
 sortBtn.onclick = () => { sortMode = sortMode === 'score' ? 'stars' : sortMode === 'stars' ? 'name' : 'score'; sortBtn.textContent = 'Sort: ' + sortMode; render(); };
-document.getElementById('foot').textContent = 'Queue and scores come from the repo artifacts (GAMES.queue / CATALOG.md). A card opens the game itself — its own site, the F-Droid install page, or its release downloads; "source" is the repo.';
+document.getElementById('foot').textContent = 'Playable rows come from arcade/arcade.json (our three.js ports) and .queue/playable.json (allow-listed static mirrors, each opened and played in a real browser before shipping). Scores come from the repo artifacts (GAMES.queue / CATALOG.md); "source" is the upstream repo.';
 render();
 </script>
 </body>
@@ -716,6 +847,8 @@ def main() -> None:
     dirs = clone_dirs(src)
     entries, superseded = merge(queue, catalog, dirs, icon_map(src))
     play_counts = attach_play(entries, load_play_links(src))
+    playable_counts = attach_playable(entries, load_playables(src))
+    entries.sort(key=rank_key)
     icons_checked: dict[str, Any] = verify_icons(entries) if args.verify_icons else {"checked": 0, "dropped": 0}
     if args.icon_cache:
         icons_checked["materialized"] = materialize_icons(
@@ -736,6 +869,7 @@ def main() -> None:
         "bySource": by_source,
         "icons": icons_checked,
         "playLinks": play_counts,
+        "playable": playable_counts,
         "entries": entries,
     }
     out.mkdir(parents=True, exist_ok=True)

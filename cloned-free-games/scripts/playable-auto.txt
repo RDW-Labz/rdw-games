@@ -1,0 +1,4 @@
+# Auto-built slugs: produced by scripts/auto-build.py and validated
+# (every referenced asset on disk, no CDN scripts). One per line.
+Tessel-A-tile-game  # auto-built 2026-11-08
+ancientbeast  # auto-built 2026-11-08

@@ -1,0 +1,6 @@
+# Slugs auto-build gave up on. One per line: slug  # reason
+# Delete a line to let the nightly job try that game again.
+Diadem  # needs src/components/custom/Home.svelte + SSR deploy config (site-specific upstream)
+IITC-CE-Mobile  # node_modules/.bin/lightningcss has no runnable shebang; needs hand build
+PlayHex  # build produced no index.html
+partykit  # build produced no index.html
