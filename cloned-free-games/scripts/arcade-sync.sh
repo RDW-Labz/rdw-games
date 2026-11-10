@@ -61,6 +61,20 @@ PY
   fi
 fi
 
+# 1c. Playtest lane. Every detected-but-unshipped static build gets loaded in headless
+# Chromium: uncaught errors, failed local requests and blank renders are failures. Passes are
+# appended to scripts/playable-auto.txt (shipped by promote below), failures to
+# scripts/playable-block.txt so tomorrow's run doesn't chew the same broken tree. This is what
+# makes "it built" different from "it plays" without a human in the loop.
+if command -v node >/dev/null && command -v chromium >/dev/null && command -v magick >/dev/null; then
+  timeout 1800 node scripts/playtest-web.mjs --from-queue --auto-promote >"$STATE/playtest-last.log" 2>&1
+  rc=$?
+  say "playtest rc=$rc: $(grep -E '^this run' "$STATE/playtest-last.log" | tr '\n' ' ' | cut -c1-240)"
+else
+  say "playtest: skipped (node, chromium or magick missing)"
+fi
+
+
 # 2. Mirror. Allow-listed only: playable-allow.txt is hand-played, playable-auto.txt is
 # what the build lane validated (all refs on disk, no CDN). Nothing ships unvetted.
 timeout 1800 python3 scripts/promote-web-games.py --prune >>"$LOG" 2>&1

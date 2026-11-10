@@ -6,3 +6,7 @@ Lona
 server-survival
 clumsy-bird
 flexboxfroggy
+2048
+Sokoban-g
+MOROway-App
+com.halftab.breakthrough

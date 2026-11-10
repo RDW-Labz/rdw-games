@@ -1,0 +1,16 @@
+# Order of the "playable right now" tier on the catalog page: best first, toys last.
+# Lines are matched against a build's name, slug and arcade match aliases (case/punctuation
+# insensitive). Anything not listed keeps its graded score and sorts after the listed games.
+# Score the game, not the effort: what a visitor sees in the first ten seconds decides.
+ancientbeast
+hextris
+MOROway-App
+sokoban
+2048
+isocity
+Lona
+server-survival
+Tessel-A-tile-game
+com.halftab.breakthrough
+clumsy-bird
+flexboxfroggy

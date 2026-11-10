@@ -33,12 +33,13 @@ scripts/test-web-game.sh hextris hextris   # web tier, in Chrome on the emulator
 ## Web arcade (game.cluerholdings.com/play/<slug>/)
 
 Everything below runs unattended each night from `games-arcade.timer` →
-`scripts/arcade-sync.sh`, in five stages:
+`scripts/arcade-sync.sh`, in six stages:
 
 | stage | script | what it does |
 |---|---|---|
 | detect | `detect-web-games.py` | finds entries that are already static-runnable (`games/`, `.build/out/`) |
 | build | `auto-build.py` | builds clones that ship their own `npm run build`, validates the output, allow-lists it |
+| playtest | `playtest-web.mjs` | loads every unshipped build in headless Chromium: a JS exception, a missing local asset or a blank screenshot is a failure, and the verdict is what allow-lists or blocks it |
 | promote | `promote-web-games.py` | mirrors allow-listed builds into `.site-play/` (this is what `/play/` serves) |
 | plan | `port-plan.py` | classifies every clone into a lane + measures disk |
 | publish | `publish-site.sh` | catalog + mirrors + gate function → Cloudflare Pages |
@@ -54,15 +55,29 @@ clone to `.build/src/`, installs, builds, then accepts the result only if:
   `/play/<slug>/` and a `/app.js` would 404,
 - the output is inside the size budget (`--max-mb`, default 160).
 
-Passing builds are appended to `scripts/playable-auto.txt`; failures land in
-`scripts/playable-block.txt` with the reason, so a bad tree costs one attempt instead of one a
-night. Delete a line from the block file to retry. A clone that needs a small pre-build fix
+The playtest lane is the rule that "it built" is not "it plays". It serves each detected build
+from a throwaway local server, drives it in headless Chromium (`--headless=new`, SwiftShader),
+and judges it by what the browser produced: uncaught exceptions, failed requests for the game's
+own files, and a screenshot with no visual variance (flat fill = blank page) all fail. Third-party
+requests that never load are warnings, not failures. Passing builds are appended to
+`scripts/playable-auto.txt`; failures land in `scripts/playable-block.txt` with the reason, so a
+bad tree costs one attempt instead of one a night. Screenshots stay in `.queue/playtest/` for
+eyeballing after a run.
+
+### Order
+
+`scripts/playable-rank.txt` is the curated order of the playable tier on the catalog page: best
+games first, throwaway toys last. It is matched against each build's name/slug/aliases, is
+case- and punctuation-insensitive, and games missing from it fall back to their judged score.
+Edit that file (not the template) to reorder the top of the page. Delete a line from the block file to retry. A clone that needs a small pre-build fix
 (the kind of thing upstream gitignores) gets a hook at `scripts/build-shims/<slug>.sh`, run
 inside the scratch copy before the build.
 
 ```bash
 python3 scripts/auto-build.py --list                          # what is queued to build
 python3 scripts/auto-build.py --slug Diadem --force --keep-scratch   # one game, keep scratch
+node scripts/playtest-web.mjs --from-queue --auto-promote      # judge unshipped builds, update the lists
+node scripts/playtest-web.mjs "hextris=./games/hextris#/index.html"   # one build, one path
 python3 scripts/port-plan.py                                  # lanes + disk accounting
 NO_BUILD=1 bash scripts/arcade-sync.sh                        # everything except the build
 ```

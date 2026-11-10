@@ -360,6 +360,7 @@ def attach_playable(entries: list[dict], playables: list[dict]) -> dict[str, int
             index.setdefault(k, it)
     counts = {"playable": 0, "first_party": 0, "mirrored": 0, "added": 0}
     used: set[int] = set()
+    loose: list[str] = []
     for e in entries:
         # Strict key: the full title, parentheticals included, so "2048 (Privacy Friendly)"
         # never inherits our 2048 port. Slug is the fallback for renamed judge rows.
@@ -369,21 +370,30 @@ def attach_playable(entries: list[dict], playables: list[dict]) -> dict[str, int
         if hit is None:
             continue
         e["playable"] = {"url": hit["url"], "tier": hit["tier"], "blurb": hit["blurb"]}
+        e["rankkeys"] = tuple(hit["keys"])
+        loose.append(norm_game_name(hit["name"]))
         used.add(id(hit))
         counts["playable"] += 1
         counts["first_party" if hit["tier"] == "first-party" else "mirrored"] += 1
 
     # A game we can hand someone today must not be invisible just because no judge ever
-    # scored it: clones that never made the queue get their own row.
+    # scored it: clones that never made the queue get their own row. But a second build of a
+    # game already on the grid (our own port plus the upstream mirror it was ported from) is
+    # the same card, not a new one: first-party wins, and the duplicate mirror stays quiet.
     for it in playables:
         if id(it) in used:
+            continue
+        ident = norm_game_name(it["name"])
+        if any(same_game(ident, prev) for prev in loose):
             continue
         counts["added"] += 1
         counts["playable"] += 1
         counts["first_party" if it["tier"] == "first-party" else "mirrored"] += 1
+        loose.append(ident)
         entries.append({
             "name": pretty_name(it["name"]),
             "slug": it.get("slug") or strict_name(it["name"]),
+            "rankkeys": tuple(it["keys"]),
             "judged": False,
             "score": None,
             "score_raw": "",
@@ -405,6 +415,18 @@ def attach_playable(entries: list[dict], playables: list[dict]) -> dict[str, int
             "playable": {"url": it["url"], "tier": it["tier"], "blurb": it["blurb"]},
         })
     return counts
+
+
+def same_game(a: str, b: str) -> bool:
+    """Loose identity for dedupe only: `sokoban` and `sokobang` are one game, `2048` and
+    `2048puzzle` are one game. Used to suppress a duplicate card, never to claim a mirror
+    applies to a lookalike app — matching that decides "playable" stays strict."""
+    if not a or not b:
+        return False
+    if a == b:
+        return True
+    short, long = sorted((a, b), key=len)
+    return len(short) >= 4 and long.startswith(short) and len(long) - len(short) <= 3
 
 
 def norm_game_name(name: str) -> str:
@@ -619,12 +641,46 @@ def merge(queue: list[dict], catalog: list[dict], dirs: dict[str, Path], icons: 
     return entries, superseded
 
 
-def rank_key(e: dict) -> tuple:
-    """Playable first — a game you can start right now beats a score. Then judged
-    (highest score first), then the rest by stars."""
+RANK: dict[str, int] = {}
+
+
+def load_rank(src: Path) -> dict[str, int]:
+    """Curated best-first order for the playable tier (`scripts/playable-rank.txt`).
+
+    A score answers "is this worth installing"; it says nothing about whether the first ten
+    seconds in a browser are any good. So the playable tier is ordered by hand, and anything
+    unlisted keeps its judged score and sorts after the listed builds.
+    """
+    rank: dict[str, int] = {}
+    for rel in ("scripts/playable-rank.txt", "playable-rank.txt"):
+        p = src / rel
+        if not p.is_file():
+            continue
+        for i, line in enumerate(p.read_text().splitlines()):
+            key = strict_name(line.split("#")[0])
+            if key:
+                rank.setdefault(key, i)
+        break
+    return rank
+
+
+def rank_of(e: dict) -> int:
+    """Curated position for a playable build (900 = unlisted, 999 = not playable)."""
     p = e.get("playable") or {}
+    if not p:
+        return 999
+    return min((RANK[k] for k in e.get("rankkeys", ()) if k in RANK), default=900)
+
+
+def rank_key(e: dict) -> tuple:
+    """Playable first — a game you can start right now beats a score. Inside the playable
+    tier the hand-kept order wins (best games at the top, throwaway toys at the bottom);
+    then judged (highest score first), then the rest by stars."""
+    p = e.get("playable") or {}
+    rank = rank_of(e)
     return (
         0 if p.get("tier") == "first-party" else (1 if p else 2),
+        rank,
         0 if e["judged"] else 1,
         -(e["score"] or 0),
         -e["stars"],
@@ -762,13 +818,14 @@ function rows(){
     if (!q) return true;
     return (e.name + ' ' + e.type + ' ' + e.summary + ' ' + e.license + ' ' + e.slug).toLowerCase().includes(q);
   });
-  if (sortMode === 'score') r.sort((a,b) => tier(a)-tier(b) || (b.score||0)-(a.score||0) || (b.stars||0)-(a.stars||0) || a.name.localeCompare(b.name));
+  if (sortMode === 'score') r.sort((a,b) => tier(a)-tier(b) || rank(a)-rank(b) || (b.score||0)-(a.score||0) || (b.stars||0)-(a.stars||0) || a.name.localeCompare(b.name));
   else if (sortMode === 'stars') r.sort((a,b) => (b.stars||0)-(a.stars||0) || a.name.localeCompare(b.name));
   else r.sort((a,b) => a.name.localeCompare(b.name));
   return r;
 }
 
 function tier(e){return e.playable ? (e.playable.tier === 'first-party' ? 0 : 1) : 2;}
+function rank(e){return typeof e.rank === 'number' ? e.rank : 900;}
 
 function render(){
   const r = rows();
@@ -815,7 +872,7 @@ function render(){
       <div class="body">
         <h3><span class="n">${title}</span>${score}</h3>
         <div class="meta">${pills}${desk}</div>
-        ${e.playable && e.playable.blurb ? `<p class="blurb">${esc(e.playable.blurb)}</p>` : ''}
+        ${e.playable && e.playable.blurb && e.playable.blurb !== (e.summary || '').slice(0, 220) ? `<p class="blurb">${esc(e.playable.blurb)}</p>` : ''}
         ${e.type ? `<p class="type">${esc(e.type)}</p>` : ''}
         ${e.summary ? `<p class="sum">${esc(e.summary.slice(0, 220))}${e.summary.length > 220 ? '…' : ''}</p>` : ''}
         <div class="acts">${cta}${srcLink}${e.status ? `<button class="more" data-i="${i}">evidence</button>` : ''}</div>
@@ -854,6 +911,8 @@ def main() -> None:
 
     src = Path(args.src).resolve()
     out = Path(args.out).resolve()
+    global RANK
+    RANK = load_rank(src)
     queue = read_queue(src)
     catalog = read_catalog(src)
     dirs = clone_dirs(src)
@@ -861,6 +920,10 @@ def main() -> None:
     play_counts = attach_play(entries, load_play_links(src))
     playable_counts = attach_playable(entries, load_playables(src))
     entries.sort(key=rank_key)
+    # Stamp the order into the payload: the page re-sorts in the browser (by score, stars or
+    # name), and without this a score sort would shuffle the hand-kept playable order away.
+    for e in entries:
+        e["rank"] = rank_of(e)
     icons_checked: dict[str, Any] = verify_icons(entries) if args.verify_icons else {"checked": 0, "dropped": 0}
     if args.icon_cache:
         icons_checked["materialized"] = materialize_icons(

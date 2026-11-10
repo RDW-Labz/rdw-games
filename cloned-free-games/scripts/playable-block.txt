@@ -4,3 +4,14 @@ Diadem  # needs src/components/custom/Home.svelte + SSR deploy config (site-spec
 IITC-CE-Mobile  # node_modules/.bin/lightningcss has no runnable shebang; needs hand build
 PlayHex  # build produced no index.html
 partykit  # build produced no index.html
+BabbyPaint  # playtest: renders blank canvas, no gameplay UI
+LiveGalGame  # playtest: blank renderer shell (needs Electron preload/IPC)
+citybound  # playtest: CB_BATCH_MESSAGE_BYTES undefined, ESM bundle loaded as classic script
+open_spiel  # playtest: gui/index.html renders blank
+android-dex  # playtest: marketing landing page, not a game
+nakama  # playtest: Nakama dashboard login page, not a game
+The-Universe-Decides  # playtest: blank white page (screenshot stddev 0), coin-flip app renders nothing
+warriorjs  # build produced no index.html
+tower_game  # playtest: 1 js error(s): NotAllowedError: play() failed because the user didn't interact with the document first. https://goo.gl.q
+crossover  # build rc=1
+openfootmanager  # build rc=127

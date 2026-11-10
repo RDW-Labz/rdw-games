@@ -14,6 +14,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import shutil
 import sys
 import time
@@ -39,6 +40,46 @@ def allow_list(paths: list[Path]) -> set[str] | None:
             if line:
                 out.add(line)
     return out if found else None
+
+
+MISSING_REF_RE = re.compile(
+    r"""(?:["'(=])((?:\./)?node_modules/[^"')?#\s]+)""", re.IGNORECASE)
+VENDOR_CAP_FILES = 12
+VENDOR_CAP_BYTES = 4 * 1024 * 1024
+
+
+def vendored_refs(src: Path, dest: Path) -> list[tuple[Path, Path]]:
+    """Files an upstream page references under node_modules/ — those are excluded from the
+    mirror, and an unresolved `src=` means `$ is not defined` and a dead game (flexboxfroggy,
+    gridgarden ship jquery this way). Resolve the ones that actually exist in the clone."""
+    want: list[str] = []
+    for root, dirs, files in os.walk(dest):
+        dirs[:] = [d for d in dirs if d not in SKIP_NAMES]
+        for f in files:
+            if Path(f).suffix.lower() not in {".html", ".htm", ".js", ".css"}:
+                continue
+            page = Path(root) / f
+            try:
+                text = page.read_text(errors="ignore")
+            except OSError:
+                continue
+            for m in MISSING_REF_RE.finditer(text):
+                ref = m.group(1).lstrip("./")
+                if ref not in want:
+                    want.append(ref)
+    pairs: list[tuple[Path, Path]] = []
+    total = 0
+    for ref in want:
+        s = src / ref
+        if not s.is_file() or s.is_symlink():
+            continue
+        size = s.stat().st_size
+        if size > VENDOR_CAP_BYTES or len(pairs) >= VENDOR_CAP_FILES or total + size > VENDOR_CAP_BYTES * 3:
+            print(f"  ! vendor budget hit, skipping {ref} ({size} B)", file=sys.stderr)
+            continue
+        pairs.append((s, dest / ref))
+        total += size
+    return pairs
 
 
 def mirror(src: Path, dest: Path) -> int:
@@ -113,6 +154,11 @@ def main() -> int:
             total_bytes += item["bytes"]
         else:
             size = mirror(base, target)
+            for s, d in vendored_refs(base, target):
+                d.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(s, d)
+                size += d.stat().st_size
+                print(f"  vendored {slug}: {d.relative_to(target).as_posix()} ({d.stat().st_size // 1024} KB)")
             print(f"  mirrored {slug} ({size // 1024} KB) -> {target}")
             total_bytes += size
         kept.add(slug)

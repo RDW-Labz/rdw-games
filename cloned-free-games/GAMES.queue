@@ -1,5 +1,5 @@
 # name	url	stars	license	est_size_kb	source	summary
-azerothcore-wotlk	https://github.com/azerothcore/azerothcore-wotlk	9160	GPL-2.0	1371162	github	Complete Open Source and Modular solution for MMO
+azerothcore-wotlk	https://github.com/azerothcore/azerothcore-wotlk	9167	GPL-2.0	1371334	github	Complete Open Source and Modular solution for MMO
 Cat-a-shooter	https://codeberg.org/xolatgames/cat-a-shooter	0	Apache-2.0	0	fdroid	Fly in the space by the cat 😼, and shoots off from enemies 🛸
 Dima-Defense	https://codeberg.org/xolatgames/Dima-Defense	0	Apache-2.0	0	fdroid	A simple Tower Defense game that was made in LibGDX
 FinalRozGameNew	https://codeberg.org/rozworld/final-roz-game-new	0	MIT	0	fdroid	A pixel art 2D speedrun platformer featuring 17 levels and isometric mechanics.
@@ -9,11 +9,7 @@ Meritous	https://gitlab.com/meritous/sdl_android	0	GPL-3.0-or-later	0	fdroid	Dun
 Play-Maker	https://codeberg.org/MysticJungle/play-maker	0	CC0-1.0	0	fdroid	Play or create your own platformer levels
 Revengate	https://gitlab.com/ygingras/revengate	0	GPL-3.0-or-later	0	fdroid	A steampunk roguelike dungeon crawling game.
 The-One-App	https://gitlab.com/the-one-app/the-one-app	0	AGPL-3.0-or-later	0	fdroid	Application for managing a player's characters in the RPG The One Ring.
-bottles	https://github.com/bottlesdevs/Bottles	9053	GPL-3.0	43650	github	Run Windows software and games on Linux
-devilution	https://github.com/diasurgical/devilution	9017	NOASSERTION	20492	github	Diablo devolved - magic behind the 1996 computer game
-assetripper	https://github.com/AssetRipper/AssetRipper	8878	GPL-3.0	451868	github	GUI application to analyze game files
-biomes-game	https://github.com/ill-inc/biomes-game	2687	MIT	116918	github	Biomes is an open source sandbox MMORPG built for the web using web technologies such as Next.js, Typescript, React and 
-recastnavigation	https://github.com/recastnavigation/recastnavigation	8172	Zlib	28903	github	Industry-standard navigation-mesh toolset for games
+Cataclysm-BN	https://github.com/cataclysmbnteam/Cataclysm-BN.git	0	see-upstream	0	curated	curated open-source classic
 freedroidrpg	https://github.com/freedroid/freedroid-src.git	0	see-upstream	0	curated	curated open-source classic
 pioneer	https://github.com/pioneerspacesim/pioneer.git	0	see-upstream	0	curated	curated open-source classic
 ioquake3	https://github.com/ioquake/ioquake3.git	0	see-upstream	0	curated	curated open-source classic
@@ -21,30 +17,7 @@ sauerbraten	https://github.com/assaultcube/sauerbraten.git	0	see-upstream	0	cura
 freedoom	https://github.com/freedoom/freedoom.git	0	see-upstream	0	curated	curated open-source classic
 speed-dreams	https://github.com/speed-dreams/speed-dreams-code.git	0	see-upstream	0	curated	curated open-source classic
 bar	https://github.com/beyond-all-reason/Beyond-All-Reason.git	0	see-upstream	0	curated	curated open-source classic
-ancientbeast	https://github.com/FreezingMoon/AncientBeast	1890	AGPL-3.0	258161	github	The Turn Based Strategy Game/eSport. Master your beasts! 🐺
-hypersomnia	https://github.com/TeamHypersomnia/Hypersomnia	1725	AGPL-3.0	188493	github	Multiplayer top-down shooter made from scratch in C++. Web version: https://play.hypersomnia.io Made in 🇵🇱
-broguece	https://github.com/tmewett/BrogueCE	1522	AGPL-3.0	8536	github	Brogue: Community Edition - a community-lead fork of the much-loved minimalist roguelike game
-flexboxfroggy	https://github.com/thomaspark/flexboxfroggy	7389	MIT	3774	github	A game for learning CSS flexbox 🐸
-rigs-of-rods	https://github.com/RigsOfRods/rigs-of-rods	1289	GPL-3.0	235720	github	Main development repository for Rigs of Rods soft-body physics simulator
-magnum	https://github.com/mosra/magnum	5233	NOASSERTION	67206	github	Lightweight and modular C++11 graphics middleware for games and data visualization
 shapez.io	https://github.com/tobspr-games/shapez.io	7003	GPL-3.0	661378	github	shapez is an open source base building game on Steam inspired by factorio!
-gh-space-shooter	https://github.com/czl9707/gh-space-shooter	935	MIT	21333	github	Visualizes GitHub contribution graphs as Space Shooter!
-fgmk	https://github.com/ericoporto/fgmk	876	GPL-2.0	77030	github	Retro RPG Game Maker
-deeplearningflappybird	https://github.com/yenchenlin/DeepLearningFlappyBird	6828	MIT	67878	github	Flappy Bird hack using Deep Reinforcement Learning (Deep Q-learning).
-borderless-gaming	https://github.com/andrewmd5/Borderless-Gaming	6685	GPL-2.0	6906	github	Play your favorite games in a borderless window; no more time consuming alt-tabs. 
-ludusavi	https://github.com/mtkennerly/ludusavi	6538	MIT	24948	github	Backup tool for PC game saves
-dialogic	https://github.com/dialogic-godot/dialogic	6155	MIT	29769	github	💬 Create Dialogs, Visual Novels, RPGs, and manage Characters with Godot to create your Game!
-carp	https://github.com/carp-lang/Carp	6094	Apache-2.0	12233	github	A statically typed lisp, without a GC, for real-time applications.
-hilo	https://github.com/hiloteam/Hilo	5934	MIT	36594	github	A Cross-end HTML5 Game development solution
-totk-pc-recomp	https://github.com/valentderah/totk-pc-recomp	5910	MIT	4321	github	Static recompilation of The Legend of Zelda: Tears of the Kingdom to native Windows and Linux x86-64, with a Vulkan rend
-android-dex	https://github.com/Shrey113/Android-Dex	3816	NOASSERTION	173432	github	Universal Samsung DeX alternative for all Android devices. Run Android apps on Windows, Linux & macOS with resizable win
-tmodloader	https://github.com/tModLoader/tModLoader	5771	MIT	850245	github	A mod to make and play Terraria mods. Supports Terraria 1.4 (and earlier) installations 
-partykit	https://github.com/partykit/partykit	5745	MIT	101489	github	PartyKit simplifies developing multiplayer applications
-open_spiel	https://github.com/google-deepmind/open_spiel	5587	Apache-2.0	44597	github	OpenSpiel is a collection of environments and algorithms for research in general reinforcement learning and search/plann
-games	https://github.com/CharlesPikachu/Games	5421	Apache-2.0	481216	github	Games: Create interesting games in pure python.
-linuxgsm	https://github.com/GameServerManagers/LinuxGSM	4917	NOASSERTION	28330	github	The command-line tool for quick, simple deployment and management of Linux dedicated game servers.
-luban	https://github.com/focus-creative-games/luban	4664	MIT	8891	github	luban是一个强大、易用、优雅、稳定的游戏配置解决方案。luban is a powerful, easy-to-use, elegant and stable game configuration solution. 
-free-python-games	https://github.com/grantjenks/free-python-games	4065	NOASSERTION	4162	github	Free Python Games
 1010-Klooni	https://codeberg.org/Lonami/Klooni1010	0	GPL-3.0-or-later	0	fdroid	A libGDX game based on 1010
 1toX	https://gitlab.com/og8org/1tox	0	MIT	0	fdroid	Remember numbers quick to train your brain
 2-Player-Battle	https://github.com/HassanHeydariNasab/2-player-battle	0	GPL-3.0-or-later	0	fdroid	Destroy enemy base
@@ -70,12 +43,12 @@ Binary-Puzzle	https://github.com/sidhant947/BinaryPuzzle	0	GPL-3.0-only	0	fdroid
 Blidraughts	https://github.com/vovagorodok/blidraughts/	0	GPL-3.0-or-later	0	fdroid	Play draughts games over Bluetooth
 Block-Night	https://github.com/SyscallBrain/block-night	0	MIT	0	fdroid	Offline falling blocks: 600 certified floors, daily challenge, Marathon and Zen
 Block-Buster	https://github.com/asafonov/blockbuster.apk	0	MIT	0	fdroid	Simple HTML5 arkanoid-type game
+BlocksTV	https://github.com/22pumba22/BlocksTV	0	MIT	0	fdroid	Neon falling-block puzzle for Android TV, remotes and gamepads
 Boardgame-Pal	https://gitlab.com/schwarz-labs/boardgame-pal	0	Apache-2.0	0	fdroid	Dice, score counter, starting-player draw & more – 100% free and ad-free!
 Boop	https://gitlab.com/DerpBiscuit/boop	0	Apache-2.0	0	fdroid	Pop a nearby person’s bubble. A tiny Boop over Bluetooth, with no Internet
 com.rocket9labs.boxcars	https://codeberg.org/tslocum/boxcars-android	0	AGPL-3.0-or-later	0	fdroid	Play backgammon online via bgammon.org
 Brainstonz-for-Android	https://github.com/VelbazhdSoftwareLLC/BrainstonzForAndroid	0	GPL-3.0-or-later	0	fdroid	Brainstonz is a board game for two players
 Breakout-71	https://gitlab.com/lecarore/breakout71	0	AGPL-3.0-only	0	fdroid	Break colourful bricks, catch bouncing coins and select powerful upgrades !
-com.halftab.breakthrough	https://github.com/Halftab/BreakThrough	0	Apache-2.0	0	fdroid	Offline side-scrolling glass-breaking game
 Bubble-Penetration	https://codeberg.org/scovillo/bubble-penetration	0	GPL-3.0-only	0	fdroid	Fast arcade action: collect colors, chain combos, beat the highscore.
 Bullseye	https://gitlab.com/x653/bullseye	0	GPL-3.0-only	0	fdroid	Scoreboard for tournament dart x01
 Bummerlz-hler	https://github.com/Elektropepi/bummerlzaehler	0	GPL-3.0-only	0	fdroid	Fetziger Bummerlzähler für jeden der nicht überall einen Zettl hat
@@ -84,25 +57,19 @@ Caramelos	https://github.com/luarca84/Caramelos	0	MIT	0	fdroid	Casual game made 
 Cards-Score-Keeper	https://github.com/ThaChillera/CardScore	0	MIT	0	fdroid	App for keeping score in card games
 Cascada	https://gitlab.com/miguelython/cascada	0	GPL-3.0-only	0	fdroid	Casual logic game with marbles for two players
 Cat-Hunt	https://github.com/Xtratter/cat-hunt	0	GPL-3.0-or-later	0	fdroid	A game for cats: mice, bugs, a fish, a butterfly and a laser dot to catch
-Chance	https://github.com/jameshnsears/Chance	0	Apache-2.0	0	fdroid	Create custom dice with text and SVG faces.
-Chooser	https://github.com/UrAvgCode/Chooser	0	GPL-3.0-only	0	fdroid	Select random fingers on the screen
 Cifras-o-letras	https://github.com/pacoandres/cifrasoletras	0	GPL-3.0-or-later	0	fdroid	A simplified version of Countdown UK game-show.
 Classic-Tic-Tac-Toe	https://github.com/Itsfrz/TicTacToe	0	MIT	0	fdroid	Fun with emoji naughts and crosses
 Collect-the-Cookies	https://codeberg.org/MysticJungle/collect-the-cookies	0	CC0-1.0	0	fdroid	Collect cookies in this fun idle-ish game
 Collective-Club-Maze	https://gitlab.com/andsild/collective-club-maze	0	GPL-3.0-or-later	0	fdroid	A game similar to the board game ricochet robots.
-Colorbook-Drawing-for-Kids	https://github.com/sidhant947/Colorbook	0	GPL-3.0-only	0	fdroid	Safe offline doodle and coloring book for toddlers.
 Colors-Overflow	https://github.com/VelbazhdSoftwareLLC/ColorsOverflow	0	GPL-3.0-only	0	fdroid	Colors Overflow is a very simple but very addictive board game developed by Velb
 Complica4	https://github.com/VelbazhdSoftwareLLC/Complica4	0	GPL-3.0-only	0	fdroid	Puzzle game
 ConnectFour-Studio	https://github.com/Patrick-Ric/connectfour-studio-android	0	AGPL-3.0-only	0	fdroid	Connect Four with 15 levels, 20 boards, match mode and perfect analysis
 Critical-Velocity	https://gitlab.com/alaskalinuxuser/app_critical_velocity	0	Apache-2.0	0	fdroid	Side scrolling arcade style game
-Cubit	https://github.com/taynotfound/cubit	0	MIT	0	fdroid	A hard puzzle cube of winding arrows. Free the pink one.
 Dart-Checker	https://gitlab.com/onestepb/dart-checker	0	GPL-3.0-only	0	fdroid	Dart scoreboard/counter for physical dart matches
 DartsTrainer	https://gitlab.com/p-fruck/DartsTrainer	0	AGPL-3.0-only	0	fdroid	Cross-Platform app for all darts players
 Deep-Rock-Galactic-Assistant	https://github.com/vladrip/drgassistant	0	Apache-2.0	0	fdroid	Assistant for Deep Rock Galactic - game about dwarves in space. Rock and Stone!
 Desktop-Mascot	https://github.com/DesktopMascot/DesktopMascot_android	0	MIT	0	fdroid	A customizable animated mascot for your Android screen
-Dice-Game-Privacy-Friendly	https://github.com/SecUSo/privacy-friendly-dice-game	0	GPL-3.0-only	0	fdroid	(SECUSO) Dice Game displays five dice that can be rolled by a button.
 Dice-Overflow	https://github.com/VelbazhdSoftwareLLC/DiceOverflow	0	GPL-3.0-only	0	fdroid	Simple board game
-Dicer-Privacy-Friendly	https://github.com/SecUSo/privacy-friendly-dicer	0	GPL-3.0-only	0	fdroid	Roll dices
 DragTree	https://github.com/flyboy-byte/drag-tree	0	MIT	0	fdroid	NHRA Pro Tree reaction game — sensor launch, 2 Player, fully offline
 DropCount	https://github.com/jdanders/dropcount	0	GPL-3.0-only	0	fdroid	A recreation of the classic Drop7 puzzle game for Android
 DSA-Assistent	https://github.com/phrogg/DSAAssistant	0	GPL-3.0-only	0	fdroid	Ein Helfer für das Schwarze Auge
@@ -110,18 +77,14 @@ Echo-Tiles---Play-Your-Music	https://github.com/sidhant947/EchoTiles	0	GPL-3.0-o
 Elpe-Efpe	https://github.com/m0ppers/ElpeEfpeAndroid	0	Unlicense	0	fdroid	Manage health and focuspoints of your Splittermond characters
 Endless-Sky	https://github.com/thewierdnut/endless-mobile	0	GPL-3.0-only	0	fdroid	Android port of endless-sky space trading game.
 EVIL-SPIN	https://github.com/Eve-146T/EVILSPIN/	0	GPL-2.0-only	0	fdroid	Evil Spin is a free, fun and open source App for spinning a wheel.
-Fabularium	https://github.com/davidar/fabularium	0	GPL-2.0-or-later	0	fdroid	Create and play interactive fiction
 Fate-Sheets	https://github.com/ScreamingHawk/fate-sheets	0	MIT	0	fdroid	Manage your Fate character sheets
 FilmFacts	https://github.com/jlynchsd/FilmFacts	0	Apache-2.0	0	fdroid	Fun trivia game for cinema enthusiasts
 Fish-Rings-Puzzle	https://github.com/VelbazhdSoftwareLLC/FishRingsForAndroid	0	GPL-3.0-only	0	fdroid	Fish Rings Puzzle game developed by Velbazhd Software LLC (c) 2005-2026
 Flang	https://codeberg.org/jannis/FlangAndroid	0	GPL-3.0-or-later	0	fdroid	A board game similar to chess
 Flip-a-coin	https://gitlab.com/ecos-logic/flip-a-coin	0	AGPL-3.0-only	0	fdroid	Game to help you to choose between two options!!.
-Flow-Connect-Dots-Puzzle	https://github.com/sidhant947/Flow	0	GPL-3.0-only	0	fdroid	Relax your brain with satisfying color line puzzles. Connect dots & clear boards
 Fruity-Game	https://codeberg.org/MarshReaper/FruityGame	0	AGPL-3.0-only	0	fdroid	Casual Fruit Combination Game
 Futoshiki	https://github.com/samgrande/Simple-Futoshiki	0	Apache-2.0	0	fdroid	A clean, modern Futoshiki logic puzzle game
-GameMaster-Dice	https://github.com/ge0rg/gamemasterdice	0	GPL-2.0-only	0	fdroid	Dice Generator
 Geoperion	https://github.com/vulnerabbity/Geoperion	0	GPL-3.0-or-later	0	fdroid	Geological games built using web
-Godot-Dice-Roller	https://github.com/vokimon/godot-dice-roller	0	AGPL-3.0-or-later	0	fdroid	A Godot UI control that rolls 3D dices in a box.
 Grabagram	https://github.com/bpeel/verda-sxtelo	0	GPL-3.0-or-later	0	fdroid	A fast-paced game of anagrams to play online with friends
 Gravity-Force	https://github.com/MetatransApps/Android_APK_2DGravity	0	GPL-2.0-only	0	fdroid	Demonstrates Gravity in Space. Play with Asteroids Orbits. Physics.
 Guandan	https://codeberg.org/lanticy/guandan	0	GPL-3.0-or-later	0	fdroid	Guandan card game for four players over local Wi-Fi. No server, no account.
@@ -131,13 +94,10 @@ Hoop-Draw	https://codeberg.org/MysticJungle/hoop-draw	0	CC0-1.0	0	fdroid	Draw li
 Hue-Spill	https://github.com/sidhant947/HueSpill	0	GPL-3.0-only	0	fdroid	Fill the entire board with a single color.
 Hungarian-Rings-for-Android	https://github.com/VelbazhdSoftwareLLC/HungarianRingsForAndroid	0	GPL-3.0-only	0	fdroid	Puzzle game
 HyleX-Entropy-Hyle-7	https://github.com/jenspfahl/hylex	0	GPL-3.0-or-later	0	fdroid	Chaos against Order: An Entropy / Hyle 7 like board game
-Iam-Pirate-Dice	https://github.com/raydac/AndroidPirateDice	0	Apache-2.0	0	fdroid	Virtual dice for Pirates boardgame
 idTech4A	https://github.com/glKarin/com.n0n3m4.diii4a	0	GPL-3.0-only	0	fdroid	DOOM III/Quake 4/Prey(2006)/DOOM3 BFG/Other idTech/open-source game runtime envi
 INSTEAD	https://github.com/btimofeev/instead-launcher-android/	0	MIT	0	fdroid	Interactive fiction games
-Its-Dicey	https://github.com/EmmanuelMess/ItsDicey	0	GPL-3.0-only	0	fdroid	Randomly select between friends.
 Janken-Rock-Paper-Scissors	https://github.com/attenomy/janken	0	GPL-3.0-only	0	fdroid	Modern offline Rock Paper Scissors with private Pass & Play, Bot AI and RPSLS.
 Jigsaw	https://gitlab.com/derjosef/jigsaw	0	GPL-3.0-or-later	0	fdroid	A Jigsaw Puzzle Game
-JSettlers	https://github.com/paulwedeck/settlers-remake	0	MIT	0	fdroid	Remake of "The Settlers 3"
 JustChess	https://gitlab.com/alaskalinuxuser/app_JustChess	0	Apache-2.0	0	fdroid	Chess for one or two players
 Juvavum	https://github.com/martinschneider/juvavum-android	0	GPL-2.0-only	0	fdroid	Domino Juvavum and Cram are board games which can be played against the computer
 Katawa-Shoujo-Re-Engineered	https://codeberg.org/fhs/katawa-shoujo-re-engineered	0	MPL-2.0	0	fdroid	(18+) A fan-made modernization of the classic visual novel
@@ -154,7 +114,7 @@ Life-Counter	https://codeberg.org/skynet2982/life-counter	0	GPL-3.0-only	0	fdroi
 LifeCounter	https://github.com/MarcelJurtz/LifeCounter	0	MIT	0	fdroid	Lifecounter for Magic The Gathering
 Liquid-Wars-OS	https://github.com/xenris/liquid-wars-android	0	GPL-3.0-or-later	0	fdroid	Liquid War game remake
 Ludo	https://github.com/sidhant947/Ludo	0	GPL-3.0-only	0	fdroid	Multiplayer Board Game
-MA-Alchemist	https://github.com/vayun-mathur/Modern-Apps	0	GPL-3.0-only	0	fdroid	Start with the four basic elements and create anything!
+MA-Pipes	https://github.com/vayun-mathur/Modern-Apps	0	GPL-3.0-only	0	fdroid	A numberlink-style game
 MasterMindy	https://github.com/Matteljay/mastermindy-android	0	MIT	0	fdroid	The customizable Mastermind clone
 Minos	https://gitlab.com/tcrass/minos	0	GPL-3.0-or-later	0	fdroid	A simple maze game
 Minute-Maze	https://gitlab.com/ygingras/minute-maze/	0	GPL-3.0-only	0	fdroid	Solve as many mazes as possible before the time runs out.
@@ -179,9 +139,6 @@ Pipes-Water-Flow-Puzzle	https://github.com/sidhant947/Pipes	0	GPL-3.0-only	0	fdr
 Pocket-Broomball	https://codeberg.org/dulvui/pocket-broomball/	0	AGPL-3.0-or-later	0	fdroid	The world's first Broomball video game with 100+ real world teams!
 Puzzle-Press	https://gitlab.com/Munzzyy/puzzlepress	0	GPL-3.0-or-later	0	fdroid	Seven daily word and logic puzzles. Offline, no ads, no account.
 QR-Jukebox	https://github.com/lexygo/QRJukebox	0	MIT	0	fdroid	Offline audio player for QR-linked music. Ideal for music trivia board games.
-Randomix---Decision-Maker	https://github.com/m-i-n-a-r/randomix	0	MIT	0	fdroid	An app to randomly choose between numbers, answers, options. 🃏
-Randomly-Die	https://github.com/timtoo/randomlydie	0	GPL-3.0-or-later	0	fdroid	Random number generator with fast UI, dice, hex, binary and secrets
-RE-INSTEAD	https://github.com/instead-hub/reinstead-android	0	MIT	0	fdroid	Interactive fiction games
 RealmScore	https://github.com/BastianSetter/realmscore	0	GPL-3.0-or-later	0	fdroid	Score keeper for the Fantasy Realms card game
 Retro-Stack	https://codeberg.org/cosmin/retro-stack-gdx	0	GPL-3.0-or-later	0	fdroid	Build a tower with a moving set of bricks
 Same	https://gitlab.com/Smo876/Same	0	Apache-2.0	0	fdroid	Two colors, nine fields. Make them all the same.
@@ -202,7 +159,6 @@ Tents	https://github.com/sidhant947/Tents	0	GPL-3.0-only	0	fdroid	A logic puzzle
 TerraTactician-Expandoria	https://codeberg.org/terratactician_expandoria/game/	0	AGPL-3.0-or-later	0	fdroid	Hexagon based logic game
 The-Hat	https://github.com/sashkent3/beret	0	MIT	0	fdroid	An app to play the Hat game (aka Alias) in Russian
 The-Squirrel-s-Maze-2D	https://github.com/MetatransApps/Android_APK_2DMaze/	0	GPL-2.0-only	0	fdroid	Help the Squirrel. Different maze each time. Many levels.
-The-Universe-Decides	https://github.com/hugoalves-dev/the_universe_decides	0	MIT	0	fdroid	Can't decide? Let the universe choose.
 TicTacToe-Game	https://github.com/EmmanuelMess/TicTacToeGame	0	GPL-3.0-only	0	fdroid	Very simple tic tac toe game
 Tile-Match	https://gitlab.com/infrared-developer/tile-match	0	GPL-3.0-or-later	0	fdroid	Match, tap, and clear your way to victory!
 Treasure-Hunt	https://codeberg.org/neonbranch/treasurehunt	0	Apache-2.0	0	fdroid	Be active, go treasure hunting!
@@ -212,70 +168,14 @@ Trollslate	https://github.com/SCOTT-HAMILTON/Trollslate	0	MIT	0	fdroid	Trolling 
 Tubester	https://codeberg.org/pako/tubester	0	GPL-3.0-or-later	0	fdroid	Scan Hitster cards and play their songs on YouTube
 Tutto-Counter	https://gitlab.com/gJsas/tutto-counter	0	GPL-3.0-or-later	0	fdroid	A simple score counter for the dice game "Tutto".
 unjumble	https://github.com/wbpxre150/unjumble	0	MIT	0	fdroid	an anagram game with picture hints
-Valentin-s-PowerTools-005---Roll-Some-Di	https://github.com/v4lpt/RSD	0	GPL-3.0-only	0	fdroid	Minimalistic Android app for rolling 2 dice.
 Virus-Attack	https://gitlab.com/anstue/virus-attack	0	AGPL-3.0-or-later	0	fdroid	Defend a body cell against viruses
-Vitosha-Decision-Maker	https://github.com/VelbazhdSoftwareLLC/VitoshaDM	0	GPL-3.0-only	0	fdroid	Vitosha Decision Maker is really simple decision maker toy developed by Velbazhd
 Warsmash	https://github.com/sandstranger/WarsmashModEngine	0	AGPL-3.0-only	0	fdroid	Warsmash Android port
 Waste-Works	https://codeberg.org/mathewmolt/WasteWorks	0	GPL-3.0-or-later	0	fdroid	A casual recycling clicker: take trash apart, find valuables, equip your worker
 Who-Here	https://gitlab.com/josef.hoppe/who-here/	0	GPL-2.0-or-later	0	fdroid	See how well you know your friends by answering questions together.
 Yucata-Envoy	https://github.com/ka-ba/yucata.envoy	0	AGPL-3.0-only	0	fdroid	Display how many games on Yucata are waiting for user to make a move
-seishingakuen_shougibu	https://github.com/hiroshiyui/SeiShinGakuen_ShougiBu	0	GPL-3.0-or-later	0	fdroid	Offline Shogi with an AlphaZero-style AI and eight opponents.
-random-name-android	https://github.com/qux-bbb/random-name-android	0	GPL-3.0-or-later	0	fdroid	随机中文姓名生成器
-thrive	https://github.com/Revolutionary-Games/Thrive	3850	NOASSERTION	206275	github	The main repository for the development of the evolution game Thrive. 
-funkin	https://github.com/FunkinCrew/Funkin	3833	NOASSERTION	827504	github	A rhythm game made with HaxeFlixel
-facepunch.steamworks	https://github.com/Facepunch/Facepunch.Steamworks	3789	MIT	67983	github	Another fucking c# Steamworks implementation
-bytelegend	https://github.com/ByteLegend/ByteLegend	3681	AGPL-3.0	71743	github	Enjoy programming while playing a game.
-alphazero_gomoku	https://github.com/junxiaosong/AlphaZero_Gomoku	3638	MIT	8266	github	An implementation of the AlphaZero algorithm for Gomoku (also called Gobang or Five in a Row) 
-julius	https://github.com/bvschaik/julius	3447	AGPL-3.0	34978	github	An open source re-implementation of Caesar III
-gridgarden	https://github.com/thomaspark/gridgarden	3399	MIT	3133	github	A game for learning CSS grid layout 🥕
-playtranslate	https://github.com/dominostars/playtranslate	1357	GPL-3.0	84521	github	Real-time translation and language learning Android app for games, visual novels, manga, and any other screen text. 屏幕翻译
-sandspiel	https://github.com/MaxBittker/sandspiel	3221	MIT	21506	github	Creative cellular automata browser game 
-osgameclones	https://github.com/opengaming/osgameclones	3168	NOASSERTION	10854	github	Open Source Clones of Popular Games
-optick	https://github.com/bombomby/optick	3162	MIT	81816	github	C++ Profiler For Games
-oh-my-git	https://github.com/git-learning-game/oh-my-git	2910	NOASSERTION	51640	github	An interactive Git learning game!
-fxglgames	https://github.com/AlmasB/FXGLGames	892	MIT	181439	github	This repo contains sample games built with FXGL
-gamedevmind	https://github.com/gonglei007/GameDevMind	6672	MIT	1915929	github	最全面的游戏开发技术图谱(Game Development Map)。帮助游戏开发者们在已知问题上节省时间，省出更多的精力投入到更有创造性的工作中去。
-cloud-game	https://github.com/giongto35/cloud-game	2484	Apache-2.0	214395	github	Web-based Cloud Gaming service for Retro Game
-chocolate-doom	https://github.com/chocolate-doom/chocolate-doom	2454	GPL-2.0	18441	github	Chocolate Doom is a Doom source port that is minimalist and historically accurate.
-wolf	https://github.com/games-on-whales/wolf	2281	MIT	31965	github	Stream virtual desktops and games running in Docker
-imgui.net	https://github.com/ImGuiNET/ImGui.NET	2281	MIT	71835	github	An ImGui wrapper for .NET.
-stronghold-protocol	https://github.com/sganggs/Stronghold-Protocol	1875	GPL-3.0	57823	github	明日方舟「卫戍协议：盟约」非官方同人复刻：浏览器自走棋塔防，单人或 1–4 人联机合作（非商业）
-dosbox-staging	https://github.com/dosbox-staging/dosbox-staging	1837	NOASSERTION	77777	github	DOSBox Staging is a modern continuation of DOSBox with advanced features and current development practices.
-nettygameserver	https://github.com/jwpttcg66/NettyGameServer	1671	GPL-3.0	3508	github	使用netty4.X实现的手机游戏分布式服务器,支持tcp,udp,http,websocket链接，采用protobuf自定义协议栈进行网络通信,支持rpc远程调用,使用mybatis3支持db存储分库分表，支持异步mysql存储，db保
-tower_game	https://github.com/iamkun/tower_game	1619	MIT	1880	github	💒 HTML5 Canvas Tower Building Game 🏢🏬🏦🏯🏰
-minetest_game	https://github.com/luanti-org/minetest_game	1575	NOASSERTION	10150	github	Minetest Game -  A lightweight and well-maintained base for Luanti, intended for modding
-aitrack	https://github.com/AIRLegend/aitrack	1499	MIT	110209	github	6DoF Head tracking software
-a-little-game-called-mario	https://github.com/a-little-org-called-mario/a-little-game-called-mario	1457	NOASSERTION	89055	github	open source collective hell game
-weixin-game-helper	https://github.com/zhuweiyou/weixin-game-helper	1398	GPL-3.0	7240	github	微信小游戏辅助合集（加减大师、包你懂我、大家来找茬腾讯版、头脑王者、好友画我、悦动音符、我最在行、星途WeGoing、猜画小歌、知乎答题王、腾讯中国象棋、跳一跳、题多多黄金版）
-emupedia.github.io	https://github.com/Emupedia/emupedia.github.io	1351	NOASSERTION	483082	github	The purpose of Emupedia is to serve as a nonprofit meta-resource, hub and community for those interested mainly in video
-retrodeck	https://github.com/RetroDECK/RetroDECK	1314	GPL-3.0	546540	github	RetroDECK is a powerful all-in-one retro gaming platform designed for handheld gaming PCs like the Steam Deck, full Linu
-nyrna	https://github.com/Merrit/nyrna	1300	GPL-3.0	3588	github	Suspend games and applications.
-riptide	https://github.com/RiptideNetworking/Riptide	1296	MIT	8424	github	Lightweight C# networking solution for multiplayer games.
-openmu	https://github.com/MUnique/OpenMU	1282	MIT	109298	github	This project aims to create an easy to use, extendable and customizable server for a MMORPG called "MU Online".
-pretendyourexyzzy	https://github.com/ajanata/PretendYoureXyzzy	1280	BSD-2-Clause	12543	github	A web clone of the card game Cards Against Humanity.
-crossover	https://github.com/lacymorrow/crossover	1269	NOASSERTION	56675	github	🎯 A Crosshair Overlay for any screen. 
-bedrockonlinux	https://github.com/Wyze3306/BedrockOnLinux	1189	NOASSERTION	3674	github	Run Minecraft Bedrock for Windows seamlessly on Linux.
-openfootmanager	https://github.com/openfootmanager/openfootmanager	1185	GPL-3.0	32033	github	An open source soccer/football manager game
-conty	https://github.com/Kron4ek/Conty	1130	MIT	563	github	Easy to use unprivileged Linux container packed into a single portable executable
-opensourcegames	https://github.com/Trilarion/opensourcegames	1114	CC0-1.0	28859	github	Technical infos of open source games.
-cdogs-sdl	https://github.com/cxong/cdogs-sdl	1109	GPL-2.0	158330	github	Classic overhead run-and-gun game
-greenresourcesmanager	https://github.com/klsdf/GreenResourcesManager	1079	NOASSERTION	316762	github	一个管理电脑内资源，并提供游戏化的综合管理器
-pal3.unity	https://github.com/0x7c13/Pal3.Unity	1059	GPL-3.0	106997	github	The Legend of Sword and Fairy 3 (仙剑奇侠传三) & The Legend of Sword and Fairy 3 Gaiden: Wenqing Pian (仙剑奇侠传三外传：问情篇) re-implem
-wiki	https://github.com/privateersclub/wiki	1049	Unlicense	2262	github	🌊 The most comprehensive game piracy wiki on the internet.
-dotnet-console-games	https://github.com/dotnet/dotnet-console-games	1032	MIT	130485	github	Game examples implemented as .NET console applications primarily for providing education and inspiration. :)
-pikiss	https://github.com/jmcerrejon/PiKISS	1012	MIT	3209	github	PiKISS for Raspberry Pi: A bunch of scripts with menu to make your life easier.
-d912pxy	https://github.com/megai2/d912pxy	997	NOASSERTION	105474	github	DirectX9 to DirectX12 API proxy for Guild Wars 2
-notan	https://github.com/Nazariglez/notan	973	Apache-2.0	27978	github	Cross-platform multimedia layer 
-quadplay	https://github.com/factory797/quadplay	969	NOASSERTION	106673	github	The quadplay✜ fantasy console
-squib	https://github.com/andymeneely/squib	957	MIT	20639	github	A Ruby DSL for prototyping card games.
-glas	https://github.com/lume/glas	946	MIT	2130	github	WebGL in WebAssembly with AssemblyScript
-systemshock	https://github.com/Interrupt/systemshock	912	GPL-3.0	27297	github	Shockolate - A minimalist and cross platform System Shock source port.
-raylib-games	https://github.com/raysan5/raylib-games	852	Zlib	148195	github	A collection of small sample games made with raylib
-reshade-steam-proton	https://github.com/kevinlekiller/reshade-steam-proton	809	GPL-2.0	222	github	Easy setup and updating of ReShade on Linux for games using wine or proton.
-space-station-14	https://github.com/space-wizards/space-station-14	3900	MIT	1009352	github	A multiplayer game about paranoia and chaos on a space station. Remake of the cult-classic Space Station 13.
-interstellar	https://github.com/UseInterstellar/Interstellar	2199	AGPL-3.0	1029792	github	Interstellar is a web proxy service offering blazing-fast speeds, a wide variety of games, and has served over 17 millio
+games	https://github.com/channingbreeze/games	2336	MIT	133008	github	一个基于Phaser的小游戏集合
+minetest_game	https://github.com/luanti-org/minetest_game	1576	NOASSERTION	10150	github	Minetest Game -  A lightweight and well-maintained base for Luanti, intended for modding
 open-project-1	https://github.com/UnityTechnologies/open-project-1	6111	Apache-2.0	4876097	github	Unity Open Project #1: Chop Chop
-antimicrox	https://github.com/AntiMicroX/antimicrox	4072	GPL-3.0	33825	github	Graphical program used to map keyboard buttons and mouse controls to a gamepad. Useful for playing games with no gamepad
 12345---Learn-Counting	https://gitlab.com/niccokunzmann/12345	0	AGPL-3.0-or-later	0	fdroid	Learn counting in different languages with pictures
 9P	https://github.com/tube42/9p	0	GPL-2.0-only	0	fdroid	Word puzzle game
 Africa-Quiz	https://codeberg.org/Mufradat/africa-quiz	0	MIT	0	fdroid	Quiz game testing your knowledge of African capital cities
@@ -317,7 +217,6 @@ Kakuro	https://github.com/sidhant947/Kakuro	0	GPL-3.0-only	0	fdroid	Solve Kakuro
 Klock	https://codeberg.org/rootminusone8004/Klock	0	GPL-3.0-or-later	0	fdroid	A simple chess based clock application
 L5RCM-Companion	https://github.com/OpenNingia/l5rcm-player-app	0	GPL-3.0-only	0	fdroid	Play-at-the-table sheet viewer for L5R 4E characters
 Lantern-Sudoku	https://github.com/ukpratik/lantern-sudoku	0	GPL-3.0-or-later	0	fdroid	Calm, readable sudoku with hints that teach. No ads, no game over, offline.
-io.github.bommbomm34.latindefense	https://github.com/bommbomm34/latindefense	0	MIT	0	fdroid	Expand your own Roman Empire!
 Learn-Math	https://github.com/sidhant947/LearnMath	0	GPL-3.0-only	0	fdroid	A modern, fast, and tactile mental math training game
 LetterBox	https://gitlab.com/muelli/letterbox	0	GPL-3.0-only	0	fdroid	Learn letters with animal pictures: a simple, offline game for young children
 LibreSudoku	https://github.com/kaajjo/LibreSudoku	0	GPL-3.0-only	0	fdroid	Sudoku app for Android
@@ -352,7 +251,6 @@ Schule	https://github.com/ailin-nemui/Primary	0	GPL-3.0-or-later	0	fdroid	simple
 ScoreHub---Game-Score-Tracker	https://github.com/trivialloop/scorehub	0	GPL-3.0-only	0	fdroid	Track your board game scores easily
 Screeps	https://github.com/keeshii/screeps-client	0	MIT	0	fdroid	Web based client for Screeps
 Simple-Chess-Clock	https://github.com/simenheg/simple-chess-clock	0	GPL-3.0-only	0	fdroid	Two touchable chess timers
-Simple-Solitaire-Collection	https://github.com/TobiasBielefeld/Simple-Solitaire	0	GPL-3.0-or-later	0	fdroid	Solitaire game collection with 17 games
 SkinBread	https://github.com/zatrit/skinview	0	Apache-2.0	0	fdroid	Lightweight application for viewing Minecraft skins from different services.
 Solitaire-Privacy-Friendly	https://github.com/SecUSo/privacy-friendly-solitaire	0	GPL-3.0-or-later	0	fdroid	(SECUSO) Privacy Friendly Solitiare is a Klondike Solitaire Game. 
 Sopa-de-Letras	https://github.com/SyscallBrain/SopaDeLetras	0	MIT	0	fdroid	Offline word search with a 300-level campaign, daily challenge and time attack
@@ -371,7 +269,6 @@ TableChips	https://github.com/tablechips/tablechips	0	GPL-3.0-only	0	fdroid	Chip
 Titan-Companion	https://github.com/joaomneto/TitanCompanion	0	LGPL-3.0-only	0	fdroid	Stat sheet and rules engine for all Fighting Fantasy gamebooks
 ToberQuizz	https://github.com/Tobertet/ToberQuizz	0	GPL-3.0-only	0	fdroid	Challenges that will put your imagination in check.
 Tri-PeaksSolitaire-for-Android	https://github.com/VelbazhdSoftwareLLC/TriPeaksSolitaireForAndroid	0	GPL-3.0-only	0	fdroid	TriPeaks Solitaire for Android is a card game.
-TriPeaks	https://github.com/mimoguz/tripeaks-gdx	0	GPL-3.0-only	0	fdroid	A tri peaks solitaire game.
 Tux-Math	https://gitlab.com/Afrikalan/tuxmath-android	0	AGPL-3.0-only	0	fdroid	
 Twist-Cubee	https://github.com/zk-haunt/Twist-cubee	0	MIT	0	fdroid	Offline 3D cube puzzle from 2×2 to 20×20 with timer, solver and hints
 UniPatcher	https://github.com/btimofeev/UniPatcher	0	GPL-3.0-or-later	0	fdroid	Utility to apply patches to ROMs
@@ -381,10 +278,3 @@ Word-Tracer	https://github.com/plhosk/wordtracer	0	MIT	0	fdroid	A crossword-like
 Wortm-hle	https://github.com/bhuepping/wortmuehle	0	GPL-3.0-only	0	fdroid	Daily German word puzzle — 9 or 8 letters, one pangram, fully offline
 YiGame-Tabletop-Companion	https://github.com/WingSword/YiGameCopilotX	0	Apache-2.0	0	fdroid	Party game guides, private role cards, random tools and virtual scorekeeping
 Zahlenschatzjagd	https://github.com/GlasiDe/zahlenschatzjagd	0	GPL-3.0-or-later	0	fdroid	Maths practice for school years 1 and 2 – offline, ad-free, in German
-rlcard	https://github.com/datamllab/rlcard	3590	MIT	8621	github	Reinforcement Learning / AI Bots in Card (Poker) Games - Blackjack, Leduc, Texas, DouDizhu, Mahjong, UNO.
-steamtinkerlaunch	https://github.com/sonic2kk/steamtinkerlaunch	2863	GPL-3.0	6636	github	Linux wrapper tool for use with the Steam client for custom launch options and 3rd party programs
-textractor	https://github.com/Artikash/Textractor	2719	GPL-3.0	19703	github	Extracts text from video games and visual novels. Highly extensible.
-amogos	https://github.com/Amog-OS/AmogOS	1822	NOASSERTION	7756	github	ඞ Among-us themed OS.
-k8sgames	https://github.com/rohitg00/k8sgames	1466	Apache-2.0	1433	github	Learn Kubernetes by playing. Deploy pods, fix CrashLoopBackOff, type real kubectl commands: 3D browser game, no install 
-minigalaxy	https://github.com/sharkwouter/minigalaxy	1334	GPL-3.0	12205	github	A simple GOG client for Linux
-cataclysm-bn	https://github.com/cataclysmbn/Cataclysm-BN	1305	NOASSERTION	7374213	github	Cataclysm: Bright Nights: A fork/variant of Cataclysm:DDA by CleverRaven with a mod registry at https://mods.cataclysmbn
