@@ -15,3 +15,5 @@ warriorjs  # build produced no index.html
 tower_game  # playtest: 1 js error(s): NotAllowedError: play() failed because the user didn't interact with the document first. https://goo.gl.q
 crossover  # build rc=1
 openfootmanager  # build rc=127
+glas  # build produced no index.html
+sandspiel  # build rc=1

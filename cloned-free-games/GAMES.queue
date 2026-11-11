@@ -1,5 +1,5 @@
 # name	url	stars	license	est_size_kb	source	summary
-azerothcore-wotlk	https://github.com/azerothcore/azerothcore-wotlk	9167	GPL-2.0	1371334	github	Complete Open Source and Modular solution for MMO
+azerothcore-wotlk	https://github.com/azerothcore/azerothcore-wotlk	9172	GPL-2.0	1371301	github	Complete Open Source and Modular solution for MMO
 Cat-a-shooter	https://codeberg.org/xolatgames/cat-a-shooter	0	Apache-2.0	0	fdroid	Fly in the space by the cat 😼, and shoots off from enemies 🛸
 Dima-Defense	https://codeberg.org/xolatgames/Dima-Defense	0	Apache-2.0	0	fdroid	A simple Tower Defense game that was made in LibGDX
 FinalRozGameNew	https://codeberg.org/rozworld/final-roz-game-new	0	MIT	0	fdroid	A pixel art 2D speedrun platformer featuring 17 levels and isometric mechanics.
@@ -17,7 +17,7 @@ sauerbraten	https://github.com/assaultcube/sauerbraten.git	0	see-upstream	0	cura
 freedoom	https://github.com/freedoom/freedoom.git	0	see-upstream	0	curated	curated open-source classic
 speed-dreams	https://github.com/speed-dreams/speed-dreams-code.git	0	see-upstream	0	curated	curated open-source classic
 bar	https://github.com/beyond-all-reason/Beyond-All-Reason.git	0	see-upstream	0	curated	curated open-source classic
-shapez.io	https://github.com/tobspr-games/shapez.io	7003	GPL-3.0	661378	github	shapez is an open source base building game on Steam inspired by factorio!
+shapez.io	https://github.com/tobspr-games/shapez.io	7005	GPL-3.0	661378	github	shapez is an open source base building game on Steam inspired by factorio!
 1010-Klooni	https://codeberg.org/Lonami/Klooni1010	0	GPL-3.0-or-later	0	fdroid	A libGDX game based on 1010
 1toX	https://gitlab.com/og8org/1tox	0	MIT	0	fdroid	Remember numbers quick to train your brain
 2-Player-Battle	https://github.com/HassanHeydariNasab/2-player-battle	0	GPL-3.0-or-later	0	fdroid	Destroy enemy base
@@ -43,7 +43,6 @@ Binary-Puzzle	https://github.com/sidhant947/BinaryPuzzle	0	GPL-3.0-only	0	fdroid
 Blidraughts	https://github.com/vovagorodok/blidraughts/	0	GPL-3.0-or-later	0	fdroid	Play draughts games over Bluetooth
 Block-Night	https://github.com/SyscallBrain/block-night	0	MIT	0	fdroid	Offline falling blocks: 600 certified floors, daily challenge, Marathon and Zen
 Block-Buster	https://github.com/asafonov/blockbuster.apk	0	MIT	0	fdroid	Simple HTML5 arkanoid-type game
-BlocksTV	https://github.com/22pumba22/BlocksTV	0	MIT	0	fdroid	Neon falling-block puzzle for Android TV, remotes and gamepads
 Boardgame-Pal	https://gitlab.com/schwarz-labs/boardgame-pal	0	Apache-2.0	0	fdroid	Dice, score counter, starting-player draw & more – 100% free and ad-free!
 Boop	https://gitlab.com/DerpBiscuit/boop	0	Apache-2.0	0	fdroid	Pop a nearby person’s bubble. A tiny Boop over Bluetooth, with no Internet
 com.rocket9labs.boxcars	https://codeberg.org/tslocum/boxcars-android	0	AGPL-3.0-or-later	0	fdroid	Play backgammon online via bgammon.org
@@ -114,7 +113,6 @@ Life-Counter	https://codeberg.org/skynet2982/life-counter	0	GPL-3.0-only	0	fdroi
 LifeCounter	https://github.com/MarcelJurtz/LifeCounter	0	MIT	0	fdroid	Lifecounter for Magic The Gathering
 Liquid-Wars-OS	https://github.com/xenris/liquid-wars-android	0	GPL-3.0-or-later	0	fdroid	Liquid War game remake
 Ludo	https://github.com/sidhant947/Ludo	0	GPL-3.0-only	0	fdroid	Multiplayer Board Game
-MA-Pipes	https://github.com/vayun-mathur/Modern-Apps	0	GPL-3.0-only	0	fdroid	A numberlink-style game
 MasterMindy	https://github.com/Matteljay/mastermindy-android	0	MIT	0	fdroid	The customizable Mastermind clone
 Minos	https://gitlab.com/tcrass/minos	0	GPL-3.0-or-later	0	fdroid	A simple maze game
 Minute-Maze	https://gitlab.com/ygingras/minute-maze/	0	GPL-3.0-only	0	fdroid	Solve as many mazes as possible before the time runs out.
@@ -173,9 +171,10 @@ Warsmash	https://github.com/sandstranger/WarsmashModEngine	0	AGPL-3.0-only	0	fdr
 Waste-Works	https://codeberg.org/mathewmolt/WasteWorks	0	GPL-3.0-or-later	0	fdroid	A casual recycling clicker: take trash apart, find valuables, equip your worker
 Who-Here	https://gitlab.com/josef.hoppe/who-here/	0	GPL-2.0-or-later	0	fdroid	See how well you know your friends by answering questions together.
 Yucata-Envoy	https://github.com/ka-ba/yucata.envoy	0	AGPL-3.0-only	0	fdroid	Display how many games on Yucata are waiting for user to make a move
-games	https://github.com/channingbreeze/games	2336	MIT	133008	github	一个基于Phaser的小游戏集合
-minetest_game	https://github.com/luanti-org/minetest_game	1576	NOASSERTION	10150	github	Minetest Game -  A lightweight and well-maintained base for Luanti, intended for modding
-open-project-1	https://github.com/UnityTechnologies/open-project-1	6111	Apache-2.0	4876097	github	Unity Open Project #1: Chop Chop
+games	https://github.com/channingbreeze/games	2337	MIT	133008	github	一个基于Phaser的小游戏集合
+minetest_game	https://github.com/luanti-org/minetest_game	1577	NOASSERTION	10150	github	Minetest Game -  A lightweight and well-maintained base for Luanti, intended for modding
+gamezone	https://github.com/kunjgit/GameZone	800	Apache-2.0	1908823	github	This open source repository contains collection of games build on basic tech stacks in web development  . Use your creat
+open-project-1	https://github.com/UnityTechnologies/open-project-1	6113	Apache-2.0	4876097	github	Unity Open Project #1: Chop Chop
 12345---Learn-Counting	https://gitlab.com/niccokunzmann/12345	0	AGPL-3.0-or-later	0	fdroid	Learn counting in different languages with pictures
 9P	https://github.com/tube42/9p	0	GPL-2.0-only	0	fdroid	Word puzzle game
 Africa-Quiz	https://codeberg.org/Mufradat/africa-quiz	0	MIT	0	fdroid	Quiz game testing your knowledge of African capital cities
