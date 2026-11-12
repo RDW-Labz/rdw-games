@@ -1,5 +1,5 @@
 # name	url	stars	license	est_size_kb	source	summary
-azerothcore-wotlk	https://github.com/azerothcore/azerothcore-wotlk	9172	GPL-2.0	1371301	github	Complete Open Source and Modular solution for MMO
+azerothcore-wotlk	https://github.com/azerothcore/azerothcore-wotlk	9177	GPL-2.0	1371233	github	Complete Open Source and Modular solution for MMO
 Cat-a-shooter	https://codeberg.org/xolatgames/cat-a-shooter	0	Apache-2.0	0	fdroid	Fly in the space by the cat 😼, and shoots off from enemies 🛸
 Dima-Defense	https://codeberg.org/xolatgames/Dima-Defense	0	Apache-2.0	0	fdroid	A simple Tower Defense game that was made in LibGDX
 FinalRozGameNew	https://codeberg.org/rozworld/final-roz-game-new	0	MIT	0	fdroid	A pixel art 2D speedrun platformer featuring 17 levels and isometric mechanics.
@@ -17,7 +17,7 @@ sauerbraten	https://github.com/assaultcube/sauerbraten.git	0	see-upstream	0	cura
 freedoom	https://github.com/freedoom/freedoom.git	0	see-upstream	0	curated	curated open-source classic
 speed-dreams	https://github.com/speed-dreams/speed-dreams-code.git	0	see-upstream	0	curated	curated open-source classic
 bar	https://github.com/beyond-all-reason/Beyond-All-Reason.git	0	see-upstream	0	curated	curated open-source classic
-shapez.io	https://github.com/tobspr-games/shapez.io	7005	GPL-3.0	661378	github	shapez is an open source base building game on Steam inspired by factorio!
+shapez.io	https://github.com/tobspr-games/shapez.io	7006	GPL-3.0	661378	github	shapez is an open source base building game on Steam inspired by factorio!
 1010-Klooni	https://codeberg.org/Lonami/Klooni1010	0	GPL-3.0-or-later	0	fdroid	A libGDX game based on 1010
 1toX	https://gitlab.com/og8org/1tox	0	MIT	0	fdroid	Remember numbers quick to train your brain
 2-Player-Battle	https://github.com/HassanHeydariNasab/2-player-battle	0	GPL-3.0-or-later	0	fdroid	Destroy enemy base
@@ -173,7 +173,6 @@ Who-Here	https://gitlab.com/josef.hoppe/who-here/	0	GPL-2.0-or-later	0	fdroid	Se
 Yucata-Envoy	https://github.com/ka-ba/yucata.envoy	0	AGPL-3.0-only	0	fdroid	Display how many games on Yucata are waiting for user to make a move
 games	https://github.com/channingbreeze/games	2337	MIT	133008	github	一个基于Phaser的小游戏集合
 minetest_game	https://github.com/luanti-org/minetest_game	1577	NOASSERTION	10150	github	Minetest Game -  A lightweight and well-maintained base for Luanti, intended for modding
-gamezone	https://github.com/kunjgit/GameZone	800	Apache-2.0	1908823	github	This open source repository contains collection of games build on basic tech stacks in web development  . Use your creat
 open-project-1	https://github.com/UnityTechnologies/open-project-1	6113	Apache-2.0	4876097	github	Unity Open Project #1: Chop Chop
 12345---Learn-Counting	https://gitlab.com/niccokunzmann/12345	0	AGPL-3.0-or-later	0	fdroid	Learn counting in different languages with pictures
 9P	https://github.com/tube42/9p	0	GPL-2.0-only	0	fdroid	Word puzzle game
@@ -259,6 +258,7 @@ Sudaku---Pattern-driven-sudoku	https://codeberg.org/theoden8/sudaku	0	MIT	0	fdro
 Sudoku	https://github.com/likhithpraveenk/sudoku	0	GPL-3.0-or-later	0	fdroid	A clean Sudoku app with logic-based difficulty and helpful assists
 Sudoku-Privacy-Friendly	https://github.com/SecUSo/privacy-friendly-sudoku	0	GPL-3.0-only	0	fdroid	(SECUSO) Privacy Friendly Sudoku without permissions or advertising
 Sudoku-You	https://github.com/Galaxy-rio/SudokuYou	0	GPL-3.0-or-later	0	fdroid	Offline Sudoku with logical hints, advanced notes and flexible import/export
+Sudoku-Hand-drawn-Puzzle	https://github.com/zakharenka/sudoku-android	0	GPL-3.0-or-later	0	fdroid	Hand-drawn Sudoku with notes, hints, themes and offline play. No ads.
 SudoQ	https://github.com/timo-a/SudoQ	0	GPL-3.0-or-later	0	fdroid	Play many sudoku types, with many assistances, all offline.
 SUD-KU	https://github.com/TheSunCat/Sudoku	0	GPL-3.0-only	0	fdroid	A sleek and customizable Sudoku game
 SuperSMP-Companion	https://github.com/FreetimeMaker/SuperSMP-Companion-App	0	Apache-2.0	0	fdroid	Vote, shop & explore SuperSMP anywhere! Companion app for server features
