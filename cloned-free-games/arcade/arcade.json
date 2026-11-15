@@ -1,11 +1,14 @@
 {
-  "generated": "2026-11-08",
+  "generated": "2026-11-14",
   "note": "First-party three.js ports built on site/games/arcade/kit.js. Files ship from the site repo; this manifest only tells the catalog they exist.",
   "games": [
     {
       "slug": "sokoban",
       "name": "Sokoban",
-      "match": ["sokoban", "sokobang"],
+      "match": [
+        "sokoban",
+        "sokobang"
+      ],
       "entry": "/games/arcade/sokoban.html",
       "blurb": "10 hand-checked crate levels, 3D blocks, undo and push counter.",
       "tier": "first-party"
@@ -13,9 +16,75 @@
     {
       "slug": "2048",
       "name": "2048",
-      "match": ["2048"],
+      "match": [
+        "2048"
+      ],
       "entry": "/games/arcade/2048.html",
       "blurb": "The classic, rebuilt in three.js with animated tiles and undo.",
+      "tier": "first-party"
+    },
+    {
+      "slug": "mines3d",
+      "name": "Mines3D",
+      "match": [
+        "mines3d",
+        "mines",
+        "minesweeper"
+      ],
+      "entry": "/games/arcade/mines3d.html",
+      "blurb": "The F-Droid 3D minesweeper, rebuilt as a three.js board: flood reveal, flags, safe first click.",
+      "tier": "first-party"
+    },
+    {
+      "slug": "brick-blast",
+      "name": "Brick Blast",
+      "match": [
+        "brick blast",
+        "brick-blast",
+        "brickblast"
+      ],
+      "entry": "/games/arcade/brick-blast.html",
+      "blurb": "The F-Droid brick breaker, rebuilt as a three.js court: 35 bricks, paddle bounce angles, waves.",
+      "tier": "first-party"
+    },
+    {
+      "slug": "lichess",
+      "name": "Lichess",
+      "match": [
+        "lichess",
+        "lichess mobile",
+        "org.lichess.mobilev2"
+      ],
+      "entry": "/games/arcade/lichess.html",
+      "blurb": "The Lichess board, rebuilt in three.js: click-or-tap chess against a built-in opponent, with check, mate, castling and undo.",
+      "tier": "first-party"
+    },
+    {
+      "slug": "checkers",
+      "name": "Checkers",
+      "match": [
+        "checkers",
+        "draughts",
+        "privacy friendly checkers",
+        "checkers privacy friendly"
+      ],
+      "entry": "/games/arcade/checkers.html",
+      "blurb": "The F-Droid checkers board, rebuilt in three.js: click-or-tap draughts against a built-in opponent, compulsory captures, chain jumps and three levels.",
+      "tier": "first-party"
+    },
+    {
+      "slug": "sudoku",
+      "name": "Sudoku",
+      "match": [
+        "sudoku",
+        "hand drawn sudoku",
+        "sudoku hand drawn",
+        "libresudoku",
+        "open sudoku",
+        "lantern sudoku"
+      ],
+      "entry": "/games/arcade/sudoku.html",
+      "blurb": "The F-Droid sudoku, rebuilt in three.js: click-or-tap boards in three levels, mistake counter, timer and win detection.",
       "tier": "first-party"
     }
   ]

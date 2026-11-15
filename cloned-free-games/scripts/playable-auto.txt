@@ -3,9 +3,5 @@
 Tessel-A-tile-game  # auto-built 2026-11-08
 ancientbeast  # auto-built 2026-11-08
 gridgarden
-bedrockonlinux
-gamedevmind
 k8sgames
-interstellar
-jak-project
 gamezone

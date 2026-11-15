@@ -38,14 +38,52 @@ rm -rf "$WORK"; mkdir -p "$WORK" || die "cannot create $WORK"
 #    from the .queue cache; a missing cache just means fewer play buttons, never a broken card.
 python3 "$SRC/scripts/collect-play-links.py" --src "$SRC" || echo "WARN: play links not resolved" >&2
 
-# 2. Render the catalog from the repo's own artifacts.
-python3 "$SRC/scripts/make-catalog-site.py" --src "$SRC" --out "$WORK/catalog" \
+# 2. Render the catalog from the repo's own artifacts. With LIBRARY=1 (default now) the
+#    rendered card catalog is only an AUDIT INPUT: it is the exact list of tiles the old
+#    page would have shown, so the audit judges the shipped card set rather than the repo.
+#    What gets published is the playable library face, built from the audit verdicts.
+LIBRARY=${LIBRARY:-1}
+CATSRC="$WORK/catalog-src"
+python3 "$SRC/scripts/make-catalog-site.py" --src "$SRC" --out "$CATSRC" \
   --icon-cache "$HOME/.cache/rdw-games-publish/icons" || die "catalog render failed"
-[ -s "$WORK/catalog/index.html" ] || die "catalog render produced no index.html"
-echo "CATALOG $(du -h "$WORK/catalog/index.html" | cut -f1) $(python3 -c "
+[ -s "$CATSRC/index.html" ] || die "catalog render produced no index.html"
+echo "CATALOG $(du -h "$CATSRC/index.html" | cut -f1) $(python3 -c "
 import json,sys
-d=json.load(open('$WORK/catalog/games.json'))
+d=json.load(open('$CATSRC/games.json'))
 print(f\"{d['total']} queued / {d['judged']} judged\")")"
+
+if [ -n "$LIBRARY" ]; then
+  python3 "$SRC/scripts/library-audit.py" --games-json "$CATSRC/games.json" || die "library audit failed"
+
+  # Tile art: real in-game screenshots, one per live tile. REFRESH_ART=1 re-captures them
+  # against a throwaway server that mirrors the deployed layout (/play/<slug>/ + /games/arcade/);
+  # otherwise the last capture in .queue/lib-art is reused (a stale shot is cosmetic, a
+  # missing shot falls back to the generated monogram plate, so neither blocks a deploy).
+  if [ -n "${REFRESH_ART:-}" ]; then
+    ARTROOT="$WORK/artroot"; rm -rf "$ARTROOT"; mkdir -p "$ARTROOT/games"
+    [ -d "$SRC/.site-play" ] && cp -R "$SRC/.site-play" "$ARTROOT/play"
+    mkdir -p "$ARTROOT/games/arcade"
+    for f in $(git -C "$SITE_REPO" ls-tree --name-only HEAD games/arcade/ 2>/dev/null); do
+      git -C "$SITE_REPO" show "HEAD:$f" > "$ARTROOT/games/arcade/$(basename "$f")"
+    done
+    python3 -c "
+import json,sys
+d=json.load(open('$SRC/.queue/library-audit.json'))
+json.dump([{'name':r['name'],'slug':r.get('slug') or r['name'],'url':r['launch']} for r in d['entries_live']],
+          open('$SRC/.queue/library-art-tiles.json','w'))"
+    ( cd "$ARTROOT" && python3 -m http.server 8791 --bind 127.0.0.1 >/dev/null 2>&1 & echo $! >"$WORK/art.pid" )
+    sleep 1
+    node "$SRC/scripts/lib-art.mjs" --base http://127.0.0.1:8791 --out "$SRC/.queue/lib-art" || echo "WARN: art capture incomplete" >&2
+    kill "$(cat "$WORK/art.pid")" 2>/dev/null || true
+  fi
+
+  python3 "$SRC/scripts/make-library.py" --audit "$SRC/.queue/library-audit.json" \
+    --art "$SRC/.queue/lib-art" --out "$WORK/catalog" || die "library face render failed"
+  [ -s "$WORK/catalog/index.html" ] || die "library face produced no index.html"
+  echo "LIBRARY $WORK/catalog"
+else
+  cp -R "$CATSRC/." "$WORK/catalog/" 2>/dev/null || { mkdir -p "$WORK/catalog"; cp -R "$CATSRC/." "$WORK/catalog/"; }
+fi
 
 # 2. Stage the shelf with the site repo's own deploy.sh, keeping the staging dir.
 #    deploy.sh deletes its temp dir in an EXIT trap, so run a copy with the trap
@@ -86,6 +124,13 @@ PY
   mkdir -p "$SHELF_STAGE/public/catalog"
   cp "$WORK/catalog/index.html" "$SHELF_STAGE/public/catalog/index.html"
   cp "$WORK/catalog/games.json" "$SHELF_STAGE/public/catalog/games.json"
+  # Tile art: real in-game screenshots captured by scripts/lib-art.mjs. Shipped as files
+  # (not data URIs) so the face stays small and the browser can cache each tile.
+  if [ -d "$WORK/catalog/art" ]; then
+    mkdir -p "$SHELF_STAGE/public/art"
+    cp -f "$WORK/catalog/art"/* "$SHELF_STAGE/public/art/" || die "tile art copy failed"
+    echo "ART $(ls "$SHELF_STAGE/public/art" | wc -l) tile screenshots"
+  fi
   echo "INJECT / <- $(ls "$WORK/catalog" | tr '\n' ' ') ; shelf moved to /$SHELF_PATH/ (+ /catalog/ alias)"
 fi
 

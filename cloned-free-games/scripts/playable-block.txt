@@ -17,3 +17,7 @@ crossover  # build rc=1
 openfootmanager  # build rc=127
 glas  # build produced no index.html
 sandspiel  # build rc=1
+interstellar  # harvest captured thesaurus.com, not a game (index.html title = thesaurus)
+jak-project  # harvest captured the fmtlib docs site ({fmt}), not the Jak Project game
+bedrockonlinux  # marketing/download page ("Download for Linux"), not a playable game
+gamedevmind  # interactive diagram/navigation page, not a game
