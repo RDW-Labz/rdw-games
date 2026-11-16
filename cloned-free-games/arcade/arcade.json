@@ -1,91 +1,256 @@
 {
-  "generated": "2026-11-14",
-  "note": "First-party three.js ports built on site/games/arcade/kit.js. Files ship from the site repo; this manifest only tells the catalog they exist.",
-  "games": [
-    {
-      "slug": "sokoban",
-      "name": "Sokoban",
-      "match": [
-        "sokoban",
-        "sokobang"
-      ],
-      "entry": "/games/arcade/sokoban.html",
-      "blurb": "10 hand-checked crate levels, 3D blocks, undo and push counter.",
-      "tier": "first-party"
-    },
-    {
-      "slug": "2048",
-      "name": "2048",
-      "match": [
-        "2048"
-      ],
-      "entry": "/games/arcade/2048.html",
-      "blurb": "The classic, rebuilt in three.js with animated tiles and undo.",
-      "tier": "first-party"
-    },
-    {
-      "slug": "mines3d",
-      "name": "Mines3D",
-      "match": [
-        "mines3d",
-        "mines",
-        "minesweeper"
-      ],
-      "entry": "/games/arcade/mines3d.html",
-      "blurb": "The F-Droid 3D minesweeper, rebuilt as a three.js board: flood reveal, flags, safe first click.",
-      "tier": "first-party"
-    },
-    {
-      "slug": "brick-blast",
-      "name": "Brick Blast",
-      "match": [
-        "brick blast",
-        "brick-blast",
-        "brickblast"
-      ],
-      "entry": "/games/arcade/brick-blast.html",
-      "blurb": "The F-Droid brick breaker, rebuilt as a three.js court: 35 bricks, paddle bounce angles, waves.",
-      "tier": "first-party"
-    },
-    {
-      "slug": "lichess",
-      "name": "Lichess",
-      "match": [
-        "lichess",
-        "lichess mobile",
-        "org.lichess.mobilev2"
-      ],
-      "entry": "/games/arcade/lichess.html",
-      "blurb": "The Lichess board, rebuilt in three.js: click-or-tap chess against a built-in opponent, with check, mate, castling and undo.",
-      "tier": "first-party"
-    },
-    {
-      "slug": "checkers",
-      "name": "Checkers",
-      "match": [
-        "checkers",
-        "draughts",
-        "privacy friendly checkers",
-        "checkers privacy friendly"
-      ],
-      "entry": "/games/arcade/checkers.html",
-      "blurb": "The F-Droid checkers board, rebuilt in three.js: click-or-tap draughts against a built-in opponent, compulsory captures, chain jumps and three levels.",
-      "tier": "first-party"
-    },
-    {
-      "slug": "sudoku",
-      "name": "Sudoku",
-      "match": [
-        "sudoku",
-        "hand drawn sudoku",
-        "sudoku hand drawn",
-        "libresudoku",
-        "open sudoku",
-        "lantern sudoku"
-      ],
-      "entry": "/games/arcade/sudoku.html",
-      "blurb": "The F-Droid sudoku, rebuilt in three.js: click-or-tap boards in three levels, mistake counter, timer and win detection.",
-      "tier": "first-party"
-    }
-  ]
+ "generated": "2026-11-16",
+ "note": "First-party three.js ports built on site/games/arcade/kit.js. Files ship from the site repo; this manifest only tells the catalog they exist.",
+ "games": [
+  {
+   "slug": "sokoban",
+   "name": "Sokoban",
+   "match": [
+    "sokoban",
+    "sokobang"
+   ],
+   "entry": "/games/arcade/sokoban.html",
+   "blurb": "10 hand-checked crate levels, 3D blocks, undo and push counter.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "2048",
+   "name": "2048",
+   "match": [
+    "2048",
+    "2048 privacy friendly",
+    "privacy friendly 2048",
+    "2048 open fun game",
+    "2048-open-fun-game",
+    "org.andstatus.game2048",
+    "game2048"
+   ],
+   "entry": "/games/arcade/2048.html",
+   "blurb": "The classic, rebuilt in three.js with animated tiles and undo.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "mines3d",
+   "name": "Mines3D",
+   "match": [
+    "mines3d",
+    "mines",
+    "minesweeper"
+   ],
+   "entry": "/games/arcade/mines3d.html",
+   "blurb": "The F-Droid 3D minesweeper, rebuilt as a three.js board: flood reveal, flags, safe first click.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "brick-blast",
+   "name": "Brick Blast",
+   "match": [
+    "brick blast",
+    "brick-blast",
+    "brickblast",
+    "breakout-71",
+    "breakout 71",
+    "me.lecaro.breakout",
+    "breakout"
+   ],
+   "entry": "/games/arcade/brick-blast.html",
+   "blurb": "The F-Droid brick breaker, rebuilt as a three.js court: 35 bricks, paddle bounce angles, waves.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "lichess",
+   "name": "Lichess",
+   "match": [
+    "lichess",
+    "lichess mobile",
+    "org.lichess.mobilev2",
+    "lila",
+    "lichess (lila)",
+    "lichess-org/lila"
+   ],
+   "entry": "/games/arcade/lichess.html",
+   "blurb": "The Lichess board, rebuilt in three.js: click-or-tap chess against a built-in opponent, with check, mate, castling and undo.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "memory",
+   "name": "Memory",
+   "match": [
+    "memory",
+    "candy memory",
+    "candy-memory",
+    "se.tube42.kidsmem.android",
+    "learning memory",
+    "learning-memory",
+    "eu.quelltext.memory",
+    "libre memory game",
+    "libre-memory-game",
+    "org.quentin_bettoum.librememorygame",
+    "com.sanskritbasics.memory"
+   ],
+   "entry": "/games/arcade/memory.html",
+   "blurb": "The concentration card game, rebuilt in three.js: flip two cards, keep the pairs, four board sizes and a flip budget that can run out.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "checkers",
+   "name": "Checkers",
+   "match": [
+    "checkers",
+    "draughts",
+    "privacy friendly checkers",
+    "checkers privacy friendly"
+   ],
+   "entry": "/games/arcade/checkers.html",
+   "blurb": "The F-Droid checkers board, rebuilt in three.js: click-or-tap draughts against a built-in opponent, compulsory captures, chain jumps and three levels.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "sudoku",
+   "name": "Sudoku",
+   "match": [
+    "sudoku",
+    "hand drawn sudoku",
+    "sudoku hand drawn",
+    "libresudoku",
+    "open sudoku",
+    "lantern sudoku"
+   ],
+   "entry": "/games/arcade/sudoku.html",
+   "blurb": "The F-Droid sudoku, rebuilt in three.js: click-or-tap boards in three levels, mistake counter, timer and win detection.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "flow",
+   "name": "Flow",
+   "match": [
+    "flow",
+    "flow free",
+    "flow connect dots puzzle",
+    "connect dots puzzle"
+   ],
+   "entry": "/games/arcade/flow.html",
+   "blurb": "The connect-the-dots pipe puzzle, rebuilt in three.js: drag coloured pipes between matching dots, fill every cell, three puzzles.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "stonewars",
+   "name": "Stone Wars",
+   "match": [
+    "stone wars",
+    "block puzzle stone wars",
+    "block puzzle - stone wars",
+    "blockpuzzle stone wars",
+    "de.mwvb.blockpuzzle"
+   ],
+   "entry": "/games/arcade/stonewars.html",
+   "blurb": "The F-Droid block puzzle, rebuilt in three.js: drag polyomino slabs onto a 10\u00d710 field, clear full rows and columns for combos, and free each planet before the tray stops fitting.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "tathams-puzzles",
+   "name": "Simon Tatham's Puzzles",
+   "match": [
+    "simon tatham's puzzles",
+    "simon tathams puzzles",
+    "simon-tatham-s-puzzles",
+    "tatham's puzzles",
+    "tathams puzzles",
+    "sgtpuzzles",
+    "chrisboyle sgtpuzzles",
+    "name.boyle.chris.sgtpuzzles"
+   ],
+   "entry": "/games/arcade/tathams-puzzles.html",
+   "blurb": "The reference puzzle compendium, ported to three.js: Fifteen, Twiddle and Flood on one 3D board \u2014 slide, rotate and flood, all procedurally scrambled.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "open-chaos-chess",
+   "name": "Open Chaos Chess",
+   "match": [
+    "open chaos chess",
+    "open-chaos-chess",
+    "openchaoschess",
+    "dev.corruptedark.openchaoschess",
+    "chaos chess"
+   ],
+   "entry": "/games/arcade/open-chaos-chess.html",
+   "blurb": "The F-Droid chaos variant, rebuilt in three.js: tap a piece and the board picks one of its legal moves at random, for both sides. No check, no castling \u2014 take every enemy piece to win, with a bloodthirst mode and a knights-only board.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "scid-on-the-go",
+   "name": "Scid on the Go",
+   "match": [
+    "scid on the go",
+    "scid-on-the-go",
+    "scid",
+    "org.scid.android"
+   ],
+   "entry": "/games/arcade/scid-on-the-go.html",
+   "blurb": "The Android chess database, rebuilt as a three.js game viewer: four short games in the database, step or auto-play through them, tap any move in the list to jump straight to that position, and flip the board.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "flowit-block-puzzle",
+   "name": "Flowit \u2014 Block Puzzle",
+   "match": [
+    "flowit",
+    "flowit block puzzle",
+    "flowit \u2014 block puzzle",
+    "flowit-block-puzzle",
+    "com.bytehamster.flowitgame",
+    "flowit-game/flowit"
+   ],
+   "entry": "/games/arcade/flowit-block-puzzle.html",
+   "blurb": "The F-Droid grid puzzler, rebuilt in three.js: every cell must end the colour of its border, and each tap pushes a block's colour outward \u2014 arrows in one direction, a flood through its own colour, or a bomb into the ring around it. Six hand-tuned levels, all proven solvable.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "mahjong-scoring-compass",
+   "name": "Mahjong Scoring Compass",
+   "match": [
+    "mahjong scoring compass",
+    "mahjong-scoring-compass",
+    "mahjong scoreboard",
+    "mahjong scoring",
+    "mahjongscore",
+    "com.kylefreed.mahjongscore",
+    "kj7qlv/mahjongscore"
+   ],
+   "entry": "/games/arcade/mahjong-scoring-compass.html",
+   "blurb": "The Riichi score compass, rebuilt as a three.js table: tap a seat for the winner and the discarder, set han and fu, and it pays the hand \u2014 dealer repeat, honba, riichi sticks, wind rotation and final standings over a full hanchan.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "matrix-puzzle",
+   "name": "Matrix Puzzle",
+   "match": [
+    "matrix puzzle",
+    "matrix-puzzle",
+    "matrixpuzzle",
+    "Matrix-Puzzle",
+    "com.sidhant.matrixpuzzle",
+    "sidhant947/Matrix-Puzzle"
+   ],
+   "entry": "/games/arcade/matrix-puzzle.html",
+   "blurb": "The F-Droid logic-grid puzzle, rebuilt in three.js: six flats of three, four or five floors, three categories each, and a clue list that fits exactly one arrangement. Pick a chip, tap a floor, and every clue turns green or red as you go.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "gomoku",
+   "name": "Gomoku",
+   "match": [
+    "gomoku",
+    "alphazero-gomoku",
+    "alphazero gomoku",
+    "alphazero_gomoku",
+    "junxiaosong/alphazero_gomoku",
+    "five in a row"
+   ],
+   "entry": "/games/arcade/gomoku.html",
+   "blurb": "Fifteen by fifteen, click-or-tap five in a row against a heuristic opponent with undo and a last-move marker.",
+   "tier": "first-party"
+  }
+ ]
 }

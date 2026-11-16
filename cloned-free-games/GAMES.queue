@@ -1,5 +1,5 @@
 # name	url	stars	license	est_size_kb	source	summary
-azerothcore-wotlk	https://github.com/azerothcore/azerothcore-wotlk	9188	GPL-2.0	1343158	github	Complete Open Source and Modular solution for MMO
+azerothcore-wotlk	https://github.com/azerothcore/azerothcore-wotlk	9189	GPL-2.0	1343254	github	Complete Open Source and Modular solution for MMO
 Cat-a-shooter	https://codeberg.org/xolatgames/cat-a-shooter	0	Apache-2.0	0	fdroid	Fly in the space by the cat 😼, and shoots off from enemies 🛸
 Dima-Defense	https://codeberg.org/xolatgames/Dima-Defense	0	Apache-2.0	0	fdroid	A simple Tower Defense game that was made in LibGDX
 FinalRozGameNew	https://codeberg.org/rozworld/final-roz-game-new	0	MIT	0	fdroid	A pixel art 2D speedrun platformer featuring 17 levels and isometric mechanics.
@@ -17,7 +17,7 @@ sauerbraten	https://github.com/assaultcube/sauerbraten.git	0	see-upstream	0	cura
 freedoom	https://github.com/freedoom/freedoom.git	0	see-upstream	0	curated	curated open-source classic
 speed-dreams	https://github.com/speed-dreams/speed-dreams-code.git	0	see-upstream	0	curated	curated open-source classic
 bar	https://github.com/beyond-all-reason/Beyond-All-Reason.git	0	see-upstream	0	curated	curated open-source classic
-shapez.io	https://github.com/tobspr-games/shapez.io	7007	GPL-3.0	661378	github	shapez is an open source base building game on Steam inspired by factorio!
+shapez.io	https://github.com/tobspr-games/shapez.io	7008	GPL-3.0	661378	github	shapez is an open source base building game on Steam inspired by factorio!
 1010-Klooni	https://codeberg.org/Lonami/Klooni1010	0	GPL-3.0-or-later	0	fdroid	A libGDX game based on 1010
 1toX	https://gitlab.com/og8org/1tox	0	MIT	0	fdroid	Remember numbers quick to train your brain
 2-Player-Battle	https://github.com/HassanHeydariNasab/2-player-battle	0	GPL-3.0-or-later	0	fdroid	Destroy enemy base

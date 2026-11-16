@@ -21,3 +21,4 @@ interstellar  # harvest captured thesaurus.com, not a game (index.html title = t
 jak-project  # harvest captured the fmtlib docs site ({fmt}), not the Jak Project game
 bedrockonlinux  # marketing/download page ("Download for Linux"), not a playable game
 gamedevmind  # interactive diagram/navigation page, not a game
+21Life  # build produced no index.html
