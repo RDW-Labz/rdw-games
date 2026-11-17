@@ -1,0 +1,4 @@
+[submodule "shelf"]
+	path = shelf
+	url = https://github.com/jmacluer-design/internal-hybrid-builds.git
+	branch = kaos-launch
