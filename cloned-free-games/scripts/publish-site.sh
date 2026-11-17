@@ -62,10 +62,8 @@ if [ -n "$LIBRARY" ]; then
   if [ -n "${REFRESH_ART:-}" ]; then
     ARTROOT="$WORK/artroot"; rm -rf "$ARTROOT"; mkdir -p "$ARTROOT/games"
     [ -d "$SRC/.site-play" ] && cp -R "$SRC/.site-play" "$ARTROOT/play"
-    mkdir -p "$ARTROOT/games/arcade"
-    for f in $(git -C "$SITE_REPO" ls-tree --name-only HEAD games/arcade/ 2>/dev/null); do
-      git -C "$SITE_REPO" show "HEAD:$f" > "$ARTROOT/games/arcade/$(basename "$f")"
-    done
+    git -C "$SITE_REPO" archive HEAD games/arcade | tar -x -C "$ARTROOT" \
+      || echo "WARN: could not stage the arcade for art capture" >&2
     python3 -c "
 import json,sys
 d=json.load(open('$SRC/.queue/library-audit.json'))
@@ -144,11 +142,12 @@ fi
 # Arcade: our own three.js ports. deploy.sh only stages games/live.txt + archive, so these
 # nested pages (and the shared kit module they import) ship from $SITE_REPO's HEAD as a set.
 if [ -n "$(git -C "$SITE_REPO" ls-tree --name-only HEAD games/arcade/ 2>/dev/null)" ]; then
-  mkdir -p "$SHELF_STAGE/public/games/arcade" || die "cannot create arcade dir in stage"
-  for f in $(git -C "$SITE_REPO" ls-tree --name-only HEAD games/arcade/); do
-    git -C "$SITE_REPO" show "HEAD:$f" > "$SHELF_STAGE/public/games/arcade/$(basename "$f")" \
-      || die "could not stage $f"
-  done
+  # games/arcade/ holds the shared kit module, one forwarding <slug>.html per game and a
+  # <slug>/ folder with that game's index.html + its kit copy: archive the tree so the
+  # forwards and the folders land together (git show on a tree name writes junk).
+  mkdir -p "$SHELF_STAGE/public/games" || die "cannot create games dir in stage"
+  git -C "$SITE_REPO" archive HEAD games/arcade | tar -x -C "$SHELF_STAGE/public" \
+    || die "could not stage games/arcade"
   echo "ARCADE $(ls "$SHELF_STAGE/public/games/arcade" | tr '\n' ' ')"
 fi
 

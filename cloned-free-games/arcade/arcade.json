@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-16",
+ "generated": "2026-11-17",
  "note": "First-party three.js ports built on site/games/arcade/kit.js. Files ship from the site repo; this manifest only tells the catalog they exist.",
  "games": [
   {
@@ -238,6 +238,27 @@
    "tier": "first-party"
   },
   {
+   "slug": "go-board",
+   "name": "Go 9\u00d79",
+   "match": [
+    "gobandroid",
+    "gobandroid ai",
+    "gobandroid-ai-gnugo",
+    "gobandroid ai gnugo",
+    "gobandroidhd.ai.gnugo",
+    "org.ligi.gobandroid_hd",
+    "org.ligi.gobandroidhd.ai.gnugo",
+    "ligi/gobandroid",
+    "ligi/gobandroid-ai-gnugo",
+    "gnugo",
+    "baduk",
+    "weiqi"
+   ],
+   "entry": "/games/arcade/go-board.html",
+   "blurb": "A nine by nine goban in three.js: tap or click an intersection and the machine answers. Real capture, ko and suicide rules with area scoring, pass, undo and resign.",
+   "tier": "first-party"
+  },
+  {
    "slug": "gomoku",
    "name": "Gomoku",
    "match": [
@@ -250,6 +271,112 @@
    ],
    "entry": "/games/arcade/gomoku.html",
    "blurb": "Fifteen by fifteen, click-or-tap five in a row against a heuristic opponent with undo and a last-move marker.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "minetest-game",
+   "name": "Block World",
+   "match": [
+    "minetest game",
+    "minetest-game",
+    "minetest",
+    "minetest_game",
+    "minetestgame",
+    "luanti",
+    "luanti game",
+    "freeminer",
+    "org.freeminer.freeminer",
+    "voxel sandbox"
+   ],
+   "entry": "/games/arcade/minetest-game.html",
+   "blurb": "The Minetest sandbox rebuilt as a three.js voxel island: tap to mine blocks into your pack, build mode puts them back, and sand marks the gold seams you have to dig out before the pickaxe dulls.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "bagatur-chess-engine",
+   "name": "Bagatur Chess Engine",
+   "match": [
+    "bagatur chess engine",
+    "bagatur",
+    "bagatur chess",
+    "com.bagaturchess",
+    "chess engine bagatur",
+    "android_apk_chessenginebagatur",
+    "metatransapps/android_apk_chessenginebagatur",
+    "chess",
+    "chess for android",
+    "jwtc.android.chess",
+    "jwtc.android.chess-free",
+    "chess android"
+   ],
+   "entry": "/games/arcade/bagatur-chess-engine.html",
+   "blurb": "The F-Droid chess engine rebuilt as a three.js board: play the built-in engine across five strength tiers (800 to 2200 Elo), ask for a gold-marked hint, watch the live eval, and undo straight back to your move.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "go-to-sleep",
+   "name": "Go To Sleep",
+   "match": [
+    "go-to-sleep",
+    "go to sleep",
+    "gotosleep",
+    "go to sleep android",
+    "com.kaeruct.gotosleep",
+    "kaeruct/go-to-sleep-android"
+   ],
+   "entry": "/games/arcade/go-to-sleep.html",
+   "blurb": "The count-sheep ritual as a three.js night pasture: tap or click and the next sheep vaults the fence, every count refills the sleepiness meter, and 20 quiet sheep put you under \u2014 let the meter run dry and the flock wanders off.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "binary-puzzle",
+   "name": "Binary Puzzle",
+   "match": [
+    "binary puzzle",
+    "binary-puzzle",
+    "binarypuzzle",
+    "com.sidhant.binarypuzzle",
+    "binary puzzle open source"
+   ],
+   "entry": "/games/arcade/binary-puzzle.html",
+   "blurb": "The F-Droid Takuzu, rebuilt in three.js: three 6x6 boards, tap-to-cycle cells, live rule checking and a three-slip limit.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "club-maze",
+   "name": "Club Maze",
+   "match": [
+    "club maze",
+    "collective club maze",
+    "collective-club-maze",
+    "com.qwde.ccm",
+    "ricochet robots maze"
+   ],
+   "entry": "/games/arcade/club-maze.html",
+   "blurb": "Slides-until-a-wall maze: tap, swipe or use the arrows to stop on every gold ring inside par.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "chess-clock",
+   "name": "Chess Clock",
+   "match": [
+    "chess-clock",
+    "chess clock",
+    "chess clock blitz",
+    "chessclock",
+    "com.chessclock.android",
+    "simple-chess-clock",
+    "simple chess clock",
+    "com.chess.clock",
+    "blitz-fischer-chess-clock",
+    "blitz fischer chess clock",
+    "blitz chess clock",
+    "fischer chess clock",
+    "fischer clock",
+    "chess timer"
+   ],
+   "entry": "/games/arcade/chess-clock.html",
+   "blurb": "Two 3D clocks on one body: tap a side to press it, your time stops and theirs starts, five controls from 1+0 bullet to 25+10 Fischer with the increment banked on every press, flag detection and a restart.",
    "tier": "first-party"
   }
  ]
