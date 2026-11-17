@@ -1,0 +1,542 @@
+[
+ {
+  "id": "mon_dog_thing",
+  "name": "dog",
+  "hp": 25,
+  "speed": 150,
+  "melee_dice": 2,
+  "melee_dice_sides": 3,
+  "symbol": "d"
+ },
+ {
+  "id": "mon_deer",
+  "name": "deer",
+  "hp": 65,
+  "speed": 300,
+  "melee_dice": 3,
+  "melee_dice_sides": 3,
+  "symbol": "D"
+ },
+ {
+  "id": "mon_wolf",
+  "name": "wolf",
+  "hp": 40,
+  "speed": 165,
+  "melee_dice": 2,
+  "melee_dice_sides": 3,
+  "symbol": "w"
+ },
+ {
+  "id": "mon_moose",
+  "name": "moose",
+  "hp": 366,
+  "speed": 200,
+  "melee_dice": 3,
+  "melee_dice_sides": 4,
+  "symbol": "M"
+ },
+ {
+  "id": "mon_cougar",
+  "name": "cougar",
+  "hp": 60,
+  "speed": 180,
+  "melee_dice": 2,
+  "melee_dice_sides": 4,
+  "symbol": "C"
+ },
+ {
+  "id": "mon_coyote",
+  "name": "coyote",
+  "hp": 34,
+  "speed": 155,
+  "melee_dice": 2,
+  "melee_dice_sides": 3,
+  "symbol": "d"
+ },
+ {
+  "id": null,
+  "name": "zombie",
+  "hp": 80,
+  "speed": 70,
+  "melee_dice": 2,
+  "melee_dice_sides": 3,
+  "symbol": "Z"
+ },
+ {
+  "id": "mon_big_rat",
+  "name": "big rat",
+  "hp": 25,
+  "speed": 100,
+  "melee_dice": 2,
+  "melee_dice_sides": 3,
+  "symbol": "R"
+ },
+ {
+  "id": "mon_lab_rat",
+  "name": "lab rat",
+  "hp": 6,
+  "speed": 100,
+  "melee_dice": 1,
+  "melee_dice_sides": 1,
+  "symbol": "r"
+ },
+ {
+  "id": "mon_lab_ratkin",
+  "name": "lab rat",
+  "hp": 6,
+  "speed": 100,
+  "melee_dice": 1,
+  "melee_dice_sides": 1,
+  "symbol": "r"
+ },
+ {
+  "id": "mon_muskrat",
+  "name": "muskrat",
+  "hp": 10,
+  "speed": 100,
+  "melee_dice": 1,
+  "melee_dice_sides": 6,
+  "symbol": "r"
+ },
+ {
+  "id": "mon_deer_mutant_spider",
+  "name": "spideer",
+  "hp": 70,
+  "speed": 450,
+  "melee_dice": 3,
+  "melee_dice_sides": 3,
+  "symbol": "D"
+ },
+ {
+  "id": "mon_zombear",
+  "name": "zombear",
+  "hp": 180,
+  "speed": 120,
+  "melee_dice": 4,
+  "melee_dice_sides": 6,
+  "symbol": "B"
+ },
+ {
+  "id": "mon_reindeer",
+  "name": "reindeer",
+  "hp": 120,
+  "speed": 325,
+  "melee_dice": 3,
+  "melee_dice_sides": 3,
+  "symbol": "R"
+ },
+ {
+  "id": "mon_bear_mutant_3headed",
+  "name": "Cerbearus",
+  "hp": 180,
+  "speed": 120,
+  "melee_dice": 4,
+  "melee_dice_sides": 8,
+  "symbol": "B"
+ },
+ {
+  "id": "mon_biollante",
+  "name": "biollante",
+  "hp": 120,
+  "speed": 100,
+  "melee_dice": null,
+  "melee_dice_sides": null,
+  "symbol": "F"
+ },
+ {
+  "id": "mon_black_rat",
+  "name": "black rat",
+  "hp": 6,
+  "speed": 100,
+  "melee_dice": 1,
+  "melee_dice_sides": 1,
+  "symbol": "r"
+ },
+ {
+  "id": "mon_sewer_rat",
+  "name": "brown rat",
+  "hp": 10,
+  "speed": 100,
+  "melee_dice": 1,
+  "melee_dice_sides": 2,
+  "symbol": "r"
+ },
+ {
+  "id": "mon_generator",
+  "name": "generator",
+  "hp": 500,
+  "speed": 100,
+  "melee_dice": null,
+  "melee_dice_sides": null,
+  "symbol": "4"
+ },
+ {
+  "id": "mon_ant",
+  "name": "giant ant",
+  "hp": 40,
+  "speed": 100,
+  "melee_dice": 1,
+  "melee_dice_sides": 6,
+  "symbol": "a"
+ },
+ {
+  "id": "mon_bee",
+  "name": "giant bee",
+  "hp": 30,
+  "speed": 140,
+  "melee_dice": 2,
+  "melee_dice_sides": 6,
+  "symbol": "a"
+ },
+ {
+  "id": "mon_fly",
+  "name": "giant fly",
+  "hp": 25,
+  "speed": 120,
+  "melee_dice": 1,
+  "melee_dice_sides": 3,
+  "symbol": "a"
+ },
+ {
+  "id": "mon_nursebot",
+  "name": "nurse bot",
+  "hp": 80,
+  "speed": 100,
+  "melee_dice": 3,
+  "melee_dice_sides": 2,
+  "symbol": "N"
+ },
+ {
+  "id": "mon_nursebot_defective",
+  "name": "nurse bot",
+  "hp": 80,
+  "speed": 100,
+  "melee_dice": 3,
+  "melee_dice_sides": 2,
+  "symbol": "N"
+ },
+ {
+  "id": "mon_plantborg_2_1",
+  "name": "plantborg",
+  "hp": 45,
+  "speed": 110,
+  "melee_dice": 2,
+  "melee_dice_sides": 6,
+  "symbol": "B"
+ },
+ {
+  "id": "mon_bear",
+  "name": "black bear",
+  "hp": 120,
+  "speed": 140,
+  "melee_dice": 4,
+  "melee_dice_sides": 6,
+  "symbol": "B"
+ },
+ {
+  "id": "mon_ant_fungus",
+  "name": "fungal ant",
+  "hp": 40,
+  "speed": 60,
+  "melee_dice": 1,
+  "melee_dice_sides": 5,
+  "symbol": "a"
+ },
+ {
+  "id": "mon_mutant_carp",
+  "name": "giant carp",
+  "hp": 180,
+  "speed": 150,
+  "melee_dice": 2,
+  "melee_dice_sides": 6,
+  "symbol": "C"
+ },
+ {
+  "id": "mon_moth_giant",
+  "name": "giant moth",
+  "hp": 50,
+  "speed": 95,
+  "melee_dice": null,
+  "melee_dice_sides": null,
+  "symbol": "L"
+ },
+ {
+  "id": "mon_wasp",
+  "name": "giant wasp",
+  "hp": 100,
+  "speed": 150,
+  "melee_dice": 2,
+  "melee_dice_sides": 7,
+  "symbol": "a"
+ },
+ {
+  "id": "mon_eigenspectre_1",
+  "name": "eigenspectre",
+  "hp": 120,
+  "speed": 130,
+  "melee_dice": 2,
+  "melee_dice_sides": 8,
+  "symbol": "E"
+ },
+ {
+  "id": "mon_centipede_house",
+  "name": "giant house centipede",
+  "hp": 84,
+  "speed": 165,
+  "melee_dice": 2,
+  "melee_dice_sides": 4,
+  "symbol": "X"
+ },
+ {
+  "id": "mon_crow_mutant_small",
+  "name": "oversized crow",
+  "hp": 8,
+  "speed": 110,
+  "melee_dice": 1,
+  "melee_dice_sides": 3,
+  "symbol": "v"
+ },
+ {
+  "id": "mon_robofac_prototype",
+  "name": "prototype robot",
+  "hp": 50,
+  "speed": 140,
+  "melee_dice": 3,
+  "melee_dice_sides": 8,
+  "symbol": "@"
+ },
+ {
+  "id": "mon_exodii_worker",
+  "name": "Exodii worker",
+  "hp": 125,
+  "speed": 110,
+  "melee_dice": 2,
+  "melee_dice_sides": 6,
+  "symbol": "e"
+ },
+ {
+  "id": "mon_mantis_giant",
+  "name": "giant praying mantis",
+  "hp": 120,
+  "speed": 100,
+  "melee_dice": 1,
+  "melee_dice_sides": 6,
+  "symbol": "M"
+ },
+ {
+  "id": "mon_zomborg",
+  "name": "zomborg",
+  "hp": 125,
+  "speed": 60,
+  "melee_dice": 2,
+  "melee_dice_sides": 6,
+  "symbol": "Z"
+ },
+ {
+  "id": "mon_hazmatbot",
+  "name": "cleaner bot",
+  "hp": 120,
+  "speed": 70,
+  "melee_dice": null,
+  "melee_dice_sides": null,
+  "symbol": "R"
+ },
+ {
+  "id": "mon_secubot_america",
+  "name": "autonomous TALON UGV Liberty Edition",
+  "hp": 80,
+  "speed": 40,
+  "melee_dice": null,
+  "melee_dice_sides": null,
+  "symbol": "F"
+ },
+ {
+  "id": "mon_skitterbot",
+  "name": "skitterbot",
+  "hp": 40,
+  "speed": 130,
+  "melee_dice": null,
+  "melee_dice_sides": null,
+  "symbol": "a"
+ },
+ {
+  "id": "mon_science_bot",
+  "name": "experimental lab bot",
+  "hp": 80,
+  "speed": 100,
+  "melee_dice": 2,
+  "melee_dice_sides": 4,
+  "symbol": "A"
+ },
+ {
+  "id": "mon_alpha_razorclaw",
+  "name": "alpha razorclaw",
+  "hp": 120,
+  "speed": 95,
+  "melee_dice": 4,
+  "melee_dice_sides": 10,
+  "symbol": "Y"
+ },
+ {
+  "id": "mon_fish_lobster",
+  "name": "lobster",
+  "hp": 12,
+  "speed": 80,
+  "melee_dice": 1,
+  "melee_dice_sides": 4,
+  "symbol": "f"
+ },
+ {
+  "id": "mon_giant_crayfish",
+  "name": "giant crayfish",
+  "hp": 50,
+  "speed": 130,
+  "melee_dice": 1,
+  "melee_dice_sides": 3,
+  "symbol": "y"
+ },
+ {
+  "id": "mon_cicada",
+  "name": "giant cicada",
+  "hp": 100,
+  "speed": 80,
+  "melee_dice": 1,
+  "melee_dice_sides": 2,
+  "symbol": "C"
+ },
+ {
+  "id": "mon_mutant_salmon",
+  "name": "giant salmon",
+  "hp": 110,
+  "speed": 175,
+  "melee_dice": 2,
+  "melee_dice_sides": 6,
+  "symbol": "S"
+ },
+ {
+  "id": "mon_labyrinth_turret_1_2",
+  "name": "massive bone turret",
+  "hp": 300,
+  "speed": 90,
+  "melee_dice": null,
+  "melee_dice_sides": null,
+  "symbol": "t"
+ },
+ {
+  "id": "mon_spider_cellar_leg",
+  "name": "detached spider leg",
+  "hp": 25,
+  "speed": 50,
+  "melee_dice": 2,
+  "melee_dice_sides": 3,
+  "symbol": "7"
+ },
+ {
+  "id": "mon_zombie_horse",
+  "name": "zombie horse",
+  "hp": 70,
+  "speed": 200,
+  "melee_dice": 3,
+  "melee_dice_sides": 6,
+  "symbol": "H"
+ },
+ {
+  "id": "mon_robofac_laserturret_mk1",
+  "name": "prototype laser turret",
+  "hp": 30,
+  "speed": 100,
+  "melee_dice": null,
+  "melee_dice_sides": null,
+  "symbol": "2"
+ },
+ {
+  "id": "mon_fungaloid_seeder",
+  "name": "giant fungal blossom",
+  "hp": 300,
+  "speed": 100,
+  "melee_dice": null,
+  "melee_dice_sides": null,
+  "symbol": "T"
+ },
+ {
+  "id": "mon_fungaloid_young",
+  "name": "fungal sporeling",
+  "hp": 70,
+  "speed": 70,
+  "melee_dice": 2,
+  "melee_dice_sides": 4,
+  "symbol": "1"
+ },
+ {
+  "id": "mon_spore",
+  "name": "spore cloud",
+  "hp": 4,
+  "speed": 100,
+  "melee_dice": null,
+  "melee_dice_sides": null,
+  "symbol": "o"
+ },
+ {
+  "id": "mon_spider_fungus",
+  "name": "fungal spider",
+  "hp": 20,
+  "speed": 60,
+  "melee_dice": 1,
+  "melee_dice_sides": 6,
+  "symbol": "s"
+ },
+ {
+  "id": "mon_whisper_fungus",
+  "name": "whispering fungi",
+  "hp": 45,
+  "speed": 100,
+  "melee_dice": 1,
+  "melee_dice_sides": 2,
+  "symbol": "I"
+ },
+ {
+  "id": "mon_lady_bug_giant",
+  "name": "giant lady bug",
+  "hp": 350,
+  "speed": 110,
+  "melee_dice": 2,
+  "melee_dice_sides": 6,
+  "symbol": "B"
+ },
+ {
+  "id": "mon_worm",
+  "name": "giant earthworm",
+  "hp": 115,
+  "speed": 55,
+  "melee_dice": 2,
+  "melee_dice_sides": 3,
+  "symbol": "W"
+ },
+ {
+  "id": "mon_locust",
+  "name": "giant locust",
+  "hp": 30,
+  "speed": 90,
+  "melee_dice": 1,
+  "melee_dice_sides": 6,
+  "symbol": "g"
+ },
+ {
+  "id": "mon_antlion_larva",
+  "name": "giant antlion larva",
+  "hp": 60,
+  "speed": 100,
+  "melee_dice": 1,
+  "melee_dice_sides": 8,
+  "symbol": "u"
+ },
+ {
+  "id": "mon_butterfly",
+  "name": "oversized butterfly",
+  "hp": 25,
+  "speed": 95,
+  "melee_dice": null,
+  "melee_dice_sides": null,
+  "symbol": "l"
+ }
+]

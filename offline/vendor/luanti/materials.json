@@ -1,0 +1,60 @@
+{
+ "materials": [
+  {
+   "name": "stone",
+   "image": "vendor/luanti/textures/stone.png"
+  },
+  {
+   "name": "cobble",
+   "image": "vendor/luanti/textures/cobble.png"
+  },
+  {
+   "name": "mossy-cobble",
+   "image": "vendor/luanti/textures/mossy-cobble.png"
+  },
+  {
+   "name": "dirt",
+   "image": "vendor/luanti/textures/dirt.png"
+  },
+  {
+   "name": "grass",
+   "image": "vendor/luanti/textures/grass.png"
+  },
+  {
+   "name": "leaves",
+   "image": "vendor/luanti/textures/leaves.png"
+  },
+  {
+   "name": "bark",
+   "image": "vendor/luanti/textures/bark.png"
+  },
+  {
+   "name": "sand",
+   "image": "vendor/luanti/textures/sand.png"
+  },
+  {
+   "name": "red-sand",
+   "image": "vendor/luanti/textures/red-sand.png"
+  },
+  {
+   "name": "snow",
+   "image": "vendor/luanti/textures/snow.png"
+  },
+  {
+   "name": "ice",
+   "image": "vendor/luanti/textures/ice.png"
+  },
+  {
+   "name": "water",
+   "image": "vendor/luanti/textures/water.png"
+  },
+  {
+   "name": "gravel",
+   "image": "vendor/luanti/textures/gravel.png"
+  },
+  {
+   "name": "lava",
+   "image": "vendor/luanti/textures/lava.png"
+  }
+ ]
+}

@@ -1,0 +1,67 @@
+[
+ {
+  "game": "stormforge",
+  "booted": true,
+  "donorImagesLoaded": 44,
+  "donorImagesFailed": 2,
+  "donorBlits": 177,
+  "paints": 177,
+  "patterns": 0,
+  "distinctAssets": 3,
+  "topBlits": "grass.pngx136 dirt.pngx25 gravel.pngx16",
+  "failedAssets": [
+   "loot/basic_helmet.png",
+   "loot/basic_vest.png"
+  ],
+  "shot": "evidence/art-stormforge.png",
+  "state": {
+   "phase": "ground",
+   "mode": "ground",
+   "started": true,
+   "alive": 32,
+   "hp": 100,
+   "shield": 0,
+   "ammo": 13,
+   "ammoReserve": 45,
+   "weapon": "g19",
+   "weaponTier": "D",
+   "loot": {
+    "picked": 0
+   },
+   "storm": {
+    "phase": 0,
+    "r": 2940
+   },
+   "blocks": 9,
+   "ore": 9,
+   "items": 18,
+   "ammoMade": 0,
+   "stock": {
+    "copper": 152,
+    "titanium": 67,
+    "coal": 0,
+    "ammo": 0,
+    "plates": 4
+   },
+   "kills": 0,
+   "bots": 31,
+   "hero": {
+    "x": 104,
+    "y": 1641.6,
+    "z": 0
+   },
+   "nearest": {
+    "dx": 629.8959790875431,
+    "dy": 36.34281240246855,
+    "dist": 630.9435350995963,
+    "name": "Grit"
+   },
+   "seed": 2341254515,
+   "matchT": 4.39999999999999,
+   "fps": 60,
+   "three": true,
+   "draws": 142,
+   "tris": 798808
+  }
+ }
+]

@@ -1,7 +1,0 @@
-[
-  {
-    "function_name": "calc_crc16",
-    "note": "This endpoint requires reachability analysis via control flow graph",
-    "status": "Not yet implemented"
-  }
-]

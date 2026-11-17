@@ -1,0 +1,93 @@
+{
+ "at": "2026-11-01T22:48:55.779Z",
+ "base": "http://127.0.0.1:8787",
+ "pass": 17,
+ "total": 17,
+ "results": [
+  {
+   "name": "service worker registers",
+   "ok": true,
+   "detail": "state=activated scope=http://127.0.0.1:8787/"
+  },
+  {
+   "name": "precache populated",
+   "ok": true,
+   "detail": "59 entries in aomg-v18"
+  },
+  {
+   "name": "shell renders online",
+   "ok": true,
+   "detail": "12 cards: vaultbreak,tessera,ember-drift,rift-nine,siegehaus,charterline,nulltrace,lanternfall,cinderhold,wardenmarch,stormforge,galevault"
+  },
+  {
+   "name": "shell renders offline (SW cache)",
+   "ok": true,
+   "detail": "12 cards with the network cut"
+  },
+  {
+   "name": "shell reports airplane mode",
+   "ok": true,
+   "detail": "AIRPLANE MODE · ALL GOOD"
+  },
+  {
+   "name": "vaultbreak plays offline",
+   "ok": true,
+   "detail": "canvas=780x1580 bundle=yes started=true mode=\"play\" depth=1 hp=60 turns=1 kills=0"
+  },
+  {
+   "name": "tessera plays offline",
+   "ok": true,
+   "detail": "canvas=780x1688 bundle=yes started=true turn=2 gold=13 cities=1 units=2 alive=true"
+  },
+  {
+   "name": "ember-drift plays offline",
+   "ok": true,
+   "detail": "canvas=780x1688 bundle=yes started=true system=\"Merid\" ship=\"EMERGENCY SHUTTLE\" credits=1400 hull=100 cargo=0"
+  },
+  {
+   "name": "rift-nine plays offline",
+   "ok": true,
+   "detail": "canvas=780x1688 bundle=yes started=true room=1 time=0 deaths=0 score=0 onGround=false"
+  },
+  {
+   "name": "siegehaus plays offline",
+   "ok": true,
+   "detail": "canvas=780x1488 bundle=yes started=true mode=\"play\" depth=1 hp=58 turns=11 kills=0"
+  },
+  {
+   "name": "charterline plays offline",
+   "ok": true,
+   "detail": "canvas=780x1688 bundle=yes started=true turn=3 gold=184 cities=2 units=2 alive=true"
+  },
+  {
+   "name": "nulltrace plays offline",
+   "ok": true,
+   "detail": "canvas=780x1688 bundle=yes started=true room=1 time=0 deaths=0 score=0 onGround=false"
+  },
+  {
+   "name": "lanternfall plays offline",
+   "ok": true,
+   "detail": "canvas=780x1688 bundle=yes started=true system=\"Vane Deep\" ship=\"EMERGENCY SHUTTLE\" credits=1400 hull=100 cargo=0"
+  },
+  {
+   "name": "cinderhold plays offline",
+   "ok": true,
+   "detail": "canvas=780x1688 bundle=yes started=true mode=\"play\" score=120 depth=1 vaultId=\"arena_pool\" vaultSrc=\"dcss\""
+  },
+  {
+   "name": "wardenmarch plays offline",
+   "ok": true,
+   "detail": "canvas=780x1688 bundle=yes started=true mode=\"battle\" score=0 turn=2 arenaId=\"minmay_arrival_statue_studded\" arenaSrc=\"dcss\""
+  },
+  {
+   "name": "galevault plays offline",
+   "ok": true,
+   "detail": "canvas=780x1688 bundle=yes phase=\"flying\" started=true gates=2 gatesTotal=20 nextGate=2 t=4"
+  },
+  {
+   "name": "network really is cut",
+   "ok": true,
+   "detail": "blocked: TypeError"
+  }
+ ]
+}

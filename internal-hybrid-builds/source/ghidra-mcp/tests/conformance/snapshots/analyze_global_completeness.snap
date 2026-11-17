@@ -1,8 +1,0 @@
-{
-  "address": "10001000",
-  "applicable": false,
-  "name": "calc_crc16",
-  "reason": "code_address",
-  "type": "int",
-  "xref_count": 4
-}

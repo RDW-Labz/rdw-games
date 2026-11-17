@@ -1,0 +1,52 @@
+[
+ {
+  "name": "Food",
+  "price": 100,
+  "capacity": 600
+ },
+ {
+  "name": "Clothing",
+  "price": 140,
+  "capacity": 440
+ },
+ {
+  "name": "Metal",
+  "price": 190,
+  "capacity": 590
+ },
+ {
+  "name": "Plastic",
+  "price": 240,
+  "capacity": 540
+ },
+ {
+  "name": "Equipment",
+  "price": 330,
+  "capacity": 730
+ },
+ {
+  "name": "Medical",
+  "price": 430,
+  "capacity": 930
+ },
+ {
+  "name": "Industrial",
+  "price": 520,
+  "capacity": 920
+ },
+ {
+  "name": "Electronics",
+  "price": 590,
+  "capacity": 890
+ },
+ {
+  "name": "Heavy Metals",
+  "price": 610,
+  "capacity": 1310
+ },
+ {
+  "name": "Luxury Goods",
+  "price": 920,
+  "capacity": 1520
+ }
+]

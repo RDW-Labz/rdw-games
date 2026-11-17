@@ -1,0 +1,7 @@
+{
+ "package": "three",
+ "version": "0.156.1",
+ "tarball_sha256": "3227f778cea9787428e1408863c539a77768d939ece44ae3daced552e181307b",
+ "build": "build/three.min.js",
+ "note": "UMD build; r156 is the last one"
+}

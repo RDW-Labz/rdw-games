@@ -1,9 +1,0 @@
-{
-  "calling_conventions": [
-    "__stdcall",
-    "__cdecl",
-    "__fastcall",
-    "__thiscall"
-  ],
-  "count": 4
-}

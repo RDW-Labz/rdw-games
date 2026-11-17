@@ -1,0 +1,1042 @@
+[
+ {
+  "name": "Palace",
+  "cost": 0,
+  "maintenance": null,
+  "requiredTech": null,
+  "uniqueTo": null,
+  "uniques": [
+   "Indicates the capital city"
+  ]
+ },
+ {
+  "name": "Monument",
+  "cost": 40,
+  "maintenance": 1,
+  "requiredTech": null,
+  "uniqueTo": null,
+  "uniques": [
+   "Destroyed when the city is captured"
+  ]
+ },
+ {
+  "name": "Granary",
+  "cost": null,
+  "maintenance": 1,
+  "requiredTech": "Pottery",
+  "uniqueTo": null,
+  "uniques": [
+   "[+1 Food] from [Deer] tiles [in this city]",
+   "[+1 Food] from [Bananas] tiles [in this city]",
+   "[+1 Food] from [Wheat] tiles [in this city]"
+  ]
+ },
+ {
+  "name": "Temple of Artemis",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Archery",
+  "uniqueTo": null,
+  "uniques": [
+   "[+10]% [Food] [in all cities]",
+   "[+15]% Production when constructing [Archery] units [in this city]",
+   "[+15]% Production when constructing [Ranged Gunpowder] units [in this city]"
+  ]
+ },
+ {
+  "name": "The Great Lighthouse",
+  "cost": 185,
+  "maintenance": null,
+  "requiredTech": "Sailing",
+  "uniqueTo": null,
+  "uniques": [
+   "Must be next to [Coast]",
+   "[+1] Movement <for [{Military} {Water}] units>",
+   "[+1] Sight <for [{Military} {Water}] units>",
+   "Gain a free [Lighthouse] [in this city]"
+  ]
+ },
+ {
+  "name": "Stone Works",
+  "cost": null,
+  "maintenance": 1,
+  "requiredTech": "Calendar",
+  "uniqueTo": null,
+  "uniques": [
+   "Must not be on [Plains]",
+   "[+1 Production] from [Stone] tiles [in this city]",
+   "[+1 Production] from [Marble] tiles [in this city]"
+  ]
+ },
+ {
+  "name": "Stonehenge",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Calendar",
+  "uniqueTo": null,
+  "uniques": []
+ },
+ {
+  "name": "Library",
+  "cost": null,
+  "maintenance": 1,
+  "requiredTech": "Writing",
+  "uniqueTo": null,
+  "uniques": [
+   "[+1 Science] per [2] population [in this city]"
+  ]
+ },
+ {
+  "name": "Paper Maker",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Writing",
+  "uniqueTo": "China",
+  "uniques": [
+   "[+1 Science] per [2] population [in this city]"
+  ]
+ },
+ {
+  "name": "The Great Library",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Writing",
+  "uniqueTo": null,
+  "uniques": [
+   "Free Technology",
+   "Gain a free [Library] [in this city]"
+  ]
+ },
+ {
+  "name": "Circus",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Trapping",
+  "uniqueTo": null,
+  "uniques": []
+ },
+ {
+  "name": "Water Mill",
+  "cost": null,
+  "maintenance": 2,
+  "requiredTech": "The Wheel",
+  "uniqueTo": null,
+  "uniques": [
+   "Must be on [River]"
+  ]
+ },
+ {
+  "name": "Floating Gardens",
+  "cost": null,
+  "maintenance": 1,
+  "requiredTech": "The Wheel",
+  "uniqueTo": "Aztecs",
+  "uniques": [
+   "[+2 Food] from [Lakes] tiles [in this city]",
+   "Must be next to [Fresh water]"
+  ]
+ },
+ {
+  "name": "Walls",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Masonry",
+  "uniqueTo": null,
+  "uniques": [
+   "Destroyed when the city is captured"
+  ]
+ },
+ {
+  "name": "Walls of Babylon",
+  "cost": 65,
+  "maintenance": null,
+  "requiredTech": "Masonry",
+  "uniqueTo": "Babylon",
+  "uniques": [
+   "Destroyed when the city is captured"
+  ]
+ },
+ {
+  "name": "The Pyramids",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Masonry",
+  "uniqueTo": null,
+  "uniques": [
+   "Can build [all] improvements at a [+25]% rate",
+   "[2] free [Worker] units appear"
+  ]
+ },
+ {
+  "name": "Mausoleum of Halicarnassus",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Masonry",
+  "uniqueTo": null,
+  "uniques": [
+   "Gain [100] [Gold] <upon expending a [Great Person] unit> <(modified by game speed)>",
+   "[+2 Gold] from [Marble] tiles [in this city]",
+   "[+2 Gold] from [Stone] tiles [in this city]"
+  ]
+ },
+ {
+  "name": "Barracks",
+  "cost": null,
+  "maintenance": 1,
+  "requiredTech": "Bronze Working",
+  "uniqueTo": null,
+  "uniques": [
+   "New [Military] units start with [15] XP [in this city]",
+   "Destroyed when the city is captured"
+  ]
+ },
+ {
+  "name": "Krepost",
+  "cost": null,
+  "maintenance": 1,
+  "requiredTech": "Bronze Working",
+  "uniqueTo": "Russia",
+  "uniques": [
+   "[-25]% Culture cost of natural border growth [in this city]",
+   "[-25]% Gold cost of acquiring tiles [in this city]",
+   "New [Military] units start with [15] XP [in this city]",
+   "Destroyed when the city is captured"
+  ]
+ },
+ {
+  "name": "Statue of Zeus",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Bronze Working",
+  "uniqueTo": null,
+  "uniques": [
+   "[+15]% Strength <for [All] units> <vs cities> <when attacking>"
+  ]
+ },
+ {
+  "name": "Lighthouse",
+  "cost": 75,
+  "maintenance": 1,
+  "requiredTech": "Optics",
+  "uniqueTo": null,
+  "uniques": [
+   "Must be next to [Coast]",
+   "[+1 Food] from [Ocean] tiles [in this city]",
+   "[+1 Food] from [Coast] tiles [in this city]",
+   "[+1 Food] from [Fish] tiles [in this city]"
+  ]
+ },
+ {
+  "name": "Stable",
+  "cost": null,
+  "maintenance": 1,
+  "requiredTech": "Horseback Riding",
+  "uniqueTo": null,
+  "uniques": [
+   "[+15]% Production when constructing [Mounted] units [in this city]",
+   "[+1 Production] from [Cattle] tiles [in this city]",
+   "[+1 Production] from [Horses] tiles [in this city]",
+   "[+1 Production] from [Sheep] tiles [in this city]"
+  ]
+ },
+ {
+  "name": "Courthouse",
+  "cost": null,
+  "maintenance": 4,
+  "requiredTech": "Mathematics",
+  "uniqueTo": null,
+  "uniques": [
+   "Removes extra unhappiness from annexed cities",
+   "Can only be built <in [Annexed] cities>"
+  ]
+ },
+ {
+  "name": "Hanging Gardens",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Mathematics",
+  "uniqueTo": null,
+  "uniques": []
+ },
+ {
+  "name": "Colosseum",
+  "cost": null,
+  "maintenance": 1,
+  "requiredTech": "Construction",
+  "uniqueTo": null,
+  "uniques": []
+ },
+ {
+  "name": "Circus Maximus",
+  "cost": 125,
+  "maintenance": null,
+  "requiredTech": "Construction",
+  "uniqueTo": null,
+  "uniques": [
+   "Only available <if [Colosseum] is constructed in all [non-[Puppeted]] cities>",
+   "Cost increases by [30] per owned city"
+  ]
+ },
+ {
+  "name": "Great Wall",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Construction",
+  "uniqueTo": null,
+  "uniques": [
+   "Enemy [Land] units must spend [1] extra movement points when inside your territory <before discovering [Dynamite]> <Suppress warning [*contains a conditional on a unit movement unique*]>",
+   "Gain a free [Walls] [in this city]"
+  ]
+ },
+ {
+  "name": "Temple",
+  "cost": null,
+  "maintenance": 2,
+  "requiredTech": "Philosophy",
+  "uniqueTo": null,
+  "uniques": [
+   "Destroyed when the city is captured"
+  ]
+ },
+ {
+  "name": "Burial Tomb",
+  "cost": null,
+  "maintenance": 0,
+  "requiredTech": "Philosophy",
+  "uniqueTo": "Egypt",
+  "uniques": [
+   "[+100]% Gold given to enemy if city is captured <in this city>"
+  ]
+ },
+ {
+  "name": "Mud Pyramid Mosque",
+  "cost": null,
+  "maintenance": 0,
+  "requiredTech": "Philosophy",
+  "uniqueTo": "Songhai",
+  "uniques": []
+ },
+ {
+  "name": "National College",
+  "cost": 125,
+  "maintenance": null,
+  "requiredTech": "Philosophy",
+  "uniqueTo": null,
+  "uniques": [
+   "Only available <if [Library] is constructed in all [non-[Puppeted]] cities>",
+   "Cost increases by [30] per owned city"
+  ]
+ },
+ {
+  "name": "The Oracle",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Philosophy",
+  "uniqueTo": null,
+  "uniques": [
+   "Free Social Policy"
+  ]
+ },
+ {
+  "name": "National Epic",
+  "cost": 125,
+  "maintenance": null,
+  "requiredTech": "Philosophy",
+  "uniqueTo": null,
+  "uniques": [
+   "Only available <if [Monument] is constructed in all [non-[Puppeted]] cities>",
+   "[+25]% Great Person generation [in this city]",
+   "Cost increases by [30] per owned city"
+  ]
+ },
+ {
+  "name": "Market",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Currency",
+  "uniqueTo": null,
+  "uniques": []
+ },
+ {
+  "name": "Bazaar",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Currency",
+  "uniqueTo": "Arabia",
+  "uniques": [
+   "Provides 1 extra copy of each improved luxury resource near this City",
+   "[+2 Gold] from [Oil] tiles [in this city]",
+   "[+2 Gold] from [Oasis] tiles [in this city]"
+  ]
+ },
+ {
+  "name": "Mint",
+  "cost": null,
+  "maintenance": 0,
+  "requiredTech": "Currency",
+  "uniqueTo": null,
+  "uniques": [
+   "[+2 Gold] from [Gold Ore] tiles [in this city]",
+   "[+2 Gold] from [Silver] tiles [in this city]"
+  ]
+ },
+ {
+  "name": "Aqueduct",
+  "cost": 100,
+  "maintenance": 1,
+  "requiredTech": "Engineering",
+  "uniqueTo": null,
+  "uniques": [
+   "[40]% Food is carried over after population increases [in this city]"
+  ]
+ },
+ {
+  "name": "Heroic Epic",
+  "cost": 125,
+  "maintenance": null,
+  "requiredTech": "Iron Working",
+  "uniqueTo": null,
+  "uniques": [
+   "Only available <if [Barracks] is constructed in all [non-[Puppeted]] cities>",
+   "All newly-trained [non-[Air]] units [in this city] receive the [Morale] promotion",
+   "Cost increases by [30] per owned city"
+  ]
+ },
+ {
+  "name": "Colossus",
+  "cost": 185,
+  "maintenance": null,
+  "requiredTech": "Bronze Working",
+  "uniqueTo": null,
+  "uniques": [
+   "Must be next to [Coast]",
+   "[+1 Gold] from [Water] tiles [in this city]"
+  ]
+ },
+ {
+  "name": "Garden",
+  "cost": null,
+  "maintenance": 1,
+  "requiredTech": "Theology",
+  "uniqueTo": null,
+  "uniques": [
+   "[+25]% Great Person generation [in this city]",
+   "Must be next to [Fresh water]"
+  ]
+ },
+ {
+  "name": "Monastery",
+  "cost": 120,
+  "maintenance": null,
+  "requiredTech": "Theology",
+  "uniqueTo": null,
+  "uniques": [
+   "[+2 Culture] from [Wine] tiles [in this city]",
+   "[+2 Culture] from [Incense] tiles [in this city]",
+   "Destroyed when the city is captured"
+  ]
+ },
+ {
+  "name": "Hagia Sophia",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Theology",
+  "uniqueTo": null,
+  "uniques": [
+   "[+25]% Great Person generation [in all cities]",
+   "Free Great Person"
+  ]
+ },
+ {
+  "name": "Angkor Wat",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Theology",
+  "uniqueTo": null,
+  "uniques": [
+   "[-25]% Culture cost of natural border growth [in all cities]",
+   "[-25]% Gold cost of acquiring tiles [in all cities]"
+  ]
+ },
+ {
+  "name": "Chichen Itza",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Civil Service",
+  "uniqueTo": null,
+  "uniques": [
+   "[+50]% Golden Age length"
+  ]
+ },
+ {
+  "name": "National Treasury",
+  "cost": 125,
+  "maintenance": null,
+  "requiredTech": "Currency",
+  "uniqueTo": null,
+  "uniques": [
+   "Only available <if [Market] is constructed in all [non-[Puppeted]] cities>",
+   "Cost increases by [30] per owned city"
+  ]
+ },
+ {
+  "name": "Machu Picchu",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Currency",
+  "uniqueTo": null,
+  "uniques": [
+   "[+25]% [Gold] from Trade Routes",
+   "Must have an owned [{non-[Natural Wonder]} {Mountain}] within [2] tiles"
+  ]
+ },
+ {
+  "name": "Workshop",
+  "cost": null,
+  "maintenance": 2,
+  "requiredTech": "Metal Casting",
+  "uniqueTo": null,
+  "uniques": []
+ },
+ {
+  "name": "Longhouse",
+  "cost": 100,
+  "maintenance": 2,
+  "requiredTech": "Metal Casting",
+  "uniqueTo": "Iroquois",
+  "uniques": [
+   "[+1 Production] from [Forest] tiles [in this city]"
+  ]
+ },
+ {
+  "name": "Forge",
+  "cost": null,
+  "maintenance": 1,
+  "requiredTech": "Metal Casting",
+  "uniqueTo": null,
+  "uniques": [
+   "[+15]% Production when constructing [Land] units [in this city]",
+   "[+1 Production] from [Iron] tiles [in this city]"
+  ]
+ },
+ {
+  "name": "Harbor",
+  "cost": 120,
+  "maintenance": 3,
+  "requiredTech": "Compass",
+  "uniqueTo": null,
+  "uniques": [
+   "[+1 Production] from [Water resource] tiles [in this city]",
+   "Connects trade routes over water",
+   "Must be next to [Coast]"
+  ]
+ },
+ {
+  "name": "University",
+  "cost": null,
+  "maintenance": 2,
+  "requiredTech": "Education",
+  "uniqueTo": null,
+  "uniques": [
+   "[+2 Science] from [Jungle] tiles [in this city]"
+  ]
+ },
+ {
+  "name": "Wat",
+  "cost": null,
+  "maintenance": 2,
+  "requiredTech": "Education",
+  "uniqueTo": "Siam",
+  "uniques": [
+   "[+2 Science] from [Jungle] tiles [in this city]"
+  ]
+ },
+ {
+  "name": "Oxford University",
+  "cost": 125,
+  "maintenance": null,
+  "requiredTech": "Education",
+  "uniqueTo": null,
+  "uniques": [
+   "Only available <if [University] is constructed in all [non-[Puppeted]] cities>",
+   "Free Technology",
+   "Cost increases by [30] per owned city"
+  ]
+ },
+ {
+  "name": "Notre Dame",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Education",
+  "uniqueTo": null,
+  "uniques": []
+ },
+ {
+  "name": "Castle",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Chivalry",
+  "uniqueTo": null,
+  "uniques": [
+   "Destroyed when the city is captured"
+  ]
+ },
+ {
+  "name": "Mughal Fort",
+  "cost": 150,
+  "maintenance": null,
+  "requiredTech": "Chivalry",
+  "uniqueTo": "India",
+  "uniques": [
+   "[+1 Gold] [in this city] <after discovering [Flight]>",
+   "Destroyed when the city is captured"
+  ]
+ },
+ {
+  "name": "Himeji Castle",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Chivalry",
+  "uniqueTo": null,
+  "uniques": [
+   "[+15]% Strength <for [All] units> <when fighting in [Friendly Land] tiles>",
+   "Gain a free [Castle] [in this city]"
+  ]
+ },
+ {
+  "name": "Ironworks",
+  "cost": 125,
+  "maintenance": null,
+  "requiredTech": "Machinery",
+  "uniqueTo": null,
+  "uniques": [
+   "Only available <if [Workshop] is constructed in all [non-[Puppeted]] cities>",
+   "Cost increases by [30] per owned city"
+  ]
+ },
+ {
+  "name": "Armory",
+  "cost": null,
+  "maintenance": 1,
+  "requiredTech": "Machinery",
+  "uniqueTo": null,
+  "uniques": [
+   "New [Military] units start with [15] XP [in this city]",
+   "Destroyed when the city is captured"
+  ]
+ },
+ {
+  "name": "Observatory",
+  "cost": null,
+  "maintenance": 0,
+  "requiredTech": "Astronomy",
+  "uniqueTo": null,
+  "uniques": [
+   "Must be next to [Mountain]"
+  ]
+ },
+ {
+  "name": "Opera House",
+  "cost": null,
+  "maintenance": 2,
+  "requiredTech": "Acoustics",
+  "uniqueTo": null,
+  "uniques": [
+   "Destroyed when the city is captured"
+  ]
+ },
+ {
+  "name": "Sistine Chapel",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Acoustics",
+  "uniqueTo": null,
+  "uniques": [
+   "[+25]% [Culture] [in all cities]"
+  ]
+ },
+ {
+  "name": "Bank",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Banking",
+  "uniqueTo": null,
+  "uniques": []
+ },
+ {
+  "name": "Satrap's Court",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Banking",
+  "uniqueTo": "Persia",
+  "uniques": []
+ },
+ {
+  "name": "Forbidden Palace",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Banking",
+  "uniqueTo": null,
+  "uniques": [
+   "[-10]% Unhappiness from [Population] [in all non-occupied cities]"
+  ]
+ },
+ {
+  "name": "Theatre",
+  "cost": null,
+  "maintenance": 2,
+  "requiredTech": "Printing Press",
+  "uniqueTo": null,
+  "uniques": []
+ },
+ {
+  "name": "Seaport",
+  "cost": null,
+  "maintenance": 2,
+  "requiredTech": "Navigation",
+  "uniqueTo": null,
+  "uniques": [
+   "[+1 Production, +1 Gold] from [Water resource] tiles [in this city]",
+   "Must be next to [Coast]",
+   "[+15]% Production when constructing [Water] units [in this city]"
+  ]
+ },
+ {
+  "name": "Hermitage",
+  "cost": 125,
+  "maintenance": null,
+  "requiredTech": "Acoustics",
+  "uniqueTo": null,
+  "uniques": [
+   "Only available <if [Opera House] is constructed in all [non-[Puppeted]] cities>",
+   "Cost increases by [30] per owned city"
+  ]
+ },
+ {
+  "name": "Taj Mahal",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Printing Press",
+  "uniqueTo": null,
+  "uniques": [
+   "Empire enters golden age"
+  ]
+ },
+ {
+  "name": "Porcelain Tower",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Education",
+  "uniqueTo": null,
+  "uniques": [
+   "Free [Great Scientist] appears",
+   "Science gained from research agreements [+50]%"
+  ]
+ },
+ {
+  "name": "Windmill",
+  "cost": null,
+  "maintenance": 2,
+  "requiredTech": "Economics",
+  "uniqueTo": null,
+  "uniques": [
+   "Must not be on [Hill]",
+   "[+10]% Production when constructing [All] buildings [in this city]"
+  ]
+ },
+ {
+  "name": "Kremlin",
+  "cost": 500,
+  "maintenance": null,
+  "requiredTech": "Acoustics",
+  "uniqueTo": null,
+  "uniques": [
+   "[+25]% City Strength from defensive buildings"
+  ]
+ },
+ {
+  "name": "Museum",
+  "cost": null,
+  "maintenance": 3,
+  "requiredTech": "Archaeology",
+  "uniqueTo": null,
+  "uniques": [
+   "Destroyed when the city is captured"
+  ]
+ },
+ {
+  "name": "The Louvre",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Archaeology",
+  "uniqueTo": null,
+  "uniques": [
+   "[2] free [Great Artist] units appear"
+  ]
+ },
+ {
+  "name": "Public School",
+  "cost": null,
+  "maintenance": 3,
+  "requiredTech": "Scientific Theory",
+  "uniqueTo": null,
+  "uniques": [
+   "[+1 Science] per [2] population [in this city]"
+  ]
+ },
+ {
+  "name": "Factory",
+  "cost": 360,
+  "maintenance": 3,
+  "requiredTech": "Steam Power",
+  "uniqueTo": null,
+  "uniques": []
+ },
+ {
+  "name": "Big Ben",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Economics",
+  "uniqueTo": null,
+  "uniques": [
+   "[Gold] cost of purchasing items in cities [-15]%"
+  ]
+ },
+ {
+  "name": "Military Academy",
+  "cost": null,
+  "maintenance": 1,
+  "requiredTech": "Military Science",
+  "uniqueTo": null,
+  "uniques": [
+   "New [Military] units start with [15] XP [in this city]",
+   "Destroyed when the city is captured"
+  ]
+ },
+ {
+  "name": "Brandenburg Gate",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Military Science",
+  "uniqueTo": null,
+  "uniques": [
+   "Free [Great General] appears",
+   "New [Military] units start with [15] XP [in this city]"
+  ]
+ },
+ {
+  "name": "Arsenal",
+  "cost": 300,
+  "maintenance": null,
+  "requiredTech": "Rifling",
+  "uniqueTo": null,
+  "uniques": [
+   "Destroyed when the city is captured"
+  ]
+ },
+ {
+  "name": "Hospital",
+  "cost": null,
+  "maintenance": 2,
+  "requiredTech": "Biology",
+  "uniqueTo": null,
+  "uniques": []
+ },
+ {
+  "name": "Stock Exchange",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Electricity",
+  "uniqueTo": null,
+  "uniques": []
+ },
+ {
+  "name": "Broadcast Tower",
+  "cost": null,
+  "maintenance": 3,
+  "requiredTech": "Radio",
+  "uniqueTo": null,
+  "uniques": [
+   "Destroyed when the city is captured"
+  ]
+ },
+ {
+  "name": "Eiffel Tower",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Radio",
+  "uniqueTo": null,
+  "uniques": [
+   "[+1 Happiness] per [2] social policies adopted"
+  ]
+ },
+ {
+  "name": "Statue of Liberty",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Replaceable Parts",
+  "uniqueTo": null,
+  "uniques": [
+   "[+1 Production] from every specialist [in all cities]"
+  ]
+ },
+ {
+  "name": "Military Base",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Telegraph",
+  "uniqueTo": null,
+  "uniques": [
+   "Destroyed when the city is captured"
+  ]
+ },
+ {
+  "name": "Cristo Redentor",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Telegraph",
+  "uniqueTo": null,
+  "uniques": [
+   "[-10]% Culture cost of adopting new Policies"
+  ]
+ },
+ {
+  "name": "Research Lab",
+  "cost": null,
+  "maintenance": 3,
+  "requiredTech": "Plastics",
+  "uniqueTo": null,
+  "uniques": []
+ },
+ {
+  "name": "Medical Lab",
+  "cost": null,
+  "maintenance": 3,
+  "requiredTech": "Pharmaceuticals",
+  "uniqueTo": null,
+  "uniques": [
+   "[25]% Food is carried over after population increases [in this city]"
+  ]
+ },
+ {
+  "name": "Hydro Plant",
+  "cost": null,
+  "maintenance": 3,
+  "requiredTech": "Plastics",
+  "uniqueTo": null,
+  "uniques": [
+   "Must be on [River]",
+   "[+1 Production] from [River] tiles [in this city]"
+  ]
+ },
+ {
+  "name": "Stadium",
+  "cost": null,
+  "maintenance": 2,
+  "requiredTech": "Mass Media",
+  "uniqueTo": null,
+  "uniques": []
+ },
+ {
+  "name": "Sydney Opera House",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Mass Media",
+  "uniqueTo": null,
+  "uniques": [
+   "Free Social Policy",
+   "Must be next to [Coast]"
+  ]
+ },
+ {
+  "name": "Manhattan Project",
+  "cost": 750,
+  "maintenance": null,
+  "requiredTech": "Atomic Theory",
+  "uniqueTo": null,
+  "uniques": [
+   "Enables nuclear weapon",
+   "Triggers a global alert upon completion",
+   "Cannot be hurried"
+  ]
+ },
+ {
+  "name": "Pentagon",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Radar",
+  "uniqueTo": null,
+  "uniques": [
+   "[-33]% Gold cost of upgrading <for [Military] units>"
+  ]
+ },
+ {
+  "name": "Solar Plant",
+  "cost": null,
+  "maintenance": 3,
+  "requiredTech": "Ecology",
+  "uniqueTo": null,
+  "uniques": [
+   "Must be next to [Desert]",
+   "Only available <in cities without a [Nuclear Plant]>"
+  ]
+ },
+ {
+  "name": "Nuclear Plant",
+  "cost": null,
+  "maintenance": 3,
+  "requiredTech": "Nuclear Fission",
+  "uniqueTo": null,
+  "uniques": [
+   "Only available <in cities without a [Solar Plant]>"
+  ]
+ },
+ {
+  "name": "Apollo Program",
+  "cost": 750,
+  "maintenance": null,
+  "requiredTech": "Rocketry",
+  "uniqueTo": null,
+  "uniques": [
+   "Enables construction of Spaceship parts",
+   "Triggers a global alert upon completion",
+   "Only available <when [Scientific] Victory is enabled>",
+   "Cannot be hurried"
+  ]
+ },
+ {
+  "name": "Spaceship Factory",
+  "cost": 360,
+  "maintenance": 3,
+  "requiredTech": "Robotics",
+  "uniqueTo": null,
+  "uniques": [
+   "[+50]% Production when constructing [Spaceship part] units [in this city]"
+  ]
+ },
+ {
+  "name": "United Nations",
+  "cost": null,
+  "maintenance": null,
+  "requiredTech": "Globalization",
+  "uniqueTo": null,
+  "uniques": [
+   "Triggers voting for the Diplomatic Victory",
+   "Only available <when [Diplomatic] Victory is enabled>",
+   "Triggers a global alert upon completion"
+  ]
+ },
+ {
+  "name": "Utopia Project",
+  "cost": 1500,
+  "maintenance": null,
+  "requiredTech": null,
+  "uniqueTo": null,
+  "uniques": [
+   "Unavailable <when number of [Completed Policy branches] is less than [5]>",
+   "Triggers a global alert upon build start",
+   "Triggers a Cultural Victory upon completion",
+   "Only available <when [Cultural] Victory is enabled>"
+  ]
+ }
+]

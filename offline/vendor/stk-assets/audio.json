@@ -1,0 +1,42 @@
+{
+ "music": [
+  {
+   "name": "Boom_boom_boom",
+   "audio": "vendor/stk-assets/audio/boom_boom_boom.opus"
+  },
+  {
+   "name": "alien_signal",
+   "audio": "vendor/stk-assets/audio/alien_signal.opus"
+  }
+ ],
+ "sounds": [
+  {
+   "name": "crash",
+   "audio": "vendor/stk-assets/audio/sfx_crash.opus"
+  },
+  {
+   "name": "anvil",
+   "audio": "vendor/stk-assets/audio/sfx_anvil.opus"
+  },
+  {
+   "name": "break",
+   "audio": "vendor/stk-assets/audio/sfx_break.opus"
+  },
+  {
+   "name": "boing",
+   "audio": "vendor/stk-assets/audio/sfx_boing.opus"
+  },
+  {
+   "name": "clock",
+   "audio": "vendor/stk-assets/audio/sfx_clock.opus"
+  },
+  {
+   "name": "bubblegum_explode",
+   "audio": "vendor/stk-assets/audio/sfx_bubblegum_explode.opus"
+  },
+  {
+   "name": "explosion",
+   "audio": "vendor/stk-assets/audio/sfx_explosion.opus"
+  }
+ ]
+}

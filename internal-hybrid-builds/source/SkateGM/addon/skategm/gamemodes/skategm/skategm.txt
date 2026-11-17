@@ -1,8 +1,0 @@
-"skategm"
-{
-	"base"		"sandbox"
-	"title"		"SkateGM"
-	"category"	"other"
-	"maps"		"^sgm_"
-	"menusystem"	"1"
-}

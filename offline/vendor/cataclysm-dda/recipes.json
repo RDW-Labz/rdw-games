@@ -1,0 +1,1265 @@
+[
+ {
+  "result": "gold_ring",
+  "components": [
+   {
+    "any_of": [
+     "gold_small"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "fabrication"
+ },
+ {
+  "result": "fbmw_2_salt_water_pipe_swamp",
+  "components": [],
+  "skill_used": null
+ },
+ {
+  "result": "meat_fatty_cooked",
+  "components": [
+   {
+    "any_of": [
+     "porkbelly",
+     "raw_curing_fatty_meat",
+     "raw_cured_fatty_meat"
+    ],
+    "count": [
+     "raw_curing_fatty_meat",
+     1
+    ]
+   }
+  ],
+  "skill_used": "cooking"
+ },
+ {
+  "result": "baseball",
+  "components": [
+   {
+    "any_of": [
+     "string_36",
+     "cordage_36"
+    ],
+    "count": [
+     "cordage_36",
+     3
+    ]
+   },
+   {
+    "any_of": [
+     "glue_strong",
+     "glue_weak"
+    ],
+    "count": [
+     "glue_weak",
+     150
+    ]
+   }
+  ],
+  "skill_used": "tailor"
+ },
+ {
+  "result": "napalm",
+  "components": [
+   {
+    "any_of": [
+     "gasoline",
+     "diesel",
+     "biodiesel"
+    ],
+    "count": [
+     "diesel",
+     125
+    ]
+   },
+   {
+    "any_of": [
+     "plastic_chunk"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "bleach"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "oxy_powder"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "chemistry"
+ },
+ {
+  "result": "tinder",
+  "components": [
+   {
+    "any_of": [
+     "stick",
+     "2x4",
+     "splinter"
+    ],
+    "count": [
+     "2x4",
+     1
+    ]
+   }
+  ],
+  "skill_used": "survival"
+ },
+ {
+  "result": "wall_light",
+  "components": [
+   {
+    "any_of": [
+     "cable"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "amplifier"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "lightstrip_inactive",
+     "light_bulb"
+    ],
+    "count": [
+     "light_bulb",
+     1
+    ]
+   },
+   {
+    "any_of": [
+     "steel_chunk_any"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "electronics"
+ },
+ {
+  "result": "memory_card_unread",
+  "components": [
+   {
+    "any_of": [
+     "memory_card"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "computer"
+ },
+ {
+  "result": "saline",
+  "components": [
+   {
+    "any_of": [
+     "water_clean"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "salt"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "firstaid"
+ },
+ {
+  "result": "tripwire",
+  "components": [
+   {
+    "any_of": [
+     "glue_strong"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "traps"
+ },
+ {
+  "result": "minifreezer",
+  "components": [
+   {
+    "any_of": [
+     "sheet_metal"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "condensor_coil"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "evaporator_coil"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "thermostat"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "mechanics"
+ },
+ {
+  "result": "40x46mm_hornets_nest_22lr",
+  "components": [
+   {
+    "any_of": [
+     "22_lr"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "40x46mm_hornets_nest_22lr_casing"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "lgpistol_primer"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "pistol"
+ },
+ {
+  "result": "40x46mm_hornets_nest_410_slug",
+  "components": [
+   {
+    "any_of": [
+     "410shot_slug",
+     "reloaded_410shot_slug"
+    ],
+    "count": [
+     "reloaded_410shot_slug",
+     4
+    ]
+   },
+   {
+    "any_of": [
+     "40x46mm_hornets_nest_410_casing"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "lgpistol_primer"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "shotgun"
+ },
+ {
+  "result": "m320",
+  "components": [
+   {
+    "any_of": [
+     "m320_mod",
+     "m320_mod_mod"
+    ],
+    "count": [
+     "m320_mod_mod",
+     1
+    ]
+   },
+   {
+    "any_of": [
+     "ugl_buttstock"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "launcher"
+ },
+ {
+  "result": "ruger_1022_auto",
+  "components": [
+   {
+    "any_of": [
+     "ruger_1022"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "qt_wire"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "sheet_metal_small"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "glue_strong"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "gun"
+ },
+ {
+  "result": "gold_bracelet",
+  "components": [
+   {
+    "any_of": [
+     "gold_small"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "fabrication"
+ },
+ {
+  "result": "fbmw_2_salt_water_pipe_1",
+  "components": [],
+  "skill_used": null
+ },
+ {
+  "result": "pepperfat",
+  "components": [
+   {
+    "any_of": [
+     "porkbelly",
+     "raw_curing_fatty_meat",
+     "raw_cured_fatty_meat"
+    ],
+    "count": [
+     "raw_curing_fatty_meat",
+     1
+    ]
+   },
+   {
+    "any_of": [
+     "pepper"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "salt",
+     "seasoning_salt"
+    ],
+    "count": [
+     "seasoning_salt",
+     1
+    ]
+   }
+  ],
+  "skill_used": "cooking"
+ },
+ {
+  "result": "down_pillow",
+  "components": [
+   {
+    "any_of": [
+     "cotton_patchwork"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "down_feather"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "tailor"
+ },
+ {
+  "result": "gelled_gasoline",
+  "components": [
+   {
+    "any_of": [
+     "gasoline",
+     "avgas"
+    ],
+    "count": [
+     "avgas",
+     500
+    ]
+   },
+   {
+    "any_of": [
+     "lye_powder"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "rosin"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "water",
+     "water_clean"
+    ],
+    "count": [
+     "water_clean",
+     1
+    ]
+   }
+  ],
+  "skill_used": "chemistry"
+ },
+ {
+  "result": "tinder",
+  "components": [
+   {
+    "any_of": [
+     "splinter",
+     "pinecone",
+     "withered"
+    ],
+    "count": [
+     "pinecone",
+     2
+    ]
+   }
+  ],
+  "skill_used": "survival"
+ },
+ {
+  "result": "standing_lamp",
+  "components": [
+   {
+    "any_of": [
+     "cable"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "amplifier"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "lightstrip_inactive",
+     "light_bulb"
+    ],
+    "count": [
+     "light_bulb",
+     1
+    ]
+   },
+   {
+    "any_of": [
+     "steel_lump_any"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "electronics"
+ },
+ {
+  "result": "software_useless",
+  "components": [
+   {
+    "any_of": [
+     "usb_drive"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "computer"
+ },
+ {
+  "result": "anesthetic",
+  "components": [
+   {
+    "any_of": [
+     "ether"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "heroin",
+     "morphine"
+    ],
+    "count": [
+     "morphine",
+     10
+    ]
+   },
+   {
+    "any_of": [
+     "datura_seed"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "conc_venom",
+     "stimpack_ammo"
+    ],
+    "count": [
+     "stimpack_ammo",
+     5
+    ]
+   }
+  ],
+  "skill_used": "firstaid"
+ },
+ {
+  "result": "beartrap",
+  "components": [
+   {
+    "any_of": [
+     "spring"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "traps"
+ },
+ {
+  "result": "mountable_cooler",
+  "components": [
+   {
+    "any_of": [
+     "sheet_metal"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "condensor_coil"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "evaporator_coil"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "thermostat"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "mechanics"
+ },
+ {
+  "result": "40x46mm_hornets_nest_410_bird",
+  "components": [
+   {
+    "any_of": [
+     "410shot_bird",
+     "reloaded_410shot_bird"
+    ],
+    "count": [
+     "reloaded_410shot_bird",
+     4
+    ]
+   },
+   {
+    "any_of": [
+     "40x46mm_hornets_nest_410_casing"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "lgpistol_primer"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "shotgun"
+ },
+ {
+  "result": "crude_40mm",
+  "components": [
+   {
+    "any_of": [
+     "m320_mod",
+     "m320_mod_mod",
+     "m203"
+    ],
+    "count": [
+     "m320_mod_mod",
+     1
+    ]
+   },
+   {
+    "any_of": [
+     "sheet_metal_small"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "glue_strong"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "2x4"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "gun"
+ },
+ {
+  "result": "gold_necklace",
+  "components": [
+   {
+    "any_of": [
+     "gold_small"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "fabrication"
+ },
+ {
+  "result": "fbmw_2_salt_water_pipe_2",
+  "components": [],
+  "skill_used": null
+ },
+ {
+  "result": "cured_roe",
+  "components": [
+   {
+    "any_of": [
+     "curing_roe"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "cooking"
+ },
+ {
+  "result": "down_mattress",
+  "components": [
+   {
+    "any_of": [
+     "cotton_patchwork"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "down_feather"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "tailor"
+ },
+ {
+  "result": "gelled_gasoline",
+  "components": [
+   {
+    "any_of": [
+     "gasoline",
+     "avgas"
+    ],
+    "count": [
+     "avgas",
+     500
+    ]
+   },
+   {
+    "any_of": [
+     "lye_powder"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "chem_ethanol",
+     "disinfectant"
+    ],
+    "count": [
+     "disinfectant",
+     1
+    ]
+   },
+   {
+    "any_of": [
+     "any_tallow"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "chemistry"
+ },
+ {
+  "result": "tinder",
+  "components": [
+   {
+    "any_of": [
+     "pine_bough",
+     "cotton_patchwork",
+     "paper"
+    ],
+    "count": [
+     "cotton_patchwork",
+     1
+    ]
+   }
+  ],
+  "skill_used": "survival"
+ },
+ {
+  "result": "standing_floodlight",
+  "components": [
+   {
+    "any_of": [
+     "cable"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "amplifier"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "floodlight"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "steel_lump_any"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "electronics"
+ },
+ {
+  "result": "software_math",
+  "components": [
+   {
+    "any_of": [
+     "usb_drive"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "computer"
+ },
+ {
+  "result": "bandages",
+  "components": [
+   {
+    "any_of": [
+     "cotton_patchwork",
+     "medical_gauze"
+    ],
+    "count": [
+     "medical_gauze",
+     1
+    ]
+   },
+   {
+    "any_of": [
+     "duct_tape",
+     "medical_tape"
+    ],
+    "count": [
+     "medical_tape",
+     5
+    ]
+   },
+   {
+    "any_of": [
+     "disinfectant",
+     "thyme_oil",
+     "chem_ethanol"
+    ],
+    "count": [
+     "thyme_oil",
+     1
+    ]
+   }
+  ],
+  "skill_used": "firstaid"
+ },
+ {
+  "result": "crossbow_trap",
+  "components": [
+   {
+    "any_of": [
+     "crossbow"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "bolt_steel",
+     "bolt_wood"
+    ],
+    "count": [
+     "bolt_wood",
+     4
+    ]
+   }
+  ],
+  "skill_used": "traps"
+ },
+ {
+  "result": "mounted_spare_tire",
+  "components": [
+   {
+    "any_of": [
+     "wheel_wide_or",
+     "wheel_wide",
+     "wheel"
+    ],
+    "count": [
+     "wheel_wide",
+     1
+    ]
+   },
+   {
+    "any_of": [
+     "spare_tire_carrier"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "mechanics"
+ },
+ {
+  "result": "40x46mm_hornets_nest_410",
+  "components": [
+   {
+    "any_of": [
+     "410shot_000",
+     "reloaded_410shot_000"
+    ],
+    "count": [
+     "reloaded_410shot_000",
+     4
+    ]
+   },
+   {
+    "any_of": [
+     "40x46mm_hornets_nest_410_casing"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "lgpistol_primer"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "shotgun"
+ },
+ {
+  "result": "copper_bracelet",
+  "components": [
+   {
+    "any_of": [
+     "copper"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "fabrication"
+ },
+ {
+  "result": "fbmw_2_salt_water_pipe_3",
+  "components": [],
+  "skill_used": null
+ },
+ {
+  "result": "tobacco",
+  "components": [
+   {
+    "any_of": [
+     "tobacco_raw"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "cooking"
+ },
+ {
+  "result": "pillow",
+  "components": [
+   {
+    "any_of": [
+     "cotton_patchwork"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "cotton_ball"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "tailor"
+ },
+ {
+  "result": "gelled_gasoline",
+  "components": [
+   {
+    "any_of": [
+     "gasoline",
+     "avgas"
+    ],
+    "count": [
+     "avgas",
+     500
+    ]
+   },
+   {
+    "any_of": [
+     "lye_powder"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "chem_ethanol",
+     "disinfectant"
+    ],
+    "count": [
+     "disinfectant",
+     1
+    ]
+   },
+   {
+    "any_of": [
+     "cooking_oil",
+     "any_butter"
+    ],
+    "count": [
+     "any_butter",
+     16,
+     "LIST"
+    ]
+   }
+  ],
+  "skill_used": "chemistry"
+ },
+ {
+  "result": "fish",
+  "components": [],
+  "skill_used": "survival"
+ },
+ {
+  "result": "standing_directed_floodlight",
+  "components": [
+   {
+    "any_of": [
+     "cable"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "amplifier"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "directed_floodlight"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "steel_lump_any"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "electronics"
+ },
+ {
+  "result": "memory_card_science",
+  "components": [
+   {
+    "any_of": [
+     "memory_card"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "computer"
+ },
+ {
+  "result": "bandages_makeshift_bleached",
+  "components": [
+   {
+    "any_of": [
+     "bandages_makeshift"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "bleach"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "water_clean",
+     "water"
+    ],
+    "count": [
+     "water",
+     3
+    ]
+   }
+  ],
+  "skill_used": "firstaid"
+ },
+ {
+  "result": "shotgun_trap",
+  "components": [
+   {
+    "any_of": [
+     "slamfire_shotgun_d"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "shot_00",
+     "shot_slug",
+     "shot_flechette"
+    ],
+    "count": [
+     "shot_slug",
+     2
+    ]
+   }
+  ],
+  "skill_used": "traps"
+ },
+ {
+  "result": "wheel_mount_wood",
+  "components": [
+   {
+    "any_of": [
+     "nails"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "2x4"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "any_wire"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "mechanics"
+ },
+ {
+  "result": "40x46mm_hornets_nest_410_scrap",
+  "components": [
+   {
+    "any_of": [
+     "410shot_scrap"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "40x46mm_hornets_nest_410_casing"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "lgpistol_primer"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "shotgun"
+ },
+ {
+  "result": "copper_necklace",
+  "components": [
+   {
+    "any_of": [
+     "copper"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "fabrication"
+ },
+ {
+  "result": "fbmw_2_salt_water_pipe_4",
+  "components": [],
+  "skill_used": null
+ },
+ {
+  "result": "bonemeal_tablet",
+  "components": [
+   {
+    "any_of": [
+     "meal_bone"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "water_clean"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "cooking"
+ },
+ {
+  "result": "makeshift_pillow",
+  "components": [
+   {
+    "any_of": [
+     "cotton_patchwork"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "straw_pile",
+     "withered",
+     "pine_bough"
+    ],
+    "count": [
+     "withered",
+     15
+    ]
+   }
+  ],
+  "skill_used": "tailor"
+ },
+ {
+  "result": "gelled_gasoline",
+  "components": [
+   {
+    "any_of": [
+     "gasoline",
+     "avgas"
+    ],
+    "count": [
+     "avgas",
+     500
+    ]
+   },
+   {
+    "any_of": [
+     "chem_ethanol",
+     "disinfectant"
+    ],
+    "count": [
+     "disinfectant",
+     1
+    ]
+   },
+   {
+    "any_of": [
+     "soap",
+     "soap_flakes"
+    ],
+    "count": [
+     "soap_flakes",
+     32
+    ]
+   },
+   {
+    "any_of": [
+     "water",
+     "water_clean"
+    ],
+    "count": [
+     "water_clean",
+     1
+    ]
+   }
+  ],
+  "skill_used": "chemistry"
+ },
+ {
+  "result": "fish",
+  "components": [],
+  "skill_used": "survival"
+ },
+ {
+  "result": "foot_locker_recharge_station",
+  "components": [
+   {
+    "any_of": [
+     "frame"
+    ],
+    "count": 1
+   },
+   {
+    "any_of": [
+     "recharge_station"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "electronics"
+ },
+ {
+  "result": "software_medical",
+  "components": [
+   {
+    "any_of": [
+     "usb_drive"
+    ],
+    "count": 1
+   }
+  ],
+  "skill_used": "computer"
+ }
+]

@@ -1,0 +1,1411 @@
+{
+ "tilesets": [
+  "vendor/flare-game/tilesets/tileset_ruins.png",
+  "vendor/flare-game/tilesets/tileset_grassland.png",
+  "vendor/flare-game/tilesets/tileset_snowplains.png",
+  "vendor/flare-game/tilesets/tileset_dungeon.png"
+ ],
+ "monsters": [
+  "vendor/flare-game/monsters/antlion_armored.png",
+  "vendor/flare-game/monsters/skeleton_knight_boss.png",
+  "vendor/flare-game/monsters/wyvern_air_boss_run.png",
+  "vendor/flare-game/monsters/wyvern_air_boss_swing.png",
+  "vendor/flare-game/monsters/wyvern_air_boss_stance.png",
+  "vendor/flare-game/monsters/skeleton_mage_high_boss.png",
+  "vendor/flare-game/monsters/wyvern_air_boss_cast.png",
+  "vendor/flare-game/monsters/wyvern_air_boss_hit.png",
+  "vendor/flare-game/monsters/skeleton.png",
+  "vendor/flare-game/monsters/wyvern_air_boss_dash_attack.png",
+  "vendor/flare-game/monsters/ice_ant.png",
+  "vendor/flare-game/monsters/goblin_elite.png",
+  "vendor/flare-game/monsters/skeleton_mage_boss.png",
+  "vendor/flare-game/monsters/wyvern_air_boss_die.png",
+  "vendor/flare-game/monsters/fire_ant.png",
+  "vendor/flare-game/monsters/skeleton_archer.png",
+  "vendor/flare-game/monsters/skeleton_weak.png",
+  "vendor/flare-game/monsters/skeleton_mage.png",
+  "vendor/flare-game/monsters/antlion.png",
+  "vendor/flare-game/monsters/cursed_grave.png",
+  "vendor/flare-game/monsters/zombie.png",
+  "vendor/flare-game/monsters/zombie_dark.png",
+  "vendor/flare-game/monsters/goblin.png",
+  "vendor/flare-game/monsters/hobgoblin_archer.png",
+  "vendor/flare-game/monsters/minotaur_cast_alt.png",
+  "vendor/flare-game/monsters/minotaur_shoot.png",
+  "vendor/flare-game/monsters/hobgoblin.png",
+  "vendor/flare-game/monsters/minotaur_swing.png",
+  "vendor/flare-game/monsters/wyvern_fire_run.png",
+  "vendor/flare-game/monsters/minotaur_cast.png",
+  "vendor/flare-game/monsters/wyvern_air_run.png",
+  "vendor/flare-game/monsters/minotaur_stance.png",
+  "vendor/flare-game/monsters/wyvern_water_run.png",
+  "vendor/flare-game/monsters/minotaur_block.png",
+  "vendor/flare-game/monsters/minotaur_run.png",
+  "vendor/flare-game/monsters/wyvern_run.png"
+ ],
+ "portraits": [
+  "vendor/flare-game/portraits/female15.png",
+  "vendor/flare-game/portraits/female14.png",
+  "vendor/flare-game/portraits/female02.png",
+  "vendor/flare-game/portraits/bjorn2.png",
+  "vendor/flare-game/portraits/male16.png",
+  "vendor/flare-game/portraits/male01.png",
+  "vendor/flare-game/portraits/male10.png",
+  "vendor/flare-game/portraits/male05.png",
+  "vendor/flare-game/portraits/female11.png",
+  "vendor/flare-game/portraits/male03.png",
+  "vendor/flare-game/portraits/female10.png",
+  "vendor/flare-game/portraits/male06.png"
+ ],
+ "ui": [
+  "vendor/flare-game/ui/config.png",
+  "vendor/flare-game/ui/book.png",
+  "vendor/flare-game/ui/game_slots.png",
+  "vendor/flare-game/ui/tooltips.png",
+  "vendor/flare-game/ui/character.png",
+  "vendor/flare-game/ui/log.png"
+ ],
+ "icons": [
+  "vendor/flare-game/icons/icons.png",
+  "vendor/flare-game/icons/icons_crafting.png",
+  "vendor/flare-game/icons/icons_empyrean.png",
+  "vendor/flare-game/icons/icons_overlay.png"
+ ],
+ "music": [
+  "vendor/flare-game/music/battle_theme.opus",
+  "vendor/flare-game/music/boss_theme.opus",
+  "vendor/flare-game/music/cave_theme.opus"
+ ],
+ "items": [
+  {
+   "name": "Aloe Vera",
+   "source_mod": "empyrean_campaign",
+   "level": 1,
+   "price": 10,
+   "slot": "crafting"
+  },
+  {
+   "name": "Ardwen's Ring",
+   "source_mod": "empyrean_campaign",
+   "level": 1,
+   "price": 500,
+   "bonus": {
+    "hp": 50,
+    "mp": 6
+   },
+   "slot": "ring"
+  },
+  {
+   "name": "Cloth Gloves",
+   "source_mod": "empyrean_campaign",
+   "level": 1,
+   "price": 25
+  },
+  {
+   "name": "Cloth Pants",
+   "source_mod": "empyrean_campaign",
+   "level": 1,
+   "price": 50
+  },
+  {
+   "name": "Cloth Sandals",
+   "source_mod": "empyrean_campaign",
+   "level": 1,
+   "price": 30
+  },
+  {
+   "name": "Cloth Shirt",
+   "source_mod": "empyrean_campaign",
+   "level": 1,
+   "price": 75
+  },
+  {
+   "name": "Dagger",
+   "source_mod": "empyrean_campaign",
+   "level": 1,
+   "price": 100,
+   "damage": {
+    "kind": "melee",
+    "min": 10,
+    "max": 10
+   }
+  },
+  {
+   "name": "Gold",
+   "source_mod": "empyrean_campaign",
+   "level": 1,
+   "price": 1
+  },
+  {
+   "name": "Kayl's Staff",
+   "source_mod": "empyrean_campaign",
+   "level": 1,
+   "price": 0,
+   "damage": {
+    "kind": "ment",
+    "min": 40,
+    "max": 40
+   },
+   "bonus": {
+    "mp": 30
+   }
+  },
+  {
+   "name": "Lorund's Sword",
+   "source_mod": "empyrean_campaign",
+   "level": 1,
+   "price": 0,
+   "damage": {
+    "kind": "melee",
+    "min": 40,
+    "max": 40
+   },
+   "bonus": {
+    "hp": 250
+   }
+  },
+  {
+   "name": "Mana Crystal",
+   "source_mod": "empyrean_campaign",
+   "level": 1,
+   "price": 10,
+   "slot": "crafting"
+  },
+  {
+   "name": "Mortar and Pestle",
+   "source_mod": "empyrean_campaign",
+   "level": 1,
+   "price": 100,
+   "slot": "crafting_tool"
+  },
+  {
+   "name": "Mushrooms",
+   "source_mod": "empyrean_campaign",
+   "level": 1,
+   "price": 10,
+   "slot": "crafting"
+  },
+  {
+   "name": "Nerin's Bow",
+   "source_mod": "empyrean_campaign",
+   "level": 1,
+   "price": 0,
+   "damage": {
+    "kind": "ranged",
+    "min": 40,
+    "max": 40
+   },
+   "bonus": {
+    "accuracy": 15
+   }
+  },
+  {
+   "name": "Slingshot",
+   "source_mod": "empyrean_campaign",
+   "level": 1,
+   "price": 100,
+   "damage": {
+    "kind": "ranged",
+    "min": 10,
+    "max": 10
+   }
+  },
+  {
+   "name": "Turtle Figurine",
+   "source_mod": "empyrean_campaign",
+   "level": 1,
+   "price": 0,
+   "bonus": {
+    "defense": 15
+   },
+   "armour": 15,
+   "slot": "artifact"
+  },
+  {
+   "name": "Wand",
+   "source_mod": "empyrean_campaign",
+   "level": 1,
+   "price": 100,
+   "damage": {
+    "kind": "ment",
+    "min": 10,
+    "max": 10
+   }
+  },
+  {
+   "name": "Wood Buckler",
+   "source_mod": "empyrean_campaign",
+   "level": 1,
+   "price": 75
+  },
+  {
+   "name": "Fighting Cloth Gloves",
+   "source_mod": "empyrean_campaign",
+   "level": 2,
+   "price": 50,
+   "bonus": {
+    "crit": 1
+   }
+  },
+  {
+   "name": "Fighting Cloth Pants",
+   "source_mod": "empyrean_campaign",
+   "level": 2,
+   "price": 100,
+   "bonus": {
+    "poise": 2
+   }
+  },
+  {
+   "name": "Fighting Cloth Sandals",
+   "source_mod": "empyrean_campaign",
+   "level": 2,
+   "price": 60,
+   "bonus": {
+    "poise": 1
+   }
+  },
+  {
+   "name": "Fighting Cloth Shirt",
+   "source_mod": "empyrean_campaign",
+   "level": 2,
+   "price": 150,
+   "bonus": {
+    "hp": 25
+   }
+  },
+  {
+   "name": "Fighting Dagger",
+   "source_mod": "empyrean_campaign",
+   "level": 2,
+   "price": 200,
+   "damage": {
+    "kind": "melee",
+    "min": 10,
+    "max": 10
+   },
+   "bonus": {
+    "dmg_melee_min": 3,
+    "dmg_melee_max": 3
+   }
+  },
+  {
+   "name": "Keeper Wood Buckler",
+   "source_mod": "empyrean_campaign",
+   "level": 2,
+   "price": 150,
+   "bonus": {
+    "absorb_max": 1
+   },
+   "armour": 1
+  },
+  {
+   "name": "Recon Cloth Gloves",
+   "source_mod": "empyrean_campaign",
+   "level": 2,
+   "price": 50,
+   "bonus": {
+    "accuracy": 2
+   }
+  },
+  {
+   "name": "Recon Cloth Pants",
+   "source_mod": "empyrean_campaign",
+   "level": 2,
+   "price": 100,
+   "bonus": {
+    "avoidance": 1
+   }
+  },
+  {
+   "name": "Recon Cloth Sandals",
+   "source_mod": "empyrean_campaign",
+   "level": 2,
+   "price": 60,
+   "bonus": {
+    "avoidance": 2
+   }
+  },
+  {
+   "name": "Recon Cloth Shirt",
+   "source_mod": "empyrean_campaign",
+   "level": 2,
+   "price": 150,
+   "bonus": {
+    "accuracy": 1
+   }
+  },
+  {
+   "name": "Recon Slingshot",
+   "source_mod": "empyrean_campaign",
+   "level": 2,
+   "price": 200,
+   "damage": {
+    "kind": "ranged",
+    "min": 10,
+    "max": 10
+   },
+   "bonus": {
+    "dmg_ranged_min": 3,
+    "dmg_ranged_max": 3
+   }
+  },
+  {
+   "name": "Sorcerer Cloth Gloves",
+   "source_mod": "empyrean_campaign",
+   "level": 2,
+   "price": 50,
+   "bonus": {
+    "mp_regen": 2
+   }
+  },
+  {
+   "name": "Sorcerer Cloth Pants",
+   "source_mod": "empyrean_campaign",
+   "level": 2,
+   "price": 100,
+   "bonus": {
+    "mp": 2
+   }
+  },
+  {
+   "name": "Sorcerer Cloth Sandals",
+   "source_mod": "empyrean_campaign",
+   "level": 2,
+   "price": 60,
+   "bonus": {
+    "mp_regen": 1
+   }
+  },
+  {
+   "name": "Sorcerer Cloth Shirt",
+   "source_mod": "empyrean_campaign",
+   "level": 2,
+   "price": 150,
+   "bonus": {
+    "mp": 3
+   }
+  },
+  {
+   "name": "Sorcerer Wand",
+   "source_mod": "empyrean_campaign",
+   "level": 2,
+   "price": 200,
+   "damage": {
+    "kind": "ment",
+    "min": 10,
+    "max": 10
+   },
+   "bonus": {
+    "dmg_ment_min": 3,
+    "dmg_ment_max": 3
+   }
+  },
+  {
+   "name": "Wandering Dark Ring",
+   "source_mod": "empyrean_campaign",
+   "level": 2,
+   "price": 200,
+   "bonus": {
+    "dark_resist": 10
+   }
+  },
+  {
+   "name": "Wandering Experience Ring",
+   "source_mod": "empyrean_campaign",
+   "level": 2,
+   "price": 200,
+   "bonus": {
+    "xp_gain": 1
+   }
+  },
+  {
+   "name": "Wandering Fire Ring",
+   "source_mod": "empyrean_campaign",
+   "level": 2,
+   "price": 200,
+   "bonus": {
+    "fire_resist": 10
+   }
+  },
+  {
+   "name": "Wandering Ice Ring",
+   "source_mod": "empyrean_campaign",
+   "level": 2,
+   "price": 200,
+   "bonus": {
+    "ice_resist": 10
+   }
+  },
+  {
+   "name": "Wandering Leather Belt",
+   "source_mod": "empyrean_campaign",
+   "level": 2,
+   "price": 100,
+   "bonus": {
+    "hp_regen": 25
+   }
+  },
+  {
+   "name": "Wandering Lightning Ring",
+   "source_mod": "empyrean_campaign",
+   "level": 2,
+   "price": 200,
+   "bonus": {
+    "lightning_resist": 10
+   }
+  },
+  {
+   "name": "Wandering Pendant",
+   "source_mod": "empyrean_campaign",
+   "level": 2,
+   "price": 100,
+   "bonus": {
+    "avoidance": 1
+   }
+  },
+  {
+   "name": "Wandering Spellbook",
+   "source_mod": "empyrean_campaign",
+   "level": 2,
+   "price": 100,
+   "bonus": {
+    "mp_regen": 2
+   }
+  },
+  {
+   "name": "Wandering Treasure Ring",
+   "source_mod": "empyrean_campaign",
+   "level": 2,
+   "price": 200,
+   "bonus": {
+    "item_find": 5
+   }
+  },
+  {
+   "name": "Wandering Wealth Ring",
+   "source_mod": "empyrean_campaign",
+   "level": 2,
+   "price": 200,
+   "bonus": {
+    "currency_find": 2
+   }
+  },
+  {
+   "name": "Adventurer Dark Ring",
+   "source_mod": "empyrean_campaign",
+   "level": 3,
+   "price": 300,
+   "bonus": {
+    "dark_resist": 12
+   }
+  },
+  {
+   "name": "Adventurer Experience Ring",
+   "source_mod": "empyrean_campaign",
+   "level": 3,
+   "price": 300,
+   "bonus": {
+    "xp_gain": 2
+   }
+  },
+  {
+   "name": "Adventurer Fire Ring",
+   "source_mod": "empyrean_campaign",
+   "level": 3,
+   "price": 300,
+   "bonus": {
+    "fire_resist": 12
+   }
+  },
+  {
+   "name": "Adventurer Ice Ring",
+   "source_mod": "empyrean_campaign",
+   "level": 3,
+   "price": 300,
+   "bonus": {
+    "ice_resist": 12
+   }
+  },
+  {
+   "name": "Adventurer Leather Belt",
+   "source_mod": "empyrean_campaign",
+   "level": 3,
+   "price": 150,
+   "bonus": {
+    "hp_regen": 50
+   }
+  },
+  {
+   "name": "Adventurer Lightning Ring",
+   "source_mod": "empyrean_campaign",
+   "level": 3,
+   "price": 300,
+   "bonus": {
+    "lightning_resist": 12
+   }
+  },
+  {
+   "name": "Adventurer Pendant",
+   "source_mod": "empyrean_campaign",
+   "level": 3,
+   "price": 150,
+   "bonus": {
+    "avoidance": 2
+   }
+  },
+  {
+   "name": "Adventurer Spellbook",
+   "source_mod": "empyrean_campaign",
+   "level": 3,
+   "price": 150,
+   "bonus": {
+    "mp_regen": 4
+   }
+  },
+  {
+   "name": "Adventurer Treasure Ring",
+   "source_mod": "empyrean_campaign",
+   "level": 3,
+   "price": 300,
+   "bonus": {
+    "item_find": 10
+   }
+  },
+  {
+   "name": "Adventurer Wealth Ring",
+   "source_mod": "empyrean_campaign",
+   "level": 3,
+   "price": 300,
+   "bonus": {
+    "currency_find": 4
+   }
+  },
+  {
+   "name": "Paladin Wood Buckler",
+   "source_mod": "empyrean_campaign",
+   "level": 3,
+   "price": 225,
+   "bonus": {
+    "absorb_max": 2
+   },
+   "armour": 2
+  },
+  {
+   "name": "Ranger Cloth Gloves",
+   "source_mod": "empyrean_campaign",
+   "level": 3,
+   "price": 75,
+   "bonus": {
+    "accuracy": 4
+   }
+  },
+  {
+   "name": "Ranger Cloth Pants",
+   "source_mod": "empyrean_campaign",
+   "level": 3,
+   "price": 150,
+   "bonus": {
+    "avoidance": 2
+   }
+  },
+  {
+   "name": "Ranger Cloth Sandals",
+   "source_mod": "empyrean_campaign",
+   "level": 3,
+   "price": 90,
+   "bonus": {
+    "avoidance": 4
+   }
+  },
+  {
+   "name": "Ranger Cloth Shirt",
+   "source_mod": "empyrean_campaign",
+   "level": 3,
+   "price": 225,
+   "bonus": {
+    "accuracy": 2
+   }
+  },
+  {
+   "name": "Ranger Slingshot",
+   "source_mod": "empyrean_campaign",
+   "level": 3,
+   "price": 300,
+   "damage": {
+    "kind": "ranged",
+    "min": 10,
+    "max": 10
+   },
+   "bonus": {
+    "dmg_ranged_min": 6,
+    "dmg_ranged_max": 6
+   }
+  },
+  {
+   "name": "Warrior Cloth Gloves",
+   "source_mod": "empyrean_campaign",
+   "level": 3,
+   "price": 75,
+   "bonus": {
+    "crit": 2
+   }
+  },
+  {
+   "name": "Warrior Cloth Pants",
+   "source_mod": "empyrean_campaign",
+   "level": 3,
+   "price": 150,
+   "bonus": {
+    "poise": 4
+   }
+  },
+  {
+   "name": "Warrior Cloth Sandals",
+   "source_mod": "empyrean_campaign",
+   "level": 3,
+   "price": 90,
+   "bonus": {
+    "poise": 2
+   }
+  },
+  {
+   "name": "Warrior Cloth Shirt",
+   "source_mod": "empyrean_campaign",
+   "level": 3,
+   "price": 225,
+   "bonus": {
+    "hp": 50
+   }
+  },
+  {
+   "name": "Warrior Dagger",
+   "source_mod": "empyrean_campaign",
+   "level": 3,
+   "price": 300,
+   "damage": {
+    "kind": "melee",
+    "min": 10,
+    "max": 10
+   },
+   "bonus": {
+    "dmg_melee_min": 6,
+    "dmg_melee_max": 6
+   }
+  },
+  {
+   "name": "Wizard Cloth Gloves",
+   "source_mod": "empyrean_campaign",
+   "level": 3,
+   "price": 75,
+   "bonus": {
+    "mp_regen": 4
+   }
+  },
+  {
+   "name": "Wizard Cloth Pants",
+   "source_mod": "empyrean_campaign",
+   "level": 3,
+   "price": 150,
+   "bonus": {
+    "mp": 4
+   }
+  },
+  {
+   "name": "Wizard Cloth Sandals",
+   "source_mod": "empyrean_campaign",
+   "level": 3,
+   "price": 90,
+   "bonus": {
+    "mp_regen": 2
+   }
+  },
+  {
+   "name": "Wizard Cloth Shirt",
+   "source_mod": "empyrean_campaign",
+   "level": 3,
+   "price": 225,
+   "bonus": {
+    "mp": 6
+   }
+  },
+  {
+   "name": "Wizard Wand",
+   "source_mod": "empyrean_campaign",
+   "level": 3,
+   "price": 300,
+   "damage": {
+    "kind": "ment",
+    "min": 10,
+    "max": 10
+   },
+   "bonus": {
+    "dmg_ment_min": 6,
+    "dmg_ment_max": 6
+   }
+  },
+  {
+   "name": "Archwizard Cloth Gloves",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 100,
+   "bonus": {
+    "mp_regen": 6
+   }
+  },
+  {
+   "name": "Archwizard Cloth Pants",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 200,
+   "bonus": {
+    "mp": 6
+   }
+  },
+  {
+   "name": "Archwizard Cloth Sandals",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 120,
+   "bonus": {
+    "mp_regen": 3
+   }
+  },
+  {
+   "name": "Archwizard Cloth Shirt",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 300,
+   "bonus": {
+    "mp": 9
+   }
+  },
+  {
+   "name": "Archwizard Wand",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 400,
+   "damage": {
+    "kind": "ment",
+    "min": 10,
+    "max": 10
+   },
+   "bonus": {
+    "dmg_ment_min": 9,
+    "dmg_ment_max": 9
+   }
+  },
+  {
+   "name": "Ardwen's Gloves",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 125,
+   "bonus": {
+    "accuracy": 5,
+    "poise": 10,
+    "xp_gain": 5
+   }
+  },
+  {
+   "name": "Blood Tunic",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 375,
+   "bonus": {
+    "hp": 100,
+    "hp_regen": 100
+   }
+  },
+  {
+   "name": "Dark Steppers",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 150,
+   "bonus": {
+    "avoidance": 15,
+    "dark_resist": 25
+   }
+  },
+  {
+   "name": "Goblin Branch",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 500,
+   "damage": {
+    "kind": "ment",
+    "min": 10,
+    "max": 10
+   },
+   "bonus": {
+    "dmg_ment_min": 12,
+    "dmg_ment_max": 12,
+    "mp_regen": 10,
+    "lightning_resist": 10
+   }
+  },
+  {
+   "name": "Krolan's Hammer",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 500,
+   "damage": {
+    "kind": "melee",
+    "min": 10,
+    "max": 10
+   },
+   "bonus": {
+    "dmg_melee_min": 12,
+    "dmg_melee_max": 12,
+    "crit": 1,
+    "currency_find": 10
+   }
+  },
+  {
+   "name": "Master Dark Ring",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 400,
+   "bonus": {
+    "dark_resist": 14
+   }
+  },
+  {
+   "name": "Master Experience Ring",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 400,
+   "bonus": {
+    "xp_gain": 3
+   }
+  },
+  {
+   "name": "Master Fire Ring",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 400,
+   "bonus": {
+    "fire_resist": 14
+   }
+  },
+  {
+   "name": "Master Ice Ring",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 400,
+   "bonus": {
+    "ice_resist": 14
+   }
+  },
+  {
+   "name": "Master Leather Belt",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 200,
+   "bonus": {
+    "hp_regen": 75
+   }
+  },
+  {
+   "name": "Master Lightning Ring",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 400,
+   "bonus": {
+    "lightning_resist": 14
+   }
+  },
+  {
+   "name": "Master Pendant",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 200,
+   "bonus": {
+    "avoidance": 3
+   }
+  },
+  {
+   "name": "Master Spellbook",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 200,
+   "bonus": {
+    "mp_regen": 6
+   }
+  },
+  {
+   "name": "Master Treasure Ring",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 400,
+   "bonus": {
+    "item_find": 15
+   }
+  },
+  {
+   "name": "Master Wealth Ring",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 400,
+   "bonus": {
+    "currency_find": 6
+   }
+  },
+  {
+   "name": "Seagate's Tri-pants",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 250,
+   "bonus": {
+    "fire_resist": 25,
+    "ice_resist": 25,
+    "lightning_resist": 25
+   }
+  },
+  {
+   "name": "Sniper Cloth Gloves",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 100,
+   "bonus": {
+    "accuracy": 6
+   }
+  },
+  {
+   "name": "Sniper Cloth Pants",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 200,
+   "bonus": {
+    "avoidance": 3
+   }
+  },
+  {
+   "name": "Sniper Cloth Sandals",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 120,
+   "bonus": {
+    "avoidance": 6
+   }
+  },
+  {
+   "name": "Sniper Cloth Shirt",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 300,
+   "bonus": {
+    "accuracy": 3
+   }
+  },
+  {
+   "name": "Sniper Slingshot",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 400,
+   "damage": {
+    "kind": "ranged",
+    "min": 10,
+    "max": 10
+   },
+   "bonus": {
+    "dmg_ranged_min": 9,
+    "dmg_ranged_max": 9
+   }
+  },
+  {
+   "name": "Templar Wood Buckler",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 300,
+   "bonus": {
+    "absorb_max": 3
+   },
+   "armour": 3
+  },
+  {
+   "name": "Warlord Cloth Gloves",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 100,
+   "bonus": {
+    "crit": 3
+   }
+  },
+  {
+   "name": "Warlord Cloth Pants",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 200,
+   "bonus": {
+    "poise": 6
+   }
+  },
+  {
+   "name": "Warlord Cloth Sandals",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 120,
+   "bonus": {
+    "poise": 3
+   }
+  },
+  {
+   "name": "Warlord Cloth Shirt",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 300,
+   "bonus": {
+    "hp": 75
+   }
+  },
+  {
+   "name": "Warlord Dagger",
+   "source_mod": "empyrean_campaign",
+   "level": 4,
+   "price": 400,
+   "damage": {
+    "kind": "melee",
+    "min": 10,
+    "max": 10
+   },
+   "bonus": {
+    "dmg_melee_min": 9,
+    "dmg_melee_max": 9
+   }
+  },
+  {
+   "name": "Iron Buckler",
+   "source_mod": "empyrean_campaign",
+   "level": 5,
+   "price": 375
+  },
+  {
+   "name": "Leather Boots",
+   "source_mod": "empyrean_campaign",
+   "level": 5,
+   "price": 150
+  },
+  {
+   "name": "Leather Gloves",
+   "source_mod": "empyrean_campaign",
+   "level": 5,
+   "price": 125
+  },
+  {
+   "name": "Leather Hood",
+   "source_mod": "empyrean_campaign",
+   "level": 5,
+   "price": 150
+  },
+  {
+   "name": "Leather Pants",
+   "source_mod": "empyrean_campaign",
+   "level": 5,
+   "price": 250
+  },
+  {
+   "name": "Leather Tunic",
+   "source_mod": "empyrean_campaign",
+   "level": 5,
+   "price": 375
+  },
+  {
+   "name": "Rod",
+   "source_mod": "empyrean_campaign",
+   "level": 5,
+   "price": 500,
+   "damage": {
+    "kind": "ment",
+    "min": 22,
+    "max": 22
+   }
+  },
+  {
+   "name": "Shortbow",
+   "source_mod": "empyrean_campaign",
+   "level": 5,
+   "price": 500,
+   "damage": {
+    "kind": "ranged",
+    "min": 22,
+    "max": 22
+   }
+  },
+  {
+   "name": "Shortsword",
+   "source_mod": "empyrean_campaign",
+   "level": 5,
+   "price": 500,
+   "damage": {
+    "kind": "melee",
+    "min": 22,
+    "max": 22
+   }
+  },
+  {
+   "name": "Wool Boots",
+   "source_mod": "empyrean_campaign",
+   "level": 5,
+   "price": 150
+  },
+  {
+   "name": "Wool Hood",
+   "source_mod": "empyrean_campaign",
+   "level": 5,
+   "price": 150
+  },
+  {
+   "name": "Wool Skirt",
+   "source_mod": "empyrean_campaign",
+   "level": 5,
+   "price": 250
+  },
+  {
+   "name": "Wool Sleeves",
+   "source_mod": "empyrean_campaign",
+   "level": 5,
+   "price": 125
+  },
+  {
+   "name": "Wool Vest",
+   "source_mod": "empyrean_campaign",
+   "level": 5,
+   "price": 375
+  },
+  {
+   "name": "Fighting Leather Boots",
+   "source_mod": "empyrean_campaign",
+   "level": 6,
+   "price": 180,
+   "bonus": {
+    "poise": 4
+   }
+  },
+  {
+   "name": "Fighting Leather Gloves",
+   "source_mod": "empyrean_campaign",
+   "level": 6,
+   "price": 150,
+   "bonus": {
+    "crit": 4
+   }
+  },
+  {
+   "name": "Fighting Leather Hood",
+   "source_mod": "empyrean_campaign",
+   "level": 6,
+   "price": 180,
+   "bonus": {
+    "poise": 1
+   }
+  },
+  {
+   "name": "Fighting Leather Pants",
+   "source_mod": "empyrean_campaign",
+   "level": 6,
+   "price": 300,
+   "bonus": {
+    "poise": 8
+   }
+  },
+  {
+   "name": "Fighting Leather Tunic",
+   "source_mod": "empyrean_campaign",
+   "level": 6,
+   "price": 450,
+   "bonus": {
+    "hp": 100
+   }
+  },
+  {
+   "name": "Fighting Shortsword",
+   "source_mod": "empyrean_campaign",
+   "level": 6,
+   "price": 600,
+   "damage": {
+    "kind": "melee",
+    "min": 22,
+    "max": 22
+   },
+   "bonus": {
+    "dmg_melee_min": 3,
+    "dmg_melee_max": 3
+   }
+  },
+  {
+   "name": "Keeper Iron Buckler",
+   "source_mod": "empyrean_campaign",
+   "level": 6,
+   "price": 450,
+   "bonus": {
+    "absorb_max": 1
+   },
+   "armour": 1
+  },
+  {
+   "name": "Recon Leather Boots",
+   "source_mod": "empyrean_campaign",
+   "level": 6,
+   "price": 180,
+   "bonus": {
+    "avoidance": 8
+   }
+  },
+  {
+   "name": "Recon Leather Gloves",
+   "source_mod": "empyrean_campaign",
+   "level": 6,
+   "price": 150,
+   "bonus": {
+    "accuracy": 8
+   }
+  },
+  {
+   "name": "Recon Leather Hood",
+   "source_mod": "empyrean_campaign",
+   "level": 6,
+   "price": 180,
+   "bonus": {
+    "accuracy": 1
+   }
+  },
+  {
+   "name": "Recon Leather Pants",
+   "source_mod": "empyrean_campaign",
+   "level": 6,
+   "price": 300,
+   "bonus": {
+    "avoidance": 4
+   }
+  },
+  {
+   "name": "Recon Leather Tunic",
+   "source_mod": "empyrean_campaign",
+   "level": 6,
+   "price": 450,
+   "bonus": {
+    "accuracy": 4
+   }
+  },
+  {
+   "name": "Recon Shortbow",
+   "source_mod": "empyrean_campaign",
+   "level": 6,
+   "price": 600,
+   "damage": {
+    "kind": "ranged",
+    "min": 22,
+    "max": 22
+   },
+   "bonus": {
+    "dmg_ranged_min": 3,
+    "dmg_ranged_max": 3
+   }
+  },
+  {
+   "name": "Sorcerer Rod",
+   "source_mod": "empyrean_campaign",
+   "level": 6,
+   "price": 600,
+   "damage": {
+    "kind": "ment",
+    "min": 22,
+    "max": 22
+   },
+   "bonus": {
+    "dmg_ment_min": 3,
+    "dmg_ment_max": 3
+   }
+  },
+  {
+   "name": "Sorcerer Wool Boots",
+   "source_mod": "empyrean_campaign",
+   "level": 6,
+   "price": 180,
+   "bonus": {
+    "mp_regen": 4
+   }
+  },
+  {
+   "name": "Sorcerer Wool Hood",
+   "source_mod": "empyrean_campaign",
+   "level": 6,
+   "price": 180,
+   "bonus": {
+    "mp": 3
+   }
+  },
+  {
+   "name": "Sorcerer Wool Skirt",
+   "source_mod": "empyrean_campaign",
+   "level": 6,
+   "price": 300,
+   "bonus": {
+    "mp": 8
+   }
+  },
+  {
+   "name": "Sorcerer Wool Sleeves",
+   "source_mod": "empyrean_campaign",
+   "level": 6,
+   "price": 150,
+   "bonus": {
+    "mp_regen": 8
+   }
+  },
+  {
+   "name": "Sorcerer Wool Vest",
+   "source_mod": "empyrean_campaign",
+   "level": 6,
+   "price": 450,
+   "bonus": {
+    "mp": 12
+   }
+  },
+  {
+   "name": "Wandering Burn Ring",
+   "source_mod": "empyrean_campaign",
+   "level": 6,
+   "price": 600,
+   "bonus": {
+    "fire_resist": 16
+   }
+  },
+  {
+   "name": "Wandering Electric Ring",
+   "source_mod": "empyrean_campaign",
+   "level": 6,
+   "price": 600,
+   "bonus": {
+    "lightning_resist": 16
+   }
+  },
+  {
+   "name": "Wandering Fighting Leather Belt",
+   "source_mod": "empyrean_campaign",
+   "level": 6,
+   "price": 300,
+   "bonus": {
+    "hp_regen": 100
+   }
+  },
+  {
+   "name": "Wandering Frost Ring",
+   "source_mod": "empyrean_campaign",
+   "level": 6,
+   "price": 600,
+   "bonus": {
+    "ice_resist": 16
+   }
+  },
+  {
+   "name": "Wandering Knowledge Ring",
+   "source_mod": "empyrean_campaign",
+   "level": 6,
+   "price": 600,
+   "bonus": {
+    "xp_gain": 4
+   }
+  }
+ ]
+}

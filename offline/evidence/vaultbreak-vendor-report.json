@@ -1,0 +1,173 @@
+{
+  "vendorLoaded": true,
+  "run": {
+    "drive": {
+      "moved": 400,
+      "fired": 37,
+      "state": {
+        "started": true,
+        "mode": "play",
+        "depth": 1,
+        "hp": 52,
+        "turns": 437,
+        "kills": 2,
+        "scrap": 3,
+        "enemies": 3,
+        "x": 15,
+        "y": 16,
+        "alive": true,
+        "gameOver": false
+      }
+    },
+    "state": {
+      "started": true,
+      "mode": "play",
+      "depth": 1,
+      "hp": 52,
+      "turns": 437,
+      "kills": 2,
+      "scrap": 3,
+      "enemies": 3,
+      "x": 15,
+      "y": 16,
+      "alive": true,
+      "gameOver": false
+    },
+    "canvas": {
+      "w": 860,
+      "h": 1682,
+      "colours": 1746,
+      "litPx": 158255
+    },
+    "fight": {
+      "state": {
+        "started": true,
+        "mode": "play",
+        "depth": 1,
+        "hp": 58,
+        "turns": 227,
+        "kills": 0,
+        "scrap": 0,
+        "enemies": 5,
+        "x": 16,
+        "y": 18,
+        "alive": true,
+        "gameOver": false
+      },
+      "sprites": {
+        "rat": {
+          "palette": 51,
+          "matched": 51,
+          "pct": 100
+        },
+        "bat": {
+          "palette": 5,
+          "matched": 2,
+          "pct": 40
+        },
+        "snake": {
+          "palette": 7,
+          "matched": 1,
+          "pct": 14
+        },
+        "gnoll": {
+          "palette": 49,
+          "matched": 3,
+          "pct": 6
+        },
+        "eye": {
+          "palette": 28,
+          "matched": 0,
+          "pct": 0
+        },
+        "ghoul": {
+          "palette": 17,
+          "matched": 1,
+          "pct": 6
+        },
+        "brute": {
+          "palette": 27,
+          "matched": 1,
+          "pct": 4
+        },
+        "golem": {
+          "palette": 7,
+          "matched": 0,
+          "pct": 0
+        },
+        "ghost": {
+          "palette": 2,
+          "matched": 1,
+          "pct": 50
+        },
+        "elemental": {
+          "palette": 35,
+          "matched": 1,
+          "pct": 3
+        }
+      }
+    },
+    "audio": [
+      "vault.opus",
+      "tense.opus",
+      "hit_crush.opus",
+      "hit_crush.opus",
+      "hit_crush.opus",
+      "zap.opus",
+      "zap.opus",
+      "zap.opus",
+      "hit_magic.opus",
+      "hit_magic.opus",
+      "hit_magic.opus",
+      "hit_slash.opus",
+      "hit_slash.opus",
+      "hit_slash.opus",
+      "death.opus",
+      "death.opus",
+      "death.opus"
+    ],
+    "errors": []
+  },
+  "fallback": {
+    "vendorLoaded": false,
+    "drive": {
+      "moved": 400,
+      "fired": 37,
+      "state": {
+        "started": true,
+        "mode": "play",
+        "depth": 1,
+        "hp": 54,
+        "turns": 437,
+        "kills": 2,
+        "scrap": 3,
+        "enemies": 3,
+        "x": 15,
+        "y": 16,
+        "alive": true,
+        "gameOver": false
+      }
+    },
+    "state": {
+      "started": true,
+      "mode": "play",
+      "depth": 1,
+      "hp": 54,
+      "turns": 437,
+      "kills": 2,
+      "scrap": 3,
+      "enemies": 3,
+      "x": 15,
+      "y": 16,
+      "alive": true,
+      "gameOver": false
+    },
+    "canvas": {
+      "w": 860,
+      "h": 1682,
+      "colours": 1586,
+      "litPx": 158225
+    },
+    "errors": []
+  }
+}

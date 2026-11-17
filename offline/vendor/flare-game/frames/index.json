@@ -1,0 +1,919 @@
+{
+ "antlion": {
+  "anchor": [
+   64,
+   96
+  ],
+  "anims": {
+   "block": {
+    "files": [
+     "vendor/flare-game/frames/antlion/block-0.png",
+     "vendor/flare-game/frames/antlion/block-1.png"
+    ],
+    "fps": 10.0,
+    "loop": false
+   },
+   "cast": {
+    "files": [
+     "vendor/flare-game/frames/antlion/cast-0.png",
+     "vendor/flare-game/frames/antlion/cast-1.png",
+     "vendor/flare-game/frames/antlion/cast-2.png",
+     "vendor/flare-game/frames/antlion/cast-3.png"
+    ],
+    "fps": 10.0,
+    "loop": false
+   },
+   "critdie": {
+    "files": [
+     "vendor/flare-game/frames/antlion/critdie-0.png",
+     "vendor/flare-game/frames/antlion/critdie-1.png",
+     "vendor/flare-game/frames/antlion/critdie-2.png",
+     "vendor/flare-game/frames/antlion/critdie-3.png",
+     "vendor/flare-game/frames/antlion/critdie-4.png",
+     "vendor/flare-game/frames/antlion/critdie-5.png",
+     "vendor/flare-game/frames/antlion/critdie-6.png",
+     "vendor/flare-game/frames/antlion/critdie-7.png"
+    ],
+    "fps": 7.5,
+    "loop": false
+   },
+   "die": {
+    "files": [
+     "vendor/flare-game/frames/antlion/die-0.png",
+     "vendor/flare-game/frames/antlion/die-1.png",
+     "vendor/flare-game/frames/antlion/die-2.png",
+     "vendor/flare-game/frames/antlion/die-3.png",
+     "vendor/flare-game/frames/antlion/die-4.png",
+     "vendor/flare-game/frames/antlion/die-5.png"
+    ],
+    "fps": 7.5,
+    "loop": false
+   },
+   "hit": {
+    "files": [
+     "vendor/flare-game/frames/antlion/hit-0.png",
+     "vendor/flare-game/frames/antlion/hit-1.png"
+    ],
+    "fps": 15.04,
+    "loop": true
+   },
+   "run": {
+    "files": [
+     "vendor/flare-game/frames/antlion/run-0.png",
+     "vendor/flare-game/frames/antlion/run-1.png",
+     "vendor/flare-game/frames/antlion/run-2.png",
+     "vendor/flare-game/frames/antlion/run-3.png",
+     "vendor/flare-game/frames/antlion/run-4.png",
+     "vendor/flare-game/frames/antlion/run-5.png",
+     "vendor/flare-game/frames/antlion/run-6.png",
+     "vendor/flare-game/frames/antlion/run-7.png"
+    ],
+    "fps": 15.01,
+    "loop": true
+   },
+   "shoot": {
+    "files": [
+     "vendor/flare-game/frames/antlion/shoot-0.png",
+     "vendor/flare-game/frames/antlion/shoot-1.png",
+     "vendor/flare-game/frames/antlion/shoot-2.png",
+     "vendor/flare-game/frames/antlion/shoot-3.png"
+    ],
+    "fps": 10.0,
+    "loop": false
+   },
+   "spawn": {
+    "files": [
+     "vendor/flare-game/frames/antlion/spawn-0.png",
+     "vendor/flare-game/frames/antlion/spawn-1.png",
+     "vendor/flare-game/frames/antlion/spawn-2.png",
+     "vendor/flare-game/frames/antlion/spawn-3.png",
+     "vendor/flare-game/frames/antlion/spawn-4.png",
+     "vendor/flare-game/frames/antlion/spawn-5.png"
+    ],
+    "fps": 7.5,
+    "loop": false
+   },
+   "stance": {
+    "files": [
+     "vendor/flare-game/frames/antlion/stance-0.png",
+     "vendor/flare-game/frames/antlion/stance-1.png",
+     "vendor/flare-game/frames/antlion/stance-2.png",
+     "vendor/flare-game/frames/antlion/stance-3.png"
+    ],
+    "fps": 7.5,
+    "loop": true
+   },
+   "swing": {
+    "files": [
+     "vendor/flare-game/frames/antlion/swing-0.png",
+     "vendor/flare-game/frames/antlion/swing-1.png",
+     "vendor/flare-game/frames/antlion/swing-2.png",
+     "vendor/flare-game/frames/antlion/swing-3.png"
+    ],
+    "fps": 15.04,
+    "loop": false
+   }
+  },
+  "cell": [
+   128,
+   128
+  ],
+  "creature": "antlion",
+  "source": {
+   "commit": "af6eee6d339ac98011864bfe89da837fe7769c28",
+   "def": "art_src/animation_defs/characters/antlion.txt",
+   "image": "mods/fantasycore/images/enemies/antlion.png",
+   "license": "GPL-3.0 AND CC-BY-SA-3.0",
+   "repo": "flareteam/flare-game"
+  }
+ },
+ "goblin": {
+  "anchor": [
+   64,
+   96
+  ],
+  "anims": {
+   "block": {
+    "files": [
+     "vendor/flare-game/frames/goblin/block-0.png",
+     "vendor/flare-game/frames/goblin/block-1.png"
+    ],
+    "fps": 10.0,
+    "loop": false
+   },
+   "cast": {
+    "files": [
+     "vendor/flare-game/frames/goblin/cast-0.png",
+     "vendor/flare-game/frames/goblin/cast-1.png",
+     "vendor/flare-game/frames/goblin/cast-2.png",
+     "vendor/flare-game/frames/goblin/cast-3.png"
+    ],
+    "fps": 7.5,
+    "loop": false
+   },
+   "critdie": {
+    "files": [
+     "vendor/flare-game/frames/goblin/critdie-0.png",
+     "vendor/flare-game/frames/goblin/critdie-1.png",
+     "vendor/flare-game/frames/goblin/critdie-2.png",
+     "vendor/flare-game/frames/goblin/critdie-3.png",
+     "vendor/flare-game/frames/goblin/critdie-4.png",
+     "vendor/flare-game/frames/goblin/critdie-5.png",
+     "vendor/flare-game/frames/goblin/critdie-6.png",
+     "vendor/flare-game/frames/goblin/critdie-7.png"
+    ],
+    "fps": 10.0,
+    "loop": false
+   },
+   "die": {
+    "files": [
+     "vendor/flare-game/frames/goblin/die-0.png",
+     "vendor/flare-game/frames/goblin/die-1.png",
+     "vendor/flare-game/frames/goblin/die-2.png",
+     "vendor/flare-game/frames/goblin/die-3.png",
+     "vendor/flare-game/frames/goblin/die-4.png",
+     "vendor/flare-game/frames/goblin/die-5.png"
+    ],
+    "fps": 15.0,
+    "loop": false
+   },
+   "hit": {
+    "files": [
+     "vendor/flare-game/frames/goblin/hit-0.png",
+     "vendor/flare-game/frames/goblin/hit-1.png"
+    ],
+    "fps": 15.04,
+    "loop": true
+   },
+   "run": {
+    "files": [
+     "vendor/flare-game/frames/goblin/run-0.png",
+     "vendor/flare-game/frames/goblin/run-1.png",
+     "vendor/flare-game/frames/goblin/run-2.png",
+     "vendor/flare-game/frames/goblin/run-3.png",
+     "vendor/flare-game/frames/goblin/run-4.png",
+     "vendor/flare-game/frames/goblin/run-5.png",
+     "vendor/flare-game/frames/goblin/run-6.png",
+     "vendor/flare-game/frames/goblin/run-7.png"
+    ],
+    "fps": 15.01,
+    "loop": true
+   },
+   "shoot": {
+    "files": [
+     "vendor/flare-game/frames/goblin/shoot-0.png",
+     "vendor/flare-game/frames/goblin/shoot-1.png",
+     "vendor/flare-game/frames/goblin/shoot-2.png",
+     "vendor/flare-game/frames/goblin/shoot-3.png"
+    ],
+    "fps": 10.0,
+    "loop": false
+   },
+   "stance": {
+    "files": [
+     "vendor/flare-game/frames/goblin/stance-0.png",
+     "vendor/flare-game/frames/goblin/stance-1.png",
+     "vendor/flare-game/frames/goblin/stance-2.png",
+     "vendor/flare-game/frames/goblin/stance-3.png"
+    ],
+    "fps": 5.0,
+    "loop": true
+   },
+   "swing": {
+    "files": [
+     "vendor/flare-game/frames/goblin/swing-0.png",
+     "vendor/flare-game/frames/goblin/swing-1.png",
+     "vendor/flare-game/frames/goblin/swing-2.png"
+    ],
+    "fps": 10.0,
+    "loop": false
+   }
+  },
+  "cell": [
+   128,
+   128
+  ],
+  "creature": "goblin",
+  "source": {
+   "commit": "af6eee6d339ac98011864bfe89da837fe7769c28",
+   "def": "art_src/animation_defs/characters/goblin.txt",
+   "image": "mods/fantasycore/images/enemies/goblin.png",
+   "license": "GPL-3.0 AND CC-BY-SA-3.0",
+   "repo": "flareteam/flare-game"
+  }
+ },
+ "minotaur": {
+  "anchor": [
+   64,
+   96
+  ],
+  "anims": {
+   "block": {
+    "files": [
+     "vendor/flare-game/frames/minotaur/block-0.png",
+     "vendor/flare-game/frames/minotaur/block-1.png",
+     "vendor/flare-game/frames/minotaur/block-2.png",
+     "vendor/flare-game/frames/minotaur/block-3.png",
+     "vendor/flare-game/frames/minotaur/block-4.png",
+     "vendor/flare-game/frames/minotaur/block-5.png",
+     "vendor/flare-game/frames/minotaur/block-6.png",
+     "vendor/flare-game/frames/minotaur/block-7.png",
+     "vendor/flare-game/frames/minotaur/block-8.png",
+     "vendor/flare-game/frames/minotaur/block-9.png",
+     "vendor/flare-game/frames/minotaur/block-10.png",
+     "vendor/flare-game/frames/minotaur/block-11.png",
+     "vendor/flare-game/frames/minotaur/block-12.png",
+     "vendor/flare-game/frames/minotaur/block-13.png"
+    ],
+    "fps": 52.63,
+    "loop": false
+   },
+   "cast": {
+    "files": [
+     "vendor/flare-game/frames/minotaur/cast-0.png",
+     "vendor/flare-game/frames/minotaur/cast-1.png",
+     "vendor/flare-game/frames/minotaur/cast-2.png",
+     "vendor/flare-game/frames/minotaur/cast-3.png",
+     "vendor/flare-game/frames/minotaur/cast-4.png",
+     "vendor/flare-game/frames/minotaur/cast-5.png",
+     "vendor/flare-game/frames/minotaur/cast-6.png",
+     "vendor/flare-game/frames/minotaur/cast-7.png",
+     "vendor/flare-game/frames/minotaur/cast-8.png",
+     "vendor/flare-game/frames/minotaur/cast-9.png",
+     "vendor/flare-game/frames/minotaur/cast-10.png",
+     "vendor/flare-game/frames/minotaur/cast-11.png"
+    ],
+    "fps": 15.0,
+    "loop": false
+   },
+   "die": {
+    "files": [
+     "vendor/flare-game/frames/minotaur/die-0.png",
+     "vendor/flare-game/frames/minotaur/die-1.png",
+     "vendor/flare-game/frames/minotaur/die-2.png",
+     "vendor/flare-game/frames/minotaur/die-3.png",
+     "vendor/flare-game/frames/minotaur/die-4.png",
+     "vendor/flare-game/frames/minotaur/die-5.png",
+     "vendor/flare-game/frames/minotaur/die-6.png",
+     "vendor/flare-game/frames/minotaur/die-7.png",
+     "vendor/flare-game/frames/minotaur/die-8.png",
+     "vendor/flare-game/frames/minotaur/die-9.png",
+     "vendor/flare-game/frames/minotaur/die-10.png",
+     "vendor/flare-game/frames/minotaur/die-11.png",
+     "vendor/flare-game/frames/minotaur/die-12.png",
+     "vendor/flare-game/frames/minotaur/die-13.png"
+    ],
+    "fps": 13.13,
+    "loop": false
+   },
+   "run": {
+    "files": [
+     "vendor/flare-game/frames/minotaur/run-0.png",
+     "vendor/flare-game/frames/minotaur/run-1.png",
+     "vendor/flare-game/frames/minotaur/run-2.png",
+     "vendor/flare-game/frames/minotaur/run-3.png",
+     "vendor/flare-game/frames/minotaur/run-4.png",
+     "vendor/flare-game/frames/minotaur/run-5.png",
+     "vendor/flare-game/frames/minotaur/run-6.png",
+     "vendor/flare-game/frames/minotaur/run-7.png",
+     "vendor/flare-game/frames/minotaur/run-8.png",
+     "vendor/flare-game/frames/minotaur/run-9.png",
+     "vendor/flare-game/frames/minotaur/run-10.png",
+     "vendor/flare-game/frames/minotaur/run-11.png",
+     "vendor/flare-game/frames/minotaur/run-12.png",
+     "vendor/flare-game/frames/minotaur/run-13.png"
+    ],
+    "fps": 26.27,
+    "loop": true
+   },
+   "shoot": {
+    "files": [
+     "vendor/flare-game/frames/minotaur/shoot-0.png",
+     "vendor/flare-game/frames/minotaur/shoot-1.png",
+     "vendor/flare-game/frames/minotaur/shoot-2.png",
+     "vendor/flare-game/frames/minotaur/shoot-3.png",
+     "vendor/flare-game/frames/minotaur/shoot-4.png",
+     "vendor/flare-game/frames/minotaur/shoot-5.png",
+     "vendor/flare-game/frames/minotaur/shoot-6.png",
+     "vendor/flare-game/frames/minotaur/shoot-7.png",
+     "vendor/flare-game/frames/minotaur/shoot-8.png",
+     "vendor/flare-game/frames/minotaur/shoot-9.png",
+     "vendor/flare-game/frames/minotaur/shoot-10.png",
+     "vendor/flare-game/frames/minotaur/shoot-11.png",
+     "vendor/flare-game/frames/minotaur/shoot-12.png",
+     "vendor/flare-game/frames/minotaur/shoot-13.png"
+    ],
+    "fps": 17.5,
+    "loop": false
+   },
+   "stance": {
+    "files": [
+     "vendor/flare-game/frames/minotaur/stance-0.png",
+     "vendor/flare-game/frames/minotaur/stance-1.png",
+     "vendor/flare-game/frames/minotaur/stance-2.png",
+     "vendor/flare-game/frames/minotaur/stance-3.png",
+     "vendor/flare-game/frames/minotaur/stance-4.png",
+     "vendor/flare-game/frames/minotaur/stance-5.png",
+     "vendor/flare-game/frames/minotaur/stance-6.png",
+     "vendor/flare-game/frames/minotaur/stance-7.png",
+     "vendor/flare-game/frames/minotaur/stance-8.png",
+     "vendor/flare-game/frames/minotaur/stance-9.png",
+     "vendor/flare-game/frames/minotaur/stance-10.png",
+     "vendor/flare-game/frames/minotaur/stance-11.png",
+     "vendor/flare-game/frames/minotaur/stance-12.png",
+     "vendor/flare-game/frames/minotaur/stance-13.png"
+    ],
+    "fps": 8.75,
+    "loop": true
+   },
+   "swing": {
+    "files": [
+     "vendor/flare-game/frames/minotaur/swing-0.png",
+     "vendor/flare-game/frames/minotaur/swing-1.png",
+     "vendor/flare-game/frames/minotaur/swing-2.png",
+     "vendor/flare-game/frames/minotaur/swing-3.png",
+     "vendor/flare-game/frames/minotaur/swing-4.png",
+     "vendor/flare-game/frames/minotaur/swing-5.png",
+     "vendor/flare-game/frames/minotaur/swing-6.png",
+     "vendor/flare-game/frames/minotaur/swing-7.png",
+     "vendor/flare-game/frames/minotaur/swing-8.png",
+     "vendor/flare-game/frames/minotaur/swing-9.png",
+     "vendor/flare-game/frames/minotaur/swing-10.png",
+     "vendor/flare-game/frames/minotaur/swing-11.png",
+     "vendor/flare-game/frames/minotaur/swing-12.png",
+     "vendor/flare-game/frames/minotaur/swing-13.png",
+     "vendor/flare-game/frames/minotaur/swing-14.png"
+    ],
+    "fps": 14.07,
+    "loop": false
+   }
+  },
+  "cell": [
+   128,
+   128
+  ],
+  "creature": "minotaur",
+  "source": {
+   "commit": "af6eee6d339ac98011864bfe89da837fe7769c28",
+   "def": "art_src/animation_defs/characters/minotaur.txt",
+   "image": "mods/fantasycore/images/enemies/minotaur/",
+   "license": "GPL-3.0 AND CC-BY-SA-3.0",
+   "repo": "flareteam/flare-game"
+  }
+ },
+ "skeleton": {
+  "anchor": [
+   64,
+   96
+  ],
+  "anims": {
+   "block": {
+    "files": [
+     "vendor/flare-game/frames/skeleton/block-0.png",
+     "vendor/flare-game/frames/skeleton/block-1.png"
+    ],
+    "fps": 10.0,
+    "loop": false
+   },
+   "cast": {
+    "files": [
+     "vendor/flare-game/frames/skeleton/cast-0.png",
+     "vendor/flare-game/frames/skeleton/cast-1.png",
+     "vendor/flare-game/frames/skeleton/cast-2.png",
+     "vendor/flare-game/frames/skeleton/cast-3.png"
+    ],
+    "fps": 10.0,
+    "loop": false
+   },
+   "critdie": {
+    "files": [
+     "vendor/flare-game/frames/skeleton/critdie-0.png",
+     "vendor/flare-game/frames/skeleton/critdie-1.png",
+     "vendor/flare-game/frames/skeleton/critdie-2.png",
+     "vendor/flare-game/frames/skeleton/critdie-3.png",
+     "vendor/flare-game/frames/skeleton/critdie-4.png",
+     "vendor/flare-game/frames/skeleton/critdie-5.png"
+    ],
+    "fps": 7.5,
+    "loop": false
+   },
+   "die": {
+    "files": [
+     "vendor/flare-game/frames/skeleton/die-0.png",
+     "vendor/flare-game/frames/skeleton/die-1.png",
+     "vendor/flare-game/frames/skeleton/die-2.png",
+     "vendor/flare-game/frames/skeleton/die-3.png",
+     "vendor/flare-game/frames/skeleton/die-4.png",
+     "vendor/flare-game/frames/skeleton/die-5.png"
+    ],
+    "fps": 7.5,
+    "loop": false
+   },
+   "hit": {
+    "files": [
+     "vendor/flare-game/frames/skeleton/hit-0.png",
+     "vendor/flare-game/frames/skeleton/hit-1.png"
+    ],
+    "fps": 15.04,
+    "loop": true
+   },
+   "run": {
+    "files": [
+     "vendor/flare-game/frames/skeleton/run-0.png",
+     "vendor/flare-game/frames/skeleton/run-1.png",
+     "vendor/flare-game/frames/skeleton/run-2.png",
+     "vendor/flare-game/frames/skeleton/run-3.png",
+     "vendor/flare-game/frames/skeleton/run-4.png",
+     "vendor/flare-game/frames/skeleton/run-5.png",
+     "vendor/flare-game/frames/skeleton/run-6.png",
+     "vendor/flare-game/frames/skeleton/run-7.png"
+    ],
+    "fps": 15.01,
+    "loop": true
+   },
+   "shoot": {
+    "files": [
+     "vendor/flare-game/frames/skeleton/shoot-0.png",
+     "vendor/flare-game/frames/skeleton/shoot-1.png",
+     "vendor/flare-game/frames/skeleton/shoot-2.png",
+     "vendor/flare-game/frames/skeleton/shoot-3.png"
+    ],
+    "fps": 7.5,
+    "loop": false
+   },
+   "stance": {
+    "files": [
+     "vendor/flare-game/frames/skeleton/stance-0.png",
+     "vendor/flare-game/frames/skeleton/stance-1.png",
+     "vendor/flare-game/frames/skeleton/stance-2.png",
+     "vendor/flare-game/frames/skeleton/stance-3.png"
+    ],
+    "fps": 7.5,
+    "loop": true
+   },
+   "swing": {
+    "files": [
+     "vendor/flare-game/frames/skeleton/swing-0.png",
+     "vendor/flare-game/frames/skeleton/swing-1.png",
+     "vendor/flare-game/frames/skeleton/swing-2.png",
+     "vendor/flare-game/frames/skeleton/swing-3.png"
+    ],
+    "fps": 10.0,
+    "loop": false
+   }
+  },
+  "cell": [
+   128,
+   128
+  ],
+  "creature": "skeleton",
+  "source": {
+   "commit": "af6eee6d339ac98011864bfe89da837fe7769c28",
+   "def": "art_src/animation_defs/characters/skeleton.txt",
+   "image": "mods/fantasycore/images/enemies/skeleton.png",
+   "license": "GPL-3.0 AND CC-BY-SA-3.0",
+   "repo": "flareteam/flare-game"
+  }
+ },
+ "skeleton_mage": {
+  "anchor": [
+   64,
+   96
+  ],
+  "anims": {
+   "block": {
+    "files": [
+     "vendor/flare-game/frames/skeleton_mage/block-0.png",
+     "vendor/flare-game/frames/skeleton_mage/block-1.png"
+    ],
+    "fps": 10.0,
+    "loop": false
+   },
+   "cast": {
+    "files": [
+     "vendor/flare-game/frames/skeleton_mage/cast-0.png",
+     "vendor/flare-game/frames/skeleton_mage/cast-1.png",
+     "vendor/flare-game/frames/skeleton_mage/cast-2.png",
+     "vendor/flare-game/frames/skeleton_mage/cast-3.png"
+    ],
+    "fps": 10.0,
+    "loop": false
+   },
+   "critdie": {
+    "files": [
+     "vendor/flare-game/frames/skeleton_mage/critdie-0.png",
+     "vendor/flare-game/frames/skeleton_mage/critdie-1.png",
+     "vendor/flare-game/frames/skeleton_mage/critdie-2.png",
+     "vendor/flare-game/frames/skeleton_mage/critdie-3.png",
+     "vendor/flare-game/frames/skeleton_mage/critdie-4.png",
+     "vendor/flare-game/frames/skeleton_mage/critdie-5.png"
+    ],
+    "fps": 7.5,
+    "loop": false
+   },
+   "die": {
+    "files": [
+     "vendor/flare-game/frames/skeleton_mage/die-0.png",
+     "vendor/flare-game/frames/skeleton_mage/die-1.png",
+     "vendor/flare-game/frames/skeleton_mage/die-2.png",
+     "vendor/flare-game/frames/skeleton_mage/die-3.png",
+     "vendor/flare-game/frames/skeleton_mage/die-4.png",
+     "vendor/flare-game/frames/skeleton_mage/die-5.png"
+    ],
+    "fps": 7.5,
+    "loop": false
+   },
+   "hit": {
+    "files": [
+     "vendor/flare-game/frames/skeleton_mage/hit-0.png",
+     "vendor/flare-game/frames/skeleton_mage/hit-1.png"
+    ],
+    "fps": 15.04,
+    "loop": true
+   },
+   "run": {
+    "files": [
+     "vendor/flare-game/frames/skeleton_mage/run-0.png",
+     "vendor/flare-game/frames/skeleton_mage/run-1.png",
+     "vendor/flare-game/frames/skeleton_mage/run-2.png",
+     "vendor/flare-game/frames/skeleton_mage/run-3.png",
+     "vendor/flare-game/frames/skeleton_mage/run-4.png",
+     "vendor/flare-game/frames/skeleton_mage/run-5.png",
+     "vendor/flare-game/frames/skeleton_mage/run-6.png",
+     "vendor/flare-game/frames/skeleton_mage/run-7.png"
+    ],
+    "fps": 15.01,
+    "loop": true
+   },
+   "shoot": {
+    "files": [
+     "vendor/flare-game/frames/skeleton_mage/shoot-0.png",
+     "vendor/flare-game/frames/skeleton_mage/shoot-1.png",
+     "vendor/flare-game/frames/skeleton_mage/shoot-2.png",
+     "vendor/flare-game/frames/skeleton_mage/shoot-3.png"
+    ],
+    "fps": 7.5,
+    "loop": false
+   },
+   "stance": {
+    "files": [
+     "vendor/flare-game/frames/skeleton_mage/stance-0.png",
+     "vendor/flare-game/frames/skeleton_mage/stance-1.png",
+     "vendor/flare-game/frames/skeleton_mage/stance-2.png",
+     "vendor/flare-game/frames/skeleton_mage/stance-3.png"
+    ],
+    "fps": 7.5,
+    "loop": true
+   },
+   "swing": {
+    "files": [
+     "vendor/flare-game/frames/skeleton_mage/swing-0.png",
+     "vendor/flare-game/frames/skeleton_mage/swing-1.png",
+     "vendor/flare-game/frames/skeleton_mage/swing-2.png",
+     "vendor/flare-game/frames/skeleton_mage/swing-3.png"
+    ],
+    "fps": 10.0,
+    "loop": false
+   }
+  },
+  "cell": [
+   128,
+   128
+  ],
+  "creature": "skeleton_mage",
+  "source": {
+   "commit": "af6eee6d339ac98011864bfe89da837fe7769c28",
+   "def": "art_src/animation_defs/characters/skeleton.txt",
+   "image": "mods/fantasycore/images/enemies/skeleton_mage.png",
+   "license": "GPL-3.0 AND CC-BY-SA-3.0",
+   "repo": "flareteam/flare-game"
+  }
+ },
+ "wyvern": {
+  "anchor": [
+   64,
+   96
+  ],
+  "anims": {
+   "cast": {
+    "files": [
+     "vendor/flare-game/frames/wyvern/cast-0.png",
+     "vendor/flare-game/frames/wyvern/cast-1.png",
+     "vendor/flare-game/frames/wyvern/cast-2.png",
+     "vendor/flare-game/frames/wyvern/cast-3.png",
+     "vendor/flare-game/frames/wyvern/cast-4.png",
+     "vendor/flare-game/frames/wyvern/cast-5.png",
+     "vendor/flare-game/frames/wyvern/cast-6.png",
+     "vendor/flare-game/frames/wyvern/cast-7.png",
+     "vendor/flare-game/frames/wyvern/cast-8.png",
+     "vendor/flare-game/frames/wyvern/cast-9.png",
+     "vendor/flare-game/frames/wyvern/cast-10.png",
+     "vendor/flare-game/frames/wyvern/cast-11.png",
+     "vendor/flare-game/frames/wyvern/cast-12.png",
+     "vendor/flare-game/frames/wyvern/cast-13.png",
+     "vendor/flare-game/frames/wyvern/cast-14.png"
+    ],
+    "fps": 18.75,
+    "loop": false
+   },
+   "dash_attack": {
+    "files": [
+     "vendor/flare-game/frames/wyvern/dash_attack-0.png",
+     "vendor/flare-game/frames/wyvern/dash_attack-1.png",
+     "vendor/flare-game/frames/wyvern/dash_attack-2.png",
+     "vendor/flare-game/frames/wyvern/dash_attack-3.png",
+     "vendor/flare-game/frames/wyvern/dash_attack-4.png",
+     "vendor/flare-game/frames/wyvern/dash_attack-5.png",
+     "vendor/flare-game/frames/wyvern/dash_attack-6.png",
+     "vendor/flare-game/frames/wyvern/dash_attack-7.png",
+     "vendor/flare-game/frames/wyvern/dash_attack-8.png",
+     "vendor/flare-game/frames/wyvern/dash_attack-9.png",
+     "vendor/flare-game/frames/wyvern/dash_attack-10.png",
+     "vendor/flare-game/frames/wyvern/dash_attack-11.png"
+    ],
+    "fps": 30.0,
+    "loop": false
+   },
+   "die": {
+    "files": [
+     "vendor/flare-game/frames/wyvern/die-0.png",
+     "vendor/flare-game/frames/wyvern/die-1.png",
+     "vendor/flare-game/frames/wyvern/die-2.png",
+     "vendor/flare-game/frames/wyvern/die-3.png",
+     "vendor/flare-game/frames/wyvern/die-4.png",
+     "vendor/flare-game/frames/wyvern/die-5.png",
+     "vendor/flare-game/frames/wyvern/die-6.png",
+     "vendor/flare-game/frames/wyvern/die-7.png",
+     "vendor/flare-game/frames/wyvern/die-8.png",
+     "vendor/flare-game/frames/wyvern/die-9.png",
+     "vendor/flare-game/frames/wyvern/die-10.png",
+     "vendor/flare-game/frames/wyvern/die-11.png",
+     "vendor/flare-game/frames/wyvern/die-12.png",
+     "vendor/flare-game/frames/wyvern/die-13.png"
+    ],
+    "fps": 13.13,
+    "loop": false
+   },
+   "hit": {
+    "files": [
+     "vendor/flare-game/frames/wyvern/hit-0.png",
+     "vendor/flare-game/frames/wyvern/hit-1.png",
+     "vendor/flare-game/frames/wyvern/hit-2.png",
+     "vendor/flare-game/frames/wyvern/hit-3.png",
+     "vendor/flare-game/frames/wyvern/hit-4.png",
+     "vendor/flare-game/frames/wyvern/hit-5.png",
+     "vendor/flare-game/frames/wyvern/hit-6.png",
+     "vendor/flare-game/frames/wyvern/hit-7.png",
+     "vendor/flare-game/frames/wyvern/hit-8.png",
+     "vendor/flare-game/frames/wyvern/hit-9.png",
+     "vendor/flare-game/frames/wyvern/hit-10.png",
+     "vendor/flare-game/frames/wyvern/hit-11.png",
+     "vendor/flare-game/frames/wyvern/hit-12.png",
+     "vendor/flare-game/frames/wyvern/hit-13.png"
+    ],
+    "fps": 26.27,
+    "loop": false
+   },
+   "run": {
+    "files": [
+     "vendor/flare-game/frames/wyvern/run-0.png",
+     "vendor/flare-game/frames/wyvern/run-1.png",
+     "vendor/flare-game/frames/wyvern/run-2.png",
+     "vendor/flare-game/frames/wyvern/run-3.png",
+     "vendor/flare-game/frames/wyvern/run-4.png",
+     "vendor/flare-game/frames/wyvern/run-5.png",
+     "vendor/flare-game/frames/wyvern/run-6.png",
+     "vendor/flare-game/frames/wyvern/run-7.png",
+     "vendor/flare-game/frames/wyvern/run-8.png",
+     "vendor/flare-game/frames/wyvern/run-9.png"
+    ],
+    "fps": 18.76,
+    "loop": true
+   },
+   "stance": {
+    "files": [
+     "vendor/flare-game/frames/wyvern/stance-0.png",
+     "vendor/flare-game/frames/wyvern/stance-1.png",
+     "vendor/flare-game/frames/wyvern/stance-2.png",
+     "vendor/flare-game/frames/wyvern/stance-3.png",
+     "vendor/flare-game/frames/wyvern/stance-4.png",
+     "vendor/flare-game/frames/wyvern/stance-5.png",
+     "vendor/flare-game/frames/wyvern/stance-6.png",
+     "vendor/flare-game/frames/wyvern/stance-7.png",
+     "vendor/flare-game/frames/wyvern/stance-8.png",
+     "vendor/flare-game/frames/wyvern/stance-9.png",
+     "vendor/flare-game/frames/wyvern/stance-10.png",
+     "vendor/flare-game/frames/wyvern/stance-11.png",
+     "vendor/flare-game/frames/wyvern/stance-12.png",
+     "vendor/flare-game/frames/wyvern/stance-13.png",
+     "vendor/flare-game/frames/wyvern/stance-14.png"
+    ],
+    "fps": 18.75,
+    "loop": true
+   },
+   "swing": {
+    "files": [
+     "vendor/flare-game/frames/wyvern/swing-0.png",
+     "vendor/flare-game/frames/wyvern/swing-1.png",
+     "vendor/flare-game/frames/wyvern/swing-2.png",
+     "vendor/flare-game/frames/wyvern/swing-3.png",
+     "vendor/flare-game/frames/wyvern/swing-4.png",
+     "vendor/flare-game/frames/wyvern/swing-5.png",
+     "vendor/flare-game/frames/wyvern/swing-6.png",
+     "vendor/flare-game/frames/wyvern/swing-7.png",
+     "vendor/flare-game/frames/wyvern/swing-8.png",
+     "vendor/flare-game/frames/wyvern/swing-9.png",
+     "vendor/flare-game/frames/wyvern/swing-10.png",
+     "vendor/flare-game/frames/wyvern/swing-11.png",
+     "vendor/flare-game/frames/wyvern/swing-12.png",
+     "vendor/flare-game/frames/wyvern/swing-13.png",
+     "vendor/flare-game/frames/wyvern/swing-14.png"
+    ],
+    "fps": 14.07,
+    "loop": false
+   }
+  },
+  "cell": [
+   128,
+   128
+  ],
+  "creature": "wyvern",
+  "source": {
+   "commit": "af6eee6d339ac98011864bfe89da837fe7769c28",
+   "def": "art_src/animation_defs/characters/wyvern.txt",
+   "image": "mods/fantasycore/images/enemies/wyvern/",
+   "license": "GPL-3.0 AND CC-BY-SA-3.0",
+   "repo": "flareteam/flare-game"
+  }
+ },
+ "zombie": {
+  "anchor": [
+   64,
+   96
+  ],
+  "anims": {
+   "block": {
+    "files": [
+     "vendor/flare-game/frames/zombie/block-0.png",
+     "vendor/flare-game/frames/zombie/block-1.png"
+    ],
+    "fps": 10.0,
+    "loop": false
+   },
+   "cast": {
+    "files": [
+     "vendor/flare-game/frames/zombie/cast-0.png",
+     "vendor/flare-game/frames/zombie/cast-1.png",
+     "vendor/flare-game/frames/zombie/cast-2.png",
+     "vendor/flare-game/frames/zombie/cast-3.png"
+    ],
+    "fps": 10.0,
+    "loop": false
+   },
+   "critdie": {
+    "files": [
+     "vendor/flare-game/frames/zombie/critdie-0.png",
+     "vendor/flare-game/frames/zombie/critdie-1.png",
+     "vendor/flare-game/frames/zombie/critdie-2.png",
+     "vendor/flare-game/frames/zombie/critdie-3.png",
+     "vendor/flare-game/frames/zombie/critdie-4.png",
+     "vendor/flare-game/frames/zombie/critdie-5.png",
+     "vendor/flare-game/frames/zombie/critdie-6.png",
+     "vendor/flare-game/frames/zombie/critdie-7.png"
+    ],
+    "fps": 10.0,
+    "loop": false
+   },
+   "die": {
+    "files": [
+     "vendor/flare-game/frames/zombie/die-0.png",
+     "vendor/flare-game/frames/zombie/die-1.png",
+     "vendor/flare-game/frames/zombie/die-2.png",
+     "vendor/flare-game/frames/zombie/die-3.png",
+     "vendor/flare-game/frames/zombie/die-4.png",
+     "vendor/flare-game/frames/zombie/die-5.png"
+    ],
+    "fps": 15.0,
+    "loop": false
+   },
+   "hit": {
+    "files": [
+     "vendor/flare-game/frames/zombie/hit-0.png",
+     "vendor/flare-game/frames/zombie/hit-1.png"
+    ],
+    "fps": 15.04,
+    "loop": false
+   },
+   "run": {
+    "files": [
+     "vendor/flare-game/frames/zombie/run-0.png",
+     "vendor/flare-game/frames/zombie/run-1.png",
+     "vendor/flare-game/frames/zombie/run-2.png",
+     "vendor/flare-game/frames/zombie/run-3.png",
+     "vendor/flare-game/frames/zombie/run-4.png",
+     "vendor/flare-game/frames/zombie/run-5.png",
+     "vendor/flare-game/frames/zombie/run-6.png",
+     "vendor/flare-game/frames/zombie/run-7.png"
+    ],
+    "fps": 10.0,
+    "loop": true
+   },
+   "shoot": {
+    "files": [
+     "vendor/flare-game/frames/zombie/shoot-0.png",
+     "vendor/flare-game/frames/zombie/shoot-1.png",
+     "vendor/flare-game/frames/zombie/shoot-2.png",
+     "vendor/flare-game/frames/zombie/shoot-3.png"
+    ],
+    "fps": 10.0,
+    "loop": false
+   },
+   "spawn": {
+    "files": [
+     "vendor/flare-game/frames/zombie/spawn-0.png",
+     "vendor/flare-game/frames/zombie/spawn-1.png",
+     "vendor/flare-game/frames/zombie/spawn-2.png",
+     "vendor/flare-game/frames/zombie/spawn-3.png",
+     "vendor/flare-game/frames/zombie/spawn-4.png",
+     "vendor/flare-game/frames/zombie/spawn-5.png",
+     "vendor/flare-game/frames/zombie/spawn-6.png",
+     "vendor/flare-game/frames/zombie/spawn-7.png"
+    ],
+    "fps": 7.5,
+    "loop": false
+   },
+   "stance": {
+    "files": [
+     "vendor/flare-game/frames/zombie/stance-0.png",
+     "vendor/flare-game/frames/zombie/stance-1.png",
+     "vendor/flare-game/frames/zombie/stance-2.png",
+     "vendor/flare-game/frames/zombie/stance-3.png"
+    ],
+    "fps": 7.5,
+    "loop": true
+   },
+   "swing": {
+    "files": [
+     "vendor/flare-game/frames/zombie/swing-0.png",
+     "vendor/flare-game/frames/zombie/swing-1.png",
+     "vendor/flare-game/frames/zombie/swing-2.png",
+     "vendor/flare-game/frames/zombie/swing-3.png"
+    ],
+    "fps": 7.5,
+    "loop": false
+   }
+  },
+  "cell": [
+   128,
+   128
+  ],
+  "creature": "zombie",
+  "source": {
+   "commit": "af6eee6d339ac98011864bfe89da837fe7769c28",
+   "def": "art_src/animation_defs/characters/zombie.txt",
+   "image": "mods/fantasycore/images/enemies/zombie.png",
+   "license": "GPL-3.0 AND CC-BY-SA-3.0",
+   "repo": "flareteam/flare-game"
+  }
+ }
+}

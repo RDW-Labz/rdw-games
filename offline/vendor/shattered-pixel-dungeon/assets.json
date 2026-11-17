@@ -1,0 +1,610 @@
+{
+ "sprites": [
+  {
+   "name": "amulet",
+   "image": "vendor/shattered-pixel-dungeon/sprites/amulet.png"
+  },
+  {
+   "name": "avatars",
+   "image": "vendor/shattered-pixel-dungeon/sprites/avatars.png"
+  },
+  {
+   "name": "bat",
+   "image": "vendor/shattered-pixel-dungeon/sprites/bat.png"
+  },
+  {
+   "name": "bee",
+   "image": "vendor/shattered-pixel-dungeon/sprites/bee.png"
+  },
+  {
+   "name": "blacksmith",
+   "image": "vendor/shattered-pixel-dungeon/sprites/blacksmith.png"
+  },
+  {
+   "name": "brute",
+   "image": "vendor/shattered-pixel-dungeon/sprites/brute.png"
+  },
+  {
+   "name": "cleric",
+   "image": "vendor/shattered-pixel-dungeon/sprites/cleric.png"
+  },
+  {
+   "name": "crab",
+   "image": "vendor/shattered-pixel-dungeon/sprites/crab.png"
+  },
+  {
+   "name": "crystal_guardian",
+   "image": "vendor/shattered-pixel-dungeon/sprites/crystal_guardian.png"
+  },
+  {
+   "name": "crystal_spire",
+   "image": "vendor/shattered-pixel-dungeon/sprites/crystal_spire.png"
+  },
+  {
+   "name": "crystal_wisp",
+   "image": "vendor/shattered-pixel-dungeon/sprites/crystal_wisp.png"
+  },
+  {
+   "name": "dm100",
+   "image": "vendor/shattered-pixel-dungeon/sprites/dm100.png"
+  },
+  {
+   "name": "dm200",
+   "image": "vendor/shattered-pixel-dungeon/sprites/dm200.png"
+  },
+  {
+   "name": "dm300",
+   "image": "vendor/shattered-pixel-dungeon/sprites/dm300.png"
+  },
+  {
+   "name": "duelist",
+   "image": "vendor/shattered-pixel-dungeon/sprites/duelist.png"
+  },
+  {
+   "name": "elemental",
+   "image": "vendor/shattered-pixel-dungeon/sprites/elemental.png"
+  },
+  {
+   "name": "eye",
+   "image": "vendor/shattered-pixel-dungeon/sprites/eye.png"
+  },
+  {
+   "name": "fungal_core",
+   "image": "vendor/shattered-pixel-dungeon/sprites/fungal_core.png"
+  },
+  {
+   "name": "fungal_sentry",
+   "image": "vendor/shattered-pixel-dungeon/sprites/fungal_sentry.png"
+  },
+  {
+   "name": "fungal_spinner",
+   "image": "vendor/shattered-pixel-dungeon/sprites/fungal_spinner.png"
+  },
+  {
+   "name": "ghost",
+   "image": "vendor/shattered-pixel-dungeon/sprites/ghost.png"
+  },
+  {
+   "name": "ghoul",
+   "image": "vendor/shattered-pixel-dungeon/sprites/ghoul.png"
+  },
+  {
+   "name": "gnoll",
+   "image": "vendor/shattered-pixel-dungeon/sprites/gnoll.png"
+  },
+  {
+   "name": "gnoll_geomancer",
+   "image": "vendor/shattered-pixel-dungeon/sprites/gnoll_geomancer.png"
+  },
+  {
+   "name": "gnoll_guard",
+   "image": "vendor/shattered-pixel-dungeon/sprites/gnoll_guard.png"
+  },
+  {
+   "name": "gnoll_sapper",
+   "image": "vendor/shattered-pixel-dungeon/sprites/gnoll_sapper.png"
+  },
+  {
+   "name": "golem",
+   "image": "vendor/shattered-pixel-dungeon/sprites/golem.png"
+  },
+  {
+   "name": "goo",
+   "image": "vendor/shattered-pixel-dungeon/sprites/goo.png"
+  },
+  {
+   "name": "guard",
+   "image": "vendor/shattered-pixel-dungeon/sprites/guard.png"
+  },
+  {
+   "name": "guardian",
+   "image": "vendor/shattered-pixel-dungeon/sprites/guardian.png"
+  },
+  {
+   "name": "huntress",
+   "image": "vendor/shattered-pixel-dungeon/sprites/huntress.png"
+  },
+  {
+   "name": "imp",
+   "image": "vendor/shattered-pixel-dungeon/sprites/imp.png"
+  },
+  {
+   "name": "item_icons",
+   "image": "vendor/shattered-pixel-dungeon/sprites/item_icons.png"
+  },
+  {
+   "name": "items",
+   "image": "vendor/shattered-pixel-dungeon/sprites/items.png"
+  },
+  {
+   "name": "king",
+   "image": "vendor/shattered-pixel-dungeon/sprites/king.png"
+  },
+  {
+   "name": "larva",
+   "image": "vendor/shattered-pixel-dungeon/sprites/larva.png"
+  },
+  {
+   "name": "lotus",
+   "image": "vendor/shattered-pixel-dungeon/sprites/lotus.png"
+  },
+  {
+   "name": "mage",
+   "image": "vendor/shattered-pixel-dungeon/sprites/mage.png"
+  },
+  {
+   "name": "mimic",
+   "image": "vendor/shattered-pixel-dungeon/sprites/mimic.png"
+  },
+  {
+   "name": "monk",
+   "image": "vendor/shattered-pixel-dungeon/sprites/monk.png"
+  },
+  {
+   "name": "necromancer",
+   "image": "vendor/shattered-pixel-dungeon/sprites/necromancer.png"
+  },
+  {
+   "name": "ninja_log",
+   "image": "vendor/shattered-pixel-dungeon/sprites/ninja_log.png"
+  },
+  {
+   "name": "pet",
+   "image": "vendor/shattered-pixel-dungeon/sprites/pet.png"
+  },
+  {
+   "name": "piranha",
+   "image": "vendor/shattered-pixel-dungeon/sprites/piranha.png"
+  },
+  {
+   "name": "pylon",
+   "image": "vendor/shattered-pixel-dungeon/sprites/pylon.png"
+  },
+  {
+   "name": "rat",
+   "image": "vendor/shattered-pixel-dungeon/sprites/rat.png"
+  },
+  {
+   "name": "ratking",
+   "image": "vendor/shattered-pixel-dungeon/sprites/ratking.png"
+  },
+  {
+   "name": "ripper",
+   "image": "vendor/shattered-pixel-dungeon/sprites/ripper.png"
+  },
+  {
+   "name": "rogue",
+   "image": "vendor/shattered-pixel-dungeon/sprites/rogue.png"
+  },
+  {
+   "name": "rot_heart",
+   "image": "vendor/shattered-pixel-dungeon/sprites/rot_heart.png"
+  },
+  {
+   "name": "rot_lasher",
+   "image": "vendor/shattered-pixel-dungeon/sprites/rot_lasher.png"
+  },
+  {
+   "name": "scorpio",
+   "image": "vendor/shattered-pixel-dungeon/sprites/scorpio.png"
+  },
+  {
+   "name": "sentry",
+   "image": "vendor/shattered-pixel-dungeon/sprites/sentry.png"
+  },
+  {
+   "name": "shaman",
+   "image": "vendor/shattered-pixel-dungeon/sprites/shaman.png"
+  },
+  {
+   "name": "sheep",
+   "image": "vendor/shattered-pixel-dungeon/sprites/sheep.png"
+  },
+  {
+   "name": "shopkeeper",
+   "image": "vendor/shattered-pixel-dungeon/sprites/shopkeeper.png"
+  },
+  {
+   "name": "skeleton",
+   "image": "vendor/shattered-pixel-dungeon/sprites/skeleton.png"
+  },
+  {
+   "name": "slime",
+   "image": "vendor/shattered-pixel-dungeon/sprites/slime.png"
+  },
+  {
+   "name": "snake",
+   "image": "vendor/shattered-pixel-dungeon/sprites/snake.png"
+  },
+  {
+   "name": "spawner",
+   "image": "vendor/shattered-pixel-dungeon/sprites/spawner.png"
+  },
+  {
+   "name": "spinner",
+   "image": "vendor/shattered-pixel-dungeon/sprites/spinner.png"
+  },
+  {
+   "name": "spirit_hawk",
+   "image": "vendor/shattered-pixel-dungeon/sprites/spirit_hawk.png"
+  },
+  {
+   "name": "statue",
+   "image": "vendor/shattered-pixel-dungeon/sprites/statue.png"
+  },
+  {
+   "name": "succubus",
+   "image": "vendor/shattered-pixel-dungeon/sprites/succubus.png"
+  },
+  {
+   "name": "swarm",
+   "image": "vendor/shattered-pixel-dungeon/sprites/swarm.png"
+  },
+  {
+   "name": "tengu",
+   "image": "vendor/shattered-pixel-dungeon/sprites/tengu.png"
+  },
+  {
+   "name": "thief",
+   "image": "vendor/shattered-pixel-dungeon/sprites/thief.png"
+  },
+  {
+   "name": "undead",
+   "image": "vendor/shattered-pixel-dungeon/sprites/undead.png"
+  },
+  {
+   "name": "vault_boss_elemental",
+   "image": "vendor/shattered-pixel-dungeon/sprites/vault_boss_elemental.png"
+  },
+  {
+   "name": "vault_mirror",
+   "image": "vendor/shattered-pixel-dungeon/sprites/vault_mirror.png"
+  },
+  {
+   "name": "vault_tokens_door",
+   "image": "vendor/shattered-pixel-dungeon/sprites/vault_tokens_door.png"
+  },
+  {
+   "name": "wandmaker",
+   "image": "vendor/shattered-pixel-dungeon/sprites/wandmaker.png"
+  },
+  {
+   "name": "wards",
+   "image": "vendor/shattered-pixel-dungeon/sprites/wards.png"
+  },
+  {
+   "name": "warlock",
+   "image": "vendor/shattered-pixel-dungeon/sprites/warlock.png"
+  },
+  {
+   "name": "warrior",
+   "image": "vendor/shattered-pixel-dungeon/sprites/warrior.png"
+  },
+  {
+   "name": "wraith",
+   "image": "vendor/shattered-pixel-dungeon/sprites/wraith.png"
+  },
+  {
+   "name": "yog",
+   "image": "vendor/shattered-pixel-dungeon/sprites/yog.png"
+  },
+  {
+   "name": "yog_fists",
+   "image": "vendor/shattered-pixel-dungeon/sprites/yog_fists.png"
+  }
+ ],
+ "sounds": [
+  {
+   "name": "alert",
+   "audio": "vendor/shattered-pixel-dungeon/audio/alert.opus"
+  },
+  {
+   "name": "atk_crossbow",
+   "audio": "vendor/shattered-pixel-dungeon/audio/atk_crossbow.opus"
+  },
+  {
+   "name": "atk_spiritbow",
+   "audio": "vendor/shattered-pixel-dungeon/audio/atk_spiritbow.opus"
+  },
+  {
+   "name": "badge",
+   "audio": "vendor/shattered-pixel-dungeon/audio/badge.opus"
+  },
+  {
+   "name": "beacon",
+   "audio": "vendor/shattered-pixel-dungeon/audio/beacon.opus"
+  },
+  {
+   "name": "bee",
+   "audio": "vendor/shattered-pixel-dungeon/audio/bee.opus"
+  },
+  {
+   "name": "blast",
+   "audio": "vendor/shattered-pixel-dungeon/audio/blast.opus"
+  },
+  {
+   "name": "bones",
+   "audio": "vendor/shattered-pixel-dungeon/audio/bones.opus"
+  },
+  {
+   "name": "boss",
+   "audio": "vendor/shattered-pixel-dungeon/audio/boss.opus"
+  },
+  {
+   "name": "burning",
+   "audio": "vendor/shattered-pixel-dungeon/audio/burning.opus"
+  },
+  {
+   "name": "chains",
+   "audio": "vendor/shattered-pixel-dungeon/audio/chains.opus"
+  },
+  {
+   "name": "challenge",
+   "audio": "vendor/shattered-pixel-dungeon/audio/challenge.opus"
+  },
+  {
+   "name": "chargeup",
+   "audio": "vendor/shattered-pixel-dungeon/audio/chargeup.opus"
+  },
+  {
+   "name": "charms",
+   "audio": "vendor/shattered-pixel-dungeon/audio/charms.opus"
+  },
+  {
+   "name": "click",
+   "audio": "vendor/shattered-pixel-dungeon/audio/click.opus"
+  },
+  {
+   "name": "cursed",
+   "audio": "vendor/shattered-pixel-dungeon/audio/cursed.opus"
+  },
+  {
+   "name": "death",
+   "audio": "vendor/shattered-pixel-dungeon/audio/death.opus"
+  },
+  {
+   "name": "debuff",
+   "audio": "vendor/shattered-pixel-dungeon/audio/debuff.opus"
+  },
+  {
+   "name": "degrade",
+   "audio": "vendor/shattered-pixel-dungeon/audio/degrade.opus"
+  },
+  {
+   "name": "descend",
+   "audio": "vendor/shattered-pixel-dungeon/audio/descend.opus"
+  },
+  {
+   "name": "dewdrop",
+   "audio": "vendor/shattered-pixel-dungeon/audio/dewdrop.opus"
+  },
+  {
+   "name": "door_open",
+   "audio": "vendor/shattered-pixel-dungeon/audio/door_open.opus"
+  },
+  {
+   "name": "drink",
+   "audio": "vendor/shattered-pixel-dungeon/audio/drink.opus"
+  },
+  {
+   "name": "eat",
+   "audio": "vendor/shattered-pixel-dungeon/audio/eat.opus"
+  },
+  {
+   "name": "evoke",
+   "audio": "vendor/shattered-pixel-dungeon/audio/evoke.opus"
+  },
+  {
+   "name": "falling",
+   "audio": "vendor/shattered-pixel-dungeon/audio/falling.opus"
+  },
+  {
+   "name": "gas",
+   "audio": "vendor/shattered-pixel-dungeon/audio/gas.opus"
+  },
+  {
+   "name": "ghost",
+   "audio": "vendor/shattered-pixel-dungeon/audio/ghost.opus"
+  },
+  {
+   "name": "gold",
+   "audio": "vendor/shattered-pixel-dungeon/audio/gold.opus"
+  },
+  {
+   "name": "grass",
+   "audio": "vendor/shattered-pixel-dungeon/audio/grass.opus"
+  },
+  {
+   "name": "health_critical",
+   "audio": "vendor/shattered-pixel-dungeon/audio/health_critical.opus"
+  },
+  {
+   "name": "health_warn",
+   "audio": "vendor/shattered-pixel-dungeon/audio/health_warn.opus"
+  },
+  {
+   "name": "hit",
+   "audio": "vendor/shattered-pixel-dungeon/audio/hit.opus"
+  },
+  {
+   "name": "hit_arrow",
+   "audio": "vendor/shattered-pixel-dungeon/audio/hit_arrow.opus"
+  },
+  {
+   "name": "hit_crush",
+   "audio": "vendor/shattered-pixel-dungeon/audio/hit_crush.opus"
+  },
+  {
+   "name": "hit_magic",
+   "audio": "vendor/shattered-pixel-dungeon/audio/hit_magic.opus"
+  },
+  {
+   "name": "hit_parry",
+   "audio": "vendor/shattered-pixel-dungeon/audio/hit_parry.opus"
+  },
+  {
+   "name": "hit_slash",
+   "audio": "vendor/shattered-pixel-dungeon/audio/hit_slash.opus"
+  },
+  {
+   "name": "hit_stab",
+   "audio": "vendor/shattered-pixel-dungeon/audio/hit_stab.opus"
+  },
+  {
+   "name": "hit_strong",
+   "audio": "vendor/shattered-pixel-dungeon/audio/hit_strong.opus"
+  },
+  {
+   "name": "item",
+   "audio": "vendor/shattered-pixel-dungeon/audio/item.opus"
+  },
+  {
+   "name": "levelup",
+   "audio": "vendor/shattered-pixel-dungeon/audio/levelup.opus"
+  },
+  {
+   "name": "lightning",
+   "audio": "vendor/shattered-pixel-dungeon/audio/lightning.opus"
+  },
+  {
+   "name": "lullaby",
+   "audio": "vendor/shattered-pixel-dungeon/audio/lullaby.opus"
+  },
+  {
+   "name": "mastery",
+   "audio": "vendor/shattered-pixel-dungeon/audio/mastery.opus"
+  },
+  {
+   "name": "meld",
+   "audio": "vendor/shattered-pixel-dungeon/audio/meld.opus"
+  },
+  {
+   "name": "mimic",
+   "audio": "vendor/shattered-pixel-dungeon/audio/mimic.opus"
+  },
+  {
+   "name": "mine",
+   "audio": "vendor/shattered-pixel-dungeon/audio/mine.opus"
+  },
+  {
+   "name": "miss",
+   "audio": "vendor/shattered-pixel-dungeon/audio/miss.opus"
+  },
+  {
+   "name": "plant",
+   "audio": "vendor/shattered-pixel-dungeon/audio/plant.opus"
+  },
+  {
+   "name": "puff",
+   "audio": "vendor/shattered-pixel-dungeon/audio/puff.opus"
+  },
+  {
+   "name": "ray",
+   "audio": "vendor/shattered-pixel-dungeon/audio/ray.opus"
+  },
+  {
+   "name": "read",
+   "audio": "vendor/shattered-pixel-dungeon/audio/read.opus"
+  },
+  {
+   "name": "rocks",
+   "audio": "vendor/shattered-pixel-dungeon/audio/rocks.opus"
+  },
+  {
+   "name": "scan",
+   "audio": "vendor/shattered-pixel-dungeon/audio/scan.opus"
+  },
+  {
+   "name": "secret",
+   "audio": "vendor/shattered-pixel-dungeon/audio/secret.opus"
+  },
+  {
+   "name": "shatter",
+   "audio": "vendor/shattered-pixel-dungeon/audio/shatter.opus"
+  },
+  {
+   "name": "sheep",
+   "audio": "vendor/shattered-pixel-dungeon/audio/sheep.opus"
+  },
+  {
+   "name": "step",
+   "audio": "vendor/shattered-pixel-dungeon/audio/step.opus"
+  },
+  {
+   "name": "sturdy",
+   "audio": "vendor/shattered-pixel-dungeon/audio/sturdy.opus"
+  },
+  {
+   "name": "teleport",
+   "audio": "vendor/shattered-pixel-dungeon/audio/teleport.opus"
+  },
+  {
+   "name": "tomb",
+   "audio": "vendor/shattered-pixel-dungeon/audio/tomb.opus"
+  },
+  {
+   "name": "trample",
+   "audio": "vendor/shattered-pixel-dungeon/audio/trample.opus"
+  },
+  {
+   "name": "trap",
+   "audio": "vendor/shattered-pixel-dungeon/audio/trap.opus"
+  },
+  {
+   "name": "unlock",
+   "audio": "vendor/shattered-pixel-dungeon/audio/unlock.opus"
+  },
+  {
+   "name": "water",
+   "audio": "vendor/shattered-pixel-dungeon/audio/water.opus"
+  },
+  {
+   "name": "zap",
+   "audio": "vendor/shattered-pixel-dungeon/audio/zap.opus"
+  }
+ ],
+ "music": [
+  {
+   "name": "caves_1",
+   "audio": "vendor/shattered-pixel-dungeon/audio/vault.opus"
+  },
+  {
+   "name": "caves_tense",
+   "audio": "vendor/shattered-pixel-dungeon/audio/tense.opus"
+  }
+ ],
+ "terrain": [
+  {
+   "name": "sewers",
+   "image": "vendor/shattered-pixel-dungeon/environment/tiles_sewers.png"
+  },
+  {
+   "name": "prison",
+   "image": "vendor/shattered-pixel-dungeon/environment/tiles_prison.png"
+  },
+  {
+   "name": "caves",
+   "image": "vendor/shattered-pixel-dungeon/environment/tiles_caves.png"
+  }
+ ]
+}

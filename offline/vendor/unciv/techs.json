@@ -1,0 +1,769 @@
+[
+ {
+  "name": "Agriculture",
+  "column": 0,
+  "row": 6,
+  "era": "Ancient era",
+  "cost": 20,
+  "building_cost": 40,
+  "quote": "'Where tillage begins, other arts follow. The farmers therefore are the founders of human civilization.' - Daniel Webster",
+  "uniques": [
+   "Starting tech"
+  ]
+ },
+ {
+  "name": "Pottery",
+  "column": 1,
+  "row": 2,
+  "era": "Ancient era",
+  "cost": 35,
+  "building_cost": 60,
+  "quote": "'Shall the clay say to him that fashioneth it, what makest thou?' - Bible Isaiah 45:9",
+  "uniques": []
+ },
+ {
+  "name": "Animal Husbandry",
+  "column": 1,
+  "row": 5,
+  "era": "Ancient era",
+  "cost": 35,
+  "building_cost": 60,
+  "quote": "'Thou shalt not muzzle the ox when he treadeth out the corn.' - Bible Deuteronomy 25:4",
+  "uniques": []
+ },
+ {
+  "name": "Archery",
+  "column": 1,
+  "row": 7,
+  "era": "Ancient era",
+  "cost": 35,
+  "building_cost": 60,
+  "quote": "'The haft of the arrow has been feathered with one of the eagle's own plumes, we often give our enemies the means of our own destruction' - Aesop",
+  "uniques": []
+ },
+ {
+  "name": "Mining",
+  "column": 1,
+  "row": 9,
+  "era": "Ancient era",
+  "cost": 35,
+  "building_cost": 60,
+  "quote": "'The meek shall inherit the Earth, but not its mineral rights.' - J. Paul Getty",
+  "uniques": []
+ },
+ {
+  "name": "Sailing",
+  "column": 2,
+  "row": 1,
+  "era": "Ancient era",
+  "cost": 55,
+  "building_cost": 75,
+  "quote": "'He who commands the sea has command of everything.' - Themistocles",
+  "uniques": []
+ },
+ {
+  "name": "Calendar",
+  "column": 2,
+  "row": 2,
+  "era": "Ancient era",
+  "cost": 55,
+  "building_cost": 75,
+  "quote": "'So teach us to number our days, so that we may apply our hearts unto wisdom.' - Bible Psalms 90:12",
+  "uniques": []
+ },
+ {
+  "name": "Writing",
+  "column": 2,
+  "row": 3,
+  "era": "Ancient era",
+  "cost": 55,
+  "building_cost": 75,
+  "quote": "'He who destroys a good book kills reason itself.' - John Milton",
+  "uniques": [
+   "Enables Open Borders agreements <Civilopedia link [Tutorials/Open Borders]>"
+  ]
+ },
+ {
+  "name": "Trapping",
+  "column": 2,
+  "row": 4,
+  "era": "Ancient era",
+  "cost": 55,
+  "building_cost": 75,
+  "quote": "'Even brute beasts and wandering birds do not fall into the same traps or nets twice.' - Saint Jerome",
+  "uniques": []
+ },
+ {
+  "name": "The Wheel",
+  "column": 2,
+  "row": 6,
+  "era": "Ancient era",
+  "cost": 55,
+  "building_cost": 75,
+  "quote": "'Wisdom and virtue are like the two wheels of a cart.' - Japanese proverb",
+  "uniques": []
+ },
+ {
+  "name": "Masonry",
+  "column": 2,
+  "row": 9,
+  "era": "Ancient era",
+  "cost": 55,
+  "building_cost": 75,
+  "quote": "'How happy are those whose walls already rise!' - Virgil",
+  "uniques": []
+ },
+ {
+  "name": "Bronze Working",
+  "column": 2,
+  "row": 10,
+  "era": "Ancient era",
+  "cost": 55,
+  "building_cost": 75,
+  "quote": "'Here Hector entered, with a spear eleven cubits long in his hand; the bronze point gleamed in front of him, and was fastened to the shaft of the spear by a ring of gold.' - Homer",
+  "uniques": []
+ },
+ {
+  "name": "Optics",
+  "column": 3,
+  "row": 1,
+  "era": "Classical era",
+  "cost": 105,
+  "building_cost": 100,
+  "quote": "'He made an instrument to know if the moon shine at full or no.' - Samuel Butler",
+  "uniques": [
+   "Enables embarkation for land units"
+  ]
+ },
+ {
+  "name": "Philosophy",
+  "column": 3,
+  "row": 3,
+  "era": "Classical era",
+  "cost": 105,
+  "building_cost": 100,
+  "quote": "'There is only one good, knowledge, and one evil, ignorance.' - Socrates",
+  "uniques": [
+   "Enables Research agreements <Civilopedia link [Tutorials/Research Agreements]>"
+  ]
+ },
+ {
+  "name": "Horseback Riding",
+  "column": 3,
+  "row": 5,
+  "era": "Classical era",
+  "cost": 105,
+  "building_cost": 100,
+  "quote": "'A Horse! A Horse! My kingdom for a horse!' - Shakespeare (Richard III)",
+  "uniques": []
+ },
+ {
+  "name": "Mathematics",
+  "column": 3,
+  "row": 7,
+  "era": "Classical era",
+  "cost": 105,
+  "building_cost": 100,
+  "quote": "'Mathematics is the gate and key to the sciences.' - Roger Bacon",
+  "uniques": []
+ },
+ {
+  "name": "Construction",
+  "column": 3,
+  "row": 9,
+  "era": "Classical era",
+  "cost": 105,
+  "building_cost": 100,
+  "quote": "'Three things are to be looked to in a building: that it stands on the right spot; that it be securely founded; that it be successfully executed.' - Johann Wolfgang von Goethe",
+  "uniques": []
+ },
+ {
+  "name": "Iron Working",
+  "column": 3,
+  "row": 10,
+  "era": "Classical era",
+  "cost": 105,
+  "building_cost": 100,
+  "quote": "'Do not wait to strike til the iron is hot, but make it hot by striking.' - William Butler Yeats",
+  "uniques": []
+ },
+ {
+  "name": "Theology",
+  "column": 4,
+  "row": 2,
+  "era": "Medieval era",
+  "cost": 275,
+  "building_cost": 120,
+  "quote": "'Three things are necessary for the salvation of man: to know what he ought to believe; to know what he ought to desire; and to know what he ought to do' - St. Thomas Aquinas",
+  "uniques": []
+ },
+ {
+  "name": "Civil Service",
+  "column": 4,
+  "row": 4,
+  "era": "Medieval era",
+  "cost": 275,
+  "building_cost": 120,
+  "quote": "'The only thing that saves us from the bureaucracy is its inefficiency' - Eugene McCarthy",
+  "uniques": []
+ },
+ {
+  "name": "Currency",
+  "column": 4,
+  "row": 7,
+  "era": "Medieval era",
+  "cost": 275,
+  "building_cost": 120,
+  "quote": "'Better is bread with a happy heart than wealth with vexation.' - Amenemope",
+  "uniques": [
+   "Enables conversion of city production to [Gold]"
+  ]
+ },
+ {
+  "name": "Engineering",
+  "column": 4,
+  "row": 8,
+  "era": "Medieval era",
+  "cost": 275,
+  "building_cost": 120,
+  "quote": "'Instrumental or mechanical science is the noblest and, above all others, the most useful.' - Leonardo da Vinci",
+  "uniques": [
+   "Roads connect tiles across rivers"
+  ]
+ },
+ {
+  "name": "Metal Casting",
+  "column": 4,
+  "row": 10,
+  "era": "Medieval era",
+  "cost": 275,
+  "building_cost": 120,
+  "quote": "'When pieces of bronze or gold or iron break, the metal-smith welds them together again in the fire, and the bond is established.' - Sri Guru Granth Sahib",
+  "uniques": []
+ },
+ {
+  "name": "Compass",
+  "column": 5,
+  "row": 1,
+  "era": "Medieval era",
+  "cost": 485,
+  "building_cost": 160,
+  "quote": "'I find the great thing in this world is not so much where we stand, as in what direction we are moving.' - Oliver Wendell Holmes",
+  "uniques": []
+ },
+ {
+  "name": "Education",
+  "column": 5,
+  "row": 3,
+  "era": "Medieval era",
+  "cost": 485,
+  "building_cost": 160,
+  "quote": "'Education is the best provision for old age.' - Aristotle",
+  "uniques": [
+   "Enables conversion of city production to [Science]"
+  ]
+ },
+ {
+  "name": "Chivalry",
+  "column": 5,
+  "row": 5,
+  "era": "Medieval era",
+  "cost": 485,
+  "building_cost": 160,
+  "quote": "'Whoso pulleth out this sword of this stone and anvil, is rightwise king born of all England.' - Malory",
+  "uniques": [
+   "Enables Defensive Pacts <Civilopedia link [Tutorials/Defensive Pacts]>"
+  ]
+ },
+ {
+  "name": "Machinery",
+  "column": 5,
+  "row": 8,
+  "era": "Medieval era",
+  "cost": 485,
+  "building_cost": 160,
+  "quote": "'The press is the best instrument for enlightening the mind of man, and improving him as a rational, moral and social being.' - Thomas Jefferson",
+  "uniques": [
+   "Improves movement speed on roads"
+  ]
+ },
+ {
+  "name": "Physics",
+  "column": 5,
+  "row": 9,
+  "era": "Medieval era",
+  "cost": 485,
+  "building_cost": 160,
+  "quote": "'Measure what is measurable, and make measurable what is not so.' - Galileo Galilei",
+  "uniques": []
+ },
+ {
+  "name": "Steel",
+  "column": 5,
+  "row": 10,
+  "era": "Medieval era",
+  "cost": 485,
+  "building_cost": 160,
+  "quote": "'John Henry said to his Captain, / 'A man ain't nothin' but a man, / And before I'll let your steam drill beat me down, / I'll die with the hammer in my hand.'' - Anonymous: The Ballad of John Henry, ",
+  "uniques": []
+ },
+ {
+  "name": "Astronomy",
+  "column": 6,
+  "row": 2,
+  "era": "Renaissance era",
+  "cost": 780,
+  "building_cost": 200,
+  "quote": "'Joyfully to the breeze royal Odysseus spread his sail, and with his rudder skillfully he steered.' - Homer",
+  "uniques": [
+   "[+1] Movement <for [Embarked] units>",
+   "Enables [Embarked] units to enter ocean tiles"
+  ]
+ },
+ {
+  "name": "Acoustics",
+  "column": 6,
+  "row": 4,
+  "era": "Renaissance era",
+  "cost": 780,
+  "building_cost": 200,
+  "quote": "'Their rising all at once was as the sound of thunder heard remote' - Milton",
+  "uniques": []
+ },
+ {
+  "name": "Banking",
+  "column": 6,
+  "row": 6,
+  "era": "Renaissance era",
+  "cost": 780,
+  "building_cost": 200,
+  "quote": "'Happiness: a good bank account, a good cook and a good digestion' - Jean Jacques Rousseau",
+  "uniques": []
+ },
+ {
+  "name": "Printing Press",
+  "column": 6,
+  "row": 8,
+  "era": "Renaissance era",
+  "cost": 780,
+  "building_cost": 200,
+  "quote": "'It is a newspaper's duty to print the news and raise hell.' - The Chicago Times",
+  "uniques": []
+ },
+ {
+  "name": "Gunpowder",
+  "column": 6,
+  "row": 10,
+  "era": "Renaissance era",
+  "cost": 780,
+  "building_cost": 200,
+  "quote": "'The day when two army corps can annihilate each other in one second, all civilized nations, it is to be hoped, will recoil from war and discharge their troops.' - Alfred Nobel",
+  "uniques": []
+ },
+ {
+  "name": "Navigation",
+  "column": 7,
+  "row": 2,
+  "era": "Renaissance era",
+  "cost": 1150,
+  "building_cost": 250,
+  "quote": "'The winds and the waves are always on the side of the ablest navigators.' - Edward Gibbon",
+  "uniques": []
+ },
+ {
+  "name": "Economics",
+  "column": 7,
+  "row": 6,
+  "era": "Renaissance era",
+  "cost": 1150,
+  "building_cost": 250,
+  "quote": "'Compound interest is the most powerful force in the universe.' - Albert Einstein",
+  "uniques": []
+ },
+ {
+  "name": "Chemistry",
+  "column": 7,
+  "row": 9,
+  "era": "Renaissance era",
+  "cost": 1150,
+  "building_cost": 250,
+  "quote": "'Wherever we look, the work of the chemist has raised the level of our civilization and has increased the productive capacity of the nation.' - Calvin Coolidge",
+  "uniques": []
+ },
+ {
+  "name": "Metallurgy",
+  "column": 7,
+  "row": 10,
+  "era": "Renaissance era",
+  "cost": 1150,
+  "building_cost": 250,
+  "quote": "'There never was a good knife made of bad steel.' - Benjamin Franklin",
+  "uniques": []
+ },
+ {
+  "name": "Archaeology",
+  "column": 8,
+  "row": 2,
+  "era": "Renaissance era",
+  "cost": 1600,
+  "building_cost": 300,
+  "quote": "'Those who cannot remember the past are condemned to repeat it.' - George Santayana",
+  "uniques": []
+ },
+ {
+  "name": "Scientific Theory",
+  "column": 8,
+  "row": 4,
+  "era": "Renaissance era",
+  "cost": 1600,
+  "building_cost": 300,
+  "quote": "'Every great advance in science has issued from a new audacity of imagination.' - John Dewey",
+  "uniques": []
+ },
+ {
+  "name": "Military Science",
+  "column": 8,
+  "row": 6,
+  "era": "Renaissance era",
+  "cost": 1600,
+  "building_cost": 300,
+  "quote": "'Wars may be fought with weapons, but they are won by men. It is the spirit of the men who follow and of the man who leads that gains the victory.' - George S. Patton",
+  "uniques": []
+ },
+ {
+  "name": "Fertilizer",
+  "column": 8,
+  "row": 9,
+  "era": "Renaissance era",
+  "cost": 1600,
+  "building_cost": 300,
+  "quote": "'The nation that destroys its soil destroys itself.' - Franklin Delano Roosevelt",
+  "uniques": []
+ },
+ {
+  "name": "Rifling",
+  "column": 8,
+  "row": 10,
+  "era": "Renaissance era",
+  "cost": 1600,
+  "building_cost": 300,
+  "quote": "'It is well that war is so terrible, or we should grow too fond of it.' - Robert E. Lee",
+  "uniques": []
+ },
+ {
+  "name": "Biology",
+  "column": 9,
+  "row": 4,
+  "era": "Industrial era",
+  "cost": 2350,
+  "building_cost": 360,
+  "quote": "'If the brain were so simple we could understand it, we would be so simple we couldn't.' - Lyall Watson",
+  "uniques": []
+ },
+ {
+  "name": "Steam Power",
+  "column": 9,
+  "row": 6,
+  "era": "Industrial era",
+  "cost": 2350,
+  "building_cost": 360,
+  "quote": "'The nations of the West hope that by means of steam communication all the world will become as one family.' - Townsend Harris",
+  "uniques": [
+   "[+1] Movement <for [Embarked] units>"
+  ]
+ },
+ {
+  "name": "Dynamite",
+  "column": 9,
+  "row": 9,
+  "era": "Industrial era",
+  "cost": 2350,
+  "building_cost": 360,
+  "quote": "'As soon as men decide that all means are permitted to fight an evil, then their good becomes indistinguishable from the evil that they set out to destroy.' - Christopher Dawson",
+  "uniques": []
+ },
+ {
+  "name": "Electricity",
+  "column": 10,
+  "row": 4,
+  "era": "Industrial era",
+  "cost": 3100,
+  "building_cost": 500,
+  "quote": "'Is it a fact - or have I dreamt it - that, by means of electricity, the world of matter has become a great nerve, vibrating thousands of miles in a breathless point of time?' - Nathaniel Hawthorne",
+  "uniques": []
+ },
+ {
+  "name": "Replaceable Parts",
+  "column": 10,
+  "row": 6,
+  "era": "Industrial era",
+  "cost": 3100,
+  "building_cost": 500,
+  "quote": "'Nothing is particularly hard if you divide it into small jobs.' - Henry Ford",
+  "uniques": []
+ },
+ {
+  "name": "Railroads",
+  "column": 10,
+  "row": 8,
+  "era": "Industrial era",
+  "cost": 3100,
+  "building_cost": 500,
+  "quote": "'The introduction of so powerful an agent as steam to a carriage on wheels will make a great change in the situation of man.' - Thomas Jefferson",
+  "uniques": []
+ },
+ {
+  "name": "Refrigeration",
+  "column": 11,
+  "row": 2,
+  "era": "Industrial era",
+  "cost": 4100,
+  "building_cost": 500,
+  "quote": "'And homeless near a thousand homes I stood, and near a thousand tables pined and wanted food.' - William Wordsworth",
+  "uniques": []
+ },
+ {
+  "name": "Telegraph",
+  "column": 11,
+  "row": 4,
+  "era": "Industrial era",
+  "cost": 4100,
+  "building_cost": 500,
+  "quote": "'I once sent a dozen of my friends a telegram saying 'flee at once-all is discovered!' They all left town immediately.' - Mark Twain",
+  "uniques": []
+ },
+ {
+  "name": "Radio",
+  "column": 11,
+  "row": 5,
+  "era": "Industrial era",
+  "cost": 4100,
+  "building_cost": 500,
+  "quote": "'The whole country was tied together by radio. We all experienced the same heroes and comedians and singers. They were giants.' - Woody Allen",
+  "uniques": []
+ },
+ {
+  "name": "Flight",
+  "column": 11,
+  "row": 6,
+  "era": "Industrial era",
+  "cost": 4100,
+  "building_cost": 500,
+  "quote": "'Aeronautics was neither an industry nor a science. It was a miracle.' - Igor Sikorsky",
+  "uniques": []
+ },
+ {
+  "name": "Combustion",
+  "column": 11,
+  "row": 8,
+  "era": "Industrial era",
+  "cost": 4100,
+  "building_cost": 500,
+  "quote": "'Any man who can drive safely while kissing a pretty girl is simply not giving the kiss the attention it deserves.' - Albert Einstein",
+  "uniques": []
+ },
+ {
+  "name": "Pharmaceuticals",
+  "column": 12,
+  "row": 1,
+  "era": "Modern era",
+  "cost": 5100,
+  "building_cost": 500,
+  "quote": "'In nothing do men more nearly approach the gods than in giving health to men.' - Cicero",
+  "uniques": []
+ },
+ {
+  "name": "Plastics",
+  "column": 12,
+  "row": 2,
+  "era": "Modern era",
+  "cost": 5100,
+  "building_cost": 500,
+  "quote": "'Ben, I want to say one word to you, just one word: plastics.' - Buck Henry and Calder Willingham, The Graduate",
+  "uniques": []
+ },
+ {
+  "name": "Electronics",
+  "column": 12,
+  "row": 4,
+  "era": "Modern era",
+  "cost": 5100,
+  "building_cost": 500,
+  "quote": "'There's a basic principle about consumer electronics: it gets more powerful all the time and it gets cheaper all the time.' - Trip Hawkins",
+  "uniques": []
+ },
+ {
+  "name": "Mass Media",
+  "column": 12,
+  "row": 5,
+  "era": "Modern era",
+  "cost": 5100,
+  "building_cost": 500,
+  "quote": "'The speed of communications is wondrous to behold, it is also true that speed does multiply the distribution of information that we know to be untrue.' – Edward R. Murrow",
+  "uniques": []
+ },
+ {
+  "name": "Radar",
+  "column": 12,
+  "row": 6,
+  "era": "Modern era",
+  "cost": 5100,
+  "building_cost": 500,
+  "quote": "'Vision is the art of seeing things invisible.' - Jonathan Swift",
+  "uniques": []
+ },
+ {
+  "name": "Atomic Theory",
+  "column": 12,
+  "row": 10,
+  "era": "Modern era",
+  "cost": 5100,
+  "building_cost": 500,
+  "quote": "'The unleashed power of the atom has changed everything save our modes of thinking, and we thus drift toward unparalleled catastrophes.' - Albert Einstein",
+  "uniques": []
+ },
+ {
+  "name": "Ecology",
+  "column": 13,
+  "row": 2,
+  "era": "Modern era",
+  "cost": 6400,
+  "building_cost": 360,
+  "quote": "'Only within the moment of time represented by the present century has one species, man, acquired significant power to alter the nature of his world.' - Rachel Carson",
+  "uniques": []
+ },
+ {
+  "name": "Computers",
+  "column": 13,
+  "row": 4,
+  "era": "Modern era",
+  "cost": 6400,
+  "building_cost": 360,
+  "quote": "'Computers are like Old Testament gods: lots of rules and no mercy.' - Joseph Campbell",
+  "uniques": []
+ },
+ {
+  "name": "Rocketry",
+  "column": 13,
+  "row": 6,
+  "era": "Modern era",
+  "cost": 6400,
+  "building_cost": 360,
+  "quote": "'A good rule for rocket experimenters to follow is this: always assume that it will explode.' - Astronautics Magazine, 1937",
+  "uniques": []
+ },
+ {
+  "name": "Lasers",
+  "column": 13,
+  "row": 8,
+  "era": "Modern era",
+  "cost": 6400,
+  "building_cost": 360,
+  "quote": "'The night is far spent, the day is at hand: let us therefore cast off the works of darkness, and let us put on the armor of light.' - The Holy Bible: Romans, 13:12",
+  "uniques": []
+ },
+ {
+  "name": "Nuclear Fission",
+  "column": 13,
+  "row": 10,
+  "era": "Modern era",
+  "cost": 6400,
+  "building_cost": 360,
+  "quote": "'I am become Death, the destroyer of worlds.' - J. Robert Oppenheimer",
+  "uniques": []
+ },
+ {
+  "name": "Globalization",
+  "column": 14,
+  "row": 2,
+  "era": "Modern era",
+  "cost": 7700,
+  "building_cost": 360,
+  "quote": "'The new electronic interdependence recreates the world in the image of a global village.' - Marshall McLuhan",
+  "uniques": []
+ },
+ {
+  "name": "Robotics",
+  "column": 14,
+  "row": 4,
+  "era": "Modern era",
+  "cost": 7700,
+  "building_cost": 360,
+  "quote": "'1. A robot may not injure a human being or, through inaction, allow a human being to come to harm. 2. A robot must obey any orders given to it by human beings, except when such orders would conflict ",
+  "uniques": []
+ },
+ {
+  "name": "Satellites",
+  "column": 14,
+  "row": 6,
+  "era": "Modern era",
+  "cost": 7700,
+  "building_cost": 360,
+  "quote": "'Now, somehow, in some new way, the sky seemed almost alien.' - Lyndon B. Johnson",
+  "uniques": [
+   "Reveals the entire map"
+  ]
+ },
+ {
+  "name": "Stealth",
+  "column": 14,
+  "row": 8,
+  "era": "Modern era",
+  "cost": 7700,
+  "building_cost": 360,
+  "quote": "'Be extremely subtle, even to the point of formlessness, be extremely mysterious, even to the point of soundlessness. Thereby you can be the director of the opponent's fate.' - Sun Tzu",
+  "uniques": []
+ },
+ {
+  "name": "Advanced Ballistics",
+  "column": 14,
+  "row": 10,
+  "era": "Modern era",
+  "cost": 7700,
+  "building_cost": 360,
+  "quote": "'Our scientific power has outrun our spiritual power, we have guided missiles and misguided men.' – Martin Luther King Jr.",
+  "uniques": []
+ },
+ {
+  "name": "Particle Physics",
+  "column": 15,
+  "row": 5,
+  "era": "Future era",
+  "cost": 8800,
+  "building_cost": 750,
+  "quote": "'Every particle of matter is attracted by or gravitates to every other particle of matter with a force inversely proportional to the squares of their distances.' - Isaac Newton",
+  "uniques": []
+ },
+ {
+  "name": "Nuclear Fusion",
+  "column": 15,
+  "row": 8,
+  "era": "Future era",
+  "cost": 8800,
+  "building_cost": 750,
+  "quote": "'The release of atomic energy has not created a new problem. It has readily made more urgent the necessity of solving an existing one.' - Albert Einstein",
+  "uniques": []
+ },
+ {
+  "name": "Nanotechnology",
+  "column": 16,
+  "row": 5,
+  "era": "Future era",
+  "cost": 9500,
+  "building_cost": 750,
+  "quote": "'The impact of nanotechnology is expected to exceed the impact that the electronics revolution has had on our lives.' - Richard Schwartz",
+  "uniques": []
+ },
+ {
+  "name": "Future Tech",
+  "column": 17,
+  "row": 7,
+  "era": "Future era",
+  "cost": 9500,
+  "building_cost": 750,
+  "quote": "'I think we agree, the past is over.' - George W. Bush",
+  "uniques": [
+   "Can be continually researched"
+  ]
+ }
+]

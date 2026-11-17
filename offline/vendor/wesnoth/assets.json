@@ -1,0 +1,569 @@
+{
+ "units": [
+  {
+   "id": "Drake Burner",
+   "name": "Drake Burner",
+   "race": "drake",
+   "level": 1,
+   "hp": 42,
+   "movement": 5,
+   "cost": 21,
+   "alignment": "lawful",
+   "attacks": [
+    {
+     "name": "claws",
+     "type": "blade",
+     "range": "melee",
+     "damage": 7,
+     "number": 2
+    },
+    {
+     "name": "fire breath",
+     "type": "fire",
+     "range": "ranged",
+     "damage": 6,
+     "number": 4
+    }
+   ],
+   "image": "vendor/wesnoth/units/Drake_Burner.png",
+   "portrait": "vendor/wesnoth/portraits/Drake_Burner.png"
+  },
+  {
+   "id": "Dwarvish Miner",
+   "name": "Dwarvish Miner",
+   "race": "dwarf",
+   "level": 0,
+   "hp": 22,
+   "movement": 4,
+   "cost": 10,
+   "alignment": "neutral",
+   "attacks": [
+    {
+     "name": "pick",
+     "type": "pierce",
+     "range": "melee",
+     "damage": 4,
+     "number": 3
+    }
+   ],
+   "image": "vendor/wesnoth/units/Dwarvish_Miner.png"
+  },
+  {
+   "id": "Elvish Archer",
+   "name": "Elvish Archer",
+   "race": "elf",
+   "level": 1,
+   "hp": 29,
+   "movement": 6,
+   "cost": 17,
+   "alignment": "neutral",
+   "attacks": [
+    {
+     "name": "sword",
+     "type": "blade",
+     "range": "melee",
+     "damage": 5,
+     "number": 2
+    },
+    {
+     "name": "bow",
+     "type": "pierce",
+     "range": "ranged",
+     "damage": 5,
+     "number": 4
+    }
+   ],
+   "image": "vendor/wesnoth/units/Elvish_Archer.png",
+   "portrait": "vendor/wesnoth/portraits/Elvish_Archer.png"
+  },
+  {
+   "id": "Goblin Spearman",
+   "name": "Goblin Spearman",
+   "race": "goblin",
+   "level": 0,
+   "hp": 18,
+   "movement": 5,
+   "cost": 9,
+   "alignment": "chaotic",
+   "attacks": [
+    {
+     "name": "spear",
+     "type": "pierce",
+     "range": "melee",
+     "damage": 6,
+     "number": 3
+    },
+    {
+     "name": "spear",
+     "type": "pierce",
+     "range": "ranged",
+     "damage": 3,
+     "number": 1
+    }
+   ],
+   "image": "vendor/wesnoth/units/Goblin_Spearman.png",
+   "portrait": "vendor/wesnoth/portraits/Goblin_Spearman.png"
+  },
+  {
+   "id": "Peasant",
+   "name": "Peasant",
+   "race": "human",
+   "level": 0,
+   "hp": 18,
+   "movement": 5,
+   "cost": 8,
+   "alignment": "lawful",
+   "attacks": [
+    {
+     "name": "pitchfork",
+     "type": "pierce",
+     "range": "melee",
+     "damage": 5,
+     "number": 2
+    },
+    {
+     "name": "pitchfork",
+     "type": "pierce",
+     "range": "ranged",
+     "damage": 4,
+     "number": 1
+    }
+   ],
+   "image": "vendor/wesnoth/units/Peasant.png",
+   "portrait": "vendor/wesnoth/portraits/Peasant.png"
+  },
+  {
+   "id": "Saurian Augur",
+   "name": "Saurian Augur",
+   "race": "lizard",
+   "level": 1,
+   "hp": 22,
+   "movement": 6,
+   "cost": 16,
+   "alignment": "chaotic",
+   "attacks": [
+    {
+     "name": "staff",
+     "type": "impact",
+     "range": "melee",
+     "damage": 4,
+     "number": 2
+    },
+    {
+     "name": "curse",
+     "type": "cold",
+     "range": "ranged",
+     "damage": 5,
+     "number": 3
+    }
+   ],
+   "image": "vendor/wesnoth/units/Saurian_Augur.png",
+   "portrait": "vendor/wesnoth/portraits/Saurian_Augur.png"
+  },
+  {
+   "id": "Pirate Galleon",
+   "name": "Pirate Galleon",
+   "race": "mechanical",
+   "level": 1,
+   "hp": 35,
+   "movement": 5,
+   "cost": 15,
+   "alignment": "lawful",
+   "attacks": [
+    {
+     "name": "ballista",
+     "type": "pierce",
+     "range": "ranged",
+     "damage": 20,
+     "number": 1
+    }
+   ],
+   "image": "vendor/wesnoth/units/Pirate_Galleon.png",
+   "portrait": "vendor/wesnoth/portraits/Pirate_Galleon.png"
+  },
+  {
+   "id": "Merman Citizen",
+   "name": "Merman Citizen",
+   "race": "merman",
+   "level": 0,
+   "hp": 20,
+   "movement": 6,
+   "cost": 9,
+   "alignment": "lawful",
+   "attacks": [
+    {
+     "name": "fist-merman",
+     "type": "impact",
+     "range": "melee",
+     "damage": 4,
+     "number": 3
+    }
+   ],
+   "image": "vendor/wesnoth/units/Merman_Citizen.png",
+   "portrait": "vendor/wesnoth/portraits/Merman_Citizen.png"
+  },
+  {
+   "id": "Naga Dirkfang",
+   "name": "Naga Dirkfang",
+   "race": "naga",
+   "level": 1,
+   "hp": 31,
+   "movement": 7,
+   "cost": 15,
+   "alignment": "neutral",
+   "attacks": [
+    {
+     "name": "dagger",
+     "type": "blade",
+     "range": "melee",
+     "damage": 4,
+     "number": 3
+    },
+    {
+     "name": "chakri",
+     "type": "blade",
+     "range": "ranged",
+     "damage": 7,
+     "number": 2
+    }
+   ],
+   "image": "vendor/wesnoth/units/Naga_Dirkfang.png",
+   "portrait": "vendor/wesnoth/portraits/Naga_Dirkfang.png"
+  },
+  {
+   "id": "Young Ogre",
+   "name": "Young Ogre",
+   "race": "ogre",
+   "level": 1,
+   "hp": 42,
+   "movement": 5,
+   "cost": 13,
+   "alignment": "neutral",
+   "attacks": [
+    {
+     "name": "cleaver",
+     "type": "blade",
+     "range": "melee",
+     "damage": 5,
+     "number": 3
+    }
+   ],
+   "image": "vendor/wesnoth/units/Young_Ogre.png",
+   "portrait": "vendor/wesnoth/portraits/Young_Ogre.png"
+  },
+  {
+   "id": "Orcish Archer",
+   "name": "Orcish Archer",
+   "race": "orc",
+   "level": 1,
+   "hp": 32,
+   "movement": 5,
+   "cost": 14,
+   "alignment": "chaotic",
+   "attacks": [
+    {
+     "name": "dagger",
+     "type": "blade",
+     "range": "melee",
+     "damage": 3,
+     "number": 2
+    },
+    {
+     "name": "bow",
+     "type": "pierce",
+     "range": "ranged",
+     "damage": 6,
+     "number": 3
+    },
+    {
+     "name": "bow",
+     "type": "fire",
+     "range": "ranged",
+     "damage": 7,
+     "number": 2
+    }
+   ],
+   "image": "vendor/wesnoth/units/Orcish_Archer.png",
+   "portrait": "vendor/wesnoth/portraits/Orcish_Archer.png"
+  },
+  {
+   "id": "Troll Whelp",
+   "name": "Troll Whelp",
+   "race": "troll",
+   "level": 1,
+   "hp": 42,
+   "movement": 4,
+   "cost": 13,
+   "alignment": "chaotic",
+   "attacks": [
+    {
+     "name": "fist",
+     "type": "impact",
+     "range": "melee",
+     "damage": 7,
+     "number": 2
+    }
+   ],
+   "image": "vendor/wesnoth/units/Troll_Whelp.png",
+   "portrait": "vendor/wesnoth/portraits/Troll_Whelp.png"
+  },
+  {
+   "id": "Ghost",
+   "name": "Ghost",
+   "race": "undead",
+   "level": 1,
+   "hp": 18,
+   "movement": 7,
+   "cost": 19,
+   "alignment": "chaotic",
+   "attacks": [
+    {
+     "name": "touch",
+     "type": "arcane",
+     "range": "melee",
+     "damage": 4,
+     "number": 3
+    },
+    {
+     "name": "wail",
+     "type": "cold",
+     "range": "ranged",
+     "damage": 3,
+     "number": 3
+    }
+   ],
+   "image": "vendor/wesnoth/units/Ghost.png",
+   "portrait": "vendor/wesnoth/portraits/Ghost.png"
+  },
+  {
+   "id": "Vampire Bat",
+   "name": "Vampire Bat",
+   "race": "bats",
+   "level": 0,
+   "hp": 16,
+   "movement": 8,
+   "cost": 13,
+   "alignment": "chaotic",
+   "attacks": [
+    {
+     "name": "fangs",
+     "type": "blade",
+     "range": "melee",
+     "damage": 4,
+     "number": 2
+    }
+   ],
+   "image": "vendor/wesnoth/units/Vampire_Bat.png",
+   "portrait": "vendor/wesnoth/portraits/Vampire_Bat.png"
+  },
+  {
+   "id": "Forest Lion",
+   "name": "Forest Lion",
+   "race": "cats",
+   "level": 2,
+   "hp": 48,
+   "movement": 7,
+   "cost": 25,
+   "alignment": "neutral",
+   "attacks": [
+    {
+     "name": "claws",
+     "type": "blade",
+     "range": "melee",
+     "damage": 6,
+     "number": 4
+    },
+    {
+     "name": "fangs",
+     "type": "blade",
+     "range": "melee",
+     "damage": 11,
+     "number": 2
+    }
+   ],
+   "image": "vendor/wesnoth/units/Forest_Lion.png",
+   "portrait": "vendor/wesnoth/portraits/Forest_Lion.png"
+  },
+  {
+   "id": "Falcon",
+   "name": "Falcon",
+   "race": "falcon",
+   "level": 0,
+   "hp": 18,
+   "movement": 9,
+   "cost": 12,
+   "alignment": "neutral",
+   "attacks": [
+    {
+     "name": "claws",
+     "type": "pierce",
+     "range": "melee",
+     "damage": 3,
+     "number": 3
+    },
+    {
+     "name": "beak",
+     "type": "blade",
+     "range": "melee",
+     "damage": 5,
+     "number": 1
+    }
+   ],
+   "image": "vendor/wesnoth/units/Falcon.png",
+   "portrait": "vendor/wesnoth/portraits/Falcon.png"
+  },
+  {
+   "id": "Gryphon Rider",
+   "name": "Gryphon Rider",
+   "race": "gryphon",
+   "level": 1,
+   "hp": 34,
+   "movement": 8,
+   "cost": 23,
+   "alignment": "neutral",
+   "attacks": [
+    {
+     "name": "claws",
+     "type": "blade",
+     "range": "melee",
+     "damage": 12,
+     "number": 2
+    }
+   ],
+   "image": "vendor/wesnoth/units/Gryphon_Rider.png",
+   "portrait": "vendor/wesnoth/portraits/Gryphon_Rider.png"
+  },
+  {
+   "id": "Bay Horse",
+   "name": "Bay Horse",
+   "race": "horse",
+   "level": 1,
+   "hp": 30,
+   "movement": 8,
+   "cost": 16,
+   "alignment": "neutral",
+   "attacks": [
+    {
+     "name": "hooves",
+     "type": "impact",
+     "range": "melee",
+     "damage": 10,
+     "number": 2
+    }
+   ],
+   "image": "vendor/wesnoth/units/Bay_Horse.png",
+   "portrait": "vendor/wesnoth/portraits/Bay_Horse.png"
+  },
+  {
+   "id": "Dragonfly Naiad",
+   "name": "Dragonfly Naiad",
+   "race": "monster",
+   "level": 0,
+   "hp": 19,
+   "movement": 6,
+   "cost": 11,
+   "alignment": "neutral",
+   "attacks": [
+    {
+     "name": "bite",
+     "type": "blade",
+     "range": "melee",
+     "damage": 5,
+     "number": 2
+    }
+   ],
+   "image": "vendor/wesnoth/units/Dragonfly_Naiad.png",
+   "portrait": "vendor/wesnoth/portraits/Dragonfly_Naiad.png"
+  },
+  {
+   "id": "Raven",
+   "name": "Raven",
+   "race": "raven",
+   "level": 0,
+   "hp": 16,
+   "movement": 8,
+   "cost": 12,
+   "alignment": "chaotic",
+   "attacks": [
+    {
+     "name": "beak",
+     "type": "pierce",
+     "range": "melee",
+     "damage": 4,
+     "number": 2
+    }
+   ],
+   "image": "vendor/wesnoth/units/Raven.png",
+   "portrait": "vendor/wesnoth/portraits/Raven.png"
+  },
+  {
+   "id": "Coastal Raider",
+   "name": "Coastal Raider",
+   "race": "ship",
+   "level": 2,
+   "hp": 90,
+   "movement": 6,
+   "cost": 37,
+   "alignment": "lawful",
+   "attacks": [
+    {
+     "name": "ram",
+     "type": "impact",
+     "range": "melee",
+     "damage": 11,
+     "number": 2
+    },
+    {
+     "name": "archers",
+     "type": "pierce",
+     "range": "ranged",
+     "damage": 6,
+     "number": 3
+    }
+   ],
+   "image": "vendor/wesnoth/units/Coastal_Raider.png",
+   "portrait": "vendor/wesnoth/portraits/Coastal_Raider.png"
+  },
+  {
+   "id": "Wolf",
+   "name": "Wolf",
+   "race": "wolf",
+   "level": 1,
+   "hp": 32,
+   "movement": 8,
+   "cost": 15,
+   "alignment": "neutral",
+   "attacks": [
+    {
+     "name": "fangs",
+     "type": "blade",
+     "range": "melee",
+     "damage": 5,
+     "number": 3
+    }
+   ],
+   "image": "vendor/wesnoth/units/Wolf.png",
+   "portrait": "vendor/wesnoth/portraits/Wolf.png"
+  }
+ ],
+ "terrain": [
+  "vendor/wesnoth/terrain/alpha.png",
+  "vendor/wesnoth/terrain/castle-to-water-ne.png",
+  "vendor/wesnoth/terrain/ruin3-convex-r.png",
+  "vendor/wesnoth/terrain/stone-post4.png",
+  "vendor/wesnoth/terrain/desert-castle-ne.png",
+  "vendor/wesnoth/terrain/flowers-mixed2.png",
+  "vendor/wesnoth/terrain/fog-ne-se.png",
+  "vendor/wesnoth/terrain/dry-n-ne-se.png",
+  "vendor/wesnoth/terrain/rug-smallcorner-nw.png",
+  "vendor/wesnoth/terrain/rails-water-ne-s.png",
+  "vendor/wesnoth/terrain/desert4.png",
+  "vendor/wesnoth/terrain/drake5.png",
+  "vendor/wesnoth/terrain/wall-flowers-concave-tr.png",
+  "vendor/wesnoth/terrain/coast-tropical-long-A14-nw.png"
+ ],
+ "music": [
+  "vendor/wesnoth/music/cry_from_elensefar.opus",
+  "vendor/wesnoth/music/knalgan_theme.opus"
+ ]
+}

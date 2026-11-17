@@ -1,0 +1,111 @@
+{
+ "armors": [
+  {
+   "id": "basic_helmet",
+   "name": "Basic Helmet",
+   "type": "helmet",
+   "level": 1.0,
+   "reduction": 0.1
+  },
+  {
+   "id": "regular_helmet",
+   "name": "Regular Helmet",
+   "type": "helmet",
+   "level": 2.0,
+   "reduction": 0.15
+  },
+  {
+   "id": "tactical_helmet",
+   "name": "Tactical Helmet",
+   "type": "helmet",
+   "level": 3.0,
+   "reduction": 0.2
+  },
+  {
+   "id": "power_helmet",
+   "name": "NTK-11 Halycon",
+   "type": "helmet",
+   "level": 4.0,
+   "reduction": 0.25
+  },
+  {
+   "id": "basic_vest",
+   "name": "Basic Vest",
+   "type": "vest",
+   "level": 1.0,
+   "reduction": 0.2
+  },
+  {
+   "id": "regular_vest",
+   "name": "Regular Vest",
+   "type": "vest",
+   "level": 2.0,
+   "reduction": 0.35
+  },
+  {
+   "id": "tactical_vest",
+   "name": "Tactical Vest",
+   "type": "vest",
+   "level": 3.0,
+   "reduction": 0.45
+  },
+  {
+   "id": "power_vest",
+   "name": "ERV-3 Core",
+   "type": "vest",
+   "level": 4.0,
+   "reduction": 0.35
+  },
+  {
+   "id": "developr_vest",
+   "name": "Developr Vest",
+   "type": "vest",
+   "level": 99.0,
+   "reduction": 0.72
+  },
+  {
+   "id": "werewolf_fur",
+   "name": "Werewolf Fur",
+   "type": "vest",
+   "level": 5.0,
+   "reduction": 0.2
+  }
+ ],
+ "healing": [
+  {
+   "id": "gauze",
+   "name": "Gauze",
+   "type": "health",
+   "restore": 20.0,
+   "use_time": 3.0
+  },
+  {
+   "id": "medikit",
+   "name": "Medikit",
+   "type": "health",
+   "restore": 100.0,
+   "use_time": 6.0
+  },
+  {
+   "id": "cola",
+   "name": "Cola",
+   "type": "adrenaline",
+   "restore": 25.0,
+   "use_time": 3.0
+  },
+  {
+   "id": "tablets",
+   "name": "Tablets",
+   "type": "adrenaline",
+   "restore": 50.0,
+   "use_time": 4.0
+  },
+  {
+   "id": "vaccine_syringe",
+   "name": "Vaccine Syringe",
+   "type": "special",
+   "restore": 0.0,
+   "use_time": 2.0
+  }
+ ]
+}

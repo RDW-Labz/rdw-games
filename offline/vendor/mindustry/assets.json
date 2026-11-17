@@ -1,0 +1,421 @@
+{
+ "items": [
+  {
+   "name": "beryllium",
+   "image": "vendor/mindustry/items/beryllium.png"
+  },
+  {
+   "name": "blast-compound",
+   "image": "vendor/mindustry/items/blast-compound.png"
+  },
+  {
+   "name": "carbide",
+   "image": "vendor/mindustry/items/carbide.png"
+  },
+  {
+   "name": "coal",
+   "image": "vendor/mindustry/items/coal.png"
+  },
+  {
+   "name": "copper",
+   "image": "vendor/mindustry/items/copper.png"
+  },
+  {
+   "name": "dormant-cyst",
+   "image": "vendor/mindustry/items/dormant-cyst.png"
+  },
+  {
+   "name": "fissile-matter",
+   "image": "vendor/mindustry/items/fissile-matter.png"
+  },
+  {
+   "name": "graphite",
+   "image": "vendor/mindustry/items/graphite.png"
+  },
+  {
+   "name": "lead",
+   "image": "vendor/mindustry/items/lead.png"
+  },
+  {
+   "name": "metaglass",
+   "image": "vendor/mindustry/items/metaglass.png"
+  },
+  {
+   "name": "oxide",
+   "image": "vendor/mindustry/items/oxide.png"
+  },
+  {
+   "name": "phase-fabric",
+   "image": "vendor/mindustry/items/phase-fabric.png"
+  },
+  {
+   "name": "plastanium",
+   "image": "vendor/mindustry/items/plastanium.png"
+  },
+  {
+   "name": "pyratite",
+   "image": "vendor/mindustry/items/pyratite.png"
+  },
+  {
+   "name": "sand",
+   "image": "vendor/mindustry/items/sand.png"
+  },
+  {
+   "name": "scrap",
+   "image": "vendor/mindustry/items/scrap.png"
+  },
+  {
+   "name": "silicon",
+   "image": "vendor/mindustry/items/silicon.png"
+  },
+  {
+   "name": "spore-pod",
+   "image": "vendor/mindustry/items/spore-pod.png"
+  },
+  {
+   "name": "surge-alloy",
+   "image": "vendor/mindustry/items/surge-alloy.png"
+  },
+  {
+   "name": "thorium",
+   "image": "vendor/mindustry/items/thorium.png"
+  },
+  {
+   "name": "titanium",
+   "image": "vendor/mindustry/items/titanium.png"
+  },
+  {
+   "name": "tungsten",
+   "image": "vendor/mindustry/items/tungsten.png"
+  }
+ ],
+ "belt": [
+  "vendor/mindustry/belt/conveyor-0-0.png",
+  "vendor/mindustry/belt/conveyor-0-1.png",
+  "vendor/mindustry/belt/conveyor-0-2.png",
+  "vendor/mindustry/belt/conveyor-0-3.png"
+ ],
+ "belt_anim": [
+  "vendor/mindustry/belt/conveyor-1-0.png",
+  "vendor/mindustry/belt/conveyor-2-0.png",
+  "vendor/mindustry/belt/conveyor-3-0.png",
+  "vendor/mindustry/belt/conveyor-4-0.png"
+ ],
+ "drill": [
+  "vendor/mindustry/blocks/blast-drill-top.png",
+  "vendor/mindustry/blocks/blast-drill.png"
+ ],
+ "turret": [
+  "vendor/mindustry/blocks/duo.png",
+  "vendor/mindustry/blocks/duo-barrel-l.png",
+  "vendor/mindustry/blocks/duo-barrel-r.png"
+ ],
+ "blocks": [
+  {
+   "category": "drills",
+   "name": "mechanical-drill",
+   "sprites": [
+    "vendor/mindustry/blocks/drills/mechanical-drill/mechanical-drill.png",
+    "vendor/mindustry/blocks/drills/mechanical-drill/mechanical-drill-top.png",
+    "vendor/mindustry/blocks/drills/mechanical-drill/mechanical-drill-rotator.png"
+   ]
+  },
+  {
+   "category": "drills",
+   "name": "pneumatic-drill",
+   "sprites": [
+    "vendor/mindustry/blocks/drills/pneumatic-drill/pneumatic-drill.png",
+    "vendor/mindustry/blocks/drills/pneumatic-drill/pneumatic-drill-top.png",
+    "vendor/mindustry/blocks/drills/pneumatic-drill/pneumatic-drill-rotator.png"
+   ]
+  },
+  {
+   "category": "drills",
+   "name": "laser-drill",
+   "sprites": [
+    "vendor/mindustry/blocks/drills/laser-drill/laser-drill.png",
+    "vendor/mindustry/blocks/drills/laser-drill/laser-drill-top.png",
+    "vendor/mindustry/blocks/drills/laser-drill/laser-drill-rotator.png"
+   ]
+  },
+  {
+   "category": "drills",
+   "name": "blast-drill",
+   "sprites": [
+    "vendor/mindustry/blocks/drills/blast-drill/blast-drill.png",
+    "vendor/mindustry/blocks/drills/blast-drill/blast-drill-top.png",
+    "vendor/mindustry/blocks/drills/blast-drill/blast-drill-rotator.png"
+   ]
+  },
+  {
+   "category": "drills",
+   "name": "water-extractor",
+   "sprites": [
+    "vendor/mindustry/blocks/drills/water-extractor/water-extractor.png",
+    "vendor/mindustry/blocks/drills/water-extractor/water-extractor-top.png",
+    "vendor/mindustry/blocks/drills/water-extractor/water-extractor-rotator.png"
+   ]
+  },
+  {
+   "category": "distribution",
+   "name": "junction",
+   "sprites": [
+    "vendor/mindustry/blocks/distribution/junction/junction.png"
+   ]
+  },
+  {
+   "category": "distribution",
+   "name": "router",
+   "sprites": [
+    "vendor/mindustry/blocks/distribution/router/router.png"
+   ]
+  },
+  {
+   "category": "distribution",
+   "name": "sorter",
+   "sprites": [
+    "vendor/mindustry/blocks/distribution/sorter/sorter.png"
+   ]
+  },
+  {
+   "category": "distribution",
+   "name": "overflow-gate",
+   "sprites": [
+    "vendor/mindustry/blocks/distribution/overflow-gate/overflow-gate.png"
+   ]
+  },
+  {
+   "category": "distribution",
+   "name": "distributor",
+   "sprites": [
+    "vendor/mindustry/blocks/distribution/distributor/distributor.png"
+   ]
+  },
+  {
+   "category": "turrets",
+   "name": "duo",
+   "sprites": [
+    "vendor/mindustry/blocks/turrets/duo/duo-barrel-l.png",
+    "vendor/mindustry/blocks/turrets/duo/duo-barrel-r.png",
+    "vendor/mindustry/blocks/turrets/duo/duo-preview.png",
+    "vendor/mindustry/blocks/turrets/duo/duo.png"
+   ]
+  },
+  {
+   "category": "turrets",
+   "name": "scatter",
+   "sprites": [
+    "vendor/mindustry/blocks/turrets/scatter/scatter-mid.png",
+    "vendor/mindustry/blocks/turrets/scatter/scatter-preview.png",
+    "vendor/mindustry/blocks/turrets/scatter/scatter.png"
+   ]
+  },
+  {
+   "category": "turrets",
+   "name": "hail",
+   "sprites": [
+    "vendor/mindustry/blocks/turrets/hail/hail.png",
+    "vendor/mindustry/blocks/turrets/hail/hail-heat.png"
+   ]
+  },
+  {
+   "category": "turrets",
+   "name": "wave",
+   "sprites": [
+    "vendor/mindustry/blocks/turrets/wave/wave.png",
+    "vendor/mindustry/blocks/turrets/wave/wave-top.png"
+   ]
+  },
+  {
+   "category": "turrets",
+   "name": "lancer",
+   "sprites": [
+    "vendor/mindustry/blocks/turrets/lancer/lancer.png",
+    "vendor/mindustry/blocks/turrets/lancer/lancer-heat.png"
+   ]
+  },
+  {
+   "category": "turrets",
+   "name": "arc",
+   "sprites": [
+    "vendor/mindustry/blocks/turrets/arc/arc.png",
+    "vendor/mindustry/blocks/turrets/arc/arc-heat.png"
+   ]
+  },
+  {
+   "category": "turrets",
+   "name": "cyclone",
+   "sprites": [
+    "vendor/mindustry/blocks/turrets/cyclone/cyclone-barrel-1.png",
+    "vendor/mindustry/blocks/turrets/cyclone/cyclone-barrel-2.png",
+    "vendor/mindustry/blocks/turrets/cyclone/cyclone-barrel-3.png",
+    "vendor/mindustry/blocks/turrets/cyclone/cyclone-preview.png",
+    "vendor/mindustry/blocks/turrets/cyclone/cyclone.png"
+   ]
+  },
+  {
+   "category": "turrets",
+   "name": "ripple",
+   "sprites": [
+    "vendor/mindustry/blocks/turrets/ripple/ripple.png",
+    "vendor/mindustry/blocks/turrets/ripple/ripple-heat.png"
+   ]
+  },
+  {
+   "category": "turrets",
+   "name": "fuse",
+   "sprites": [
+    "vendor/mindustry/blocks/turrets/fuse/fuse.png",
+    "vendor/mindustry/blocks/turrets/fuse/fuse-heat.png"
+   ]
+  },
+  {
+   "category": "walls",
+   "name": "copper-wall",
+   "sprites": [
+    "vendor/mindustry/blocks/walls/copper-wall/copper-wall.png",
+    "vendor/mindustry/blocks/walls/copper-wall/copper-wall-large.png"
+   ]
+  },
+  {
+   "category": "walls",
+   "name": "titanium-wall",
+   "sprites": [
+    "vendor/mindustry/blocks/walls/titanium-wall/titanium-wall.png",
+    "vendor/mindustry/blocks/walls/titanium-wall/titanium-wall-large.png"
+   ]
+  },
+  {
+   "category": "walls",
+   "name": "thorium-wall",
+   "sprites": [
+    "vendor/mindustry/blocks/walls/thorium-wall/thorium-wall.png",
+    "vendor/mindustry/blocks/walls/thorium-wall/thorium-wall-large.png"
+   ]
+  },
+  {
+   "category": "walls",
+   "name": "plastanium-wall",
+   "sprites": [
+    "vendor/mindustry/blocks/walls/plastanium-wall/plastanium-wall.png",
+    "vendor/mindustry/blocks/walls/plastanium-wall/plastanium-wall-large.png"
+   ]
+  },
+  {
+   "category": "walls",
+   "name": "phase-wall",
+   "sprites": [
+    "vendor/mindustry/blocks/walls/phase-wall/phase-wall.png",
+    "vendor/mindustry/blocks/walls/phase-wall/phase-wall-large.png"
+   ]
+  },
+  {
+   "category": "walls",
+   "name": "surge-wall",
+   "sprites": [
+    "vendor/mindustry/blocks/walls/surge-wall/surge-wall.png",
+    "vendor/mindustry/blocks/walls/surge-wall/surge-wall-large.png"
+   ]
+  },
+  {
+   "category": "production",
+   "name": "graphite-press",
+   "sprites": [
+    "vendor/mindustry/blocks/production/graphite-press/graphite-press.png"
+   ]
+  },
+  {
+   "category": "production",
+   "name": "silicon-smelter",
+   "sprites": [
+    "vendor/mindustry/blocks/production/silicon-smelter/silicon-smelter.png",
+    "vendor/mindustry/blocks/production/silicon-smelter/silicon-smelter-top.png"
+   ]
+  },
+  {
+   "category": "production",
+   "name": "kiln",
+   "sprites": [
+    "vendor/mindustry/blocks/production/kiln/kiln.png",
+    "vendor/mindustry/blocks/production/kiln/kiln-top.png"
+   ]
+  },
+  {
+   "category": "production",
+   "name": "pulverizer",
+   "sprites": [
+    "vendor/mindustry/blocks/production/pulverizer/pulverizer.png",
+    "vendor/mindustry/blocks/production/pulverizer/pulverizer-top.png",
+    "vendor/mindustry/blocks/production/pulverizer/pulverizer-rotator.png"
+   ]
+  },
+  {
+   "category": "production",
+   "name": "melter",
+   "sprites": [
+    "vendor/mindustry/blocks/production/melter/melter.png"
+   ]
+  },
+  {
+   "category": "production",
+   "name": "separator",
+   "sprites": [
+    "vendor/mindustry/blocks/production/separator/separator.png"
+   ]
+  },
+  {
+   "category": "production",
+   "name": "disassembler",
+   "sprites": [
+    "vendor/mindustry/blocks/production/disassembler/disassembler.png"
+   ]
+  },
+  {
+   "category": "production",
+   "name": "incinerator",
+   "sprites": [
+    "vendor/mindustry/blocks/production/incinerator/incinerator.png"
+   ]
+  },
+  {
+   "category": "production",
+   "name": "cryofluid-mixer",
+   "sprites": [
+    "vendor/mindustry/blocks/production/cryofluid-mixer/cryofluid-mixer.png"
+   ]
+  },
+  {
+   "category": "power",
+   "name": "combustion-generator",
+   "sprites": [
+    "vendor/mindustry/blocks/power/combustion-generator/combustion-generator.png",
+    "vendor/mindustry/blocks/power/combustion-generator/combustion-generator-top.png"
+   ]
+  },
+  {
+   "category": "power",
+   "name": "solar-panel",
+   "sprites": [
+    "vendor/mindustry/blocks/power/solar-panel/solar-panel.png",
+    "vendor/mindustry/blocks/power/solar-panel/solar-panel-large.png"
+   ]
+  },
+  {
+   "category": "power",
+   "name": "battery",
+   "sprites": [
+    "vendor/mindustry/blocks/power/battery/battery.png",
+    "vendor/mindustry/blocks/power/battery/battery-top.png",
+    "vendor/mindustry/blocks/power/battery/battery-large.png"
+   ]
+  },
+  {
+   "category": "power",
+   "name": "power-node",
+   "sprites": [
+    "vendor/mindustry/blocks/power/power-node/power-node.png",
+    "vendor/mindustry/blocks/power/power-node/power-node-large.png"
+   ]
+  }
+ ]
+}

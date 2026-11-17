@@ -1,0 +1,902 @@
+[
+ {
+  "name": "Worker",
+  "cost": 70,
+  "strength": null,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Agriculture",
+  "unitType": "Civilian"
+ },
+ {
+  "name": "Settler",
+  "cost": 106,
+  "strength": null,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Agriculture",
+  "unitType": "Civilian"
+ },
+ {
+  "name": "Scout",
+  "cost": 25,
+  "strength": 4,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Agriculture",
+  "unitType": "Scout"
+ },
+ {
+  "name": "Warrior",
+  "cost": 40,
+  "strength": 6,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Agriculture",
+  "unitType": "Sword"
+ },
+ {
+  "name": "Maori Warrior",
+  "cost": 40,
+  "strength": 8,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Agriculture",
+  "unitType": "Sword"
+ },
+ {
+  "name": "Jaguar",
+  "cost": 40,
+  "strength": 6,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Agriculture",
+  "unitType": "Sword"
+ },
+ {
+  "name": "Brute",
+  "cost": 20,
+  "strength": 6,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": null,
+  "unitType": "Sword"
+ },
+ {
+  "name": "Archer",
+  "cost": 40,
+  "strength": 4,
+  "rangedStrength": 6,
+  "movement": 2,
+  "requiredTech": "Archery",
+  "unitType": "Archery"
+ },
+ {
+  "name": "Bowman",
+  "cost": 40,
+  "strength": 6,
+  "rangedStrength": 8,
+  "movement": 2,
+  "requiredTech": "Archery",
+  "unitType": "Archery"
+ },
+ {
+  "name": "Slinger",
+  "cost": 40,
+  "strength": 3,
+  "rangedStrength": 6,
+  "movement": 2,
+  "requiredTech": "Archery",
+  "unitType": "Archery"
+ },
+ {
+  "name": "Skirmisher",
+  "cost": 40,
+  "strength": 4,
+  "rangedStrength": 7,
+  "movement": 2,
+  "requiredTech": "Archery",
+  "unitType": "Archery"
+ },
+ {
+  "name": "Work Boats",
+  "cost": 50,
+  "strength": null,
+  "rangedStrength": null,
+  "movement": 4,
+  "requiredTech": "Sailing",
+  "unitType": "Civilian Water"
+ },
+ {
+  "name": "Trireme",
+  "cost": 56,
+  "strength": 6,
+  "rangedStrength": 4,
+  "movement": 4,
+  "requiredTech": "Sailing",
+  "unitType": "Ranged Water"
+ },
+ {
+  "name": "Galley",
+  "cost": 40,
+  "strength": 5,
+  "rangedStrength": 3,
+  "movement": 3,
+  "requiredTech": null,
+  "unitType": "Ranged Water"
+ },
+ {
+  "name": "Chariot Archer",
+  "cost": 56,
+  "strength": 4,
+  "rangedStrength": 7,
+  "movement": 4,
+  "requiredTech": "The Wheel",
+  "unitType": "Archery"
+ },
+ {
+  "name": "War Chariot",
+  "cost": 56,
+  "strength": 4,
+  "rangedStrength": 7,
+  "movement": 5,
+  "requiredTech": "The Wheel",
+  "unitType": "Archery"
+ },
+ {
+  "name": "War Elephant",
+  "cost": 70,
+  "strength": 6,
+  "rangedStrength": 8,
+  "movement": 3,
+  "requiredTech": "The Wheel",
+  "unitType": "Archery"
+ },
+ {
+  "name": "Spearman",
+  "cost": 56,
+  "strength": 7,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Bronze Working",
+  "unitType": "Sword"
+ },
+ {
+  "name": "Hoplite",
+  "cost": 56,
+  "strength": 9,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Bronze Working",
+  "unitType": "Sword"
+ },
+ {
+  "name": "Persian Immortal",
+  "cost": 56,
+  "strength": 8,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Bronze Working",
+  "unitType": "Sword"
+ },
+ {
+  "name": "Marauder",
+  "cost": 56,
+  "strength": 10,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Bronze Working",
+  "unitType": "Sword"
+ },
+ {
+  "name": "Horseman",
+  "cost": 75,
+  "strength": 10,
+  "rangedStrength": null,
+  "movement": 4,
+  "requiredTech": "Horseback Riding",
+  "unitType": "Mounted"
+ },
+ {
+  "name": "Companion Cavalry",
+  "cost": 75,
+  "strength": 12,
+  "rangedStrength": null,
+  "movement": 5,
+  "requiredTech": "Horseback Riding",
+  "unitType": "Mounted"
+ },
+ {
+  "name": "Catapult",
+  "cost": 75,
+  "strength": 5,
+  "rangedStrength": 11,
+  "movement": 2,
+  "requiredTech": "Mathematics",
+  "unitType": "Siege"
+ },
+ {
+  "name": "Ballista",
+  "cost": 75,
+  "strength": 5,
+  "rangedStrength": 14,
+  "movement": 2,
+  "requiredTech": "Mathematics",
+  "unitType": "Siege"
+ },
+ {
+  "name": "Swordsman",
+  "cost": 75,
+  "strength": 11,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Iron Working",
+  "unitType": "Sword"
+ },
+ {
+  "name": "Legion",
+  "cost": 75,
+  "strength": 13,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Iron Working",
+  "unitType": "Sword"
+ },
+ {
+  "name": "Mohawk Warrior",
+  "cost": 75,
+  "strength": 11,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Iron Working",
+  "unitType": "Sword"
+ },
+ {
+  "name": "Pikeman",
+  "cost": 90,
+  "strength": 10,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Civil Service",
+  "unitType": "Sword"
+ },
+ {
+  "name": "Landsknecht",
+  "cost": 45,
+  "strength": 16,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Civil Service",
+  "unitType": "Sword"
+ },
+ {
+  "name": "Knight",
+  "cost": 120,
+  "strength": 18,
+  "rangedStrength": null,
+  "movement": 3,
+  "requiredTech": "Chivalry",
+  "unitType": "Mounted"
+ },
+ {
+  "name": "Camel Archer",
+  "cost": 120,
+  "strength": 10,
+  "rangedStrength": 15,
+  "movement": 3,
+  "requiredTech": "Chivalry",
+  "unitType": "Archery"
+ },
+ {
+  "name": "Conquistador",
+  "cost": 120,
+  "strength": 18,
+  "rangedStrength": null,
+  "movement": 3,
+  "requiredTech": "Chivalry",
+  "unitType": "Mounted"
+ },
+ {
+  "name": "Naresuan's Elephant",
+  "cost": 120,
+  "strength": 22,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Chivalry",
+  "unitType": "Mounted"
+ },
+ {
+  "name": "Mandekalu Cavalry",
+  "cost": 110,
+  "strength": 18,
+  "rangedStrength": null,
+  "movement": 3,
+  "requiredTech": "Chivalry",
+  "unitType": "Mounted"
+ },
+ {
+  "name": "Keshik",
+  "cost": 120,
+  "strength": 8,
+  "rangedStrength": 13,
+  "movement": 5,
+  "requiredTech": "Chivalry",
+  "unitType": "Archery"
+ },
+ {
+  "name": "Crossbowman",
+  "cost": 120,
+  "strength": 10,
+  "rangedStrength": 15,
+  "movement": 2,
+  "requiredTech": "Machinery",
+  "unitType": "Archery"
+ },
+ {
+  "name": "Chu-Ko-Nu",
+  "cost": 120,
+  "strength": 10,
+  "rangedStrength": 11,
+  "movement": 2,
+  "requiredTech": "Machinery",
+  "unitType": "Archery"
+ },
+ {
+  "name": "Longbowman",
+  "cost": 120,
+  "strength": 10,
+  "rangedStrength": 15,
+  "movement": 2,
+  "requiredTech": "Machinery",
+  "unitType": "Archery"
+ },
+ {
+  "name": "Trebuchet",
+  "cost": 120,
+  "strength": 8,
+  "rangedStrength": 16,
+  "movement": 2,
+  "requiredTech": "Physics",
+  "unitType": "Siege"
+ },
+ {
+  "name": "Hwach'a",
+  "cost": 120,
+  "strength": 8,
+  "rangedStrength": 25,
+  "movement": 2,
+  "requiredTech": "Physics",
+  "unitType": "Siege"
+ },
+ {
+  "name": "Longswordsman",
+  "cost": 120,
+  "strength": 16,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Steel",
+  "unitType": "Sword"
+ },
+ {
+  "name": "Samurai",
+  "cost": 120,
+  "strength": 16,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Steel",
+  "unitType": "Sword"
+ },
+ {
+  "name": "Berserker",
+  "cost": 120,
+  "strength": 16,
+  "rangedStrength": null,
+  "movement": 3,
+  "requiredTech": "Steel",
+  "unitType": "Sword"
+ },
+ {
+  "name": "Caravel",
+  "cost": 120,
+  "strength": 15,
+  "rangedStrength": 7,
+  "movement": 6,
+  "requiredTech": "Astronomy",
+  "unitType": "Ranged Water"
+ },
+ {
+  "name": "Turtle Ship",
+  "cost": 120,
+  "strength": 30,
+  "rangedStrength": null,
+  "movement": 4,
+  "requiredTech": "Astronomy",
+  "unitType": "Ranged Water"
+ },
+ {
+  "name": "Musketman",
+  "cost": 150,
+  "strength": 16,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Gunpowder",
+  "unitType": "Gunpowder"
+ },
+ {
+  "name": "Musketeer",
+  "cost": 150,
+  "strength": 20,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Gunpowder",
+  "unitType": "Gunpowder"
+ },
+ {
+  "name": "Janissary",
+  "cost": 150,
+  "strength": 16,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Gunpowder",
+  "unitType": "Gunpowder"
+ },
+ {
+  "name": "Minuteman",
+  "cost": 150,
+  "strength": 16,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Gunpowder",
+  "unitType": "Gunpowder"
+ },
+ {
+  "name": "Tercio",
+  "cost": 175,
+  "strength": 18,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Gunpowder",
+  "unitType": "Gunpowder"
+ },
+ {
+  "name": "Frigate",
+  "cost": 185,
+  "strength": 30,
+  "rangedStrength": 15,
+  "movement": 5,
+  "requiredTech": "Navigation",
+  "unitType": "Ranged Water"
+ },
+ {
+  "name": "Ship of the Line",
+  "cost": 170,
+  "strength": 30,
+  "rangedStrength": 17,
+  "movement": 5,
+  "requiredTech": "Navigation",
+  "unitType": "Ranged Water"
+ },
+ {
+  "name": "Lancer",
+  "cost": 185,
+  "strength": 22,
+  "rangedStrength": null,
+  "movement": 4,
+  "requiredTech": "Metallurgy",
+  "unitType": "Mounted"
+ },
+ {
+  "name": "Sipahi",
+  "cost": 185,
+  "strength": 22,
+  "rangedStrength": null,
+  "movement": 5,
+  "requiredTech": "Metallurgy",
+  "unitType": "Mounted"
+ },
+ {
+  "name": "Cannon",
+  "cost": 185,
+  "strength": 13,
+  "rangedStrength": 26,
+  "movement": 2,
+  "requiredTech": "Chemistry",
+  "unitType": "Siege"
+ },
+ {
+  "name": "Rifleman",
+  "cost": 225,
+  "strength": 25,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Rifling",
+  "unitType": "Gunpowder"
+ },
+ {
+  "name": "Norwegian Ski Infantry",
+  "cost": 225,
+  "strength": 25,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Rifling",
+  "unitType": "Gunpowder"
+ },
+ {
+  "name": "Cavalry",
+  "cost": 225,
+  "strength": 25,
+  "rangedStrength": null,
+  "movement": 3,
+  "requiredTech": "Military Science",
+  "unitType": "Mounted"
+ },
+ {
+  "name": "Cossack",
+  "cost": 225,
+  "strength": 25,
+  "rangedStrength": null,
+  "movement": 3,
+  "requiredTech": "Military Science",
+  "unitType": "Mounted"
+ },
+ {
+  "name": "Ironclad",
+  "cost": 270,
+  "strength": 35,
+  "rangedStrength": 18,
+  "movement": 4,
+  "requiredTech": "Steam Power",
+  "unitType": "Ranged Water"
+ },
+ {
+  "name": "Artillery",
+  "cost": 320,
+  "strength": 16,
+  "rangedStrength": 32,
+  "movement": 2,
+  "requiredTech": "Dynamite",
+  "unitType": "Siege"
+ },
+ {
+  "name": "Submarine",
+  "cost": 375,
+  "strength": 25,
+  "rangedStrength": 60,
+  "movement": 5,
+  "requiredTech": "Refrigeration",
+  "unitType": "Submarine"
+ },
+ {
+  "name": "Foreign Legion",
+  "cost": 320,
+  "strength": 36,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Rifling",
+  "unitType": "Gunpowder"
+ },
+ {
+  "name": "Infantry",
+  "cost": 320,
+  "strength": 36,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Replaceable Parts",
+  "unitType": "Gunpowder"
+ },
+ {
+  "name": "Fighter",
+  "cost": 375,
+  "strength": 40,
+  "rangedStrength": 40,
+  "movement": 1,
+  "requiredTech": "Flight",
+  "unitType": "Fighter"
+ },
+ {
+  "name": "Carrier",
+  "cost": 375,
+  "strength": 40,
+  "rangedStrength": null,
+  "movement": 5,
+  "requiredTech": "Flight",
+  "unitType": "Aircraft Carrier"
+ },
+ {
+  "name": "Battleship",
+  "cost": 375,
+  "strength": 60,
+  "rangedStrength": 32,
+  "movement": 4,
+  "requiredTech": "Telegraph",
+  "unitType": "Ranged Water"
+ },
+ {
+  "name": "Anti-Aircraft Gun",
+  "cost": 375,
+  "strength": 32,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Radio",
+  "unitType": "Gunpowder"
+ },
+ {
+  "name": "Destroyer",
+  "cost": 375,
+  "strength": 35,
+  "rangedStrength": 22,
+  "movement": 6,
+  "requiredTech": "Combustion",
+  "unitType": "Melee Water"
+ },
+ {
+  "name": "Zero",
+  "cost": 375,
+  "strength": 40,
+  "rangedStrength": 40,
+  "movement": 1,
+  "requiredTech": "Flight",
+  "unitType": "Fighter"
+ },
+ {
+  "name": "Bomber",
+  "cost": 375,
+  "strength": 50,
+  "rangedStrength": 50,
+  "movement": 1,
+  "requiredTech": "Radar",
+  "unitType": "Bomber"
+ },
+ {
+  "name": "B17",
+  "cost": 375,
+  "strength": 50,
+  "rangedStrength": 50,
+  "movement": 1,
+  "requiredTech": "Radar",
+  "unitType": "Bomber"
+ },
+ {
+  "name": "Paratrooper",
+  "cost": 375,
+  "strength": 40,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Radar",
+  "unitType": "Gunpowder"
+ },
+ {
+  "name": "Tank",
+  "cost": 375,
+  "strength": 50,
+  "rangedStrength": null,
+  "movement": 5,
+  "requiredTech": "Combustion",
+  "unitType": "Armored"
+ },
+ {
+  "name": "Panzer",
+  "cost": 375,
+  "strength": 60,
+  "rangedStrength": null,
+  "movement": 6,
+  "requiredTech": "Combustion",
+  "unitType": "Armored"
+ },
+ {
+  "name": "Anti-Tank Gun",
+  "cost": 270,
+  "strength": 32,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Replaceable Parts",
+  "unitType": "Gunpowder"
+ },
+ {
+  "name": "Atomic Bomb",
+  "cost": 600,
+  "strength": 150,
+  "rangedStrength": 150,
+  "movement": 1,
+  "requiredTech": "Nuclear Fission",
+  "unitType": "Atomic Bomber"
+ },
+ {
+  "name": "Rocket Artillery",
+  "cost": 425,
+  "strength": 23,
+  "rangedStrength": 46,
+  "movement": 3,
+  "requiredTech": "Rocketry",
+  "unitType": "Siege"
+ },
+ {
+  "name": "Mobile SAM",
+  "cost": 425,
+  "strength": 40,
+  "rangedStrength": null,
+  "movement": 4,
+  "requiredTech": "Computers",
+  "unitType": "Gunpowder"
+ },
+ {
+  "name": "Guided Missile",
+  "cost": 150,
+  "strength": 60,
+  "rangedStrength": 60,
+  "movement": 1,
+  "requiredTech": "Satellites",
+  "unitType": "Missile"
+ },
+ {
+  "name": "Nuclear Missile",
+  "cost": 1000,
+  "strength": 300,
+  "rangedStrength": 300,
+  "movement": 1,
+  "requiredTech": "Advanced Ballistics",
+  "unitType": "Missile"
+ },
+ {
+  "name": "Helicopter Gunship",
+  "cost": 425,
+  "strength": 50,
+  "rangedStrength": null,
+  "movement": 6,
+  "requiredTech": "Rocketry",
+  "unitType": "Helicopter"
+ },
+ {
+  "name": "Nuclear Submarine",
+  "cost": 425,
+  "strength": 30,
+  "rangedStrength": 70,
+  "movement": 6,
+  "requiredTech": "Computers",
+  "unitType": "Submarine"
+ },
+ {
+  "name": "Mechanized Infantry",
+  "cost": 375,
+  "strength": 50,
+  "rangedStrength": null,
+  "movement": 3,
+  "requiredTech": "Electronics",
+  "unitType": "Gunpowder"
+ },
+ {
+  "name": "Missile Cruiser",
+  "cost": 425,
+  "strength": 60,
+  "rangedStrength": 25,
+  "movement": 7,
+  "requiredTech": "Robotics",
+  "unitType": "Ranged Water"
+ },
+ {
+  "name": "Modern Armor",
+  "cost": 425,
+  "strength": 80,
+  "rangedStrength": null,
+  "movement": 5,
+  "requiredTech": "Lasers",
+  "unitType": "Armored"
+ },
+ {
+  "name": "Jet Fighter",
+  "cost": 425,
+  "strength": 60,
+  "rangedStrength": 60,
+  "movement": 1,
+  "requiredTech": "Lasers",
+  "unitType": "Fighter"
+ },
+ {
+  "name": "Giant Death Robot",
+  "cost": 425,
+  "strength": 150,
+  "rangedStrength": null,
+  "movement": 3,
+  "requiredTech": "Nuclear Fusion",
+  "unitType": "Armored"
+ },
+ {
+  "name": "Stealth Bomber",
+  "cost": 425,
+  "strength": 80,
+  "rangedStrength": 80,
+  "movement": 2,
+  "requiredTech": "Stealth",
+  "unitType": "Bomber"
+ },
+ {
+  "name": "Great Artist",
+  "cost": null,
+  "strength": null,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": null,
+  "unitType": "Civilian"
+ },
+ {
+  "name": "Great Scientist",
+  "cost": null,
+  "strength": null,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": null,
+  "unitType": "Civilian"
+ },
+ {
+  "name": "Great Merchant",
+  "cost": null,
+  "strength": null,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": null,
+  "unitType": "Civilian"
+ },
+ {
+  "name": "Great Engineer",
+  "cost": null,
+  "strength": null,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": null,
+  "unitType": "Civilian"
+ },
+ {
+  "name": "Great General",
+  "cost": null,
+  "strength": null,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": null,
+  "unitType": "Civilian"
+ },
+ {
+  "name": "Khan",
+  "cost": null,
+  "strength": null,
+  "rangedStrength": null,
+  "movement": 5,
+  "requiredTech": null,
+  "unitType": "Civilian"
+ },
+ {
+  "name": "SS Booster",
+  "cost": 500,
+  "strength": null,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Robotics",
+  "unitType": "Civilian"
+ },
+ {
+  "name": "SS Cockpit",
+  "cost": 750,
+  "strength": null,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Satellites",
+  "unitType": "Civilian"
+ },
+ {
+  "name": "SS Engine",
+  "cost": 750,
+  "strength": null,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Particle Physics",
+  "unitType": "Civilian"
+ },
+ {
+  "name": "SS Stasis Chamber",
+  "cost": 750,
+  "strength": null,
+  "rangedStrength": null,
+  "movement": 2,
+  "requiredTech": "Nanotechnology",
+  "unitType": "Civilian"
+ }
+]

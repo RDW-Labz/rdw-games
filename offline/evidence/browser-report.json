@@ -1,0 +1,3044 @@
+{
+ "at": "2026-11-01T22:47:49.161Z",
+ "base": "http://127.0.0.1:8787",
+ "pass": 26,
+ "total": 26,
+ "results": [
+  {
+   "id": "vaultbreak",
+   "url": "http://127.0.0.1:8787/games/vaultbreak/index.html",
+   "ok": true,
+   "problems": [],
+   "vendor": {
+    "js": 1,
+    "png": 15,
+    "opus": 20,
+    "other": 0
+   },
+   "paint": {
+    "distinct": 4,
+    "vendorFiles": 4,
+    "names": [
+     "items.png",
+     "avatars.png",
+     "tiles_sewers.png",
+     "rat.png"
+    ],
+    "top": [
+     "tiles_sewers.png×66516",
+     "items.png×1184",
+     "avatars.png×454"
+    ]
+   },
+   "title": {
+    "colors": 88,
+    "nonBg": 1
+   },
+   "play": {
+    "colors": 198,
+    "nonBg": 0.469,
+    "changed": true
+   },
+   "state": {
+    "started": true,
+    "mode": "play",
+    "depth": 1,
+    "hp": 54,
+    "turns": 19,
+    "kills": 1,
+    "scrap": 4,
+    "enemies": 4,
+    "x": 18,
+    "y": 15,
+    "alive": true,
+    "gameOver": false
+   },
+   "trace": [
+    {
+     "act": "newGame",
+     "ok": true
+    },
+    {
+     "act": "step",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "wait",
+     "ok": true
+    },
+    {
+     "act": "fire",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "id": "tessera",
+   "url": "http://127.0.0.1:8787/games/tessera/index.html",
+   "ok": true,
+   "problems": [],
+   "vendor": {
+    "js": 1,
+    "png": 5,
+    "opus": 0,
+    "other": 0
+   },
+   "paint": {
+    "distinct": 5,
+    "vendorFiles": 5,
+    "names": [
+     "gravel.png",
+     "grass.png",
+     "water.png",
+     "sand.png",
+     "stone.png"
+    ],
+    "top": [
+     "water.png×3313",
+     "grass.png×2721",
+     "sand.png×561"
+    ]
+   },
+   "title": {
+    "colors": 117,
+    "nonBg": 1
+   },
+   "play": {
+    "colors": 387,
+    "nonBg": 0.57,
+    "changed": true
+   },
+   "state": {
+    "started": true,
+    "turn": 3,
+    "gold": 14,
+    "cities": 1,
+    "units": 2,
+    "alive": true,
+    "gameOver": false,
+    "techs": 2,
+    "mode": "play",
+    "live": true,
+    "score": 40,
+    "over": false,
+    "seed": 20261028,
+    "research": "Animal Husbandry",
+    "techAhead": 10,
+    "civs": [
+     "Russia",
+     "Polynesia"
+    ],
+    "terrainTiles": 432
+   },
+   "trace": [
+    {
+     "act": "newGame",
+     "ok": true
+    },
+    {
+     "act": "endTurn",
+     "ok": true
+    },
+    {
+     "act": "endTurn",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "id": "ember-drift",
+   "url": "http://127.0.0.1:8787/games/ember-drift/index.html",
+   "ok": true,
+   "problems": [],
+   "vendor": {
+    "js": 1,
+    "png": 13,
+    "opus": 0,
+    "other": 0
+   },
+   "paint": {
+    "distinct": 2,
+    "vendorFiles": 2,
+    "names": [
+     "escape_shuttle.png",
+     "gegno_diorite.png"
+    ],
+    "top": [
+     "escape_shuttle.png×172",
+     "gegno_diorite.png×73"
+    ]
+   },
+   "title": {
+    "colors": 138,
+    "nonBg": 0.384
+   },
+   "play": {
+    "colors": 145,
+    "nonBg": 0.668,
+    "changed": true
+   },
+   "state": {
+    "started": true,
+    "system": "Cael",
+    "ship": "EMERGENCY SHUTTLE",
+    "credits": 1400,
+    "hull": 100,
+    "cargo": 0,
+    "enemies": 0,
+    "alive": true
+   },
+   "trace": [
+    {
+     "act": "newGame",
+     "ok": true
+    },
+    {
+     "act": "fire",
+     "ok": true
+    },
+    {
+     "act": "fire",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "id": "rift-nine",
+   "url": "http://127.0.0.1:8787/games/rift-nine/index.html",
+   "ok": true,
+   "problems": [],
+   "vendor": {
+    "js": 1,
+    "png": 3,
+    "opus": 28,
+    "other": 0
+   },
+   "paint": {
+    "distinct": 3,
+    "vendorFiles": 3,
+    "names": [
+     "eye.png",
+     "crystal_wisp.png",
+     "golem.png"
+    ],
+    "top": [
+     "eye.png×8",
+     "crystal_wisp.png×8",
+     "golem.png×6"
+    ]
+   },
+   "title": {
+    "colors": 168,
+    "nonBg": 0.573
+   },
+   "play": {
+    "colors": 278,
+    "nonBg": 0.902,
+    "changed": true
+   },
+   "state": {
+    "started": true,
+    "room": 1,
+    "time": 1.9,
+    "deaths": 1,
+    "score": 20,
+    "onGround": false,
+    "x": 117.43,
+    "y": 598.86
+   },
+   "trace": [
+    {
+     "act": "newGame",
+     "ok": true
+    },
+    {
+     "act": "right",
+     "ok": true
+    },
+    {
+     "act": "jump",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "id": "siegehaus",
+   "url": "http://127.0.0.1:8787/games/siegehaus/index.html",
+   "ok": true,
+   "problems": [],
+   "vendor": {
+    "js": 1,
+    "png": 50,
+    "opus": 14,
+    "other": 0
+   },
+   "paint": {
+    "distinct": 12,
+    "vendorFiles": 12,
+    "names": [
+     "items.png",
+     "bat.png",
+     "avatars.png",
+     "tiles_sewers.png",
+     "blast-drill-top.png",
+     "conveyor-4-0.png"
+    ],
+    "top": [
+     "tiles_sewers.png×55050",
+     "avatars.png×858",
+     "items.png×429"
+    ]
+   },
+   "title": {
+    "colors": 81,
+    "nonBg": 1
+   },
+   "play": {
+    "colors": 370,
+    "nonBg": 0.925,
+    "changed": true
+   },
+   "state": {
+    "started": true,
+    "mode": "play",
+    "depth": 1,
+    "hp": 50,
+    "turns": 18,
+    "kills": 0,
+    "scrap": 36,
+    "enemies": 7,
+    "x": 20,
+    "y": 14,
+    "plates": 1,
+    "wave": 1,
+    "waveIn": 13,
+    "turretKills": 0,
+    "structures": 5,
+    "beltTokens": 1,
+    "art": {
+     "belt": 4,
+     "beltReady": 4,
+     "beltAnimReady": 4,
+     "drillReady": 2,
+     "turretReady": 3,
+     "itemsReady": 22
+    },
+    "alive": true,
+    "gameOver": false
+   },
+   "trace": [
+    {
+     "act": "newGame",
+     "ok": true
+    },
+    {
+     "act": "buildLine",
+     "ok": true
+    },
+    {
+     "act": "wait",
+     "ok": true
+    },
+    {
+     "act": "wait",
+     "ok": true
+    },
+    {
+     "act": "wait",
+     "ok": true
+    },
+    {
+     "act": "wait",
+     "ok": true
+    },
+    {
+     "act": "wait",
+     "ok": true
+    },
+    {
+     "act": "wait",
+     "ok": true
+    },
+    {
+     "act": "wait",
+     "ok": true
+    },
+    {
+     "act": "wait",
+     "ok": true
+    },
+    {
+     "act": "wait",
+     "ok": true
+    },
+    {
+     "act": "wait",
+     "ok": true
+    },
+    {
+     "act": "wait",
+     "ok": true
+    },
+    {
+     "act": "wait",
+     "ok": true
+    },
+    {
+     "act": "fire",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "id": "charterline",
+   "url": "http://127.0.0.1:8787/games/charterline/index.html",
+   "ok": true,
+   "problems": [],
+   "vendor": {
+    "js": 1,
+    "png": 6,
+    "opus": 0,
+    "other": 0
+   },
+   "paint": {
+    "distinct": 6,
+    "vendorFiles": 6,
+    "names": [
+     "water.png",
+     "grass.png",
+     "leaves.png",
+     "sand.png",
+     "dirt.png",
+     "stone.png"
+    ],
+    "top": [
+     "water.png×5175",
+     "leaves.png×2325",
+     "grass.png×1925"
+    ]
+   },
+   "title": {
+    "colors": 117,
+    "nonBg": 1
+   },
+   "play": {
+    "colors": 393,
+    "nonBg": 0.589,
+    "changed": true
+   },
+   "state": {
+    "started": true,
+    "turn": 5,
+    "gold": 264,
+    "cities": 2,
+    "units": 2,
+    "alive": true,
+    "gameOver": false,
+    "techs": 4,
+    "mode": "play",
+    "live": true,
+    "score": 99,
+    "over": false,
+    "seed": 20261028,
+    "research": "Mining",
+    "techAhead": 8,
+    "civs": [
+     "Russia",
+     "Polynesia"
+    ],
+    "charters": 1,
+    "tradeGold": 38,
+    "materials": 6
+   },
+   "trace": [
+    {
+     "act": "newGame",
+     "ok": true
+    },
+    {
+     "act": "charterDemo",
+     "ok": true
+    },
+    {
+     "act": "endTurn",
+     "ok": true
+    },
+    {
+     "act": "endTurn",
+     "ok": true
+    },
+    {
+     "act": "endTurn",
+     "ok": true
+    },
+    {
+     "act": "endTurn",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "id": "nulltrace",
+   "url": "http://127.0.0.1:8787/games/nulltrace/index.html",
+   "ok": true,
+   "problems": [],
+   "vendor": {
+    "js": 1,
+    "png": 2,
+    "opus": 28,
+    "other": 0
+   },
+   "paint": {
+    "distinct": 2,
+    "vendorFiles": 2,
+    "names": [
+     "crystal_wisp.png",
+     "eye.png"
+    ],
+    "top": [
+     "crystal_wisp.png×14",
+     "eye.png×4"
+    ]
+   },
+   "title": {
+    "colors": 127,
+    "nonBg": 0.575
+   },
+   "play": {
+    "colors": 265,
+    "nonBg": 0.746,
+    "changed": true
+   },
+   "state": {
+    "started": true,
+    "room": 1,
+    "time": 3.267,
+    "deaths": 1,
+    "score": 50,
+    "onGround": true,
+    "x": 753.72,
+    "y": 643,
+    "total": 3.27,
+    "medals": "0,0,0,0,0,0,0,0,0",
+    "golds": 0,
+    "par": 11
+   },
+   "trace": [
+    {
+     "act": "newGame",
+     "ok": true
+    },
+    {
+     "act": "right",
+     "ok": true
+    },
+    {
+     "act": "jump",
+     "ok": true
+    },
+    {
+     "act": "right",
+     "ok": true
+    },
+    {
+     "act": "jump",
+     "ok": true
+    },
+    {
+     "act": "right",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "id": "lanternfall",
+   "url": "http://127.0.0.1:8787/games/lanternfall/index.html",
+   "ok": true,
+   "problems": [],
+   "vendor": {
+    "js": 1,
+    "png": 13,
+    "opus": 0,
+    "other": 0
+   },
+   "paint": {
+    "distinct": 2,
+    "vendorFiles": 2,
+    "names": [
+     "escape_shuttle.png",
+     "blackbird.png"
+    ],
+    "top": [
+     "escape_shuttle.png×226",
+     "blackbird.png×17"
+    ]
+   },
+   "title": {
+    "colors": 138,
+    "nonBg": 0.385
+   },
+   "play": {
+    "colors": 160,
+    "nonBg": 0.955,
+    "changed": true
+   },
+   "state": {
+    "started": true,
+    "system": "Soris Drift",
+    "ship": "EMERGENCY SHUTTLE",
+    "credits": 1400,
+    "hull": 100,
+    "cargo": 0,
+    "enemies": 0,
+    "alive": true,
+    "frags": 0,
+    "fragLimit": 10,
+    "theirs": 0,
+    "round": 1,
+    "armourT": 22.7,
+    "weaponT": 0,
+    "wep": 0
+   },
+   "trace": [
+    {
+     "act": "newGame",
+     "ok": true
+    },
+    {
+     "act": "takeArmour",
+     "ok": true
+    },
+    {
+     "act": "fire",
+     "ok": true
+    },
+    {
+     "act": "fire",
+     "ok": true
+    },
+    {
+     "act": "takeArmour",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "id": "cinderhold",
+   "url": "http://127.0.0.1:8787/games/cinderhold/index.html",
+   "ok": true,
+   "problems": [],
+   "vendor": {
+    "js": 2,
+    "png": 157,
+    "opus": 0,
+    "other": 0
+   },
+   "paint": {
+    "distinct": 55,
+    "vendorFiles": 55,
+    "names": [
+     "minotaur_run.png",
+     "goblin.png",
+     "skeleton.png",
+     "antlion.png",
+     "skeleton_mage.png",
+     "wyvern_run.png"
+    ],
+    "top": [
+     "tooltips.png×964",
+     "stance-0.png×287",
+     "tileset_dungeon.png×250"
+    ]
+   },
+   "title": {
+    "colors": 147,
+    "nonBg": 0.377
+   },
+   "play": {
+    "colors": 659,
+    "nonBg": 0.632,
+    "changed": true
+   },
+   "state": {
+    "started": true,
+    "mode": "play",
+    "score": 248,
+    "depth": 2,
+    "vaultId": "hellmonk_vaults_attempted_burglary",
+    "vaultSrc": "dcss",
+    "vaultsLoaded": 420,
+    "itemsInTable": 140,
+    "kills": 1,
+    "floorsSameVault": false,
+    "hp": 100,
+    "maxHp": 100,
+    "hero": {
+     "x": 8,
+     "y": 8
+    },
+    "nearest": {
+     "dx": -1,
+     "dy": -1,
+     "dist": 4
+    },
+    "gold": 0,
+    "branch": "DEPTHS",
+    "enemies": 8,
+    "sprites": 701,
+    "fx": true,
+    "loot": 5
+   },
+   "trace": [
+    {
+     "act": "newGame",
+     "ok": true
+    },
+    {
+     "act": "hunt",
+     "ok": "killed"
+    },
+    {
+     "act": "descend",
+     "ok": true
+    },
+    {
+     "act": "attack",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "id": "wardenmarch",
+   "url": "http://127.0.0.1:8787/games/wardenmarch/index.html",
+   "ok": true,
+   "problems": [],
+   "vendor": {
+    "js": 1,
+    "png": 56,
+    "opus": 0,
+    "other": 0
+   },
+   "paint": {
+    "distinct": 19,
+    "vendorFiles": 19,
+    "names": [
+     "Elvish_Archer.png",
+     "Drake_Burner.png",
+     "Saurian_Augur.png",
+     "Troll_Whelp.png",
+     "castle-to-water-ne.png",
+     "ruin3-convex-r.png"
+    ],
+    "top": [
+     "Troll_Whelp.png×709",
+     "Elvish_Archer.png×496",
+     "Drake_Burner.png×495"
+    ]
+   },
+   "title": {
+    "colors": 645,
+    "nonBg": 0.565
+   },
+   "play": {
+    "colors": 507,
+    "nonBg": 0.801,
+    "changed": true
+   },
+   "state": {
+    "started": true,
+    "mode": "battle",
+    "score": 150,
+    "turn": 3,
+    "arenaId": "minmay_arrival_statue_studded",
+    "arenaSrc": "dcss",
+    "unitsWithRules": 22,
+    "terrainTiles": 13,
+    "fights": 5,
+    "kills": 1,
+    "hp": 120,
+    "stage": 0,
+    "foes": 2,
+    "squad": 4,
+    "selected": "Drake Burner",
+    "phase": "player"
+   },
+   "trace": [
+    {
+     "act": "newGame",
+     "ok": true
+    },
+    {
+     "act": "move",
+     "ok": true
+    },
+    {
+     "act": "attack",
+     "ok": true
+    },
+    {
+     "act": "endTurn",
+     "ok": true
+    },
+    {
+     "act": "move",
+     "ok": true
+    },
+    {
+     "act": "attack",
+     "ok": true
+    },
+    {
+     "act": "endTurn",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "id": "stormforge",
+   "url": "http://127.0.0.1:8787/games/stormforge/index.html",
+   "ok": true,
+   "problems": [],
+   "vendor": {
+    "js": 2,
+    "png": 50,
+    "opus": 5,
+    "other": 0
+   },
+   "paint": {
+    "distinct": 3,
+    "vendorFiles": 3,
+    "names": [
+     "grass.png",
+     "dirt.png",
+     "gravel.png"
+    ],
+    "top": [
+     "grass.png×136",
+     "dirt.png×25",
+     "gravel.png×16"
+    ]
+   },
+   "title": {
+    "colors": 1,
+    "nonBg": 0
+   },
+   "play": {
+    "colors": 1,
+    "nonBg": 0,
+    "changed": false
+   },
+   "state": {
+    "phase": "ground",
+    "mode": "ground",
+    "started": true,
+    "alive": 32,
+    "hp": 100,
+    "shield": 0,
+    "ammo": 13,
+    "ammoReserve": 45,
+    "weapon": "g19",
+    "weaponTier": "D",
+    "loot": {
+     "picked": 0
+    },
+    "storm": {
+     "phase": 0,
+     "r": 2940
+    },
+    "blocks": 9,
+    "ore": 9,
+    "items": 18,
+    "ammoMade": 0,
+    "stock": {
+     "copper": 169,
+     "titanium": 77,
+     "coal": 9,
+     "ammo": 0,
+     "plates": 0
+    },
+    "kills": 0,
+    "bots": 31,
+    "hero": {
+     "x": 936,
+     "y": 1177.6,
+     "z": 0
+    },
+    "nearest": {
+     "dx": -200.21027786326147,
+     "dy": -97.90806678970944,
+     "dist": 222.86799883469715,
+     "name": "Cove"
+    },
+    "seed": 2959592876,
+    "matchT": 4.599999999999989,
+    "fps": 20,
+    "three": true,
+    "draws": 131,
+    "tris": 796322
+   },
+   "trace": [
+    {
+     "act": "drop",
+     "ok": {
+      "phase": "sky",
+      "mode": "sky",
+      "started": false,
+      "alive": 32,
+      "hp": 100,
+      "shield": 0,
+      "ammo": 15,
+      "ammoReserve": 45,
+      "weapon": "g19",
+      "weaponTier": "D",
+      "loot": {
+       "picked": 0
+      },
+      "storm": {
+       "phase": 0,
+       "r": 2940
+      },
+      "blocks": 0,
+      "ore": 0,
+      "items": 0,
+      "ammoMade": 0,
+      "stock": {
+       "copper": 40,
+       "titanium": 12,
+       "coal": 0,
+       "ammo": 0,
+       "plates": 0
+      },
+      "kills": 0,
+      "bots": 31,
+      "hero": {
+       "x": 1638.8026488084022,
+       "y": 2847.720042569026,
+       "z": 0
+      },
+      "nearest": {
+       "dx": -110.80264880840218,
+       "dy": 151.2799574309738,
+       "dist": 187.51760584882518,
+       "name": "Pike"
+      },
+      "seed": 2959592876,
+      "matchT": 0,
+      "fps": 20,
+      "three": true,
+      "draws": 132,
+      "tris": 797504
+     }
+    },
+    {
+     "act": "skipLand",
+     "ok": {
+      "phase": "ground",
+      "mode": "ground",
+      "started": true,
+      "alive": 32,
+      "hp": 100,
+      "shield": 0,
+      "ammo": 15,
+      "ammoReserve": 45,
+      "weapon": "g19",
+      "weaponTier": "D",
+      "loot": {
+       "picked": 0
+      },
+      "storm": {
+       "phase": 0,
+       "r": 2940
+      },
+      "blocks": 0,
+      "ore": 0,
+      "items": 0,
+      "ammoMade": 0,
+      "stock": {
+       "copper": 40,
+       "titanium": 12,
+       "coal": 0,
+       "ammo": 0,
+       "plates": 0
+      },
+      "kills": 0,
+      "bots": 31,
+      "hero": {
+       "x": 697.33403082937,
+       "y": 1444.4515026407316,
+       "z": 0
+      },
+      "nearest": {
+       "dx": -49.33403082937002,
+       "dy": 259.54849735926837,
+       "dist": 264.19551298106364,
+       "name": "Dune"
+      },
+      "seed": 2959592876,
+      "matchT": 0,
+      "fps": 20,
+      "three": true,
+      "draws": 182,
+      "tris": 800294
+     }
+    },
+    {
+     "act": "grant",
+     "ok": {
+      "phase": "ground",
+      "mode": "ground",
+      "started": true,
+      "alive": 32,
+      "hp": 100,
+      "shield": 0,
+      "ammo": 15,
+      "ammoReserve": 45,
+      "weapon": "g19",
+      "weaponTier": "D",
+      "loot": {
+       "picked": 0
+      },
+      "storm": {
+       "phase": 0,
+       "r": 2940
+      },
+      "blocks": 0,
+      "ore": 0,
+      "items": 0,
+      "ammoMade": 0,
+      "stock": {
+       "copper": 340,
+       "titanium": 132,
+       "coal": 0,
+       "ammo": 0,
+       "plates": 0
+      },
+      "kills": 0,
+      "bots": 31,
+      "hero": {
+       "x": 697.33403082937,
+       "y": 1444.4515026407316,
+       "z": 0
+      },
+      "nearest": {
+       "dx": -31.687771530211876,
+       "dy": 257.224550787256,
+       "dist": 259.1690266838546,
+       "name": "Dune"
+      },
+      "seed": 2959592876,
+      "matchT": 0.1,
+      "fps": 20,
+      "three": true,
+      "draws": 142,
+      "tris": 800910
+     }
+    },
+    {
+     "act": "buildLine",
+     "ok": {
+      "ok": true,
+      "built": [
+       {
+        "kind": "drill",
+        "ok": true,
+        "reason": ""
+       },
+       {
+        "kind": "conveyor",
+        "ok": true,
+        "reason": ""
+       },
+       {
+        "kind": "fabricator",
+        "ok": true,
+        "reason": ""
+       },
+       {
+        "kind": "turret",
+        "ok": true,
+        "reason": ""
+       }
+      ],
+      "state": {
+       "phase": "ground",
+       "mode": "ground",
+       "started": true,
+       "alive": 32,
+       "hp": 100,
+       "shield": 0,
+       "ammo": 15,
+       "ammoReserve": 45,
+       "weapon": "g19",
+       "weaponTier": "D",
+       "loot": {
+        "picked": 0
+       },
+       "storm": {
+        "phase": 0,
+        "r": 2940
+       },
+       "blocks": 4,
+       "ore": 0,
+       "items": 0,
+       "ammoMade": 0,
+       "stock": {
+        "copper": 277,
+        "titanium": 117,
+        "coal": 0,
+        "ammo": 0,
+        "plates": 0
+       },
+       "kills": 0,
+       "bots": 31,
+       "hero": {
+        "x": 936,
+        "y": 1177.6,
+        "z": 0
+       },
+       "nearest": {
+        "dx": 277.65827781095254,
+        "dy": -62.45383325591092,
+        "dist": 284.5955033469454,
+        "name": "Moss"
+       },
+       "seed": 2959592876,
+       "matchT": 0.2,
+       "fps": 20,
+       "three": true,
+       "draws": 139,
+       "tris": 800882
+      }
+     }
+    },
+    {
+     "act": "tick",
+     "ok": {
+      "phase": "ground",
+      "mode": "ground",
+      "started": true,
+      "alive": 32,
+      "hp": 100,
+      "shield": 0,
+      "ammo": 15,
+      "ammoReserve": 45,
+      "weapon": "g19",
+      "weaponTier": "D",
+      "loot": {
+       "picked": 0
+      },
+      "storm": {
+       "phase": 0,
+       "r": 2940
+      },
+      "blocks": 9,
+      "ore": 9,
+      "items": 17,
+      "ammoMade": 0,
+      "stock": {
+       "copper": 169,
+       "titanium": 77,
+       "coal": 8,
+       "ammo": 0,
+       "plates": 0
+      },
+      "kills": 0,
+      "bots": 31,
+      "hero": {
+       "x": 936,
+       "y": 1177.6,
+       "z": 0
+      },
+      "nearest": {
+       "dx": 141.63936756575254,
+       "dy": 109.43185450587703,
+       "dist": 178.98894162774914,
+       "name": "Kestrel"
+      },
+      "seed": 2959592876,
+      "matchT": 4.29999999999999,
+      "fps": 20,
+      "three": true,
+      "draws": 143,
+      "tris": 796426
+     }
+    },
+    {
+     "act": "fire",
+     "ok": {
+      "phase": "ground",
+      "mode": "ground",
+      "started": true,
+      "alive": 32,
+      "hp": 100,
+      "shield": 0,
+      "ammo": 15,
+      "ammoReserve": 45,
+      "weapon": "g19",
+      "weaponTier": "D",
+      "loot": {
+       "picked": 0
+      },
+      "storm": {
+       "phase": 0,
+       "r": 2940
+      },
+      "blocks": 9,
+      "ore": 9,
+      "items": 17,
+      "ammoMade": 0,
+      "stock": {
+       "copper": 169,
+       "titanium": 77,
+       "coal": 8,
+       "ammo": 0,
+       "plates": 0
+      },
+      "kills": 0,
+      "bots": 31,
+      "hero": {
+       "x": 936,
+       "y": 1177.6,
+       "z": 0
+      },
+      "nearest": {
+       "dx": 158.76148540600184,
+       "dy": 114.29158679111401,
+       "dist": 195.62151226169087,
+       "name": "Kestrel"
+      },
+      "seed": 2959592876,
+      "matchT": 4.39999999999999,
+      "fps": 20,
+      "three": true,
+      "draws": 129,
+      "tris": 796298
+     }
+    }
+   ]
+  },
+  {
+   "id": "galevault",
+   "url": "http://127.0.0.1:8787/games/galevault/index.html",
+   "ok": true,
+   "problems": [],
+   "vendor": {
+    "js": 2,
+    "png": 4,
+    "opus": 0,
+    "other": 0
+   },
+   "paint": {
+    "distinct": 0,
+    "vendorFiles": 0,
+    "names": [],
+    "top": []
+   },
+   "title": {
+    "colors": 1,
+    "nonBg": 0
+   },
+   "play": {
+    "colors": 1,
+    "nonBg": 0,
+    "changed": false
+   },
+   "state": {
+    "phase": "flying",
+    "started": true,
+    "gates": 4,
+    "gatesTotal": 20,
+    "nextGate": 4,
+    "t": 5.53,
+    "hull": 193,
+    "hullMax": 200,
+    "boost": 80,
+    "boosting": false,
+    "speed": 188,
+    "alt": 36,
+    "yaw": -0.8871418553202643,
+    "craft": {
+     "name": "Barb",
+     "mass": 20,
+     "drag": 0.8,
+     "hull": 200
+    },
+    "craftCount": 3,
+    "hullsLoaded": 120,
+    "physicsSrc": "endless-sky",
+    "pirates": 3,
+    "piratesAlive": 3,
+    "bolts": 4,
+    "score": 456,
+    "seed": 20261101,
+    "three": true,
+    "draws": 36,
+    "tris": 190658,
+    "donorTextures": [
+     "vendor/luanti/textures/grass.png",
+     "vendor/luanti/textures/gravel.png",
+     "vendor/luanti/textures/stone.png",
+     "vendor/luanti/textures/water.png"
+    ],
+    "texUsed": 4,
+    "fps": 23
+   },
+   "trace": [
+    {
+     "act": "newGame",
+     "ok": {
+      "phase": "flying",
+      "started": true,
+      "gates": 0,
+      "gatesTotal": 20,
+      "nextGate": 0,
+      "t": 0,
+      "hull": 200,
+      "hullMax": 200,
+      "boost": 100,
+      "boosting": false,
+      "speed": 0,
+      "alt": 31,
+      "yaw": 0.1562250905751435,
+      "craft": {
+       "name": "Barb",
+       "mass": 20,
+       "drag": 0.8,
+       "hull": 200
+      },
+      "craftCount": 3,
+      "hullsLoaded": 120,
+      "physicsSrc": "endless-sky",
+      "pirates": 3,
+      "piratesAlive": 3,
+      "bolts": 0,
+      "score": 0,
+      "seed": 20261101,
+      "three": true,
+      "draws": 48,
+      "tris": 191958,
+      "donorTextures": [
+       "vendor/luanti/textures/grass.png",
+       "vendor/luanti/textures/gravel.png",
+       "vendor/luanti/textures/stone.png",
+       "vendor/luanti/textures/water.png"
+      ],
+      "texUsed": 4,
+      "fps": 16
+     }
+    },
+    {
+     "act": "fly",
+     "ok": {
+      "phase": "flying",
+      "started": true,
+      "gates": 3,
+      "gatesTotal": 20,
+      "nextGate": 3,
+      "t": 5.1,
+      "hull": 193,
+      "hullMax": 200,
+      "boost": 55,
+      "boosting": true,
+      "speed": 193,
+      "alt": 36,
+      "yaw": -0.8906712429679249,
+      "craft": {
+       "name": "Barb",
+       "mass": 20,
+       "drag": 0.8,
+       "hull": 200
+      },
+      "craftCount": 3,
+      "hullsLoaded": 120,
+      "physicsSrc": "endless-sky",
+      "pirates": 3,
+      "piratesAlive": 3,
+      "bolts": 4,
+      "score": 337,
+      "seed": 20261101,
+      "three": true,
+      "draws": 45,
+      "tris": 191488,
+      "donorTextures": [
+       "vendor/luanti/textures/grass.png",
+       "vendor/luanti/textures/gravel.png",
+       "vendor/luanti/textures/stone.png",
+       "vendor/luanti/textures/water.png"
+      ],
+      "texUsed": 4,
+      "fps": 16
+     }
+    },
+    {
+     "act": "redraw",
+     "ok": {
+      "phase": "flying",
+      "started": true,
+      "gates": 3,
+      "gatesTotal": 20,
+      "nextGate": 3,
+      "t": 5.25,
+      "hull": 193,
+      "hullMax": 200,
+      "boost": 55,
+      "boosting": false,
+      "speed": 191,
+      "alt": 36,
+      "yaw": -0.8877164796511973,
+      "craft": {
+       "name": "Barb",
+       "mass": 20,
+       "drag": 0.8,
+       "hull": 200
+      },
+      "craftCount": 3,
+      "hullsLoaded": 120,
+      "physicsSrc": "endless-sky",
+      "pirates": 3,
+      "piratesAlive": 3,
+      "bolts": 4,
+      "score": 337,
+      "seed": 20261101,
+      "three": true,
+      "draws": 45,
+      "tris": 191488,
+      "donorTextures": [
+       "vendor/luanti/textures/grass.png",
+       "vendor/luanti/textures/gravel.png",
+       "vendor/luanti/textures/stone.png",
+       "vendor/luanti/textures/water.png"
+      ],
+      "texUsed": 4,
+      "fps": 16
+     }
+    }
+   ]
+  },
+  {
+   "id": "vaultbreak(file://)",
+   "url": "file:///home/cluer/awesome-offline-mobile-games/games/vaultbreak/index.html",
+   "ok": true,
+   "problems": [],
+   "vendor": {
+    "js": 1,
+    "png": 15,
+    "opus": 17,
+    "other": 0
+   },
+   "paint": {
+    "distinct": 4,
+    "vendorFiles": 4,
+    "names": [
+     "items.png",
+     "avatars.png",
+     "tiles_sewers.png",
+     "rat.png"
+    ],
+    "top": [
+     "tiles_sewers.png×65964",
+     "items.png×1178",
+     "avatars.png×452"
+    ]
+   },
+   "title": {
+    "colors": 85,
+    "nonBg": 1
+   },
+   "play": {
+    "colors": 223,
+    "nonBg": 0.42,
+    "changed": true
+   },
+   "state": {
+    "started": true,
+    "mode": "play",
+    "depth": 1,
+    "hp": 54,
+    "turns": 18,
+    "kills": 1,
+    "scrap": 4,
+    "enemies": 4,
+    "x": 14,
+    "y": 11,
+    "alive": true,
+    "gameOver": false
+   },
+   "trace": [
+    {
+     "act": "newGame",
+     "ok": true
+    },
+    {
+     "act": "step",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "wait",
+     "ok": true
+    },
+    {
+     "act": "fire",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "id": "tessera(file://)",
+   "url": "file:///home/cluer/awesome-offline-mobile-games/games/tessera/index.html",
+   "ok": true,
+   "problems": [],
+   "vendor": {
+    "js": 1,
+    "png": 5,
+    "opus": 0,
+    "other": 0
+   },
+   "paint": {
+    "distinct": 5,
+    "vendorFiles": 5,
+    "names": [
+     "water.png",
+     "grass.png",
+     "gravel.png",
+     "stone.png",
+     "sand.png"
+    ],
+    "top": [
+     "water.png×3313",
+     "grass.png×2721",
+     "sand.png×561"
+    ]
+   },
+   "title": {
+    "colors": 117,
+    "nonBg": 1
+   },
+   "play": {
+    "colors": 387,
+    "nonBg": 0.57,
+    "changed": true
+   },
+   "state": {
+    "started": true,
+    "turn": 3,
+    "gold": 14,
+    "cities": 1,
+    "units": 2,
+    "alive": true,
+    "gameOver": false,
+    "techs": 2,
+    "mode": "play",
+    "live": true,
+    "score": 40,
+    "over": false,
+    "seed": 20261028,
+    "research": "Animal Husbandry",
+    "techAhead": 10,
+    "civs": [
+     "Russia",
+     "Polynesia"
+    ],
+    "terrainTiles": 432
+   },
+   "trace": [
+    {
+     "act": "newGame",
+     "ok": true
+    },
+    {
+     "act": "endTurn",
+     "ok": true
+    },
+    {
+     "act": "endTurn",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "id": "ember-drift(file://)",
+   "url": "file:///home/cluer/awesome-offline-mobile-games/games/ember-drift/index.html",
+   "ok": true,
+   "problems": [],
+   "vendor": {
+    "js": 1,
+    "png": 13,
+    "opus": 0,
+    "other": 0
+   },
+   "paint": {
+    "distinct": 1,
+    "vendorFiles": 1,
+    "names": [
+     "escape_shuttle.png"
+    ],
+    "top": [
+     "escape_shuttle.png×174"
+    ]
+   },
+   "title": {
+    "colors": 138,
+    "nonBg": 0.384
+   },
+   "play": {
+    "colors": 139,
+    "nonBg": 0.509,
+    "changed": true
+   },
+   "state": {
+    "started": true,
+    "system": "Merid Reach-4",
+    "ship": "EMERGENCY SHUTTLE",
+    "credits": 1400,
+    "hull": 100,
+    "cargo": 0,
+    "enemies": 0,
+    "alive": true
+   },
+   "trace": [
+    {
+     "act": "newGame",
+     "ok": true
+    },
+    {
+     "act": "fire",
+     "ok": true
+    },
+    {
+     "act": "fire",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "id": "rift-nine(file://)",
+   "url": "file:///home/cluer/awesome-offline-mobile-games/games/rift-nine/index.html",
+   "ok": true,
+   "problems": [],
+   "vendor": {
+    "js": 1,
+    "png": 2,
+    "opus": 28,
+    "other": 0
+   },
+   "paint": {
+    "distinct": 2,
+    "vendorFiles": 2,
+    "names": [
+     "crystal_wisp.png",
+     "eye.png"
+    ],
+    "top": [
+     "crystal_wisp.png×16",
+     "eye.png×6"
+    ]
+   },
+   "title": {
+    "colors": 172,
+    "nonBg": 0.573
+   },
+   "play": {
+    "colors": 257,
+    "nonBg": 0.635,
+    "changed": true
+   },
+   "state": {
+    "started": true,
+    "room": 1,
+    "time": 1.883,
+    "deaths": 0,
+    "score": 30,
+    "onGround": false,
+    "x": 613.74,
+    "y": 672.18
+   },
+   "trace": [
+    {
+     "act": "newGame",
+     "ok": true
+    },
+    {
+     "act": "right",
+     "ok": true
+    },
+    {
+     "act": "jump",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "id": "siegehaus(file://)",
+   "url": "file:///home/cluer/awesome-offline-mobile-games/games/siegehaus/index.html",
+   "ok": true,
+   "problems": [],
+   "vendor": {
+    "js": 1,
+    "png": 50,
+    "opus": 14,
+    "other": 0
+   },
+   "paint": {
+    "distinct": 12,
+    "vendorFiles": 12,
+    "names": [
+     "items.png",
+     "bat.png",
+     "avatars.png",
+     "tiles_sewers.png",
+     "blast-drill-top.png",
+     "conveyor-4-0.png"
+    ],
+    "top": [
+     "tiles_sewers.png×54954",
+     "avatars.png×854",
+     "items.png×427"
+    ]
+   },
+   "title": {
+    "colors": 81,
+    "nonBg": 1
+   },
+   "play": {
+    "colors": 368,
+    "nonBg": 0.926,
+    "changed": true
+   },
+   "state": {
+    "started": true,
+    "mode": "play",
+    "depth": 1,
+    "hp": 24,
+    "turns": 18,
+    "kills": 0,
+    "scrap": 36,
+    "enemies": 7,
+    "x": 20,
+    "y": 14,
+    "plates": 1,
+    "wave": 1,
+    "waveIn": 13,
+    "turretKills": 0,
+    "structures": 5,
+    "beltTokens": 1,
+    "art": {
+     "belt": 4,
+     "beltReady": 4,
+     "beltAnimReady": 4,
+     "drillReady": 2,
+     "turretReady": 3,
+     "itemsReady": 22
+    },
+    "alive": true,
+    "gameOver": false
+   },
+   "trace": [
+    {
+     "act": "newGame",
+     "ok": true
+    },
+    {
+     "act": "buildLine",
+     "ok": true
+    },
+    {
+     "act": "wait",
+     "ok": true
+    },
+    {
+     "act": "wait",
+     "ok": true
+    },
+    {
+     "act": "wait",
+     "ok": true
+    },
+    {
+     "act": "wait",
+     "ok": true
+    },
+    {
+     "act": "wait",
+     "ok": true
+    },
+    {
+     "act": "wait",
+     "ok": true
+    },
+    {
+     "act": "wait",
+     "ok": true
+    },
+    {
+     "act": "wait",
+     "ok": true
+    },
+    {
+     "act": "wait",
+     "ok": true
+    },
+    {
+     "act": "wait",
+     "ok": true
+    },
+    {
+     "act": "wait",
+     "ok": true
+    },
+    {
+     "act": "wait",
+     "ok": true
+    },
+    {
+     "act": "fire",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "id": "charterline(file://)",
+   "url": "file:///home/cluer/awesome-offline-mobile-games/games/charterline/index.html",
+   "ok": true,
+   "problems": [],
+   "vendor": {
+    "js": 1,
+    "png": 6,
+    "opus": 0,
+    "other": 0
+   },
+   "paint": {
+    "distinct": 6,
+    "vendorFiles": 6,
+    "names": [
+     "water.png",
+     "grass.png",
+     "leaves.png",
+     "sand.png",
+     "dirt.png",
+     "stone.png"
+    ],
+    "top": [
+     "water.png×5175",
+     "leaves.png×2325",
+     "grass.png×1925"
+    ]
+   },
+   "title": {
+    "colors": 117,
+    "nonBg": 1
+   },
+   "play": {
+    "colors": 393,
+    "nonBg": 0.589,
+    "changed": true
+   },
+   "state": {
+    "started": true,
+    "turn": 5,
+    "gold": 264,
+    "cities": 2,
+    "units": 2,
+    "alive": true,
+    "gameOver": false,
+    "techs": 4,
+    "mode": "play",
+    "live": true,
+    "score": 99,
+    "over": false,
+    "seed": 20261028,
+    "research": "Mining",
+    "techAhead": 8,
+    "civs": [
+     "Russia",
+     "Polynesia"
+    ],
+    "charters": 1,
+    "tradeGold": 38,
+    "materials": 6
+   },
+   "trace": [
+    {
+     "act": "newGame",
+     "ok": true
+    },
+    {
+     "act": "charterDemo",
+     "ok": true
+    },
+    {
+     "act": "endTurn",
+     "ok": true
+    },
+    {
+     "act": "endTurn",
+     "ok": true
+    },
+    {
+     "act": "endTurn",
+     "ok": true
+    },
+    {
+     "act": "endTurn",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "id": "nulltrace(file://)",
+   "url": "file:///home/cluer/awesome-offline-mobile-games/games/nulltrace/index.html",
+   "ok": true,
+   "problems": [],
+   "vendor": {
+    "js": 1,
+    "png": 2,
+    "opus": 28,
+    "other": 0
+   },
+   "paint": {
+    "distinct": 2,
+    "vendorFiles": 2,
+    "names": [
+     "crystal_wisp.png",
+     "eye.png"
+    ],
+    "top": [
+     "crystal_wisp.png×20",
+     "eye.png×8"
+    ]
+   },
+   "title": {
+    "colors": 122,
+    "nonBg": 0.575
+   },
+   "play": {
+    "colors": 251,
+    "nonBg": 0.731,
+    "changed": true
+   },
+   "state": {
+    "started": true,
+    "room": 1,
+    "time": 3.25,
+    "deaths": 0,
+    "score": 40,
+    "onGround": true,
+    "x": 928.48,
+    "y": 643,
+    "total": 3.25,
+    "medals": "0,0,0,0,0,0,0,0,0",
+    "golds": 0,
+    "par": 11
+   },
+   "trace": [
+    {
+     "act": "newGame",
+     "ok": true
+    },
+    {
+     "act": "right",
+     "ok": true
+    },
+    {
+     "act": "jump",
+     "ok": true
+    },
+    {
+     "act": "right",
+     "ok": true
+    },
+    {
+     "act": "jump",
+     "ok": true
+    },
+    {
+     "act": "right",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "id": "lanternfall(file://)",
+   "url": "file:///home/cluer/awesome-offline-mobile-games/games/lanternfall/index.html",
+   "ok": true,
+   "problems": [],
+   "vendor": {
+    "js": 1,
+    "png": 13,
+    "opus": 0,
+    "other": 0
+   },
+   "paint": {
+    "distinct": 2,
+    "vendorFiles": 2,
+    "names": [
+     "escape_shuttle.png",
+     "gegno_diorite.png"
+    ],
+    "top": [
+     "escape_shuttle.png×226",
+     "gegno_diorite.png×26"
+    ]
+   },
+   "title": {
+    "colors": 136,
+    "nonBg": 0.384
+   },
+   "play": {
+    "colors": 145,
+    "nonBg": 0.722,
+    "changed": true
+   },
+   "state": {
+    "started": true,
+    "system": "Ostra Major-7",
+    "ship": "EMERGENCY SHUTTLE",
+    "credits": 1400,
+    "hull": 100,
+    "cargo": 0,
+    "enemies": 0,
+    "alive": true,
+    "frags": 0,
+    "fragLimit": 10,
+    "theirs": 0,
+    "round": 1,
+    "armourT": 22.7,
+    "weaponT": 0,
+    "wep": 0
+   },
+   "trace": [
+    {
+     "act": "newGame",
+     "ok": true
+    },
+    {
+     "act": "takeArmour",
+     "ok": true
+    },
+    {
+     "act": "fire",
+     "ok": true
+    },
+    {
+     "act": "fire",
+     "ok": true
+    },
+    {
+     "act": "takeArmour",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "id": "cinderhold(file://)",
+   "url": "file:///home/cluer/awesome-offline-mobile-games/games/cinderhold/index.html",
+   "ok": true,
+   "problems": [],
+   "vendor": {
+    "js": 2,
+    "png": 157,
+    "opus": 0,
+    "other": 0
+   },
+   "paint": {
+    "distinct": 55,
+    "vendorFiles": 55,
+    "names": [
+     "goblin.png",
+     "skeleton.png",
+     "antlion.png",
+     "wyvern_run.png",
+     "stance-3.png",
+     "run-0.png"
+    ],
+    "top": [
+     "tooltips.png×1027",
+     "tileset_dungeon.png×718",
+     "stance-0.png×285"
+    ]
+   },
+   "title": {
+    "colors": 150,
+    "nonBg": 0.376
+   },
+   "play": {
+    "colors": 685,
+    "nonBg": 0.622,
+    "changed": true
+   },
+   "state": {
+    "started": true,
+    "mode": "play",
+    "score": 248,
+    "depth": 2,
+    "vaultId": "hangedman_decor_clover_reticule",
+    "vaultSrc": "dcss",
+    "vaultsLoaded": 420,
+    "itemsInTable": 140,
+    "kills": 1,
+    "floorsSameVault": false,
+    "hp": 100,
+    "maxHp": 100,
+    "hero": {
+     "x": 13,
+     "y": 12
+    },
+    "nearest": {
+     "dx": -1,
+     "dy": 0,
+     "dist": 3
+    },
+    "gold": 0,
+    "branch": "DEPTHS",
+    "enemies": 8,
+    "sprites": 698,
+    "fx": true,
+    "loot": 5
+   },
+   "trace": [
+    {
+     "act": "newGame",
+     "ok": true
+    },
+    {
+     "act": "hunt",
+     "ok": "killed"
+    },
+    {
+     "act": "descend",
+     "ok": true
+    },
+    {
+     "act": "attack",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "id": "wardenmarch(file://)",
+   "url": "file:///home/cluer/awesome-offline-mobile-games/games/wardenmarch/index.html",
+   "ok": true,
+   "problems": [],
+   "vendor": {
+    "js": 1,
+    "png": 56,
+    "opus": 0,
+    "other": 0
+   },
+   "paint": {
+    "distinct": 19,
+    "vendorFiles": 19,
+    "names": [
+     "Drake_Burner.png",
+     "Elvish_Archer.png",
+     "Troll_Whelp.png",
+     "Saurian_Augur.png",
+     "castle-to-water-ne.png",
+     "ruin3-convex-r.png"
+    ],
+    "top": [
+     "Troll_Whelp.png×715",
+     "Drake_Burner.png×494",
+     "Elvish_Archer.png×494"
+    ]
+   },
+   "title": {
+    "colors": 645,
+    "nonBg": 0.565
+   },
+   "play": {
+    "colors": 504,
+    "nonBg": 0.801,
+    "changed": true
+   },
+   "state": {
+    "started": true,
+    "mode": "battle",
+    "score": 150,
+    "turn": 3,
+    "arenaId": "minmay_arrival_statue_studded",
+    "arenaSrc": "dcss",
+    "unitsWithRules": 22,
+    "terrainTiles": 13,
+    "fights": 5,
+    "kills": 1,
+    "hp": 120,
+    "stage": 0,
+    "foes": 2,
+    "squad": 4,
+    "selected": "Drake Burner",
+    "phase": "player"
+   },
+   "trace": [
+    {
+     "act": "newGame",
+     "ok": true
+    },
+    {
+     "act": "move",
+     "ok": true
+    },
+    {
+     "act": "attack",
+     "ok": true
+    },
+    {
+     "act": "endTurn",
+     "ok": true
+    },
+    {
+     "act": "move",
+     "ok": true
+    },
+    {
+     "act": "attack",
+     "ok": true
+    },
+    {
+     "act": "endTurn",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "id": "stormforge(file://)",
+   "url": "file:///home/cluer/awesome-offline-mobile-games/games/stormforge/index.html",
+   "ok": true,
+   "problems": [],
+   "vendor": {
+    "js": 2,
+    "png": 42,
+    "opus": 5,
+    "other": 0
+   },
+   "paint": {
+    "distinct": 3,
+    "vendorFiles": 3,
+    "names": [
+     "grass.png",
+     "dirt.png",
+     "gravel.png"
+    ],
+    "top": [
+     "grass.png×136",
+     "dirt.png×25",
+     "gravel.png×16"
+    ]
+   },
+   "title": {
+    "colors": 1,
+    "nonBg": 0
+   },
+   "play": {
+    "colors": 1,
+    "nonBg": 0,
+    "changed": false
+   },
+   "state": {
+    "phase": "ground",
+    "mode": "ground",
+    "started": true,
+    "alive": 32,
+    "hp": 100,
+    "shield": 0,
+    "ammo": 13,
+    "ammoReserve": 45,
+    "weapon": "g19",
+    "weaponTier": "D",
+    "loot": {
+     "picked": 0
+    },
+    "storm": {
+     "phase": 0,
+     "r": 2940
+    },
+    "blocks": 9,
+    "ore": 9,
+    "items": 18,
+    "ammoMade": 0,
+    "stock": {
+     "copper": 169,
+     "titanium": 77,
+     "coal": 0,
+     "ammo": 0,
+     "plates": 0
+    },
+    "kills": 0,
+    "bots": 31,
+    "hero": {
+     "x": 1880,
+     "y": 2441.6,
+     "z": 0
+    },
+    "nearest": {
+     "dx": -201.64334232404372,
+     "dy": -498.0991941831451,
+     "dist": 537.3665832088091,
+     "name": "Grit"
+    },
+    "seed": 2921578120,
+    "matchT": 4.599999999999989,
+    "fps": 20,
+    "three": true,
+    "draws": 126,
+    "tris": 800294
+   },
+   "trace": [
+    {
+     "act": "drop",
+     "ok": {
+      "phase": "sky",
+      "mode": "sky",
+      "started": false,
+      "alive": 32,
+      "hp": 100,
+      "shield": 0,
+      "ammo": 15,
+      "ammoReserve": 45,
+      "weapon": "g19",
+      "weaponTier": "D",
+      "loot": {
+       "picked": 0
+      },
+      "storm": {
+       "phase": 0,
+       "r": 2940
+      },
+      "blocks": 0,
+      "ore": 0,
+      "items": 0,
+      "ammoMade": 0,
+      "stock": {
+       "copper": 40,
+       "titanium": 12,
+       "coal": 0,
+       "ammo": 0,
+       "plates": 0
+      },
+      "kills": 0,
+      "bots": 31,
+      "hero": {
+       "x": 2526.484111048141,
+       "y": 2600.1285448652247,
+       "z": 0
+      },
+      "nearest": {
+       "dx": 297.51588895185887,
+       "dy": -352.12854486522474,
+       "dist": 460.9883038513184,
+       "name": "Rhys"
+      },
+      "seed": 2921578120,
+      "matchT": 0,
+      "fps": 20,
+      "three": true,
+      "draws": 139,
+      "tris": 799126
+     }
+    },
+    {
+     "act": "skipLand",
+     "ok": {
+      "phase": "ground",
+      "mode": "ground",
+      "started": true,
+      "alive": 32,
+      "hp": 100,
+      "shield": 0,
+      "ammo": 15,
+      "ammoReserve": 45,
+      "weapon": "g19",
+      "weaponTier": "D",
+      "loot": {
+       "picked": 0
+      },
+      "storm": {
+       "phase": 0,
+       "r": 2940
+      },
+      "blocks": 0,
+      "ore": 0,
+      "items": 0,
+      "ammoMade": 0,
+      "stock": {
+       "copper": 40,
+       "titanium": 12,
+       "coal": 0,
+       "ammo": 0,
+       "plates": 0
+      },
+      "kills": 0,
+      "bots": 31,
+      "hero": {
+       "x": 1542.752400250174,
+       "y": 2212.0729450369254,
+       "z": 0
+      },
+      "nearest": {
+       "dx": -30.752400250174105,
+       "dy": -156.07294503692538,
+       "dist": 159.07380140565584,
+       "name": "Grit"
+      },
+      "seed": 2921578120,
+      "matchT": 0,
+      "fps": 20,
+      "three": true,
+      "draws": 191,
+      "tris": 802416
+     }
+    },
+    {
+     "act": "grant",
+     "ok": {
+      "phase": "ground",
+      "mode": "ground",
+      "started": true,
+      "alive": 32,
+      "hp": 100,
+      "shield": 0,
+      "ammo": 15,
+      "ammoReserve": 45,
+      "weapon": "g19",
+      "weaponTier": "D",
+      "loot": {
+       "picked": 0
+      },
+      "storm": {
+       "phase": 0,
+       "r": 2940
+      },
+      "blocks": 0,
+      "ore": 0,
+      "items": 0,
+      "ammoMade": 0,
+      "stock": {
+       "copper": 340,
+       "titanium": 132,
+       "coal": 0,
+       "ammo": 0,
+       "plates": 0
+      },
+      "kills": 0,
+      "bots": 31,
+      "hero": {
+       "x": 1542.752400250174,
+       "y": 2212.0729450369254,
+       "z": 0
+      },
+      "nearest": {
+       "dx": -36.21620501476218,
+       "dy": -139.1322591743501,
+       "dist": 143.7685607100169,
+       "name": "Grit"
+      },
+      "seed": 2921578120,
+      "matchT": 0.1,
+      "fps": 20,
+      "three": true,
+      "draws": 172,
+      "tris": 804374
+     }
+    },
+    {
+     "act": "buildLine",
+     "ok": {
+      "ok": true,
+      "built": [
+       {
+        "kind": "drill",
+        "ok": true,
+        "reason": ""
+       },
+       {
+        "kind": "conveyor",
+        "ok": true,
+        "reason": ""
+       },
+       {
+        "kind": "fabricator",
+        "ok": true,
+        "reason": ""
+       },
+       {
+        "kind": "turret",
+        "ok": true,
+        "reason": ""
+       }
+      ],
+      "state": {
+       "phase": "ground",
+       "mode": "ground",
+       "started": true,
+       "alive": 32,
+       "hp": 100,
+       "shield": 0,
+       "ammo": 15,
+       "ammoReserve": 45,
+       "weapon": "g19",
+       "weaponTier": "D",
+       "loot": {
+        "picked": 0
+       },
+       "storm": {
+        "phase": 0,
+        "r": 2940
+       },
+       "blocks": 4,
+       "ore": 0,
+       "items": 0,
+       "ammoMade": 0,
+       "stock": {
+        "copper": 277,
+        "titanium": 117,
+        "coal": 0,
+        "ammo": 0,
+        "plates": 0
+       },
+       "kills": 0,
+       "bots": 31,
+       "hero": {
+        "x": 1880,
+        "y": 2441.6,
+        "z": 0
+       },
+       "nearest": {
+        "dx": 59.17146070134049,
+        "dy": 1.5415611376502056,
+        "dist": 59.19153801238312,
+        "name": "Wren"
+       },
+       "seed": 2921578120,
+       "matchT": 0.2,
+       "fps": 20,
+       "three": true,
+       "draws": 167,
+       "tris": 803322
+      }
+     }
+    },
+    {
+     "act": "tick",
+     "ok": {
+      "phase": "ground",
+      "mode": "ground",
+      "started": true,
+      "alive": 32,
+      "hp": 100,
+      "shield": 0,
+      "ammo": 15,
+      "ammoReserve": 45,
+      "weapon": "g19",
+      "weaponTier": "D",
+      "loot": {
+       "picked": 0
+      },
+      "storm": {
+       "phase": 0,
+       "r": 2940
+      },
+      "blocks": 9,
+      "ore": 9,
+      "items": 17,
+      "ammoMade": 0,
+      "stock": {
+       "copper": 169,
+       "titanium": 77,
+       "coal": 0,
+       "ammo": 0,
+       "plates": 0
+      },
+      "kills": 0,
+      "bots": 31,
+      "hero": {
+       "x": 1880,
+       "y": 2441.6,
+       "z": 0
+      },
+      "nearest": {
+       "dx": -182.35741012559834,
+       "dy": -448.3531642482958,
+       "dist": 484.0194055192157,
+       "name": "Grit"
+      },
+      "seed": 2921578120,
+      "matchT": 4.29999999999999,
+      "fps": 20,
+      "three": true,
+      "draws": 198,
+      "tris": 805398
+     }
+    },
+    {
+     "act": "fire",
+     "ok": {
+      "phase": "ground",
+      "mode": "ground",
+      "started": true,
+      "alive": 32,
+      "hp": 100,
+      "shield": 0,
+      "ammo": 15,
+      "ammoReserve": 45,
+      "weapon": "g19",
+      "weaponTier": "D",
+      "loot": {
+       "picked": 0
+      },
+      "storm": {
+       "phase": 0,
+       "r": 2940
+      },
+      "blocks": 9,
+      "ore": 9,
+      "items": 17,
+      "ammoMade": 0,
+      "stock": {
+       "copper": 169,
+       "titanium": 77,
+       "coal": 0,
+       "ammo": 0,
+       "plates": 0
+      },
+      "kills": 0,
+      "bots": 31,
+      "hero": {
+       "x": 1880,
+       "y": 2441.6,
+       "z": 0
+      },
+      "nearest": {
+       "dx": -187.96971731466988,
+       "dy": -465.2437548335863,
+       "dist": 501.78119338912165,
+       "name": "Grit"
+      },
+      "seed": 2921578120,
+      "matchT": 4.39999999999999,
+      "fps": 20,
+      "three": true,
+      "draws": 124,
+      "tris": 800270
+     }
+    }
+   ]
+  },
+  {
+   "id": "galevault(file://)",
+   "url": "file:///home/cluer/awesome-offline-mobile-games/games/galevault/index.html",
+   "ok": true,
+   "problems": [],
+   "vendor": {
+    "js": 2,
+    "png": 4,
+    "opus": 0,
+    "other": 0
+   },
+   "paint": {
+    "distinct": 0,
+    "vendorFiles": 0,
+    "names": [],
+    "top": []
+   },
+   "title": {
+    "colors": 1,
+    "nonBg": 0
+   },
+   "play": {
+    "colors": 1,
+    "nonBg": 0,
+    "changed": false
+   },
+   "state": {
+    "phase": "flying",
+    "started": true,
+    "gates": 3,
+    "gatesTotal": 20,
+    "nextGate": 3,
+    "t": 5.45,
+    "hull": 193,
+    "hullMax": 200,
+    "boost": 57,
+    "boosting": false,
+    "speed": 189,
+    "alt": 36,
+    "yaw": -0.8853533960997267,
+    "craft": {
+     "name": "Barb",
+     "mass": 20,
+     "drag": 0.8,
+     "hull": 200
+    },
+    "craftCount": 3,
+    "hullsLoaded": 120,
+    "physicsSrc": "endless-sky",
+    "pirates": 3,
+    "piratesAlive": 3,
+    "bolts": 4,
+    "score": 336,
+    "seed": 20261101,
+    "three": true,
+    "draws": 44,
+    "tris": 191486,
+    "donorTextures": [
+     "vendor/luanti/textures/grass.png",
+     "vendor/luanti/textures/gravel.png",
+     "vendor/luanti/textures/stone.png",
+     "vendor/luanti/textures/water.png"
+    ],
+    "texUsed": 4,
+    "fps": 18
+   },
+   "trace": [
+    {
+     "act": "newGame",
+     "ok": {
+      "phase": "flying",
+      "started": true,
+      "gates": 0,
+      "gatesTotal": 20,
+      "nextGate": 0,
+      "t": 0,
+      "hull": 200,
+      "hullMax": 200,
+      "boost": 100,
+      "boosting": false,
+      "speed": 0,
+      "alt": 31,
+      "yaw": 0.1562250905751435,
+      "craft": {
+       "name": "Barb",
+       "mass": 20,
+       "drag": 0.8,
+       "hull": 200
+      },
+      "craftCount": 3,
+      "hullsLoaded": 120,
+      "physicsSrc": "endless-sky",
+      "pirates": 3,
+      "piratesAlive": 3,
+      "bolts": 0,
+      "score": 0,
+      "seed": 20261101,
+      "three": true,
+      "draws": 48,
+      "tris": 191958,
+      "donorTextures": [
+       "vendor/luanti/textures/grass.png",
+       "vendor/luanti/textures/gravel.png",
+       "vendor/luanti/textures/stone.png",
+       "vendor/luanti/textures/water.png"
+      ],
+      "texUsed": 4,
+      "fps": 19
+     }
+    },
+    {
+     "act": "fly",
+     "ok": {
+      "phase": "flying",
+      "started": true,
+      "gates": 3,
+      "gatesTotal": 20,
+      "nextGate": 3,
+      "t": 5.08,
+      "hull": 193,
+      "hullMax": 200,
+      "boost": 55,
+      "boosting": true,
+      "speed": 205,
+      "alt": 36,
+      "yaw": -0.8887062805364087,
+      "craft": {
+       "name": "Barb",
+       "mass": 20,
+       "drag": 0.8,
+       "hull": 200
+      },
+      "craftCount": 3,
+      "hullsLoaded": 120,
+      "physicsSrc": "endless-sky",
+      "pirates": 3,
+      "piratesAlive": 3,
+      "bolts": 4,
+      "score": 337,
+      "seed": 20261101,
+      "three": true,
+      "draws": 45,
+      "tris": 191488,
+      "donorTextures": [
+       "vendor/luanti/textures/grass.png",
+       "vendor/luanti/textures/gravel.png",
+       "vendor/luanti/textures/stone.png",
+       "vendor/luanti/textures/water.png"
+      ],
+      "texUsed": 4,
+      "fps": 19
+     }
+    },
+    {
+     "act": "redraw",
+     "ok": {
+      "phase": "flying",
+      "started": true,
+      "gates": 3,
+      "gatesTotal": 20,
+      "nextGate": 3,
+      "t": 5.17,
+      "hull": 193,
+      "hullMax": 200,
+      "boost": 55,
+      "boosting": false,
+      "speed": 192,
+      "alt": 36,
+      "yaw": -0.8865692979569555,
+      "craft": {
+       "name": "Barb",
+       "mass": 20,
+       "drag": 0.8,
+       "hull": 200
+      },
+      "craftCount": 3,
+      "hullsLoaded": 120,
+      "physicsSrc": "endless-sky",
+      "pirates": 3,
+      "piratesAlive": 3,
+      "bolts": 4,
+      "score": 337,
+      "seed": 20261101,
+      "three": true,
+      "draws": 45,
+      "tris": 191488,
+      "donorTextures": [
+       "vendor/luanti/textures/grass.png",
+       "vendor/luanti/textures/gravel.png",
+       "vendor/luanti/textures/stone.png",
+       "vendor/luanti/textures/water.png"
+      ],
+      "texUsed": 4,
+      "fps": 18
+     }
+    }
+   ]
+  },
+  {
+   "id": "vaultbreak(no vendor)",
+   "url": "http://127.0.0.1:8787/games/vaultbreak/index.html",
+   "ok": true,
+   "problems": [],
+   "vendor": {
+    "js": 0,
+    "png": 0,
+    "opus": 0,
+    "other": 0
+   },
+   "paint": {
+    "distinct": 0,
+    "vendorFiles": 0,
+    "names": [],
+    "top": []
+   },
+   "title": {
+    "colors": 104,
+    "nonBg": 1
+   },
+   "play": {
+    "colors": 105,
+    "nonBg": 0.272,
+    "changed": true
+   },
+   "state": {
+    "started": true,
+    "mode": "play",
+    "depth": 1,
+    "hp": 56,
+    "turns": 18,
+    "kills": 1,
+    "scrap": 8,
+    "enemies": 4,
+    "x": 14,
+    "y": 11,
+    "alive": true,
+    "gameOver": false
+   },
+   "trace": [
+    {
+     "act": "newGame",
+     "ok": true
+    },
+    {
+     "act": "step",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "approach",
+     "ok": true
+    },
+    {
+     "act": "wait",
+     "ok": true
+    },
+    {
+     "act": "fire",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "id": "shell",
+   "url": "http://127.0.0.1:8787/shell/index.html",
+   "ok": true,
+   "problems": [],
+   "counts": {
+    "total": 12,
+    "originals": 4,
+    "hybrids": 8,
+    "afterAll": 12
+   },
+   "sheet": {
+    "title": "Vaultbreak",
+    "href": "../games/vaultbreak/index.html",
+    "cta": "PLAY NOW"
+   }
+  }
+ ]
+}
