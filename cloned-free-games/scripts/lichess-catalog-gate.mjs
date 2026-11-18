@@ -67,6 +67,10 @@ const card = await ev(`(() => {
   const nodes = [...document.querySelectorAll('button,a,li,article,div')].filter(e => (e.textContent || '').toLowerCase().includes(t));
   const hit = nodes.sort((a, b) => a.textContent.length - b.textContent.length)[0];
   if (!hit) return null;
+  // The face is taller than the viewport once the library passes ~60 tiles: a tile far down the
+  // page has viewport coordinates past the emulated height and a CDP click there hits nothing.
+  // Scroll it to the middle and measure after layout.
+  hit.scrollIntoView({ block: 'center', inline: 'center' });
   const r = hit.getBoundingClientRect();
   return { tag: hit.tagName, text: hit.textContent.trim().slice(0, 60), x: Math.round(r.x + r.width / 2), y: Math.round(r.y + r.height / 2) };
 })()`);
