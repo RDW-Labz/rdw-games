@@ -52,11 +52,31 @@ def record_skip(name: str) -> str:
     return strikes
 
 
-def judged_text() -> str:
+def judged_names() -> str:
+    """Normalised *name cells* of every judged catalog row, one per line.
+
+    The old test searched the whole catalog text, so a short clone name matched
+    unrelated prose and marked the clone judged: ``notan`` matched 44 rows,
+    ``Match-3`` matched "match-3" in a Bubble Night description, ``Lona`` matched
+    inside longer cells. The whole roster then read ``UNJUDGED: none`` while ~30
+    real clones sat unjudged. Restricting the substring test to each row's name
+    cell keeps slug↔display matches working (``broguece`` ↔ "Brogue CE",
+    ``crawl`` ↔ "Dungeon Crawl Stone Soup for Android") without letting a
+    description cell satisfy a name.
+    """
+    cells: list[str] = []
     try:
-        return norm(open(CATALOG, encoding="utf-8", errors="replace").read())
+        raw = open(CATALOG, encoding="utf-8", errors="replace").read()
     except FileNotFoundError:
         return ""
+    for ln in raw.splitlines():
+        if not ln.lstrip().startswith("|"):
+            continue
+        parts = ln.split("|")
+        if len(parts) < 3:
+            continue
+        cells.append(norm(parts[2]))
+    return "\n".join(cells)
 
 
 def roots() -> list[str]:
@@ -204,7 +224,7 @@ def facts(name: str, path: str) -> str:
 
 
 def main() -> int:
-    judged = judged_text()
+    judged = judged_names()
     dirs = game_dirs()
     skip = skipped()
     pending = [(n, p) for n, p in dirs if norm(n) not in judged and n not in skip]
