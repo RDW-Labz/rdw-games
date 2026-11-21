@@ -1,7 +1,23 @@
 {
-  "generated": "2026-11-20",
+  "generated": "2026-11-21",
   "note": "First-party three.js ports built on site/games/arcade/kit.js. Files ship from the site repo; this manifest only tells the catalog they exist.",
   "games": [
+    {
+      "slug": "life-rpg",
+      "name": "Life RPG",
+      "match": [
+        "Life RPG",
+        "Life-RPG",
+        "life-rpg",
+        "life rpg",
+        "life_rpg",
+        "com.arcom.life_rpg",
+        "hellArcom/life_rpg"
+      ],
+      "entry": "/games/arcade/life-rpg.html",
+      "blurb": "Turn a day of real life into quests: six plates, one energy budget, tiers from Trivial to Epic, gold plates that pay double, and a 999-level title climb.",
+      "tier": "first-party"
+    },
     {
       "slug": "sokoban",
       "name": "Sokoban",
@@ -11,6 +27,23 @@
       ],
       "entry": "/games/arcade/sokoban.html",
       "blurb": "10 hand-checked crate levels, 3D blocks, undo and push counter.",
+      "tier": "first-party"
+    },
+    {
+      "slug": "shogi",
+      "name": "Shogi",
+      "match": [
+        "Shogi",
+        "shogi",
+        "SeiShinGakuen ShougiBu",
+        "清正学園将棋部 (SeiShinGakuen ShougiBu)",
+        "seishingakuen_shougibu",
+        "seishingakuen-shougibu",
+        "org.seishingakuen.shougibu",
+        "hiroshiyui/SeiShinGakuen_ShougiBu"
+      ],
+      "entry": "/games/arcade/shogi.html",
+      "blurb": "Full-rule 9x9 shogi on three.js: promotion, drops, nifu, uchifuzume, check and mate, with a searching opponent and undo.",
       "tier": "first-party"
     },
     {
@@ -788,6 +821,167 @@
       ],
       "entry": "/games/arcade/rpg-npc-generator.html",
       "blurb": "Roll a tabletop NPC on a 3D character table: tap the die for a whole sheet or one plate to re-roll a single trait, chase a legendary stat total, save the keepers.",
+      "tier": "first-party"
+    },
+    {
+      "slug": "easyrpg-player",
+      "name": "EasyRPG Player",
+      "match": [
+        "EasyRPG Player",
+        "easyrpg-player",
+        "easyrpg player",
+        "EasyRPG-Player",
+        "easyrpg",
+        "RPG Maker 2000/2003 player",
+        "github.com/EasyRPG/Player",
+        "easyrpg/player",
+        "EasyRPG"
+      ],
+      "entry": "/games/arcade/easyrpg-player.html",
+      "blurb": "An RPG Maker runtime card rebuilt as a playable three.js dungeon crawl: walk a procedural lane cell by cell, meet villagers, open three seal chests, and fight turn-based battles (attack, lantern spell, potion, run) before the shrine at the far end will answer.",
+      "tier": "first-party"
+    },
+    {
+      "slug": "fafa-runner",
+      "name": "FaFa Runner",
+      "match": [
+        "FaFa Runner",
+        "FaFa-Runner",
+        "fafa-runner",
+        "fafarunner",
+        "FaFaRunner",
+        "github.com/fafarunner/fafarunner",
+        "fafarunner/fafarunner",
+        "com.chenyifaer.fafarunner"
+      ],
+      "entry": "/games/arcade/fafa-runner.html",
+      "blurb": "The F-Droid APK card rebuilt as a three.js dawn run: three lanes, jump the logs, slide under the branches, gather shards, take the wizard key and reach the dawn gate.",
+      "tier": "first-party"
+    },
+    {
+      "slug": "cat-a-shooter",
+      "name": "Cat a Shooter",
+      "match": [
+        "Cat a Shooter",
+        "Cat-a-Shooter",
+        "Cat-a-shooter",
+        "cat-a-shooter",
+        "catashoot",
+        "org.xolatgames.catashoot",
+        "xolatgames/cat-a-shooter"
+      ],
+      "entry": "/games/arcade/cat-a-shooter.html",
+      "blurb": "The F-Droid saucer shooter rebuilt in three.js: the cat's ship slides along the bottom and fires up its column on its own while six waves of saucers drift down, some shooting back and some diving. Three lives, a short grace after each hit, 25 points a wave and a best run kept on the machine.",
+      "tier": "first-party"
+    },
+    {
+      "slug": "battle-table",
+      "name": "Battle Table",
+      "match": [
+        "Battle Table",
+        "battle-table",
+        "WR Battle Sim",
+        "WR-Battle-Sim",
+        "wr-battle-sim",
+        "WRBattleSim",
+        "wrbattlesim",
+        "com.wrbattlesim",
+        "terminator-ger/wrsim"
+      ],
+      "entry": "/games/arcade/battle-table.html",
+      "blurb": "The War Room dice battle calculator turned into a game you play instead of a sheet you read: pick nine unit types inside a 34-point muster, choose an offensive or entrenched posture, then roll 12-sided dice through three air rounds and three ground rounds against three escalating garrisons. Every die face names a unit type it hits and the wild faces only kill for the side with more land and sea types in the field, so a broad force beats a bigger single stack. Survivors carry into the next objective; two wins take the area.",
+      "tier": "first-party"
+    },
+    {
+      "slug": "six-shooter",
+      "name": "Six Shooter",
+      "match": [
+        "Six Shooter",
+        "six-shooter",
+        "Six-Shooter",
+        "sixshooter",
+        "six shooter",
+        "dk.dustytales.sixshooter",
+        "PedePedersen/sixshooter-apk",
+        "sixshooter-apk"
+      ],
+      "entry": "/games/arcade/six-shooter.html",
+      "blurb": "The saloon draw as a real cylinder instead of a spinner: two to six gunslingers each load one cartridge in their own colour, six chambers, the rest empty. Tap the drum or hit Spin and it eases four-plus turns to land a chamber under the needle — a cartridge takes the draw, an empty chamber clicks and nobody does. Elimination mode pulls the drawn cartridge out of the drum and keeps spinning until one round is left, so three gunslingers resolve in two bangs; solo spin just picks a winner and never ends. Fifteen-second rules, no install, plays in the plate on a phone or with a keyboard.",
+      "tier": "first-party"
+    },
+    {
+      "slug": "die-simulator",
+      "name": "Die Simulator",
+      "match": [
+        "Die Simulator",
+        "Die-Simulator",
+        "die-simulator",
+        "die simulator",
+        "diesimu",
+        "com.andreiapps.diesimu",
+        "andreiapps/die_simulator",
+        "die_simulator",
+        "Die Simulator (Dice)"
+      ],
+      "entry": "/games/arcade/die-simulator.html",
+      "blurb": "The one-die app becomes a table with a rival: roll and the face lands on your stake, a 1 takes the whole stake and the die, bank it and the house takes over. The house rolls under twenty and never pushes once it can already bank forty, so the race to forty is honest. The die is real geometry with pips on all six faces and settles showing the rolled face. Tap Roll, tap the felt, or hit Space; B banks, R deals a new table. Plays in the plate on a phone.",
+      "tier": "first-party"
+    },
+    {
+      "slug": "balloons-shooter",
+      "name": "Non-Stop Balloons",
+      "match": [
+        "Non-Stop Balloons Shooter",
+        "Non-Stop-Balloons-Shooter",
+        "non-stop-balloons-shooter",
+        "Non Stop Balloons Shooter",
+        "non stop balloons shooter",
+        "balloons-shooter",
+        "Non-Stop Balloons",
+        "com.stoptheballs",
+        "stoptheballs",
+        "MetatransApps/Android_APK_2DBalloons",
+        "Android_APK_2DBalloons"
+      ],
+      "entry": "/games/arcade/balloons-shooter.html",
+      "blurb": "A round arena with a crossbow at the centre: balloons drift in from the rim on their own bearing, and tapping where a balloon is sends an arrow out along that line. Plain balloons score 10, swift gold 15, heavy red needs two hits and pays 20. Five lives, six waves, and every balloon that crosses the red line costs one.",
+      "tier": "first-party"
+    },
+    {
+      "slug": "gh-space-shooter",
+      "name": "GitHub Space Shooter",
+      "match": [
+        "GitHub Space Shooter",
+        "GitHub-Space-Shooter",
+        "gh-space-shooter",
+        "gh space shooter",
+        "GitHubSpaceShooter",
+        "czl9707/gh-space-shooter",
+        "gh-space-shooter.kiyo-n-zane.com"
+      ],
+      "entry": "/games/arcade/gh-space-shooter.html",
+      "blurb": "A year of commits as an invader fleet: eleven weeks across, six days down, every square a contribution day that takes one to four hits because that is how hot it was. Your rocket slides along the bottom of the wall and autofires up its own column; the whole graph slides down toward the ship, and the lowest square of a column drops a commit bomb every couple of seconds until it is too close to fire and simply rams. Three lives, a 1.2s grace window, 150 for a full clear. Drag, arrows or A/D to steer, Space to sting early, R for a new run — plays in the plate on a phone.",
+      "tier": "first-party"
+    },
+    {
+      "slug": "backgammon",
+      "name": "Clavierhaus Backgammon",
+      "match": [
+        "CBG Pro — Clavierhaus Backgammon",
+        "CBG Pro - Clavierhaus Backgammon",
+        "CBG Pro",
+        "Clavierhaus Backgammon",
+        "CBG----Clavierhaus-BackGammon",
+        "clavierhaus-backgammon",
+        "backgammon",
+        "Backgammon",
+        "com.clavierhaus.gnubg",
+        "clavierhaus/gnubg-android",
+        "gnubg-android",
+        "gnubg"
+      ],
+      "entry": "/games/arcade/backgammon.html",
+      "blurb": "The whole board as a table instead of an engine: fifteen checkers a side on the standard 24 points, tap a checker to lift it and a gold dot to move it. Doubles deal four dice, a blot goes to the bar and must re-enter before anything else moves, and you can only bear off once every checker is in the home board — with the furthest-checker rule for an overshooting die. You play the bone side moving 24 → 1 against a one-ply engine that makes points and hits back; first to bear off all fifteen takes it. The board turns to run tall on a portrait phone. No install, no account, no analysis suite — just the game.",
       "tier": "first-party"
     }
   ]
