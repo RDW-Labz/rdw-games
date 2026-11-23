@@ -53,6 +53,17 @@ d=json.load(open('$CATSRC/games.json'))
 print(f\"{d['total']} queued / {d['judged']} judged\")")"
 
 if [ -n "$LIBRARY" ]; then
+  # External "links-out" cards are only promotable through .queue/embed-verified.json, and
+  # scripts/embed-probe.py is its only writer. Refresh it when it is missing or stale
+  # (EMBED_PROBE_MAX_AGE_H days) so the bridge can never go dormant again — a failed probe
+  # never blocks the deploy, it just leaves yesterday's verdicts in place.
+  EV="$SRC/.queue/embed-verified.json"
+  MAXAGE=${EMBED_PROBE_MAX_AGE_H:-336}
+  if [ ! -s "$EV" ] || [ -n "$(find "$EV" -mmin +$((MAXAGE*60)) 2>/dev/null)" ]; then
+    echo "EMBED-PROBE stale or missing — probing links-out URLs"
+    python3 "$SRC/scripts/embed-probe.py" --workers 4 --wait 9 \
+      || echo "WARN: embed probe failed; keeping existing embed-verified.json" >&2
+  fi
   python3 "$SRC/scripts/library-audit.py" --games-json "$CATSRC/games.json" || die "library audit failed"
 
   # Tile art: real in-game screenshots, one per live tile. REFRESH_ART=1 re-captures them

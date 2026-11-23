@@ -122,9 +122,18 @@ def classify(entry, src, site_repo, arcade_files, frame_ok=None, blocked=None):
             # The rule is "click -> the game loads and plays in the page", so a link-out is
             # a quarantine entry, not a tile. An embed that survives X-Frame-Options is the
             # one case we can still show in-page; it is recorded so the face can use it.
-            frame = (frame_ok or {}).get(play)
-            if frame == "FRAMABLE" and embedded_ok(play):
+            # .queue/embed-verified.json is the ONLY gate here, and scripts/embed-probe.py
+            # is its ONLY writer: it loads the page in headless Chromium inside a sandboxed
+            # iframe and requires a live game surface (canvas/WebGL). external-frame.json
+            # (2026-11-14 one-off) was a headers-only framability probe; it is kept as
+            # evidence but it cannot promote a tile on its own — "framable" is not "plays".
+            if embedded_ok(play):
                 return ("live", play, "", f"embeds and runs in-page ({bare})")
+            frame = (frame_ok or {}).get(play)
+            if frame == "FRAMABLE":
+                return ("quarantine", play, "links-out",
+                        f"framable per external-frame.json but never play-probed — "
+                        f"run scripts/embed-probe.py ({kind or 'url'})")
             return ("quarantine", play, "links-out",
                     f"opens {bare} in the tab instead of playing in the page ({kind or 'url'})")
         if play.startswith("/"):
