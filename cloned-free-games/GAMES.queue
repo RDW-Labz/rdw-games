@@ -1,5 +1,5 @@
 # name	url	stars	license	est_size_kb	source	summary
-azerothcore-wotlk	https://github.com/azerothcore/azerothcore-wotlk	9204	GPL-2.0	1344475	github	Complete Open Source and Modular solution for MMO
+azerothcore-wotlk	https://github.com/azerothcore/azerothcore-wotlk	9209	GPL-2.0	1344410	github	Complete Open Source and Modular solution for MMO
 Cat-a-shooter	https://codeberg.org/xolatgames/cat-a-shooter	0	Apache-2.0	0	fdroid	Fly in the space by the cat 😼, and shoots off from enemies 🛸
 Dima-Defense	https://codeberg.org/xolatgames/Dima-Defense	0	Apache-2.0	0	fdroid	A simple Tower Defense game that was made in LibGDX
 FinalRozGameNew	https://codeberg.org/rozworld/final-roz-game-new	0	MIT	0	fdroid	A pixel art 2D speedrun platformer featuring 17 levels and isometric mechanics.
@@ -125,6 +125,8 @@ No-Thanks	https://github.com/VelbazhdSoftwareLLC/No-Thanks-for-Android	0	MIT	0	f
 Number-Guesser	https://github.com/Reepeecheep/NumberGuesser	0	GPL-3.0-or-later	0	fdroid	Guess the right number
 Octo8	https://github.com/ThePowerdinoDeluxe990/Octo8	0	GPL-3.0-only	0	fdroid	An app for checking current Splatoon 3 map schedules
 One-Line-Puzzle	https://github.com/sidhant947/OneLine	0	GPL-3.0-only	0	fdroid	Draw a single continuous line to connect numbers and completely fill the grid!
+Open-Secret-Santa	https://github.com/bombfork/open-secret-santa	0	MIT	0	fdroid	Organize a Secret Santa gift exchange — fully offline, no account, no server
+OpenSGolf	https://github.com/crspytopgn/opensgolf	0	GPL-2.0-or-later	0	fdroid	Build and run your own golf resort: a free engine that plays like SimGolf
 Orion-Master	https://github.com/JamesSmartCell/android-1oom	0	GPL-2.0-only	0	fdroid	Native 1oom port of Master of Orion (1993). Requires your own LBX files
 Paper-Loop	https://github.com/Eve-146T/paper-loop	0	GPL-3.0-only	0	fdroid	Grow your turf and slice rival sneks' tails — an offline territory game.
 Parlera-word-guessing-game	https://gitlab.com/enjoyingfoss/parlera	0	AGPL-3.0-or-later	0	fdroid	A party game where your friends describe and you guess.
@@ -206,6 +208,7 @@ Ganxet	https://codeberg.org/retiolus/ganxet	0	GPL-3.0-or-later	0	fdroid	Board ga
 Gauguin	https://github.com/meikpiep/gauguin	0	GPL-3.0-only	0	fdroid	A Sudoku-like logic game
 Gridle	https://github.com/billthefarmer/gridle	0	GPL-3.0-only	0	fdroid	Word game
 Gurgle	https://github.com/billthefarmer/gurgle	0	GPL-3.0-only	0	fdroid	Word game
+Hexsweeper	https://github.com/lukeslp/hexsweeper	0	MIT	0	fdroid	Hexagonal minesweeper on a 3D sphere. Offline, no account, no ads
 House-of-Cards	https://github.com/VelbazhdSoftwareLLC/HouseOfCards	0	LGPL-3.0-only	0	fdroid	Solitaire-like card game
 IED	https://codeberg.org/Krixec/IED-FDroid	0	MIT	0	fdroid	Imagine Minesweeper ... but in 3D
 Initiative-Tracker	https://github.com/potsdam-pnp/initiative-tracker	0	GPL-3.0-or-later	0	fdroid	Initiative Tracker compatible with Pathfinder 2 encounter rules
@@ -238,7 +241,7 @@ Oubliettes	https://github.com/all3f0r1/oubliettes	0	GPL-3.0-or-later	0	fdroid	Du
 PianOli	https://github.com/nicolasbrailo/PianOli	0	GPL-3.0-only	0	fdroid	Baby game to keep your device safe from random baby-taps
 Poker-Payout	https://github.com/HunterColes/PokerPayout	0	MIT	0	fdroid	Poker timer and blind clock for Texas Hold'em home games: payouts, buy-ins, bank
 PySolFC	https://github.com/shlomif/PySolFC	0	GPL-3.0-only	0	fdroid	PySolFC is a collection of solitaire card games
-Quiet-Grid-Logic-Puzzles	https://github.com/lendl/quiet-grid	0	GPL-3.0-only	0	fdroid	Sudoku, Nonogram, Minesweeper, Word Search & more. No ads, fully offline.
+Quiet-Grid-Logic-Puzzles	https://github.com/lendl/quiet-grid	0	GPL-3.0-only	0	fdroid	Sudoku, Nonogram, Minesweeper, Word Search & more. Calm puzzles, fully offline.
 Rechenzwerge	https://gitlab.com/DaWasch/rechenzettel-app	0	GPL-3.0-or-later	0	fdroid	Counting and math practice for preschool and elementary school
 Regex-Crossword	https://gitlab.com/carstenhag/regex-crossword-kotlin	0	Apache-2.0	0	fdroid	Solve Crosswords defined by Regex rules!
 Rucoy-calculator	https://github.com/helloyanis/rucoy-calculator	0	GPL-3.0-only	0	fdroid	An unofficial calculator for all things Rucoy Online related!
@@ -265,6 +268,7 @@ TABI	https://gitlab.com/lorsupra/tabi	0	GPL-3.0-or-later	0	fdroid	Learn Japanese
 TableChips	https://github.com/tablechips/tablechips	0	GPL-3.0-only	0	fdroid	Chips for a card table. One phone hosts; guests join from a browser, offline.
 Titan-Companion	https://github.com/joaomneto/TitanCompanion	0	LGPL-3.0-only	0	fdroid	Stat sheet and rules engine for all Fighting Fantasy gamebooks
 ToberQuizz	https://github.com/Tobertet/ToberQuizz	0	GPL-3.0-only	0	fdroid	Challenges that will put your imagination in check.
+Torch-Client	https://github.com/torch-client/torch-client	0	AGPL-3.0-or-later	0	fdroid	Minecraft client written in Rust
 Tri-PeaksSolitaire-for-Android	https://github.com/VelbazhdSoftwareLLC/TriPeaksSolitaireForAndroid	0	GPL-3.0-only	0	fdroid	TriPeaks Solitaire for Android is a card game.
 Tux-Math	https://gitlab.com/Afrikalan/tuxmath-android	0	AGPL-3.0-only	0	fdroid	
 Twist-Cubee	https://github.com/zk-haunt/Twist-cubee	0	MIT	0	fdroid	Offline 3D cube puzzle from 2×2 to 20×20 with timer, solver and hints

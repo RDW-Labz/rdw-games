@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-22",
+ "generated": "2026-11-23",
  "note": "First-party three.js ports built on site/games/arcade/kit.js. Files ship from the site repo; this manifest only tells the catalog they exist.",
  "games": [
   {
@@ -832,10 +832,14 @@
     "Bubble-Shooter",
     "Bubble Shooter",
     "com.sidhant.bubbleshooter",
-    "sidhant947/BubbleShooter"
+    "sidhant947/BubbleShooter",
+    "bubble-night",
+    "bubble night",
+    "pt.tiago.bubblenight",
+    "syscallbrain/bubble-night"
    ],
    "entry": "/games/arcade/bubble-shooter.html",
-   "blurb": "Aim and bounce: click or tap where the shot should go and the bubble ricochets off the side walls into the cluster. Three or more of a colour pop, anything left hanging drops, and clearing the board wins — but bubbles that settle on the red line end the run. R restarts, Z undoes.",
+   "blurb": "Aim and bounce: click or tap where the shot should go and the bubble ricochets off the side walls into the cluster. Three or more of a colour pop, anything left hanging drops, and clearing the board wins — but bubbles that settle on the red line end the run. R restarts, Z undoes; the same board also answers the Bubble Night card (hex aim/bounce/match-3, orbits as levels).",
    "tier": "first-party"
   },
   {
@@ -1385,6 +1389,127 @@
    ],
    "entry": "/games/arcade/beat-feet.html",
    "blurb": "A three-lane rhythm runner: the hazards are generated on the track's own beat grid, so every pillar, hurdle and beam lands on a beat. Jump the low hurdles, duck the high beams, step around the pillars, hold the combo for 64 beats.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "openttd",
+   "name": "OpenTTD",
+   "match": [
+    "openttd",
+    "open ttd",
+    "open-ttd",
+    "org.openttd.fdroid",
+    "openttd/openttd"
+   ],
+   "entry": "/games/arcade/openttd.html",
+   "blurb": "A pocket transport tycoon: the coal mine and the farm produce, the power station and the food mill pay. Lay rail with Track, drop a Station beside an industry, then buy a Train between a producing halt and a consumer halt joined by your line. Revenue is the score (target 2800), cash pays track, halts, trains and network upkeep, and a line built into the red can still bankrupt you. Tap a tile to build, tap Track/Station/Train to switch tools.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "pekka-kana-2",
+   "name": "Pekka Kana 2",
+   "match": [
+    "pekka kana 2",
+    "pekka-kana-2",
+    "pekka kana",
+    "org.pgnapps.pk2",
+    "danilolc/pk2",
+    "pk2"
+   ],
+   "entry": "/games/arcade/pekka-kana-2.html",
+   "blurb": "A rooster platformer: run and jump across two meadows, stomp the patrolling monsters, collect every egg and reach the door — the door stays shut until the egg count is complete. Three lives, spike beds and pits along the way. Tap the canvas to step, use the pads or the arrow keys, JUMP with the pad or Space.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "stronghold-protocol",
+   "name": "Stronghold Protocol",
+   "match": [
+    "stronghold protocol",
+    "stronghold-protocol",
+    "stronghold protocol: alliance",
+    "stronghold-protocol-alliance",
+    "stronghold protocol alliance",
+    "sganggs/stronghold-protocol",
+    "stronghold protocol auto chess"
+   ],
+   "entry": "/games/arcade/stronghold-protocol.html",
+   "blurb": "Auto-chess tower defence in three.js: draft five hero kinds with gold, deploy them on the three rows in front of your wall, upgrade them, and hold fourteen auto-battling waves ending in a warlord.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "supertux",
+   "name": "SuperTux",
+   "match": [
+    "supertux",
+    "super tux",
+    "SuperTux/supertux",
+    "supertux.org"
+   ],
+   "entry": "/games/arcade/supertux.html",
+   "blurb": "Penguin platformer in three.js: run and jump two snow levels, bump the coin blocks from below, squash walking ice cubes and bouncing snowballs, dodge the icicle beds and pits, and reach the flag.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "unciv",
+   "name": "Unciv",
+   "match": [
+    "unciv",
+    "com.unciv.app",
+    "yairm210/unciv",
+    "unciv game",
+    "f-droid unciv"
+   ],
+   "entry": "/games/arcade/unciv.html",
+   "blurb": "Turn-based 4X in three.js: explore a fogged 9x7 continent, settle your capital, work tiles for food, hammers, gold and science, research three techs, raise warriors and archers, and take the rival capital before the forty-turn age ends.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "osu",
+   "name": "osu! Circles",
+   "match": [
+    "osu",
+    "osu! (lazer)",
+    "osu lazer",
+    "osu!(lazer)",
+    "ppy/osu",
+    "osu.ppy.sh",
+    "osu hit circles",
+    "hit circle"
+   ],
+   "entry": "/games/arcade/osu.html",
+   "blurb": "Hit-circle rhythm game in three.js: seeded beatmaps on a 120-174 BPM track, tap each circle as its approach ring closes for a 300 / 100 / 50, carry the combo and keep the health bar alive through singles, pairs, half-beat streams, jumps and ladders.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "the-last-carrot",
+   "name": "The Last Carrot",
+   "match": [
+    "the last carrot",
+    "the-last-carrot",
+    "last carrot",
+    "lastcarrot",
+    "io.github.acidefluorhydrique.carrot",
+    "acidefluorhydrique/carrot",
+    "the last carrot tower defense",
+    "the last carrot tower defence",
+    "the last carrot towerdefense"
+   ],
+   "entry": "/games/arcade/the-last-carrot.html",
+   "blurb": "The Last Carrot in three.js: critters march up a garden road to eat your one carrot and you plant towers on the beds beside it. ARROW for fast single shots, ICE to chill, BOMB for splashes, MOON for a wide gentle slow, POISON for damage that ignores armour, TESLA to arc between units — three levels each, sell for 65%, mark a rock or a tree and idle towers break it down for gold and a free bed, call the next wave early for a bonus, and hold eight waves across three gardens with the carrot's HP as your lives.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "cubit",
+   "name": "Cubit",
+   "match": [
+    "cubit",
+    "cubit arrow puzzle",
+    "arrow cube",
+    "de.taymaerz.cubit",
+    "taynotfound/cubit"
+   ],
+   "entry": "/games/arcade/cubit.html",
+   "blurb": "Cubit in three.js: a cube face covered in arrows. Tap one and it slides off along its heading unless another arrow is in the way, which costs a life. Dig out the pink arrow across 6x6, 8x8 and 10x10 cubes; every cube is generated backwards off a legal solve, so none can ship unsolvable.",
    "tier": "first-party"
   }
  ]
