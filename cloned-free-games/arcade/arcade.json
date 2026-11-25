@@ -3,6 +3,23 @@
  "note": "First-party three.js ports built on site/games/arcade/kit.js. Files ship from the site repo; this manifest only tells the catalog they exist.",
  "games": [
   {
+   "slug": "andors-trail",
+   "name": "Andor's Trail",
+   "match": [
+    "andor's trail",
+    "andors trail",
+    "andors-trail",
+    "andor-s-trail",
+    "Andor's Trail",
+    "Andor-s-Trail",
+    "com.gpl.rpg.AndorsTrail",
+    "AndorsTrailRelease/andors-trail"
+   ],
+   "entry": "/games/arcade/andors-trail.html",
+   "blurb": "A turn-based quest crawler: tap anywhere and the hero walks one tile per turn, and everything that has seen you moves too. Take Elara's job in Crossglen, cross the ford to the Hollow Cave, clear the ward off the cave floor, fight the shade and carry the Ember Stone home. Bump a creature to strike it, quaff a potion, wait to let a wolf come to you; arrows or WASD walk, R starts a new run.",
+   "tier": "first-party"
+  },
+  {
    "slug": "dots-n-boxes",
    "name": "Dots and Boxes",
    "match": [
@@ -103,6 +120,21 @@
    ],
    "entry": "/games/arcade/mines3d.html",
    "blurb": "The F-Droid 3D minesweeper, rebuilt as a three.js board: flood reveal, flags, safe first click.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "hexsweeper",
+   "name": "Hexsweeper",
+   "match": [
+    "hexsweeper",
+    "hex sweeper",
+    "hexsweeper-android",
+    "lukeslp/hexsweeper",
+    "app.hexodus.ios",
+    "Hexsweeper"
+   ],
+   "entry": "/games/arcade/hexsweeper.html",
+   "blurb": "Hexagonal minesweeper as a three.js honeycomb: 61 hexes, flood reveal, flags, chording.",
    "tier": "first-party"
   },
   {
@@ -1510,6 +1542,85 @@
    ],
    "entry": "/games/arcade/cubit.html",
    "blurb": "Cubit in three.js: a cube face covered in arrows. Tap one and it slides off along its heading unless another arrow is in the way, which costs a life. Dig out the pink arrow across 6x6, 8x8 and 10x10 cubes; every cube is generated backwards off a legal solve, so none can ship unsolvable.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "opensgolf",
+   "name": "OpenSGolf",
+   "match": [
+    "opensgolf",
+    "open sgolf",
+    "org.opensgolf.game",
+    "crspytopgn/opensgolf"
+   ],
+   "entry": "/games/arcade/opensgolf.html",
+   "blurb": "OpenSGolf in three.js: three holes of resort golf, par 3, 4 and 5, with fairway, rough, sand and water that each grab the ball differently. Drag back from the ball to set aim and power in one gesture, release to swing, then read the flight and putt out; the cup takes anything crossing inside a yard, water costs a stroke, and the scorecard counts par as you go. Keys aim, Space swings, R restarts.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "astro-loop",
+   "name": "Astro Loop",
+   "match": [
+    "astro loop",
+    "astro-loop",
+    "Astro-Loop",
+    "com.astroloop.game",
+    "PubDeer/astro-loop"
+   ],
+   "entry": "/games/arcade/astro-loop.html",
+   "blurb": "A one-finger starfield shooter: you steer, the guns aim and fire themselves at the nearest hostile. Asteroids tumble down and split, hunter, juke and rusher ships weave in and shoot back, and crystals from kills fly to you for score and repairs every eight. Clear a wave and the loop offers three upgrade cards — Needle Gun, Scatter Shot, Railgun Rounds, Combat Drone, Nano Repair, Momentum Drive, Magnet Field, Crystal Shield, Glass Cannon — and wave 10 is the loop's edge: clearing it is the win. Mouse, finger or WASD to steer, R for a new run; hull 100 with a second of grace after a hit.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "burger-party",
+   "name": "Burger Party",
+   "match": [
+    "burger party",
+    "burger-party",
+    "Burger-Party",
+    "BurgerParty",
+    "com.agateau.burgerparty",
+    "agateau/burgerparty"
+   ],
+   "entry": "/games/arcade/burger-party.html",
+   "blurb": "An order-rush behind the counter: read the ticket at the top, tap the ingredient stations to stack the burger in exactly that order, then Serve before the customer's patience bar empties. A wrong filling or an extra one scraps the burger and burns two seconds; a fast exact serve pays by ticket length plus a speed bonus. Three walkouts ends the shift, six served clears the food truck, and the diner and downtown grill ask for more orders in less time. Mouse, finger or keys 1-4 stack, Space serves, R restarts.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "arrow-escape-infinite-puzzle",
+   "name": "Arrow Escape",
+   "match": [
+    "arrow escape",
+    "arrow-escape-infinite-puzzle",
+    "Arrow-Escape",
+    "Arrow-Escape-Infinite-Puzzle",
+    "ArrowEscapeInfinitePuzzle",
+    "ArrowEscape",
+    "com.sidhant.arrowescape",
+    "sidhant947/ArrowEscape"
+   ],
+   "entry": "/games/arcade/arrow-escape-infinite-puzzle.html",
+   "blurb": "A one-mechanic unwind puzzle: the board is packed with arrows, and an arrow only leaves when every cell between it and the edge is empty — so the order you tap them in is the whole game. Tap an arrow with a clear run and it flies off the board; tap a blocked one and it costs one of your three lives. Boards are procedurally generated and always solvable, starting at 4x4 and growing to 7x7 as levels pass, with a hint that rings a legal move if you are stuck. Mouse or finger to tap, H for a hint, R for a new run.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "freebloks",
+   "name": "Freebloks",
+   "match": [
+    "freebloks",
+    "Freebloks",
+    "Freebloks-Android",
+    "shlusiak/Freebloks-Android",
+    "de.saschahlusiak.freebloks",
+    "blokish",
+    "Blokish",
+    "scoutant/blokish",
+    "org.scoutant.blokish",
+    "blokus",
+    "Blokus"
+   ],
+   "entry": "/games/arcade/freebloks.html",
+   "blurb": "Blokus, played properly: you and the cpu each hold the same 21 free polyominoes, and every piece after your first must touch one of your own at a corner and never along an edge - so the board is a race to claim corner space before it closes. Duo is 14x14 against one opponent; Classic is 20x20 with three cpu seats. Area scoring, +15 for placing all 21 pieces, +5 for saving the monomino for last. Tap a piece in the tray, tap the board to place it, Rotate/Flip to turn it, Pass when you are walled in.",
    "tier": "first-party"
   }
  ]
