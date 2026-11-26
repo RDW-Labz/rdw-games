@@ -1,7 +1,23 @@
 {
- "generated": "2026-11-23",
+ "generated": "2026-11-26",
  "note": "First-party three.js ports built on site/games/arcade/kit.js. Files ship from the site repo; this manifest only tells the catalog they exist.",
  "games": [
+  {
+   "slug": "funkin",
+   "name": "Friday Night Funkin'",
+   "match": [
+    "friday night funkin",
+    "friday-night-funkin",
+    "friday night funkin'",
+    "fnf",
+    "funkin",
+    "com.FunkinCrew.Funkin",
+    "FunkinCrew/Funkin"
+   ],
+   "entry": "/games/arcade/funkin.html",
+   "blurb": "Four lanes of arrows fall to the strum line and you rap them back on the beat. Three songs climb the bpm ladder (100 / 128 / 146), presses are judged sick, good or ok against the arrow, the hype bar drains on every miss and the crowd boos you off when it empties, and a cleared song is graded S to D with accuracy and best combo. Arrows, charts and the backing track are generated in-page. Tap a lane on the board or its pad, or use the arrow keys; R restarts, 1-3 switches song, M mutes.",
+   "tier": "first-party"
+  },
   {
    "slug": "andors-trail",
    "name": "Andor's Trail",
@@ -434,10 +450,16 @@
     "squarechess",
     "com.dataespresso.squarechess",
     "chriotte/square-chess",
-    "dataespresso"
+    "dataespresso",
+    "droidfish",
+    "droid fish",
+    "org.petero.droidfish",
+    "peterosterlund2/droidfish",
+    "droidfish chess",
+    "stockfish chess"
    ],
    "entry": "/games/arcade/bagatur-chess-engine.html",
-   "blurb": "The F-Droid chess engine rebuilt as a three.js board: play the built-in engine across five strength tiers (800 to 2200 Elo), ask for a gold-marked hint, watch the live eval, and undo straight back to your move.",
+   "blurb": "The F-Droid chess engine and the DroidFish analysis desk rebuilt as one three.js board: play the built-in engine across five strength tiers (800 to 2200 Elo), read the live analysis strip — depth-3 score plus the engine's own principal variation, every ply replayed through the page's move generator — ask for a gold-marked hint, and undo straight back to your move.",
    "tier": "first-party"
   },
   {
@@ -1621,6 +1643,122 @@
    ],
    "entry": "/games/arcade/freebloks.html",
    "blurb": "Blokus, played properly: you and the cpu each hold the same 21 free polyominoes, and every piece after your first must touch one of your own at a corner and never along an edge - so the board is a race to claim corner space before it closes. Duo is 14x14 against one opponent; Classic is 20x20 with three cpu seats. Area scoring, +15 for placing all 21 pieces, +5 for saving the monomino for last. Tap a piece in the tray, tap the board to place it, Rotate/Flip to turn it, Pass when you are walled in.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "brogue-ce",
+   "name": "Brogue CE",
+   "match": [
+    "brogue ce",
+    "brogue-ce",
+    "Brogue-CE-Android",
+    "brogue-ce-android",
+    "broguece",
+    "org.broguece.game",
+    "tyrannotorus/c-brogue-ce-android",
+    "tmewett/BrogueCE"
+   ],
+   "entry": "/games/arcade/brogue-ce.html",
+   "blurb": "A Brogue-style crawl that plays in the tab: five depths of rooms and corridors on a 21x13 tile grid, fog of war with a map that remembers what you have walked past, and a turn for every action - so the monsters move only when you do. Tap a tile beside the @ to step, bump a letter to fight it, quaff potions of healing and strength, read a teleport scroll, and take the stairs down. The Amulet of Yendor waits at the bottom; carry it back out of depth 1 to win. Mouse, finger or arrows/WASD.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "code-word",
+   "name": "Code Word",
+   "match": [
+    "peace-ray/code-word",
+    "com.peaceray.codeword",
+    "Code Word",
+    "code-word"
+   ],
+   "entry": "/games/arcade/code-word.html",
+   "blurb": "Guess the secret five-letter word in six tries. Every guess is scored in place: green means the letter is in the right spot, amber means it is in the word somewhere else, and the keyboard keeps the best colour each letter has earned so the ruled-out ones fade out. 1,945 answers are baked into the page, so it works with no network at all; a correct word opens a win sheet, six misses reveal the answer.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "codeword",
+   "name": "Cipher Square",
+   "match": [
+    "Cipher Square",
+    "cipher-square",
+    "codeword puzzle",
+    "code word puzzle"
+   ],
+   "entry": "/games/arcade/codeword.html",
+   "blurb": "A codeword: a 9x9 crossword where every square carries a number instead of a clue, and one number is always the same letter. Three grids are grown from real words, three letters are revealed to start you off, and typing a letter another number already owns swaps the two - so the mapping is the puzzle. Check marks squares that can no longer be right, Hint reveals one number, and any complete fill of real words wins.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "cube-run",
+   "name": "Cube Run",
+   "match": [
+    "Eve-146T/cube-run",
+    "cube.run",
+    "Cube Run",
+    "cube-run"
+   ],
+   "entry": "/games/arcade/cube-run.html",
+   "blurb": "A three-lane neon track runs away from the camera and a cube has to survive it. Tap the outer thirds to switch lanes, the middle to leap a low wall, swipe down to slide under an overhead bar, or swipe down in mid-air to slam back to the deck and slide on landing. Every row leaves a lane or a verb that survives it, pillars can only be dodged, and a shave over a wall pays a bonus on top of each row cleared. Ninety rows completes the circuit, then a keep-running gate reopens the endless track.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "devilutionx",
+   "name": "DevilutionX",
+   "match": [
+    "devilutionx",
+    "DevilutionX",
+    "devilution",
+    "Devilution",
+    "diasurgical/devilutionX",
+    "diasurgical/devilution",
+    "com.serwersoft.devilutionx"
+   ],
+   "entry": "/games/arcade/devilutionx.html",
+   "blurb": "A Diablo-style crawl that plays in the tab: five depths under Tristram on a 23x17 tile grid of rooms and corridors, real-time and seen from above. Tap floor to walk there, tap a monster to fight it, tap the stairs to go deeper. Fallen ones, skeletons, goat men and overlords wake when you get close and chase you on their own clock, so standing still is how you die. Kills pay xp and leave gold where the body fell; levels heal you, potions come off the bottom bar, and the Butcher waits on depth 5 — put him down to win. Mouse, finger or arrows/WASD.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "feudal-tactics",
+   "name": "Feudal Tactics",
+   "match": [
+    "feudal tactics",
+    "feudal-tactics",
+    "feudaltactics",
+    "sesu8642/feudaltactics",
+    "de.sesu8642.feudaltactics"
+   ],
+   "entry": "/games/arcade/feudal-tactics.html",
+   "blurb": "Feudal Tactics in three.js: a procedurally generated hex island, troops of strength 1 to 4, and a realm only as safe as the strongest troop beside it - a hex is shielded by the best friendly troop next door and falls only to a strictly stronger one. Take the neutral land, tax it, pay the levies, and hold 80 % of the contested island before round 60.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "freeorion",
+   "name": "FreeOrion",
+   "match": [
+    "freeorion",
+    "FreeOrion",
+    "free orion",
+    "free-orion",
+    "freeorion/freeorion",
+    "org.freeorion.freeorion"
+   ],
+   "entry": "/games/arcade/freeorion.html",
+   "blurb": "FreeOrion in three.js: a turn-based galactic conquest on thirteen procedurally drawn stars. Every fleet crosses one starlane a turn, a colony ship settles an unclaimed world, the capital yard spends industry on warship flotillas, and any world you hold with no rival fleet in orbit is yours. Defend at home for a bonus, hit the rival capital for the war, or simply hold 60 % of the galaxy.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "i-keep-having-this-dream",
+   "name": "I Keep Having This Dream",
+   "match": [
+    "i keep having this dream",
+    "i-keep-having-this-dream",
+    "ikeephavingthisdream",
+    "ikhtd",
+    "com.fireflame.dream",
+    "fireflame/dream"
+   ],
+   "entry": "/games/arcade/i-keep-having-this-dream.html",
+   "blurb": "I Keep Having This Dream in three.js: the dream deals you three tiles and you lay one on the next step of a path out of the cycle. Beasts cost hp and, worse, chase - every round of a fight is a slot your pursuer closes - while stars, wards and dew raise attack, defence and hp, and mist is quiet ground. Lay sixteen tiles and you walk through the gate; three cycles survived and you wake up. Tap a card or press 1-3.",
    "tier": "first-party"
   }
  ]
