@@ -1,21 +1,68 @@
 {
- "generated": "2026-11-26",
+ "generated": "2026-11-27",
  "note": "First-party three.js ports built on site/games/arcade/kit.js. Files ship from the site repo; this manifest only tells the catalog they exist.",
  "games": [
   {
-   "slug": "funkin",
-   "name": "Friday Night Funkin'",
+   "slug": "2048",
+   "name": "2048",
    "match": [
-    "friday night funkin",
-    "friday-night-funkin",
-    "friday night funkin'",
-    "fnf",
-    "funkin",
-    "com.FunkinCrew.Funkin",
-    "FunkinCrew/Funkin"
+    "2048",
+    "2048 privacy friendly",
+    "privacy friendly 2048",
+    "2048 open fun game",
+    "2048-open-fun-game",
+    "org.andstatus.game2048",
+    "game2048"
    ],
-   "entry": "/games/arcade/funkin.html",
-   "blurb": "Four lanes of arrows fall to the strum line and you rap them back on the beat. Three songs climb the bpm ladder (100 / 128 / 146), presses are judged sick, good or ok against the arrow, the hype bar drains on every miss and the crowd boos you off when it empties, and a cleared song is graded S to D with accuracy and best combo. Arrows, charts and the backing track are generated in-page. Tap a lane on the board or its pad, or use the arrow keys; R restarts, 1-3 switches song, M mutes.",
+   "entry": "/games/arcade/2048.html",
+   "blurb": "The classic, rebuilt in three.js with animated tiles and undo.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "Slitherlink-Logic-Loop-Puzzle",
+   "name": "Slitherlink",
+   "match": [
+    "slitherlink-logic-loop-puzzle",
+    "Slitherlink-Logic-Loop-Puzzle",
+    "slitherlink logic loop puzzle",
+    "slitherlink",
+    "com.sidhant.slitherlink",
+    "sidhant947/slitherlink"
+   ],
+   "entry": "/games/arcade/slitherlink.html",
+   "blurb": "Draw one closed loop through a dot lattice: tap an edge to draw a line, tap again to cross it out, and every number must count exactly the lines touching its cell. 4x4, 5x5 and 6x6 boards; five impossible lines ends the run, and Reveal shows the answer.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "aaaaxy",
+   "name": "AAAAXY",
+   "match": [
+    "aaaa xy",
+    "aaaaxy",
+    "aaa-xy",
+    "aaaaaxy",
+    "io.github.divverent.aaaaxy",
+    "divverent/aaaaxy",
+    "gravity flip platformer"
+   ],
+   "entry": "/games/arcade/aaaaxy.html",
+   "blurb": "A side-view tile platformer with a reversible gravity vector: run, jump the spikes, flip gravity to walk on the ceiling, gather every gem and the door unseals. Three levels of wicked weirdness, on-screen pad plus arrows/WASD.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "alex-vs-bus",
+   "name": "Alex vs Bus: The Race",
+   "match": [
+    "alex vs bus",
+    "alex-vs-bus",
+    "alexvsbus",
+    "alex vs bus the race",
+    "alex-vs-bus-the-race",
+    "com.github.m374lx.alexvsbus",
+    "m374lx/alexvsbus"
+   ],
+   "entry": "/games/arcade/alex-vs-bus.html",
+   "blurb": "A side-view street runner: sprint for the 6:40, hop crates, banana peels and open holes in the pavement, grab the silver and gold coins and reach the bus stop before the clock dies. Three stops, on-screen pad plus arrows/WASD and tap-to-jump.",
    "tier": "first-party"
   },
   {
@@ -36,397 +83,85 @@
    "tier": "first-party"
   },
   {
-   "slug": "dots-n-boxes",
-   "name": "Dots and Boxes",
+   "slug": "andropolis",
+   "name": "Andropolis",
    "match": [
-    "dots and boxes",
-    "dots-n-boxes",
-    "dots n boxes",
-    "dotsandboxes",
-    "kaesekaestchen",
-    "käsekästchen",
-    "kaesekastchen",
-    "de.stefan_oltmann.kaesekaestchen",
-    "stefanoltmann/kaesekaestchen",
-    "dotted box game"
+    "andropolis",
+    "io.github.ds17f.andropolis",
+    "ds17f/andropolis",
+    "micropolis"
    ],
-   "entry": "/games/arcade/dots-n-boxes.html",
-   "blurb": "Pen-and-paper Dots and Boxes in three.js: tap a gap to draw a line, close the fourth side of a box to claim it and go again, 4x4 to 6x6 boards against a greedy-safety CPU or a second player on one screen.",
+   "entry": "/games/arcade/andropolis.html",
+   "blurb": "A pocket city-builder: zone roads, homes, shops, industry and power on a 9x9 plot, watch the town grow year by year as jobs pull in people and people pull in shops, and steer the books to 100 residents before the budget runs out. Tap a lot to build, tap Land/Home/Shop/Works/Power to switch tools.",
    "tier": "first-party"
   },
   {
-   "slug": "life-rpg",
-   "name": "Life RPG",
+   "slug": "anuto-td",
+   "name": "Anuto TD",
    "match": [
-    "Life RPG",
-    "Life-RPG",
-    "life-rpg",
-    "life rpg",
-    "life_rpg",
-    "com.arcom.life_rpg",
-    "hellArcom/life_rpg"
+    "anuto td",
+    "anuto-td",
+    "anuto",
+    "ch.logixisland.anuto",
+    "logixisland/anuto",
+    "anuto tower defense",
+    "anuto tower defence",
+    "anuto towerdefense"
    ],
-   "entry": "/games/arcade/life-rpg.html",
-   "blurb": "Turn a day of real life into quests: six plates, one energy budget, tiers from Trivial to Epic, gold plates that pay double, and a 999-level title climb.",
+   "entry": "/games/arcade/anuto-td.html",
+   "blurb": "Anuto TD in three.js: war machines roll up a winding road toward your base and you buy towers on the plots beside it. GUN for rapid fire, CANNON for splashes, FROST to chill them, TESLA to arc between units — three levels each, sell for half, call the next wave early for a bonus, and hold twelve waves before the base drains.",
    "tier": "first-party"
   },
   {
-   "slug": "sokoban",
-   "name": "Sokoban",
+   "slug": "arrow-escape-infinite-puzzle",
+   "name": "Arrow Escape",
    "match": [
-    "sokoban",
-    "sokobang"
+    "arrow escape",
+    "arrow-escape-infinite-puzzle",
+    "Arrow-Escape",
+    "Arrow-Escape-Infinite-Puzzle",
+    "ArrowEscapeInfinitePuzzle",
+    "ArrowEscape",
+    "com.sidhant.arrowescape",
+    "sidhant947/ArrowEscape"
    ],
-   "entry": "/games/arcade/sokoban.html",
-   "blurb": "10 hand-checked crate levels, 3D blocks, undo and push counter.",
+   "entry": "/games/arcade/arrow-escape-infinite-puzzle.html",
+   "blurb": "A one-mechanic unwind puzzle: the board is packed with arrows, and an arrow only leaves when every cell between it and the edge is empty — so the order you tap them in is the whole game. Tap an arrow with a clear run and it flies off the board; tap a blocked one and it costs one of your three lives. Boards are procedurally generated and always solvable, starting at 4x4 and growing to 7x7 as levels pass, with a hint that rings a legal move if you are stuck. Mouse or finger to tap, H for a hint, R for a new run.",
    "tier": "first-party"
   },
   {
-   "slug": "shogi",
-   "name": "Shogi",
+   "slug": "astro-loop",
+   "name": "Astro Loop",
    "match": [
-    "Shogi",
-    "shogi",
-    "SeiShinGakuen ShougiBu",
-    "清正学園将棋部 (SeiShinGakuen ShougiBu)",
-    "seishingakuen_shougibu",
-    "seishingakuen-shougibu",
-    "org.seishingakuen.shougibu",
-    "hiroshiyui/SeiShinGakuen_ShougiBu"
+    "astro loop",
+    "astro-loop",
+    "Astro-Loop",
+    "com.astroloop.game",
+    "PubDeer/astro-loop"
    ],
-   "entry": "/games/arcade/shogi.html",
-   "blurb": "Full-rule 9x9 shogi on three.js: promotion, drops, nifu, uchifuzume, check and mate, with a searching opponent and undo.",
+   "entry": "/games/arcade/astro-loop.html",
+   "blurb": "A one-finger starfield shooter: you steer, the guns aim and fire themselves at the nearest hostile. Asteroids tumble down and split, hunter, juke and rusher ships weave in and shoot back, and crystals from kills fly to you for score and repairs every eight. Clear a wave and the loop offers three upgrade cards — Needle Gun, Scatter Shot, Railgun Rounds, Combat Drone, Nano Repair, Momentum Drive, Magnet Field, Crystal Shield, Glass Cannon — and wave 10 is the loop's edge: clearing it is the win. Mouse, finger or WASD to steer, R for a new run; hull 100 with a second of grace after a hit.",
    "tier": "first-party"
   },
   {
-   "slug": "2048",
-   "name": "2048",
+   "slug": "backgammon",
+   "name": "Clavierhaus Backgammon",
    "match": [
-    "2048",
-    "2048 privacy friendly",
-    "privacy friendly 2048",
-    "2048 open fun game",
-    "2048-open-fun-game",
-    "org.andstatus.game2048",
-    "game2048"
+    "CBG Pro — Clavierhaus Backgammon",
+    "CBG Pro - Clavierhaus Backgammon",
+    "CBG Pro",
+    "Clavierhaus Backgammon",
+    "CBG----Clavierhaus-BackGammon",
+    "clavierhaus-backgammon",
+    "backgammon",
+    "Backgammon",
+    "com.clavierhaus.gnubg",
+    "clavierhaus/gnubg-android",
+    "gnubg-android",
+    "gnubg"
    ],
-   "entry": "/games/arcade/2048.html",
-   "blurb": "The classic, rebuilt in three.js with animated tiles and undo.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "mines3d",
-   "name": "Mines3D",
-   "match": [
-    "mines3d",
-    "mines",
-    "minesweeper",
-    "Minesweeper---Antimine",
-    "Minesweeper-Antimine",
-    "Minesweeper Antimine",
-    "Antimine",
-    "antimine-android",
-    "lucasnlm/antimine-android",
-    "dev.lucanlm.antimine",
-    "Minesweeper-Privacy-Friendly",
-    "Minesweeper Privacy Friendly",
-    "Privacy Friendly Minesweeper",
-    "privacyfriendlyminesweeper",
-    "org.secuso.privacyfriendlyminesweeper"
-   ],
-   "entry": "/games/arcade/mines3d.html",
-   "blurb": "The F-Droid 3D minesweeper, rebuilt as a three.js board: flood reveal, flags, safe first click.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "hexsweeper",
-   "name": "Hexsweeper",
-   "match": [
-    "hexsweeper",
-    "hex sweeper",
-    "hexsweeper-android",
-    "lukeslp/hexsweeper",
-    "app.hexodus.ios",
-    "Hexsweeper"
-   ],
-   "entry": "/games/arcade/hexsweeper.html",
-   "blurb": "Hexagonal minesweeper as a three.js honeycomb: 61 hexes, flood reveal, flags, chording.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "brick-blast",
-   "name": "Brick Blast",
-   "match": [
-    "brick blast",
-    "brick-blast",
-    "brickblast",
-    "breakout-71",
-    "breakout 71",
-    "me.lecaro.breakout",
-    "breakout"
-   ],
-   "entry": "/games/arcade/brick-blast.html",
-   "blurb": "The F-Droid brick breaker, rebuilt as a three.js court: 35 bricks, paddle bounce angles, waves.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "lichess",
-   "name": "Lichess",
-   "match": [
-    "lichess",
-    "lichess mobile",
-    "org.lichess.mobilev2",
-    "lila",
-    "lichess (lila)",
-    "lichess-org/lila",
-    "justchess",
-    "just chess",
-    "com.alaskalinuxuser.justchess",
-    "alaskalinuxuser/app_justchess",
-    "moveapiece",
-    "moveapiece-offline-chess",
-    "move a piece",
-    "de.schliweb.moveapiece",
-    "egdels/moveapiece"
-   ],
-   "entry": "/games/arcade/lichess.html",
-   "blurb": "The Lichess board, rebuilt in three.js: click-or-tap chess against a built-in opponent, with check, mate, castling and undo.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "memory",
-   "name": "Memory",
-   "match": [
-    "memory",
-    "candy memory",
-    "candy-memory",
-    "se.tube42.kidsmem.android",
-    "learning memory",
-    "learning-memory",
-    "eu.quelltext.memory",
-    "libre memory game",
-    "libre-memory-game",
-    "org.quentin_bettoum.librememorygame",
-    "com.sanskritbasics.memory"
-   ],
-   "entry": "/games/arcade/memory.html",
-   "blurb": "The concentration card game, rebuilt in three.js: flip two cards, keep the pairs, four board sizes and a flip budget that can run out.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "checkers",
-   "name": "Checkers",
-   "match": [
-    "checkers",
-    "draughts",
-    "privacy friendly checkers",
-    "checkers privacy friendly"
-   ],
-   "entry": "/games/arcade/checkers.html",
-   "blurb": "The F-Droid checkers board, rebuilt in three.js: click-or-tap draughts against a built-in opponent, compulsory captures, chain jumps and three levels.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "sudoku",
-   "name": "Sudoku",
-   "match": [
-    "sudoku",
-    "hand drawn sudoku",
-    "sudoku hand drawn",
-    "libresudoku",
-    "open sudoku",
-    "lantern sudoku",
-    "daybook",
-    "daybook puzzles",
-    "daybook puzzles daily sudoku",
-    "puzzles daily sudoku",
-    "com.joebywan.daybook",
-    "joebywan/daybook",
-    "sudoku-privacy-friendly",
-    "sudoku you",
-    "sudoku-you",
-    "org.secuso.privacyfriendlysudoku",
-    "com.galaxyrio.sudokusolver",
-    "privacy friendly sudoku"
-   ],
-   "entry": "/games/arcade/sudoku.html",
-   "blurb": "The F-Droid sudoku, rebuilt in three.js: click-or-tap boards in three levels, mistake counter, timer and win detection.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "flow",
-   "name": "Flow",
-   "match": [
-    "flow",
-    "flow free",
-    "flow connect dots puzzle",
-    "connect dots puzzle",
-    "MA-Pipes",
-    "ma-pipes",
-    "mapipes",
-    "com.vayunmathur.games.pipes"
-   ],
-   "entry": "/games/arcade/flow.html",
-   "blurb": "The connect-the-dots pipe puzzle, rebuilt in three.js: drag coloured pipes between matching dots, fill every cell, three puzzles.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "stonewars",
-   "name": "Stone Wars",
-   "match": [
-    "stone wars",
-    "block puzzle stone wars",
-    "block puzzle - stone wars",
-    "blockpuzzle stone wars",
-    "de.mwvb.blockpuzzle"
-   ],
-   "entry": "/games/arcade/stonewars.html",
-   "blurb": "The F-Droid block puzzle, rebuilt in three.js: drag polyomino slabs onto a 10×10 field, clear full rows and columns for combos, and free each planet before the tray stops fitting.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "tathams-puzzles",
-   "name": "Simon Tatham's Puzzles",
-   "match": [
-    "simon tatham's puzzles",
-    "simon tathams puzzles",
-    "simon-tatham-s-puzzles",
-    "tatham's puzzles",
-    "tathams puzzles",
-    "sgtpuzzles",
-    "chrisboyle sgtpuzzles",
-    "name.boyle.chris.sgtpuzzles"
-   ],
-   "entry": "/games/arcade/tathams-puzzles.html",
-   "blurb": "The reference puzzle compendium, ported to three.js: Fifteen, Twiddle and Flood on one 3D board — slide, rotate and flood, all procedurally scrambled.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "open-chaos-chess",
-   "name": "Open Chaos Chess",
-   "match": [
-    "open chaos chess",
-    "open-chaos-chess",
-    "openchaoschess",
-    "dev.corruptedark.openchaoschess",
-    "chaos chess"
-   ],
-   "entry": "/games/arcade/open-chaos-chess.html",
-   "blurb": "The F-Droid chaos variant, rebuilt in three.js: tap a piece and the board picks one of its legal moves at random, for both sides. No check, no castling — take every enemy piece to win, with a bloodthirst mode and a knights-only board.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "scid-on-the-go",
-   "name": "Scid on the Go",
-   "match": [
-    "scid on the go",
-    "scid-on-the-go",
-    "scid",
-    "org.scid.android"
-   ],
-   "entry": "/games/arcade/scid-on-the-go.html",
-   "blurb": "The Android chess database, rebuilt as a three.js game viewer: four short games in the database, step or auto-play through them, tap any move in the list to jump straight to that position, and flip the board.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "flowit-block-puzzle",
-   "name": "Flowit — Block Puzzle",
-   "match": [
-    "flowit",
-    "flowit block puzzle",
-    "flowit — block puzzle",
-    "flowit-block-puzzle",
-    "com.bytehamster.flowitgame",
-    "flowit-game/flowit"
-   ],
-   "entry": "/games/arcade/flowit-block-puzzle.html",
-   "blurb": "The F-Droid grid puzzler, rebuilt in three.js: every cell must end the colour of its border, and each tap pushes a block's colour outward — arrows in one direction, a flood through its own colour, or a bomb into the ring around it. Six hand-tuned levels, all proven solvable.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "mahjong-scoring-compass",
-   "name": "Mahjong Scoring Compass",
-   "match": [
-    "mahjong scoring compass",
-    "mahjong-scoring-compass",
-    "mahjong scoreboard",
-    "mahjong scoring",
-    "mahjongscore",
-    "com.kylefreed.mahjongscore",
-    "kj7qlv/mahjongscore"
-   ],
-   "entry": "/games/arcade/mahjong-scoring-compass.html",
-   "blurb": "The Riichi score compass, rebuilt as a three.js table: tap a seat for the winner and the discarder, set han and fu, and it pays the hand — dealer repeat, honba, riichi sticks, wind rotation and final standings over a full hanchan.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "matrix-puzzle",
-   "name": "Matrix Puzzle",
-   "match": [
-    "matrix puzzle",
-    "matrix-puzzle",
-    "matrixpuzzle",
-    "Matrix-Puzzle",
-    "com.sidhant.matrixpuzzle",
-    "sidhant947/Matrix-Puzzle"
-   ],
-   "entry": "/games/arcade/matrix-puzzle.html",
-   "blurb": "The F-Droid logic-grid puzzle, rebuilt in three.js: six flats of three, four or five floors, three categories each, and a clue list that fits exactly one arrangement. Pick a chip, tap a floor, and every clue turns green or red as you go.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "go-board",
-   "name": "Go 9×9",
-   "match": [
-    "gobandroid",
-    "gobandroid ai",
-    "gobandroid-ai-gnugo",
-    "gobandroid ai gnugo",
-    "gobandroidhd.ai.gnugo",
-    "org.ligi.gobandroid_hd",
-    "org.ligi.gobandroidhd.ai.gnugo",
-    "ligi/gobandroid",
-    "ligi/gobandroid-ai-gnugo",
-    "gnugo",
-    "baduk",
-    "weiqi"
-   ],
-   "entry": "/games/arcade/go-board.html",
-   "blurb": "A nine by nine goban in three.js: tap or click an intersection and the machine answers. Real capture, ko and suicide rules with area scoring, pass, undo and resign.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "gomoku",
-   "name": "Gomoku",
-   "match": [
-    "gomoku",
-    "alphazero-gomoku",
-    "alphazero gomoku",
-    "alphazero_gomoku",
-    "junxiaosong/alphazero_gomoku",
-    "five in a row"
-   ],
-   "entry": "/games/arcade/gomoku.html",
-   "blurb": "Fifteen by fifteen, click-or-tap five in a row against a heuristic opponent with undo and a last-move marker.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "minetest-game",
-   "name": "Block World",
-   "match": [
-    "minetest game",
-    "minetest-game",
-    "minetest",
-    "minetest_game",
-    "minetestgame",
-    "luanti",
-    "luanti game",
-    "freeminer",
-    "org.freeminer.freeminer",
-    "voxel sandbox"
-   ],
-   "entry": "/games/arcade/minetest-game.html",
-   "blurb": "The Minetest sandbox rebuilt as a three.js voxel island: tap to mine blocks into your pack, build mode puts them back, and sand marks the gold seams you have to dig out before the pickaxe dulls.",
+   "entry": "/games/arcade/backgammon.html",
+   "blurb": "The whole board as a table instead of an engine: fifteen checkers a side on the standard 24 points, tap a checker to lift it and a gold dot to move it. Doubles deal four dice, a blot goes to the bar and must re-enter before anything else moves, and you can only bear off once every checker is in the home board — with the furthest-checker rule for an overshooting die. You play the bone side moving 24 → 1 against a one-ply engine that makes points and hits back; first to bear off all fifteen takes it. The board turns to run tall on a portrait phone. No install, no account, no analysis suite — just the game.",
    "tier": "first-party"
   },
   {
@@ -463,18 +198,72 @@
    "tier": "first-party"
   },
   {
-   "slug": "go-to-sleep",
-   "name": "Go To Sleep",
+   "slug": "balloons-shooter",
+   "name": "Non-Stop Balloons",
    "match": [
-    "go-to-sleep",
-    "go to sleep",
-    "gotosleep",
-    "go to sleep android",
-    "com.kaeruct.gotosleep",
-    "kaeruct/go-to-sleep-android"
+    "Non-Stop Balloons Shooter",
+    "Non-Stop-Balloons-Shooter",
+    "non-stop-balloons-shooter",
+    "Non Stop Balloons Shooter",
+    "non stop balloons shooter",
+    "balloons-shooter",
+    "Non-Stop Balloons",
+    "com.stoptheballs",
+    "stoptheballs",
+    "MetatransApps/Android_APK_2DBalloons",
+    "Android_APK_2DBalloons"
    ],
-   "entry": "/games/arcade/go-to-sleep.html",
-   "blurb": "The count-sheep ritual as a three.js night pasture: tap or click and the next sheep vaults the fence, every count refills the sleepiness meter, and 20 quiet sheep put you under — let the meter run dry and the flock wanders off.",
+   "entry": "/games/arcade/balloons-shooter.html",
+   "blurb": "A round arena with a crossbow at the centre: balloons drift in from the rim on their own bearing, and tapping where a balloon is sends an arrow out along that line. Plain balloons score 10, swift gold 15, heavy red needs two hits and pays 20. Five lives, six waves, and every balloon that crosses the red line costs one.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "battle-table",
+   "name": "Battle Table",
+   "match": [
+    "Battle Table",
+    "battle-table",
+    "WR Battle Sim",
+    "WR-Battle-Sim",
+    "wr-battle-sim",
+    "WRBattleSim",
+    "wrbattlesim",
+    "com.wrbattlesim",
+    "terminator-ger/wrsim"
+   ],
+   "entry": "/games/arcade/battle-table.html",
+   "blurb": "The War Room dice battle calculator turned into a game you play instead of a sheet you read: pick nine unit types inside a 34-point muster, choose an offensive or entrenched posture, then roll 12-sided dice through three air rounds and three ground rounds against three escalating garrisons. Every die face names a unit type it hits and the wild faces only kill for the side with more land and sea types in the field, so a broad force beats a bigger single stack. Survivors carry into the next objective; two wins take the area.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "beat-feet",
+   "name": "Beat Feet",
+   "match": [
+    "beat feet",
+    "beat-feet",
+    "beatfeet",
+    "beat feet rhythm runner",
+    "com.serwylo.beatgame",
+    "beat-game/beat-game"
+   ],
+   "entry": "/games/arcade/beat-feet.html",
+   "blurb": "A three-lane rhythm runner: the hazards are generated on the track's own beat grid, so every pillar, hurdle and beam lands on a beat. Jump the low hurdles, duck the high beams, step around the pillars, hold the combo for 64 beats.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "bim",
+   "name": "Bim!",
+   "match": [
+    "bim",
+    "bim!",
+    "bim.app",
+    "j-jorge/bim",
+    "bomberman",
+    "bomber man",
+    "bomberblitz"
+   ],
+   "entry": "/games/arcade/bim.html",
+   "blurb": "Bim! in three.js: a crate-filled lattice, one cpu rival and a bag of bombs. Blasts run four ways, stop at stone, eat the first crate they reach and chain through other bombs — clear the crates, collect the powerups and be the last bomber standing in three arenas.",
    "tier": "first-party"
   },
   {
@@ -492,17 +281,136 @@
    "tier": "first-party"
   },
   {
-   "slug": "club-maze",
-   "name": "Club Maze",
+   "slug": "block-drop",
+   "name": "Block Drop",
    "match": [
-    "club maze",
-    "collective club maze",
-    "collective-club-maze",
-    "com.qwde.ccm",
-    "ricochet robots maze"
+    "block drop",
+    "blockdrop",
+    "blockdrop block puzzle",
+    "blockdrop-block-puzzle",
+    "com.blockdrop.game",
+    "blockstv",
+    "com.alexcantini.blockstv",
+    "blocks tv",
+    "block puzzle falling",
+    "tetris"
    ],
-   "entry": "/games/arcade/club-maze.html",
-   "blurb": "Slides-until-a-wall maze: tap, swipe or use the arrows to stop on every gold ring inside par.",
+   "entry": "/games/arcade/block-drop.html",
+   "blurb": "A ten-wide falling-block well in three.js: seven tetrominoes with wall kicks, a 7-bag randomiser, hold and ghost, line-clear scoring that scales with level, and a five-level run to clear.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "brick-blast",
+   "name": "Brick Blast",
+   "match": [
+    "brick blast",
+    "brick-blast",
+    "brickblast",
+    "breakout-71",
+    "breakout 71",
+    "me.lecaro.breakout",
+    "breakout"
+   ],
+   "entry": "/games/arcade/brick-blast.html",
+   "blurb": "The F-Droid brick breaker, rebuilt as a three.js court: 35 bricks, paddle bounce angles, waves.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "brogue-ce",
+   "name": "Brogue CE",
+   "match": [
+    "brogue ce",
+    "brogue-ce",
+    "Brogue-CE-Android",
+    "brogue-ce-android",
+    "broguece",
+    "org.broguece.game",
+    "tyrannotorus/c-brogue-ce-android",
+    "tmewett/BrogueCE"
+   ],
+   "entry": "/games/arcade/brogue-ce.html",
+   "blurb": "A Brogue-style crawl that plays in the tab: five depths of rooms and corridors on a 21x13 tile grid, fog of war with a map that remembers what you have walked past, and a turn for every action - so the monsters move only when you do. Tap a tile beside the @ to step, bump a letter to fight it, quaff potions of healing and strength, read a teleport scroll, and take the stairs down. The Amulet of Yendor waits at the bottom; carry it back out of depth 1 to win. Mouse, finger or arrows/WASD.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "bubble-shooter",
+   "name": "Bubble Shooter",
+   "match": [
+    "bubble-shooter",
+    "bubble shooter",
+    "Bubble-Shooter",
+    "Bubble Shooter",
+    "com.sidhant.bubbleshooter",
+    "sidhant947/BubbleShooter",
+    "bubble-night",
+    "bubble night",
+    "pt.tiago.bubblenight",
+    "syscallbrain/bubble-night"
+   ],
+   "entry": "/games/arcade/bubble-shooter.html",
+   "blurb": "Aim and bounce: click or tap where the shot should go and the bubble ricochets off the side walls into the cluster. Three or more of a colour pop, anything left hanging drops, and clearing the board wins — but bubbles that settle on the red line end the run. R restarts, Z undoes; the same board also answers the Bubble Night card (hex aim/bounce/match-3, orbits as levels).",
+   "tier": "first-party"
+  },
+  {
+   "slug": "burger-party",
+   "name": "Burger Party",
+   "match": [
+    "burger party",
+    "burger-party",
+    "Burger-Party",
+    "BurgerParty",
+    "com.agateau.burgerparty",
+    "agateau/burgerparty"
+   ],
+   "entry": "/games/arcade/burger-party.html",
+   "blurb": "An order-rush behind the counter: read the ticket at the top, tap the ingredient stations to stack the burger in exactly that order, then Serve before the customer's patience bar empties. A wrong filling or an extra one scraps the burger and burns two seconds; a fast exact serve pays by ticket length plus a speed bonus. Three walkouts ends the shift, six served clears the food truck, and the diner and downtown grill ask for more orders in less time. Mouse, finger or keys 1-4 stack, Space serves, R restarts.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "cards-with-cats",
+   "name": "Cards With Cats",
+   "match": [
+    "cards with cats",
+    "cards-with-cats",
+    "cardswithcats",
+    "cards with cats — hearts, spades, oh hell",
+    "com.dozingcatsoftware.cardswithcats",
+    "dozingcat/cardswithcats",
+    "hearts",
+    "oh hell",
+    "trick taking card game"
+   ],
+   "entry": "/games/arcade/cards-with-cats.html",
+   "blurb": "Trick-taking on a three.js card table: Hearts (pass three, follow suit, no hearts until broken, the queen of spades costs 13, shoot the moon for 26 to every rival, first to 50 with the lowest score winning) and Oh Hell (six rounds of 6 down to 1 card, exact-bid scoring). Three named rivals play the same rules you do.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "cat-a-shooter",
+   "name": "Cat a Shooter",
+   "match": [
+    "Cat a Shooter",
+    "Cat-a-Shooter",
+    "Cat-a-shooter",
+    "cat-a-shooter",
+    "catashoot",
+    "org.xolatgames.catashoot",
+    "xolatgames/cat-a-shooter"
+   ],
+   "entry": "/games/arcade/cat-a-shooter.html",
+   "blurb": "The F-Droid saucer shooter rebuilt in three.js: the cat's ship slides along the bottom and fires up its column on its own while six waves of saucers drift down, some shooting back and some diving. Three lives, a short grace after each hit, 25 points a wave and a best run kept on the machine.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "checkers",
+   "name": "Checkers",
+   "match": [
+    "checkers",
+    "draughts",
+    "privacy friendly checkers",
+    "checkers privacy friendly"
+   ],
+   "entry": "/games/arcade/checkers.html",
+   "blurb": "The F-Droid checkers board, rebuilt in three.js: click-or-tap draughts against a built-in opponent, compulsory captures, chain jumps and three levels.",
    "tier": "first-party"
   },
   {
@@ -545,389 +453,156 @@
    "tier": "first-party"
   },
   {
-   "slug": "matewave",
-   "name": "Matewave",
+   "slug": "chip-defense",
+   "name": "Chip Defense",
    "match": [
-    "matewave",
-    "mate wave",
-    "cc.skysparkle.matewave",
-    "kalarina-bit/matewave",
-    "skysparkle",
-    "matewave chess",
-    "matewave — chess, tactics & openings"
+    "chip defense",
+    "chip-defense",
+    "chipdefense",
+    "cpu defense",
+    "cpu-defence",
+    "cpudefense",
+    "de.chadenas.cpudefense",
+    "ochadenas/cpudefense"
    ],
-   "entry": "/games/arcade/matewave.html",
-   "blurb": "The F-Droid chess app rebuilt in three.js with three modes on one board: play the built-in engine across five strength tiers (800 to 2200 Elo) with live eval, hint and undo; solve seven offline-proven mating tactics (mates in 1 and 2); or learn four opening lines (Italian, Ruy Lopez, Queen's Gambit, Najdorf) played to the book.",
+   "entry": "/games/arcade/chip-defense.html",
+   "blurb": "Chip Defense in three.js: bits and bytes march down the circuit tracks toward the processor and you fill the empty sockets with logic gates. SUB chips away, SHR halves a unit's speed, MEM reaches across the die, ACC splashes — three upgrade levels each, twelve waves, and a core that only takes so many leaks.",
    "tier": "first-party"
   },
   {
-   "slug": "tile-match",
-   "name": "Tile Match",
+   "slug": "club-maze",
+   "name": "Club Maze",
    "match": [
-    "tile-match",
-    "tile match",
-    "tilematch",
-    "tile-match-3",
-    "infrared.tilematch",
-    "infrared-developer/tile-match"
+    "club maze",
+    "collective club maze",
+    "collective-club-maze",
+    "com.qwde.ccm",
+    "ricochet robots maze"
    ],
-   "entry": "/games/arcade/tile-match.html",
-   "blurb": "A 78-tile three-layer pile in three.js: tap a tile with nothing on top to send it to the seven-slot bar, where three of a kind clear. Every deal is peeled backwards off the full pile in whole triples, so it can always be cleared; seven in the bar with no match ends the run.",
+   "entry": "/games/arcade/club-maze.html",
+   "blurb": "Slides-until-a-wall maze: tap, swipe or use the arrows to stop on every gold ring inside par.",
    "tier": "first-party"
   },
   {
-   "slug": "mahjong-solitaire",
-   "name": "Mahjong Solitaire",
+   "slug": "code-word",
+   "name": "Code Word",
    "match": [
-    "mahjong-solitaire",
-    "mahjong solitaire",
-    "fairy-mahjong",
-    "fairy mahjong",
-    "fairymahjong",
-    "com.fairytrick.fairymahjong",
-    "fairytrick/fairymahjong",
-    "com.sidhant.mahjong",
-    "sidhant947/mahjong"
+    "peace-ray/code-word",
+    "com.peaceray.codeword",
+    "Code Word",
+    "code-word"
    ],
-   "entry": "/games/arcade/mahjong-solitaire.html",
-   "blurb": "A 136-tile five-layer pile in three.js: click or tap two matching free tiles (nothing on top, open on the left or right) to clear them. Every deal is dealt backwards from an empty pile, so it is always clearable — hint lights a real pair, and a dead end says so.",
+   "entry": "/games/arcade/code-word.html",
+   "blurb": "Guess the secret five-letter word in six tries. Every guess is scored in place: green means the letter is in the right spot, amber means it is in the word somewhere else, and the keyboard keeps the best colour each letter has earned so the ruled-out ones fade out. 1,945 answers are baked into the page, so it works with no network at all; a correct word opens a win sheet, six misses reveal the answer.",
    "tier": "first-party"
   },
   {
-   "slug": "fish-rings-puzzle",
-   "name": "Fish Rings",
+   "slug": "codeword",
+   "name": "Cipher Square",
    "match": [
-    "fish-rings-puzzle",
-    "fish rings puzzle",
-    "Fish-Rings-Puzzle",
-    "fish rings",
-    "fishrings",
-    "eu.veldsoft.fish.rings",
-    "FishRingsForAndroid",
-    "velbazhdsoftwarellc/fishringsforandroid"
+    "Cipher Square",
+    "cipher-square",
+    "codeword puzzle",
+    "code word puzzle"
    ],
-   "entry": "/games/arcade/fish-rings-puzzle.html",
-   "blurb": "Three rings of twelve fish in a three-way Venn: tap a ring’s ⟳/⟲ handle and it turns one notch, handing the fish on every crossing to its neighbour. Line each ring up in one colour — dealt only by legal turns, so every board is solvable, and the 72-turn budget is the clock you beat.",
+   "entry": "/games/arcade/codeword.html",
+   "blurb": "A codeword: a 9x9 crossword where every square carries a number instead of a clue, and one number is always the same letter. Three grids are grown from real words, three letters are revealed to start you off, and typing a letter another number already owns swaps the two - so the mapping is the puzzle. Check marks squares that can no longer be right, Hint reveals one number, and any complete fill of real words wins.",
    "tier": "first-party"
   },
   {
-   "slug": "find-words-word-search-puzzle",
-   "name": "Find Words",
+   "slug": "crawl",
+   "name": "Dungeon Crawl",
    "match": [
-    "find-words-word-search-puzzle",
-    "find words word search puzzle",
-    "Find-Words-Word-Search-Puzzle",
-    "find words",
-    "word search",
-    "com.sidhant.findwords",
-    "sidhant947/findwords"
+    "crawl",
+    "dungeon crawl stone soup",
+    "dungeon-crawl-stone-soup",
+    "dungeon crawl",
+    "dungeon-crawl-stone-soup-for-android",
+    "dungeon crawl: stone soup for android (console)",
+    "org.develz.crawl"
    ],
-   "entry": "/games/arcade/find-words-word-search-puzzle.html",
-   "blurb": "A 10x10 word search with a four-minute clock: drag a straight line across the letters to claim a word — any of the eight directions, either way round. Every board is dealt so all eight words are on it, and a bent or stray drag claims nothing.",
+   "entry": "/games/arcade/crawl.html",
+   "blurb": "A turn-based dungeon crawl in three.js: pick a species and background, tap or arrow to step, bump a monster to strike it, cast a bolt down a clear line, quaff potions and rest. Five generated floors down to the Orb of Zot, then the climb back out with it.",
    "tier": "first-party"
   },
   {
-   "slug": "jigsaw-solitaire",
-   "name": "Jigsaw Solitaire",
+   "slug": "cube-run",
+   "name": "Cube Run",
    "match": [
-    "jigsaw-solitaire",
-    "jigsaw solitaire",
-    "Jigsaw-Solitaire",
-    "jigsaw",
-    "Jigsaw",
-    "com.sidhant.jigsaw",
-    "sidhant947/jigsaw",
-    "io.gitlab.derjosef.jigsaw"
+    "Eve-146T/cube-run",
+    "cube.run",
+    "Cube Run",
+    "cube-run"
    ],
-   "entry": "/games/arcade/jigsaw-solitaire.html",
-   "blurb": "A twelve-piece jigsaw dealt into a tray: drag a piece onto its slot and a drop within half a piece snaps and locks. The picture is painted in the page, so there is no image to download and nothing leaves the tab. Twelve locks wins, Give up shows the pieces left, R replays the same deal.",
+   "entry": "/games/arcade/cube-run.html",
+   "blurb": "A three-lane neon track runs away from the camera and a cube has to survive it. Tap the outer thirds to switch lanes, the middle to leap a low wall, swipe down to slide under an overhead bar, or swipe down in mid-air to slam back to the deck and slide on landing. Every row leaves a lane or a verb that survives it, pillars can only be dodged, and a shave over a wall pays a bonus on top of each row cleared. Ninety rows completes the circuit, then a keep-running gate reopens the endless track.",
    "tier": "first-party"
   },
   {
-   "slug": "king-pong",
-   "name": "King Pong",
+   "slug": "cubit",
+   "name": "Cubit",
    "match": [
-    "king-pong",
-    "king pong",
-    "King-Pong",
-    "King Pong",
-    "pong",
-    "Pong",
-    "com.kingalex.kingpong",
-    "kingalex/kingpong"
+    "cubit",
+    "cubit arrow puzzle",
+    "arrow cube",
+    "de.taymaerz.cubit",
+    "taynotfound/cubit"
    ],
-   "entry": "/games/arcade/king-pong.html",
-   "blurb": "A five-league pong campaign on a three.js court: your paddle follows the mouse or finger, a tap serves, and the cpu paddle gets quicker, its aim tighter and your paddle narrower every league. First to the league target takes it, the cpu taking it loses the league, and clearing The Crown ends the campaign. R restarts.",
+   "entry": "/games/arcade/cubit.html",
+   "blurb": "Cubit in three.js: a cube face covered in arrows. Tap one and it slides off along its heading unless another arrow is in the way, which costs a life. Dig out the pink arrow across 6x6, 8x8 and 10x10 cubes; every cube is generated backwards off a legal solve, so none can ship unsolvable.",
    "tier": "first-party"
   },
   {
-   "slug": "shattered-descent",
-   "name": "Shattered Descent",
+   "slug": "devilutionx",
+   "name": "DevilutionX",
    "match": [
-    "shattered pixel dungeon",
-    "shattered-pixel-dungeon",
-    "shatteredpixeldungeon",
-    "com.shatteredpixel.shatteredpixeldungeon",
-    "shattered pixel dungeon (roguelike)"
+    "devilutionx",
+    "DevilutionX",
+    "devilution",
+    "Devilution",
+    "diasurgical/devilutionX",
+    "diasurgical/devilution",
+    "com.serwersoft.devilutionx"
    ],
-   "entry": "/games/arcade/shattered-descent.html",
-   "blurb": "Turn-based dungeon crawl in three.js: tap or arrow to step, bump a monster to strike it, every step is a turn. Ten generated floors and the Amulet.",
+   "entry": "/games/arcade/devilutionx.html",
+   "blurb": "A Diablo-style crawl that plays in the tab: five depths under Tristram on a 23x17 tile grid of rooms and corridors, real-time and seen from above. Tap floor to walk there, tap a monster to fight it, tap the stairs to go deeper. Fallen ones, skeletons, goat men and overlords wake when you get close and chase you on their own clock, so standing still is how you die. Kills pay xp and leave gold where the body fell; levels heal you, potions come off the bottom bar, and the Butcher waits on depth 5 — put him down to win. Mouse, finger or arrows/WASD.",
    "tier": "first-party"
   },
   {
-   "slug": "kakuro",
-   "name": "Kakuro",
+   "slug": "die-simulator",
+   "name": "Die Simulator",
    "match": [
-    "kakuro",
-    "cross sums",
-    "cross sum",
-    "crosssum",
-    "com.sidhant.kakuro",
-    "sidhant947/kakuro"
+    "Die Simulator",
+    "Die-Simulator",
+    "die-simulator",
+    "die simulator",
+    "diesimu",
+    "com.andreiapps.diesimu",
+    "andreiapps/die_simulator",
+    "die_simulator",
+    "Die Simulator (Dice)"
    ],
-   "entry": "/games/arcade/kakuro.html",
-   "blurb": "Cross-sum logic puzzle in three.js: three boards (5x6, 6x7, 7x7), every run adds to its clue with no repeats, five-attempt error budget.",
+   "entry": "/games/arcade/die-simulator.html",
+   "blurb": "The one-die app becomes a table with a rival: roll and the face lands on your stake, a 1 takes the whole stake and the die, bank it and the house takes over. The house rolls under twenty and never pushes once it can already bank forty, so the race to forty is honest. The die is real geometry with pips on all six faces and settles showing the rolled face. Tap Roll, tap the felt, or hit Space; B banks, R deals a new table. Plays in the plate on a phone.",
    "tier": "first-party"
   },
   {
-   "slug": "puzzle-press",
-   "name": "Puzzle Press",
+   "slug": "dots-n-boxes",
+   "name": "Dots and Boxes",
    "match": [
-    "puzzle-press",
-    "puzzle press",
-    "puzzlepress",
-    "io.github.munzzyy.puzzlepress",
-    "munzzyy/puzzlepress"
+    "dots and boxes",
+    "dots-n-boxes",
+    "dots n boxes",
+    "dotsandboxes",
+    "kaesekaestchen",
+    "käsekästchen",
+    "kaesekastchen",
+    "de.stefan_oltmann.kaesekaestchen",
+    "stefanoltmann/kaesekaestchen",
+    "dotted box game"
    ],
-   "entry": "/games/arcade/puzzle-press.html",
-   "blurb": "Three of the seven Puzzle Press dailies in one three.js page: Wordrow (six tries at a five-letter word, tiles scored green, gold and grey), Clusters (sort sixteen tiles into four themes before the fourth mistake) and Edgeways (twelve letters around a square, chain words until every letter is used, each letter from a different side). Keys or the on-screen pad; R restarts, F cycles the mode.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "nonogram",
-   "name": "Nonogram",
-   "match": [
-    "nonogram",
-    "nonograms",
-    "nonocross",
-    "picross",
-    "hanjie",
-    "com.sidhant.nonogram",
-    "com.picross.nonocross",
-    "sidhant947/nonogram",
-    "jaredforrest/nonocross"
-   ],
-   "entry": "/games/arcade/nonogram.html",
-   "blurb": "Nonogram / picross in three.js: three pictures (8x8, 10x10, 12x12) with row and column run clues derived from the picture, tap to fill, mark or clear, clue lines go teal when their runs match, and a line that provably cannot reach its clue costs one of five errors.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "minute-maze",
-   "name": "Minute Maze",
-   "match": [
-    "minute-maze",
-    "minute maze",
-    "minutemaze",
-    "net.ygingras.minutemaze",
-    "ygingras/minute-maze"
-   ],
-   "entry": "/games/arcade/minute-maze.html",
-   "blurb": "Timed maze race in three.js: eight carved mazes from 7x7 to 15x15 on one 60-second clock, a time bonus for every maze cleared, d-pad, swipe or arrows.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "one-line-puzzle",
-   "name": "One Line Puzzle",
-   "match": [
-    "one-line-puzzle",
-    "one line puzzle",
-    "one line",
-    "oneline",
-    "com.sidhant.oneline",
-    "sidhant/one-line"
-   ],
-   "entry": "/games/arcade/one-line-puzzle.html",
-   "blurb": "One-stroke path puzzle in three.js: drag a single continuous line through every cell of a 5x5 to 6x8 board, hitting the numbers in ascending order. Back up, restart, switch puzzle.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "pipes-water-flow-puzzle",
-   "name": "Pipes",
-   "match": [
-    "pipes",
-    "pipes water flow puzzle",
-    "pipes-water-flow-puzzle",
-    "Pipes-Water-Flow-Puzzle",
-    "water flow puzzle",
-    "water flow",
-    "com.sidhant.pipes",
-    "sidhant947/pipes"
-   ],
-   "entry": "/games/arcade/pipes-water-flow-puzzle.html",
-   "blurb": "Rotate pipe pieces a quarter turn at a time until the water leaving the gold spout reaches every drain: three boards, a turn budget that can run dry, undo.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "quiet-grid-logic-puzzles",
-   "name": "Quiet-Grid-Logic-Puzzles",
-   "match": [
-    "quiet-grid-logic-puzzles",
-    "Quiet Grid",
-    "quiet grid",
-    "quiet grid logic puzzles",
-    "Quiet-Grid-Logic-Puzzles",
-    "com.quietgrid.app"
-   ],
-   "entry": "/games/arcade/quiet-grid-logic-puzzles.html",
-   "blurb": "Three calm logic modes in one page: Takuzu 6x6, Mini Sudoku 6x6 and Star Battle 5x5 — tap a cell, tap the value, five impossible entries ends the board.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "Slitherlink-Logic-Loop-Puzzle",
-   "name": "Slitherlink",
-   "match": [
-    "slitherlink-logic-loop-puzzle",
-    "Slitherlink-Logic-Loop-Puzzle",
-    "slitherlink logic loop puzzle",
-    "slitherlink",
-    "com.sidhant.slitherlink",
-    "sidhant947/slitherlink"
-   ],
-   "entry": "/games/arcade/slitherlink.html",
-   "blurb": "Draw one closed loop through a dot lattice: tap an edge to draw a line, tap again to cross it out, and every number must count exactly the lines touching its cell. 4x4, 5x5 and 6x6 boards; five impossible lines ends the run, and Reveal shows the answer.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "snakes",
-   "name": "Snakes",
-   "match": [
-    "snakes",
-    "snake",
-    "red.drugi.snakes",
-    "mir06/snakes",
-    "gitlab.com/mir06/snakes",
-    "snake game",
-    "snake-game",
-    "classic snake"
-   ],
-   "entry": "/games/arcade/snakes.html",
-   "blurb": "Grid snake in three.js: 19x13 board, six seeds to a level, walls and your own tail end the run, wrap mode crosses the edges, Back up rewinds a fatal tick.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "sudaku-pattern-driven-sudoku",
-   "name": "Sudaku",
-   "match": [
-    "sudaku",
-    "sudaku-pattern-driven-sudoku",
-    "Sudaku---Pattern-driven-sudoku",
-    "com.gitea.theoden8.sudaku"
-   ],
-   "entry": "/games/arcade/sudaku-pattern-driven-sudoku.html",
-   "blurb": "A constraint workbench: pencil marks, all-diff, one-of and a ripple that finishes the grid.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "tri-peaks",
-   "name": "Tri Peaks Solitaire",
-   "match": [
-    "tri-peaks",
-    "tri peaks",
-    "tripeaks",
-    "tri peaks solitaire",
-    "tripeaks solitaire",
-    "tri-peakssolitaire-for-android",
-    "tripeaks neue",
-    "tripeaks-neue",
-    "eu.veldsoft.tri.peaks",
-    "io.github.mimoguz.tripeaksneue"
-   ],
-   "entry": "/games/arcade/tri-peaks.html",
-   "blurb": "Three peaks of cards, one rank rule: take a card one above or below the waste, ace wrapping to king, and clear all 30 with two passes of a 22-card stock. Deals are solver-checked before they ship.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "the-squirrel-s-maze-2d",
-   "name": "The Squirrel's Maze 2D",
-   "match": [
-    "the-squirrel-s-maze-2d",
-    "the squirrel's maze 2d",
-    "the squirrel s maze 2d",
-    "the squirrels maze",
-    "squirrel maze",
-    "com.maze_squirrel",
-    "maze_squirrel"
-   ],
-   "entry": "/games/arcade/the-squirrel-s-maze-2d.html",
-   "blurb": "A freshly carved maze every level: walk the squirrel onto every acorn, then home to the glowing nest before the step cap runs out.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "vector-pinball",
-   "name": "Vector Pinball",
-   "match": [
-    "vector-pinball",
-    "vector pinball",
-    "Vector-Pinball",
-    "Vector Pinball",
-    "com.dozingcatsoftware.bouncy",
-    "dozingcat/vector-pinball"
-   ],
-   "entry": "/games/arcade/vector-pinball.html",
-   "blurb": "A tilted three.js playfield: launch the ball up the right lane, then hold the left or right half of the table to swing that flipper and work the bumpers, slingshots and rails. First to 2400 clears the table; losing the third ball ends the game. R restarts.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "bubble-shooter",
-   "name": "Bubble Shooter",
-   "match": [
-    "bubble-shooter",
-    "bubble shooter",
-    "Bubble-Shooter",
-    "Bubble Shooter",
-    "com.sidhant.bubbleshooter",
-    "sidhant947/BubbleShooter",
-    "bubble-night",
-    "bubble night",
-    "pt.tiago.bubblenight",
-    "syscallbrain/bubble-night"
-   ],
-   "entry": "/games/arcade/bubble-shooter.html",
-   "blurb": "Aim and bounce: click or tap where the shot should go and the bubble ricochets off the side walls into the cluster. Three or more of a colour pop, anything left hanging drops, and clearing the board wins — but bubbles that settle on the red line end the run. R restarts, Z undoes; the same board also answers the Bubble Night card (hex aim/bounce/match-3, orbits as levels).",
-   "tier": "first-party"
-  },
-  {
-   "slug": "wolfenstein-rpg",
-   "name": "Wolfenstein RPG",
-   "match": [
-    "Wolfenstein RPG",
-    "wolfenstein-rpg",
-    "wolfenstein rpg",
-    "DOOM-Wolfenstein-RPG",
-    "doom-wolfenstein-rpg",
-    "doom wolfenstein rpg",
-    "Doom / Wolfenstein RPG Android Ports (`DOOM-Wolfenstein-RPG`, a.k.a. MobileRPGPack)",
-    "MobileRPGPack",
-    "mobilerpgpack",
-    "sandstranger/doom-wolf-rpg-android-port"
-   ],
-   "entry": "/games/arcade/wolfenstein-rpg.html",
-   "blurb": "A turn-based dungeon crawl from the first-person seat: every step, quarter-turn and shot hands the garrison one move, so the hall you walk into is the hall you chose. Rationed fire, medkits in the dead ends, three floors of carved maze, and the way down at the farthest reach. Clear the third floor and the vault is yours.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "rpg-npc-generator",
-   "name": "NPC Forge",
-   "match": [
-    "RPG NPC Generator",
-    "RPG-NPC-Generator",
-    "rpg-npc-generator",
-    "rpg npc generator",
-    "me.kerooker.rpgcharactergenerator",
-    "LeoColman/rpg-npc-generator"
-   ],
-   "entry": "/games/arcade/rpg-npc-generator.html",
-   "blurb": "Roll a tabletop NPC on a 3D character table: tap the die for a whole sheet or one plate to re-roll a single trait, chase a legendary stat total, save the keepers.",
+   "entry": "/games/arcade/dots-n-boxes.html",
+   "blurb": "Pen-and-paper Dots and Boxes in three.js: tap a gap to draw a line, close the fourth side of a box to claim it and go again, 4x4 to 6x6 boards against a greedy-safety CPU or a second player on one screen.",
    "tier": "first-party"
   },
   {
@@ -966,160 +641,50 @@
    "tier": "first-party"
   },
   {
-   "slug": "cat-a-shooter",
-   "name": "Cat a Shooter",
+   "slug": "feudal-tactics",
+   "name": "Feudal Tactics",
    "match": [
-    "Cat a Shooter",
-    "Cat-a-Shooter",
-    "Cat-a-shooter",
-    "cat-a-shooter",
-    "catashoot",
-    "org.xolatgames.catashoot",
-    "xolatgames/cat-a-shooter"
+    "feudal tactics",
+    "feudal-tactics",
+    "feudaltactics",
+    "sesu8642/feudaltactics",
+    "de.sesu8642.feudaltactics"
    ],
-   "entry": "/games/arcade/cat-a-shooter.html",
-   "blurb": "The F-Droid saucer shooter rebuilt in three.js: the cat's ship slides along the bottom and fires up its column on its own while six waves of saucers drift down, some shooting back and some diving. Three lives, a short grace after each hit, 25 points a wave and a best run kept on the machine.",
+   "entry": "/games/arcade/feudal-tactics.html",
+   "blurb": "Feudal Tactics in three.js: a procedurally generated hex island, troops of strength 1 to 4, and a realm only as safe as the strongest troop beside it - a hex is shielded by the best friendly troop next door and falls only to a strictly stronger one. Take the neutral land, tax it, pay the levies, and hold 80 % of the contested island before round 60.",
    "tier": "first-party"
   },
   {
-   "slug": "battle-table",
-   "name": "Battle Table",
+   "slug": "find-words-word-search-puzzle",
+   "name": "Find Words",
    "match": [
-    "Battle Table",
-    "battle-table",
-    "WR Battle Sim",
-    "WR-Battle-Sim",
-    "wr-battle-sim",
-    "WRBattleSim",
-    "wrbattlesim",
-    "com.wrbattlesim",
-    "terminator-ger/wrsim"
+    "find-words-word-search-puzzle",
+    "find words word search puzzle",
+    "Find-Words-Word-Search-Puzzle",
+    "find words",
+    "word search",
+    "com.sidhant.findwords",
+    "sidhant947/findwords"
    ],
-   "entry": "/games/arcade/battle-table.html",
-   "blurb": "The War Room dice battle calculator turned into a game you play instead of a sheet you read: pick nine unit types inside a 34-point muster, choose an offensive or entrenched posture, then roll 12-sided dice through three air rounds and three ground rounds against three escalating garrisons. Every die face names a unit type it hits and the wild faces only kill for the side with more land and sea types in the field, so a broad force beats a bigger single stack. Survivors carry into the next objective; two wins take the area.",
+   "entry": "/games/arcade/find-words-word-search-puzzle.html",
+   "blurb": "A 10x10 word search with a four-minute clock: drag a straight line across the letters to claim a word — any of the eight directions, either way round. Every board is dealt so all eight words are on it, and a bent or stray drag claims nothing.",
    "tier": "first-party"
   },
   {
-   "slug": "six-shooter",
-   "name": "Six Shooter",
+   "slug": "fish-rings-puzzle",
+   "name": "Fish Rings",
    "match": [
-    "Six Shooter",
-    "six-shooter",
-    "Six-Shooter",
-    "sixshooter",
-    "six shooter",
-    "dk.dustytales.sixshooter",
-    "PedePedersen/sixshooter-apk",
-    "sixshooter-apk"
+    "fish-rings-puzzle",
+    "fish rings puzzle",
+    "Fish-Rings-Puzzle",
+    "fish rings",
+    "fishrings",
+    "eu.veldsoft.fish.rings",
+    "FishRingsForAndroid",
+    "velbazhdsoftwarellc/fishringsforandroid"
    ],
-   "entry": "/games/arcade/six-shooter.html",
-   "blurb": "The saloon draw as a real cylinder instead of a spinner: two to six gunslingers each load one cartridge in their own colour, six chambers, the rest empty. Tap the drum or hit Spin and it eases four-plus turns to land a chamber under the needle — a cartridge takes the draw, an empty chamber clicks and nobody does. Elimination mode pulls the drawn cartridge out of the drum and keeps spinning until one round is left, so three gunslingers resolve in two bangs; solo spin just picks a winner and never ends. Fifteen-second rules, no install, plays in the plate on a phone or with a keyboard.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "die-simulator",
-   "name": "Die Simulator",
-   "match": [
-    "Die Simulator",
-    "Die-Simulator",
-    "die-simulator",
-    "die simulator",
-    "diesimu",
-    "com.andreiapps.diesimu",
-    "andreiapps/die_simulator",
-    "die_simulator",
-    "Die Simulator (Dice)"
-   ],
-   "entry": "/games/arcade/die-simulator.html",
-   "blurb": "The one-die app becomes a table with a rival: roll and the face lands on your stake, a 1 takes the whole stake and the die, bank it and the house takes over. The house rolls under twenty and never pushes once it can already bank forty, so the race to forty is honest. The die is real geometry with pips on all six faces and settles showing the rolled face. Tap Roll, tap the felt, or hit Space; B banks, R deals a new table. Plays in the plate on a phone.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "balloons-shooter",
-   "name": "Non-Stop Balloons",
-   "match": [
-    "Non-Stop Balloons Shooter",
-    "Non-Stop-Balloons-Shooter",
-    "non-stop-balloons-shooter",
-    "Non Stop Balloons Shooter",
-    "non stop balloons shooter",
-    "balloons-shooter",
-    "Non-Stop Balloons",
-    "com.stoptheballs",
-    "stoptheballs",
-    "MetatransApps/Android_APK_2DBalloons",
-    "Android_APK_2DBalloons"
-   ],
-   "entry": "/games/arcade/balloons-shooter.html",
-   "blurb": "A round arena with a crossbow at the centre: balloons drift in from the rim on their own bearing, and tapping where a balloon is sends an arrow out along that line. Plain balloons score 10, swift gold 15, heavy red needs two hits and pays 20. Five lives, six waves, and every balloon that crosses the red line costs one.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "gh-space-shooter",
-   "name": "GitHub Space Shooter",
-   "match": [
-    "GitHub Space Shooter",
-    "GitHub-Space-Shooter",
-    "gh-space-shooter",
-    "gh space shooter",
-    "GitHubSpaceShooter",
-    "czl9707/gh-space-shooter",
-    "gh-space-shooter.kiyo-n-zane.com"
-   ],
-   "entry": "/games/arcade/gh-space-shooter.html",
-   "blurb": "A year of commits as an invader fleet: eleven weeks across, six days down, every square a contribution day that takes one to four hits because that is how hot it was. Your rocket slides along the bottom of the wall and autofires up its own column; the whole graph slides down toward the ship, and the lowest square of a column drops a commit bomb every couple of seconds until it is too close to fire and simply rams. Three lives, a 1.2s grace window, 150 for a full clear. Drag, arrows or A/D to steer, Space to sting early, R for a new run — plays in the plate on a phone.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "backgammon",
-   "name": "Clavierhaus Backgammon",
-   "match": [
-    "CBG Pro — Clavierhaus Backgammon",
-    "CBG Pro - Clavierhaus Backgammon",
-    "CBG Pro",
-    "Clavierhaus Backgammon",
-    "CBG----Clavierhaus-BackGammon",
-    "clavierhaus-backgammon",
-    "backgammon",
-    "Backgammon",
-    "com.clavierhaus.gnubg",
-    "clavierhaus/gnubg-android",
-    "gnubg-android",
-    "gnubg"
-   ],
-   "entry": "/games/arcade/backgammon.html",
-   "blurb": "The whole board as a table instead of an engine: fifteen checkers a side on the standard 24 points, tap a checker to lift it and a gold dot to move it. Doubles deal four dice, a blot goes to the bar and must re-enter before anything else moves, and you can only bear off once every checker is in the home board — with the furthest-checker rule for an overshooting die. You play the bone side moving 24 → 1 against a one-ply engine that makes points and hits back; first to bear off all fifteen takes it. The board turns to run tall on a portrait phone. No install, no account, no analysis suite — just the game.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "powder-lab",
-   "name": "Powder Lab",
-   "match": [
-    "The Powder Toy",
-    "the-powder-toy",
-    "the powder toy",
-    "powder toy",
-    "powdertoy",
-    "powder-toy"
-   ],
-   "entry": "/games/arcade/powder-lab.html",
-   "blurb": "The falling-sand sandbox reduced to its rules: drag sand, water, oil and fire onto a stone board and let gravity, density and heat do the rest. Sand piles and sinks through water, oil floats, flames eat oil and water turns fire into steam, and every grain of it is one of 1,632 cells stepped forty times a second. Three timed experiments: fill a stone crucible with sixty grains, burn an oil trough down to nothing, and pack a shaft past the gold line. Sand, water, oil, fire, stone and erase brushes, a New run button, R to start the level over, and it plays with a mouse or a finger. No install, no account, no sliders - just the experiments.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "vcmi",
-   "name": "Hex Fields",
-   "match": [
-    "VCMI - Open Heroes 3",
-    "VCMI-Open-Heroes-3",
-    "VCMI",
-    "vcmi",
-    "vcmi.eu",
-    "vcmi/vcmi",
-    "github.com/vcmi/vcmi"
-   ],
-   "entry": "/games/arcade/vcmi.html",
-   "blurb": "The tactical battle from Heroes III, taken as a game of its own: a 9 by 7 hex field, five stacks an army, one action per stack per round in speed order. Tap a stack and its march is drawn for you - green hexes it can reach, red stacks it can charge - then tap where you want it to go. Moving beside an enemy and striking is one action, a struck stack answers back exactly once per round, and an archer that no enemy is touching shoots without ever taking retaliation. Damage rolls the Heroes curve: the base die times the number of creatures, scaled by 1 + 0.05 for every point of attack over defence. Wait to act last in the round, Defend to raise your guard, and break the warband before it breaks you. Mouse, finger or keyboard; R for a new battle.",
+   "entry": "/games/arcade/fish-rings-puzzle.html",
+   "blurb": "Three rings of twelve fish in a three-way Venn: tap a ring’s ⟳/⟲ handle and it turns one notch, handing the fish on every crossing to its neighbour. Line each ring up in one colour — dealt only by legal turns, so every board is solvable, and the 72-turn budget is the clock you beat.",
    "tier": "first-party"
   },
   {
@@ -1139,490 +704,35 @@
    "tier": "first-party"
   },
   {
-   "slug": "tactic-trainer",
-   "name": "Tactic Trainer",
+   "slug": "flow",
+   "name": "Flow",
    "match": [
-    "tactic-trainer",
-    "tactic trainer",
-    "tacticmaster",
-    "com.tacticmaster",
-    "Tactic-Master",
-    "tactic master"
+    "flow",
+    "flow free",
+    "flow connect dots puzzle",
+    "connect dots puzzle",
+    "MA-Pipes",
+    "ma-pipes",
+    "mapipes",
+    "com.vayunmathur.games.pipes"
    ],
-   "entry": "/games/arcade/tactic-trainer.html",
-   "blurb": "A six-puzzle tactics session on a 3D board: mate in one and mate in two, proven by the same rules the page runs. Tap your piece, tap the square, find the forced mate — a solve pays rating with a streak bonus, a wrong move costs nine, and the session ends with your rating change, best streak and accuracy.",
+   "entry": "/games/arcade/flow.html",
+   "blurb": "The connect-the-dots pipe puzzle, rebuilt in three.js: drag coloured pipes between matching dots, fill every cell, three puzzles.",
    "tier": "first-party"
   },
   {
-   "slug": "shikaku",
-   "name": "Shikaku",
+   "slug": "flowit-block-puzzle",
+   "name": "Flowit — Block Puzzle",
    "match": [
-    "shikaku",
-    "shikaku puzzle",
-    "rect divide"
+    "flowit",
+    "flowit block puzzle",
+    "flowit — block puzzle",
+    "flowit-block-puzzle",
+    "com.bytehamster.flowitgame",
+    "flowit-game/flowit"
    ],
-   "entry": "/games/arcade/shikaku.html",
-   "blurb": "Rectangle-division logic puzzle in three.js: four boards (5x5 up to 8x8) built by guillotine partition so each one has an answer, drag or tap two corners to claim a box, every box holds one number and its area.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "queens",
-   "name": "Queens",
-   "match": [
-    "queens",
-    "queens puzzle",
-    "linkedin queens",
-    "n queens"
-   ],
-   "entry": "/games/arcade/queens.html",
-   "blurb": "One queen per row, column and colour region in three.js: 6x6, 7x7 and 8x8 boards cut from a verified placement, tap to set or lift a queen, conflicts light up, wall-clock budget.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "mill",
-   "name": "Mill",
-   "match": [
-    "mill",
-    "nine men's morris",
-    "nine mens morris",
-    "nine-man morris",
-    "morris",
-    "sanmill",
-    "com.calcitem.sanmill"
-   ],
-   "entry": "/games/arcade/mill.html",
-   "blurb": "Nine Men's Morris in three.js: place nine men on the 24-point ring board, close a line of three to take a cpu man, fly anywhere once you are down to three, and hold the centre — sharp and steady cpu levels, undo back to your own turn.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "water-sort",
-   "name": "Water Sort",
-   "match": [
-    "water sort",
-    "water-sort",
-    "water sort puzzle",
-    "watersort",
-    "water sorting",
-    "tube sort",
-    "liquid sort",
-    "color sort puzzle"
-   ],
-   "entry": "/games/arcade/water-sort.html",
-   "blurb": "Water Sort in three.js: tap a tube to lift it, tap another to pour — the whole run of the top colour moves if it matches the destination or the tube is empty. Five deals from 3 to 7 colours, four units to a tube, and a move budget set from the solver's optimal line.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "tensy",
-   "name": "Tensy",
-   "match": [
-    "tensy",
-    "match to ten",
-    "sum to ten",
-    "make ten",
-    "se.voxelmanip.tensy",
-    "rollerozxa/tensy"
-   ],
-   "entry": "/games/arcade/tensy.html",
-   "blurb": "Tensy in three.js: drag a path of touching tiles that adds up to exactly 10 and the whole path clears, the columns fall and fresh tiles drop in. A 6x6 board, three rising targets, and a game over when nothing on the board makes ten.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "chip-defense",
-   "name": "Chip Defense",
-   "match": [
-    "chip defense",
-    "chip-defense",
-    "chipdefense",
-    "cpu defense",
-    "cpu-defence",
-    "cpudefense",
-    "de.chadenas.cpudefense",
-    "ochadenas/cpudefense"
-   ],
-   "entry": "/games/arcade/chip-defense.html",
-   "blurb": "Chip Defense in three.js: bits and bytes march down the circuit tracks toward the processor and you fill the empty sockets with logic gates. SUB chips away, SHR halves a unit's speed, MEM reaches across the die, ACC splashes — three upgrade levels each, twelve waves, and a core that only takes so many leaks.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "bim",
-   "name": "Bim!",
-   "match": [
-    "bim",
-    "bim!",
-    "bim.app",
-    "j-jorge/bim",
-    "bomberman",
-    "bomber man",
-    "bomberblitz"
-   ],
-   "entry": "/games/arcade/bim.html",
-   "blurb": "Bim! in three.js: a crate-filled lattice, one cpu rival and a bag of bombs. Blasts run four ways, stop at stone, eat the first crate they reach and chain through other bombs — clear the crates, collect the powerups and be the last bomber standing in three arenas.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "cards-with-cats",
-   "name": "Cards With Cats",
-   "match": [
-    "cards with cats",
-    "cards-with-cats",
-    "cardswithcats",
-    "cards with cats — hearts, spades, oh hell",
-    "com.dozingcatsoftware.cardswithcats",
-    "dozingcat/cardswithcats",
-    "hearts",
-    "oh hell",
-    "trick taking card game"
-   ],
-   "entry": "/games/arcade/cards-with-cats.html",
-   "blurb": "Trick-taking on a three.js card table: Hearts (pass three, follow suit, no hearts until broken, the queen of spades costs 13, shoot the moon for 26 to every rival, first to 50 with the lowest score winning) and Oh Hell (six rounds of 6 down to 1 card, exact-bid scoring). Three named rivals play the same rules you do.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "aaaaxy",
-   "name": "AAAAXY",
-   "match": [
-    "aaaa xy",
-    "aaaaxy",
-    "aaa-xy",
-    "aaaaaxy",
-    "io.github.divverent.aaaaxy",
-    "divverent/aaaaxy",
-    "gravity flip platformer"
-   ],
-   "entry": "/games/arcade/aaaaxy.html",
-   "blurb": "A side-view tile platformer with a reversible gravity vector: run, jump the spikes, flip gravity to walk on the ceiling, gather every gem and the door unseals. Three levels of wicked weirdness, on-screen pad plus arrows/WASD.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "alex-vs-bus",
-   "name": "Alex vs Bus: The Race",
-   "match": [
-    "alex vs bus",
-    "alex-vs-bus",
-    "alexvsbus",
-    "alex vs bus the race",
-    "alex-vs-bus-the-race",
-    "com.github.m374lx.alexvsbus",
-    "m374lx/alexvsbus"
-   ],
-   "entry": "/games/arcade/alex-vs-bus.html",
-   "blurb": "A side-view street runner: sprint for the 6:40, hop crates, banana peels and open holes in the pavement, grab the silver and gold coins and reach the bus stop before the clock dies. Three stops, on-screen pad plus arrows/WASD and tap-to-jump.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "andropolis",
-   "name": "Andropolis",
-   "match": [
-    "andropolis",
-    "io.github.ds17f.andropolis",
-    "ds17f/andropolis",
-    "micropolis"
-   ],
-   "entry": "/games/arcade/andropolis.html",
-   "blurb": "A pocket city-builder: zone roads, homes, shops, industry and power on a 9x9 plot, watch the town grow year by year as jobs pull in people and people pull in shops, and steer the books to 100 residents before the budget runs out. Tap a lot to build, tap Land/Home/Shop/Works/Power to switch tools.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "anuto-td",
-   "name": "Anuto TD",
-   "match": [
-    "anuto td",
-    "anuto-td",
-    "anuto",
-    "ch.logixisland.anuto",
-    "logixisland/anuto",
-    "anuto tower defense",
-    "anuto tower defence",
-    "anuto towerdefense"
-   ],
-   "entry": "/games/arcade/anuto-td.html",
-   "blurb": "Anuto TD in three.js: war machines roll up a winding road toward your base and you buy towers on the plots beside it. GUN for rapid fire, CANNON for splashes, FROST to chill them, TESLA to arc between units — three levels each, sell for half, call the next wave early for a bonus, and hold twelve waves before the base drains.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "roboyard",
-   "name": "RoboYard",
-   "match": [
-    "roboyard",
-    "roboyard ricochet robots",
-    "ricochet robots",
-    "de.z11.roboyard",
-    "eastcoast-laboratories/roboyard"
-   ],
-   "entry": "/games/arcade/roboyard.html",
-   "blurb": "Ricochet Robots in three.js: four robots slide across a 9x9 hedge yard until a hedge, another robot or the wall stops them; tap a robot then tap a direction to send it, and land the red robot on the gold pad inside a par + 6 shot budget.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "block-drop",
-   "name": "Block Drop",
-   "match": [
-    "block drop",
-    "blockdrop",
-    "blockdrop block puzzle",
-    "blockdrop-block-puzzle",
-    "com.blockdrop.game",
-    "blockstv",
-    "com.alexcantini.blockstv",
-    "blocks tv",
-    "block puzzle falling",
-    "tetris"
-   ],
-   "entry": "/games/arcade/block-drop.html",
-   "blurb": "A ten-wide falling-block well in three.js: seven tetrominoes with wall kicks, a 7-bag randomiser, hold and ghost, line-clear scoring that scales with level, and a five-level run to clear.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "lexica",
-   "name": "Lexica",
-   "match": [
-    "lexica",
-    "com.serwylo.lexica",
-    "lexica word game",
-    "lexica word hunt"
-   ],
-   "entry": "/games/arcade/lexica.html",
-   "blurb": "Lexica in three.js: tap or swipe a chain of touching letter tiles on a 4x4, 5x5 or 6x6 board and submit the longest words you can see. Three 90-second rounds, score goals of 8/14/20 and a 156,000-word dictionary.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "crawl",
-   "name": "Dungeon Crawl",
-   "match": [
-    "crawl",
-    "dungeon crawl stone soup",
-    "dungeon-crawl-stone-soup",
-    "dungeon crawl",
-    "dungeon-crawl-stone-soup-for-android",
-    "dungeon crawl: stone soup for android (console)",
-    "org.develz.crawl"
-   ],
-   "entry": "/games/arcade/crawl.html",
-   "blurb": "A turn-based dungeon crawl in three.js: pick a species and background, tap or arrow to step, bump a monster to strike it, cast a bolt down a clear line, quaff potions and rest. Five generated floors down to the Orb of Zot, then the climb back out with it.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "hyperrogue",
-   "name": "HyperRogue",
-   "match": [
-    "hyperrogue",
-    "hyper rogue",
-    "hyperroid",
-    "com.roguetemple.hyperroid",
-    "hyperrogue free",
-    "hyperrogue: the roguelike on the hyperbolic plane"
-   ],
-   "entry": "/games/arcade/hyperrogue.html",
-   "blurb": "A treasure run on a real {7,3} hyperbolic tiling: three heptagons at every corner, the plane infinite in every direction. Tap a neighbouring cell, or a far one to walk a step toward it, and collect nine treasures while three hunters guard the gold.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "idle-fantasy",
-   "name": "Idle Fantasy",
-   "match": [
-    "idle fantasy",
-    "idle-fantasy",
-    "idlefantasy",
-    "com.tristinbaker.idlefantasy",
-    "tristinbaker/idlefantasy"
-   ],
-   "entry": "/games/arcade/idle-fantasy.html",
-   "blurb": "An eight-plot realm around a forge: tap for gold, raise mines and markets, and keep barracks manned before each of five raids. An army with no economy starves; an economy with no army is plundered.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "beat-feet",
-   "name": "Beat Feet",
-   "match": [
-    "beat feet",
-    "beat-feet",
-    "beatfeet",
-    "beat feet rhythm runner",
-    "com.serwylo.beatgame",
-    "beat-game/beat-game"
-   ],
-   "entry": "/games/arcade/beat-feet.html",
-   "blurb": "A three-lane rhythm runner: the hazards are generated on the track's own beat grid, so every pillar, hurdle and beam lands on a beat. Jump the low hurdles, duck the high beams, step around the pillars, hold the combo for 64 beats.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "openttd",
-   "name": "OpenTTD",
-   "match": [
-    "openttd",
-    "open ttd",
-    "open-ttd",
-    "org.openttd.fdroid",
-    "openttd/openttd"
-   ],
-   "entry": "/games/arcade/openttd.html",
-   "blurb": "A pocket transport tycoon: the coal mine and the farm produce, the power station and the food mill pay. Lay rail with Track, drop a Station beside an industry, then buy a Train between a producing halt and a consumer halt joined by your line. Revenue is the score (target 2800), cash pays track, halts, trains and network upkeep, and a line built into the red can still bankrupt you. Tap a tile to build, tap Track/Station/Train to switch tools.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "pekka-kana-2",
-   "name": "Pekka Kana 2",
-   "match": [
-    "pekka kana 2",
-    "pekka-kana-2",
-    "pekka kana",
-    "org.pgnapps.pk2",
-    "danilolc/pk2",
-    "pk2"
-   ],
-   "entry": "/games/arcade/pekka-kana-2.html",
-   "blurb": "A rooster platformer: run and jump across two meadows, stomp the patrolling monsters, collect every egg and reach the door — the door stays shut until the egg count is complete. Three lives, spike beds and pits along the way. Tap the canvas to step, use the pads or the arrow keys, JUMP with the pad or Space.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "stronghold-protocol",
-   "name": "Stronghold Protocol",
-   "match": [
-    "stronghold protocol",
-    "stronghold-protocol",
-    "stronghold protocol: alliance",
-    "stronghold-protocol-alliance",
-    "stronghold protocol alliance",
-    "sganggs/stronghold-protocol",
-    "stronghold protocol auto chess"
-   ],
-   "entry": "/games/arcade/stronghold-protocol.html",
-   "blurb": "Auto-chess tower defence in three.js: draft five hero kinds with gold, deploy them on the three rows in front of your wall, upgrade them, and hold fourteen auto-battling waves ending in a warlord.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "supertux",
-   "name": "SuperTux",
-   "match": [
-    "supertux",
-    "super tux",
-    "SuperTux/supertux",
-    "supertux.org"
-   ],
-   "entry": "/games/arcade/supertux.html",
-   "blurb": "Penguin platformer in three.js: run and jump two snow levels, bump the coin blocks from below, squash walking ice cubes and bouncing snowballs, dodge the icicle beds and pits, and reach the flag.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "unciv",
-   "name": "Unciv",
-   "match": [
-    "unciv",
-    "com.unciv.app",
-    "yairm210/unciv",
-    "unciv game",
-    "f-droid unciv"
-   ],
-   "entry": "/games/arcade/unciv.html",
-   "blurb": "Turn-based 4X in three.js: explore a fogged 9x7 continent, settle your capital, work tiles for food, hammers, gold and science, research three techs, raise warriors and archers, and take the rival capital before the forty-turn age ends.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "osu",
-   "name": "osu! Circles",
-   "match": [
-    "osu",
-    "osu! (lazer)",
-    "osu lazer",
-    "osu!(lazer)",
-    "ppy/osu",
-    "osu.ppy.sh",
-    "osu hit circles",
-    "hit circle"
-   ],
-   "entry": "/games/arcade/osu.html",
-   "blurb": "Hit-circle rhythm game in three.js: seeded beatmaps on a 120-174 BPM track, tap each circle as its approach ring closes for a 300 / 100 / 50, carry the combo and keep the health bar alive through singles, pairs, half-beat streams, jumps and ladders.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "the-last-carrot",
-   "name": "The Last Carrot",
-   "match": [
-    "the last carrot",
-    "the-last-carrot",
-    "last carrot",
-    "lastcarrot",
-    "io.github.acidefluorhydrique.carrot",
-    "acidefluorhydrique/carrot",
-    "the last carrot tower defense",
-    "the last carrot tower defence",
-    "the last carrot towerdefense"
-   ],
-   "entry": "/games/arcade/the-last-carrot.html",
-   "blurb": "The Last Carrot in three.js: critters march up a garden road to eat your one carrot and you plant towers on the beds beside it. ARROW for fast single shots, ICE to chill, BOMB for splashes, MOON for a wide gentle slow, POISON for damage that ignores armour, TESLA to arc between units — three levels each, sell for 65%, mark a rock or a tree and idle towers break it down for gold and a free bed, call the next wave early for a bonus, and hold eight waves across three gardens with the carrot's HP as your lives.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "cubit",
-   "name": "Cubit",
-   "match": [
-    "cubit",
-    "cubit arrow puzzle",
-    "arrow cube",
-    "de.taymaerz.cubit",
-    "taynotfound/cubit"
-   ],
-   "entry": "/games/arcade/cubit.html",
-   "blurb": "Cubit in three.js: a cube face covered in arrows. Tap one and it slides off along its heading unless another arrow is in the way, which costs a life. Dig out the pink arrow across 6x6, 8x8 and 10x10 cubes; every cube is generated backwards off a legal solve, so none can ship unsolvable.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "opensgolf",
-   "name": "OpenSGolf",
-   "match": [
-    "opensgolf",
-    "open sgolf",
-    "org.opensgolf.game",
-    "crspytopgn/opensgolf"
-   ],
-   "entry": "/games/arcade/opensgolf.html",
-   "blurb": "OpenSGolf in three.js: three holes of resort golf, par 3, 4 and 5, with fairway, rough, sand and water that each grab the ball differently. Drag back from the ball to set aim and power in one gesture, release to swing, then read the flight and putt out; the cup takes anything crossing inside a yard, water costs a stroke, and the scorecard counts par as you go. Keys aim, Space swings, R restarts.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "astro-loop",
-   "name": "Astro Loop",
-   "match": [
-    "astro loop",
-    "astro-loop",
-    "Astro-Loop",
-    "com.astroloop.game",
-    "PubDeer/astro-loop"
-   ],
-   "entry": "/games/arcade/astro-loop.html",
-   "blurb": "A one-finger starfield shooter: you steer, the guns aim and fire themselves at the nearest hostile. Asteroids tumble down and split, hunter, juke and rusher ships weave in and shoot back, and crystals from kills fly to you for score and repairs every eight. Clear a wave and the loop offers three upgrade cards — Needle Gun, Scatter Shot, Railgun Rounds, Combat Drone, Nano Repair, Momentum Drive, Magnet Field, Crystal Shield, Glass Cannon — and wave 10 is the loop's edge: clearing it is the win. Mouse, finger or WASD to steer, R for a new run; hull 100 with a second of grace after a hit.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "burger-party",
-   "name": "Burger Party",
-   "match": [
-    "burger party",
-    "burger-party",
-    "Burger-Party",
-    "BurgerParty",
-    "com.agateau.burgerparty",
-    "agateau/burgerparty"
-   ],
-   "entry": "/games/arcade/burger-party.html",
-   "blurb": "An order-rush behind the counter: read the ticket at the top, tap the ingredient stations to stack the burger in exactly that order, then Serve before the customer's patience bar empties. A wrong filling or an extra one scraps the burger and burns two seconds; a fast exact serve pays by ticket length plus a speed bonus. Three walkouts ends the shift, six served clears the food truck, and the diner and downtown grill ask for more orders in less time. Mouse, finger or keys 1-4 stack, Space serves, R restarts.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "arrow-escape-infinite-puzzle",
-   "name": "Arrow Escape",
-   "match": [
-    "arrow escape",
-    "arrow-escape-infinite-puzzle",
-    "Arrow-Escape",
-    "Arrow-Escape-Infinite-Puzzle",
-    "ArrowEscapeInfinitePuzzle",
-    "ArrowEscape",
-    "com.sidhant.arrowescape",
-    "sidhant947/ArrowEscape"
-   ],
-   "entry": "/games/arcade/arrow-escape-infinite-puzzle.html",
-   "blurb": "A one-mechanic unwind puzzle: the board is packed with arrows, and an arrow only leaves when every cell between it and the edge is empty — so the order you tap them in is the whole game. Tap an arrow with a clear run and it flies off the board; tap a blocked one and it costs one of your three lives. Boards are procedurally generated and always solvable, starting at 4x4 and growing to 7x7 as levels pass, with a hint that rings a legal move if you are stuck. Mouse or finger to tap, H for a hint, R for a new run.",
+   "entry": "/games/arcade/flowit-block-puzzle.html",
+   "blurb": "The F-Droid grid puzzler, rebuilt in three.js: every cell must end the colour of its border, and each tap pushes a block's colour outward — arrows in one direction, a flood through its own colour, or a bomb into the ring around it. Six hand-tuned levels, all proven solvable.",
    "tier": "first-party"
   },
   {
@@ -1646,92 +756,6 @@
    "tier": "first-party"
   },
   {
-   "slug": "brogue-ce",
-   "name": "Brogue CE",
-   "match": [
-    "brogue ce",
-    "brogue-ce",
-    "Brogue-CE-Android",
-    "brogue-ce-android",
-    "broguece",
-    "org.broguece.game",
-    "tyrannotorus/c-brogue-ce-android",
-    "tmewett/BrogueCE"
-   ],
-   "entry": "/games/arcade/brogue-ce.html",
-   "blurb": "A Brogue-style crawl that plays in the tab: five depths of rooms and corridors on a 21x13 tile grid, fog of war with a map that remembers what you have walked past, and a turn for every action - so the monsters move only when you do. Tap a tile beside the @ to step, bump a letter to fight it, quaff potions of healing and strength, read a teleport scroll, and take the stairs down. The Amulet of Yendor waits at the bottom; carry it back out of depth 1 to win. Mouse, finger or arrows/WASD.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "code-word",
-   "name": "Code Word",
-   "match": [
-    "peace-ray/code-word",
-    "com.peaceray.codeword",
-    "Code Word",
-    "code-word"
-   ],
-   "entry": "/games/arcade/code-word.html",
-   "blurb": "Guess the secret five-letter word in six tries. Every guess is scored in place: green means the letter is in the right spot, amber means it is in the word somewhere else, and the keyboard keeps the best colour each letter has earned so the ruled-out ones fade out. 1,945 answers are baked into the page, so it works with no network at all; a correct word opens a win sheet, six misses reveal the answer.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "codeword",
-   "name": "Cipher Square",
-   "match": [
-    "Cipher Square",
-    "cipher-square",
-    "codeword puzzle",
-    "code word puzzle"
-   ],
-   "entry": "/games/arcade/codeword.html",
-   "blurb": "A codeword: a 9x9 crossword where every square carries a number instead of a clue, and one number is always the same letter. Three grids are grown from real words, three letters are revealed to start you off, and typing a letter another number already owns swaps the two - so the mapping is the puzzle. Check marks squares that can no longer be right, Hint reveals one number, and any complete fill of real words wins.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "cube-run",
-   "name": "Cube Run",
-   "match": [
-    "Eve-146T/cube-run",
-    "cube.run",
-    "Cube Run",
-    "cube-run"
-   ],
-   "entry": "/games/arcade/cube-run.html",
-   "blurb": "A three-lane neon track runs away from the camera and a cube has to survive it. Tap the outer thirds to switch lanes, the middle to leap a low wall, swipe down to slide under an overhead bar, or swipe down in mid-air to slam back to the deck and slide on landing. Every row leaves a lane or a verb that survives it, pillars can only be dodged, and a shave over a wall pays a bonus on top of each row cleared. Ninety rows completes the circuit, then a keep-running gate reopens the endless track.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "devilutionx",
-   "name": "DevilutionX",
-   "match": [
-    "devilutionx",
-    "DevilutionX",
-    "devilution",
-    "Devilution",
-    "diasurgical/devilutionX",
-    "diasurgical/devilution",
-    "com.serwersoft.devilutionx"
-   ],
-   "entry": "/games/arcade/devilutionx.html",
-   "blurb": "A Diablo-style crawl that plays in the tab: five depths under Tristram on a 23x17 tile grid of rooms and corridors, real-time and seen from above. Tap floor to walk there, tap a monster to fight it, tap the stairs to go deeper. Fallen ones, skeletons, goat men and overlords wake when you get close and chase you on their own clock, so standing still is how you die. Kills pay xp and leave gold where the body fell; levels heal you, potions come off the bottom bar, and the Butcher waits on depth 5 — put him down to win. Mouse, finger or arrows/WASD.",
-   "tier": "first-party"
-  },
-  {
-   "slug": "feudal-tactics",
-   "name": "Feudal Tactics",
-   "match": [
-    "feudal tactics",
-    "feudal-tactics",
-    "feudaltactics",
-    "sesu8642/feudaltactics",
-    "de.sesu8642.feudaltactics"
-   ],
-   "entry": "/games/arcade/feudal-tactics.html",
-   "blurb": "Feudal Tactics in three.js: a procedurally generated hex island, troops of strength 1 to 4, and a realm only as safe as the strongest troop beside it - a hex is shielded by the best friendly troop next door and falls only to a strictly stronger one. Take the neutral land, tax it, pay the levies, and hold 80 % of the contested island before round 60.",
-   "tier": "first-party"
-  },
-  {
    "slug": "freeorion",
    "name": "FreeOrion",
    "match": [
@@ -1747,6 +771,119 @@
    "tier": "first-party"
   },
   {
+   "slug": "funkin",
+   "name": "Friday Night Funkin'",
+   "match": [
+    "friday night funkin",
+    "friday-night-funkin",
+    "friday night funkin'",
+    "fnf",
+    "funkin",
+    "com.FunkinCrew.Funkin",
+    "FunkinCrew/Funkin"
+   ],
+   "entry": "/games/arcade/funkin.html",
+   "blurb": "Four lanes of arrows fall to the strum line and you rap them back on the beat. Three songs climb the bpm ladder (100 / 128 / 146), presses are judged sick, good or ok against the arrow, the hype bar drains on every miss and the crowd boos you off when it empties, and a cleared song is graded S to D with accuracy and best combo. Arrows, charts and the backing track are generated in-page. Tap a lane on the board or its pad, or use the arrow keys; R restarts, 1-3 switches song, M mutes.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "gh-space-shooter",
+   "name": "GitHub Space Shooter",
+   "match": [
+    "GitHub Space Shooter",
+    "GitHub-Space-Shooter",
+    "gh-space-shooter",
+    "gh space shooter",
+    "GitHubSpaceShooter",
+    "czl9707/gh-space-shooter",
+    "gh-space-shooter.kiyo-n-zane.com"
+   ],
+   "entry": "/games/arcade/gh-space-shooter.html",
+   "blurb": "A year of commits as an invader fleet: eleven weeks across, six days down, every square a contribution day that takes one to four hits because that is how hot it was. Your rocket slides along the bottom of the wall and autofires up its own column; the whole graph slides down toward the ship, and the lowest square of a column drops a commit bomb every couple of seconds until it is too close to fire and simply rams. Three lives, a 1.2s grace window, 150 for a full clear. Drag, arrows or A/D to steer, Space to sting early, R for a new run — plays in the plate on a phone.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "go-board",
+   "name": "Go 9×9",
+   "match": [
+    "gobandroid",
+    "gobandroid ai",
+    "gobandroid-ai-gnugo",
+    "gobandroid ai gnugo",
+    "gobandroidhd.ai.gnugo",
+    "org.ligi.gobandroid_hd",
+    "org.ligi.gobandroidhd.ai.gnugo",
+    "ligi/gobandroid",
+    "ligi/gobandroid-ai-gnugo",
+    "gnugo",
+    "baduk",
+    "weiqi"
+   ],
+   "entry": "/games/arcade/go-board.html",
+   "blurb": "A nine by nine goban in three.js: tap or click an intersection and the machine answers. Real capture, ko and suicide rules with area scoring, pass, undo and resign.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "go-to-sleep",
+   "name": "Go To Sleep",
+   "match": [
+    "go-to-sleep",
+    "go to sleep",
+    "gotosleep",
+    "go to sleep android",
+    "com.kaeruct.gotosleep",
+    "kaeruct/go-to-sleep-android"
+   ],
+   "entry": "/games/arcade/go-to-sleep.html",
+   "blurb": "The count-sheep ritual as a three.js night pasture: tap or click and the next sheep vaults the fence, every count refills the sleepiness meter, and 20 quiet sheep put you under — let the meter run dry and the flock wanders off.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "gomoku",
+   "name": "Gomoku",
+   "match": [
+    "gomoku",
+    "alphazero-gomoku",
+    "alphazero gomoku",
+    "alphazero_gomoku",
+    "junxiaosong/alphazero_gomoku",
+    "five in a row"
+   ],
+   "entry": "/games/arcade/gomoku.html",
+   "blurb": "Fifteen by fifteen, click-or-tap five in a row against a heuristic opponent with undo and a last-move marker.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "hexsweeper",
+   "name": "Hexsweeper",
+   "match": [
+    "hexsweeper",
+    "hex sweeper",
+    "hexsweeper-android",
+    "lukeslp/hexsweeper",
+    "app.hexodus.ios",
+    "Hexsweeper"
+   ],
+   "entry": "/games/arcade/hexsweeper.html",
+   "blurb": "Hexagonal minesweeper as a three.js honeycomb: 61 hexes, flood reveal, flags, chording.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "hyperrogue",
+   "name": "HyperRogue",
+   "match": [
+    "hyperrogue",
+    "hyper rogue",
+    "hyperroid",
+    "com.roguetemple.hyperroid",
+    "hyperrogue free",
+    "hyperrogue: the roguelike on the hyperbolic plane"
+   ],
+   "entry": "/games/arcade/hyperrogue.html",
+   "blurb": "A treasure run on a real {7,3} hyperbolic tiling: three heptagons at every corner, the plane infinite in every direction. Tap a neighbouring cell, or a far one to walk a step toward it, and collect nine treasures while three hunters guard the gold.",
+   "tier": "first-party"
+  },
+  {
    "slug": "i-keep-having-this-dream",
    "name": "I Keep Having This Dream",
    "match": [
@@ -1759,6 +896,1034 @@
    ],
    "entry": "/games/arcade/i-keep-having-this-dream.html",
    "blurb": "I Keep Having This Dream in three.js: the dream deals you three tiles and you lay one on the next step of a path out of the cycle. Beasts cost hp and, worse, chase - every round of a fight is a slot your pursuer closes - while stars, wards and dew raise attack, defence and hp, and mist is quiet ground. Lay sixteen tiles and you walk through the gate; three cycles survived and you wake up. Tap a card or press 1-3.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "idle-fantasy",
+   "name": "Idle Fantasy",
+   "match": [
+    "idle fantasy",
+    "idle-fantasy",
+    "idlefantasy",
+    "com.tristinbaker.idlefantasy",
+    "tristinbaker/idlefantasy"
+   ],
+   "entry": "/games/arcade/idle-fantasy.html",
+   "blurb": "An eight-plot realm around a forge: tap for gold, raise mines and markets, and keep barracks manned before each of five raids. An army with no economy starves; an economy with no army is plundered.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "infra-arcana",
+   "name": "Infra Arcana",
+   "match": [
+    "infra arcana",
+    "infra-arcana",
+    "werewolf camp infra arcana"
+   ],
+   "entry": "/games/arcade/infra-arcana.html",
+   "blurb": "Six floors under the Church of Starry Wisdom: step, shoot, pray, and keep your spirit while you lift the Shining Trapezohedron.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "jigsaw-solitaire",
+   "name": "Jigsaw Solitaire",
+   "match": [
+    "jigsaw-solitaire",
+    "jigsaw solitaire",
+    "Jigsaw-Solitaire",
+    "jigsaw",
+    "Jigsaw",
+    "com.sidhant.jigsaw",
+    "sidhant947/jigsaw",
+    "io.gitlab.derjosef.jigsaw"
+   ],
+   "entry": "/games/arcade/jigsaw-solitaire.html",
+   "blurb": "A twelve-piece jigsaw dealt into a tray: drag a piece onto its slot and a drop within half a piece snaps and locks. The picture is painted in the page, so there is no image to download and nothing leaves the tab. Twelve locks wins, Give up shows the pieces left, R replays the same deal.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "kakuro",
+   "name": "Kakuro",
+   "match": [
+    "kakuro",
+    "cross sums",
+    "cross sum",
+    "crosssum",
+    "com.sidhant.kakuro",
+    "sidhant947/kakuro"
+   ],
+   "entry": "/games/arcade/kakuro.html",
+   "blurb": "Cross-sum logic puzzle in three.js: three boards (5x6, 6x7, 7x7), every run adds to its clue with no repeats, five-attempt error budget.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "king-pong",
+   "name": "King Pong",
+   "match": [
+    "king-pong",
+    "king pong",
+    "King-Pong",
+    "King Pong",
+    "pong",
+    "Pong",
+    "com.kingalex.kingpong",
+    "kingalex/kingpong"
+   ],
+   "entry": "/games/arcade/king-pong.html",
+   "blurb": "A five-league pong campaign on a three.js court: your paddle follows the mouse or finger, a tap serves, and the cpu paddle gets quicker, its aim tighter and your paddle narrower every league. First to the league target takes it, the cpu taking it loses the league, and clearing The Crown ends the campaign. R restarts.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "lexica",
+   "name": "Lexica",
+   "match": [
+    "lexica",
+    "com.serwylo.lexica",
+    "lexica word game",
+    "lexica word hunt"
+   ],
+   "entry": "/games/arcade/lexica.html",
+   "blurb": "Lexica in three.js: tap or swipe a chain of touching letter tiles on a 4x4, 5x5 or 6x6 board and submit the longest words you can see. Three 90-second rounds, score goals of 8/14/20 and a 156,000-word dictionary.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "lichess",
+   "name": "Lichess",
+   "match": [
+    "lichess",
+    "lichess mobile",
+    "org.lichess.mobilev2",
+    "lila",
+    "lichess (lila)",
+    "lichess-org/lila",
+    "justchess",
+    "just chess",
+    "com.alaskalinuxuser.justchess",
+    "alaskalinuxuser/app_justchess",
+    "moveapiece",
+    "moveapiece-offline-chess",
+    "move a piece",
+    "de.schliweb.moveapiece",
+    "egdels/moveapiece"
+   ],
+   "entry": "/games/arcade/lichess.html",
+   "blurb": "The Lichess board, rebuilt in three.js: click-or-tap chess against a built-in opponent, with check, mate, castling and undo.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "life-rpg",
+   "name": "Life RPG",
+   "match": [
+    "Life RPG",
+    "Life-RPG",
+    "life-rpg",
+    "life rpg",
+    "life_rpg",
+    "com.arcom.life_rpg",
+    "hellArcom/life_rpg"
+   ],
+   "entry": "/games/arcade/life-rpg.html",
+   "blurb": "Turn a day of real life into quests: six plates, one energy budget, tiers from Trivial to Epic, gold plates that pay double, and a 999-level title climb.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "mahjong-scoring-compass",
+   "name": "Mahjong Scoring Compass",
+   "match": [
+    "mahjong scoring compass",
+    "mahjong-scoring-compass",
+    "mahjong scoreboard",
+    "mahjong scoring",
+    "mahjongscore",
+    "com.kylefreed.mahjongscore",
+    "kj7qlv/mahjongscore"
+   ],
+   "entry": "/games/arcade/mahjong-scoring-compass.html",
+   "blurb": "The Riichi score compass, rebuilt as a three.js table: tap a seat for the winner and the discarder, set han and fu, and it pays the hand — dealer repeat, honba, riichi sticks, wind rotation and final standings over a full hanchan.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "mahjong-solitaire",
+   "name": "Mahjong Solitaire",
+   "match": [
+    "mahjong-solitaire",
+    "mahjong solitaire",
+    "fairy-mahjong",
+    "fairy mahjong",
+    "fairymahjong",
+    "com.fairytrick.fairymahjong",
+    "fairytrick/fairymahjong",
+    "com.sidhant.mahjong",
+    "sidhant947/mahjong"
+   ],
+   "entry": "/games/arcade/mahjong-solitaire.html",
+   "blurb": "A 136-tile five-layer pile in three.js: click or tap two matching free tiles (nothing on top, open on the left or right) to clear them. Every deal is dealt backwards from an empty pile, so it is always clearable — hint lights a real pair, and a dead end says so.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "matewave",
+   "name": "Matewave",
+   "match": [
+    "matewave",
+    "mate wave",
+    "cc.skysparkle.matewave",
+    "kalarina-bit/matewave",
+    "skysparkle",
+    "matewave chess",
+    "matewave — chess, tactics & openings"
+   ],
+   "entry": "/games/arcade/matewave.html",
+   "blurb": "The F-Droid chess app rebuilt in three.js with three modes on one board: play the built-in engine across five strength tiers (800 to 2200 Elo) with live eval, hint and undo; solve seven offline-proven mating tactics (mates in 1 and 2); or learn four opening lines (Italian, Ruy Lopez, Queen's Gambit, Najdorf) played to the book.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "matrix-puzzle",
+   "name": "Matrix Puzzle",
+   "match": [
+    "matrix puzzle",
+    "matrix-puzzle",
+    "matrixpuzzle",
+    "Matrix-Puzzle",
+    "com.sidhant.matrixpuzzle",
+    "sidhant947/Matrix-Puzzle"
+   ],
+   "entry": "/games/arcade/matrix-puzzle.html",
+   "blurb": "The F-Droid logic-grid puzzle, rebuilt in three.js: six flats of three, four or five floors, three categories each, and a clue list that fits exactly one arrangement. Pick a chip, tap a floor, and every clue turns green or red as you go.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "memory",
+   "name": "Memory",
+   "match": [
+    "memory",
+    "candy memory",
+    "candy-memory",
+    "se.tube42.kidsmem.android",
+    "learning memory",
+    "learning-memory",
+    "eu.quelltext.memory",
+    "libre memory game",
+    "libre-memory-game",
+    "org.quentin_bettoum.librememorygame",
+    "com.sanskritbasics.memory"
+   ],
+   "entry": "/games/arcade/memory.html",
+   "blurb": "The concentration card game, rebuilt in three.js: flip two cards, keep the pairs, four board sizes and a flip budget that can run out.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "mill",
+   "name": "Mill",
+   "match": [
+    "mill",
+    "nine men's morris",
+    "nine mens morris",
+    "nine-man morris",
+    "morris",
+    "sanmill",
+    "com.calcitem.sanmill"
+   ],
+   "entry": "/games/arcade/mill.html",
+   "blurb": "Nine Men's Morris in three.js: place nine men on the 24-point ring board, close a line of three to take a cpu man, fly anywhere once you are down to three, and hold the centre — sharp and steady cpu levels, undo back to your own turn.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "mines3d",
+   "name": "Mines3D",
+   "match": [
+    "mines3d",
+    "mines",
+    "minesweeper",
+    "Minesweeper---Antimine",
+    "Minesweeper-Antimine",
+    "Minesweeper Antimine",
+    "Antimine",
+    "antimine-android",
+    "lucasnlm/antimine-android",
+    "dev.lucanlm.antimine",
+    "Minesweeper-Privacy-Friendly",
+    "Minesweeper Privacy Friendly",
+    "Privacy Friendly Minesweeper",
+    "privacyfriendlyminesweeper",
+    "org.secuso.privacyfriendlyminesweeper"
+   ],
+   "entry": "/games/arcade/mines3d.html",
+   "blurb": "The F-Droid 3D minesweeper, rebuilt as a three.js board: flood reveal, flags, safe first click.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "minetest-game",
+   "name": "Block World",
+   "match": [
+    "minetest game",
+    "minetest-game",
+    "minetest",
+    "minetest_game",
+    "minetestgame",
+    "luanti",
+    "luanti game",
+    "freeminer",
+    "org.freeminer.freeminer",
+    "voxel sandbox"
+   ],
+   "entry": "/games/arcade/minetest-game.html",
+   "blurb": "The Minetest sandbox rebuilt as a three.js voxel island: tap to mine blocks into your pack, build mode puts them back, and sand marks the gold seams you have to dig out before the pickaxe dulls.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "minute-maze",
+   "name": "Minute Maze",
+   "match": [
+    "minute-maze",
+    "minute maze",
+    "minutemaze",
+    "net.ygingras.minutemaze",
+    "ygingras/minute-maze"
+   ],
+   "entry": "/games/arcade/minute-maze.html",
+   "blurb": "Timed maze race in three.js: eight carved mazes from 7x7 to 15x15 on one 60-second clock, a time bonus for every maze cleared, d-pad, swipe or arrows.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "mobile-maia",
+   "name": "Mobile Maia",
+   "match": [
+    "mobile maia",
+    "mobile-maia",
+    "mobilemaia",
+    "mobilemaia.org",
+    "maia chess",
+    "maia-3",
+    "maia 3",
+    "maia chess android",
+    "maia human chess",
+    "dash1971/maia-chess-android",
+    "maia-play"
+   ],
+   "entry": "/games/arcade/mobile-maia.html",
+   "blurb": "Play and analyse against a Maia-style engine whose strength follows a rating slider from 600 to 2600: a 600 looks one ply and drops material, a 2600 punishes everything, and every rating takes a mate in one. Pick a side and the board turns to your colour, read the live line, ask for a gold hint, and undo straight back to your move.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "nonogram",
+   "name": "Nonogram",
+   "match": [
+    "nonogram",
+    "nonograms",
+    "nonocross",
+    "picross",
+    "hanjie",
+    "com.sidhant.nonogram",
+    "com.picross.nonocross",
+    "sidhant947/nonogram",
+    "jaredforrest/nonocross"
+   ],
+   "entry": "/games/arcade/nonogram.html",
+   "blurb": "Nonogram / picross in three.js: three pictures (8x8, 10x10, 12x12) with row and column run clues derived from the picture, tap to fill, mark or clear, clue lines go teal when their runs match, and a line that provably cannot reach its clue costs one of five errors.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "one-line-puzzle",
+   "name": "One Line Puzzle",
+   "match": [
+    "one-line-puzzle",
+    "one line puzzle",
+    "one line",
+    "oneline",
+    "com.sidhant.oneline",
+    "sidhant/one-line"
+   ],
+   "entry": "/games/arcade/one-line-puzzle.html",
+   "blurb": "One-stroke path puzzle in three.js: drag a single continuous line through every cell of a 5x5 to 6x8 board, hitting the numbers in ascending order. Back up, restart, switch puzzle.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "open-chaos-chess",
+   "name": "Open Chaos Chess",
+   "match": [
+    "open chaos chess",
+    "open-chaos-chess",
+    "openchaoschess",
+    "dev.corruptedark.openchaoschess",
+    "chaos chess"
+   ],
+   "entry": "/games/arcade/open-chaos-chess.html",
+   "blurb": "The F-Droid chaos variant, rebuilt in three.js: tap a piece and the board picks one of its legal moves at random, for both sides. No check, no castling — take every enemy piece to win, with a bloodthirst mode and a knights-only board.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "open-golf",
+   "name": "Open Golf",
+   "match": [
+    "open golf",
+    "open-golf",
+    "Open-Golf",
+    "OpenGolf",
+    "me.mgerdes.open_golf",
+    "mgerdes/open-golf"
+   ],
+   "entry": "/games/arcade/open-golf.html",
+   "blurb": "Open Golf in three.js: a six-hole mini-golf round where aim and power come from one gesture. Drag back from the ball and release to putt; power sets the roll, sand swallows half of it, walls bank the ball and bumpers throw it back. The cup only takes a putt that arrives slow, par is 19, and the round allows 27 strokes. R restarts.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "openrct2",
+   "name": "Cluer Park",
+   "match": [
+    "openrct2",
+    "openrct 2",
+    "open rct2",
+    "openrct",
+    "cluer park",
+    "OpenRCT2",
+    "OpenRCT2/OpenRCT2"
+   ],
+   "entry": "/games/arcade/openrct2.html",
+   "blurb": "Cluer Park in three.js: lay paths out from the gate, then open a carousel, dodgems, swing ship and coaster on them, add a burger bar and trees. Guests flood-fill your paths, queue, pay at the turnstile and drift away when the park stops rating; ride upkeep keeps bleeding cash. Fill one 300-second season with 130 guests through the gates and a rating of 400 or better.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "opensgolf",
+   "name": "OpenSGolf",
+   "match": [
+    "opensgolf",
+    "open sgolf",
+    "org.opensgolf.game",
+    "crspytopgn/opensgolf"
+   ],
+   "entry": "/games/arcade/opensgolf.html",
+   "blurb": "OpenSGolf in three.js: three holes of resort golf, par 3, 4 and 5, with fairway, rough, sand and water that each grab the ball differently. Drag back from the ball to set aim and power in one gesture, release to swing, then read the flight and putt out; the cup takes anything crossing inside a yard, water costs a stroke, and the scorecard counts par as you go. Keys aim, Space swings, R restarts.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "openttd",
+   "name": "OpenTTD",
+   "match": [
+    "openttd",
+    "open ttd",
+    "open-ttd",
+    "org.openttd.fdroid",
+    "openttd/openttd"
+   ],
+   "entry": "/games/arcade/openttd.html",
+   "blurb": "A pocket transport tycoon: the coal mine and the farm produce, the power station and the food mill pay. Lay rail with Track, drop a Station beside an industry, then buy a Train between a producing halt and a consumer halt joined by your line. Revenue is the score (target 2800), cash pays track, halts, trains and network upkeep, and a line built into the red can still bankrupt you. Tap a tile to build, tap Track/Station/Train to switch tools.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "osu",
+   "name": "osu! Circles",
+   "match": [
+    "osu",
+    "osu! (lazer)",
+    "osu lazer",
+    "osu!(lazer)",
+    "ppy/osu",
+    "osu.ppy.sh",
+    "osu hit circles",
+    "hit circle"
+   ],
+   "entry": "/games/arcade/osu.html",
+   "blurb": "Hit-circle rhythm game in three.js: seeded beatmaps on a 120-174 BPM track, tap each circle as its approach ring closes for a 300 / 100 / 50, carry the combo and keep the health bar alive through singles, pairs, half-beat streams, jumps and ladders.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "paper-loop-2",
+   "name": "Paper Loop 2",
+   "match": [
+    "paper loop 2",
+    "paper-loop-2",
+    "paper loop",
+    "paperloop2",
+    "com.paperloop.game2",
+    "PaperLoop2"
+   ],
+   "entry": "/games/arcade/paper-loop-2.html",
+   "blurb": "Steer a head out of your turf, loop back in and the ground you enclose is yours. Two rivals paint the same circle and hunt your ribbon; cross theirs and they are cut, let them cross yours and you are. Hold the pointer or a finger anywhere on the arena and the head chases it, arrows/WASD turn, 50% of the circle wins, F or the button cycles HARD/EASY/NONE, R restarts.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "pekka-kana-2",
+   "name": "Pekka Kana 2",
+   "match": [
+    "pekka kana 2",
+    "pekka-kana-2",
+    "pekka kana",
+    "org.pgnapps.pk2",
+    "danilolc/pk2",
+    "pk2"
+   ],
+   "entry": "/games/arcade/pekka-kana-2.html",
+   "blurb": "A rooster platformer: run and jump across two meadows, stomp the patrolling monsters, collect every egg and reach the door — the door stays shut until the egg count is complete. Three lives, spike beds and pits along the way. Tap the canvas to step, use the pads or the arrow keys, JUMP with the pad or Space.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "pipes-water-flow-puzzle",
+   "name": "Pipes",
+   "match": [
+    "pipes",
+    "pipes water flow puzzle",
+    "pipes-water-flow-puzzle",
+    "Pipes-Water-Flow-Puzzle",
+    "water flow puzzle",
+    "water flow",
+    "com.sidhant.pipes",
+    "sidhant947/pipes"
+   ],
+   "entry": "/games/arcade/pipes-water-flow-puzzle.html",
+   "blurb": "Rotate pipe pieces a quarter turn at a time until the water leaving the gold spout reaches every drain: three boards, a turn budget that can run dry, undo.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "powder-lab",
+   "name": "Powder Lab",
+   "match": [
+    "The Powder Toy",
+    "the-powder-toy",
+    "the powder toy",
+    "powder toy",
+    "powdertoy",
+    "powder-toy"
+   ],
+   "entry": "/games/arcade/powder-lab.html",
+   "blurb": "The falling-sand sandbox reduced to its rules: drag sand, water, oil and fire onto a stone board and let gravity, density and heat do the rest. Sand piles and sinks through water, oil floats, flames eat oil and water turns fire into steam, and every grain of it is one of 1,632 cells stepped forty times a second. Three timed experiments: fill a stone crucible with sixty grains, burn an oil trough down to nothing, and pack a shaft past the gold line. Sand, water, oil, fire, stone and erase brushes, a New run button, R to start the level over, and it plays with a mouse or a finger. No install, no account, no sliders - just the experiments.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "puzzle-press",
+   "name": "Puzzle Press",
+   "match": [
+    "puzzle-press",
+    "puzzle press",
+    "puzzlepress",
+    "io.github.munzzyy.puzzlepress",
+    "munzzyy/puzzlepress"
+   ],
+   "entry": "/games/arcade/puzzle-press.html",
+   "blurb": "Three of the seven Puzzle Press dailies in one three.js page: Wordrow (six tries at a five-letter word, tiles scored green, gold and grey), Clusters (sort sixteen tiles into four themes before the fourth mistake) and Edgeways (twelve letters around a square, chain words until every letter is used, each letter from a different side). Keys or the on-screen pad; R restarts, F cycles the mode.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "queens",
+   "name": "Queens",
+   "match": [
+    "queens",
+    "queens puzzle",
+    "linkedin queens",
+    "n queens"
+   ],
+   "entry": "/games/arcade/queens.html",
+   "blurb": "One queen per row, column and colour region in three.js: 6x6, 7x7 and 8x8 boards cut from a verified placement, tap to set or lift a queen, conflicts light up, wall-clock budget.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "quiet-grid-logic-puzzles",
+   "name": "Quiet-Grid-Logic-Puzzles",
+   "match": [
+    "quiet-grid-logic-puzzles",
+    "Quiet Grid",
+    "quiet grid",
+    "quiet grid logic puzzles",
+    "Quiet-Grid-Logic-Puzzles",
+    "com.quietgrid.app"
+   ],
+   "entry": "/games/arcade/quiet-grid-logic-puzzles.html",
+   "blurb": "Three calm logic modes in one page: Takuzu 6x6, Mini Sudoku 6x6 and Star Battle 5x5 — tap a cell, tap the value, five impossible entries ends the board.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "roboyard",
+   "name": "RoboYard",
+   "match": [
+    "roboyard",
+    "roboyard ricochet robots",
+    "ricochet robots",
+    "de.z11.roboyard",
+    "eastcoast-laboratories/roboyard"
+   ],
+   "entry": "/games/arcade/roboyard.html",
+   "blurb": "Ricochet Robots in three.js: four robots slide across a 9x9 hedge yard until a hedge, another robot or the wall stops them; tap a robot then tap a direction to send it, and land the red robot on the gold pad inside a par + 6 shot budget.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "rpg-npc-generator",
+   "name": "NPC Forge",
+   "match": [
+    "RPG NPC Generator",
+    "RPG-NPC-Generator",
+    "rpg-npc-generator",
+    "rpg npc generator",
+    "me.kerooker.rpgcharactergenerator",
+    "LeoColman/rpg-npc-generator"
+   ],
+   "entry": "/games/arcade/rpg-npc-generator.html",
+   "blurb": "Roll a tabletop NPC on a 3D character table: tap the die for a whole sheet or one plate to re-roll a single trait, chase a legendary stat total, save the keepers.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "scid-on-the-go",
+   "name": "Scid on the Go",
+   "match": [
+    "scid on the go",
+    "scid-on-the-go",
+    "scid",
+    "org.scid.android"
+   ],
+   "entry": "/games/arcade/scid-on-the-go.html",
+   "blurb": "The Android chess database, rebuilt as a three.js game viewer: four short games in the database, step or auto-play through them, tap any move in the list to jump straight to that position, and flip the board.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "shattered-descent",
+   "name": "Shattered Descent",
+   "match": [
+    "shattered pixel dungeon",
+    "shattered-pixel-dungeon",
+    "shatteredpixeldungeon",
+    "com.shatteredpixel.shatteredpixeldungeon",
+    "shattered pixel dungeon (roguelike)"
+   ],
+   "entry": "/games/arcade/shattered-descent.html",
+   "blurb": "Turn-based dungeon crawl in three.js: tap or arrow to step, bump a monster to strike it, every step is a turn. Ten generated floors and the Amulet.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "shikaku",
+   "name": "Shikaku",
+   "match": [
+    "shikaku",
+    "shikaku puzzle",
+    "rect divide"
+   ],
+   "entry": "/games/arcade/shikaku.html",
+   "blurb": "Rectangle-division logic puzzle in three.js: four boards (5x5 up to 8x8) built by guillotine partition so each one has an answer, drag or tap two corners to claim a box, every box holds one number and its area.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "shogi",
+   "name": "Shogi",
+   "match": [
+    "Shogi",
+    "shogi",
+    "SeiShinGakuen ShougiBu",
+    "清正学園将棋部 (SeiShinGakuen ShougiBu)",
+    "seishingakuen_shougibu",
+    "seishingakuen-shougibu",
+    "org.seishingakuen.shougibu",
+    "hiroshiyui/SeiShinGakuen_ShougiBu"
+   ],
+   "entry": "/games/arcade/shogi.html",
+   "blurb": "Full-rule 9x9 shogi on three.js: promotion, drops, nifu, uchifuzume, check and mate, with a searching opponent and undo.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "six-shooter",
+   "name": "Six Shooter",
+   "match": [
+    "Six Shooter",
+    "six-shooter",
+    "Six-Shooter",
+    "sixshooter",
+    "six shooter",
+    "dk.dustytales.sixshooter",
+    "PedePedersen/sixshooter-apk",
+    "sixshooter-apk"
+   ],
+   "entry": "/games/arcade/six-shooter.html",
+   "blurb": "The saloon draw as a real cylinder instead of a spinner: two to six gunslingers each load one cartridge in their own colour, six chambers, the rest empty. Tap the drum or hit Spin and it eases four-plus turns to land a chamber under the needle — a cartridge takes the draw, an empty chamber clicks and nobody does. Elimination mode pulls the drawn cartridge out of the drum and keeps spinning until one round is left, so three gunslingers resolve in two bangs; solo spin just picks a winner and never ends. Fifteen-second rules, no install, plays in the plate on a phone or with a keyboard.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "snakes",
+   "name": "Snakes",
+   "match": [
+    "snakes",
+    "snake",
+    "red.drugi.snakes",
+    "mir06/snakes",
+    "gitlab.com/mir06/snakes",
+    "snake game",
+    "snake-game",
+    "classic snake"
+   ],
+   "entry": "/games/arcade/snakes.html",
+   "blurb": "Grid snake in three.js: 19x13 board, six seeds to a level, walls and your own tail end the run, wrap mode crosses the edges, Back up rewinds a fatal tick.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "sokoban",
+   "name": "Sokoban",
+   "match": [
+    "sokoban",
+    "sokobang"
+   ],
+   "entry": "/games/arcade/sokoban.html",
+   "blurb": "10 hand-checked crate levels, 3D blocks, undo and push counter.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "stonewars",
+   "name": "Stone Wars",
+   "match": [
+    "stone wars",
+    "block puzzle stone wars",
+    "block puzzle - stone wars",
+    "blockpuzzle stone wars",
+    "de.mwvb.blockpuzzle"
+   ],
+   "entry": "/games/arcade/stonewars.html",
+   "blurb": "The F-Droid block puzzle, rebuilt in three.js: drag polyomino slabs onto a 10×10 field, clear full rows and columns for combos, and free each planet before the tray stops fitting.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "stronghold-protocol",
+   "name": "Stronghold Protocol",
+   "match": [
+    "stronghold protocol",
+    "stronghold-protocol",
+    "stronghold protocol: alliance",
+    "stronghold-protocol-alliance",
+    "stronghold protocol alliance",
+    "sganggs/stronghold-protocol",
+    "stronghold protocol auto chess"
+   ],
+   "entry": "/games/arcade/stronghold-protocol.html",
+   "blurb": "Auto-chess tower defence in three.js: draft five hero kinds with gold, deploy them on the three rows in front of your wall, upgrade them, and hold fourteen auto-battling waves ending in a warlord.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "sudaku-pattern-driven-sudoku",
+   "name": "Sudaku",
+   "match": [
+    "sudaku",
+    "sudaku-pattern-driven-sudoku",
+    "Sudaku---Pattern-driven-sudoku",
+    "com.gitea.theoden8.sudaku"
+   ],
+   "entry": "/games/arcade/sudaku-pattern-driven-sudoku.html",
+   "blurb": "A constraint workbench: pencil marks, all-diff, one-of and a ripple that finishes the grid.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "sudoku",
+   "name": "Sudoku",
+   "match": [
+    "sudoku",
+    "hand drawn sudoku",
+    "sudoku hand drawn",
+    "libresudoku",
+    "open sudoku",
+    "lantern sudoku",
+    "daybook",
+    "daybook puzzles",
+    "daybook puzzles daily sudoku",
+    "puzzles daily sudoku",
+    "com.joebywan.daybook",
+    "joebywan/daybook",
+    "sudoku-privacy-friendly",
+    "sudoku you",
+    "sudoku-you",
+    "org.secuso.privacyfriendlysudoku",
+    "com.galaxyrio.sudokusolver",
+    "privacy friendly sudoku"
+   ],
+   "entry": "/games/arcade/sudoku.html",
+   "blurb": "The F-Droid sudoku, rebuilt in three.js: click-or-tap boards in three levels, mistake counter, timer and win detection.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "supertux",
+   "name": "SuperTux",
+   "match": [
+    "supertux",
+    "super tux",
+    "SuperTux/supertux",
+    "supertux.org"
+   ],
+   "entry": "/games/arcade/supertux.html",
+   "blurb": "Penguin platformer in three.js: run and jump two snow levels, bump the coin blocks from below, squash walking ice cubes and bouncing snowballs, dodge the icicle beds and pits, and reach the flag.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "tactic-trainer",
+   "name": "Tactic Trainer",
+   "match": [
+    "tactic-trainer",
+    "tactic trainer",
+    "tacticmaster",
+    "com.tacticmaster",
+    "Tactic-Master",
+    "tactic master"
+   ],
+   "entry": "/games/arcade/tactic-trainer.html",
+   "blurb": "A six-puzzle tactics session on a 3D board: mate in one and mate in two, proven by the same rules the page runs. Tap your piece, tap the square, find the forced mate — a solve pays rating with a streak bonus, a wrong move costs nine, and the session ends with your rating change, best streak and accuracy.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "tathams-puzzles",
+   "name": "Simon Tatham's Puzzles",
+   "match": [
+    "simon tatham's puzzles",
+    "simon tathams puzzles",
+    "simon-tatham-s-puzzles",
+    "tatham's puzzles",
+    "tathams puzzles",
+    "sgtpuzzles",
+    "chrisboyle sgtpuzzles",
+    "name.boyle.chris.sgtpuzzles"
+   ],
+   "entry": "/games/arcade/tathams-puzzles.html",
+   "blurb": "The reference puzzle compendium, ported to three.js: Fifteen, Twiddle and Flood on one 3D board — slide, rotate and flood, all procedurally scrambled.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "tensy",
+   "name": "Tensy",
+   "match": [
+    "tensy",
+    "match to ten",
+    "sum to ten",
+    "make ten",
+    "se.voxelmanip.tensy",
+    "rollerozxa/tensy"
+   ],
+   "entry": "/games/arcade/tensy.html",
+   "blurb": "Tensy in three.js: drag a path of touching tiles that adds up to exactly 10 and the whole path clears, the columns fall and fresh tiles drop in. A 6x6 board, three rising targets, and a game over when nothing on the board makes ten.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "the-last-carrot",
+   "name": "The Last Carrot",
+   "match": [
+    "the last carrot",
+    "the-last-carrot",
+    "last carrot",
+    "lastcarrot",
+    "io.github.acidefluorhydrique.carrot",
+    "acidefluorhydrique/carrot",
+    "the last carrot tower defense",
+    "the last carrot tower defence",
+    "the last carrot towerdefense"
+   ],
+   "entry": "/games/arcade/the-last-carrot.html",
+   "blurb": "The Last Carrot in three.js: critters march up a garden road to eat your one carrot and you plant towers on the beds beside it. ARROW for fast single shots, ICE to chill, BOMB for splashes, MOON for a wide gentle slow, POISON for damage that ignores armour, TESLA to arc between units — three levels each, sell for 65%, mark a rock or a tree and idle towers break it down for gold and a free bed, call the next wave early for a bonus, and hold eight waves across three gardens with the carrot's HP as your lives.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "the-squirrel-s-maze-2d",
+   "name": "The Squirrel's Maze 2D",
+   "match": [
+    "the-squirrel-s-maze-2d",
+    "the squirrel's maze 2d",
+    "the squirrel s maze 2d",
+    "the squirrels maze",
+    "squirrel maze",
+    "com.maze_squirrel",
+    "maze_squirrel"
+   ],
+   "entry": "/games/arcade/the-squirrel-s-maze-2d.html",
+   "blurb": "A freshly carved maze every level: walk the squirrel onto every acorn, then home to the glowing nest before the step cap runs out.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "tile-match",
+   "name": "Tile Match",
+   "match": [
+    "tile-match",
+    "tile match",
+    "tilematch",
+    "tile-match-3",
+    "infrared.tilematch",
+    "infrared-developer/tile-match"
+   ],
+   "entry": "/games/arcade/tile-match.html",
+   "blurb": "A 78-tile three-layer pile in three.js: tap a tile with nothing on top to send it to the seven-slot bar, where three of a kind clear. Every deal is peeled backwards off the full pile in whole triples, so it can always be cleared; seven in the bar with no match ends the run.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "tri-peaks",
+   "name": "Tri Peaks Solitaire",
+   "match": [
+    "tri-peaks",
+    "tri peaks",
+    "tripeaks",
+    "tri peaks solitaire",
+    "tripeaks solitaire",
+    "tri-peakssolitaire-for-android",
+    "tripeaks neue",
+    "tripeaks-neue",
+    "eu.veldsoft.tri.peaks",
+    "io.github.mimoguz.tripeaksneue"
+   ],
+   "entry": "/games/arcade/tri-peaks.html",
+   "blurb": "Three peaks of cards, one rank rule: take a card one above or below the waste, ace wrapping to king, and clear all 30 with two passes of a 22-card stock. Deals are solver-checked before they ship.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "unciv",
+   "name": "Unciv",
+   "match": [
+    "unciv",
+    "com.unciv.app",
+    "yairm210/unciv",
+    "unciv game",
+    "f-droid unciv"
+   ],
+   "entry": "/games/arcade/unciv.html",
+   "blurb": "Turn-based 4X in three.js: explore a fogged 9x7 continent, settle your capital, work tiles for food, hammers, gold and science, research three techs, raise warriors and archers, and take the rival capital before the forty-turn age ends.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "vcmi",
+   "name": "Hex Fields",
+   "match": [
+    "VCMI - Open Heroes 3",
+    "VCMI-Open-Heroes-3",
+    "VCMI",
+    "vcmi",
+    "vcmi.eu",
+    "vcmi/vcmi",
+    "github.com/vcmi/vcmi"
+   ],
+   "entry": "/games/arcade/vcmi.html",
+   "blurb": "The tactical battle from Heroes III, taken as a game of its own: a 9 by 7 hex field, five stacks an army, one action per stack per round in speed order. Tap a stack and its march is drawn for you - green hexes it can reach, red stacks it can charge - then tap where you want it to go. Moving beside an enemy and striking is one action, a struck stack answers back exactly once per round, and an archer that no enemy is touching shoots without ever taking retaliation. Damage rolls the Heroes curve: the base die times the number of creatures, scaled by 1 + 0.05 for every point of attack over defence. Wait to act last in the round, Defend to raise your guard, and break the warband before it breaks you. Mouse, finger or keyboard; R for a new battle.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "vector-pinball",
+   "name": "Vector Pinball",
+   "match": [
+    "vector-pinball",
+    "vector pinball",
+    "Vector-Pinball",
+    "Vector Pinball",
+    "com.dozingcatsoftware.bouncy",
+    "dozingcat/vector-pinball"
+   ],
+   "entry": "/games/arcade/vector-pinball.html",
+   "blurb": "A tilted three.js playfield: launch the ball up the right lane, then hold the left or right half of the table to swing that flipper and work the bumpers, slingshots and rails. First to 2400 clears the table; losing the third ball ends the game. R restarts.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "water-sort",
+   "name": "Water Sort",
+   "match": [
+    "water sort",
+    "water-sort",
+    "water sort puzzle",
+    "watersort",
+    "water sorting",
+    "tube sort",
+    "liquid sort",
+    "color sort puzzle"
+   ],
+   "entry": "/games/arcade/water-sort.html",
+   "blurb": "Water Sort in three.js: tap a tube to lift it, tap another to pour — the whole run of the top colour moves if it matches the destination or the tube is empty. Five deals from 3 to 7 colours, four units to a tube, and a move budget set from the solver's optimal line.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "wesnoth",
+   "name": "The Battle for Wesnoth",
+   "match": [
+    "wesnoth",
+    "battle for wesnoth",
+    "the battle for wesnoth",
+    "wesnoth/wesnoth",
+    "org.wesnoth.Wesnoth",
+    "wesnoth bfw"
+   ],
+   "entry": "/games/arcade/wesnoth.html",
+   "blurb": "Wesnoth in three.js: an 11x7 hex field from the river up to the keeps, and the ground is the whole game — open grass lets a defender dodge two blows in five, a hill half, a mountain three in five, and every hex costs movement to enter, so the approach decides the fight before the first strike. Four villages pay gold and mend whoever holds them, a recruit musters on the castle ring beside your keep and marches next turn, and archers loose from two hexes without an answer. Fell the orc Warlord, or break his host where it stands.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "quadplay",
+   "name": "Quadplay · HexFlipper",
+   "match": [
+    "quadplay",
+    "hexflipper",
+    "hex flipper",
+    "factory797/quadplay",
+    "cdwfs/hexflipper",
+    "quadplay fantasy console",
+    "Quadplay",
+    "HexFlipper"
+   ],
+   "entry": "/games/arcade/quadplay.html",
+   "blurb": "HexFlipper, the territory game from the quadplay✜ fantasy console, in three.js: a 61-hex comb and a hand of 1-6 arrows a turn. Mint rings mark the neutral ground your hand would claim, a gold ring marks a super arrow that steals, and the odds of one rise the further behind you fall — so the comeback is built into the deal. Take their last hex and the comb folds; fill it and the majority takes it.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "wolfenstein-rpg",
+   "name": "Wolfenstein RPG",
+   "match": [
+    "Wolfenstein RPG",
+    "wolfenstein-rpg",
+    "wolfenstein rpg",
+    "DOOM-Wolfenstein-RPG",
+    "doom-wolfenstein-rpg",
+    "doom wolfenstein rpg",
+    "Doom / Wolfenstein RPG Android Ports (`DOOM-Wolfenstein-RPG`, a.k.a. MobileRPGPack)",
+    "MobileRPGPack",
+    "mobilerpgpack",
+    "sandstranger/doom-wolf-rpg-android-port"
+   ],
+   "entry": "/games/arcade/wolfenstein-rpg.html",
+   "blurb": "A turn-based dungeon crawl from the first-person seat: every step, quarter-turn and shot hands the garrison one move, so the hall you walk into is the hall you chose. Rationed fire, medkits in the dead ends, three floors of carved maze, and the way down at the farthest reach. Clear the third floor and the vault is yours.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "principia",
+   "name": "Principia",
+   "match": [
+    "principia",
+    "Principia",
+    "bithack/principia",
+    "prototype-principia"
+   ],
+   "entry": "/games/arcade/principia.html",
+   "blurb": "A marble machine you rig, then release. Drag one or two pivoted beams to aim, press Run, and the marble rolls off the end across a bench of speed bumps into a narrow pit. Tip too little and it stalls on the bench, tip too much and it skips the pit and rolls off the far end — the angle has to land in the band. Five rigs, angrier each time; R rebuilds the bench, arrows nudge the beam, space runs.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "revengate",
+   "name": "Revengate",
+   "match": [
+    "revengate",
+    "Revengate",
+    "ygingras/revengate",
+    "org.revengate.revengate",
+    "Revengate: The Traboule Affair"
+   ],
+   "entry": "/games/arcade/revengate.html",
+   "blurb": "A steampunk crawl under 1851 Lyon: every step, swing, thrown knife and stick of dynamite hands the traboule one move back. Fog closes the corridors to your lantern light, absinthe buys back health, analysis-paralysis freezes the room, and two passive amulets quietly reroll your odds. Take the Lux Co. ledger off the Veiled Commissioner's study on the fourth depth, then climb back to the street door that will not open until you carry it.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "supertuxkart",
+   "name": "SuperTuxKart",
+   "match": [
+    "supertuxkart",
+    "SuperTuxKart",
+    "org.supertuxkart.stk",
+    "supertuxkart stk",
+    "SuperTuxKart (Penguin Circuit)"
+   ],
+   "entry": "/games/arcade/supertuxkart.html",
+   "blurb": "Three laps of the penguin circuit from the back of the grid. Auto-throttle, steer the ribbon, drift the hairpin for a tighter line and a little more top end, and aim at the item gates either side of the racing line: boosts fire you past your cap, oil you leave behind spins whoever follows. Cut the middle all race and you finish where you started.",
+   "tier": "first-party"
+  },
+  {
+   "slug": "super-retro-mega-wars",
+   "name": "Super Retro Mega Wars",
+   "match": [
+    "super-retro-mega-wars",
+    "Super Retro Mega Wars",
+    "com.serwylo.retrowars",
+    "retrowars",
+    "retro wars"
+   ],
+   "entry": "/games/arcade/super-retro-mega-wars.html",
+   "blurb": "Three arcade classics on one board, alternating against the cpu: shoot the rocks before they reach your hull, break your wall of bricks faster than the cpu breaks its own, and swallow pellets with a snake that respawns short instead of dying. Sixty seconds a round, three games, and the cross-game handicap kept honest — every point you bank speeds the cpu's game up.",
    "tier": "first-party"
   }
  ]
