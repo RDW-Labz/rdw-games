@@ -488,10 +488,8 @@ footer{{margin-top:40px;color:#6f7f96;font-size:12px;border-top:1px solid var(--
     </div>
   </header>
 
-  <p class="rule">Click any tile and the game <b>starts right here</b> — no downloads, no
-  installers, no app stores, nothing to leave this page for. Anything that can't do that isn't
-  a tile: it waits in the conversion queue below and is rebuilt as a <b>three.js</b> game,
-  verified click-to-play before it ships.</p>
+  <p class="rule">Choose a tile to <b>play in your browser</b>. The conversion queue tracks
+  games still being prepared for browser play.</p>
 
 {original_block}{door_block}  <div class="tools">
     <input id="q" type="search" placeholder="Search {live} playable games…" autocomplete="off" spellcheck="false">
