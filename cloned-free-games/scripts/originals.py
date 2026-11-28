@@ -25,8 +25,8 @@ def load_releases(path: Path = MANIFEST) -> list[dict]:
         if not re.fullmatch(r"[a-z0-9]+(?:[.-][a-z0-9]+)*", version):
             raise ValueError(f"{slug}: invalid release version")
         if not all(isinstance(release.get(field), str) and release[field].strip()
-                   for field in ("title", "description")):
-            raise ValueError(f"{slug}: title and description are required")
+                   for field in ("title", "description", "preview_alt")):
+            raise ValueError(f"{slug}: title, description, and screenshot alt text are required")
         if not re.fullmatch(r"[\w.-]+/[\w.-]+", release.get("source", "")):
             raise ValueError(f"{slug}: expected an owner/repository source")
         if not re.fullmatch(r"[a-f0-9]{40}", release.get("commit", "")):
@@ -39,7 +39,8 @@ def load_releases(path: Path = MANIFEST) -> list[dict]:
             if parts.scheme != "https" or not parts.hostname or parts.username is not None:
                 raise ValueError(f"{slug}: expected a hosted HTTPS play URL")
         releases.append({**release, "url": url, "bundle": None if hosted else route,
-                         "desc": release["description"], "kicker": "original"})
+                         "desc": release["description"], "kicker": "original",
+                         "preview": f"/originals/previews/{slug}/{version}.webp"})
         slugs.add(slug)
     return releases
 
@@ -62,13 +63,26 @@ def stage_builds(releases: list[dict], builds: Path, public: Path) -> None:
         print(f"ORIGINAL /{route}/")
 
 
+def stage_previews(releases: list[dict], repo: Path, public: Path) -> None:
+    for release in releases:
+        route = release["preview"].lstrip("/")
+        screenshot = repo / route
+        target = public / route
+        if not screenshot.is_file() or screenshot.resolve() != repo.resolve() / route:
+            raise ValueError(f"Missing release screenshot: {screenshot}")
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(screenshot, target)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--builds", type=Path, required=True)
     parser.add_argument("--public", type=Path, required=True)
     args = parser.parse_args()
     try:
-        stage_builds(load_releases(), args.builds, args.public)
+        releases = load_releases()
+        stage_builds(releases, args.builds, args.public)
+        stage_previews(releases, MANIFEST.parents[1], args.public)
     except (OSError, ValueError) as error:
         parser.exit(1, f"Original games: {error}\n")
 

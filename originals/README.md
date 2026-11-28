@@ -3,6 +3,9 @@
 `releases.json` selects one tested release per title for the studio portal.
 Record the full source commit and the version that was tested. Run the game's tests and
 verify launch, gameplay input, Back, and relaunch at desktop and phone sizes before switching a row.
+Capture a screenshot during that release's actual gameplay and save it as
+`previews/<slug>/<version>.webp`. Include brief `preview_alt` text describing the scene.
+If a playtest release uses prototype art, identify it as such in its description.
 
 - For an existing game service, set `url` to its direct HTTPS play page. The portal opens it in the
   same tab, so Browser Back returns to the catalog. Claybound uses this route because its

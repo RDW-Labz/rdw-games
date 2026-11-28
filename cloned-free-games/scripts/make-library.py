@@ -117,9 +117,13 @@ def door_html(cards: list[dict]) -> str:
         badge = c["kicker"] + (f' · {c["version"]}' if "version" in c else "")
         if c.get("beta"):
             badge += " · beta"
+        preview = ""
+        if "preview" in c:
+            preview = (f'<img src="{html.escape(c["preview"])}" alt="{html.escape(c["preview_alt"])}" '
+                       'width="640" height="360">')
         tiles.append(
             f'<a class="doorcard" href="{html.escape(c["url"])}">'
-            f'<span class="k">{html.escape(badge)}</span>'
+            f'{preview}<span class="k">{html.escape(badge)}</span>'
             f'<strong>{html.escape(c["title"])}</strong>'
             f'<span class="d">{html.escape(c["desc"][:150])}</span>'
             f'<span class="go">Play ▸</span></a>'
@@ -415,6 +419,7 @@ h1{{font-size:26px;letter-spacing:-0.4px;margin:0;font-weight:750}}
   border:1px solid var(--line);border-radius:14px;padding:13px 14px;background:#0c121ecc;
   transition:transform .16s ease,border-color .16s ease}}
 .doorcard:hover,.doorcard:focus-visible{{transform:translateY(-3px);border-color:#3b5573;box-shadow:0 20px 34px -22px #000}}
+.doorcard img{{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;border-radius:8px}}
 .doorcard .k{{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}}
 .doorcard strong{{font-size:15.5px;line-height:1.2;font-weight:680}}
 .doorcard .d{{font-size:12.5px;color:var(--dim);line-height:1.4;
@@ -618,7 +623,8 @@ def main() -> int:
     payload = {
         "tiles": tiles,
         "originals": [{key: release[key] for key in
-                       ("slug", "title", "version", "description", "source", "commit", "url")}
+                       ("slug", "title", "version", "description", "source", "commit", "url",
+                        "preview", "preview_alt")}
                       for release in originals],
         "counts": {k: v for k, v in data.items() if k != "entries_live"},
     }
