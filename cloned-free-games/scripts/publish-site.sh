@@ -25,6 +25,7 @@ WORK=${WORK:-$HOME/.cache/rdw-games-publish/site}
 SITE_PATH=${SITE_PATH:-}                # URL path the catalog lands on ("" = site root)
 SHELF_PATH=${SHELF_PATH:-shelf}         # where the shelf moves to when the catalog takes root
 DRY_RUN=${DRY_RUN:-}
+ORIGINALS_BUILDS=${ORIGINALS_BUILDS:-$HOME/.cache/rdw-games-publish/originals}
 
 die() { echo "FAIL: $*" >&2; exit 1; }
 
@@ -61,10 +62,11 @@ if [ -n "$LIBRARY" ]; then
   MAXAGE=${EMBED_PROBE_MAX_AGE_H:-336}
   if [ ! -s "$EV" ] || [ -n "$(find "$EV" -mmin +$((MAXAGE*60)) 2>/dev/null)" ]; then
     echo "EMBED-PROBE stale or missing — probing links-out URLs"
-    python3 "$SRC/scripts/embed-probe.py" --workers 4 --wait 9 \
+    python3 "$SRC/scripts/embed-probe.py" --src "$SRC" --workers 4 --wait 9 \
       || echo "WARN: embed probe failed; keeping existing embed-verified.json" >&2
   fi
-  python3 "$SRC/scripts/library-audit.py" --games-json "$CATSRC/games.json" || die "library audit failed"
+  LIB_SRC="$SRC" python3 "$SRC/scripts/library-audit.py" --src "$SRC" --site-repo "$SITE_REPO" \
+    --games-json "$CATSRC/games.json" || die "library audit failed"
 
   # Tile art: real in-game screenshots, one per live tile. REFRESH_ART=1 re-captures them
   # against a throwaway server that mirrors the deployed layout (/play/<slug>/ + /games/arcade/);
@@ -87,7 +89,7 @@ json.dump([{'name':r['name'],'slug':r.get('slug') or r['name'],'url':r['launch']
   fi
 
   python3 "$SRC/scripts/make-library.py" --audit "$SRC/.queue/library-audit.json" \
-    --art "$SRC/.queue/lib-art" --out "$WORK/catalog" || die "library face render failed"
+    --art "$SRC/.queue/lib-art" --site-repo "$SITE_REPO" --out "$WORK/catalog" || die "library face render failed"
   [ -s "$WORK/catalog/index.html" ] || die "library face produced no index.html"
   echo "LIBRARY $WORK/catalog"
 else
@@ -168,6 +170,10 @@ if [ -d "$SRC/.site-play" ]; then
   mkdir -p "$SHELF_STAGE/public/play"
   cp -R "$SRC/.site-play/." "$SHELF_STAGE/public/play/" || die "play mirror copy failed"
   echo "PLAY $(find "$SHELF_STAGE/public/play" -type f | wc -l) files, $(du -sh "$SHELF_STAGE/public/play" | cut -f1)"
+fi
+if [ -n "$LIBRARY" ]; then
+  python3 "$SRC/scripts/originals.py" --builds "$ORIGINALS_BUILDS" \
+    --public "$SHELF_STAGE/public" || die "original game staging failed"
 fi
 [ -f "$SHELF_STAGE/functions/_middleware.js" ] || die "no _middleware.js in stage — refusing to deploy a site without its gate"
 

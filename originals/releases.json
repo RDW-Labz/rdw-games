@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "releases": [
+    {
+      "slug": "claybound",
+      "version": "05c7d17",
+      "title": "Claybound",
+      "description": "Explore The Kiln solo or in online co-op. Supports keyboard and touch.",
+      "source": "RDW-Labz/claybound",
+      "commit": "05c7d1749f430132b8e6b00cda9ba679d5e694e2",
+      "url": "https://games.cluerholdings.com/"
+    }
+  ]
+}
