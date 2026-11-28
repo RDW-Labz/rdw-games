@@ -29,3 +29,23 @@ runs its own copy of the publisher. Update that publish step along with the firs
 later runs pick up the same manifest. Its daily Git mirror also copies the tracked clone-farm
 scripts back into `cloned-free-games/`; keep the publisher, library renderer, and originals
 module in sync there before enabling the mirror.
+
+## Catalog-wide play audit
+
+Use a separate SQLite file for each scope. After signing in, save that deployment's `games.json`
+and the shelf launch list as a JSON object with a `games` array. Shelf rows need a `title` and
+either `url` or `path`. Import the same files again to resume after a restart. Removed entries
+leave the current list and retain their history. A changed original-game launch URL returns to
+pending so the new version is exercised.
+
+```sh
+python3 originals/catalog-audit.py --db portal.sqlite --scope production load games.json --shelf shelf.json
+python3 originals/catalog-audit.py --db portal.sqlite --scope production next --limit 5
+python3 originals/catalog-audit.py --db portal.sqlite --scope production summary
+```
+
+Use `record ID STATUS --evidence PATH` after checking each game. A playable receipt should cover
+launch, responsive gameplay input, Browser Back or the in-page exit control, and a second launch
+on desktop and phone. Keep before and after gameplay screenshots and add each generation result
+with `--job-id ID`. Use the STOP file to pause selection of new batches. Start with a small
+batch and visually review the changes before handling more titles.
