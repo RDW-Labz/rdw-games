@@ -25,12 +25,17 @@ WORK=${WORK:-$HOME/.cache/rdw-games-publish/site}
 SITE_PATH=${SITE_PATH:-}                # URL path the catalog lands on ("" = site root)
 SHELF_PATH=${SHELF_PATH:-shelf}         # where the shelf moves to when the catalog takes root
 DRY_RUN=${DRY_RUN:-}
+RELEASE_BASELINE=${RELEASE_BASELINE:-$HOME/.cache/rdw-games-publish/release-baseline.json}
 
 die() { echo "FAIL: $*" >&2; exit 1; }
 
 [ -d "$SITE_REPO" ] || die "site repo not found: $SITE_REPO"
 [ -x "$SITE_REPO/deploy.sh" ] || die "no deploy.sh in $SITE_REPO"
 command -v python3 >/dev/null || die "python3 missing"
+
+mkdir -p "$(dirname "$RELEASE_BASELINE")" || die "cannot create release state directory"
+exec 9>"$RELEASE_BASELINE.lock" || die "cannot open release lock"
+flock -n 9 || die "another catalog publish is in progress"
 
 rm -rf "$WORK"; mkdir -p "$WORK" || die "cannot create $WORK"
 
@@ -171,6 +176,13 @@ if [ -d "$SRC/.site-play" ]; then
 fi
 [ -f "$SHELF_STAGE/functions/_middleware.js" ] || die "no _middleware.js in stage — refusing to deploy a site without its gate"
 
+if [ "$PROJECT" = internal-hybrid-builds ] && [ -z "$SITE_PATH" ] && [ -n "$LIBRARY" ]; then
+  if [ -e "$RELEASE_BASELINE" ] || [ -n "${REQUIRE_RELEASE_BASELINE:-}" ]; then
+    python3 "$(dirname "$0")/release-continuity.py" check "$SHELF_STAGE/public" "$RELEASE_BASELINE" \
+      || die "staged release would drop published games"
+  fi
+fi
+
 if [ -n "$DRY_RUN" ]; then
   echo "DRY_RUN: staged at $SHELF_STAGE (nothing uploaded)"
   exit 0
@@ -184,3 +196,7 @@ tail -6 "$WORK/deploy.log"
 [ $rc -eq 0 ] || die "wrangler deploy failed (rc=$rc) — see $WORK/deploy.log"
 url=$(grep -oE 'https://[a-z0-9-]+\.'"${PROJECT}"'\.pages\.dev' "$WORK/deploy.log" | tail -1)
 echo "DEPLOYED ${url:-<unknown url>}"
+if [ "$PROJECT" = internal-hybrid-builds ] && [ -z "$SITE_PATH" ] && [ -n "$LIBRARY" ]; then
+  python3 "$(dirname "$0")/release-continuity.py" record "$SHELF_STAGE/public" "$RELEASE_BASELINE" \
+    || die "site deployed but the release baseline could not be updated"
+fi
