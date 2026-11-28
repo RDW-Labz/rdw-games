@@ -17,7 +17,8 @@
 # Requires: python3, npx (wrangler), and a clean-enough $SITE_REPO at HEAD.
 set -uo pipefail
 
-SRC=${SRC:-$(cd "$(dirname "$0")/.." && pwd)}
+PUBLISH_SCRIPTS=$(cd "$(dirname "$0")" && pwd)
+SRC=${SRC:-$(dirname "$PUBLISH_SCRIPTS")}
 SITE_REPO=${SITE_REPO:-$HOME/kaos/work/site}
 PROJECT=${PROJECT:-internal-hybrid-builds}
 ACCOUNT=${CLOUDFLARE_ACCOUNT_ID:-1ed454d65f1c74ae9cd7089c2460deef}
@@ -88,7 +89,7 @@ json.dump([{'name':r['name'],'slug':r.get('slug') or r['name'],'url':r['launch']
     kill "$(cat "$WORK/art.pid")" 2>/dev/null || true
   fi
 
-  python3 "$SRC/scripts/make-library.py" --audit "$SRC/.queue/library-audit.json" \
+  python3 "$PUBLISH_SCRIPTS/make-library.py" --audit "$SRC/.queue/library-audit.json" \
     --art "$SRC/.queue/lib-art" --site-repo "$SITE_REPO" --out "$WORK/catalog" || die "library face render failed"
   [ -s "$WORK/catalog/index.html" ] || die "library face produced no index.html"
   echo "LIBRARY $WORK/catalog"
@@ -172,7 +173,7 @@ if [ -d "$SRC/.site-play" ]; then
   echo "PLAY $(find "$SHELF_STAGE/public/play" -type f | wc -l) files, $(du -sh "$SHELF_STAGE/public/play" | cut -f1)"
 fi
 if [ -n "$LIBRARY" ]; then
-  python3 "$SRC/scripts/originals.py" --builds "$ORIGINALS_BUILDS" \
+  python3 "$PUBLISH_SCRIPTS/originals.py" --builds "$ORIGINALS_BUILDS" \
     --public "$SHELF_STAGE/public" || die "original game staging failed"
 fi
 [ -f "$SHELF_STAGE/functions/_middleware.js" ] || die "no _middleware.js in stage — refusing to deploy a site without its gate"

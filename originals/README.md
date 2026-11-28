@@ -18,3 +18,11 @@ The existing `cloned-free-games/scripts/publish-site.sh` combines the library, g
 mirrors, and private shelf. Preview with `DRY_RUN=1` on the normal publisher with its complete
 inputs. Pages direct upload replaces the full deployment, so use the publisher that has the
 current play mirrors and shelf inputs for production.
+
+On the publish host, run the publisher from the RDW Games checkout and point `SRC` at the
+existing clone-farm checkout (normally `~/cloned-free-games`). That keeps the clone-farm caches
+and reads the originals manifest and renderer from RDW Games. The clone-farm timer currently
+runs its own copy of the publisher. Update that publish step along with the first release so
+later runs pick up the same manifest. Its daily Git mirror also copies the tracked clone-farm
+scripts back into `cloned-free-games/`; keep the publisher, library renderer, and originals
+module in sync there before enabling the mirror.
