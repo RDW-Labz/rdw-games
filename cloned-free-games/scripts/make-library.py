@@ -25,6 +25,8 @@ import json
 import os
 import urllib.parse
 
+from originals import load_releases
+
 TIER_LABEL = {
     "first-party": "arcade",
     "mirror": "in-browser",
@@ -112,10 +114,16 @@ def door_html(cards: list[dict]) -> str:
         return ""
     tiles = []
     for c in cards:
-        badge = c["kicker"] + (" · beta" if c["beta"] else "")
+        badge = c["kicker"] + (f' · {c["version"]}' if "version" in c else "")
+        if c.get("beta"):
+            badge += " · beta"
+        preview = ""
+        if "preview" in c:
+            preview = (f'<img src="{html.escape(c["preview"])}" alt="{html.escape(c["preview_alt"])}" '
+                       'width="640" height="360">')
         tiles.append(
             f'<a class="doorcard" href="{html.escape(c["url"])}">'
-            f'<span class="k">{html.escape(badge)}</span>'
+            f'{preview}<span class="k">{html.escape(badge)}</span>'
             f'<strong>{html.escape(c["title"])}</strong>'
             f'<span class="d">{html.escape(c["desc"][:150])}</span>'
             f'<span class="go">Play ▸</span></a>'
@@ -295,12 +303,20 @@ def build_tiles(data: dict, art_dir: str = "", out_dir: str = "",
     return tiles
 
 
-def render(tiles: list[dict], report: dict, shelf: list[dict] | None = None) -> str:
+def render(tiles: list[dict], report: dict, shelf: list[dict] | None = None, originals: list[dict] | None = None) -> str:
     total = report.get("total", 0)
     live = len(tiles)
     cards_live = int(report.get("live", live) or live)
     folded = sum(int(t.get("folded") or 0) for t in tiles)
     shelf = shelf or []
+    original_cards = door_html(originals or [])
+    original_block = f"""  <section class="door" aria-labelledby="originals-heading">
+    <h2 id="originals-heading">RDW Games originals</h2>
+    <div class="doorgrid">
+{original_cards}
+    </div>
+  </section>
+""" if original_cards else ""
     door = door_html(shelf)
     door_block = ""
     if door:
@@ -403,6 +419,7 @@ h1{{font-size:26px;letter-spacing:-0.4px;margin:0;font-weight:750}}
   border:1px solid var(--line);border-radius:14px;padding:13px 14px;background:#0c121ecc;
   transition:transform .16s ease,border-color .16s ease}}
 .doorcard:hover,.doorcard:focus-visible{{transform:translateY(-3px);border-color:#3b5573;box-shadow:0 20px 34px -22px #000}}
+.doorcard img{{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;border-radius:8px}}
 .doorcard .k{{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}}
 .doorcard strong{{font-size:15.5px;line-height:1.2;font-weight:680}}
 .doorcard .d{{font-size:12.5px;color:var(--dim);line-height:1.4;
@@ -471,12 +488,10 @@ footer{{margin-top:40px;color:#6f7f96;font-size:12px;border-top:1px solid var(--
     </div>
   </header>
 
-  <p class="rule">Click any tile and the game <b>starts right here</b> — no downloads, no
-  installers, no app stores, nothing to leave this page for. Anything that can't do that isn't
-  a tile: it waits in the conversion queue below and is rebuilt as a <b>three.js</b> game,
-  verified click-to-play before it ships.</p>
+  <p class="rule">Choose a tile to <b>play in your browser</b>. The conversion queue tracks
+  games still being prepared for browser play.</p>
 
-{door_block}  <div class="tools">
+{original_block}{door_block}  <div class="tools">
     <input id="q" type="search" placeholder="Search {live} playable games…" autocomplete="off" spellcheck="false">
     <div class="chips" id="chips">
       <button class="chip" data-tier="all" aria-pressed="true">All</button>
@@ -594,15 +609,23 @@ def main() -> int:
     os.makedirs(args.out, exist_ok=True)
     titles = arcade_titles(args.site_repo)
     shelf = kaos_shelf(args.site_repo)
+    originals = load_releases()
     tiles = build_tiles(data, args.art, args.out, titles)
     if not tiles:
         print("FAIL: audit has no live entries — refusing to publish an empty shelf")
         return 2
     os.makedirs(args.out, exist_ok=True)
-    page = render(tiles, data, shelf)
+    page = render(tiles, data, shelf, originals)
     with open(os.path.join(args.out, "index.html"), "w", encoding="utf-8") as fh:
         fh.write(page)
-    payload = {"tiles": tiles, "counts": {k: v for k, v in data.items() if k != "entries_live"}}
+    payload = {
+        "tiles": tiles,
+        "originals": [{key: release[key] for key in
+                       ("slug", "title", "version", "description", "source", "commit", "url",
+                        "preview", "preview_alt")}
+                      for release in originals],
+        "counts": {k: v for k, v in data.items() if k != "entries_live"},
+    }
     # games.json is the name the publish script (and the /catalog/ alias) already ship;
     # library.json is the same payload under the new, honest name. Both, one file's worth.
     for fn in ("games.json", "library.json"):
